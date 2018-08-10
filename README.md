@@ -7,7 +7,7 @@
 </p>
 
 <p align="center"> 
-<i>Cardea is an open source project from Data to AI Lab at MIT </I>
+<i>An open source project from Data to AI Lab at MIT </I>
 </p>
 
 
