@@ -13,13 +13,6 @@
 <i>Cardea is a machine learning library built on top of FHIR schema.</I>
 </p>
 
-<p align="center"> 
-<img width=20% src="https://dai.lids.mit.edu/wp-content/uploads/2018/08/cardea.png" alt=“Cardea” />
-</p>
-
-<p align="center"> 
-<i>Cardea is a machine learning library built on top of FHIR schema.</I>
-</p>
 
 
 
