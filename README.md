@@ -31,7 +31,7 @@ Cardea is a machine learning library built on top of the FHIR data schema. The l
     * model evaluation 
     * model auditing 
 * Testing the models using our API
-* Preparing and deployingthe models 
+* Preparing and deploying the models 
 
 ## License 
 - Free software: MIT license
