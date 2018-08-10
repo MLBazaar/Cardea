@@ -1,3 +1,28 @@
+<p align="left"> 
+<img width=15% src="https://dai.lids.mit.edu/wp-content/uploads/2018/06/Logo_DAI_highres.png" alt=“Copulas” />
+  <i>An open source project from Data to AI Lab at MIT.</i>
+</p>
+
+
+
+<p align="center"> 
+<img width=20% src="https://dai.lids.mit.edu/wp-content/uploads/2018/08/cardea.png" alt=“Cardea” />
+</p>
+
+<p align="center"> 
+<i>Cardea is a machine learning library built on top of FHIR schema.</I>
+</p>
+
+<p align="center"> 
+<img width=20% src="https://dai.lids.mit.edu/wp-content/uploads/2018/08/cardea.png" alt=“Cardea” />
+</p>
+
+<p align="center"> 
+<i>Cardea is a machine learning library built on top of FHIR schema.</I>
+</p>
+
+
+
 [![][pypi-img]][pypi-url] [![][travis-img]][travis-url]
 
 # Cardea
