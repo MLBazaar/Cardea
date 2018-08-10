@@ -3,7 +3,11 @@
 </p>
 
 <p align="center"> 
-<i>Cardea is a machine learning library built on top of FHIR schema. An open source project from Data to AI Lab at MIT.</I>
+<i>Cardea is a machine learning library built on top of FHIR schema. </I>
+</p>
+
+<p align="center"> 
+<i>Cardea is an open source project from Data to AI Lab at MIT </I>
 </p>
 
 
