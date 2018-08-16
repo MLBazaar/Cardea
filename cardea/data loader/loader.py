@@ -7,6 +7,10 @@ import featuretools as ft
 from classes import *
 
 def create_object(file):
+    """ this method creates FHIR objects and fills values
+    from .csv formatted tables
+    """
+
     df = pd.read_csv(file)
 
     entity_values = {}
@@ -21,6 +25,11 @@ def create_object(file):
     create_entity(object)
 
 def create_entity(object):
+    """ this method receives FHIR objects and creates
+    featuretools entities and adds them to the global
+    entityset
+    """
+
     df = object.get_dataframe()
 
     # get ID if exists
@@ -43,6 +52,10 @@ def create_entity(object):
 
 
 def create_relationships(entity):
+    """ this method binds the different entities
+    in the global entityset
+    """
+    
     for relation in entity.get_relationships():
         # parent table: 0, field: 1
         # child table: 2, field: 3
