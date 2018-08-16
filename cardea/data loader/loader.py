@@ -1,17 +1,17 @@
-from __future__ import absolute_import
-
 from glob import glob
 import pandas as pd
 import sys
+
 import featuretools as ft
 
 from classes import *
 
 def create_object(file):
-    df = pd.read_csv(file, sep='\t')
+    df = pd.read_csv(file)
 
     entity_values = {}
     for column in df.columns:
+
         entity_values[column] = df[column].values
 
     file = file.split("/")[-1].split(".")[0]
@@ -20,8 +20,8 @@ def create_object(file):
     all_objects.append(object)
     create_entity(object)
 
-def create_entity(entity):
-    df = entity.get_dataframe()
+def create_entity(object):
+    df = object.get_dataframe()
 
     # get ID if exists
     if 'identifier' in df.columns:
@@ -31,13 +31,13 @@ def create_entity(entity):
     else:
         id = 'object_id'
 
-    if 'start' in df.columns:
-        entity_set.entity_from_dataframe(entity_id=str(entity.__class__.__name__),
+    if object.__class__.__name__ == 'Period':
+        entity_set.entity_from_dataframe(entity_id=str(object.__class__.__name__),
                                  dataframe=df,
                                  index=id,
                                  time_index="start")
     else:
-        entity_set.entity_from_dataframe(entity_id=str(entity.__class__.__name__),
+        entity_set.entity_from_dataframe(entity_id=str(object.__class__.__name__),
                                  dataframe=df,
                                  index=id)
 
@@ -59,12 +59,9 @@ def create_relationships(entity):
 all_objects = []
 all_files = glob("data/*.csv")
 entity_set = ft.EntitySet(id="fhir")
+
 for file in all_files:
     entity = create_object(file)
 
-
-
 for entity in all_objects:
     create_relationships(entity)
-
-print(entity_set)
