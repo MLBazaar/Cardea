@@ -27,9 +27,6 @@ class fhirbase(object):
             percentage_of_nans = "%.2f" % round(percentage_of_nans,2)
             number_of_nan.append({attr:[summation,percentage_of_nans]})
         return number_of_nan
-    
-
-            
 
     def get_relationships(self):
         return []
