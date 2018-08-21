@@ -62,5 +62,3 @@ def load_data_entityset(folder_path):
         create_relationships(object, entity_set=entity_set)
 
     return entity_set
-
-load_data_entityset("data/KFMC_Segmentd")
