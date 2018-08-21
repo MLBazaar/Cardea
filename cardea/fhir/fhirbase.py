@@ -21,3 +21,12 @@ class fhirbase(object):
 
     def get_relationships(self):
         return []
+    
+    def check_nan(self,dict_values):
+        number_of_nan =[]
+        for attr, value in dict_values.items():
+            summation = sum(value in ['null', nan, 'nan','NAN','Nan','NaN', 'undefined', 'unknown'] for value in value)
+            percentage_of_nans = (summation/len(value))*100
+            percentage_of_nans = "%.2f" % round(percentage_of_nans,2)
+            number_of_nan.append({attr:[summation,percentage_of_nans]})
+        return number_of_nan
