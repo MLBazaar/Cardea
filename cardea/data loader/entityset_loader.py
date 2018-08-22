@@ -1,8 +1,9 @@
 from glob import glob
+import pandas as pd
 
 import featuretools as ft
 
-import object_loader
+import fhir.object_loader
 
 def create_entity(object, entity_set):
     """ this method receives FHIR objects and creates featuretools entities and adds them to the
@@ -54,7 +55,10 @@ def load_data_entityset(folder_path):
     entity_set = ft.EntitySet(id="fhir")
 
     for file_path in csv_files:
-        object = object_loader.create_object(file_path)
+        df = pd.read_csv(file_path)
+        file_name = file_path.split("/")[-1].split(".")[0]
+
+        object = object_loader.create_object(df, file_name)
         all_objects.append(object)
         create_entity(object, entity_set=entity_set)
 
@@ -62,3 +66,4 @@ def load_data_entityset(folder_path):
         create_relationships(object, entity_set=entity_set)
 
     return entity_set
+
