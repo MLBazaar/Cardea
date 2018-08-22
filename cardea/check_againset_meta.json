@@ -1,0 +1,25 @@
+
+{
+
+    "Patient": [
+         {   "birthdate": [
+                          {"distribution":[
+                              {
+                            "normal": {
+                                    "mean": 25.4,
+                                    "std": 2,
+                                    "min":0,
+                                    "max":130
+                                      }
+                               }
+                          ]},
+                          {"min":0},
+                          {"max":130}
+                         ]
+         }
+    ]
+}
+
+
+
+
