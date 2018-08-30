@@ -3,6 +3,8 @@ import pandas as pd
 
 import featuretools as ft
 
+from data_loader import DataLoader
+
 class EntitySetLoader(DataLoader):
 
     def create_entity(object, entity_set):
