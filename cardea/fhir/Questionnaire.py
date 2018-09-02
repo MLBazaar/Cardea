@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Period import Period
-from .Coding import Coding
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class Questionnaire(fhirbase):
     """A structured set of questions intended to guide the collection of
@@ -17,7 +12,7 @@ class Questionnaire(fhirbase):
         # this is a questionnaire resource
         self.resourceType = 'Questionnaire'
         # type = string
-        # possible values = Questionnaire
+        # possible values: Questionnaire
 
         # an absolute uri that is used to identify this questionnaire when it is
         # referenced in a specification, model, design or an instance. this shall
@@ -52,7 +47,7 @@ class Questionnaire(fhirbase):
         # content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this questionnaire is authored for
         # testing purposes (or education/evaluation/marketing), and is not
@@ -147,56 +142,57 @@ class Questionnaire(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire',
-            'child_variable': 'effectivePeriod'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire',
+             'child_variable': 'effectivePeriod'},
 
             {'parent_entity': 'Questionnaire_Item',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire',
-            'child_variable': 'item'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire',
+             'child_variable': 'item'},
 
             {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire',
+             'child_variable': 'identifier'},
         ]
+
 
 class Questionnaire_Item(fhirbase):
     """A structured set of questions intended to guide the collection of
@@ -208,20 +204,9 @@ class Questionnaire_Item(fhirbase):
     def __init__(self, dict_values=None):
         # an identifier that is unique within the questionnaire allowing linkage
         # to the equivalent item in a questionnaireresponse resource.
-        # an identifier that is unique within the questionnaire allowing linkage
-        # to the equivalent item in a questionnaireresponse resource.
         self.linkId = None
         # type = string
-        # type = string
 
-        # a reference to an [[[elementdefinition]]] that provides the details for
-        # the item. if a definition is provided, then the following element values
-        # can be inferred from the definition:   * code (elementdefinition.code) *
-        # type (elementdefinition.type) * required (elementdefinition.min) *
-        # repeats (elementdefinition.max) * maxlength
-        # (elementdefinition.maxlength) * options (elementdefinition.binding)  any
-        # information provided in these elements on a questionnaire item overrides
-        # the information from the definition.
         # a reference to an [[[elementdefinition]]] that provides the details for
         # the item. if a definition is provided, then the following element values
         # can be inferred from the definition:   * code (elementdefinition.code) *
@@ -232,174 +217,112 @@ class Questionnaire_Item(fhirbase):
         # the information from the definition.
         self.definition = None
         # type = string
-        # type = string
 
         # a terminology code that corresponds to this group or question (e.g. a
         # code from loinc, which defines many questions and answers).
-        # a terminology code that corresponds to this group or question (e.g. a
-        # code from loinc, which defines many questions and answers).
         self.code = None
-        # type = array
         # type = array
         # reference to Coding: Coding
 
         # a short label for a particular group, question or set of display text
         # within the questionnaire used for reference by the individual completing
         # the questionnaire.
-        # a short label for a particular group, question or set of display text
-        # within the questionnaire used for reference by the individual completing
-        # the questionnaire.
         self.prefix = None
         # type = string
-        # type = string
 
-        # the name of a section, the text of a question or text content for a
-        # display item.
         # the name of a section, the text of a question or text content for a
         # display item.
         self.text = None
         # type = string
-        # type = string
 
-        # the type of questionnaire item this is - whether text for display, a
-        # grouping of other items or a particular type of data to be captured
-        # (string, integer, coded choice, etc.).
         # the type of questionnaire item this is - whether text for display, a
         # grouping of other items or a particular type of data to be captured
         # (string, integer, coded choice, etc.).
         self.type = None
         # type = string
-        # type = string
-        # possible values = group, display, boolean, decimal, integer, date, dateTime, time, string, text, url, choice, open-choice, attachment, reference, quantity
-        # possible values = group, display, boolean, decimal, integer, date, dateTime, time, string, text, url, choice, open-choice, attachment, reference, quantity
+        # possible values: group, display, boolean, decimal, integer,
+        # date, dateTime, time, string, text, url, choice, open-choice,
+        # attachment, reference, quantity
 
         # a constraint indicating that this item should only be enabled
         # (displayed/allow answers to be captured) when the specified condition is
         # true.
-        # a constraint indicating that this item should only be enabled
-        # (displayed/allow answers to be captured) when the specified condition is
-        # true.
         self.enableWhen = None
-        # type = array
         # type = array
         # reference to Questionnaire_EnableWhen: Questionnaire_EnableWhen
 
         # an indication, if true, that the item must be present in a "completed"
         # questionnaireresponse.  if false, the item may be skipped when answering
         # the questionnaire.
-        # an indication, if true, that the item must be present in a "completed"
-        # questionnaireresponse.  if false, the item may be skipped when answering
-        # the questionnaire.
         self.required = None
         # type = boolean
-        # type = boolean
 
-        # an indication, if true, that the item may occur multiple times in the
-        # response, collecting multiple answers answers for questions or multiple
-        # sets of answers for groups.
         # an indication, if true, that the item may occur multiple times in the
         # response, collecting multiple answers answers for questions or multiple
         # sets of answers for groups.
         self.repeats = None
         # type = boolean
-        # type = boolean
 
-        # an indication, when true, that the value cannot be changed by a human
-        # respondent to the questionnaire.
         # an indication, when true, that the value cannot be changed by a human
         # respondent to the questionnaire.
         self.readOnly = None
         # type = boolean
-        # type = boolean
 
-        # the maximum number of characters that are permitted in the answer to be
-        # considered a "valid" questionnaireresponse.
         # the maximum number of characters that are permitted in the answer to be
         # considered a "valid" questionnaireresponse.
         self.maxLength = None
         # type = int
-        # type = int
 
-        # a reference to a value set containing a list of codes representing
-        # permitted answers for a "choice" or "open-choice" question.
         # a reference to a value set containing a list of codes representing
         # permitted answers for a "choice" or "open-choice" question.
         self.options = None
         # reference to Reference: identifier
 
         # one of the permitted answers for a "choice" or "open-choice" question.
-        # one of the permitted answers for a "choice" or "open-choice" question.
         self.option = None
-        # type = array
         # type = array
         # reference to Questionnaire_Option: Questionnaire_Option
 
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         self.initialBoolean = None
         # type = boolean
-        # type = boolean
 
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
         self.initialDecimal = None
         # type = int
-        # type = int
 
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
         self.initialInteger = None
         # type = int
-        # type = int
 
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
         self.initialDate = None
         # type = string
-        # type = string
 
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
         self.initialDateTime = None
         # type = string
-        # type = string
 
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
         self.initialTime = None
         # type = string
-        # type = string
 
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
         self.initialString = None
         # type = string
-        # type = string
 
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
         self.initialUri = None
         # type = string
-        # type = string
 
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
         self.initialAttachment = None
@@ -407,13 +330,9 @@ class Questionnaire_Item(fhirbase):
 
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         self.initialCoding = None
         # reference to Coding: Coding
 
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
         self.initialQuantity = None
@@ -421,85 +340,83 @@ class Questionnaire_Item(fhirbase):
 
         # the value that should be defaulted when initially rendering the
         # questionnaire for user input.
-        # the value that should be defaulted when initially rendering the
-        # questionnaire for user input.
         self.initialReference = None
         # reference to Reference: identifier
 
         # text, questions and other groups to be nested beneath a question or
         # group.
-        # text, questions and other groups to be nested beneath a question or
-        # group.
         self.item = None
-        # type = array
         # type = array
         # reference to Questionnaire_Item: Questionnaire_Item
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['group', 'display', 'boolean', 'decimal', 'integer', 'date', 'datetime', 'time', 'string', 'text', 'url', 'choice', 'open-choice', 'attachment', 'reference', 'quantity']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'group, display, boolean, decimal, integer, date, datetime, time, string, text, url, choice, open-choice, attachment, reference, quantity'))
-
-        if self.type is not None:
-            for value in self.type:
-                if value != None and value.lower() not in ['group', 'display', 'boolean', 'decimal', 'integer', 'date', 'datetime', 'time', 'string', 'text', 'url', 'choice', 'open-choice', 'attachment', 'reference', 'quantity']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'group, display, boolean, decimal, integer, date, datetime, time, string, text, url, choice, open-choice, attachment, reference, quantity'))
+                if value is not None and value.lower() not in [
+                    'group', 'display', 'boolean', 'decimal', 'integer', 'date', 'datetime',
+                    'time', 'string', 'text', 'url', 'choice', 'open-choice', 'attachment',
+                        'reference', 'quantity']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'group, display, boolean, decimal, integer, date,'
+                        'dateTime, time, string, text, url, choice, open-choice,'
+                        'attachment, reference, quantity'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire_Item',
-            'child_variable': 'initialQuantity'},
-
-            {'parent_entity': 'Questionnaire_Option',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire_Item',
-            'child_variable': 'option'},
-
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire_Item',
-            'child_variable': 'initialCoding'},
-
-            {'parent_entity': 'Questionnaire_EnableWhen',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire_Item',
-            'child_variable': 'enableWhen'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Questionnaire_Item',
-            'child_variable': 'options'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire_Item',
-            'child_variable': 'initialAttachment'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire_Item',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire_Item',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Questionnaire_Item',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire_Item',
-            'child_variable': 'item'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire_Item',
+             'child_variable': 'item'},
+
+            {'parent_entity': 'Questionnaire_EnableWhen',
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire_Item',
+             'child_variable': 'enableWhen'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Questionnaire_Item',
-            'child_variable': 'initialReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Questionnaire_Item',
+             'child_variable': 'initialReference'},
+
+            {'parent_entity': 'Questionnaire_Option',
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire_Item',
+             'child_variable': 'option'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Questionnaire_Item',
+             'child_variable': 'options'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire_Item',
+             'child_variable': 'initialCoding'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire_Item',
+             'child_variable': 'initialAttachment'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire_Item',
+             'child_variable': 'initialQuantity'},
         ]
+
 
 class Questionnaire_EnableWhen(fhirbase):
     """A structured set of questions intended to guide the collection of
@@ -511,86 +428,54 @@ class Questionnaire_EnableWhen(fhirbase):
     def __init__(self, dict_values=None):
         # the linkid for the question whose answer (or lack of answer) governs
         # whether this item is enabled.
-        # the linkid for the question whose answer (or lack of answer) governs
-        # whether this item is enabled.
         self.question = None
         # type = string
-        # type = string
 
-        # an indication that this item should be enabled only if the specified
-        # question is answered (hasanswer=true) or not answered (hasanswer=false).
         # an indication that this item should be enabled only if the specified
         # question is answered (hasanswer=true) or not answered (hasanswer=false).
         self.hasAnswer = None
         # type = boolean
-        # type = boolean
 
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         # an answer that the referenced question must match in order for the item
         # to be enabled.
         self.answerBoolean = None
         # type = boolean
-        # type = boolean
 
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         # an answer that the referenced question must match in order for the item
         # to be enabled.
         self.answerDecimal = None
         # type = int
-        # type = int
 
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         # an answer that the referenced question must match in order for the item
         # to be enabled.
         self.answerInteger = None
         # type = int
-        # type = int
 
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         # an answer that the referenced question must match in order for the item
         # to be enabled.
         self.answerDate = None
         # type = string
-        # type = string
 
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         # an answer that the referenced question must match in order for the item
         # to be enabled.
         self.answerDateTime = None
         # type = string
-        # type = string
 
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         # an answer that the referenced question must match in order for the item
         # to be enabled.
         self.answerTime = None
         # type = string
-        # type = string
 
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         # an answer that the referenced question must match in order for the item
         # to be enabled.
         self.answerString = None
         # type = string
-        # type = string
 
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         # an answer that the referenced question must match in order for the item
         # to be enabled.
         self.answerUri = None
         # type = string
-        # type = string
 
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         # an answer that the referenced question must match in order for the item
         # to be enabled.
         self.answerAttachment = None
@@ -598,13 +483,9 @@ class Questionnaire_EnableWhen(fhirbase):
 
         # an answer that the referenced question must match in order for the item
         # to be enabled.
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         self.answerCoding = None
         # reference to Coding: Coding
 
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         # an answer that the referenced question must match in order for the item
         # to be enabled.
         self.answerQuantity = None
@@ -612,39 +493,39 @@ class Questionnaire_EnableWhen(fhirbase):
 
         # an answer that the referenced question must match in order for the item
         # to be enabled.
-        # an answer that the referenced question must match in order for the item
-        # to be enabled.
         self.answerReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire_EnableWhen',
-            'child_variable': 'answerCoding'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Questionnaire_EnableWhen',
-            'child_variable': 'answerReference'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire_EnableWhen',
+             'child_variable': 'answerCoding'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire_EnableWhen',
-            'child_variable': 'answerAttachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire_EnableWhen',
+             'child_variable': 'answerAttachment'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire_EnableWhen',
-            'child_variable': 'answerQuantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire_EnableWhen',
+             'child_variable': 'answerQuantity'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Questionnaire_EnableWhen',
+             'child_variable': 'answerReference'},
         ]
+
 
 class Questionnaire_Option(fhirbase):
     """A structured set of questions intended to guide the collection of
@@ -655,45 +536,36 @@ class Questionnaire_Option(fhirbase):
 
     def __init__(self, dict_values=None):
         # a potential answer that's allowed as the answer to this question.
-        # a potential answer that's allowed as the answer to this question.
         self.valueInteger = None
         # type = int
-        # type = int
 
-        # a potential answer that's allowed as the answer to this question.
         # a potential answer that's allowed as the answer to this question.
         self.valueDate = None
         # type = string
-        # type = string
 
-        # a potential answer that's allowed as the answer to this question.
         # a potential answer that's allowed as the answer to this question.
         self.valueTime = None
         # type = string
-        # type = string
 
-        # a potential answer that's allowed as the answer to this question.
         # a potential answer that's allowed as the answer to this question.
         self.valueString = None
         # type = string
-        # type = string
 
-        # a potential answer that's allowed as the answer to this question.
         # a potential answer that's allowed as the answer to this question.
         self.valueCoding = None
         # reference to Coding: Coding
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Questionnaire_Option',
-            'child_variable': 'valueCoding'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Questionnaire_Option',
+             'child_variable': 'valueCoding'},
         ]
-

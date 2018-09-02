@@ -1,13 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Ratio import Ratio
-from .SampledData import SampledData
-from .Range import Range
-from .Period import Period
-from .Attachment import Attachment
-from .Quantity import Quantity
+from .fhirbase import fhirbase
+
 
 class Observation(fhirbase):
     """Measurements and simple assertions made about a patient, device or other
@@ -18,7 +10,7 @@ class Observation(fhirbase):
         # this is a observation resource
         self.resourceType = 'Observation'
         # type = string
-        # possible values = Observation
+        # possible values: Observation
 
         # a plan, proposal or order that is fulfilled in whole or in part by this
         # event.
@@ -29,7 +21,8 @@ class Observation(fhirbase):
         # the status of the result value.
         self.status = None
         # type = string
-        # possible values = registered, preliminary, final, amended, corrected, cancelled, entered-in-error, unknown
+        # possible values: registered, preliminary, final, amended,
+        # corrected, cancelled, entered-in-error, unknown
 
         # a code that classifies the general type of observation being made.
         self.category = None
@@ -197,141 +190,144 @@ class Observation(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['registered', 'preliminary', 'final', 'amended', 'corrected', 'cancelled', 'entered-in-error', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'registered, preliminary, final, amended, corrected, cancelled, entered-in-error, unknown'))
+                if value is not None and value.lower() not in [
+                    'registered', 'preliminary', 'final', 'amended', 'corrected',
+                        'cancelled', 'entered-in-error', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'registered, preliminary, final, amended, corrected,'
+                        'cancelled, entered-in-error, unknown'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'effectivePeriod'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueCodeableConcept'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Observation_Related',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'related'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'bodySite'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'basedOn'},
 
             {'parent_entity': 'Observation_Component',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'component'},
-
-            {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueRatio'},
-
-            {'parent_entity': 'SampledData',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueSampledData'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'specimen'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'method'},
-
-            {'parent_entity': 'Observation_ReferenceRange',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'referenceRange'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valuePeriod'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'interpretation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'component'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueAttachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueAttachment'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'dataAbsentReason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'bodySite'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'interpretation'},
 
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueRange'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'dataAbsentReason'},
+
+            {'parent_entity': 'Ratio',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueRatio'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'performer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'performer'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valuePeriod'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'method'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueCodeableConcept'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueQuantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueQuantity'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueRange'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueSampledData'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'device'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'specimen'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'device'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'effectivePeriod'},
+
+            {'parent_entity': 'Observation_Related',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'related'},
+
+            {'parent_entity': 'Observation_ReferenceRange',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'referenceRange'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'context'},
         ]
+
 
 class Observation_ReferenceRange(fhirbase):
     """Measurements and simple assertions made about a patient, device or other
@@ -343,17 +339,9 @@ class Observation_ReferenceRange(fhirbase):
         # reference range endpoint is inclusive of the value (e.g.  reference
         # range is >=5 - <=9).   if the low bound is omitted,  it is assumed to be
         # meaningless (e.g. reference range is <=2.3).
-        # the value of the low bound of the reference range.  the low bound of the
-        # reference range endpoint is inclusive of the value (e.g.  reference
-        # range is >=5 - <=9).   if the low bound is omitted,  it is assumed to be
-        # meaningless (e.g. reference range is <=2.3).
         self.low = None
         # reference to Quantity: Quantity
 
-        # the value of the high bound of the reference range.  the high bound of
-        # the reference range endpoint is inclusive of the value (e.g.  reference
-        # range is >=5 - <=9).   if the high bound is omitted,  it is assumed to
-        # be meaningless (e.g. reference range is >= 2.3).
         # the value of the high bound of the reference range.  the high bound of
         # the reference range endpoint is inclusive of the value (e.g.  reference
         # range is >=5 - <=9).   if the high bound is omitted,  it is assumed to
@@ -363,24 +351,16 @@ class Observation_ReferenceRange(fhirbase):
 
         # codes to indicate the what part of the targeted reference population it
         # applies to. for example, the normal or therapeutic range.
-        # codes to indicate the what part of the targeted reference population it
-        # applies to. for example, the normal or therapeutic range.
         self.type = None
         # reference to CodeableConcept: CodeableConcept
 
         # codes to indicate the target population this reference range applies to.
         # for example, a reference range may be based on the normal population or
         # a particular sex or race.
-        # codes to indicate the target population this reference range applies to.
-        # for example, a reference range may be based on the normal population or
-        # a particular sex or race.
         self.appliesTo = None
-        # type = array
         # type = array
         # reference to CodeableConcept: CodeableConcept
 
-        # the age at which this reference range is applicable. this is a neonatal
-        # age (e.g. number of weeks at term) if the meaning says so.
         # the age at which this reference range is applicable. this is a neonatal
         # age (e.g. number of weeks at term) if the meaning says so.
         self.age = None
@@ -390,47 +370,44 @@ class Observation_ReferenceRange(fhirbase):
         # quantitative range is not appropriate for an observation.  an example
         # would be a reference value of "negative" or a list or table of
         # 'normals'.
-        # text based reference range in an observation which may be used when a
-        # quantitative range is not appropriate for an observation.  an example
-        # would be a reference value of "negative" or a list or table of
-        # 'normals'.
         self.text = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_ReferenceRange',
-            'child_variable': 'appliesTo'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_ReferenceRange',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_ReferenceRange',
+             'child_variable': 'low'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_ReferenceRange',
-            'child_variable': 'age'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_ReferenceRange',
-            'child_variable': 'high'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_ReferenceRange',
-            'child_variable': 'low'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_ReferenceRange',
+             'child_variable': 'age'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_ReferenceRange',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_ReferenceRange',
+             'child_variable': 'appliesTo'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_ReferenceRange',
+             'child_variable': 'high'},
         ]
+
 
 class Observation_Related(fhirbase):
     """Measurements and simple assertions made about a patient, device or other
@@ -442,33 +419,40 @@ class Observation_Related(fhirbase):
         # resource.
         self.type = None
         # type = string
-        # possible values = has-member, derived-from, sequel-to, replaces, qualified-by, interfered-by
+        # possible values: has-member, derived-from, sequel-to,
+        # replaces, qualified-by, interfered-by
 
         # a reference to the observation or [[[questionnaireresponse]]] resource
         # that is related to this observation.
         self.target = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['has-member', 'derived-from', 'sequel-to', 'replaces', 'qualified-by', 'interfered-by']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'has-member, derived-from, sequel-to, replaces, qualified-by, interfered-by'))
+                if value is not None and value.lower() not in [
+                    'has-member', 'derived-from', 'sequel-to', 'replaces', 'qualified-by',
+                        'interfered-by']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'has-member, derived-from, sequel-to, replaces,'
+                        'qualified-by, interfered-by'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation_Related',
-            'child_variable': 'target'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation_Related',
+             'child_variable': 'target'},
         ]
+
 
 class Observation_Component(fhirbase):
     """Measurements and simple assertions made about a patient, device or other
@@ -549,67 +533,67 @@ class Observation_Component(fhirbase):
         # type = array
         # reference to Observation_ReferenceRange: Observation_ReferenceRange
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'Observation_ReferenceRange',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'referenceRange'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'dataAbsentReason'},
 
             {'parent_entity': 'SampledData',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueSampledData'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueSampledData'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueAttachment'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'interpretation'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'dataAbsentReason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueQuantity'},
-
-            {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueRatio'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valuePeriod'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueQuantity'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueRange'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueRange'},
 
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valuePeriod'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'interpretation'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueCodeableConcept'},
+
+            {'parent_entity': 'Ratio',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueRatio'},
+
+            {'parent_entity': 'Observation_ReferenceRange',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'referenceRange'},
+        ]

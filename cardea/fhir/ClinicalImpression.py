@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class ClinicalImpression(fhirbase):
     """A record of a clinical assessment performed to determine what problem(s)
@@ -19,12 +15,12 @@ class ClinicalImpression(fhirbase):
         # this is a clinicalimpression resource
         self.resourceType = 'ClinicalImpression'
         # type = string
-        # possible values = ClinicalImpression
+        # possible values: ClinicalImpression
 
         # identifies the workflow status of the assessment.
         self.status = None
         # type = string
-        # possible values = draft, completed, entered-in-error
+        # possible values: draft, completed, entered-in-error
 
         # categorizes the type of clinical assessment performed.
         self.code = None
@@ -124,91 +120,92 @@ class ClinicalImpression(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'completed', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, completed, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'draft', 'completed', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, completed, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ClinicalImpression_Finding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'finding'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'assessor'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'prognosisCodeableConcept'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'ClinicalImpression_Investigation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'investigation'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'prognosisReference'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'effectivePeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'effectivePeriod'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'action'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'problem'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'previous'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'prognosisReference'},
+            {'parent_entity': 'ClinicalImpression_Investigation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'investigation'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClinicalImpression',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'problem'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'previous'},
+
+            {'parent_entity': 'ClinicalImpression_Finding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'finding'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'action'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'assessor'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClinicalImpression',
+             'child_variable': 'prognosisCodeableConcept'},
         ]
+
 
 class ClinicalImpression_Investigation(fhirbase):
     """A record of a clinical assessment performed to determine what problem(s)
@@ -233,24 +230,26 @@ class ClinicalImpression_Investigation(fhirbase):
         # type = array
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClinicalImpression_Investigation',
-            'child_variable': 'item'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ClinicalImpression_Investigation',
+             'child_variable': 'item'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClinicalImpression_Investigation',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClinicalImpression_Investigation',
+             'child_variable': 'code'},
         ]
+
 
 class ClinicalImpression_Finding(fhirbase):
     """A record of a clinical assessment performed to determine what problem(s)
@@ -277,22 +276,22 @@ class ClinicalImpression_Finding(fhirbase):
         self.basis = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClinicalImpression_Finding',
-            'child_variable': 'itemCodeableConcept'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClinicalImpression_Finding',
-            'child_variable': 'itemReference'},
-        ]
+             'parent_variable': 'identifier',
+             'child_entity': 'ClinicalImpression_Finding',
+             'child_variable': 'itemReference'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClinicalImpression_Finding',
+             'child_variable': 'itemCodeableConcept'},
+        ]

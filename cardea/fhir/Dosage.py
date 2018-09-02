@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Timing import Timing
-from .Ratio import Ratio
-from .Range import Range
-from .Quantity import Quantity
+from .fhirbase import fhirbase
+
 
 class Dosage(fhirbase):
     """Indicates how the medication is/was taken or should be taken by the
@@ -89,82 +85,82 @@ class Dosage(fhirbase):
         self.rateSimpleQuantity = None
         # reference to Quantity: Quantity
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'doseRange'},
-
             {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'timing'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'timing'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'asNeededCodeableConcept'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'additionalInstruction'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'rateRange'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'doseRange'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'rateSimpleQuantity'},
 
             {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'rateRatio'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'rateRatio'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'maxDosePerLifetime'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'route'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'route'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'doseSimpleQuantity'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'rateRange'},
 
             {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'maxDosePerPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'maxDosePerPeriod'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'asNeededCodeableConcept'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'rateSimpleQuantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'site'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'method'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'method'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'maxDosePerLifetime'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'site'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'maxDosePerAdministration'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'doseSimpleQuantity'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'additionalInstruction'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'maxDosePerAdministration'},
         ]
-

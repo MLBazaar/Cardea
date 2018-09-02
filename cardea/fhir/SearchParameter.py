@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .ContactDetail import ContactDetail
-from .UsageContext import UsageContext
+from .fhirbase import fhirbase
+
 
 class SearchParameter(fhirbase):
     """A search parameter that defines a named search item that can be used to
@@ -12,7 +10,7 @@ class SearchParameter(fhirbase):
         # this is a searchparameter resource
         self.resourceType = 'SearchParameter'
         # type = string
-        # possible values = SearchParameter
+        # possible values: SearchParameter
 
         # an absolute uri that is used to identify this search parameter when it
         # is referenced in a specification, model, design or an instance. this
@@ -43,7 +41,7 @@ class SearchParameter(fhirbase):
         # the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this search parameter is authored for
         # testing purposes (or education/evaluation/marketing), and is not
@@ -101,7 +99,8 @@ class SearchParameter(fhirbase):
         # interpreted.
         self.type = None
         # type = string
-        # possible values = number, date, string, token, reference, composite, quantity, uri
+        # possible values: number, date, string, token, reference,
+        # composite, quantity, uri
 
         # where this search parameter is originally defined. if a derivedfrom is
         # provided, then the details in the search parameter must be consistent
@@ -130,7 +129,7 @@ class SearchParameter(fhirbase):
         # evaluating the xpath query.
         self.xpathUsage = None
         # type = string
-        # possible values = normal, phonetic, nearby, distance, other
+        # possible values: normal, phonetic, nearby, distance, other
 
         # types of resource (if a resource is referenced).
         self.target = None
@@ -139,12 +138,13 @@ class SearchParameter(fhirbase):
         # comparators supported for the search parameter.
         self.comparator = None
         # type = array
-        # possible values = eq, ne, gt, lt, ge, le, sa, eb, ap
+        # possible values: eq, ne, gt, lt, ge, le, sa, eb, ap
 
         # a modifier supported for the search parameter.
         self.modifier = None
         # type = array
-        # possible values = missing, exact, contains, not, text, in, not-in, below, above, type
+        # possible values: missing, exact, contains, not, text, in, not-
+        # in, below, above, type
 
         # contains the names of any search parameters which may be chained to the
         # containing search parameter. chained parameters may be added to search
@@ -160,61 +160,76 @@ class SearchParameter(fhirbase):
         # type = array
         # reference to SearchParameter_Component: SearchParameter_Component
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['number', 'date', 'string', 'token', 'reference', 'composite', 'quantity', 'uri']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'number, date, string, token, reference, composite, quantity, uri'))
+                if value is not None and value.lower() not in [
+                    'number', 'date', 'string', 'token', 'reference', 'composite',
+                        'quantity', 'uri']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'number, date, string, token, reference, composite, quantity, uri'))
 
         if self.xpathUsage is not None:
             for value in self.xpathUsage:
-                if value != None and value.lower() not in ['normal', 'phonetic', 'nearby', 'distance', 'other']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'normal, phonetic, nearby, distance, other'))
+                if value is not None and value.lower() not in [
+                        'normal', 'phonetic', 'nearby', 'distance', 'other']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'normal, phonetic, nearby, distance, other'))
 
         if self.comparator is not None:
             for value in self.comparator:
-                if value != None and value.lower() not in ['eq', 'ne', 'gt', 'lt', 'ge', 'le', 'sa', 'eb', 'ap']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'eq, ne, gt, lt, ge, le, sa, eb, ap'))
+                if value is not None and value.lower() not in [
+                        'eq', 'ne', 'gt', 'lt', 'ge', 'le', 'sa', 'eb', 'ap']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'eq, ne, gt, lt, ge, le, sa, eb, ap'))
 
         if self.modifier is not None:
             for value in self.modifier:
-                if value != None and value.lower() not in ['missing', 'exact', 'contains', 'not', 'text', 'in', 'not-in', 'below', 'above', 'type']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'missing, exact, contains, not, text, in, not-in, below, above, type'))
+                if value is not None and value.lower() not in [
+                    'missing', 'exact', 'contains', 'not', 'text', 'in', 'not-in', 'below',
+                        'above', 'type']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'missing, exact, contains, not, text, in, not-in, below,'
+                        'above, type'))
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'SearchParameter',
+             'child_variable': 'useContext'},
+
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'SearchParameter',
-            'child_variable': 'jurisdiction'},
+             'parent_variable': 'object_id',
+             'child_entity': 'SearchParameter',
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'SearchParameter_Component',
-            'parent_variable': 'object_id',
-            'child_entity': 'SearchParameter',
-            'child_variable': 'component'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'SearchParameter',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'SearchParameter',
+             'child_variable': 'component'},
 
             {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'SearchParameter',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'SearchParameter',
+             'child_variable': 'contact'},
         ]
+
 
 class SearchParameter_Component(fhirbase):
     """A search parameter that defines a named search item that can be used to
@@ -231,17 +246,17 @@ class SearchParameter_Component(fhirbase):
         self.expression = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'SearchParameter_Component',
-            'child_variable': 'definition'},
+             'parent_variable': 'identifier',
+             'child_entity': 'SearchParameter_Component',
+             'child_variable': 'definition'},
         ]
-

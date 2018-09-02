@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Identifier import Identifier
-from .CodeableConcept import CodeableConcept
+from .fhirbase import fhirbase
+
 
 class VisionPrescription(fhirbase):
     """An authorization for the supply of glasses and/or contact lenses to a
@@ -12,7 +10,7 @@ class VisionPrescription(fhirbase):
         # this is a visionprescription resource
         self.resourceType = 'VisionPrescription'
         # type = string
-        # possible values = VisionPrescription
+        # possible values: VisionPrescription
 
         # the status of the resource instance.
         self.status = None
@@ -56,49 +54,48 @@ class VisionPrescription(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'VisionPrescription',
-            'child_variable': 'encounter'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'VisionPrescription',
-            'child_variable': 'prescriber'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'VisionPrescription',
-            'child_variable': 'reasonCodeableConcept'},
+             'parent_variable': 'identifier',
+             'child_entity': 'VisionPrescription',
+             'child_variable': 'encounter'},
 
             {'parent_entity': 'VisionPrescription_Dispense',
-            'parent_variable': 'object_id',
-            'child_entity': 'VisionPrescription',
-            'child_variable': 'dispense'},
+             'parent_variable': 'object_id',
+             'child_entity': 'VisionPrescription',
+             'child_variable': 'dispense'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'VisionPrescription',
-            'child_variable': 'patient'},
+             'parent_variable': 'identifier',
+             'child_entity': 'VisionPrescription',
+             'child_variable': 'prescriber'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'VisionPrescription',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'VisionPrescription',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'VisionPrescription',
-            'child_variable': 'reasonReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'VisionPrescription',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'VisionPrescription',
+             'child_variable': 'reasonCodeableConcept'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'VisionPrescription',
+             'child_variable': 'reasonReference'},
         ]
+
 
 class VisionPrescription_Dispense(fhirbase):
     """An authorization for the supply of glasses and/or contact lenses to a
@@ -114,7 +111,7 @@ class VisionPrescription_Dispense(fhirbase):
         # the eye for which the lens applies.
         self.eye = None
         # type = string
-        # possible values = right, left
+        # possible values: right, left
 
         # lens power measured in diopters (0.25 units).
         self.sphere = None
@@ -135,7 +132,7 @@ class VisionPrescription_Dispense(fhirbase):
         # the relative base, or reference lens edge, for the prism.
         self.base = None
         # type = string
-        # possible values = up, down, in, out
+        # possible values: up, down, in, out
 
         # power adjustment for multifocal lenses measured in diopters (0.25
         # units).
@@ -171,39 +168,43 @@ class VisionPrescription_Dispense(fhirbase):
         # type = array
         # reference to Annotation: Annotation
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.eye is not None:
             for value in self.eye:
-                if value != None and value.lower() not in ['right', 'left']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'right, left'))
+                if value is not None and value.lower() not in [
+                        'right', 'left']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'right, left'))
 
         if self.base is not None:
             for value in self.base:
-                if value != None and value.lower() not in ['up', 'down', 'in', 'out']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'up, down, in, out'))
+                if value is not None and value.lower() not in [
+                        'up', 'down', 'in', 'out']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'up, down, in, out'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'VisionPrescription_Dispense',
-            'child_variable': 'note'},
-
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'VisionPrescription_Dispense',
-            'child_variable': 'duration'},
+             'parent_variable': 'object_id',
+             'child_entity': 'VisionPrescription_Dispense',
+             'child_variable': 'duration'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'VisionPrescription_Dispense',
+             'child_variable': 'note'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'VisionPrescription_Dispense',
-            'child_variable': 'product'},
+             'parent_variable': 'object_id',
+             'child_entity': 'VisionPrescription_Dispense',
+             'child_variable': 'product'},
         ]
-

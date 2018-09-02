@@ -1,6 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Identifier import Identifier
+from .fhirbase import fhirbase
+
 
 class ImmunizationRecommendation(fhirbase):
     """A patient's point-in-time immunization and recommendation (i.e.
@@ -12,7 +11,7 @@ class ImmunizationRecommendation(fhirbase):
         # this is a immunizationrecommendation resource
         self.resourceType = 'ImmunizationRecommendation'
         # type = string
-        # possible values = ImmunizationRecommendation
+        # possible values: ImmunizationRecommendation
 
         # the patient the recommendations are for.
         self.patient = None
@@ -21,36 +20,36 @@ class ImmunizationRecommendation(fhirbase):
         # vaccine administration recommendations.
         self.recommendation = None
         # type = array
-        # reference to ImmunizationRecommendation_Recommendation: ImmunizationRecommendation_Recommendation
+        # reference to ImmunizationRecommendation_Recommendation:
+        # ImmunizationRecommendation_Recommendation
 
         # a unique identifier assigned to this particular recommendation record.
         self.identifier = None
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'ImmunizationRecommendation_Recommendation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImmunizationRecommendation',
+             'child_variable': 'recommendation'},
+
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImmunizationRecommendation',
-            'child_variable': 'patient'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImmunizationRecommendation',
+             'child_variable': 'patient'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImmunizationRecommendation',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'ImmunizationRecommendation_Recommendation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImmunizationRecommendation',
-            'child_variable': 'recommendation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImmunizationRecommendation',
+             'child_variable': 'identifier'},
         ]
+
 
 class ImmunizationRecommendation_Recommendation(fhirbase):
     """A patient's point-in-time immunization and recommendation (i.e.
@@ -84,7 +83,8 @@ class ImmunizationRecommendation_Recommendation(fhirbase):
         # latest date to administer, etc.
         self.dateCriterion = None
         # type = array
-        # reference to ImmunizationRecommendation_DateCriterion: ImmunizationRecommendation_DateCriterion
+        # reference to ImmunizationRecommendation_DateCriterion:
+        # ImmunizationRecommendation_DateCriterion
 
         # contains information about the protocol under which the vaccine was
         # administered.
@@ -103,49 +103,51 @@ class ImmunizationRecommendation_Recommendation(fhirbase):
         # type = array
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImmunizationRecommendation_Recommendation',
-            'child_variable': 'supportingPatientInformation'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImmunizationRecommendation_Recommendation',
+             'child_variable': 'supportingPatientInformation'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImmunizationRecommendation_Recommendation',
-            'child_variable': 'vaccineCode'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImmunizationRecommendation_Recommendation',
-            'child_variable': 'forecastStatus'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImmunizationRecommendation_Recommendation',
-            'child_variable': 'supportingImmunization'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImmunizationRecommendation_Recommendation',
+             'child_variable': 'targetDisease'},
 
             {'parent_entity': 'ImmunizationRecommendation_DateCriterion',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImmunizationRecommendation_Recommendation',
-            'child_variable': 'dateCriterion'},
-
-            {'parent_entity': 'ImmunizationRecommendation_Protocol',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImmunizationRecommendation_Recommendation',
-            'child_variable': 'protocol'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImmunizationRecommendation_Recommendation',
+             'child_variable': 'dateCriterion'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImmunizationRecommendation_Recommendation',
-            'child_variable': 'targetDisease'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImmunizationRecommendation_Recommendation',
+             'child_variable': 'forecastStatus'},
+
+            {'parent_entity': 'ImmunizationRecommendation_Protocol',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImmunizationRecommendation_Recommendation',
+             'child_variable': 'protocol'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImmunizationRecommendation_Recommendation',
+             'child_variable': 'vaccineCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImmunizationRecommendation_Recommendation',
+             'child_variable': 'supportingImmunization'},
         ]
+
 
 class ImmunizationRecommendation_DateCriterion(fhirbase):
     """A patient's point-in-time immunization and recommendation (i.e.
@@ -163,19 +165,21 @@ class ImmunizationRecommendation_DateCriterion(fhirbase):
         self.value = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImmunizationRecommendation_DateCriterion',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImmunizationRecommendation_DateCriterion',
+             'child_variable': 'code'},
         ]
+
 
 class ImmunizationRecommendation_Protocol(fhirbase):
     """A patient's point-in-time immunization and recommendation (i.e.
@@ -203,17 +207,17 @@ class ImmunizationRecommendation_Protocol(fhirbase):
         self.series = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImmunizationRecommendation_Protocol',
-            'child_variable': 'authority'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImmunizationRecommendation_Protocol',
+             'child_variable': 'authority'},
         ]
-

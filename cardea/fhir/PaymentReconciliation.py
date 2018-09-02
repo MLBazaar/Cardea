@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Money import Money
+from .fhirbase import fhirbase
+
 
 class PaymentReconciliation(fhirbase):
     """This resource provides payment details and claim references supporting a
@@ -14,7 +10,7 @@ class PaymentReconciliation(fhirbase):
         # this is a paymentreconciliation resource
         self.resourceType = 'PaymentReconciliation'
         # type = string
-        # possible values = PaymentReconciliation
+        # possible values: PaymentReconciliation
 
         # the status of the resource instance.
         self.status = None
@@ -79,69 +75,68 @@ class PaymentReconciliation(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentReconciliation',
-            'child_variable': 'form'},
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'total'},
 
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentReconciliation',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'PaymentReconciliation_Detail',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentReconciliation',
-            'child_variable': 'detail'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'request'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentReconciliation',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentReconciliation',
-            'child_variable': 'requestOrganization'},
-
-            {'parent_entity': 'PaymentReconciliation_ProcessNote',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentReconciliation',
-            'child_variable': 'processNote'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentReconciliation',
-            'child_variable': 'organization'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentReconciliation',
-            'child_variable': 'request'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'organization'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentReconciliation',
-            'child_variable': 'outcome'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'form'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'outcome'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentReconciliation',
-            'child_variable': 'requestProvider'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'requestOrganization'},
 
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentReconciliation',
-            'child_variable': 'total'},
+            {'parent_entity': 'PaymentReconciliation_Detail',
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'detail'},
+
+            {'parent_entity': 'PaymentReconciliation_ProcessNote',
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'processNote'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'requestProvider'},
         ]
+
 
 class PaymentReconciliation_Detail(fhirbase):
     """This resource provides payment details and claim references supporting a
@@ -178,44 +173,46 @@ class PaymentReconciliation_Detail(fhirbase):
         self.amount = None
         # reference to Money: Money
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentReconciliation_Detail',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation_Detail',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentReconciliation_Detail',
-            'child_variable': 'payee'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentReconciliation_Detail',
+             'child_variable': 'payee'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentReconciliation_Detail',
-            'child_variable': 'submitter'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentReconciliation_Detail',
+             'child_variable': 'request'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentReconciliation_Detail',
-            'child_variable': 'response'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentReconciliation_Detail',
-            'child_variable': 'request'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentReconciliation_Detail',
+             'child_variable': 'response'},
 
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentReconciliation_Detail',
-            'child_variable': 'amount'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation_Detail',
+             'child_variable': 'amount'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentReconciliation_Detail',
+             'child_variable': 'submitter'},
         ]
+
 
 class PaymentReconciliation_ProcessNote(fhirbase):
     """This resource provides payment details and claim references supporting a
@@ -231,17 +228,17 @@ class PaymentReconciliation_ProcessNote(fhirbase):
         self.text = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentReconciliation_ProcessNote',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation_ProcessNote',
+             'child_variable': 'type'},
         ]
-

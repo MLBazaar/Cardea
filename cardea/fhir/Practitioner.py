@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .HumanName import HumanName
-from .Identifier import Identifier
-from .Address import Address
-from .ContactPoint import ContactPoint
-from .Attachment import Attachment
+from .fhirbase import fhirbase
+
 
 class Practitioner(fhirbase):
     """A person who is directly or indirectly involved in the provisioning of
@@ -15,7 +10,7 @@ class Practitioner(fhirbase):
         # this is a practitioner resource
         self.resourceType = 'Practitioner'
         # type = string
-        # possible values = Practitioner
+        # possible values: Practitioner
 
         # whether this practitioner's record is in active use.
         self.active = None
@@ -43,7 +38,7 @@ class Practitioner(fhirbase):
         # for administration and record keeping purposes.
         self.gender = None
         # type = string
-        # possible values = male, female, other, unknown
+        # possible values: male, female, other, unknown
 
         # the date of birth for the practitioner.
         self.birthDate = None
@@ -69,56 +64,57 @@ class Practitioner(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.gender is not None:
             for value in self.gender:
-                if value != None and value.lower() not in ['male', 'female', 'other', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'male, female, other, unknown'))
+                if value is not None and value.lower() not in [
+                        'male', 'female', 'other', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'male, female, other, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Practitioner_Qualification',
-            'parent_variable': 'identifier',
-            'child_entity': 'Practitioner',
-            'child_variable': 'qualification'},
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner',
+             'child_variable': 'photo'},
 
             {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'Practitioner',
-            'child_variable': 'name'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Practitioner',
-            'child_variable': 'photo'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Practitioner',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Practitioner',
-            'child_variable': 'communication'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner',
+             'child_variable': 'name'},
 
             {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Practitioner',
-            'child_variable': 'address'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner',
+             'child_variable': 'address'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner',
+             'child_variable': 'communication'},
 
             {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Practitioner',
-            'child_variable': 'telecom'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner',
+             'child_variable': 'telecom'},
+
+            {'parent_entity': 'Practitioner_Qualification',
+             'parent_variable': 'identifier',
+             'child_entity': 'Practitioner',
+             'child_variable': 'qualification'},
         ]
+
 
 class Practitioner_Qualification(fhirbase):
     """A person who is directly or indirectly involved in the provisioning of
@@ -143,32 +139,29 @@ class Practitioner_Qualification(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Practitioner_Qualification',
-            'child_variable': 'period'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Practitioner_Qualification',
-            'child_variable': 'issuer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Practitioner_Qualification',
+             'child_variable': 'issuer'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Practitioner_Qualification',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner_Qualification',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner_Qualification',
+             'child_variable': 'period'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Practitioner_Qualification',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner_Qualification',
+             'child_variable': 'code'},
         ]
-

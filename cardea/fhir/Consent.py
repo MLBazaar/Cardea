@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Attachment import Attachment
-from .Coding import Coding
+from .fhirbase import fhirbase
+
 
 class Consent(fhirbase):
     """A record of a healthcare consumer’s policy choices, which permits or
@@ -17,12 +12,13 @@ class Consent(fhirbase):
         # this is a consent resource
         self.resourceType = 'Consent'
         # type = string
-        # possible values = Consent
+        # possible values: Consent
 
         # indicates the current state of this consent.
         self.status = None
         # type = string
-        # possible values = draft, proposed, active, rejected, inactive, entered-in-error
+        # possible values: draft, proposed, active, rejected, inactive,
+        # entered-in-error
 
         # a classification of the type of consents found in the statement. this
         # element supports indexing and retrieval of consent statements.
@@ -134,106 +130,108 @@ class Consent(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'proposed', 'active', 'rejected', 'inactive', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, proposed, active, rejected, inactive, entered-in-error'))
+                if value is not None and value.lower() not in [
+                    'draft', 'proposed', 'active', 'rejected', 'inactive',
+                        'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, proposed, active, rejected, inactive, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'identifier'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent',
-            'child_variable': 'consentingParty'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'securityLabel'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'action'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent',
-            'child_variable': 'organization'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent',
-            'child_variable': 'sourceReference'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'Consent_Except',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'except'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'sourceIdentifier'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'dataPeriod'},
-
-            {'parent_entity': 'Consent_Actor',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'actor'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'Consent_Data',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'data'},
-
-            {'parent_entity': 'Consent_Policy',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'policy'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent',
-            'child_variable': 'patient'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'purpose'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent',
+             'child_variable': 'patient'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'sourceAttachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'sourceAttachment'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'purpose'},
+
+            {'parent_entity': 'Consent_Actor',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'actor'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'action'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'dataPeriod'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent',
+             'child_variable': 'organization'},
+
+            {'parent_entity': 'Consent_Policy',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'policy'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent',
+             'child_variable': 'consentingParty'},
+
+            {'parent_entity': 'Consent_Data',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'data'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'sourceIdentifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent',
+             'child_variable': 'sourceReference'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'securityLabel'},
+
+            {'parent_entity': 'Consent_Except',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': '_except'},
         ]
+
 
 class Consent_Actor(fhirbase):
     """A record of a healthcare consumer’s policy choices, which permits or
@@ -254,24 +252,26 @@ class Consent_Actor(fhirbase):
         self.reference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Actor',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Actor',
+             'child_variable': 'role'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent_Actor',
-            'child_variable': 'reference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent_Actor',
+             'child_variable': 'reference'},
         ]
+
 
 class Consent_Policy(fhirbase):
     """A record of a healthcare consumer’s policy choices, which permits or
@@ -292,9 +292,11 @@ class Consent_Policy(fhirbase):
         self.uri = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class Consent_Data(fhirbase):
@@ -309,33 +311,37 @@ class Consent_Data(fhirbase):
         # restrictions.
         self.meaning = None
         # type = string
-        # possible values = instance, related, dependents, authoredby
+        # possible values: instance, related, dependents, authoredby
 
         # a reference to a specific resource that defines which resources are
         # covered by this consent.
         self.reference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.meaning is not None:
             for value in self.meaning:
-                if value != None and value.lower() not in ['instance', 'related', 'dependents', 'authoredby']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'instance, related, dependents, authoredby'))
+                if value is not None and value.lower() not in [
+                        'instance', 'related', 'dependents', 'authoredby']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'instance, related, dependents, authoredby'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent_Data',
-            'child_variable': 'reference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent_Data',
+             'child_variable': 'reference'},
         ]
+
 
 class Consent_Except(fhirbase):
     """A record of a healthcare consumer’s policy choices, which permits or
@@ -349,7 +355,7 @@ class Consent_Except(fhirbase):
         # met.
         self.type = None
         # type = string
-        # possible values = deny, permit
+        # possible values: deny, permit
 
         # the timeframe in this exception is valid.
         self.period = None
@@ -403,66 +409,70 @@ class Consent_Except(fhirbase):
         # type = array
         # reference to Consent_Data1: Consent_Data1
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['deny', 'permit']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'deny, permit'))
+                if value is not None and value.lower() not in [
+                        'deny', 'permit']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'deny, permit'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'class'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'securityLabel'},
-
-            {'parent_entity': 'Consent_Data1',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'data'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': '_class'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'action'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'action'},
 
             {'parent_entity': 'Consent_Actor1',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'actor'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'actor'},
+
+            {'parent_entity': 'Consent_Data1',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'data'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'purpose'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'securityLabel'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'purpose'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'dataPeriod'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'dataPeriod'},
         ]
+
 
 class Consent_Actor1(fhirbase):
     """A record of a healthcare consumer’s policy choices, which permits or
@@ -483,24 +493,26 @@ class Consent_Actor1(fhirbase):
         self.reference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent_Actor1',
-            'child_variable': 'reference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent_Actor1',
+             'child_variable': 'reference'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Actor1',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Actor1',
+             'child_variable': 'role'},
         ]
+
 
 class Consent_Data1(fhirbase):
     """A record of a healthcare consumer’s policy choices, which permits or
@@ -514,31 +526,33 @@ class Consent_Data1(fhirbase):
         # restrictions.
         self.meaning = None
         # type = string
-        # possible values = instance, related, dependents, authoredby
+        # possible values: instance, related, dependents, authoredby
 
         # a reference to a specific resource that defines which resources are
         # covered by this consent.
         self.reference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.meaning is not None:
             for value in self.meaning:
-                if value != None and value.lower() not in ['instance', 'related', 'dependents', 'authoredby']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'instance, related, dependents, authoredby'))
+                if value is not None and value.lower() not in [
+                        'instance', 'related', 'dependents', 'authoredby']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'instance, related, dependents, authoredby'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent_Data1',
-            'child_variable': 'reference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent_Data1',
+             'child_variable': 'reference'},
         ]
-

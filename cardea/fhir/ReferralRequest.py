@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class ReferralRequest(fhirbase):
     """Used to record and send details about a request for referral service or
@@ -15,7 +11,7 @@ class ReferralRequest(fhirbase):
         # this is a referralrequest resource
         self.resourceType = 'ReferralRequest'
         # type = string
-        # possible values = ReferralRequest
+        # possible values: ReferralRequest
 
         # a protocol, guideline, orderset or other definition that is adhered to
         # in whole or in part by this request.
@@ -155,104 +151,103 @@ class ReferralRequest(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'replaces'},
+
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'supportingInfo'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'recipient'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'serviceRequested'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'definition'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'reasonReference'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'serviceRequested'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'ReferralRequest_Requester',
-            'parent_variable': 'object_id',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'requester'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'relevantHistory'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'specialty'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'groupIdentifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'replaces'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'occurrencePeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'occurrencePeriod'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ReferralRequest',
-            'child_variable': 'basedOn'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'reasonCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'specialty'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'groupIdentifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'recipient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'relevantHistory'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'ReferralRequest_Requester',
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'requester'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'supportingInfo'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'reasonReference'},
         ]
+
 
 class ReferralRequest_Requester(fhirbase):
     """Used to record and send details about a request for referral service or
@@ -269,22 +264,22 @@ class ReferralRequest_Requester(fhirbase):
         self.onBehalfOf = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ReferralRequest_Requester',
-            'child_variable': 'onBehalfOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest_Requester',
+             'child_variable': 'agent'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ReferralRequest_Requester',
-            'child_variable': 'agent'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest_Requester',
+             'child_variable': 'onBehalfOf'},
         ]
-

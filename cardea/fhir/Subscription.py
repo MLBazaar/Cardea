@@ -1,6 +1,5 @@
-from .fhirbase import * 
-from .Coding import Coding
-from .ContactPoint import ContactPoint
+from .fhirbase import fhirbase
+
 
 class Subscription(fhirbase):
     """The subscription resource is used to define a push based subscription
@@ -15,13 +14,13 @@ class Subscription(fhirbase):
         # this is a subscription resource
         self.resourceType = 'Subscription'
         # type = string
-        # possible values = Subscription
+        # possible values: Subscription
 
         # the status of the subscription, which marks the server state for
         # managing the subscription.
         self.status = None
         # type = string
-        # possible values = requested, active, error, off
+        # possible values: requested, active, error, off
 
         # contact details for a human to contact about the subscription. the
         # primary use of this for system administrator troubleshooting.
@@ -58,36 +57,40 @@ class Subscription(fhirbase):
         # type = array
         # reference to Coding: Coding
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['requested', 'active', 'error', 'off']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'requested, active, error, off'))
+                if value is not None and value.lower() not in [
+                        'requested', 'active', 'error', 'off']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'requested, active, error, off'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Subscription_Channel',
-            'parent_variable': 'object_id',
-            'child_entity': 'Subscription',
-            'child_variable': 'channel'},
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Subscription',
+             'child_variable': 'contact'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Subscription',
-            'child_variable': 'tag'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Subscription',
+             'child_variable': 'tag'},
 
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Subscription',
-            'child_variable': 'contact'},
+            {'parent_entity': 'Subscription_Channel',
+             'parent_variable': 'object_id',
+             'child_entity': 'Subscription',
+             'child_variable': 'channel'},
         ]
+
 
 class Subscription_Channel(fhirbase):
     """The subscription resource is used to define a push based subscription
@@ -102,7 +105,7 @@ class Subscription_Channel(fhirbase):
         # the type of channel to send notifications on.
         self.type = None
         # type = string
-        # possible values = rest-hook, websocket, email, sms, message
+        # possible values: rest-hook, websocket, email, sms, message
 
         # the uri that describes the actual end-point to send messages to.
         self.endpoint = None
@@ -118,15 +121,17 @@ class Subscription_Channel(fhirbase):
         self.header = None
         # type = array
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['rest-hook', 'websocket', 'email', 'sms', 'message']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'rest-hook, websocket, email, sms, message'))
-
+                if value is not None and value.lower() not in [
+                        'rest-hook', 'websocket', 'email', 'sms', 'message']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'rest-hook, websocket, email, sms, message'))

@@ -1,16 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Timing import Timing
-from .Reference import Reference
-from .Dosage import Dosage
-from .Range import Range
-from .Period import Period
-from .Contributor import Contributor
-from .Quantity import Quantity
-from .UsageContext import UsageContext
-from .RelatedArtifact import RelatedArtifact
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class ActivityDefinition(fhirbase):
     """This resource allows for the definition of some activity to be
@@ -22,7 +11,7 @@ class ActivityDefinition(fhirbase):
         # this is a activitydefinition resource
         self.resourceType = 'ActivityDefinition'
         # type = string
-        # possible values = ActivityDefinition
+        # possible values: ActivityDefinition
 
         # an absolute uri that is used to identify this activity definition when
         # it is referenced in a specification, model, design or an instance. this
@@ -62,7 +51,7 @@ class ActivityDefinition(fhirbase):
         # of the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this activity definition is authored
         # for testing purposes (or education/evaluation/marketing), and is not
@@ -254,131 +243,132 @@ class ActivityDefinition(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'timingRange'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'productReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'location'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'productCodeableConcept'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'library'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'bodySite'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'ActivityDefinition_Participant',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'participant'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'transform'},
-
-            {'parent_entity': 'Dosage',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'dosage'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'timingPeriod'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'effectivePeriod'},
-
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'timingTiming'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'topic'},
 
             {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'useContext'},
-
-            {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'contributor'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'topic'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'quantity'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'relatedArtifact'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'bodySite'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'useContext'},
 
             {'parent_entity': 'ActivityDefinition_DynamicValue',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'dynamicValue'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'dynamicValue'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'timingTiming'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'dosage'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'effectivePeriod'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'timingPeriod'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'contributor'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ActivityDefinition',
-            'child_variable': 'location'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'transform'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'ActivityDefinition_Participant',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'participant'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'quantity'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'relatedArtifact'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'timingRange'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'productReference'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'productCodeableConcept'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'library'},
         ]
+
 
 class ActivityDefinition_Participant(fhirbase):
     """This resource allows for the definition of some activity to be
@@ -395,19 +385,21 @@ class ActivityDefinition_Participant(fhirbase):
         self.role = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ActivityDefinition_Participant',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition_Participant',
+             'child_variable': 'role'},
         ]
+
 
 class ActivityDefinition_DynamicValue(fhirbase):
     """This resource allows for the definition of some activity to be
@@ -435,8 +427,8 @@ class ActivityDefinition_DynamicValue(fhirbase):
         self.expression = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

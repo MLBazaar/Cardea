@@ -1,6 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Identifier import Identifier
+from .fhirbase import fhirbase
+
 
 class EnrollmentRequest(fhirbase):
     """This resource provides the insurance enrollment details to the insurer
@@ -11,7 +10,7 @@ class EnrollmentRequest(fhirbase):
         # this is a enrollmentrequest resource
         self.resourceType = 'EnrollmentRequest'
         # type = string
-        # possible values = EnrollmentRequest
+        # possible values: EnrollmentRequest
 
         # the status of the resource instance.
         self.status = None
@@ -48,42 +47,39 @@ class EnrollmentRequest(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EnrollmentRequest',
-            'child_variable': 'provider'},
+             'parent_variable': 'identifier',
+             'child_entity': 'EnrollmentRequest',
+             'child_variable': 'coverage'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'EnrollmentRequest',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EnrollmentRequest',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EnrollmentRequest',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'EnrollmentRequest',
+             'child_variable': 'provider'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EnrollmentRequest',
-            'child_variable': 'organization'},
+             'parent_variable': 'identifier',
+             'child_entity': 'EnrollmentRequest',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EnrollmentRequest',
-            'child_variable': 'coverage'},
+             'parent_variable': 'identifier',
+             'child_entity': 'EnrollmentRequest',
+             'child_variable': 'insurer'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EnrollmentRequest',
-            'child_variable': 'insurer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'EnrollmentRequest',
+             'child_variable': 'organization'},
         ]
-

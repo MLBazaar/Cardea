@@ -1,6 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Coding import Coding
+from .fhirbase import fhirbase
+
 
 class Signature(fhirbase):
     """A digital signature along with supporting context. The signature may be
@@ -54,27 +53,27 @@ class Signature(fhirbase):
         self.blob = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Signature',
-            'child_variable': 'whoReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Signature',
+             'child_variable': 'whoReference'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Signature',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Signature',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Signature',
-            'child_variable': 'onBehalfOfReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Signature',
+             'child_variable': 'onBehalfOfReference'},
         ]
-

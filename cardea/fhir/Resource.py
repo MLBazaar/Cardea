@@ -1,5 +1,5 @@
-from .fhirbase import * 
-from .Meta import Meta
+from .fhirbase import fhirbase
+
 
 class Resource(fhirbase):
     """This is the base resource type for everything.
@@ -26,17 +26,14 @@ class Resource(fhirbase):
         self.id = None
         # type = string
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Meta',
-            'parent_variable': 'object_id',
-            'child_entity': 'Resource',
-            'child_variable': 'meta'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Resource',
+             'child_variable': 'meta'},
         ]
-

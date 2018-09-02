@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Timing import Timing
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class DeviceRequest(fhirbase):
     """Represents a request for a patient to employ a medical device. The
@@ -16,7 +11,7 @@ class DeviceRequest(fhirbase):
         # this is a devicerequest resource
         self.resourceType = 'DeviceRequest'
         # type = string
-        # possible values = DeviceRequest
+        # possible values: DeviceRequest
 
         # protocol or definition followed by this request. for example: the
         # proposed act must be performed if the indicated conditions occur, e.g..,
@@ -144,114 +139,113 @@ class DeviceRequest(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'DeviceRequest_Requester',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'requester'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'performerType'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'intent'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'basedOn'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'supportingInfo'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'reasonReference'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'performer'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'priorRequest'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'note'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'note'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'definition'},
-
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'occurrenceTiming'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'supportingInfo'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'occurrencePeriod'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'codeReference'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'relevantHistory'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'codeReference'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'codeCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'intent'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'occurrenceTiming'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'performerType'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'reasonCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'DeviceRequest_Requester',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'requester'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceRequest',
-            'child_variable': 'groupIdentifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'groupIdentifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'priorRequest'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'relevantHistory'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'occurrencePeriod'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'performer'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'codeCodeableConcept'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'reasonReference'},
         ]
+
 
 class DeviceRequest_Requester(fhirbase):
     """Represents a request for a patient to employ a medical device. The
@@ -268,22 +262,22 @@ class DeviceRequest_Requester(fhirbase):
         self.onBehalfOf = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest_Requester',
-            'child_variable': 'agent'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest_Requester',
+             'child_variable': 'agent'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceRequest_Requester',
-            'child_variable': 'onBehalfOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest_Requester',
+             'child_variable': 'onBehalfOf'},
         ]
-

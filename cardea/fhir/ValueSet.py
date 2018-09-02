@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class ValueSet(fhirbase):
     """A value set specifies a set of codes drawn from one or more code
@@ -13,7 +10,7 @@ class ValueSet(fhirbase):
         # this is a valueset resource
         self.resourceType = 'ValueSet'
         # type = string
-        # possible values = ValueSet
+        # possible values: ValueSet
 
         # an absolute uri that is used to identify this value set when it is
         # referenced in a specification, model, design or an instance. this shall
@@ -47,7 +44,7 @@ class ValueSet(fhirbase):
         # content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this value set is authored for testing
         # purposes (or education/evaluation/marketing), and is not intended to be
@@ -130,51 +127,52 @@ class ValueSet(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet',
-            'child_variable': 'useContext'},
-
-            {'parent_entity': 'ValueSet_Expansion',
-            'parent_variable': 'identifier',
-            'child_entity': 'ValueSet',
-            'child_variable': 'expansion'},
-
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'ValueSet_Compose',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet',
-            'child_variable': 'compose'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet',
+             'child_variable': 'compose'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet',
-            'child_variable': 'jurisdiction'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'ValueSet_Expansion',
+             'parent_variable': 'identifier',
+             'child_entity': 'ValueSet',
+             'child_variable': 'expansion'},
         ]
+
 
 class ValueSet_Compose(fhirbase):
     """A value set specifies a set of codes drawn from one or more code
@@ -209,24 +207,26 @@ class ValueSet_Compose(fhirbase):
         # type = array
         # reference to ValueSet_Include: ValueSet_Include
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ValueSet_Include',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet_Compose',
-            'child_variable': 'exclude'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Compose',
+             'child_variable': 'exclude'},
 
             {'parent_entity': 'ValueSet_Include',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet_Compose',
-            'child_variable': 'include'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Compose',
+             'child_variable': 'include'},
         ]
+
 
 class ValueSet_Include(fhirbase):
     """A value set specifies a set of codes drawn from one or more code
@@ -236,62 +236,50 @@ class ValueSet_Include(fhirbase):
     def __init__(self, dict_values=None):
         # an absolute uri which is the code system from which the selected codes
         # come from.
-        # an absolute uri which is the code system from which the selected codes
-        # come from.
         self.system = None
         # type = string
-        # type = string
 
-        # the version of the code system that the codes are selected from.
         # the version of the code system that the codes are selected from.
         self.version = None
         # type = string
-        # type = string
 
         # specifies a concept to be included or excluded.
-        # specifies a concept to be included or excluded.
         self.concept = None
-        # type = array
         # type = array
         # reference to ValueSet_Concept: ValueSet_Concept
 
         # select concepts by specify a matching criteria based on the properties
         # (including relationships) defined by the system. if multiple filters are
         # specified, they shall all be true.
-        # select concepts by specify a matching criteria based on the properties
-        # (including relationships) defined by the system. if multiple filters are
-        # specified, they shall all be true.
         self.filter = None
-        # type = array
         # type = array
         # reference to ValueSet_Filter: ValueSet_Filter
 
         # selects concepts found in this value set. this is an absolute uri that
         # is a reference to valueset.url.
-        # selects concepts found in this value set. this is an absolute uri that
-        # is a reference to valueset.url.
         self.valueSet = None
         # type = array
-        # type = array
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ValueSet_Concept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet_Include',
-            'child_variable': 'concept'},
-
             {'parent_entity': 'ValueSet_Filter',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet_Include',
-            'child_variable': 'filter'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Include',
+             'child_variable': 'filter'},
+
+            {'parent_entity': 'ValueSet_Concept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Include',
+             'child_variable': 'concept'},
         ]
+
 
 class ValueSet_Concept(fhirbase):
     """A value set specifies a set of codes drawn from one or more code
@@ -300,45 +288,37 @@ class ValueSet_Concept(fhirbase):
 
     def __init__(self, dict_values=None):
         # specifies a code for the concept to be included or excluded.
-        # specifies a code for the concept to be included or excluded.
         self.code = None
         # type = string
-        # type = string
 
-        # the text to display to the user for this concept in the context of this
-        # valueset. if no display is provided, then applications using the value
-        # set use the display specified for the code by the system.
         # the text to display to the user for this concept in the context of this
         # valueset. if no display is provided, then applications using the value
         # set use the display specified for the code by the system.
         self.display = None
         # type = string
-        # type = string
 
-        # additional representations for this concept when used in this value set
-        # - other languages, aliases, specialized purposes, used for particular
-        # purposes, etc.
         # additional representations for this concept when used in this value set
         # - other languages, aliases, specialized purposes, used for particular
         # purposes, etc.
         self.designation = None
         # type = array
-        # type = array
         # reference to ValueSet_Designation: ValueSet_Designation
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ValueSet_Designation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet_Concept',
-            'child_variable': 'designation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Concept',
+             'child_variable': 'designation'},
         ]
+
 
 class ValueSet_Designation(fhirbase):
     """A value set specifies a set of codes drawn from one or more code
@@ -347,45 +327,32 @@ class ValueSet_Designation(fhirbase):
 
     def __init__(self, dict_values=None):
         # the language this designation is defined for.
-        # the language this designation is defined for.
-        # the language this designation is defined for.
-        # the language this designation is defined for.
         self.language = None
         # type = string
-        # type = string
-        # type = string
-        # type = string
 
-        # a code that details how this designation would be used.
-        # a code that details how this designation would be used.
-        # a code that details how this designation would be used.
         # a code that details how this designation would be used.
         self.use = None
         # reference to Coding: Coding
 
         # the text value for this designation.
-        # the text value for this designation.
-        # the text value for this designation.
-        # the text value for this designation.
         self.value = None
         # type = string
-        # type = string
-        # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet_Designation',
-            'child_variable': 'use'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Designation',
+             'child_variable': 'use'},
         ]
+
 
 class ValueSet_Filter(fhirbase):
     """A value set specifies a set of codes drawn from one or more code
@@ -394,47 +361,39 @@ class ValueSet_Filter(fhirbase):
 
     def __init__(self, dict_values=None):
         # a code that identifies a property defined in the code system.
-        # a code that identifies a property defined in the code system.
         self.property = None
         # type = string
-        # type = string
 
-        # the kind of operation to perform as a part of the filter criteria.
         # the kind of operation to perform as a part of the filter criteria.
         self.op = None
         # type = string
-        # type = string
-        # possible values = =, is-a, descendent-of, is-not-a, regex, in, not-in, generalizes, exists
-        # possible values = =, is-a, descendent-of, is-not-a, regex, in, not-in, generalizes, exists
+        # possible values: =, is-a, descendent-of, is-not-a, regex, in,
+        # not-in, generalizes, exists
 
-        # the match value may be either a code defined by the system, or a string
-        # value, which is a regex match on the literal string of the property
-        # value when the operation is 'regex', or one of the values (true and
-        # false), when the operation is 'exists'.
         # the match value may be either a code defined by the system, or a string
         # value, which is a regex match on the literal string of the property
         # value when the operation is 'regex', or one of the values (true and
         # false), when the operation is 'exists'.
         self.value = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.op is not None:
             for value in self.op:
-                if value != None and value.lower() not in ['=', 'is-a', 'descendent-of', 'is-not-a', 'regex', 'in', 'not-in', 'generalizes', 'exists']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, '=, is-a, descendent-of, is-not-a, regex, in, not-in, generalizes, exists'))
+                if value is not None and value.lower() not in [
+                    '=', 'is-a', 'descendent-of', 'is-not-a', 'regex', 'in', 'not-in',
+                        'generalizes', 'exists']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, '=, is-a, descendent-of, is-not-a, regex, in, not-in,'
+                        'generalizes, exists'))
 
-        if self.op is not None:
-            for value in self.op:
-                if value != None and value.lower() not in ['=', 'is-a', 'descendent-of', 'is-not-a', 'regex', 'in', 'not-in', 'generalizes', 'exists']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, '=, is-a, descendent-of, is-not-a, regex, in, not-in, generalizes, exists'))
 
 class ValueSet_Expansion(fhirbase):
     """A value set specifies a set of codes drawn from one or more code
@@ -476,24 +435,23 @@ class ValueSet_Expansion(fhirbase):
         self.identifier = None
         # type = string
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ValueSet_Parameter',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet_Expansion',
-            'child_variable': 'parameter'},
-
             {'parent_entity': 'ValueSet_Contains',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet_Expansion',
-            'child_variable': 'contains'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Expansion',
+             'child_variable': 'contains'},
+
+            {'parent_entity': 'ValueSet_Parameter',
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Expansion',
+             'child_variable': 'parameter'},
         ]
+
 
 class ValueSet_Parameter(fhirbase):
     """A value set specifies a set of codes drawn from one or more code
@@ -529,9 +487,11 @@ class ValueSet_Parameter(fhirbase):
         self.valueCode = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class ValueSet_Contains(fhirbase):
@@ -542,94 +502,66 @@ class ValueSet_Contains(fhirbase):
     def __init__(self, dict_values=None):
         # an absolute uri which is the code system in which the code for this item
         # in the expansion is defined.
-        # an absolute uri which is the code system in which the code for this item
-        # in the expansion is defined.
         self.system = None
         # type = string
-        # type = string
 
-        # if true, this entry is included in the expansion for navigational
-        # purposes, and the user cannot select the code directly as a proper
-        # value.
         # if true, this entry is included in the expansion for navigational
         # purposes, and the user cannot select the code directly as a proper
         # value.
         self.abstract = None
         # type = boolean
-        # type = boolean
 
-        # if the concept is inactive in the code system that defines it. inactive
-        # codes are those that are no longer to be used, but are maintained by the
-        # code system for understanding legacy data.
         # if the concept is inactive in the code system that defines it. inactive
         # codes are those that are no longer to be used, but are maintained by the
         # code system for understanding legacy data.
         self.inactive = None
         # type = boolean
-        # type = boolean
 
-        # the version of this code system that defined this code and/or display.
-        # this should only be used with code systems that do not enforce concept
-        # permanence.
         # the version of this code system that defined this code and/or display.
         # this should only be used with code systems that do not enforce concept
         # permanence.
         self.version = None
         # type = string
-        # type = string
 
-        # the code for this item in the expansion hierarchy. if this code is
-        # missing the entry in the hierarchy is a place holder (abstract) and does
-        # not represent a valid code in the value set.
         # the code for this item in the expansion hierarchy. if this code is
         # missing the entry in the hierarchy is a place holder (abstract) and does
         # not represent a valid code in the value set.
         self.code = None
         # type = string
-        # type = string
 
-        # the recommended display for this item in the expansion.
         # the recommended display for this item in the expansion.
         self.display = None
         # type = string
-        # type = string
 
-        # additional representations for this item - other languages, aliases,
-        # specialized purposes, used for particular purposes, etc. these are
-        # relevant when the conditions of the expansion do not fix to a single
-        # correct representation.
         # additional representations for this item - other languages, aliases,
         # specialized purposes, used for particular purposes, etc. these are
         # relevant when the conditions of the expansion do not fix to a single
         # correct representation.
         self.designation = None
         # type = array
-        # type = array
         # reference to ValueSet_Designation: ValueSet_Designation
 
         # other codes and entries contained under this entry in the hierarchy.
-        # other codes and entries contained under this entry in the hierarchy.
         self.contains = None
-        # type = array
         # type = array
         # reference to ValueSet_Contains: ValueSet_Contains
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ValueSet_Designation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet_Contains',
-            'child_variable': 'designation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Contains',
+             'child_variable': 'designation'},
 
             {'parent_entity': 'ValueSet_Contains',
-            'parent_variable': 'object_id',
-            'child_entity': 'ValueSet_Contains',
-            'child_variable': 'contains'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Contains',
+             'child_variable': 'contains'},
         ]
-

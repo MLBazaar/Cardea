@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class Communication(fhirbase):
     """An occurrence of information being transmitted; e.g. an alert that was
@@ -14,7 +11,7 @@ class Communication(fhirbase):
         # this is a communication resource
         self.resourceType = 'Communication'
         # type = string
-        # possible values = Communication
+        # possible values: Communication
 
         # a protocol, guideline, or other definition that was adhered to in whole
         # or in part by this communication event.
@@ -126,94 +123,93 @@ class Communication(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Communication',
-            'child_variable': 'definition'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Communication',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Communication',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Communication',
-            'child_variable': 'notDoneReason'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Communication',
-            'child_variable': 'sender'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Communication',
-            'child_variable': 'partOf'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Communication',
-            'child_variable': 'topic'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Communication',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Communication',
-            'child_variable': 'basedOn'},
-
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Communication',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Communication',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Communication',
-            'child_variable': 'recipient'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Communication',
+             'child_variable': 'note'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Communication',
-            'child_variable': 'medium'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Communication',
+             'child_variable': 'medium'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Communication',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Communication',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Communication',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Communication',
+             'child_variable': 'notDoneReason'},
 
             {'parent_entity': 'Communication_Payload',
-            'parent_variable': 'object_id',
-            'child_entity': 'Communication',
-            'child_variable': 'payload'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Communication',
+             'child_variable': 'payload'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Communication',
+             'child_variable': 'reasonCode'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Communication',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Communication',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Communication',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Communication',
-            'child_variable': 'reasonReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Communication',
+             'child_variable': 'recipient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Communication',
+             'child_variable': 'partOf'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Communication',
+             'child_variable': 'topic'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Communication',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Communication',
+             'child_variable': 'sender'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Communication',
+             'child_variable': 'context'},
         ]
+
 
 class Communication_Payload(fhirbase):
     """An occurrence of information being transmitted; e.g. an alert that was
@@ -237,22 +233,22 @@ class Communication_Payload(fhirbase):
         self.contentReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Communication_Payload',
-            'child_variable': 'contentAttachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Communication_Payload',
+             'child_variable': 'contentAttachment'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Communication_Payload',
-            'child_variable': 'contentReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Communication_Payload',
+             'child_variable': 'contentReference'},
         ]
-

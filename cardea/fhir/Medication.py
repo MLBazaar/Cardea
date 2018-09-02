@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Reference import Reference
-from .Attachment import Attachment
+from .fhirbase import fhirbase
+
 
 class Medication(fhirbase):
     """This resource is primarily used for the identification and definition of
@@ -13,7 +11,7 @@ class Medication(fhirbase):
         # this is a medication resource
         self.resourceType = 'Medication'
         # type = string
-        # possible values = Medication
+        # possible values: Medication
 
         # a code (or set of codes) that specify this medication, or a textual
         # description if no code is available. usage note: this could be a
@@ -26,7 +24,7 @@ class Medication(fhirbase):
         # a code to indicate if the medication is in active use.
         self.status = None
         # type = string
-        # possible values = active, inactive, entered-in-error
+        # possible values: active, inactive, entered-in-error
 
         # set to true if the item is attributable to a specific manufacturer.
         self.isBrand = None
@@ -61,51 +59,55 @@ class Medication(fhirbase):
         # type = array
         # reference to Attachment: Attachment
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'inactive', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, inactive, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'active', 'inactive', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, inactive, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Medication_Ingredient',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication',
-            'child_variable': 'ingredient'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Medication',
-            'child_variable': 'manufacturer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Medication',
+             'child_variable': 'manufacturer'},
+
+            {'parent_entity': 'Medication_Ingredient',
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication',
+             'child_variable': 'ingredient'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication',
-            'child_variable': 'image'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication',
-            'child_variable': 'form'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication',
+             'child_variable': 'image'},
 
             {'parent_entity': 'Medication_Package',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication',
-            'child_variable': 'package'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication',
+             'child_variable': 'package'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication',
+             'child_variable': 'form'},
         ]
+
 
 class Medication_Ingredient(fhirbase):
     """This resource is primarily used for the identification and definition of
@@ -135,29 +137,31 @@ class Medication_Ingredient(fhirbase):
         self.amount = None
         # reference to Ratio: Ratio
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication_Ingredient',
-            'child_variable': 'itemCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication_Ingredient',
+             'child_variable': 'itemCodeableConcept'},
 
             {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication_Ingredient',
-            'child_variable': 'amount'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication_Ingredient',
+             'child_variable': 'amount'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Medication_Ingredient',
-            'child_variable': 'itemReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Medication_Ingredient',
+             'child_variable': 'itemReference'},
         ]
+
 
 class Medication_Package(fhirbase):
     """This resource is primarily used for the identification and definition of
@@ -181,29 +185,31 @@ class Medication_Package(fhirbase):
         # type = array
         # reference to Medication_Batch: Medication_Batch
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication_Package',
-            'child_variable': 'container'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication_Package',
+             'child_variable': 'container'},
 
             {'parent_entity': 'Medication_Batch',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication_Package',
-            'child_variable': 'batch'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication_Package',
+             'child_variable': 'batch'},
 
             {'parent_entity': 'Medication_Content',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication_Package',
-            'child_variable': 'content'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication_Package',
+             'child_variable': 'content'},
         ]
+
 
 class Medication_Content(fhirbase):
     """This resource is primarily used for the identification and definition of
@@ -224,29 +230,31 @@ class Medication_Content(fhirbase):
         self.amount = None
         # reference to Quantity: Quantity
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication_Content',
-            'child_variable': 'amount'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Medication_Content',
-            'child_variable': 'itemReference'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication_Content',
+             'child_variable': 'amount'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Medication_Content',
-            'child_variable': 'itemCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication_Content',
+             'child_variable': 'itemCodeableConcept'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Medication_Content',
+             'child_variable': 'itemReference'},
         ]
+
 
 class Medication_Batch(fhirbase):
     """This resource is primarily used for the identification and definition of
@@ -263,8 +271,8 @@ class Medication_Batch(fhirbase):
         self.expirationDate = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

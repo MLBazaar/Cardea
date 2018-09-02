@@ -1,4 +1,5 @@
-from .fhirbase import * 
+from .fhirbase import fhirbase
+
 
 class Quantity(fhirbase):
     """A measured amount (or an amount that can potentially be measured). Note
@@ -18,7 +19,7 @@ class Quantity(fhirbase):
         # value.
         self.comparator = None
         # type = string
-        # possible values = <, <=, >=, >
+        # possible values: <, <=, >=, >
 
         # a human-readable form of the unit.
         self.unit = None
@@ -34,15 +35,17 @@ class Quantity(fhirbase):
         self.code = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.comparator is not None:
             for value in self.comparator:
-                if value != None and value.lower() not in ['<', '<=', '>=', '>']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, '<, <=, >=, >'))
-
+                if value is not None and value.lower() not in [
+                        '<', '<=', '>=', '>']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, '<, <=, >=, >'))

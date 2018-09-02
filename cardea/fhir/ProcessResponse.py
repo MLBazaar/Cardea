@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Identifier import Identifier
-from .CodeableConcept import CodeableConcept
+from .fhirbase import fhirbase
+
 
 class ProcessResponse(fhirbase):
     """This resource provides processing status, errors and notes from the
@@ -12,7 +10,7 @@ class ProcessResponse(fhirbase):
         # this is a processresponse resource
         self.resourceType = 'ProcessResponse'
         # type = string
-        # possible values = ProcessResponse
+        # possible values: ProcessResponse
 
         # the status of the resource instance.
         self.status = None
@@ -75,64 +73,63 @@ class ProcessResponse(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcessResponse',
-            'child_variable': 'organization'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'outcome'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcessResponse',
-            'child_variable': 'form'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcessResponse',
-            'child_variable': 'outcome'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'error'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcessResponse',
-            'child_variable': 'request'},
-
-            {'parent_entity': 'ProcessResponse_ProcessNote',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcessResponse',
-            'child_variable': 'processNote'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'organization'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcessResponse',
-            'child_variable': 'requestProvider'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'requestOrganization'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'communicationRequest'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcessResponse',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcessResponse',
-            'child_variable': 'requestOrganization'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcessResponse',
-            'child_variable': 'error'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'form'},
+
+            {'parent_entity': 'ProcessResponse_ProcessNote',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'processNote'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcessResponse',
-            'child_variable': 'communicationRequest'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'request'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'requestProvider'},
         ]
+
 
 class ProcessResponse_ProcessNote(fhirbase):
     """This resource provides processing status, errors and notes from the
@@ -148,17 +145,17 @@ class ProcessResponse_ProcessNote(fhirbase):
         self.text = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcessResponse_ProcessNote',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessResponse_ProcessNote',
+             'child_variable': 'type'},
         ]
-

@@ -1,11 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .HumanName import HumanName
-from .Address import Address
-from .Reference import Reference
-from .ContactPoint import ContactPoint
-from .Attachment import Attachment
+from .fhirbase import fhirbase
+
 
 class Patient(fhirbase):
     """Demographics and other administrative information about an individual or
@@ -16,7 +10,7 @@ class Patient(fhirbase):
         # this is a patient resource
         self.resourceType = 'Patient'
         # type = string
-        # possible values = Patient
+        # possible values: Patient
 
         # whether this patient record is in active use.
         self.active = None
@@ -37,7 +31,7 @@ class Patient(fhirbase):
         # have for administration and record keeping purposes.
         self.gender = None
         # type = string
-        # possible values = male, female, other, unknown
+        # possible values: male, female, other, unknown
 
         # the date of birth for the individual.
         self.birthDate = None
@@ -109,81 +103,82 @@ class Patient(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.gender is not None:
             for value in self.gender:
-                if value != None and value.lower() not in ['male', 'female', 'other', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'male, female, other, unknown'))
+                if value is not None and value.lower() not in [
+                        'male', 'female', 'other', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'male, female, other, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient',
-            'child_variable': 'address'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Patient',
-            'child_variable': 'generalPractitioner'},
+            {'parent_entity': 'Patient_Link',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'link'},
 
             {'parent_entity': 'Patient_Animal',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient',
-            'child_variable': 'animal'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient',
-            'child_variable': 'maritalStatus'},
-
-            {'parent_entity': 'Patient_Contact',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient',
-            'child_variable': 'photo'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient',
-            'child_variable': 'telecom'},
-
-            {'parent_entity': 'Patient_Link',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient',
-            'child_variable': 'link'},
-
-            {'parent_entity': 'Patient_Communication',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient',
-            'child_variable': 'communication'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'animal'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Patient',
-            'child_variable': 'managingOrganization'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Patient',
+             'child_variable': 'generalPractitioner'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'photo'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'maritalStatus'},
+
+            {'parent_entity': 'Patient_Communication',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'communication'},
+
+            {'parent_entity': 'Patient_Contact',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'telecom'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'address'},
 
             {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient',
-            'child_variable': 'name'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'name'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Patient',
+             'child_variable': 'managingOrganization'},
         ]
+
 
 class Patient_Contact(fhirbase):
     """Demographics and other administrative information about an individual or
@@ -215,7 +210,7 @@ class Patient_Contact(fhirbase):
         # to have for administration and record keeping purposes.
         self.gender = None
         # type = string
-        # possible values = male, female, other, unknown
+        # possible values: male, female, other, unknown
 
         # organization on behalf of which the contact is acting or for which the
         # contact is working.
@@ -227,51 +222,55 @@ class Patient_Contact(fhirbase):
         self.period = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.gender is not None:
             for value in self.gender:
-                if value != None and value.lower() not in ['male', 'female', 'other', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'male, female, other, unknown'))
+                if value is not None and value.lower() not in [
+                        'male', 'female', 'other', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'male, female, other, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient_Contact',
-            'child_variable': 'name'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient_Contact',
-            'child_variable': 'relationship'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient_Contact',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient_Contact',
-            'child_variable': 'address'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient_Contact',
+             'child_variable': 'relationship'},
 
             {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient_Contact',
-            'child_variable': 'telecom'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient_Contact',
+             'child_variable': 'telecom'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient_Contact',
+             'child_variable': 'address'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Patient_Contact',
-            'child_variable': 'organization'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Patient_Contact',
+             'child_variable': 'organization'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient_Contact',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient_Contact',
+             'child_variable': 'name'},
         ]
+
 
 class Patient_Animal(fhirbase):
     """Demographics and other administrative information about an individual or
@@ -292,29 +291,31 @@ class Patient_Animal(fhirbase):
         self.genderStatus = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient_Animal',
-            'child_variable': 'breed'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient_Animal',
+             'child_variable': 'species'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient_Animal',
-            'child_variable': 'species'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient_Animal',
+             'child_variable': 'breed'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient_Animal',
-            'child_variable': 'genderStatus'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient_Animal',
+             'child_variable': 'genderStatus'},
         ]
+
 
 class Patient_Communication(fhirbase):
     """Demographics and other administrative information about an individual or
@@ -334,19 +335,21 @@ class Patient_Communication(fhirbase):
         self.preferred = None
         # type = boolean
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Patient_Communication',
-            'child_variable': 'language'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient_Communication',
+             'child_variable': 'language'},
         ]
+
 
 class Patient_Link(fhirbase):
     """Demographics and other administrative information about an individual or
@@ -362,26 +365,28 @@ class Patient_Link(fhirbase):
         # resource.
         self.type = None
         # type = string
-        # possible values = replaced-by, replaces, refer, seealso
+        # possible values: replaced-by, replaces, refer, seealso
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['replaced-by', 'replaces', 'refer', 'seealso']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'replaced-by, replaces, refer, seealso'))
+                if value is not None and value.lower() not in [
+                        'replaced-by', 'replaces', 'refer', 'seealso']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'replaced-by, replaces, refer, seealso'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Patient_Link',
-            'child_variable': 'other'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Patient_Link',
+             'child_variable': 'other'},
         ]
-

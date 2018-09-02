@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Timing import Timing
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class DeviceMetric(fhirbase):
     """Describes a measurement, calculation or setting capability of a medical
@@ -13,7 +10,7 @@ class DeviceMetric(fhirbase):
         # this is a devicemetric resource
         self.resourceType = 'DeviceMetric'
         # type = string
-        # possible values = DeviceMetric
+        # possible values: DeviceMetric
 
         # describes the type of the metric. for example: heart rate, peep setting,
         # etc.
@@ -45,7 +42,7 @@ class DeviceMetric(fhirbase):
         # standby, etc.
         self.operationalStatus = None
         # type = string
-        # possible values = on, off, standby, entered-in-error
+        # possible values: on, off, standby, entered-in-error
 
         # describes the color representation for the metric. this is often used to
         # aid clinicians to track and identify parameter types by color. in
@@ -54,13 +51,15 @@ class DeviceMetric(fhirbase):
         # colors, such as hr-blue, bp-green, and pr and spo2- magenta.
         self.color = None
         # type = string
-        # possible values = black, red, green, yellow, blue, magenta, cyan, white
+        # possible values: black, red, green, yellow, blue, magenta,
+        # cyan, white
 
         # indicates the category of the observation generation process. a
         # devicemetric can be for example a setting, measurement, or calculation.
         self.category = None
         # type = string
-        # possible values = measurement, setting, calculation, unspecified
+        # possible values: measurement, setting, calculation,
+        # unspecified
 
         # describes the measurement repetition time. this is not necessarily the
         # same as the update period. the measurement repetition time can range
@@ -88,66 +87,71 @@ class DeviceMetric(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.operationalStatus is not None:
             for value in self.operationalStatus:
-                if value != None and value.lower() not in ['on', 'off', 'standby', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'on, off, standby, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'on', 'off', 'standby', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'on, off, standby, entered-in-error'))
 
         if self.color is not None:
             for value in self.color:
-                if value != None and value.lower() not in ['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'black, red, green, yellow, blue, magenta, cyan, white'))
+                if value is not None and value.lower() not in [
+                        'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'black, red, green, yellow, blue, magenta, cyan, white'))
 
         if self.category is not None:
             for value in self.category:
-                if value != None and value.lower() not in ['measurement', 'setting', 'calculation', 'unspecified']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'measurement, setting, calculation, unspecified'))
+                if value is not None and value.lower() not in [
+                        'measurement', 'setting', 'calculation', 'unspecified']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'measurement, setting, calculation, unspecified'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceMetric',
-            'child_variable': 'source'},
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceMetric',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceMetric',
-            'child_variable': 'measurementPeriod'},
-
-            {'parent_entity': 'DeviceMetric_Calibration',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceMetric',
-            'child_variable': 'calibration'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceMetric',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceMetric',
-            'child_variable': 'unit'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceMetric',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceMetric',
+             'child_variable': 'measurementPeriod'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceMetric',
-            'child_variable': 'parent'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceMetric',
+             'child_variable': 'source'},
+
+            {'parent_entity': 'DeviceMetric_Calibration',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceMetric',
+             'child_variable': 'calibration'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceMetric',
+             'child_variable': 'unit'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceMetric',
+             'child_variable': 'parent'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceMetric',
+             'child_variable': 'type'},
         ]
+
 
 class DeviceMetric_Calibration(fhirbase):
     """Describes a measurement, calculation or setting capability of a medical
@@ -158,31 +162,36 @@ class DeviceMetric_Calibration(fhirbase):
         # describes the type of the calibration method.
         self.type = None
         # type = string
-        # possible values = unspecified, offset, gain, two-point
+        # possible values: unspecified, offset, gain, two-point
 
         # describes the state of the calibration.
         self.state = None
         # type = string
-        # possible values = not-calibrated, calibration-required, calibrated, unspecified
+        # possible values: not-calibrated, calibration-required,
+        # calibrated, unspecified
 
         # describes the time last calibration has been performed.
         self.time = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['unspecified', 'offset', 'gain', 'two-point']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'unspecified, offset, gain, two-point'))
+                if value is not None and value.lower() not in [
+                        'unspecified', 'offset', 'gain', 'two-point']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'unspecified, offset, gain, two-point'))
 
         if self.state is not None:
             for value in self.state:
-                if value != None and value.lower() not in ['not-calibrated', 'calibration-required', 'calibrated', 'unspecified']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'not-calibrated, calibration-required, calibrated, unspecified'))
-
+                if value is not None and value.lower() not in [
+                        'not-calibrated', 'calibration-required', 'calibrated', 'unspecified']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'not-calibrated, calibration-required, calibrated, unspecified'))

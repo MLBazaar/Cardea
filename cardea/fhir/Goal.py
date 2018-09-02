@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class Goal(fhirbase):
     """Describes the intended objective(s) for a patient, group or organization
@@ -15,13 +12,15 @@ class Goal(fhirbase):
         # this is a goal resource
         self.resourceType = 'Goal'
         # type = string
-        # possible values = Goal
+        # possible values: Goal
 
         # indicates whether the goal has been reached and is still considered
         # relevant.
         self.status = None
         # type = string
-        # possible values = proposed, accepted, planned, in-progress, on-target, ahead-of-target, behind-target, sustaining, achieved, on-hold, cancelled, entered-in-error, rejected
+        # possible values: proposed, accepted, planned, in-progress, on-
+        # target, ahead-of-target, behind-target, sustaining, achieved, on-hold,
+        # cancelled, entered-in-error, rejected
 
         # indicates a category the goal falls within.
         self.category = None
@@ -99,81 +98,86 @@ class Goal(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['proposed', 'accepted', 'planned', 'in-progress', 'on-target', 'ahead-of-target', 'behind-target', 'sustaining', 'achieved', 'on-hold', 'cancelled', 'entered-in-error', 'rejected']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'proposed, accepted, planned, in-progress, on-target, ahead-of-target, behind-target, sustaining, achieved, on-hold, cancelled, entered-in-error, rejected'))
+                if value is not None and value.lower() not in [
+                        'proposed', 'accepted', 'planned', 'in-progress', 'on-target',
+                        'ahead-of-target', 'behind-target', 'sustaining', 'achieved',
+                        'on-hold', 'cancelled', 'entered-in-error', 'rejected']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'proposed, accepted, planned, in-progress, on-target,'
+                        'ahead-of-target, behind-target, sustaining, achieved, on-hold,'
+                        'cancelled, entered-in-error, rejected'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Goal',
-            'child_variable': 'outcomeReference'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal',
-            'child_variable': 'priority'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal',
-            'child_variable': 'startCodeableConcept'},
-
-            {'parent_entity': 'Goal_Target',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal',
-            'child_variable': 'target'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Goal',
-            'child_variable': 'addresses'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Goal',
-            'child_variable': 'expressedBy'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Goal',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal',
-            'child_variable': 'outcomeCode'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal',
+             'child_variable': 'outcomeCode'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal',
-            'child_variable': 'description'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal',
-            'child_variable': 'note'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Goal_Target',
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal',
+             'child_variable': 'target'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Goal',
+             'child_variable': 'expressedBy'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Goal',
+             'child_variable': 'addresses'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Goal',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal',
+             'child_variable': 'description'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal',
+             'child_variable': 'startCodeableConcept'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal',
+             'child_variable': 'priority'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Goal',
+             'child_variable': 'outcomeReference'},
         ]
+
 
 class Goal_Target(fhirbase):
     """Describes the intended objective(s) for a patient, group or organization
@@ -225,37 +229,37 @@ class Goal_Target(fhirbase):
         self.dueDuration = None
         # reference to Duration: Duration
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal_Target',
-            'child_variable': 'dueDuration'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal_Target',
+             'child_variable': 'dueDuration'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal_Target',
+             'child_variable': 'measure'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal_Target',
+             'child_variable': 'detailCodeableConcept'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal_Target',
-            'child_variable': 'detailRange'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal_Target',
-            'child_variable': 'detailCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal_Target',
+             'child_variable': 'detailRange'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal_Target',
-            'child_variable': 'detailQuantity'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Goal_Target',
-            'child_variable': 'measure'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Goal_Target',
+             'child_variable': 'detailQuantity'},
         ]
-

@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .ResourceList import ResourceList
-from .Extension import Extension
-from .Narrative import Narrative
+from .fhirbase import fhirbase
+
 
 class DomainResource(fhirbase):
     """A resource that includes narrative, extensions, and contained resources.
@@ -47,32 +45,32 @@ class DomainResource(fhirbase):
         # type = array
         # reference to Extension: Extension
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Extension',
-            'parent_variable': 'object_id',
-            'child_entity': 'DomainResource',
-            'child_variable': 'modifierExtension'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DomainResource',
+             'child_variable': 'modifierExtension'},
 
             {'parent_entity': 'Narrative',
-            'parent_variable': 'object_id',
-            'child_entity': 'DomainResource',
-            'child_variable': 'text'},
-
-            {'parent_entity': 'ResourceList',
-            'parent_variable': 'object_id',
-            'child_entity': 'DomainResource',
-            'child_variable': 'contained'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DomainResource',
+             'child_variable': 'text'},
 
             {'parent_entity': 'Extension',
-            'parent_variable': 'object_id',
-            'child_entity': 'DomainResource',
-            'child_variable': 'extension'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'DomainResource',
+             'child_variable': 'extension'},
 
+            {'parent_entity': 'ResourceList',
+             'parent_variable': 'object_id',
+             'child_entity': 'DomainResource',
+             'child_variable': 'contained'},
+        ]

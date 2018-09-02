@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class CarePlan(fhirbase):
     """Describes the intention of how one or more practitioners intend to
@@ -16,7 +12,7 @@ class CarePlan(fhirbase):
         # this is a careplan resource
         self.resourceType = 'CarePlan'
         # type = string
-        # possible values = CarePlan
+        # possible values: CarePlan
 
         # identifies the protocol, questionnaire, guideline or other specification
         # the care plan should be conducted in accordance with.
@@ -45,13 +41,14 @@ class CarePlan(fhirbase):
         # future intentions or is now a historical record.
         self.status = None
         # type = string
-        # possible values = draft, active, suspended, completed, entered-in-error, cancelled, unknown
+        # possible values: draft, active, suspended, completed, entered-
+        # in-error, cancelled, unknown
 
         # indicates the level of authority/intentionality associated with the care
         # plan and where the care plan fits into the workflow chain.
         self.intent = None
         # type = string
-        # possible values = proposal, plan, order, option
+        # possible values: proposal, plan, order, option
 
         # identifies what "kind" of plan this is to support differentiation
         # between multiple co-existing plans; e.g. "home health", "psychiatric",
@@ -133,106 +130,111 @@ class CarePlan(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'suspended', 'completed', 'entered-in-error', 'cancelled', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, suspended, completed, entered-in-error, cancelled, unknown'))
+                if value is not None and value.lower() not in [
+                    'draft', 'active', 'suspended', 'completed', 'entered-in-error',
+                        'cancelled', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, suspended, completed, entered-in-error, cancelled,'
+                        'unknown'))
 
         if self.intent is not None:
             for value in self.intent:
-                if value != None and value.lower() not in ['proposal', 'plan', 'order', 'option']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'proposal, plan, order, option'))
+                if value is not None and value.lower() not in [
+                        'proposal', 'plan', 'order', 'option']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'proposal, plan, order, option'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan',
-            'child_variable': 'replaces'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan',
-            'child_variable': 'careTeam'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan',
-            'child_variable': 'addresses'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'CarePlan_Activity',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan',
-            'child_variable': 'activity'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan',
-            'child_variable': 'goal'},
-
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan',
-            'child_variable': 'supportingInfo'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan',
-            'child_variable': 'partOf'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan',
-            'child_variable': 'author'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan',
+             'child_variable': 'partOf'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'CarePlan_Activity',
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan',
+             'child_variable': 'activity'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan',
-            'child_variable': 'definition'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan',
+             'child_variable': 'supportingInfo'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan',
+             'child_variable': 'addresses'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan',
+             'child_variable': 'author'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan',
+             'child_variable': 'goal'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan',
+             'child_variable': 'replaces'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan',
+             'child_variable': 'careTeam'},
         ]
+
 
 class CarePlan_Activity(fhirbase):
     """Describes the intention of how one or more practitioners intend to
@@ -273,39 +275,41 @@ class CarePlan_Activity(fhirbase):
         self.detail = None
         # reference to CarePlan_Detail: CarePlan_Detail
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan_Activity',
-            'child_variable': 'progress'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan_Activity',
+             'child_variable': 'progress'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan_Activity',
-            'child_variable': 'outcomeCodeableConcept'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan_Activity',
+             'child_variable': 'outcomeReference'},
 
             {'parent_entity': 'CarePlan_Detail',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan_Activity',
-            'child_variable': 'detail'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan_Activity',
+             'child_variable': 'detail'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan_Activity',
+             'child_variable': 'outcomeCodeableConcept'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan_Activity',
-            'child_variable': 'reference'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan_Activity',
-            'child_variable': 'outcomeReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan_Activity',
+             'child_variable': 'reference'},
         ]
+
 
 class CarePlan_Detail(fhirbase):
     """Describes the intention of how one or more practitioners intend to
@@ -351,7 +355,8 @@ class CarePlan_Detail(fhirbase):
         # identifies what progress is being made for the specific activity.
         self.status = None
         # type = string
-        # possible values = not-started, scheduled, in-progress, on-hold, completed, cancelled, unknown
+        # possible values: not-started, scheduled, in-progress, on-hold,
+        # completed, cancelled, unknown
 
         # provides reason why the activity isn't yet started, is on hold, was
         # cancelled, etc.
@@ -417,89 +422,93 @@ class CarePlan_Detail(fhirbase):
         self.description = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['not-started', 'scheduled', 'in-progress', 'on-hold', 'completed', 'cancelled', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'not-started, scheduled, in-progress, on-hold, completed, cancelled, unknown'))
+                if value is not None and value.lower() not in [
+                    'not-started', 'scheduled', 'in-progress', 'on-hold', 'completed',
+                        'cancelled', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'not-started, scheduled, in-progress, on-hold, completed,'
+                        'cancelled, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'location'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'productReference'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'performer'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'reasonCode'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'scheduledTiming'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'productCodeableConcept'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'reasonReference'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'scheduledPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'scheduledPeriod'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'dailyAmount'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'definition'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'productReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'performer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'location'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'goal'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'quantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'dailyAmount'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CarePlan_Detail',
-            'child_variable': 'goal'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'scheduledTiming'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CarePlan_Detail',
+             'child_variable': 'productCodeableConcept'},
         ]
-

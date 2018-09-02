@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Identifier import Identifier
-from .CodeableConcept import CodeableConcept
+from .fhirbase import fhirbase
+
 
 class EnrollmentResponse(fhirbase):
     """This resource provides enrollment and plan details from the processing
@@ -12,7 +10,7 @@ class EnrollmentResponse(fhirbase):
         # this is a enrollmentresponse resource
         self.resourceType = 'EnrollmentResponse'
         # type = string
-        # possible values = EnrollmentResponse
+        # possible values: EnrollmentResponse
 
         # the status of the resource instance.
         self.status = None
@@ -54,42 +52,39 @@ class EnrollmentResponse(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'EnrollmentResponse',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EnrollmentResponse',
+             'child_variable': 'requestProvider'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EnrollmentResponse',
-            'child_variable': 'request'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EnrollmentResponse',
-            'child_variable': 'requestProvider'},
+             'parent_variable': 'identifier',
+             'child_entity': 'EnrollmentResponse',
+             'child_variable': 'request'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EnrollmentResponse',
-            'child_variable': 'outcome'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EnrollmentResponse',
+             'child_variable': 'outcome'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EnrollmentResponse',
-            'child_variable': 'requestOrganization'},
+             'parent_variable': 'identifier',
+             'child_entity': 'EnrollmentResponse',
+             'child_variable': 'requestOrganization'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EnrollmentResponse',
-            'child_variable': 'organization'},
+             'parent_variable': 'identifier',
+             'child_entity': 'EnrollmentResponse',
+             'child_variable': 'organization'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'EnrollmentResponse',
+             'child_variable': 'identifier'},
         ]
-

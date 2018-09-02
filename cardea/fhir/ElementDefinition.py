@@ -1,38 +1,5 @@
-from .fhirbase import * 
-from .BackboneElement import BackboneElement
-from .HumanName import HumanName
-from .Timing import Timing
-from .Address import Address
-from .SampledData import SampledData
-from .TriggerDefinition import TriggerDefinition
-from .Period import Period
-from .Extension import Extension
-from .Quantity import Quantity
-from .UsageContext import UsageContext
-from .Duration import Duration
-from .CodeableConcept import CodeableConcept
-from .DataRequirement import DataRequirement
-from .Count import Count
-from .ContactPoint import ContactPoint
-from .Money import Money
-from .ContactDetail import ContactDetail
-from .Contributor import Contributor
-from .ParameterDefinition import ParameterDefinition
-from .Annotation import Annotation
-from .Ratio import Ratio
-from .Age import Age
-from .Element import Element
-from .Attachment import Attachment
-from .Meta import Meta
-from .Coding import Coding
-from .Signature import Signature
-from .Identifier import Identifier
-from .Narrative import Narrative
-from .Reference import Reference
-from .Dosage import Dosage
-from .Range import Range
-from .RelatedArtifact import RelatedArtifact
-from .Distance import Distance
+from .fhirbase import fhirbase
+
 
 class ElementDefinition(fhirbase):
     """Captures constraints on each element within the resource, profile, or
@@ -50,7 +17,7 @@ class ElementDefinition(fhirbase):
         # deviation varies from the normal case.
         self.representation = None
         # type = array
-        # possible values = xmlAttr, xmlText, typeAttr, cdaText, xhtml
+        # possible values: xmlAttr, xmlText, typeAttr, cdaText, xhtml
 
         # the name of this element definition slice, when slicing is working. the
         # name must be a token with no dots or spaces. this is a unique name
@@ -1374,611 +1341,615 @@ class ElementDefinition(fhirbase):
         # type = array
         # reference to ElementDefinition_Mapping: ElementDefinition_Mapping
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.representation is not None:
             for value in self.representation:
-                if value != None and value.lower() not in ['xmlattr', 'xmltext', 'typeattr', 'cdatext', 'xhtml']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'xmlattr, xmltext, typeattr, cdatext, xhtml'))
+                if value is not None and value.lower() not in [
+                        'xmlattr', 'xmltext', 'typeattr', 'cdatext', 'xhtml']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'xmlAttr, xmlText, typeAttr, cdaText, xhtml'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueContactPoint'},
-
-            {'parent_entity': 'Dosage',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternDosage'},
-
-            {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternRelatedArtifact'},
-
-            {'parent_entity': 'Meta',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueMeta'},
-
-            {'parent_entity': 'Element',
-            'parent_variable': 'id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueElement'},
-
-            {'parent_entity': 'ElementDefinition_Example',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'example'},
-
-            {'parent_entity': 'ElementDefinition_Constraint',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'constraint'},
-
             {'parent_entity': 'Narrative',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedNarrative'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternCoding'},
-
-            {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedRatio'},
-
-            {'parent_entity': 'BackboneElement',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueBackboneElement'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternContactDetail'},
-
-            {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueRatio'},
-
-            {'parent_entity': 'Element',
-            'parent_variable': 'id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternElement'},
-
-            {'parent_entity': 'TriggerDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueTriggerDefinition'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedCodeableConcept'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'ElementDefinition_Slicing',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'slicing'},
-
-            {'parent_entity': 'TriggerDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedTriggerDefinition'},
-
-            {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueDataRequirement'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternUsageContext'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternRange'},
-
-            {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueDuration'},
-
-            {'parent_entity': 'Extension',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueExtension'},
-
-            {'parent_entity': 'ElementDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternElementDefinition'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedSimpleQuantity'},
-
-            {'parent_entity': 'Dosage',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueDosage'},
-
-            {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueContributor'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternIdentifier'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'maxValueQuantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternNarrative'},
 
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueAnnotation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedAnnotation'},
 
             {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueHumanName'},
-
-            {'parent_entity': 'Distance',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedDistance'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueQuantity'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedUsageContext'},
-
-            {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternDuration'},
-
-            {'parent_entity': 'TriggerDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternTriggerDefinition'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternAnnotation'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueUsageContext'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueContactDetail'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternCodeableConcept'},
-
-            {'parent_entity': 'ElementDefinition_Binding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'binding'},
-
-            {'parent_entity': 'SampledData',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternSampledData'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueSimpleQuantity'},
-
-            {'parent_entity': 'Meta',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedMeta'},
-
-            {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedDuration'},
-
-            {'parent_entity': 'SampledData',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedSampledData'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternMoney'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternContactPoint'},
-
-            {'parent_entity': 'ElementDefinition_Mapping',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'mapping'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedCoding'},
-
-            {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternHumanName'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternAttachment'},
-
-            {'parent_entity': 'BackboneElement',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternBackboneElement'},
-
-            {'parent_entity': 'Signature',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternSignature'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternQuantity'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternSimpleQuantity'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'minValueQuantity'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternPeriod'},
-
-            {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternRatio'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedReference'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedRange'},
-
-            {'parent_entity': 'Distance',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternDistance'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueCoding'},
-
-            {'parent_entity': 'Element',
-            'parent_variable': 'id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedElement'},
-
-            {'parent_entity': 'ParameterDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueParameterDefinition'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedContactDetail'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueCodeableConcept'},
-
-            {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueRelatedArtifact'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueAttachment'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValuePeriod'},
-
-            {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedDataRequirement'},
-
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternAddress'},
-
-            {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternAge'},
-
-            {'parent_entity': 'Extension',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedExtension'},
-
-            {'parent_entity': 'ElementDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedElementDefinition'},
-
-            {'parent_entity': 'Dosage',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedDosage'},
-
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueTiming'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedAttachment'},
-
-            {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedRelatedArtifact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueHumanName'},
 
             {'parent_entity': 'ElementDefinition_Base',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'base'},
-
-            {'parent_entity': 'Count',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternCount'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueReference'},
-
-            {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternDataRequirement'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueRange'},
-
-            {'parent_entity': 'Extension',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternExtension'},
-
-            {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternContributor'},
-
-            {'parent_entity': 'Signature',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueSignature'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedContactPoint'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueMoney'},
-
-            {'parent_entity': 'ElementDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueElementDefinition'},
-
-            {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedAge'},
-
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueAddress'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternReference'},
-
-            {'parent_entity': 'Meta',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternMeta'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedAnnotation'},
-
-            {'parent_entity': 'Signature',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedSignature'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'base'},
 
             {'parent_entity': 'BackboneElement',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedBackboneElement'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedBackboneElement'},
+
+            {'parent_entity': 'ElementDefinition_Slicing',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'slicing'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueContactDetail'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedTiming'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedQuantity'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedIdentifier'},
-
-            {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueAge'},
-
-            {'parent_entity': 'Narrative',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternNarrative'},
-
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedAddress'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueIdentifier'},
-
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedTiming'},
-
-            {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedContributor'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternQuantity'},
 
             {'parent_entity': 'ElementDefinition_Type',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'type'},
 
-            {'parent_entity': 'Narrative',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueNarrative'},
-
-            {'parent_entity': 'Count',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedCount'},
-
-            {'parent_entity': 'Count',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueCount'},
-
-            {'parent_entity': 'ParameterDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedParameterDefinition'},
-
-            {'parent_entity': 'SampledData',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueSampledData'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedPeriod'},
-
-            {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedHumanName'},
-
-            {'parent_entity': 'ParameterDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternParameterDefinition'},
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueContactPoint'},
 
             {'parent_entity': 'Distance',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'defaultValueDistance'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueDistance'},
+
+            {'parent_entity': 'ElementDefinition_Mapping',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'mapping'},
 
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'fixedMoney'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueMoney'},
+
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueDataRequirement'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternHumanName'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Extension',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedExtension'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedSampledData'},
+
+            {'parent_entity': 'Ratio',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueRatio'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternAnnotation'},
+
+            {'parent_entity': 'ParameterDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedParameterDefinition'},
+
+            {'parent_entity': 'ElementDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternElementDefinition'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedCodeableConcept'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueCoding'},
+
+            {'parent_entity': 'Extension',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternExtension'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueDosage'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternAddress'},
+
+            {'parent_entity': 'Distance',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternDistance'},
+
+            {'parent_entity': 'Ratio',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedRatio'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueAttachment'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValuePeriod'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedAge'},
+
+            {'parent_entity': 'ParameterDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternParameterDefinition'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternContributor'},
+
+            {'parent_entity': 'ElementDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueElementDefinition'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedIdentifier'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'maxValueQuantity'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueDuration'},
+
+            {'parent_entity': 'ElementDefinition_Binding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'binding'},
+
+            {'parent_entity': 'ElementDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedElementDefinition'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedDuration'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueAddress'},
+
+            {'parent_entity': 'Narrative',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueNarrative'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternContactDetail'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueReference'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternSampledData'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedContributor'},
+
+            {'parent_entity': 'ParameterDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueParameterDefinition'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueAnnotation'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedAttachment'},
+
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedDataRequirement'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternRange'},
+
+            {'parent_entity': 'Extension',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueExtension'},
+
+            {'parent_entity': 'ElementDefinition_Example',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'example'},
+
+            {'parent_entity': 'Count',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedCount'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternMoney'},
+
+            {'parent_entity': 'Signature',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueSignature'},
+
+            {'parent_entity': 'Narrative',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedNarrative'},
+
+            {'parent_entity': 'TriggerDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueTriggerDefinition'},
+
+            {'parent_entity': 'Element',
+             'parent_variable': 'id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternElement'},
+
+            {'parent_entity': 'TriggerDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternTriggerDefinition'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternAttachment'},
+
+            {'parent_entity': 'BackboneElement',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternBackboneElement'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueQuantity'},
+
+            {'parent_entity': 'BackboneElement',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueBackboneElement'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternAge'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedCoding'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternCodeableConcept'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedSimpleQuantity'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternUsageContext'},
+
+            {'parent_entity': 'ElementDefinition_Constraint',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'constraint'},
+
+            {'parent_entity': 'Count',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternCount'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternSimpleQuantity'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedPeriod'},
+
+            {'parent_entity': 'TriggerDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedTriggerDefinition'},
+
+            {'parent_entity': 'Element',
+             'parent_variable': 'id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueElement'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueRelatedArtifact'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedHumanName'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternDuration'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedUsageContext'},
+
+            {'parent_entity': 'Meta',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedMeta'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedDosage'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternDosage'},
 
             {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition',
-            'child_variable': 'patternTiming'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueTiming'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternReference'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternCoding'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedContactDetail'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'minValueQuantity'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedRelatedArtifact'},
+
+            {'parent_entity': 'Distance',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedDistance'},
+
+            {'parent_entity': 'Meta',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternMeta'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueRange'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedRange'},
+
+            {'parent_entity': 'Element',
+             'parent_variable': 'id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedElement'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueUsageContext'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedQuantity'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedMoney'},
+
+            {'parent_entity': 'Count',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueCount'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedContactPoint'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueContributor'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternTiming'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedReference'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternRelatedArtifact'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternContactPoint'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueIdentifier'},
+
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternDataRequirement'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueCodeableConcept'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternPeriod'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueSampledData'},
+
+            {'parent_entity': 'Meta',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueMeta'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueAge'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'defaultValueSimpleQuantity'},
+
+            {'parent_entity': 'Signature',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternSignature'},
+
+            {'parent_entity': 'Signature',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedSignature'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternIdentifier'},
+
+            {'parent_entity': 'Ratio',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'patternRatio'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition',
+             'child_variable': 'fixedAddress'},
         ]
+
 
 class ElementDefinition_Slicing(fhirbase):
     """Captures constraints on each element within the resource, profile, or
@@ -2011,28 +1982,32 @@ class ElementDefinition_Slicing(fhirbase):
         # allowed at the end.
         self.rules = None
         # type = string
-        # possible values = closed, open, openAtEnd
+        # possible values: closed, open, openAtEnd
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.rules is not None:
             for value in self.rules:
-                if value != None and value.lower() not in ['closed', 'open', 'openatend']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'closed, open, openatend'))
+                if value is not None and value.lower() not in [
+                        'closed', 'open', 'openatend']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'closed, open, openAtEnd'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ElementDefinition_Discriminator',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Slicing',
-            'child_variable': 'discriminator'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Slicing',
+             'child_variable': 'discriminator'},
         ]
+
 
 class ElementDefinition_Discriminator(fhirbase):
     """Captures constraints on each element within the resource, profile, or
@@ -2043,24 +2018,28 @@ class ElementDefinition_Discriminator(fhirbase):
         # how the element value is interpreted when discrimination is evaluated.
         self.type = None
         # type = string
-        # possible values = value, exists, pattern, type, profile
+        # possible values: value, exists, pattern, type, profile
 
         # a fhirpath expression, using a restricted subset of fhirpath, that is
         # used to identify the element on which discrimination is based.
         self.path = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['value', 'exists', 'pattern', 'type', 'profile']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'value, exists, pattern, type, profile'))
+                if value is not None and value.lower() not in [
+                        'value', 'exists', 'pattern', 'type', 'profile']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'value, exists, pattern, type, profile'))
+
 
 class ElementDefinition_Base(fhirbase):
     """Captures constraints on each element within the resource, profile, or
@@ -2083,9 +2062,11 @@ class ElementDefinition_Base(fhirbase):
         self.max = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class ElementDefinition_Type(fhirbase):
@@ -2125,30 +2106,36 @@ class ElementDefinition_Type(fhirbase):
         # the context is a bundle, is it included in the bundle.
         self.aggregation = None
         # type = array
-        # possible values = contained, referenced, bundled
+        # possible values: contained, referenced, bundled
 
         # whether this reference needs to be version specific or version
         # independent, or whether either can be used.
         self.versioning = None
         # type = string
-        # possible values = either, independent, specific
+        # possible values: either, independent, specific
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.aggregation is not None:
             for value in self.aggregation:
-                if value != None and value.lower() not in ['contained', 'referenced', 'bundled']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'contained, referenced, bundled'))
+                if value is not None and value.lower() not in [
+                        'contained', 'referenced', 'bundled']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'contained, referenced, bundled'))
 
         if self.versioning is not None:
             for value in self.versioning:
-                if value != None and value.lower() not in ['either', 'independent', 'specific']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'either, independent, specific'))
+                if value is not None and value.lower() not in [
+                        'either', 'independent', 'specific']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'either, independent, specific'))
+
 
 class ElementDefinition_Example(fhirbase):
     """Captures constraints on each element within the resource, profile, or
@@ -2424,189 +2411,191 @@ class ElementDefinition_Example(fhirbase):
         self.valueTriggerDefinition = None
         # reference to TriggerDefinition: TriggerDefinition
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Meta',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueMeta'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueRange'},
-
-            {'parent_entity': 'BackboneElement',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueBackboneElement'},
-
-            {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueDataRequirement'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueQuantity'},
-
-            {'parent_entity': 'Dosage',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueDosage'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueCoding'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueContactDetail'},
-
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueTiming'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueIdentifier'},
-
-            {'parent_entity': 'Narrative',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueNarrative'},
-
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueAddress'},
-
-            {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueDuration'},
-
-            {'parent_entity': 'Extension',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueExtension'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueCodeableConcept'},
-
-            {'parent_entity': 'Count',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueCount'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueReference'},
-
-            {'parent_entity': 'TriggerDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueTriggerDefinition'},
-
-            {'parent_entity': 'ParameterDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueParameterDefinition'},
-
-            {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueAge'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueUsageContext'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueMoney'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valuePeriod'},
-
-            {'parent_entity': 'Signature',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueSignature'},
-
-            {'parent_entity': 'SampledData',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueSampledData'},
-
-            {'parent_entity': 'Distance',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueDistance'},
-
-            {'parent_entity': 'Element',
-            'parent_variable': 'id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueElement'},
-
             {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueRelatedArtifact'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueSimpleQuantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueRelatedArtifact'},
 
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueAnnotation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueAnnotation'},
 
-            {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueHumanName'},
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueQuantity'},
 
-            {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueContributor'},
+            {'parent_entity': 'Extension',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueExtension'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueReference'},
 
             {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueContactPoint'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueContactPoint'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueDosage'},
+
+            {'parent_entity': 'TriggerDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueTriggerDefinition'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueTiming'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueIdentifier'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueAge'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueHumanName'},
+
+            {'parent_entity': 'Signature',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueSignature'},
 
             {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'ElementDefinition_Example',
-            'child_variable': 'valueRatio'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueRatio'},
+
+            {'parent_entity': 'Element',
+             'parent_variable': 'id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueElement'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueDuration'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueCodeableConcept'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueCoding'},
+
+            {'parent_entity': 'Meta',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueMeta'},
+
+            {'parent_entity': 'Distance',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueDistance'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueUsageContext'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueAddress'},
+
+            {'parent_entity': 'Narrative',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueNarrative'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueContributor'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueContactDetail'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueAttachment'},
+
+            {'parent_entity': 'ParameterDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueParameterDefinition'},
+
+            {'parent_entity': 'Count',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueCount'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueSimpleQuantity'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valuePeriod'},
+
+            {'parent_entity': 'BackboneElement',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueBackboneElement'},
+
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueDataRequirement'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueSampledData'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueMoney'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'ElementDefinition_Example',
+             'child_variable': 'valueRange'},
         ]
+
 
 class ElementDefinition_Constraint(fhirbase):
     """Captures constraints on each element within the resource, profile, or
@@ -2628,7 +2617,7 @@ class ElementDefinition_Constraint(fhirbase):
         # instance.
         self.severity = None
         # type = string
-        # possible values = error, warning
+        # possible values: error, warning
 
         # text that can be used to describe the constraint in messages identifying
         # that the constraint has been violated.
@@ -2650,17 +2639,21 @@ class ElementDefinition_Constraint(fhirbase):
         self.source = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.severity is not None:
             for value in self.severity:
-                if value != None and value.lower() not in ['error', 'warning']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'error, warning'))
+                if value is not None and value.lower() not in [
+                        'error', 'warning']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'error, warning'))
+
 
 class ElementDefinition_Binding(fhirbase):
     """Captures constraints on each element within the resource, profile, or
@@ -2673,7 +2666,7 @@ class ElementDefinition_Binding(fhirbase):
         # adhered to in the instances.
         self.strength = None
         # type = string
-        # possible values = required, extensible, preferred, example
+        # possible values: required, extensible, preferred, example
 
         # describes the intended use of this particular set of codes.
         self.description = None
@@ -2697,26 +2690,30 @@ class ElementDefinition_Binding(fhirbase):
         self.valueSetReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.strength is not None:
             for value in self.strength:
-                if value != None and value.lower() not in ['required', 'extensible', 'preferred', 'example']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'required, extensible, preferred, example'))
+                if value is not None and value.lower() not in [
+                        'required', 'extensible', 'preferred', 'example']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'required, extensible, preferred, example'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ElementDefinition_Binding',
-            'child_variable': 'valueSetReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ElementDefinition_Binding',
+             'child_variable': 'valueSetReference'},
         ]
+
 
 class ElementDefinition_Mapping(fhirbase):
     """Captures constraints on each element within the resource, profile, or
@@ -2741,8 +2738,8 @@ class ElementDefinition_Mapping(fhirbase):
         self.comment = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

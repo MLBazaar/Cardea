@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .HumanName import HumanName
-from .Identifier import Identifier
-from .Address import Address
-from .Reference import Reference
-from .ContactPoint import ContactPoint
-from .Attachment import Attachment
+from .fhirbase import fhirbase
+
 
 class Person(fhirbase):
     """Demographics and administrative information about a person independent
@@ -15,7 +10,7 @@ class Person(fhirbase):
         # this is a person resource
         self.resourceType = 'Person'
         # type = string
-        # possible values = Person
+        # possible values: Person
 
         # a name associated with the person.
         self.name = None
@@ -31,7 +26,7 @@ class Person(fhirbase):
         # administrative gender.
         self.gender = None
         # type = string
-        # possible values = male, female, other, unknown
+        # possible values: male, female, other, unknown
 
         # the birth date for the person.
         self.birthDate = None
@@ -65,56 +60,57 @@ class Person(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.gender is not None:
             for value in self.gender:
-                if value != None and value.lower() not in ['male', 'female', 'other', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'male, female, other, unknown'))
+                if value is not None and value.lower() not in [
+                        'male', 'female', 'other', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'male, female, other, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'name'},
-
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'photo'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'telecom'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Person',
-            'child_variable': 'managingOrganization'},
-
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'address'},
-
-            {'parent_entity': 'Person_Link',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'link'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'photo'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'address'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'name'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'telecom'},
+
+            {'parent_entity': 'Person_Link',
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'link'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Person',
+             'child_variable': 'managingOrganization'},
         ]
+
 
 class Person_Link(fhirbase):
     """Demographics and administrative information about a person independent
@@ -130,26 +126,28 @@ class Person_Link(fhirbase):
         # resource.
         self.assurance = None
         # type = string
-        # possible values = level1, level2, level3, level4
+        # possible values: level1, level2, level3, level4
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.assurance is not None:
             for value in self.assurance:
-                if value != None and value.lower() not in ['level1', 'level2', 'level3', 'level4']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'level1, level2, level3, level4'))
+                if value is not None and value.lower() not in [
+                        'level1', 'level2', 'level3', 'level4']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'level1, level2, level3, level4'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Person_Link',
-            'child_variable': 'target'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Person_Link',
+             'child_variable': 'target'},
         ]
-

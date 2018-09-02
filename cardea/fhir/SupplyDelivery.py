@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Timing import Timing
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class SupplyDelivery(fhirbase):
     """Record of delivery of what is supplied.
@@ -13,7 +9,7 @@ class SupplyDelivery(fhirbase):
         # this is a supplydelivery resource
         self.resourceType = 'SupplyDelivery'
         # type = string
-        # possible values = SupplyDelivery
+        # possible values: SupplyDelivery
 
         # a plan, proposal or order that is fulfilled in whole or in part by this
         # event.
@@ -29,7 +25,8 @@ class SupplyDelivery(fhirbase):
         # a code specifying the state of the dispense event.
         self.status = None
         # type = string
-        # possible values = in-progress, completed, abandoned, entered-in-error
+        # possible values: in-progress, completed, abandoned, entered-
+        # in-error
 
         # a link to a resource representing the person whom the delivered item is
         # for.
@@ -78,76 +75,77 @@ class SupplyDelivery(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['in-progress', 'completed', 'abandoned', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'in-progress, completed, abandoned, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'in-progress', 'completed', 'abandoned', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'in-progress, completed, abandoned, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'SupplyDelivery',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'SupplyDelivery',
-            'child_variable': 'occurrencePeriod'},
-
-            {'parent_entity': 'SupplyDelivery_SuppliedItem',
-            'parent_variable': 'object_id',
-            'child_entity': 'SupplyDelivery',
-            'child_variable': 'suppliedItem'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'SupplyDelivery',
-            'child_variable': 'patient'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'SupplyDelivery',
-            'child_variable': 'basedOn'},
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'destination'},
 
             {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'SupplyDelivery',
-            'child_variable': 'occurrenceTiming'},
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'occurrenceTiming'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'SupplyDelivery',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'SupplyDelivery',
-            'child_variable': 'receiver'},
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'SupplyDelivery',
-            'child_variable': 'partOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'supplier'},
+
+            {'parent_entity': 'SupplyDelivery_SuppliedItem',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'suppliedItem'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'SupplyDelivery',
-            'child_variable': 'destination'},
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'receiver'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'SupplyDelivery',
-            'child_variable': 'supplier'},
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'partOf'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'occurrencePeriod'},
         ]
+
 
 class SupplyDelivery_SuppliedItem(fhirbase):
     """Record of delivery of what is supplied.
@@ -170,27 +168,27 @@ class SupplyDelivery_SuppliedItem(fhirbase):
         self.itemReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'SupplyDelivery_SuppliedItem',
-            'child_variable': 'itemReference'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'SupplyDelivery_SuppliedItem',
-            'child_variable': 'quantity'},
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyDelivery_SuppliedItem',
+             'child_variable': 'itemReference'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'SupplyDelivery_SuppliedItem',
-            'child_variable': 'itemCodeableConcept'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyDelivery_SuppliedItem',
+             'child_variable': 'itemCodeableConcept'},
 
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyDelivery_SuppliedItem',
+             'child_variable': 'quantity'},
+        ]

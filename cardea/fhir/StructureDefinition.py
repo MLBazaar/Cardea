@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Coding import Coding
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class StructureDefinition(fhirbase):
     """A definition of a FHIR structure. This resource is used to describe the
@@ -15,7 +11,7 @@ class StructureDefinition(fhirbase):
         # this is a structuredefinition resource
         self.resourceType = 'StructureDefinition'
         # type = string
-        # possible values = StructureDefinition
+        # possible values: StructureDefinition
 
         # an absolute uri that is used to identify this structure definition when
         # it is referenced in a specification, model, design or an instance. this
@@ -51,7 +47,7 @@ class StructureDefinition(fhirbase):
         # of the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this structure definition is authored
         # for testing purposes (or education/evaluation/marketing), and is not
@@ -127,7 +123,8 @@ class StructureDefinition(fhirbase):
         # defines the kind of structure that this definition is describing.
         self.kind = None
         # type = string
-        # possible values = primitive-type, complex-type, resource, logical
+        # possible values: primitive-type, complex-type, resource,
+        # logical
 
         # whether structure this definition describes is abstract or not  - that
         # is, whether the structure is not intended to be instantiated. for
@@ -140,7 +137,7 @@ class StructureDefinition(fhirbase):
         # where the extension can be used.
         self.contextType = None
         # type = string
-        # possible values = resource, datatype, extension
+        # possible values: resource, datatype, extension
 
         # identifies the types of resource or data type elements to which the
         # extension can be applied.
@@ -169,7 +166,7 @@ class StructureDefinition(fhirbase):
         # how the type relates to the basedefinition.
         self.derivation = None
         # type = string
-        # possible values = specialization, constraint
+        # possible values: specialization, constraint
 
         # a snapshot view is expressed in a stand alone form that can be used and
         # interpreted without considering the base structuredefinition.
@@ -188,76 +185,83 @@ class StructureDefinition(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
         if self.kind is not None:
             for value in self.kind:
-                if value != None and value.lower() not in ['primitive-type', 'complex-type', 'resource', 'logical']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'primitive-type, complex-type, resource, logical'))
+                if value is not None and value.lower() not in [
+                        'primitive-type', 'complex-type', 'resource', 'logical']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'primitive-type, complex-type, resource, logical'))
 
         if self.contextType is not None:
             for value in self.contextType:
-                if value != None and value.lower() not in ['resource', 'datatype', 'extension']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'resource, datatype, extension'))
+                if value is not None and value.lower() not in [
+                        'resource', 'datatype', 'extension']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'resource, datatype, extension'))
 
         if self.derivation is not None:
             for value in self.derivation:
-                if value != None and value.lower() not in ['specialization', 'constraint']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'specialization, constraint'))
+                if value is not None and value.lower() not in [
+                        'specialization', 'constraint']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'specialization, constraint'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'StructureDefinition_Mapping',
-            'parent_variable': 'object_id',
-            'child_entity': 'StructureDefinition',
-            'child_variable': 'mapping'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'StructureDefinition',
-            'child_variable': 'keyword'},
-
-            {'parent_entity': 'StructureDefinition_Differential',
-            'parent_variable': 'object_id',
-            'child_entity': 'StructureDefinition',
-            'child_variable': 'differential'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'StructureDefinition',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureDefinition',
+             'child_variable': 'mapping'},
 
             {'parent_entity': 'StructureDefinition_Snapshot',
-            'parent_variable': 'object_id',
-            'child_entity': 'StructureDefinition',
-            'child_variable': 'snapshot'},
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureDefinition',
+             'child_variable': 'snapshot'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'StructureDefinition',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'StructureDefinition',
-            'child_variable': 'contact'},
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureDefinition',
+             'child_variable': 'keyword'},
 
             {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'StructureDefinition',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureDefinition',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'StructureDefinition_Differential',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureDefinition',
+             'child_variable': 'differential'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureDefinition',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureDefinition',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureDefinition',
+             'child_variable': 'identifier'},
         ]
+
 
 class StructureDefinition_Mapping(fhirbase):
     """A definition of a FHIR structure. This resource is used to describe the
@@ -285,9 +289,11 @@ class StructureDefinition_Mapping(fhirbase):
         self.comment = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class StructureDefinition_Snapshot(fhirbase):
@@ -302,19 +308,21 @@ class StructureDefinition_Snapshot(fhirbase):
         # type = array
         # reference to ElementDefinition: ElementDefinition
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ElementDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'StructureDefinition_Snapshot',
-            'child_variable': 'element'},
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureDefinition_Snapshot',
+             'child_variable': 'element'},
         ]
+
 
 class StructureDefinition_Differential(fhirbase):
     """A definition of a FHIR structure. This resource is used to describe the
@@ -328,17 +336,17 @@ class StructureDefinition_Differential(fhirbase):
         # type = array
         # reference to ElementDefinition: ElementDefinition
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ElementDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'StructureDefinition_Differential',
-            'child_variable': 'element'},
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureDefinition_Differential',
+             'child_variable': 'element'},
         ]
-

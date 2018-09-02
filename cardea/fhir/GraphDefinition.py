@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .ContactDetail import ContactDetail
-from .UsageContext import UsageContext
+from .fhirbase import fhirbase
+
 
 class GraphDefinition(fhirbase):
     """A formal computable definition of a graph of resources - that is, a
@@ -13,7 +11,7 @@ class GraphDefinition(fhirbase):
         # this is a graphdefinition resource
         self.resourceType = 'GraphDefinition'
         # type = string
-        # possible values = GraphDefinition
+        # possible values: GraphDefinition
 
         # an absolute uri that is used to identify this graph definition when it
         # is referenced in a specification, model, design or an instance. this
@@ -44,7 +42,7 @@ class GraphDefinition(fhirbase):
         # the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this graph definition is authored for
         # testing purposes (or education/evaluation/marketing), and is not
@@ -106,41 +104,45 @@ class GraphDefinition(fhirbase):
         # type = array
         # reference to GraphDefinition_Link: GraphDefinition_Link
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'GraphDefinition_Link',
-            'parent_variable': 'object_id',
-            'child_entity': 'GraphDefinition',
-            'child_variable': 'link'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'GraphDefinition',
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'GraphDefinition',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'GraphDefinition',
+             'child_variable': 'contact'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'GraphDefinition',
-            'child_variable': 'jurisdiction'},
+            {'parent_entity': 'GraphDefinition_Link',
+             'parent_variable': 'object_id',
+             'child_entity': 'GraphDefinition',
+             'child_variable': 'link'},
 
             {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'GraphDefinition',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'GraphDefinition',
+             'child_variable': 'useContext'},
         ]
+
 
 class GraphDefinition_Link(fhirbase):
     """A formal computable definition of a graph of resources - that is, a
@@ -173,9 +175,11 @@ class GraphDefinition_Link(fhirbase):
         self.target = None
         # type = array
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class GraphDefinition_Target(fhirbase):
@@ -203,24 +207,26 @@ class GraphDefinition_Target(fhirbase):
         # type = array
         # reference to GraphDefinition_Link: GraphDefinition_Link
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'GraphDefinition_Link',
-            'parent_variable': 'object_id',
-            'child_entity': 'GraphDefinition_Target',
-            'child_variable': 'link'},
-
             {'parent_entity': 'GraphDefinition_Compartment',
-            'parent_variable': 'object_id',
-            'child_entity': 'GraphDefinition_Target',
-            'child_variable': 'compartment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'GraphDefinition_Target',
+             'child_variable': 'compartment'},
+
+            {'parent_entity': 'GraphDefinition_Link',
+             'parent_variable': 'object_id',
+             'child_entity': 'GraphDefinition_Target',
+             'child_variable': 'link'},
         ]
+
 
 class GraphDefinition_Compartment(fhirbase):
     """A formal computable definition of a graph of resources - that is, a
@@ -236,7 +242,7 @@ class GraphDefinition_Compartment(fhirbase):
         # identical | matching | different | no-rule | custom.
         self.rule = None
         # type = string
-        # possible values = identical, matching, different, custom
+        # possible values: identical, matching, different, custom
 
         # custom rule, as a fhirpath expression.
         self.expression = None
@@ -246,15 +252,17 @@ class GraphDefinition_Compartment(fhirbase):
         self.description = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.rule is not None:
             for value in self.rule:
-                if value != None and value.lower() not in ['identical', 'matching', 'different', 'custom']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'identical, matching, different, custom'))
-
+                if value is not None and value.lower() not in [
+                        'identical', 'matching', 'different', 'custom']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'identical, matching, different, custom'))

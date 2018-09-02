@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class RiskAssessment(fhirbase):
     """An assessment of the likely outcome(s) for a patient or other subject as
@@ -13,7 +10,7 @@ class RiskAssessment(fhirbase):
         # this is a riskassessment resource
         self.resourceType = 'RiskAssessment'
         # type = string
-        # possible values = RiskAssessment
+        # possible values: RiskAssessment
 
         # a reference to the request that is fulfilled by this risk assessment.
         self.basedOn = None
@@ -94,84 +91,83 @@ class RiskAssessment(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'occurrencePeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'occurrencePeriod'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'method'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'RiskAssessment_Prediction',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'prediction'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'parent'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'reasonReference'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'condition'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'basis'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'performer'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'context'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'basedOn'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'condition'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'reasonCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'reasonCodeableConcept'},
+
+            {'parent_entity': 'RiskAssessment_Prediction',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'prediction'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'basis'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'performer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'parent'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'method'},
         ]
+
 
 class RiskAssessment_Prediction(fhirbase):
     """An assessment of the likely outcome(s) for a patient or other subject as
@@ -218,37 +214,37 @@ class RiskAssessment_Prediction(fhirbase):
         self.rationale = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment_Prediction',
-            'child_variable': 'outcome'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'outcome'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment_Prediction',
-            'child_variable': 'whenPeriod'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment_Prediction',
-            'child_variable': 'probabilityRange'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment_Prediction',
-            'child_variable': 'whenRange'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'whenPeriod'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment_Prediction',
-            'child_variable': 'qualitativeRisk'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'qualitativeRisk'},
 
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'probabilityRange'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'whenRange'},
+        ]

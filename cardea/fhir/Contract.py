@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Attachment import Attachment
-from .Coding import Coding
+from .fhirbase import fhirbase
+
 
 class Contract(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
@@ -15,7 +10,7 @@ class Contract(fhirbase):
         # this is a contract resource
         self.resourceType = 'Contract'
         # type = string
-        # possible values = Contract
+        # possible values: Contract
 
         # the status of the resource instance.
         self.status = None
@@ -161,124 +156,123 @@ class Contract(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Contract_Signer',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'signer'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Contract_Rule',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'rule'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'bindingAttachment'},
-
-            {'parent_entity': 'Contract_Legal',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'legal'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'subType'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'applies'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract',
-            'child_variable': 'domain'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'contentDerivative'},
-
-            {'parent_entity': 'Contract_Friendly',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'friendly'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'actionReason'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract',
-            'child_variable': 'topic'},
-
-            {'parent_entity': 'Contract_ValuedItem',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract',
-            'child_variable': 'valuedItem'},
-
-            {'parent_entity': 'Contract_Term',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract',
-            'child_variable': 'term'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'decisionType'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'action'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract',
-            'child_variable': 'authority'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract',
+             'child_variable': 'bindingReference'},
 
             {'parent_entity': 'Contract_Agent',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'agent'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract',
-            'child_variable': 'bindingReference'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'securityLabel'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'agent'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'subType'},
+
+            {'parent_entity': 'Contract_Term',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract',
+             'child_variable': 'term'},
+
+            {'parent_entity': 'Contract_ValuedItem',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract',
+             'child_variable': 'valuedItem'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract',
+             'child_variable': 'authority'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'decisionType'},
+
+            {'parent_entity': 'Contract_Legal',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'legal'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'bindingAttachment'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'securityLabel'},
+
+            {'parent_entity': 'Contract_Friendly',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'friendly'},
+
+            {'parent_entity': 'Contract_Rule',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'rule'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract',
+             'child_variable': 'domain'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract',
+             'child_variable': 'topic'},
+
+            {'parent_entity': 'Contract_Signer',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'signer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'contentDerivative'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'applies'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'actionReason'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'action'},
         ]
+
 
 class Contract_Agent(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
@@ -295,24 +289,26 @@ class Contract_Agent(fhirbase):
         # type = array
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Agent',
-            'child_variable': 'role'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract_Agent',
-            'child_variable': 'actor'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Agent',
+             'child_variable': 'actor'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Agent',
+             'child_variable': 'role'},
         ]
+
 
 class Contract_Signer(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
@@ -333,29 +329,31 @@ class Contract_Signer(fhirbase):
         # type = array
         # reference to Signature: Signature
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract_Signer',
-            'child_variable': 'party'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Signer',
+             'child_variable': 'party'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Signer',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Signer',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Signature',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Signer',
-            'child_variable': 'signature'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Signer',
+             'child_variable': 'signature'},
         ]
+
 
 class Contract_ValuedItem(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
@@ -412,44 +410,43 @@ class Contract_ValuedItem(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_ValuedItem',
-            'child_variable': 'quantity'},
-
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_ValuedItem',
-            'child_variable': 'unitPrice'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem',
+             'child_variable': 'net'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract_ValuedItem',
-            'child_variable': 'entityReference'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_ValuedItem',
-            'child_variable': 'entityCodeableConcept'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_ValuedItem',
-            'child_variable': 'net'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_ValuedItem',
+             'child_variable': 'entityReference'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_ValuedItem',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem',
+             'child_variable': 'unitPrice'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem',
+             'child_variable': 'entityCodeableConcept'},
         ]
+
 
 class Contract_Term(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
@@ -458,18 +455,13 @@ class Contract_Term(fhirbase):
 
     def __init__(self, dict_values=None):
         # when this contract provision was issued.
-        # when this contract provision was issued.
         self.issued = None
         # type = string
-        # type = string
 
-        # relevant time or time-period when this contract provision is applicable.
         # relevant time or time-period when this contract provision is applicable.
         self.applies = None
         # reference to Period: Period
 
-        # type of contract provision such as specific requirements, purposes for
-        # actions, obligations, prohibitions, e.g. life time maximum benefit.
         # type of contract provision such as specific requirements, purposes for
         # actions, obligations, prohibitions, e.g. life time maximum benefit.
         self.type = None
@@ -477,138 +469,116 @@ class Contract_Term(fhirbase):
 
         # subtype of this contract provision, e.g. life time maximum payment for a
         # contract term for specific valued item, e.g. disability payment.
-        # subtype of this contract provision, e.g. life time maximum payment for a
-        # contract term for specific valued item, e.g. disability payment.
         self.subType = None
         # reference to CodeableConcept: CodeableConcept
 
         # the matter of concern in the context of this provision of the agrement.
-        # the matter of concern in the context of this provision of the agrement.
         self.topic = None
-        # type = array
         # type = array
         # reference to Reference: identifier
 
         # action stipulated by this contract provision.
-        # action stipulated by this contract provision.
         self.action = None
-        # type = array
         # type = array
         # reference to CodeableConcept: CodeableConcept
 
-        # reason or purpose for the action stipulated by this contract provision.
         # reason or purpose for the action stipulated by this contract provision.
         self.actionReason = None
         # type = array
-        # type = array
         # reference to CodeableConcept: CodeableConcept
 
         # a set of security labels that define which terms are controlled by this
         # condition.
-        # a set of security labels that define which terms are controlled by this
-        # condition.
         self.securityLabel = None
-        # type = array
         # type = array
         # reference to Coding: Coding
 
         # an actor taking a role in an activity for which it can be assigned some
         # degree of responsibility for the activity taking place.
-        # an actor taking a role in an activity for which it can be assigned some
-        # degree of responsibility for the activity taking place.
         self.agent = None
-        # type = array
         # type = array
         # reference to Contract_Agent1: Contract_Agent1
 
         # human readable form of this contract provision.
-        # human readable form of this contract provision.
         self.text = None
-        # type = string
         # type = string
 
         # contract provision valued item list.
-        # contract provision valued item list.
         self.valuedItem = None
-        # type = array
         # type = array
         # reference to Contract_ValuedItem1: identifier
 
         # nested group of contract provisions.
-        # nested group of contract provisions.
         self.group = None
-        # type = array
         # type = array
         # reference to Contract_Term: identifier
 
         # unique identifier for this particular contract provision.
-        # unique identifier for this particular contract provision.
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Term',
-            'child_variable': 'securityLabel'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Term',
-            'child_variable': 'actionReason'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Term',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Term',
-            'child_variable': 'subType'},
-
-            {'parent_entity': 'Contract_ValuedItem1',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract_Term',
-            'child_variable': 'valuedItem'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Term',
-            'child_variable': 'applies'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Term',
-            'child_variable': 'identifier'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract_Term',
-            'child_variable': 'topic'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'topic'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'actionReason'},
 
             {'parent_entity': 'Contract_Agent1',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Term',
-            'child_variable': 'agent'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'agent'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'applies'},
+
+            {'parent_entity': 'Contract_ValuedItem1',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'valuedItem'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Term',
-            'child_variable': 'action'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'subType'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'securityLabel'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'action'},
 
             {'parent_entity': 'Contract_Term',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract_Term',
-            'child_variable': 'group'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'group'},
         ]
+
 
 class Contract_Agent1(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
@@ -617,37 +587,35 @@ class Contract_Agent1(fhirbase):
 
     def __init__(self, dict_values=None):
         # the agent assigned a role in this contract provision.
-        # the agent assigned a role in this contract provision.
         self.actor = None
         # reference to Reference: identifier
 
         # role played by the agent assigned this role in the execution of this
         # contract provision.
-        # role played by the agent assigned this role in the execution of this
-        # contract provision.
         self.role = None
-        # type = array
         # type = array
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Agent1',
-            'child_variable': 'role'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract_Agent1',
-            'child_variable': 'actor'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Agent1',
+             'child_variable': 'actor'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Agent1',
+             'child_variable': 'role'},
         ]
+
 
 class Contract_ValuedItem1(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
@@ -656,33 +624,24 @@ class Contract_ValuedItem1(fhirbase):
 
     def __init__(self, dict_values=None):
         # specific type of contract provision valued item that may be priced.
-        # specific type of contract provision valued item that may be priced.
         self.entityCodeableConcept = None
         # reference to CodeableConcept: CodeableConcept
 
-        # specific type of contract provision valued item that may be priced.
         # specific type of contract provision valued item that may be priced.
         self.entityReference = None
         # reference to Reference: identifier
 
         # indicates the time during which this contract term valueditem
         # information is effective.
-        # indicates the time during which this contract term valueditem
-        # information is effective.
         self.effectiveTime = None
         # type = string
-        # type = string
 
-        # specifies the units by which the contract provision valued item is
-        # measured or counted, and quantifies the countable or measurable contract
-        # term valued item instances.
         # specifies the units by which the contract provision valued item is
         # measured or counted, and quantifies the countable or measurable contract
         # term valued item instances.
         self.quantity = None
         # reference to Quantity: Quantity
 
-        # a contract provision valued item unit valuation measure.
         # a contract provision valued item unit valuation measure.
         self.unitPrice = None
         # reference to Money: Money
@@ -691,19 +650,9 @@ class Contract_ValuedItem1(fhirbase):
         # overall value of the contract provision valued item delivered. the
         # concept of a factor allows for a discount or surcharge multiplier to be
         # applied to a monetary amount.
-        # a real number that represents a multiplier used in determining the
-        # overall value of the contract provision valued item delivered. the
-        # concept of a factor allows for a discount or surcharge multiplier to be
-        # applied to a monetary amount.
         self.factor = None
         # type = int
-        # type = int
 
-        # an amount that expresses the weighting (based on difficulty, cost and/or
-        # resource intensiveness) associated with the contract provision valued
-        # item delivered. the concept of points allows for assignment of point
-        # values for a contract provisionvalued item, such that a monetary amount
-        # can be assigned to each point.
         # an amount that expresses the weighting (based on difficulty, cost and/or
         # resource intensiveness) associated with the contract provision valued
         # item delivered. the concept of points allows for assignment of point
@@ -711,12 +660,7 @@ class Contract_ValuedItem1(fhirbase):
         # can be assigned to each point.
         self.points = None
         # type = int
-        # type = int
 
-        # expresses the product of the contract provision valued item unitquantity
-        # and the unitpriceamt. for example, the formula: unit quantity * unit
-        # price (cost per point) * factor number  * points = net amount. quantity,
-        # factor and points are assumed to be 1 if not supplied.
         # expresses the product of the contract provision valued item unitquantity
         # and the unitpriceamt. for example, the formula: unit quantity * unit
         # price (cost per point) * factor number  * points = net amount. quantity,
@@ -725,48 +669,46 @@ class Contract_ValuedItem1(fhirbase):
         # reference to Money: Money
 
         # identifies a contract provision valued item instance.
-        # identifies a contract provision valued item instance.
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_ValuedItem1',
-            'child_variable': 'quantity'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract_ValuedItem1',
-            'child_variable': 'entityReference'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_ValuedItem1',
-            'child_variable': 'entityCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem1',
+             'child_variable': 'entityCodeableConcept'},
 
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_ValuedItem1',
-            'child_variable': 'net'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem1',
+             'child_variable': 'net'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_ValuedItem1',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem1',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem1',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_ValuedItem1',
-            'child_variable': 'unitPrice'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem1',
+             'child_variable': 'unitPrice'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_ValuedItem1',
+             'child_variable': 'entityReference'},
         ]
+
 
 class Contract_Friendly(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
@@ -784,24 +726,26 @@ class Contract_Friendly(fhirbase):
         self.contentReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Friendly',
-            'child_variable': 'contentAttachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Friendly',
+             'child_variable': 'contentAttachment'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract_Friendly',
-            'child_variable': 'contentReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Friendly',
+             'child_variable': 'contentReference'},
         ]
+
 
 class Contract_Legal(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
@@ -817,24 +761,26 @@ class Contract_Legal(fhirbase):
         self.contentReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract_Legal',
-            'child_variable': 'contentReference'},
-
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Legal',
-            'child_variable': 'contentAttachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Legal',
+             'child_variable': 'contentAttachment'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Legal',
+             'child_variable': 'contentReference'},
         ]
+
 
 class Contract_Rule(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
@@ -852,22 +798,22 @@ class Contract_Rule(fhirbase):
         self.contentReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Contract_Rule',
-            'child_variable': 'contentAttachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Rule',
+             'child_variable': 'contentAttachment'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Contract_Rule',
-            'child_variable': 'contentReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Rule',
+             'child_variable': 'contentReference'},
         ]
-

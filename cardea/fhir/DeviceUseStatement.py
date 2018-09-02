@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Timing import Timing
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class DeviceUseStatement(fhirbase):
     """A record of a device being used by a patient where the record is the
@@ -15,14 +10,15 @@ class DeviceUseStatement(fhirbase):
         # this is a deviceusestatement resource
         self.resourceType = 'DeviceUseStatement'
         # type = string
-        # possible values = DeviceUseStatement
+        # possible values: DeviceUseStatement
 
         # a code representing the patient or other source's judgment about the
         # state of the device used that this statement is about.  generally this
         # will be active or completed.
         self.status = None
         # type = string
-        # possible values = active, completed, entered-in-error, intended, stopped, on-hold
+        # possible values: active, completed, entered-in-error,
+        # intended, stopped, on-hold
 
         # the patient who used the device.
         self.subject = None
@@ -79,69 +75,69 @@ class DeviceUseStatement(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'completed', 'entered-in-error', 'intended', 'stopped', 'on-hold']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, completed, entered-in-error, intended, stopped, on-hold'))
+                if value is not None and value.lower() not in [
+                        'active', 'completed', 'entered-in-error', 'intended', 'stopped',
+                        'on-hold']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, completed, entered-in-error, intended, stopped, on-hold'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceUseStatement',
-            'child_variable': 'bodySite'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceUseStatement',
-            'child_variable': 'whenUsed'},
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceUseStatement',
+             'child_variable': 'note'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceUseStatement',
-            'child_variable': 'indication'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceUseStatement',
+             'child_variable': 'bodySite'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceUseStatement',
-            'child_variable': 'device'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceUseStatement',
+             'child_variable': 'source'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceUseStatement',
+             'child_variable': 'device'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceUseStatement',
+             'child_variable': 'timingPeriod'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceUseStatement',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceUseStatement',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceUseStatement',
-            'child_variable': 'source'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceUseStatement',
-            'child_variable': 'timingPeriod'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceUseStatement',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceUseStatement',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceUseStatement',
-            'child_variable': 'timingTiming'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceUseStatement',
+             'child_variable': 'timingTiming'},
 
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceUseStatement',
-            'child_variable': 'note'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceUseStatement',
+             'child_variable': 'indication'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceUseStatement',
+             'child_variable': 'whenUsed'},
         ]
-

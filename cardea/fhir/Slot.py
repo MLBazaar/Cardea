@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class Slot(fhirbase):
     """A slot of time on a schedule that may be available for booking
@@ -12,7 +10,7 @@ class Slot(fhirbase):
         # this is a slot resource
         self.resourceType = 'Slot'
         # type = string
-        # possible values = Slot
+        # possible values: Slot
 
         # a broad categorisation of the service that is to be performed during
         # this appointment.
@@ -46,7 +44,8 @@ class Slot(fhirbase):
         # busy | free | busy-unavailable | busy-tentative | entered-in-error.
         self.status = None
         # type = string
-        # possible values = busy, free, busy-unavailable, busy-tentative, entered-in-error
+        # possible values: busy, free, busy-unavailable, busy-tentative,
+        # entered-in-error
 
         # date/time that the slot is to begin.
         self.start = None
@@ -71,49 +70,49 @@ class Slot(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['busy', 'free', 'busy-unavailable', 'busy-tentative', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'busy, free, busy-unavailable, busy-tentative, entered-in-error'))
+                if value is not None and value.lower() not in [
+                    'busy', 'free', 'busy-unavailable', 'busy-tentative',
+                        'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'busy, free, busy-unavailable, busy-tentative, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Slot',
-            'child_variable': 'serviceType'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Slot',
-            'child_variable': 'schedule'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Slot',
+             'child_variable': 'schedule'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Slot',
+             'child_variable': 'serviceType'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Slot',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Slot',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Slot',
-            'child_variable': 'appointmentType'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Slot',
+             'child_variable': 'specialty'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Slot',
-            'child_variable': 'serviceCategory'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Slot',
+             'child_variable': 'appointmentType'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Slot',
-            'child_variable': 'specialty'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Slot',
+             'child_variable': 'serviceCategory'},
         ]
-

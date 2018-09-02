@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class CareTeam(fhirbase):
     """The Care Team includes all the people and organizations who plan to
@@ -14,12 +10,13 @@ class CareTeam(fhirbase):
         # this is a careteam resource
         self.resourceType = 'CareTeam'
         # type = string
-        # possible values = CareTeam
+        # possible values: CareTeam
 
         # indicates the current state of the care team.
         self.status = None
         # type = string
-        # possible values = proposed, active, suspended, inactive, entered-in-error
+        # possible values: proposed, active, suspended, inactive,
+        # entered-in-error
 
         # identifies what kind of team.  this is to support differentiation
         # between multiple co-existing teams, such as care plan team, episode of
@@ -81,71 +78,72 @@ class CareTeam(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['proposed', 'active', 'suspended', 'inactive', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'proposed, active, suspended, inactive, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'proposed', 'active', 'suspended', 'inactive', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'proposed, active, suspended, inactive, entered-in-error'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam',
-            'child_variable': 'reasonReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'reasonCode'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam',
+             'child_variable': 'managingOrganization'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'period'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'category'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam',
+             'child_variable': 'reasonReference'},
 
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'note'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'note'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam',
-            'child_variable': 'managingOrganization'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'CareTeam_Participant',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'participant'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam',
-            'child_variable': 'context'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'participant'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam',
-            'child_variable': 'subject'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'category'},
         ]
+
 
 class CareTeam_Participant(fhirbase):
     """The Care Team includes all the people and organizations who plan to
@@ -173,32 +171,32 @@ class CareTeam_Participant(fhirbase):
         self.period = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam_Participant',
+             'child_variable': 'period'},
+
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam_Participant',
-            'child_variable': 'onBehalfOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam_Participant',
+             'child_variable': 'member'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam_Participant',
+             'child_variable': 'onBehalfOf'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam_Participant',
-            'child_variable': 'role'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam_Participant',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam_Participant',
-            'child_variable': 'member'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam_Participant',
+             'child_variable': 'role'},
         ]
-

@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Reference import Reference
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class NamingSystem(fhirbase):
     """A curated namespace that issues unique symbols within that namespace for
@@ -14,7 +11,7 @@ class NamingSystem(fhirbase):
         # this is a namingsystem resource
         self.resourceType = 'NamingSystem'
         # type = string
-        # possible values = NamingSystem
+        # possible values: NamingSystem
 
         # a natural language name identifying the naming system. this name should
         # be usable as an identifier for the module by machine processing
@@ -26,13 +23,13 @@ class NamingSystem(fhirbase):
         # content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # indicates the purpose for the naming system - what kinds of things does
         # it make unique?
         self.kind = None
         # type = string
-        # possible values = codesystem, identifier, root
+        # possible values: codesystem, identifier, root
 
         # the date  (and optionally time) when the naming system was published.
         # the date must change if and when the business version changes and it
@@ -97,56 +94,62 @@ class NamingSystem(fhirbase):
         self.replacedBy = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
         if self.kind is not None:
             for value in self.kind:
-                if value != None and value.lower() not in ['codesystem', 'identifier', 'root']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'codesystem, identifier, root'))
+                if value is not None and value.lower() not in [
+                        'codesystem', 'identifier', 'root']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'codesystem, identifier, root'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'NamingSystem',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NamingSystem',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'NamingSystem',
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'NamingSystem_UniqueId',
-            'parent_variable': 'object_id',
-            'child_entity': 'NamingSystem',
-            'child_variable': 'uniqueId'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'NamingSystem',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NamingSystem',
+             'child_variable': 'uniqueId'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'NamingSystem',
-            'child_variable': 'replacedBy'},
+             'parent_variable': 'identifier',
+             'child_entity': 'NamingSystem',
+             'child_variable': 'replacedBy'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'NamingSystem',
+             'child_variable': 'useContext'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NamingSystem',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NamingSystem',
-            'child_variable': 'jurisdiction'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NamingSystem',
+             'child_variable': 'type'},
         ]
+
 
 class NamingSystem_UniqueId(fhirbase):
     """A curated namespace that issues unique symbols within that namespace for
@@ -159,7 +162,7 @@ class NamingSystem_UniqueId(fhirbase):
         # identifier.
         self.type = None
         # type = string
-        # possible values = oid, uuid, uri, other
+        # possible values: oid, uuid, uri, other
 
         # the string that should be sent over the wire to identify the code system
         # or identifier system.
@@ -181,24 +184,26 @@ class NamingSystem_UniqueId(fhirbase):
         self.period = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['oid', 'uuid', 'uri', 'other']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'oid, uuid, uri, other'))
+                if value is not None and value.lower() not in [
+                        'oid', 'uuid', 'uri', 'other']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'oid, uuid, uri, other'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'NamingSystem_UniqueId',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NamingSystem_UniqueId',
+             'child_variable': 'period'},
         ]
-

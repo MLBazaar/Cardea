@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class EpisodeOfCare(fhirbase):
     """An association between a patient and an organization / healthcare
@@ -15,12 +12,13 @@ class EpisodeOfCare(fhirbase):
         # this is a episodeofcare resource
         self.resourceType = 'EpisodeOfCare'
         # type = string
-        # possible values = EpisodeOfCare
+        # possible values: EpisodeOfCare
 
         # planned | waitlist | active | onhold | finished | cancelled.
         self.status = None
         # type = string
-        # possible values = planned, waitlist, active, onhold, finished, cancelled, entered-in-error
+        # possible values: planned, waitlist, active, onhold, finished,
+        # cancelled, entered-in-error
 
         # the history of statuses that the episodeofcare has been through (without
         # requiring processing the history of the resource).
@@ -82,76 +80,79 @@ class EpisodeOfCare(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['planned', 'waitlist', 'active', 'onhold', 'finished', 'cancelled', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'planned, waitlist, active, onhold, finished, cancelled, entered-in-error'))
+                if value is not None and value.lower() not in [
+                    'planned', 'waitlist', 'active', 'onhold', 'finished', 'cancelled',
+                        'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'planned, waitlist, active, onhold, finished, cancelled,'
+                        'entered-in-error'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EpisodeOfCare',
-            'child_variable': 'account'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EpisodeOfCare',
-            'child_variable': 'careManager'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EpisodeOfCare',
-            'child_variable': 'referralRequest'},
+             'parent_variable': 'identifier',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'referralRequest'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'EpisodeOfCare',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EpisodeOfCare',
-            'child_variable': 'managingOrganization'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'period'},
 
             {'parent_entity': 'EpisodeOfCare_Diagnosis',
-            'parent_variable': 'object_id',
-            'child_entity': 'EpisodeOfCare',
-            'child_variable': 'diagnosis'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'EpisodeOfCare',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EpisodeOfCare',
-            'child_variable': 'patient'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'diagnosis'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EpisodeOfCare',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EpisodeOfCare',
-            'child_variable': 'team'},
+             'parent_variable': 'identifier',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'careManager'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'account'},
 
             {'parent_entity': 'EpisodeOfCare_StatusHistory',
-            'parent_variable': 'object_id',
-            'child_entity': 'EpisodeOfCare',
-            'child_variable': 'statusHistory'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'statusHistory'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'team'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'managingOrganization'},
         ]
+
 
 class EpisodeOfCare_StatusHistory(fhirbase):
     """An association between a patient and an organization / healthcare
@@ -164,32 +165,39 @@ class EpisodeOfCare_StatusHistory(fhirbase):
         # planned | waitlist | active | onhold | finished | cancelled.
         self.status = None
         # type = string
-        # possible values = planned, waitlist, active, onhold, finished, cancelled, entered-in-error
+        # possible values: planned, waitlist, active, onhold, finished,
+        # cancelled, entered-in-error
 
         # the period during this episodeofcare that the specific status applied.
         self.period = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['planned', 'waitlist', 'active', 'onhold', 'finished', 'cancelled', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'planned, waitlist, active, onhold, finished, cancelled, entered-in-error'))
+                if value is not None and value.lower() not in [
+                    'planned', 'waitlist', 'active', 'onhold', 'finished', 'cancelled',
+                        'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'planned, waitlist, active, onhold, finished, cancelled,'
+                        'entered-in-error'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'EpisodeOfCare_StatusHistory',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare_StatusHistory',
+             'child_variable': 'period'},
         ]
+
 
 class EpisodeOfCare_Diagnosis(fhirbase):
     """An association between a patient and an organization / healthcare
@@ -213,22 +221,22 @@ class EpisodeOfCare_Diagnosis(fhirbase):
         self.rank = None
         # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EpisodeOfCare_Diagnosis',
-            'child_variable': 'condition'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EpisodeOfCare_Diagnosis',
-            'child_variable': 'role'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare_Diagnosis',
+             'child_variable': 'role'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EpisodeOfCare_Diagnosis',
+             'child_variable': 'condition'},
+        ]

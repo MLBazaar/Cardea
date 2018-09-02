@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Reference import Reference
-from .Coding import Coding
+from .fhirbase import fhirbase
+
 
 class MessageHeader(fhirbase):
     """The header for a message exchange that is either requesting or
@@ -15,7 +13,7 @@ class MessageHeader(fhirbase):
         # this is a messageheader resource
         self.resourceType = 'MessageHeader'
         # type = string
-        # possible values = MessageHeader
+        # possible values: MessageHeader
 
         # code that identifies the event this message represents and connects it
         # with its definition. events defined as part of the fhir specification
@@ -80,69 +78,71 @@ class MessageHeader(fhirbase):
         # type = array
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageHeader',
-            'child_variable': 'responsible'},
-
-            {'parent_entity': 'MessageHeader_Destination',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageHeader',
-            'child_variable': 'destination'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageHeader',
-            'child_variable': 'focus'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageHeader',
-            'child_variable': 'event'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageHeader',
-            'child_variable': 'author'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageHeader',
-            'child_variable': 'reason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageHeader',
+             'child_variable': 'reason'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageHeader',
-            'child_variable': 'sender'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageHeader',
+             'child_variable': 'author'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageHeader',
-            'child_variable': 'enterer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageHeader',
+             'child_variable': 'focus'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageHeader',
-            'child_variable': 'receiver'},
-
-            {'parent_entity': 'MessageHeader_Response',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageHeader',
-            'child_variable': 'response'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageHeader',
+             'child_variable': 'responsible'},
 
             {'parent_entity': 'MessageHeader_Source',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageHeader',
-            'child_variable': 'source'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageHeader',
+             'child_variable': 'source'},
+
+            {'parent_entity': 'MessageHeader_Destination',
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageHeader',
+             'child_variable': 'destination'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageHeader',
+             'child_variable': 'sender'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageHeader',
+             'child_variable': 'receiver'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageHeader',
+             'child_variable': 'event'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageHeader',
+             'child_variable': 'enterer'},
+
+            {'parent_entity': 'MessageHeader_Response',
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageHeader',
+             'child_variable': 'response'},
         ]
+
 
 class MessageHeader_Destination(fhirbase):
     """The header for a message exchange that is either requesting or
@@ -166,19 +166,21 @@ class MessageHeader_Destination(fhirbase):
         self.endpoint = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageHeader_Destination',
-            'child_variable': 'target'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageHeader_Destination',
+             'child_variable': 'target'},
         ]
+
 
 class MessageHeader_Source(fhirbase):
     """The header for a message exchange that is either requesting or
@@ -211,19 +213,21 @@ class MessageHeader_Source(fhirbase):
         self.endpoint = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageHeader_Source',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageHeader_Source',
+             'child_variable': 'contact'},
         ]
+
 
 class MessageHeader_Response(fhirbase):
     """The header for a message exchange that is either requesting or
@@ -238,7 +242,7 @@ class MessageHeader_Response(fhirbase):
         # was successful or not, and whether it should be resent or not.
         self.code = None
         # type = string
-        # possible values = ok, transient-error, fatal-error
+        # possible values: ok, transient-error, fatal-error
 
         # full details of any issues found in the message.
         self.details = None
@@ -248,24 +252,23 @@ class MessageHeader_Response(fhirbase):
         self.identifier = None
         # type = string
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.code is not None:
             for value in self.code:
-                if value != None and value.lower() not in ['ok', 'transient-error', 'fatal-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'ok, transient-error, fatal-error'))
+                if value is not None and value.lower() not in [
+                        'ok', 'transient-error', 'fatal-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'ok, transient-error, fatal-error'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageHeader_Response',
-            'child_variable': 'details'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageHeader_Response',
+             'child_variable': 'details'},
         ]
-

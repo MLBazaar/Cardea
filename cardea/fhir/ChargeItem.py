@@ -1,12 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Timing import Timing
-from .Reference import Reference
-from .Money import Money
-from .Period import Period
-from .Quantity import Quantity
+from .fhirbase import fhirbase
+
 
 class ChargeItem(fhirbase):
     """The resource ChargeItem describes the provision of healthcare provider
@@ -21,7 +14,7 @@ class ChargeItem(fhirbase):
         # this is a chargeitem resource
         self.resourceType = 'ChargeItem'
         # type = string
-        # possible values = ChargeItem
+        # possible values: ChargeItem
 
         # references the source of pricing information, rules of application for
         # the code this chargeitem uses.
@@ -31,7 +24,8 @@ class ChargeItem(fhirbase):
         # the current state of the chargeitem.
         self.status = None
         # type = string
-        # possible values = planned, billable, not-billable, aborted, billed, entered-in-error, unknown
+        # possible values: planned, billable, not-billable, aborted,
+        # billed, entered-in-error, unknown
 
         # chargeitems can be grouped to larger chargeitems covering the whole set.
         self.partOf = None
@@ -140,116 +134,119 @@ class ChargeItem(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['planned', 'billable', 'not-billable', 'aborted', 'billed', 'entered-in-error', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'planned, billable, not-billable, aborted, billed, entered-in-error, unknown'))
+                if value is not None and value.lower() not in [
+                    'planned', 'billable', 'not-billable', 'aborted', 'billed',
+                        'entered-in-error', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'planned, billable, not-billable, aborted, billed,'
+                        'entered-in-error, unknown'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'service'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'performingOrganization'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'priceOverride'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'supportingInformation'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'partOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'enterer'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'reason'},
-
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'occurrenceTiming'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'reason'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'enterer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'context'},
 
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'code'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'account'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'quantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'bodysite'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'context'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'service'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'occurrenceTiming'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'occurrencePeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'occurrencePeriod'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'performingOrganization'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'note'},
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'priceOverride'},
 
             {'parent_entity': 'ChargeItem_Participant',
-            'parent_variable': 'object_id',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'participant'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'participant'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'note'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'requestingOrganization'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'requestingOrganization'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'bodysite'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'account'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ChargeItem',
-            'child_variable': 'supportingInformation'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ChargeItem',
+             'child_variable': 'partOf'},
         ]
+
 
 class ChargeItem_Participant(fhirbase):
     """The resource ChargeItem describes the provision of healthcare provider
@@ -271,22 +268,22 @@ class ChargeItem_Participant(fhirbase):
         self.actor = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ChargeItem_Participant',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ChargeItem_Participant',
+             'child_variable': 'role'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ChargeItem_Participant',
-            'child_variable': 'actor'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ChargeItem_Participant',
+             'child_variable': 'actor'},
         ]
-

@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Coding import Coding
+from .fhirbase import fhirbase
+
 
 class ImagingStudy(fhirbase):
     """Representation of the content produced in a DICOM imaging study. A study
@@ -17,7 +14,7 @@ class ImagingStudy(fhirbase):
         # this is a imagingstudy resource
         self.resourceType = 'ImagingStudy'
         # type = string
-        # possible values = ImagingStudy
+        # possible values: ImagingStudy
 
         # formal identifier for the study.
         self.uid = None
@@ -34,7 +31,7 @@ class ImagingStudy(fhirbase):
         # availability of study (online, offline, or nearline).
         self.availability = None
         # type = string
-        # possible values = ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
+        # possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
 
         # a list of all the series.imagemodality values that are actual
         # acquisition modalities, i.e. those in the dicom context group 29 (value
@@ -123,86 +120,87 @@ class ImagingStudy(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.availability is not None:
             for value in self.availability:
-                if value != None and value.lower() not in ['online', 'offline', 'nearline', 'unavailable']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'online, offline, nearline, unavailable'))
+                if value is not None and value.lower() not in [
+                        'online', 'offline', 'nearline', 'unavailable']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'ONLINE, OFFLINE, NEARLINE, UNAVAILABLE'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'ImagingStudy_Series',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'series'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'endpoint'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'accession'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'patient'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'procedureReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'procedureReference'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'endpoint'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'basedOn'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'procedureCode'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'reason'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'referrer'},
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'accession'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'interpreter'},
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'reason'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'patient'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'procedureCode'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingStudy',
-            'child_variable': 'modalityList'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'modalityList'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'referrer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'interpreter'},
+
+            {'parent_entity': 'ImagingStudy_Series',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'series'},
         ]
+
 
 class ImagingStudy_Series(fhirbase):
     """Representation of the content produced in a DICOM imaging study. A study
@@ -240,7 +238,7 @@ class ImagingStudy_Series(fhirbase):
         # availability of series (online, offline or nearline).
         self.availability = None
         # type = string
-        # possible values = ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
+        # possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
 
         # the network service providing access (e.g., query, view, or retrieval)
         # for this series. see implementation notes for information about using
@@ -284,51 +282,55 @@ class ImagingStudy_Series(fhirbase):
         # type = array
         # reference to ImagingStudy_Instance: ImagingStudy_Instance
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.availability is not None:
             for value in self.availability:
-                if value != None and value.lower() not in ['online', 'offline', 'nearline', 'unavailable']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'online, offline, nearline, unavailable'))
+                if value is not None and value.lower() not in [
+                        'online', 'offline', 'nearline', 'unavailable']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'ONLINE, OFFLINE, NEARLINE, UNAVAILABLE'))
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingStudy_Series',
+             'child_variable': 'bodySite'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingStudy_Series',
+             'child_variable': 'laterality'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy_Series',
+             'child_variable': 'endpoint'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy_Series',
+             'child_variable': 'performer'},
+
             {'parent_entity': 'ImagingStudy_Instance',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingStudy_Series',
-            'child_variable': 'instance'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingStudy_Series',
+             'child_variable': 'instance'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingStudy_Series',
-            'child_variable': 'bodySite'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingStudy_Series',
-            'child_variable': 'laterality'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingStudy_Series',
-            'child_variable': 'endpoint'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingStudy_Series',
-            'child_variable': 'modality'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingStudy_Series',
-            'child_variable': 'performer'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingStudy_Series',
+             'child_variable': 'modality'},
         ]
+
 
 class ImagingStudy_Instance(fhirbase):
     """Representation of the content produced in a DICOM imaging study. A study
@@ -356,8 +358,8 @@ class ImagingStudy_Instance(fhirbase):
         self.title = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)
