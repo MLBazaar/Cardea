@@ -1,11 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .RelatedArtifact import RelatedArtifact
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class ResearchStudy(fhirbase):
     """A process where a researcher or organization plans and then executes a
@@ -21,7 +15,7 @@ class ResearchStudy(fhirbase):
         # this is a researchstudy resource
         self.resourceType = 'ResearchStudy'
         # type = string
-        # possible values = ResearchStudy
+        # possible values: ResearchStudy
 
         # a short, descriptive user-friendly label for the study.
         self.title = None
@@ -42,7 +36,8 @@ class ResearchStudy(fhirbase):
         # the current state of the study.
         self.status = None
         # type = string
-        # possible values = draft, in-progress, suspended, stopped, completed, entered-in-error
+        # possible values: draft, in-progress, suspended, stopped,
+        # completed, entered-in-error
 
         # codes categorizing the type of study such as investigational vs.
         # observational, type of blinding, type of randomization, safety vs.
@@ -135,106 +130,109 @@ class ResearchStudy(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'in-progress', 'suspended', 'stopped', 'completed', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, in-progress, suspended, stopped, completed, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'draft', 'in-progress', 'suspended', 'stopped', 'completed',
+                        'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, in-progress, suspended, stopped, completed,'
+                        'entered-in-error'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'focus'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'reasonStopped'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'partOf'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'reasonStopped'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'focus'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'keyword'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'note'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'principalInvestigator'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'site'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'enrollment'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'sponsor'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'protocol'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'ResearchStudy_Arm',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'arm'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'sponsor'},
 
             {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'keyword'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'site'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'enrollment'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'principalInvestigator'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'protocol'},
+
+            {'parent_entity': 'ResearchStudy_Arm',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'arm'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'partOf'},
 
             {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy',
-            'child_variable': 'relatedArtifact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'relatedArtifact'},
         ]
+
 
 class ResearchStudy_Arm(fhirbase):
     """A process where a researcher or organization plans and then executes a
@@ -261,17 +259,17 @@ class ResearchStudy_Arm(fhirbase):
         self.description = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchStudy_Arm',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy_Arm',
+             'child_variable': 'code'},
         ]
-

@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class DocumentReference(fhirbase):
     """A reference to a document.
@@ -11,7 +9,7 @@ class DocumentReference(fhirbase):
         # this is a documentreference resource
         self.resourceType = 'DocumentReference'
         # type = string
-        # possible values = DocumentReference
+        # possible values: DocumentReference
 
         # document identifier as assigned by the source of the document. this
         # identifier is specific to this version of the document. this unique
@@ -23,7 +21,7 @@ class DocumentReference(fhirbase):
         # the status of this document reference.
         self.status = None
         # type = string
-        # possible values = current, superseded, entered-in-error
+        # possible values: current, superseded, entered-in-error
 
         # the status of the underlying document.
         self.docStatus = None
@@ -107,81 +105,82 @@ class DocumentReference(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['current', 'superseded', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'current, superseded, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'current', 'superseded', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'current, superseded, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'masterIdentifier'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'securityLabel'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'authenticator'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'identifier'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'custodian'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'author'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'authenticator'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'author'},
 
             {'parent_entity': 'DocumentReference_Context',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'class'},
-
-            {'parent_entity': 'DocumentReference_RelatesTo',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'relatesTo'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'custodian'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'securityLabel'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'subject'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'context'},
 
             {'parent_entity': 'DocumentReference_Content',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference',
-            'child_variable': 'content'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'content'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference',
+             'child_variable': '_class'},
+
+            {'parent_entity': 'DocumentReference_RelatesTo',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'relatesTo'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'masterIdentifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'identifier'},
         ]
+
 
 class DocumentReference_RelatesTo(fhirbase):
     """A reference to a document.
@@ -191,32 +190,36 @@ class DocumentReference_RelatesTo(fhirbase):
         # the type of relationship that this document has with anther document.
         self.code = None
         # type = string
-        # possible values = replaces, transforms, signs, appends
+        # possible values: replaces, transforms, signs, appends
 
         # the target document of this relationship.
         self.target = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.code is not None:
             for value in self.code:
-                if value != None and value.lower() not in ['replaces', 'transforms', 'signs', 'appends']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'replaces, transforms, signs, appends'))
+                if value is not None and value.lower() not in [
+                        'replaces', 'transforms', 'signs', 'appends']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'replaces, transforms, signs, appends'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentReference_RelatesTo',
-            'child_variable': 'target'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentReference_RelatesTo',
+             'child_variable': 'target'},
         ]
+
 
 class DocumentReference_Content(fhirbase):
     """A reference to a document.
@@ -233,24 +236,26 @@ class DocumentReference_Content(fhirbase):
         self.format = None
         # reference to Coding: Coding
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference_Content',
-            'child_variable': 'format'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference_Content',
+             'child_variable': 'format'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference_Content',
-            'child_variable': 'attachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference_Content',
+             'child_variable': 'attachment'},
         ]
+
 
 class DocumentReference_Context(fhirbase):
     """A reference to a document.
@@ -295,49 +300,51 @@ class DocumentReference_Context(fhirbase):
         # type = array
         # reference to DocumentReference_Related: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference_Context',
-            'child_variable': 'practiceSetting'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference_Context',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference_Context',
+             'child_variable': 'practiceSetting'},
 
             {'parent_entity': 'DocumentReference_Related',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentReference_Context',
-            'child_variable': 'related'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentReference_Context',
+             'child_variable': 'related'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference_Context',
-            'child_variable': 'facilityType'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference_Context',
+             'child_variable': 'event'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference_Context',
-            'child_variable': 'event'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference_Context',
+             'child_variable': 'facilityType'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentReference_Context',
-            'child_variable': 'encounter'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentReference_Context',
+             'child_variable': 'sourcePatientInfo'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference_Context',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentReference_Context',
-            'child_variable': 'sourcePatientInfo'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentReference_Context',
+             'child_variable': 'encounter'},
         ]
+
 
 class DocumentReference_Related(fhirbase):
     """A reference to a document.
@@ -354,22 +361,19 @@ class DocumentReference_Related(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentReference_Related',
-            'child_variable': 'ref'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentReference_Related',
+             'child_variable': 'ref'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentReference_Related',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference_Related',
+             'child_variable': 'identifier'},
         ]
-

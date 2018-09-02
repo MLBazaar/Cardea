@@ -1,5 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class ParameterDefinition(fhirbase):
     """The parameters to the module. This collection specifies both the input
@@ -42,17 +42,17 @@ class ParameterDefinition(fhirbase):
         self.profile = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ParameterDefinition',
-            'child_variable': 'profile'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ParameterDefinition',
+             'child_variable': 'profile'},
         ]
-

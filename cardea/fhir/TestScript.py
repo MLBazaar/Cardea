@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class TestScript(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -14,7 +10,7 @@ class TestScript(fhirbase):
         # this is a testscript resource
         self.resourceType = 'TestScript'
         # type = string
-        # possible values = TestScript
+        # possible values: TestScript
 
         # an absolute uri that is used to identify this test script when it is
         # referenced in a specification, model, design or an instance. this shall
@@ -48,7 +44,7 @@ class TestScript(fhirbase):
         # content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this test script is authored for
         # testing purposes (or education/evaluation/marketing), and is not
@@ -168,96 +164,97 @@ class TestScript(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'TestScript_Ruleset',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'ruleset'},
+
             {'parent_entity': 'TestScript_Setup',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'setup'},
-
-            {'parent_entity': 'TestScript_Origin',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'origin'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'TestScript_Metadata',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'metadata'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'TestScript',
-            'child_variable': 'profile'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'TestScript_Rule',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'rule'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'setup'},
 
             {'parent_entity': 'TestScript_Destination',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'destination'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'useContext'},
-
-            {'parent_entity': 'TestScript_Test',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'test'},
-
-            {'parent_entity': 'TestScript_Fixture',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'fixture'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'destination'},
 
             {'parent_entity': 'TestScript_Variable',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'variable'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'variable'},
 
-            {'parent_entity': 'TestScript_Ruleset',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'ruleset'},
+            {'parent_entity': 'TestScript_Origin',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'origin'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'TestScript_Rule',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'rule'},
+
+            {'parent_entity': 'TestScript_Fixture',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'fixture'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'TestScript',
+             'child_variable': 'profile'},
+
+            {'parent_entity': 'TestScript_Test',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'test'},
 
             {'parent_entity': 'TestScript_Teardown',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript',
-            'child_variable': 'teardown'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'teardown'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'TestScript_Metadata',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'metadata'},
         ]
+
 
 class TestScript_Origin(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -274,19 +271,21 @@ class TestScript_Origin(fhirbase):
         self.profile = None
         # reference to Coding: Coding
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Origin',
-            'child_variable': 'profile'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Origin',
+             'child_variable': 'profile'},
         ]
+
 
 class TestScript_Destination(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -303,19 +302,21 @@ class TestScript_Destination(fhirbase):
         self.profile = None
         # reference to Coding: Coding
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Destination',
-            'child_variable': 'profile'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Destination',
+             'child_variable': 'profile'},
         ]
+
 
 class TestScript_Metadata(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -334,24 +335,26 @@ class TestScript_Metadata(fhirbase):
         # type = array
         # reference to TestScript_Capability: TestScript_Capability
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'TestScript_Link',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Metadata',
-            'child_variable': 'link'},
-
             {'parent_entity': 'TestScript_Capability',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Metadata',
-            'child_variable': 'capability'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Metadata',
+             'child_variable': 'capability'},
+
+            {'parent_entity': 'TestScript_Link',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Metadata',
+             'child_variable': 'link'},
         ]
+
 
 class TestScript_Link(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -368,9 +371,11 @@ class TestScript_Link(fhirbase):
         self.description = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class TestScript_Capability(fhirbase):
@@ -413,19 +418,21 @@ class TestScript_Capability(fhirbase):
         self.capabilities = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'TestScript_Capability',
-            'child_variable': 'capabilities'},
+             'parent_variable': 'identifier',
+             'child_entity': 'TestScript_Capability',
+             'child_variable': 'capabilities'},
         ]
+
 
 class TestScript_Fixture(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -452,19 +459,21 @@ class TestScript_Fixture(fhirbase):
         self.resource = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'TestScript_Fixture',
-            'child_variable': 'resource'},
+             'parent_variable': 'identifier',
+             'child_entity': 'TestScript_Fixture',
+             'child_variable': 'resource'},
         ]
+
 
 class TestScript_Variable(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -512,9 +521,11 @@ class TestScript_Variable(fhirbase):
         self.sourceId = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class TestScript_Rule(fhirbase):
@@ -533,24 +544,26 @@ class TestScript_Rule(fhirbase):
         # type = array
         # reference to TestScript_Param: TestScript_Param
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'TestScript_Rule',
-            'child_variable': 'resource'},
-
             {'parent_entity': 'TestScript_Param',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Rule',
-            'child_variable': 'param'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Rule',
+             'child_variable': 'param'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'TestScript_Rule',
+             'child_variable': 'resource'},
         ]
+
 
 class TestScript_Param(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -568,9 +581,11 @@ class TestScript_Param(fhirbase):
         self.value = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class TestScript_Ruleset(fhirbase):
@@ -589,24 +604,26 @@ class TestScript_Ruleset(fhirbase):
         # type = array
         # reference to TestScript_Rule1: TestScript_Rule1
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'TestScript_Ruleset',
-            'child_variable': 'resource'},
-
             {'parent_entity': 'TestScript_Rule1',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Ruleset',
-            'child_variable': 'rule'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Ruleset',
+             'child_variable': 'rule'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'TestScript_Ruleset',
+             'child_variable': 'resource'},
         ]
+
 
 class TestScript_Rule1(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -623,19 +640,21 @@ class TestScript_Rule1(fhirbase):
         # type = array
         # reference to TestScript_Param1: TestScript_Param1
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'TestScript_Param1',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Rule1',
-            'child_variable': 'param'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Rule1',
+             'child_variable': 'param'},
         ]
+
 
 class TestScript_Param1(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -653,9 +672,11 @@ class TestScript_Param1(fhirbase):
         self.value = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class TestScript_Setup(fhirbase):
@@ -669,19 +690,21 @@ class TestScript_Setup(fhirbase):
         # type = array
         # reference to TestScript_Action: TestScript_Action
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'TestScript_Action',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Setup',
-            'child_variable': 'action'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Setup',
+             'child_variable': 'action'},
         ]
+
 
 class TestScript_Action(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -698,24 +721,26 @@ class TestScript_Action(fhirbase):
         self._assert = None
         # reference to TestScript_Assert: TestScript_Assert
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'TestScript_Assert',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Action',
-            'child_variable': 'assert'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Action',
+             'child_variable': '_assert'},
 
             {'parent_entity': 'TestScript_Operation',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Action',
-            'child_variable': 'operation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Action',
+             'child_variable': 'operation'},
         ]
+
 
 class TestScript_Operation(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -724,218 +749,146 @@ class TestScript_Operation(fhirbase):
 
     def __init__(self, dict_values=None):
         # server interaction or operation type.
-        # server interaction or operation type.
-        # server interaction or operation type.
         self.type = None
         # reference to Coding: Coding
 
         # the type of the resource.  see http://build.fhir.org/resourcelist.html.
-        # the type of the resource.  see http://build.fhir.org/resourcelist.html.
-        # the type of the resource.  see http://build.fhir.org/resourcelist.html.
         self.resource = None
         # type = string
-        # type = string
-        # type = string
 
-        # the label would be used for tracking/logging purposes by test engines.
-        # the label would be used for tracking/logging purposes by test engines.
         # the label would be used for tracking/logging purposes by test engines.
         self.label = None
         # type = string
-        # type = string
-        # type = string
 
-        # the description would be used by test engines for tracking and reporting
-        # purposes.
-        # the description would be used by test engines for tracking and reporting
-        # purposes.
         # the description would be used by test engines for tracking and reporting
         # purposes.
         self.description = None
         # type = string
-        # type = string
-        # type = string
 
-        # the content-type or mime-type to use for restful operation in the
-        # 'accept' header.
-        # the content-type or mime-type to use for restful operation in the
-        # 'accept' header.
         # the content-type or mime-type to use for restful operation in the
         # 'accept' header.
         self.accept = None
         # type = string
-        # type = string
-        # type = string
-        # possible values = xml, json, ttl, none
-        # possible values = xml, json, ttl, none
-        # possible values = xml, json, ttl, none
+        # possible values: xml, json, ttl, none
 
-        # the content-type or mime-type to use for restful operation in the
-        # 'content-type' header.
-        # the content-type or mime-type to use for restful operation in the
-        # 'content-type' header.
         # the content-type or mime-type to use for restful operation in the
         # 'content-type' header.
         self.contentType = None
         # type = string
-        # type = string
-        # type = string
-        # possible values = xml, json, ttl, none
-        # possible values = xml, json, ttl, none
-        # possible values = xml, json, ttl, none
+        # possible values: xml, json, ttl, none
 
-        # the server where the request message is destined for.  must be one of
-        # the server numbers listed in testscript.destination section.
-        # the server where the request message is destined for.  must be one of
-        # the server numbers listed in testscript.destination section.
         # the server where the request message is destined for.  must be one of
         # the server numbers listed in testscript.destination section.
         self.destination = None
         # type = int
-        # type = int
-        # type = int
 
-        # whether or not to implicitly send the request url in encoded format. the
-        # default is true to match the standard restful client behavior. set to
-        # false when communicating with a server that does not support encoded url
-        # paths.
-        # whether or not to implicitly send the request url in encoded format. the
-        # default is true to match the standard restful client behavior. set to
-        # false when communicating with a server that does not support encoded url
-        # paths.
         # whether or not to implicitly send the request url in encoded format. the
         # default is true to match the standard restful client behavior. set to
         # false when communicating with a server that does not support encoded url
         # paths.
         self.encodeRequestUrl = None
         # type = boolean
-        # type = boolean
-        # type = boolean
 
-        # the server where the request message originates from.  must be one of
-        # the server numbers listed in testscript.origin section.
-        # the server where the request message originates from.  must be one of
-        # the server numbers listed in testscript.origin section.
         # the server where the request message originates from.  must be one of
         # the server numbers listed in testscript.origin section.
         self.origin = None
         # type = int
-        # type = int
-        # type = int
 
-        # path plus parameters after [type].  used to set parts of the request url
-        # explicitly.
-        # path plus parameters after [type].  used to set parts of the request url
-        # explicitly.
         # path plus parameters after [type].  used to set parts of the request url
         # explicitly.
         self.params = None
         # type = string
-        # type = string
-        # type = string
 
         # header elements would be used to set http headers.
-        # header elements would be used to set http headers.
-        # header elements would be used to set http headers.
         self.requestHeader = None
-        # type = array
-        # type = array
         # type = array
         # reference to TestScript_RequestHeader: TestScript_RequestHeader
 
         # the fixture id (maybe new) to map to the request.
-        # the fixture id (maybe new) to map to the request.
-        # the fixture id (maybe new) to map to the request.
         self.requestId = None
         # type = string
-        # type = string
-        # type = string
 
-        # the fixture id (maybe new) to map to the response.
-        # the fixture id (maybe new) to map to the response.
         # the fixture id (maybe new) to map to the response.
         self.responseId = None
         # type = string
-        # type = string
-        # type = string
 
-        # the id of the fixture used as the body of a put or post request.
-        # the id of the fixture used as the body of a put or post request.
         # the id of the fixture used as the body of a put or post request.
         self.sourceId = None
         # type = string
-        # type = string
-        # type = string
 
-        # id of fixture used for extracting the [id],  [type], and [vid] for get
-        # requests.
-        # id of fixture used for extracting the [id],  [type], and [vid] for get
-        # requests.
         # id of fixture used for extracting the [id],  [type], and [vid] for get
         # requests.
         self.targetId = None
         # type = string
-        # type = string
-        # type = string
 
-        # complete request url.
-        # complete request url.
         # complete request url.
         self.url = None
         # type = string
-        # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.accept is not None:
             for value in self.accept:
-                if value != None and value.lower() not in ['xml', 'json', 'ttl', 'none']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'xml, json, ttl, none'))
+                if value is not None and value.lower() not in [
+                        'xml', 'json', 'ttl', 'none']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'xml, json, ttl, none'))
 
         if self.contentType is not None:
             for value in self.contentType:
-                if value != None and value.lower() not in ['xml', 'json', 'ttl', 'none']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'xml, json, ttl, none'))
+                if value is not None and value.lower() not in [
+                        'xml', 'json', 'ttl', 'none']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'xml, json, ttl, none'))
 
         if self.accept is not None:
             for value in self.accept:
-                if value != None and value.lower() not in ['xml', 'json', 'ttl', 'none']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'xml, json, ttl, none'))
+                if value is not None and value.lower() not in [
+                        'xml', 'json', 'ttl', 'none']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'xml, json, ttl, none'))
 
         if self.contentType is not None:
             for value in self.contentType:
-                if value != None and value.lower() not in ['xml', 'json', 'ttl', 'none']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'xml, json, ttl, none'))
+                if value is not None and value.lower() not in [
+                        'xml', 'json', 'ttl', 'none']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'xml, json, ttl, none'))
 
         if self.accept is not None:
             for value in self.accept:
-                if value != None and value.lower() not in ['xml', 'json', 'ttl', 'none']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'xml, json, ttl, none'))
+                if value is not None and value.lower() not in [
+                        'xml', 'json', 'ttl', 'none']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'xml, json, ttl, none'))
 
         if self.contentType is not None:
             for value in self.contentType:
-                if value != None and value.lower() not in ['xml', 'json', 'ttl', 'none']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'xml, json, ttl, none'))
+                if value is not None and value.lower() not in [
+                        'xml', 'json', 'ttl', 'none']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'xml, json, ttl, none'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Operation',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Operation',
+             'child_variable': 'type'},
 
             {'parent_entity': 'TestScript_RequestHeader',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Operation',
-            'child_variable': 'requestHeader'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Operation',
+             'child_variable': 'requestHeader'},
         ]
+
 
 class TestScript_RequestHeader(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -944,24 +897,18 @@ class TestScript_RequestHeader(fhirbase):
 
     def __init__(self, dict_values=None):
         # the http header field e.g. "accept".
-        # the http header field e.g. "accept".
-        # the http header field e.g. "accept".
         self.field = None
         # type = string
-        # type = string
-        # type = string
 
-        # the value of the header e.g. "application/fhir+xml".
-        # the value of the header e.g. "application/fhir+xml".
         # the value of the header e.g. "application/fhir+xml".
         self.value = None
         # type = string
-        # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class TestScript_Assert(fhirbase):
@@ -971,259 +918,227 @@ class TestScript_Assert(fhirbase):
 
     def __init__(self, dict_values=None):
         # the label would be used for tracking/logging purposes by test engines.
-        # the label would be used for tracking/logging purposes by test engines.
         self.label = None
         # type = string
-        # type = string
 
-        # the description would be used by test engines for tracking and reporting
-        # purposes.
         # the description would be used by test engines for tracking and reporting
         # purposes.
         self.description = None
         # type = string
-        # type = string
 
-        # the direction to use for the assertion.
         # the direction to use for the assertion.
         self.direction = None
         # type = string
-        # type = string
-        # possible values = response, request
-        # possible values = response, request
+        # possible values: response, request
 
-        # id of the source fixture used as the contents to be evaluated by either
-        # the "source/expression" or "sourceid/path" definition.
         # id of the source fixture used as the contents to be evaluated by either
         # the "source/expression" or "sourceid/path" definition.
         self.compareToSourceId = None
         # type = string
-        # type = string
 
-        # the fluentpath expression to evaluate against the source fixture. when
-        # comparetosourceid is defined, either comparetosourceexpression or
-        # comparetosourcepath must be defined, but not both.
         # the fluentpath expression to evaluate against the source fixture. when
         # comparetosourceid is defined, either comparetosourceexpression or
         # comparetosourcepath must be defined, but not both.
         self.compareToSourceExpression = None
         # type = string
-        # type = string
 
-        # xpath or jsonpath expression to evaluate against the source fixture.
-        # when comparetosourceid is defined, either comparetosourceexpression or
-        # comparetosourcepath must be defined, but not both.
         # xpath or jsonpath expression to evaluate against the source fixture.
         # when comparetosourceid is defined, either comparetosourceexpression or
         # comparetosourcepath must be defined, but not both.
         self.compareToSourcePath = None
         # type = string
-        # type = string
 
-        # the content-type or mime-type to use for restful operation in the
-        # 'content-type' header.
         # the content-type or mime-type to use for restful operation in the
         # 'content-type' header.
         self.contentType = None
         # type = string
-        # type = string
-        # possible values = xml, json, ttl, none
-        # possible values = xml, json, ttl, none
+        # possible values: xml, json, ttl, none
 
-        # the fluentpath expression to be evaluated against the request or
-        # response message contents - http headers and payload.
         # the fluentpath expression to be evaluated against the request or
         # response message contents - http headers and payload.
         self.expression = None
         # type = string
-        # type = string
 
-        # the http header field name e.g. 'location'.
         # the http header field name e.g. 'location'.
         self.headerField = None
         # type = string
-        # type = string
 
-        # the id of a fixture.  asserts that the response contains at a minimum
-        # the fixture specified by minimumid.
         # the id of a fixture.  asserts that the response contains at a minimum
         # the fixture specified by minimumid.
         self.minimumId = None
         # type = string
-        # type = string
 
-        # whether or not the test execution performs validation on the bundle
-        # navigation links.
         # whether or not the test execution performs validation on the bundle
         # navigation links.
         self.navigationLinks = None
         # type = boolean
-        # type = boolean
 
-        # the operator type defines the conditional behavior of the assert. if not
-        # defined, the default is equals.
         # the operator type defines the conditional behavior of the assert. if not
         # defined, the default is equals.
         self.operator = None
         # type = string
-        # type = string
-        # possible values = equals, notEquals, in, notIn, greaterThan, lessThan, empty, notEmpty, contains, notContains, eval
-        # possible values = equals, notEquals, in, notIn, greaterThan, lessThan, empty, notEmpty, contains, notContains, eval
+        # possible values: equals, notEquals, in, notIn, greaterThan,
+        # lessThan, empty, notEmpty, contains, notContains, eval
 
-        # the xpath or jsonpath expression to be evaluated against the fixture
-        # representing the response received from server.
         # the xpath or jsonpath expression to be evaluated against the fixture
         # representing the response received from server.
         self.path = None
         # type = string
-        # type = string
 
-        # the request method or http operation code to compare against that used
-        # by the client system under test.
         # the request method or http operation code to compare against that used
         # by the client system under test.
         self.requestMethod = None
         # type = string
-        # type = string
-        # possible values = delete, get, options, patch, post, put
-        # possible values = delete, get, options, patch, post, put
+        # possible values: delete, get, options, patch, post, put
 
-        # the value to use in a comparison against the request url path string.
         # the value to use in a comparison against the request url path string.
         self.requestURL = None
         # type = string
-        # type = string
 
-        # the type of the resource.  see http://build.fhir.org/resourcelist.html.
         # the type of the resource.  see http://build.fhir.org/resourcelist.html.
         self.resource = None
         # type = string
-        # type = string
 
-        # okay | created | nocontent | notmodified | bad | forbidden | notfound |
-        # methodnotallowed | conflict | gone | preconditionfailed | unprocessable.
         # okay | created | nocontent | notmodified | bad | forbidden | notfound |
         # methodnotallowed | conflict | gone | preconditionfailed | unprocessable.
         self.response = None
         # type = string
-        # type = string
-        # possible values = okay, created, noContent, notModified, bad, forbidden, notFound, methodNotAllowed, conflict, gone, preconditionFailed, unprocessable
-        # possible values = okay, created, noContent, notModified, bad, forbidden, notFound, methodNotAllowed, conflict, gone, preconditionFailed, unprocessable
+        # possible values: okay, created, noContent, notModified, bad,
+        # forbidden, notFound, methodNotAllowed, conflict, gone,
+        # preconditionFailed, unprocessable
 
-        # the value of the http response code to be tested.
         # the value of the http response code to be tested.
         self.responseCode = None
         # type = string
-        # type = string
 
-        # the testscript.rule this assert will evaluate.
         # the testscript.rule this assert will evaluate.
         self.rule = None
         # reference to TestScript_Rule2: TestScript_Rule2
 
-        # the testscript.ruleset this assert will evaluate.
         # the testscript.ruleset this assert will evaluate.
         self.ruleset = None
         # reference to TestScript_Ruleset1: TestScript_Ruleset1
 
         # fixture to evaluate the xpath/jsonpath expression or the headerfield
         # against.
-        # fixture to evaluate the xpath/jsonpath expression or the headerfield
-        # against.
         self.sourceId = None
         # type = string
-        # type = string
 
-        # the id of the profile to validate against.
         # the id of the profile to validate against.
         self.validateProfileId = None
         # type = string
-        # type = string
 
-        # the value to compare to.
         # the value to compare to.
         self.value = None
         # type = string
-        # type = string
 
-        # whether or not the test execution will produce a warning only on error
-        # for this assert.
         # whether or not the test execution will produce a warning only on error
         # for this assert.
         self.warningOnly = None
         # type = boolean
-        # type = boolean
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.direction is not None:
             for value in self.direction:
-                if value != None and value.lower() not in ['response', 'request']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'response, request'))
+                if value is not None and value.lower() not in [
+                        'response', 'request']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'response, request'))
 
         if self.contentType is not None:
             for value in self.contentType:
-                if value != None and value.lower() not in ['xml', 'json', 'ttl', 'none']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'xml, json, ttl, none'))
+                if value is not None and value.lower() not in [
+                        'xml', 'json', 'ttl', 'none']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'xml, json, ttl, none'))
 
         if self.operator is not None:
             for value in self.operator:
-                if value != None and value.lower() not in ['equals', 'notequals', 'in', 'notin', 'greaterthan', 'lessthan', 'empty', 'notempty', 'contains', 'notcontains', 'eval']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'equals, notequals, in, notin, greaterthan, lessthan, empty, notempty, contains, notcontains, eval'))
+                if value is not None and value.lower() not in [
+                    'equals', 'notequals', 'in', 'notin', 'greaterthan', 'lessthan',
+                        'empty', 'notempty', 'contains', 'notcontains', 'eval']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'equals, notEquals, in, notIn, greaterThan, lessThan,'
+                        'empty, notEmpty, contains, notContains, eval'))
 
         if self.requestMethod is not None:
             for value in self.requestMethod:
-                if value != None and value.lower() not in ['delete', 'get', 'options', 'patch', 'post', 'put']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'delete, get, options, patch, post, put'))
+                if value is not None and value.lower() not in [
+                        'delete', 'get', 'options', 'patch', 'post', 'put']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'delete, get, options, patch, post, put'))
 
         if self.response is not None:
             for value in self.response:
-                if value != None and value.lower() not in ['okay', 'created', 'nocontent', 'notmodified', 'bad', 'forbidden', 'notfound', 'methodnotallowed', 'conflict', 'gone', 'preconditionfailed', 'unprocessable']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'okay, created, nocontent, notmodified, bad, forbidden, notfound, methodnotallowed, conflict, gone, preconditionfailed, unprocessable'))
+                if value is not None and value.lower() not in [
+                    'okay', 'created', 'nocontent', 'notmodified', 'bad', 'forbidden',
+                    'notfound', 'methodnotallowed', 'conflict', 'gone',
+                        'preconditionfailed', 'unprocessable']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'okay, created, noContent, notModified, bad, forbidden, notFound,'
+                        'methodNotAllowed, conflict, gone, preconditionFailed, unprocessable'))
 
         if self.direction is not None:
             for value in self.direction:
-                if value != None and value.lower() not in ['response', 'request']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'response, request'))
+                if value is not None and value.lower() not in [
+                        'response', 'request']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'response, request'))
 
         if self.contentType is not None:
             for value in self.contentType:
-                if value != None and value.lower() not in ['xml', 'json', 'ttl', 'none']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'xml, json, ttl, none'))
+                if value is not None and value.lower() not in [
+                        'xml', 'json', 'ttl', 'none']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'xml, json, ttl, none'))
 
         if self.operator is not None:
             for value in self.operator:
-                if value != None and value.lower() not in ['equals', 'notequals', 'in', 'notin', 'greaterthan', 'lessthan', 'empty', 'notempty', 'contains', 'notcontains', 'eval']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'equals, notequals, in, notin, greaterthan, lessthan, empty, notempty, contains, notcontains, eval'))
+                if value is not None and value.lower() not in [
+                    'equals', 'notequals', 'in', 'notin', 'greaterthan', 'lessthan',
+                        'empty', 'notempty', 'contains', 'notcontains', 'eval']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'equals, notEquals, in, notIn, greaterThan, lessThan,'
+                        'empty, notEmpty, contains, notContains, eval'))
 
         if self.requestMethod is not None:
             for value in self.requestMethod:
-                if value != None and value.lower() not in ['delete', 'get', 'options', 'patch', 'post', 'put']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'delete, get, options, patch, post, put'))
+                if value is not None and value.lower() not in [
+                        'delete', 'get', 'options', 'patch', 'post', 'put']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'delete, get, options, patch, post, put'))
 
         if self.response is not None:
             for value in self.response:
-                if value != None and value.lower() not in ['okay', 'created', 'nocontent', 'notmodified', 'bad', 'forbidden', 'notfound', 'methodnotallowed', 'conflict', 'gone', 'preconditionfailed', 'unprocessable']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'okay, created, nocontent, notmodified, bad, forbidden, notfound, methodnotallowed, conflict, gone, preconditionfailed, unprocessable'))
+                if value is not None and value.lower() not in [
+                    'okay', 'created', 'nocontent', 'notmodified', 'bad', 'forbidden',
+                    'notfound', 'methodnotallowed', 'conflict', 'gone',
+                        'preconditionfailed', 'unprocessable']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'okay, created, noContent, notModified, bad, forbidden, notFound,'
+                        'methodNotAllowed, conflict, gone, preconditionFailed, unprocessable'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'TestScript_Rule2',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Assert',
-            'child_variable': 'rule'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Assert',
+             'child_variable': 'rule'},
 
             {'parent_entity': 'TestScript_Ruleset1',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Assert',
-            'child_variable': 'ruleset'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Assert',
+             'child_variable': 'ruleset'},
         ]
+
 
 class TestScript_Rule2(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -1232,31 +1147,29 @@ class TestScript_Rule2(fhirbase):
 
     def __init__(self, dict_values=None):
         # the testscript.rule id value this assert will evaluate.
-        # the testscript.rule id value this assert will evaluate.
         self.ruleId = None
         # type = string
-        # type = string
 
-        # each rule template can take one or more parameters for rule evaluation.
         # each rule template can take one or more parameters for rule evaluation.
         self.param = None
         # type = array
-        # type = array
         # reference to TestScript_Param2: TestScript_Param2
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'TestScript_Param2',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Rule2',
-            'child_variable': 'param'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Rule2',
+             'child_variable': 'param'},
         ]
+
 
 class TestScript_Param2(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -1266,23 +1179,19 @@ class TestScript_Param2(fhirbase):
     def __init__(self, dict_values=None):
         # descriptive name for this parameter that matches the external assert
         # rule parameter name.
-        # descriptive name for this parameter that matches the external assert
-        # rule parameter name.
         self.name = None
         # type = string
-        # type = string
 
-        # the value for the parameter that will be passed on to the external rule
-        # template.
         # the value for the parameter that will be passed on to the external rule
         # template.
         self.value = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class TestScript_Ruleset1(fhirbase):
@@ -1292,31 +1201,29 @@ class TestScript_Ruleset1(fhirbase):
 
     def __init__(self, dict_values=None):
         # the testscript.ruleset id value this assert will evaluate.
-        # the testscript.ruleset id value this assert will evaluate.
         self.rulesetId = None
         # type = string
-        # type = string
 
-        # the referenced rule within the external ruleset template.
         # the referenced rule within the external ruleset template.
         self.rule = None
         # type = array
-        # type = array
         # reference to TestScript_Rule3: TestScript_Rule3
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'TestScript_Rule3',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Ruleset1',
-            'child_variable': 'rule'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Ruleset1',
+             'child_variable': 'rule'},
         ]
+
 
 class TestScript_Rule3(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -1325,31 +1232,29 @@ class TestScript_Rule3(fhirbase):
 
     def __init__(self, dict_values=None):
         # id of the referenced rule within the external ruleset template.
-        # id of the referenced rule within the external ruleset template.
         self.ruleId = None
         # type = string
-        # type = string
 
-        # each rule template can take one or more parameters for rule evaluation.
         # each rule template can take one or more parameters for rule evaluation.
         self.param = None
         # type = array
-        # type = array
         # reference to TestScript_Param3: TestScript_Param3
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'TestScript_Param3',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Rule3',
-            'child_variable': 'param'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Rule3',
+             'child_variable': 'param'},
         ]
+
 
 class TestScript_Param3(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -1359,23 +1264,19 @@ class TestScript_Param3(fhirbase):
     def __init__(self, dict_values=None):
         # descriptive name for this parameter that matches the external assert
         # ruleset rule parameter name.
-        # descriptive name for this parameter that matches the external assert
-        # ruleset rule parameter name.
         self.name = None
         # type = string
-        # type = string
 
-        # the value for the parameter that will be passed on to the external
-        # ruleset rule template.
         # the value for the parameter that will be passed on to the external
         # ruleset rule template.
         self.value = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class TestScript_Test(fhirbase):
@@ -1399,19 +1300,21 @@ class TestScript_Test(fhirbase):
         # type = array
         # reference to TestScript_Action1: TestScript_Action1
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'TestScript_Action1',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Test',
-            'child_variable': 'action'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Test',
+             'child_variable': 'action'},
         ]
+
 
 class TestScript_Action1(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -1428,24 +1331,26 @@ class TestScript_Action1(fhirbase):
         self._assert = None
         # reference to TestScript_Assert: TestScript_Assert
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'TestScript_Assert',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Action1',
-            'child_variable': 'assert'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Action1',
+             'child_variable': '_assert'},
 
             {'parent_entity': 'TestScript_Operation',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Action1',
-            'child_variable': 'operation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Action1',
+             'child_variable': 'operation'},
         ]
+
 
 class TestScript_Teardown(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -1458,19 +1363,21 @@ class TestScript_Teardown(fhirbase):
         # type = array
         # reference to TestScript_Action2: TestScript_Action2
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'TestScript_Action2',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Teardown',
-            'child_variable': 'action'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Teardown',
+             'child_variable': 'action'},
         ]
+
 
 class TestScript_Action2(fhirbase):
     """A structured set of tests against a FHIR server implementation to
@@ -1482,17 +1389,17 @@ class TestScript_Action2(fhirbase):
         self.operation = None
         # reference to TestScript_Operation: TestScript_Operation
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'TestScript_Operation',
-            'parent_variable': 'object_id',
-            'child_entity': 'TestScript_Action2',
-            'child_variable': 'operation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Action2',
+             'child_variable': 'operation'},
         ]
-

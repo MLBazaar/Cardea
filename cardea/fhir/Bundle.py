@@ -1,6 +1,5 @@
-from .fhirbase import * 
-from .Identifier import Identifier
-from .Signature import Signature
+from .fhirbase import fhirbase
+
 
 class Bundle(fhirbase):
     """A container for a collection of resources.
@@ -10,12 +9,13 @@ class Bundle(fhirbase):
         # this is a bundle resource
         self.resourceType = 'Bundle'
         # type = string
-        # possible values = Bundle
+        # possible values: Bundle
 
         # indicates the purpose of this bundle - how it was intended to be used.
         self.type = None
         # type = string
-        # possible values = document, message, transaction, transaction-response, batch, batch-response, history, searchset, collection
+        # possible values: document, message, transaction, transaction-
+        # response, batch, batch-response, history, searchset, collection
 
         # if a set of search matches, this is the total number of matches for the
         # search (as opposed to the number of results in this bundle).
@@ -42,41 +42,44 @@ class Bundle(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['document', 'message', 'transaction', 'transaction-response', 'batch', 'batch-response', 'history', 'searchset', 'collection']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'document, message, transaction, transaction-response, batch, batch-response, history, searchset, collection'))
+                if value is not None and value.lower() not in [
+                    'document', 'message', 'transaction', 'transaction-response', 'batch',
+                        'batch-response', 'history', 'searchset', 'collection']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'document, message, transaction, transaction-response,'
+                        'batch, batch-response, history, searchset, collection'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Signature',
-            'parent_variable': 'object_id',
-            'child_entity': 'Bundle',
-            'child_variable': 'signature'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle',
+             'child_variable': 'signature'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Bundle',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Bundle_Entry',
-            'parent_variable': 'object_id',
-            'child_entity': 'Bundle',
-            'child_variable': 'entry'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle',
+             'child_variable': 'entry'},
 
             {'parent_entity': 'Bundle_Link',
-            'parent_variable': 'object_id',
-            'child_entity': 'Bundle',
-            'child_variable': 'link'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle',
+             'child_variable': 'link'},
         ]
+
 
 class Bundle_Link(fhirbase):
     """A container for a collection of resources.
@@ -87,23 +90,18 @@ class Bundle_Link(fhirbase):
         # [http://www.iana.org/assignments/link-relations/link-
         # relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-
         # relations/link-relations.xhtml#link-relations-1).
-        # a name which details the functional use for this link - see
-        # [http://www.iana.org/assignments/link-relations/link-
-        # relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-
-        # relations/link-relations.xhtml#link-relations-1).
         self.relation = None
         # type = string
-        # type = string
 
-        # the reference details for the link.
         # the reference details for the link.
         self.url = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class Bundle_Entry(fhirbase):
@@ -144,39 +142,41 @@ class Bundle_Entry(fhirbase):
         self.response = None
         # reference to Bundle_Response: Bundle_Response
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Bundle_Search',
-            'parent_variable': 'object_id',
-            'child_entity': 'Bundle_Entry',
-            'child_variable': 'search'},
-
-            {'parent_entity': 'ResourceList',
-            'parent_variable': 'object_id',
-            'child_entity': 'Bundle_Entry',
-            'child_variable': 'resource'},
-
             {'parent_entity': 'Bundle_Link',
-            'parent_variable': 'object_id',
-            'child_entity': 'Bundle_Entry',
-            'child_variable': 'link'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle_Entry',
+             'child_variable': 'link'},
+
+            {'parent_entity': 'Bundle_Search',
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle_Entry',
+             'child_variable': 'search'},
 
             {'parent_entity': 'Bundle_Response',
-            'parent_variable': 'object_id',
-            'child_entity': 'Bundle_Entry',
-            'child_variable': 'response'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle_Entry',
+             'child_variable': 'response'},
 
             {'parent_entity': 'Bundle_Request',
-            'parent_variable': 'object_id',
-            'child_entity': 'Bundle_Entry',
-            'child_variable': 'request'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle_Entry',
+             'child_variable': 'request'},
+
+            {'parent_entity': 'ResourceList',
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle_Entry',
+             'child_variable': 'resource'},
         ]
+
 
 class Bundle_Search(fhirbase):
     """A container for a collection of resources.
@@ -187,23 +187,27 @@ class Bundle_Search(fhirbase):
         # or because of an _include requirement.
         self.mode = None
         # type = string
-        # possible values = match, include, outcome
+        # possible values: match, include, outcome
 
         # when searching, the server's search ranking score for the entry.
         self.score = None
         # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.mode is not None:
             for value in self.mode:
-                if value != None and value.lower() not in ['match', 'include', 'outcome']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'match, include, outcome'))
+                if value is not None and value.lower() not in [
+                        'match', 'include', 'outcome']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'match, include, outcome'))
+
 
 class Bundle_Request(fhirbase):
     """A container for a collection of resources.
@@ -214,7 +218,7 @@ class Bundle_Request(fhirbase):
         # transaction/ transaction response.
         self.method = None
         # type = string
-        # possible values = GET, POST, PUT, DELETE
+        # possible values: GET, POST, PUT, DELETE
 
         # the url for this entry, relative to the root (the address to which the
         # request is posted).
@@ -244,17 +248,21 @@ class Bundle_Request(fhirbase):
         self.ifNoneExist = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.method is not None:
             for value in self.method:
-                if value != None and value.lower() not in ['get', 'post', 'put', 'delete']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'get, post, put, delete'))
+                if value is not None and value.lower() not in [
+                        'get', 'post', 'put', 'delete']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'GET, POST, PUT, DELETE'))
+
 
 class Bundle_Response(fhirbase):
     """A container for a collection of resources.
@@ -287,17 +295,17 @@ class Bundle_Response(fhirbase):
         self.outcome = None
         # reference to ResourceList: ResourceList
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ResourceList',
-            'parent_variable': 'object_id',
-            'child_entity': 'Bundle_Response',
-            'child_variable': 'outcome'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle_Response',
+             'child_variable': 'outcome'},
         ]
-

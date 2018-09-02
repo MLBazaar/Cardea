@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class List(fhirbase):
     """A set of information summarized from a list of other resources.
@@ -12,12 +9,12 @@ class List(fhirbase):
         # this is a list resource
         self.resourceType = 'List'
         # type = string
-        # possible values = List
+        # possible values: List
 
         # indicates the current state of this list.
         self.status = None
         # type = string
-        # possible values = current, retired, entered-in-error
+        # possible values: current, retired, entered-in-error
 
         # how this list was prepared - whether it is a working list that is
         # suitable for being maintained on an ongoing basis, or if it represents a
@@ -25,7 +22,7 @@ class List(fhirbase):
         # prepared list where items may be marked as added, modified or deleted.
         self.mode = None
         # type = string
-        # possible values = working, snapshot, changes
+        # possible values: working, snapshot, changes
 
         # a label for the list assigned by the author.
         self.title = None
@@ -78,71 +75,74 @@ class List(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['current', 'retired', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'current, retired, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'current', 'retired', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'current, retired, entered-in-error'))
 
         if self.mode is not None:
             for value in self.mode:
-                if value != None and value.lower() not in ['working', 'snapshot', 'changes']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'working, snapshot, changes'))
+                if value is not None and value.lower() not in [
+                        'working', 'snapshot', 'changes']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'working, snapshot, changes'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'List',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'List',
-            'child_variable': 'code'},
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'List',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'List_Entry',
-            'parent_variable': 'object_id',
-            'child_entity': 'List',
-            'child_variable': 'entry'},
+             'parent_variable': 'object_id',
+             'child_entity': 'List',
+             'child_variable': 'entry'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'List',
+             'child_variable': 'encounter'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'List',
-            'child_variable': 'emptyReason'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'List',
-            'child_variable': 'source'},
+             'parent_variable': 'object_id',
+             'child_entity': 'List',
+             'child_variable': 'emptyReason'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'List',
-            'child_variable': 'orderedBy'},
+             'parent_variable': 'object_id',
+             'child_entity': 'List',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'List',
-            'child_variable': 'encounter'},
+             'parent_variable': 'identifier',
+             'child_entity': 'List',
+             'child_variable': 'source'},
 
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'List',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'List',
+             'child_variable': 'orderedBy'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'List',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'List',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'List',
+             'child_variable': 'note'},
         ]
+
 
 class List_Entry(fhirbase):
     """A set of information summarized from a list of other resources.
@@ -166,22 +166,22 @@ class List_Entry(fhirbase):
         self.item = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'List_Entry',
-            'child_variable': 'item'},
+             'parent_variable': 'identifier',
+             'child_entity': 'List_Entry',
+             'child_variable': 'item'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'List_Entry',
-            'child_variable': 'flag'},
+             'parent_variable': 'object_id',
+             'child_entity': 'List_Entry',
+             'child_variable': 'flag'},
         ]
-

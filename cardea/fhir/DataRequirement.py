@@ -1,4 +1,5 @@
-from .fhirbase import * 
+from .fhirbase import fhirbase
+
 
 class DataRequirement(fhirbase):
     """Describes a required data item for evaluation in terms of the type of
@@ -40,24 +41,26 @@ class DataRequirement(fhirbase):
         # type = array
         # reference to DataRequirement_DateFilter: DataRequirement_DateFilter
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'DataRequirement_DateFilter',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataRequirement',
-            'child_variable': 'dateFilter'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DataRequirement',
+             'child_variable': 'dateFilter'},
 
             {'parent_entity': 'DataRequirement_CodeFilter',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataRequirement',
-            'child_variable': 'codeFilter'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DataRequirement',
+             'child_variable': 'codeFilter'},
         ]
+
 
 class DataRequirement_CodeFilter(fhirbase):
     """Describes a required data item for evaluation in terms of the type of
@@ -114,29 +117,31 @@ class DataRequirement_CodeFilter(fhirbase):
         # type = array
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataRequirement_CodeFilter',
-            'child_variable': 'valueCoding'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DataRequirement_CodeFilter',
-            'child_variable': 'valueSetReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DataRequirement_CodeFilter',
+             'child_variable': 'valueSetReference'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataRequirement_CodeFilter',
-            'child_variable': 'valueCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DataRequirement_CodeFilter',
+             'child_variable': 'valueCodeableConcept'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'DataRequirement_CodeFilter',
+             'child_variable': 'valueCoding'},
         ]
+
 
 class DataRequirement_DateFilter(fhirbase):
     """Describes a required data item for evaluation in terms of the type of
@@ -180,22 +185,22 @@ class DataRequirement_DateFilter(fhirbase):
         self.valueDuration = None
         # reference to Duration: Duration
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataRequirement_DateFilter',
-            'child_variable': 'valuePeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DataRequirement_DateFilter',
+             'child_variable': 'valuePeriod'},
 
             {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataRequirement_DateFilter',
-            'child_variable': 'valueDuration'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DataRequirement_DateFilter',
+             'child_variable': 'valueDuration'},
         ]
-

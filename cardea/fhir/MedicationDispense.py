@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
-from .Dosage import Dosage
-from .Quantity import Quantity
+from .fhirbase import fhirbase
+
 
 class MedicationDispense(fhirbase):
     """Indicates that a medication product is to be or has been dispensed for a
@@ -18,7 +13,7 @@ class MedicationDispense(fhirbase):
         # this is a medicationdispense resource
         self.resourceType = 'MedicationDispense'
         # type = string
-        # possible values = MedicationDispense
+        # possible values: MedicationDispense
 
         # the procedure that the dispense is done because of.
         self.partOf = None
@@ -28,7 +23,8 @@ class MedicationDispense(fhirbase):
         # a code specifying the state of the set of dispense events.
         self.status = None
         # type = string
-        # possible values = preparation, in-progress, on-hold, completed, entered-in-error, stopped
+        # possible values: preparation, in-progress, on-hold, completed,
+        # entered-in-error, stopped
 
         # indicates type of medication dispense and where the medication is
         # expected to be consumed or administered.
@@ -161,131 +157,134 @@ class MedicationDispense(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['preparation', 'in-progress', 'on-hold', 'completed', 'entered-in-error', 'stopped']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'preparation, in-progress, on-hold, completed, entered-in-error, stopped'))
+                if value is not None and value.lower() not in [
+                    'preparation', 'in-progress', 'on-hold', 'completed',
+                        'entered-in-error', 'stopped']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'preparation, in-progress, on-hold, completed,'
+                        'entered-in-error, stopped'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'type'},
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'dosageInstruction'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'detectedIssue'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'notDoneReasonCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'notDoneReasonCodeableConcept'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'eventHistory'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'daysSupply'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'medicationReference'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'subject'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'medicationCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'partOf'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'context'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'context'},
 
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'receiver'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'destination'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'authorizingPrescription'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'detectedIssue'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'notDoneReasonReference'},
-
-            {'parent_entity': 'MedicationDispense_Substitution',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'substitution'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'medicationCodeableConcept'},
 
             {'parent_entity': 'MedicationDispense_Performer',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'performer'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'performer'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'supportingInformation'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'receiver'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'partOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'notDoneReasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'supportingInformation'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'destination'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'MedicationDispense_Substitution',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'substitution'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'medicationReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'authorizingPrescription'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'note'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'quantity'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'eventHistory'},
-
-            {'parent_entity': 'Dosage',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense',
-            'child_variable': 'dosageInstruction'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'daysSupply'},
         ]
+
 
 class MedicationDispense_Performer(fhirbase):
     """Indicates that a medication product is to be or has been dispensed for a
@@ -305,24 +304,26 @@ class MedicationDispense_Performer(fhirbase):
         self.onBehalfOf = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense_Performer',
-            'child_variable': 'onBehalfOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense_Performer',
+             'child_variable': 'actor'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense_Performer',
-            'child_variable': 'actor'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense_Performer',
+             'child_variable': 'onBehalfOf'},
         ]
+
 
 class MedicationDispense_Substitution(fhirbase):
     """Indicates that a medication product is to be or has been dispensed for a
@@ -355,27 +356,27 @@ class MedicationDispense_Substitution(fhirbase):
         # type = array
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationDispense_Substitution',
-            'child_variable': 'responsibleParty'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense_Substitution',
+             'child_variable': 'responsibleParty'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense_Substitution',
-            'child_variable': 'reason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense_Substitution',
+             'child_variable': 'type'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationDispense_Substitution',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense_Substitution',
+             'child_variable': 'reason'},
         ]
-

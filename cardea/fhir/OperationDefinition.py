@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Reference import Reference
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class OperationDefinition(fhirbase):
     """A formal computable definition of an operation (on the RESTful
@@ -13,7 +10,7 @@ class OperationDefinition(fhirbase):
         # this is a operationdefinition resource
         self.resourceType = 'OperationDefinition'
         # type = string
-        # possible values = OperationDefinition
+        # possible values: OperationDefinition
 
         # an absolute uri that is used to identify this operation definition when
         # it is referenced in a specification, model, design or an instance. this
@@ -45,12 +42,12 @@ class OperationDefinition(fhirbase):
         # of the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # whether this is an operation or a named query.
         self.kind = None
         # type = string
-        # possible values = operation, query
+        # possible values: operation, query
 
         # a boolean value to indicate that this operation definition is authored
         # for testing purposes (or education/evaluation/marketing), and is not
@@ -151,56 +148,62 @@ class OperationDefinition(fhirbase):
         # type = array
         # reference to OperationDefinition_Overload: OperationDefinition_Overload
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
         if self.kind is not None:
             for value in self.kind:
-                if value != None and value.lower() not in ['operation', 'query']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'operation, query'))
+                if value is not None and value.lower() not in [
+                        'operation', 'query']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'operation, query'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'OperationDefinition',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'OperationDefinition',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'OperationDefinition',
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'OperationDefinition_Parameter',
-            'parent_variable': 'object_id',
-            'child_entity': 'OperationDefinition',
-            'child_variable': 'parameter'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'OperationDefinition',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'OperationDefinition',
+             'child_variable': 'parameter'},
 
             {'parent_entity': 'OperationDefinition_Overload',
-            'parent_variable': 'object_id',
-            'child_entity': 'OperationDefinition',
-            'child_variable': 'overload'},
+             'parent_variable': 'object_id',
+             'child_entity': 'OperationDefinition',
+             'child_variable': 'overload'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'OperationDefinition',
+             'child_variable': 'useContext'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'OperationDefinition',
-            'child_variable': 'base'},
+             'parent_variable': 'identifier',
+             'child_entity': 'OperationDefinition',
+             'child_variable': 'base'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'OperationDefinition',
+             'child_variable': 'contact'},
         ]
+
 
 class OperationDefinition_Parameter(fhirbase):
     """A formal computable definition of an operation (on the RESTful
@@ -209,121 +212,110 @@ class OperationDefinition_Parameter(fhirbase):
 
     def __init__(self, dict_values=None):
         # the name of used to identify the parameter.
-        # the name of used to identify the parameter.
         self.name = None
         # type = string
-        # type = string
 
-        # whether this is an input or an output parameter.
         # whether this is an input or an output parameter.
         self.use = None
         # type = string
-        # type = string
-        # possible values = in, out
-        # possible values = in, out
+        # possible values: in, out
 
-        # the minimum number of times this parameter shall appear in the request
-        # or response.
         # the minimum number of times this parameter shall appear in the request
         # or response.
         self.min = None
         # type = int
-        # type = int
 
-        # the maximum number of times this element is permitted to appear in the
-        # request or response.
         # the maximum number of times this element is permitted to appear in the
         # request or response.
         self.max = None
         # type = string
-        # type = string
 
-        # describes the meaning or use of this parameter.
         # describes the meaning or use of this parameter.
         self.documentation = None
         # type = string
-        # type = string
 
-        # the type for this parameter.
         # the type for this parameter.
         self.type = None
         # type = string
-        # type = string
 
-        # how the parameter is understood as a search parameter. this is only used
-        # if the parameter type is 'string'.
         # how the parameter is understood as a search parameter. this is only used
         # if the parameter type is 'string'.
         self.searchType = None
         # type = string
-        # type = string
-        # possible values = number, date, string, token, reference, composite, quantity, uri
-        # possible values = number, date, string, token, reference, composite, quantity, uri
+        # possible values: number, date, string, token, reference,
+        # composite, quantity, uri
 
-        # a profile the specifies the rules that this parameter must conform to.
         # a profile the specifies the rules that this parameter must conform to.
         self.profile = None
         # reference to Reference: identifier
 
         # binds to a value set if this parameter is coded (code, coding,
         # codeableconcept).
-        # binds to a value set if this parameter is coded (code, coding,
-        # codeableconcept).
         self.binding = None
         # reference to OperationDefinition_Binding: OperationDefinition_Binding
 
         # the parts of a nested parameter.
-        # the parts of a nested parameter.
         self.part = None
-        # type = array
         # type = array
         # reference to OperationDefinition_Parameter: OperationDefinition_Parameter
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.use is not None:
             for value in self.use:
-                if value != None and value.lower() not in ['in', 'out']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'in, out'))
+                if value is not None and value.lower() not in [
+                        'in', 'out']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'in, out'))
 
         if self.searchType is not None:
             for value in self.searchType:
-                if value != None and value.lower() not in ['number', 'date', 'string', 'token', 'reference', 'composite', 'quantity', 'uri']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'number, date, string, token, reference, composite, quantity, uri'))
+                if value is not None and value.lower() not in [
+                    'number', 'date', 'string', 'token', 'reference', 'composite',
+                        'quantity', 'uri']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'number, date, string, token, reference, composite, quantity, uri'))
 
         if self.use is not None:
             for value in self.use:
-                if value != None and value.lower() not in ['in', 'out']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'in, out'))
+                if value is not None and value.lower() not in [
+                        'in', 'out']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'in, out'))
 
         if self.searchType is not None:
             for value in self.searchType:
-                if value != None and value.lower() not in ['number', 'date', 'string', 'token', 'reference', 'composite', 'quantity', 'uri']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'number, date, string, token, reference, composite, quantity, uri'))
+                if value is not None and value.lower() not in [
+                    'number', 'date', 'string', 'token', 'reference', 'composite',
+                        'quantity', 'uri']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'number, date, string, token, reference, composite, quantity, uri'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'OperationDefinition_Parameter',
-            'parent_variable': 'object_id',
-            'child_entity': 'OperationDefinition_Parameter',
-            'child_variable': 'part'},
+             'parent_variable': 'object_id',
+             'child_entity': 'OperationDefinition_Parameter',
+             'child_variable': 'part'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'OperationDefinition_Parameter',
-            'child_variable': 'profile'},
+             'parent_variable': 'identifier',
+             'child_entity': 'OperationDefinition_Parameter',
+             'child_variable': 'profile'},
 
             {'parent_entity': 'OperationDefinition_Binding',
-            'parent_variable': 'object_id',
-            'child_entity': 'OperationDefinition_Parameter',
-            'child_variable': 'binding'},
+             'parent_variable': 'object_id',
+             'child_entity': 'OperationDefinition_Parameter',
+             'child_variable': 'binding'},
         ]
+
 
 class OperationDefinition_Binding(fhirbase):
     """A formal computable definition of an operation (on the RESTful
@@ -334,55 +326,44 @@ class OperationDefinition_Binding(fhirbase):
         # indicates the degree of conformance expectations associated with this
         # binding - that is, the degree to which the provided value set must be
         # adhered to in the instances.
-        # indicates the degree of conformance expectations associated with this
-        # binding - that is, the degree to which the provided value set must be
-        # adhered to in the instances.
         self.strength = None
         # type = string
-        # type = string
-        # possible values = required, extensible, preferred, example
-        # possible values = required, extensible, preferred, example
+        # possible values: required, extensible, preferred, example
 
-        # points to the value set or external definition (e.g. implicit value set)
-        # that identifies the set of codes to be used.
         # points to the value set or external definition (e.g. implicit value set)
         # that identifies the set of codes to be used.
         self.valueSetUri = None
         # type = string
-        # type = string
 
-        # points to the value set or external definition (e.g. implicit value set)
-        # that identifies the set of codes to be used.
         # points to the value set or external definition (e.g. implicit value set)
         # that identifies the set of codes to be used.
         self.valueSetReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.strength is not None:
             for value in self.strength:
-                if value != None and value.lower() not in ['required', 'extensible', 'preferred', 'example']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'required, extensible, preferred, example'))
-
-        if self.strength is not None:
-            for value in self.strength:
-                if value != None and value.lower() not in ['required', 'extensible', 'preferred', 'example']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'required, extensible, preferred, example'))
+                if value is not None and value.lower() not in [
+                        'required', 'extensible', 'preferred', 'example']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'required, extensible, preferred, example'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'OperationDefinition_Binding',
-            'child_variable': 'valueSetReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'OperationDefinition_Binding',
+             'child_variable': 'valueSetReference'},
         ]
+
 
 class OperationDefinition_Overload(fhirbase):
     """A formal computable definition of an operation (on the RESTful
@@ -398,8 +379,8 @@ class OperationDefinition_Overload(fhirbase):
         self.comment = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

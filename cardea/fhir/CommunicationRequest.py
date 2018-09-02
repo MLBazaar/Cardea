@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class CommunicationRequest(fhirbase):
     """A request to convey information; e.g. the CDS system proposes that an
@@ -15,7 +11,7 @@ class CommunicationRequest(fhirbase):
         # this is a communicationrequest resource
         self.resourceType = 'CommunicationRequest'
         # type = string
-        # possible values = CommunicationRequest
+        # possible values: CommunicationRequest
 
         # a plan or proposal that is fulfilled in whole or in part by this
         # request.
@@ -129,99 +125,98 @@ class CommunicationRequest(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'identifier'},
+
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'reasonReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'recipient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'reasonCode'},
 
             {'parent_entity': 'CommunicationRequest_Payload',
-            'parent_variable': 'object_id',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'payload'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'payload'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'groupIdentifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'medium'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'recipient'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'topic'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'replaces'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'occurrencePeriod'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'sender'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'topic'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'context'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'medium'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'category'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'context'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'basedOn'},
 
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'note'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'occurrencePeriod'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'basedOn'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'replaces'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'sender'},
 
             {'parent_entity': 'CommunicationRequest_Requester',
-            'parent_variable': 'object_id',
-            'child_entity': 'CommunicationRequest',
-            'child_variable': 'requester'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'requester'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'groupIdentifier'},
         ]
+
 
 class CommunicationRequest_Payload(fhirbase):
     """A request to convey information; e.g. the CDS system proposes that an
@@ -245,24 +240,26 @@ class CommunicationRequest_Payload(fhirbase):
         self.contentReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CommunicationRequest_Payload',
-            'child_variable': 'contentReference'},
-
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'CommunicationRequest_Payload',
-            'child_variable': 'contentAttachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest_Payload',
+             'child_variable': 'contentAttachment'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest_Payload',
+             'child_variable': 'contentReference'},
         ]
+
 
 class CommunicationRequest_Requester(fhirbase):
     """A request to convey information; e.g. the CDS system proposes that an
@@ -279,22 +276,22 @@ class CommunicationRequest_Requester(fhirbase):
         self.onBehalfOf = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CommunicationRequest_Requester',
-            'child_variable': 'onBehalfOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest_Requester',
+             'child_variable': 'onBehalfOf'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CommunicationRequest_Requester',
-            'child_variable': 'agent'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest_Requester',
+             'child_variable': 'agent'},
         ]
-

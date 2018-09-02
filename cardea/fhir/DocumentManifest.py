@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class DocumentManifest(fhirbase):
     """A collection of documents compiled for a purpose together with metadata
@@ -12,7 +10,7 @@ class DocumentManifest(fhirbase):
         # this is a documentmanifest resource
         self.resourceType = 'DocumentManifest'
         # type = string
-        # possible values = DocumentManifest
+        # possible values: DocumentManifest
 
         # a single identifier that uniquely identifies this manifest. principally
         # used to refer to the manifest in non-fhir contexts.
@@ -22,7 +20,7 @@ class DocumentManifest(fhirbase):
         # the status of this document manifest.
         self.status = None
         # type = string
-        # possible values = current, superseded, entered-in-error
+        # possible values: current, superseded, entered-in-error
 
         # specifies the kind of this set of documents (e.g. patient summary,
         # discharge summary, prescription, etc.). the type of a set of documents
@@ -84,61 +82,62 @@ class DocumentManifest(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['current', 'superseded', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'current, superseded, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'current', 'superseded', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'current, superseded, entered-in-error'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentManifest',
-            'child_variable': 'recipient'},
-
-            {'parent_entity': 'DocumentManifest_Content',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentManifest',
-            'child_variable': 'content'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentManifest',
-            'child_variable': 'masterIdentifier'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentManifest',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentManifest',
-            'child_variable': 'author'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentManifest',
-            'child_variable': 'type'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentManifest',
+             'child_variable': 'author'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentManifest',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentManifest',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentManifest',
+             'child_variable': 'masterIdentifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentManifest',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentManifest',
+             'child_variable': 'recipient'},
 
             {'parent_entity': 'DocumentManifest_Related',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentManifest',
-            'child_variable': 'related'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentManifest',
+             'child_variable': 'related'},
+
+            {'parent_entity': 'DocumentManifest_Content',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentManifest',
+             'child_variable': 'content'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentManifest',
+             'child_variable': 'type'},
         ]
+
 
 class DocumentManifest_Content(fhirbase):
     """A collection of documents compiled for a purpose together with metadata
@@ -160,24 +159,26 @@ class DocumentManifest_Content(fhirbase):
         self.pReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentManifest_Content',
-            'child_variable': 'pReference'},
-
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentManifest_Content',
-            'child_variable': 'pAttachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentManifest_Content',
+             'child_variable': 'pAttachment'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentManifest_Content',
+             'child_variable': 'pReference'},
         ]
+
 
 class DocumentManifest_Related(fhirbase):
     """A collection of documents compiled for a purpose together with metadata
@@ -195,22 +196,19 @@ class DocumentManifest_Related(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DocumentManifest_Related',
-            'child_variable': 'identifier'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DocumentManifest_Related',
-            'child_variable': 'ref'},
-        ]
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentManifest_Related',
+             'child_variable': 'ref'},
 
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentManifest_Related',
+             'child_variable': 'identifier'},
+        ]

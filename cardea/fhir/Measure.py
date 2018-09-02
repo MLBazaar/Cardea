@@ -1,12 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Contributor import Contributor
-from .UsageContext import UsageContext
-from .RelatedArtifact import RelatedArtifact
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class Measure(fhirbase):
     """The Measure resource provides the definition of a quality measure.
@@ -16,7 +9,7 @@ class Measure(fhirbase):
         # this is a measure resource
         self.resourceType = 'Measure'
         # type = string
-        # possible values = Measure
+        # possible values: Measure
 
         # an absolute uri that is used to identify this measure when it is
         # referenced in a specification, model, design or an instance. this shall
@@ -55,7 +48,7 @@ class Measure(fhirbase):
         # content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this measure is authored for testing
         # purposes (or education/evaluation/marketing), and is not intended to be
@@ -238,91 +231,92 @@ class Measure(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure',
-            'child_variable': 'topic'},
-
-            {'parent_entity': 'Measure_Group',
-            'parent_variable': 'identifier',
-            'child_entity': 'Measure',
-            'child_variable': 'group'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Measure',
-            'child_variable': 'library'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure',
-            'child_variable': 'effectivePeriod'},
-
-            {'parent_entity': 'Measure_SupplementalData',
-            'parent_variable': 'identifier',
-            'child_entity': 'Measure',
-            'child_variable': 'supplementalData'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'topic'},
 
             {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure',
-            'child_variable': 'contributor'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'contributor'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure',
-            'child_variable': 'compositeScoring'},
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'effectivePeriod'},
 
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'useContext'},
 
             {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure',
-            'child_variable': 'relatedArtifact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'relatedArtifact'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'scoring'},
+
+            {'parent_entity': 'Measure_Group',
+             'parent_variable': 'identifier',
+             'child_entity': 'Measure',
+             'child_variable': 'group'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure',
-            'child_variable': 'scoring'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Measure_SupplementalData',
+             'parent_variable': 'identifier',
+             'child_entity': 'Measure',
+             'child_variable': 'supplementalData'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Measure',
+             'child_variable': 'library'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'compositeScoring'},
         ]
+
 
 class Measure_Group(fhirbase):
     """The Measure resource provides the definition of a quality measure.
@@ -354,29 +348,28 @@ class Measure_Group(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure_Group',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'Measure_Stratifier',
+             'parent_variable': 'identifier',
+             'child_entity': 'Measure_Group',
+             'child_variable': 'stratifier'},
 
             {'parent_entity': 'Measure_Population',
-            'parent_variable': 'identifier',
-            'child_entity': 'Measure_Group',
-            'child_variable': 'population'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Measure_Group',
+             'child_variable': 'population'},
 
-            {'parent_entity': 'Measure_Stratifier',
-            'parent_variable': 'identifier',
-            'child_entity': 'Measure_Group',
-            'child_variable': 'stratifier'},
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure_Group',
+             'child_variable': 'identifier'},
         ]
+
 
 class Measure_Population(fhirbase):
     """The Measure resource provides the definition of a quality measure.
@@ -405,24 +398,23 @@ class Measure_Population(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure_Population',
-            'child_variable': 'identifier'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure_Population',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure_Population',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure_Population',
+             'child_variable': 'identifier'},
         ]
+
 
 class Measure_Stratifier(fhirbase):
     """The Measure resource provides the definition of a quality measure.
@@ -444,19 +436,18 @@ class Measure_Stratifier(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure_Stratifier',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure_Stratifier',
+             'child_variable': 'identifier'},
         ]
+
 
 class Measure_SupplementalData(fhirbase):
     """The Measure resource provides the definition of a quality measure.
@@ -487,22 +478,19 @@ class Measure_SupplementalData(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure_SupplementalData',
-            'child_variable': 'usage'},
-
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Measure_SupplementalData',
-            'child_variable': 'identifier'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure_SupplementalData',
+             'child_variable': 'identifier'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure_SupplementalData',
+             'child_variable': 'usage'},
+        ]

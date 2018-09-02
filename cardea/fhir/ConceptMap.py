@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class ConceptMap(fhirbase):
     """A statement of relationships from one set of concepts to one or more
@@ -15,7 +11,7 @@ class ConceptMap(fhirbase):
         # this is a conceptmap resource
         self.resourceType = 'ConceptMap'
         # type = string
-        # possible values = ConceptMap
+        # possible values: ConceptMap
 
         # an absolute uri that is used to identify this concept map when it is
         # referenced in a specification, model, design or an instance. this shall
@@ -49,7 +45,7 @@ class ConceptMap(fhirbase):
         # content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this concept map is authored for
         # testing purposes (or education/evaluation/marketing), and is not
@@ -137,56 +133,57 @@ class ConceptMap(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ConceptMap',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ConceptMap',
-            'child_variable': 'jurisdiction'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ConceptMap',
-            'child_variable': 'sourceReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ConceptMap',
+             'child_variable': 'targetReference'},
 
             {'parent_entity': 'ConceptMap_Group',
-            'parent_variable': 'object_id',
-            'child_entity': 'ConceptMap',
-            'child_variable': 'group'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ConceptMap',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'ConceptMap',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ConceptMap',
+             'child_variable': 'group'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ConceptMap',
-            'child_variable': 'targetReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ConceptMap',
+             'child_variable': 'sourceReference'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'ConceptMap',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ConceptMap',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ConceptMap',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ConceptMap',
+             'child_variable': 'jurisdiction'},
         ]
+
 
 class ConceptMap_Group(fhirbase):
     """A statement of relationships from one set of concepts to one or more
@@ -225,24 +222,26 @@ class ConceptMap_Group(fhirbase):
         self.unmapped = None
         # reference to ConceptMap_Unmapped: ConceptMap_Unmapped
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ConceptMap_Unmapped',
-            'parent_variable': 'object_id',
-            'child_entity': 'ConceptMap_Group',
-            'child_variable': 'unmapped'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ConceptMap_Group',
+             'child_variable': 'unmapped'},
 
             {'parent_entity': 'ConceptMap_Element',
-            'parent_variable': 'object_id',
-            'child_entity': 'ConceptMap_Group',
-            'child_variable': 'element'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ConceptMap_Group',
+             'child_variable': 'element'},
         ]
+
 
 class ConceptMap_Element(fhirbase):
     """A statement of relationships from one set of concepts to one or more
@@ -265,19 +264,21 @@ class ConceptMap_Element(fhirbase):
         # type = array
         # reference to ConceptMap_Target: ConceptMap_Target
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ConceptMap_Target',
-            'parent_variable': 'object_id',
-            'child_entity': 'ConceptMap_Element',
-            'child_variable': 'target'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ConceptMap_Element',
+             'child_variable': 'target'},
         ]
+
 
 class ConceptMap_Target(fhirbase):
     """A statement of relationships from one set of concepts to one or more
@@ -300,7 +301,8 @@ class ConceptMap_Target(fhirbase):
         # source (e.g. the target is 'wider' than the source).
         self.equivalence = None
         # type = string
-        # possible values = relatedto, equivalent, equal, wider, subsumes, narrower, specializes, inexact, unmatched, disjoint
+        # possible values: relatedto, equivalent, equal, wider,
+        # subsumes, narrower, specializes, inexact, unmatched, disjoint
 
         # a description of status/issues in mapping that conveys additional
         # information not represented in  the structured data.
@@ -323,31 +325,37 @@ class ConceptMap_Target(fhirbase):
         # type = array
         # reference to ConceptMap_DependsOn: ConceptMap_DependsOn
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.equivalence is not None:
             for value in self.equivalence:
-                if value != None and value.lower() not in ['relatedto', 'equivalent', 'equal', 'wider', 'subsumes', 'narrower', 'specializes', 'inexact', 'unmatched', 'disjoint']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'relatedto, equivalent, equal, wider, subsumes, narrower, specializes, inexact, unmatched, disjoint'))
+                if value is not None and value.lower() not in [
+                    'relatedto', 'equivalent', 'equal', 'wider', 'subsumes', 'narrower',
+                        'specializes', 'inexact', 'unmatched', 'disjoint']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'relatedto, equivalent, equal, wider, subsumes, narrower,'
+                        'specializes, inexact, unmatched, disjoint'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ConceptMap_DependsOn',
-            'parent_variable': 'object_id',
-            'child_entity': 'ConceptMap_Target',
-            'child_variable': 'dependsOn'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ConceptMap_Target',
+             'child_variable': 'dependsOn'},
 
             {'parent_entity': 'ConceptMap_DependsOn',
-            'parent_variable': 'object_id',
-            'child_entity': 'ConceptMap_Target',
-            'child_variable': 'product'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ConceptMap_Target',
+             'child_variable': 'product'},
         ]
+
 
 class ConceptMap_DependsOn(fhirbase):
     """A statement of relationships from one set of concepts to one or more
@@ -360,41 +368,29 @@ class ConceptMap_DependsOn(fhirbase):
         # code system property. the idea is that the information model carries an
         # element somwhere that is labeled to correspond with a code system
         # property.
-        # a reference to an element that holds a coded value that corresponds to a
-        # code system property. the idea is that the information model carries an
-        # element somwhere that is labeled to correspond with a code system
-        # property.
         self.property = None
         # type = string
-        # type = string
 
-        # an absolute uri that identifies the code system of the dependency code
-        # (if the source/dependency is a value set that crosses code systems).
         # an absolute uri that identifies the code system of the dependency code
         # (if the source/dependency is a value set that crosses code systems).
         self.system = None
         # type = string
-        # type = string
 
-        # identity (code or path) or the element/item/valueset that the map
-        # depends on / refers to.
         # identity (code or path) or the element/item/valueset that the map
         # depends on / refers to.
         self.code = None
         # type = string
-        # type = string
 
-        # the display for the code. the display is only provided to help editors
-        # when editing the concept map.
         # the display for the code. the display is only provided to help editors
         # when editing the concept map.
         self.display = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class ConceptMap_Unmapped(fhirbase):
@@ -411,7 +407,7 @@ class ConceptMap_Unmapped(fhirbase):
         # different concept map can be provided (by canonical url).
         self.mode = None
         # type = string
-        # possible values = provided, fixed, other-map
+        # possible values: provided, fixed, other-map
 
         # the fixed code to use when the mode = 'fixed'  - all unmapped codes are
         # mapped to a single fixed code.
@@ -427,15 +423,17 @@ class ConceptMap_Unmapped(fhirbase):
         self.url = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.mode is not None:
             for value in self.mode:
-                if value != None and value.lower() not in ['provided', 'fixed', 'other-map']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'provided, fixed, other-map'))
-
+                if value is not None and value.lower() not in [
+                        'provided', 'fixed', 'other-map']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'provided, fixed, other-map'))

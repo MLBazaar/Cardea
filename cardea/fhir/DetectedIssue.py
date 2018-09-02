@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class DetectedIssue(fhirbase):
     """Indicates an actual or potential clinical issue with or between one or
@@ -14,7 +12,7 @@ class DetectedIssue(fhirbase):
         # this is a detectedissue resource
         self.resourceType = 'DetectedIssue'
         # type = string
-        # possible values = DetectedIssue
+        # possible values: DetectedIssue
 
         # indicates the status of the detected issue.
         self.status = None
@@ -28,7 +26,7 @@ class DetectedIssue(fhirbase):
         # based on the potential impact on the patient.
         self.severity = None
         # type = string
-        # possible values = high, moderate, low
+        # possible values: high, moderate, low
 
         # indicates the patient whose record the detected issue is associated
         # with.
@@ -72,51 +70,52 @@ class DetectedIssue(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.severity is not None:
             for value in self.severity:
-                if value != None and value.lower() not in ['high', 'moderate', 'low']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'high, moderate, low'))
+                if value is not None and value.lower() not in [
+                        'high', 'moderate', 'low']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'high, moderate, low'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DetectedIssue',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DetectedIssue',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DetectedIssue',
+             'child_variable': 'implicated'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DetectedIssue',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DetectedIssue',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DetectedIssue',
+             'child_variable': 'author'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DetectedIssue',
+             'child_variable': 'patient'},
 
             {'parent_entity': 'DetectedIssue_Mitigation',
-            'parent_variable': 'object_id',
-            'child_entity': 'DetectedIssue',
-            'child_variable': 'mitigation'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DetectedIssue',
-            'child_variable': 'author'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DetectedIssue',
-            'child_variable': 'patient'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DetectedIssue',
-            'child_variable': 'implicated'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DetectedIssue',
+             'child_variable': 'mitigation'},
         ]
+
 
 class DetectedIssue_Mitigation(fhirbase):
     """Indicates an actual or potential clinical issue with or between one or
@@ -140,22 +139,22 @@ class DetectedIssue_Mitigation(fhirbase):
         self.author = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DetectedIssue_Mitigation',
-            'child_variable': 'action'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DetectedIssue_Mitigation',
+             'child_variable': 'action'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DetectedIssue_Mitigation',
-            'child_variable': 'author'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DetectedIssue_Mitigation',
+             'child_variable': 'author'},
         ]
-

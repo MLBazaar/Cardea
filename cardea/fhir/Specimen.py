@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class Specimen(fhirbase):
     """A sample to be used for analysis.
@@ -12,7 +9,7 @@ class Specimen(fhirbase):
         # this is a specimen resource
         self.resourceType = 'Specimen'
         # type = string
-        # possible values = Specimen
+        # possible values: Specimen
 
         # the identifier assigned by the lab when accessioning specimen(s). this
         # is not necessarily the same as the specimen identifier, depending on
@@ -23,7 +20,8 @@ class Specimen(fhirbase):
         # the availability of the specimen.
         self.status = None
         # type = string
-        # possible values = available, unavailable, unsatisfactory, entered-in-error
+        # possible values: available, unavailable, unsatisfactory,
+        # entered-in-error
 
         # the kind of material that forms the specimen.
         self.type = None
@@ -77,71 +75,72 @@ class Specimen(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['available', 'unavailable', 'unsatisfactory', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'available, unavailable, unsatisfactory, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'available', 'unavailable', 'unsatisfactory', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'available, unavailable, unsatisfactory, entered-in-error'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Specimen',
-            'child_variable': 'parent'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'Specimen_Container',
-            'parent_variable': 'identifier',
-            'child_entity': 'Specimen',
-            'child_variable': 'container'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen',
-            'child_variable': 'accessionIdentifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Specimen',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Specimen_Collection',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen',
-            'child_variable': 'collection'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Specimen',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen',
+             'child_variable': 'type'},
 
-            {'parent_entity': 'Specimen_Processing',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen',
-            'child_variable': 'processing'},
+            {'parent_entity': 'Specimen_Collection',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen',
+             'child_variable': 'collection'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Specimen_Container',
+             'parent_variable': 'identifier',
+             'child_entity': 'Specimen',
+             'child_variable': 'container'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen',
+             'child_variable': 'accessionIdentifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Specimen',
-            'child_variable': 'request'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Specimen',
+             'child_variable': 'request'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Specimen',
+             'child_variable': 'parent'},
+
+            {'parent_entity': 'Specimen_Processing',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen',
+             'child_variable': 'processing'},
         ]
+
 
 class Specimen_Collection(fhirbase):
     """A sample to be used for analysis.
@@ -178,39 +177,41 @@ class Specimen_Collection(fhirbase):
         self.bodySite = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen_Collection',
-            'child_variable': 'bodySite'},
-
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen_Collection',
-            'child_variable': 'collectedPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Collection',
+             'child_variable': 'collectedPeriod'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen_Collection',
-            'child_variable': 'quantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Collection',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen_Collection',
-            'child_variable': 'method'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Collection',
+             'child_variable': 'method'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Specimen_Collection',
-            'child_variable': 'collector'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Specimen_Collection',
+             'child_variable': 'collector'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Collection',
+             'child_variable': 'bodySite'},
         ]
+
 
 class Specimen_Processing(fhirbase):
     """A sample to be used for analysis.
@@ -242,29 +243,31 @@ class Specimen_Processing(fhirbase):
         self.timePeriod = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen_Processing',
-            'child_variable': 'timePeriod'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Specimen_Processing',
-            'child_variable': 'additive'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Specimen_Processing',
+             'child_variable': 'additive'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen_Processing',
-            'child_variable': 'procedure'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Processing',
+             'child_variable': 'procedure'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Processing',
+             'child_variable': 'timePeriod'},
         ]
+
 
 class Specimen_Container(fhirbase):
     """A sample to be used for analysis.
@@ -306,42 +309,39 @@ class Specimen_Container(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen_Container',
-            'child_variable': 'additiveCodeableConcept'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Specimen_Container',
-            'child_variable': 'additiveReference'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen_Container',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen_Container',
-            'child_variable': 'specimenQuantity'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen_Container',
-            'child_variable': 'capacity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Container',
+             'child_variable': 'type'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Specimen_Container',
-            'child_variable': 'type'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Container',
+             'child_variable': 'additiveCodeableConcept'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Specimen_Container',
+             'child_variable': 'additiveReference'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Container',
+             'child_variable': 'specimenQuantity'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Container',
+             'child_variable': 'capacity'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Container',
+             'child_variable': 'identifier'},
+        ]

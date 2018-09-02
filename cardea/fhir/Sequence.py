@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .Identifier import Identifier
-from .Reference import Reference
-from .Quantity import Quantity
+from .fhirbase import fhirbase
+
 
 class Sequence(fhirbase):
     """Raw data describing a biological sequence.
@@ -11,12 +9,12 @@ class Sequence(fhirbase):
         # this is a sequence resource
         self.resourceType = 'Sequence'
         # type = string
-        # possible values = Sequence
+        # possible values: Sequence
 
         # amino acid sequence/ dna sequence / rna sequence.
         self.type = None
         # type = string
-        # possible values = aa, dna, rna
+        # possible values: aa, dna, rna
 
         # whether the sequence is numbered starting at 0 (0-based numbering or
         # coordinates, inclusive start, exclusive end) or starting at 1 (1-based
@@ -93,76 +91,77 @@ class Sequence(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['aa', 'dna', 'rna']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'aa, dna, rna'))
+                if value is not None and value.lower() not in [
+                        'aa', 'dna', 'rna']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'aa, dna, rna'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Sequence',
-            'child_variable': 'specimen'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Sequence',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Sequence_Variant',
-            'parent_variable': 'object_id',
-            'child_entity': 'Sequence',
-            'child_variable': 'variant'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Sequence',
-            'child_variable': 'device'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Sequence',
+             'child_variable': 'pointer'},
 
             {'parent_entity': 'Sequence_ReferenceSeq',
-            'parent_variable': 'object_id',
-            'child_entity': 'Sequence',
-            'child_variable': 'referenceSeq'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence',
+             'child_variable': 'referenceSeq'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Sequence',
+             'child_variable': 'device'},
 
             {'parent_entity': 'Sequence_Quality',
-            'parent_variable': 'object_id',
-            'child_entity': 'Sequence',
-            'child_variable': 'quality'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Sequence',
-            'child_variable': 'performer'},
-
-            {'parent_entity': 'Sequence_Repository',
-            'parent_variable': 'object_id',
-            'child_entity': 'Sequence',
-            'child_variable': 'repository'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Sequence',
-            'child_variable': 'patient'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence',
+             'child_variable': 'quality'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Sequence',
-            'child_variable': 'quantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence',
+             'child_variable': 'quantity'},
+
+            {'parent_entity': 'Sequence_Variant',
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence',
+             'child_variable': 'variant'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Sequence',
-            'child_variable': 'pointer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Sequence',
+             'child_variable': 'specimen'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Sequence',
+             'child_variable': 'performer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Sequence',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Sequence_Repository',
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence',
+             'child_variable': 'repository'},
         ]
+
 
 class Sequence_ReferenceSeq(fhirbase):
     """Raw data describing a biological sequence.
@@ -216,29 +215,31 @@ class Sequence_ReferenceSeq(fhirbase):
         self.windowEnd = None
         # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Sequence_ReferenceSeq',
-            'child_variable': 'referenceSeqId'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Sequence_ReferenceSeq',
-            'child_variable': 'chromosome'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Sequence_ReferenceSeq',
-            'child_variable': 'referenceSeqPointer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Sequence_ReferenceSeq',
+             'child_variable': 'referenceSeqPointer'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence_ReferenceSeq',
+             'child_variable': 'chromosome'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence_ReferenceSeq',
+             'child_variable': 'referenceSeqId'},
         ]
+
 
 class Sequence_Variant(fhirbase):
     """Raw data describing a biological sequence.
@@ -288,19 +289,21 @@ class Sequence_Variant(fhirbase):
         self.variantPointer = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Sequence_Variant',
-            'child_variable': 'variantPointer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Sequence_Variant',
+             'child_variable': 'variantPointer'},
         ]
+
 
 class Sequence_Quality(fhirbase):
     """Raw data describing a biological sequence.
@@ -310,7 +313,7 @@ class Sequence_Quality(fhirbase):
         # indel / snp / undefined variant.
         self.type = None
         # type = string
-        # possible values = indel, snp, unknown
+        # possible values: indel, snp, unknown
 
         # gold standard sequence used for comparing against.
         self.standardSequence = None
@@ -385,36 +388,40 @@ class Sequence_Quality(fhirbase):
         self.fScore = None
         # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['indel', 'snp', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'indel, snp, unknown'))
+                if value is not None and value.lower() not in [
+                        'indel', 'snp', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'indel, snp, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Sequence_Quality',
-            'child_variable': 'method'},
-
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Sequence_Quality',
-            'child_variable': 'score'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence_Quality',
+             'child_variable': 'score'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Sequence_Quality',
-            'child_variable': 'standardSequence'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence_Quality',
+             'child_variable': 'method'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence_Quality',
+             'child_variable': 'standardSequence'},
         ]
+
 
 class Sequence_Repository(fhirbase):
     """Raw data describing a biological sequence.
@@ -425,7 +432,7 @@ class Sequence_Repository(fhirbase):
         # authentication / other ways to see resource.
         self.type = None
         # type = string
-        # possible values = directlink, openapi, login, oauth, other
+        # possible values: directlink, openapi, login, oauth, other
 
         # uri of an external repository which contains further details about the
         # genetics data.
@@ -453,15 +460,17 @@ class Sequence_Repository(fhirbase):
         self.readsetId = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['directlink', 'openapi', 'login', 'oauth', 'other']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'directlink, openapi, login, oauth, other'))
-
+                if value is not None and value.lower() not in [
+                        'directlink', 'openapi', 'login', 'oauth', 'other']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'directlink, openapi, login, oauth, other'))

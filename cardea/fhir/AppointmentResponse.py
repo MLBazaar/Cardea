@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Identifier import Identifier
-from .CodeableConcept import CodeableConcept
+from .fhirbase import fhirbase
+
 
 class AppointmentResponse(fhirbase):
     """A reply to an appointment request for a patient and/or practitioner(s),
@@ -12,7 +10,7 @@ class AppointmentResponse(fhirbase):
         # this is a appointmentresponse resource
         self.resourceType = 'AppointmentResponse'
         # type = string
-        # possible values = AppointmentResponse
+        # possible values: AppointmentResponse
 
         # appointment that this response is replying to.
         self.appointment = None
@@ -59,32 +57,29 @@ class AppointmentResponse(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'AppointmentResponse',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AppointmentResponse',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AppointmentResponse',
-            'child_variable': 'actor'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AppointmentResponse',
-            'child_variable': 'appointment'},
+             'parent_variable': 'identifier',
+             'child_entity': 'AppointmentResponse',
+             'child_variable': 'actor'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AppointmentResponse',
-            'child_variable': 'participantType'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'AppointmentResponse',
+             'child_variable': 'participantType'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AppointmentResponse',
+             'child_variable': 'appointment'},
+        ]

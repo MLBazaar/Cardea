@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class RequestGroup(fhirbase):
     """A group of related requests that can be used to capture intended
@@ -14,7 +11,7 @@ class RequestGroup(fhirbase):
         # this is a requestgroup resource
         self.resourceType = 'RequestGroup'
         # type = string
-        # possible values = RequestGroup
+        # possible values: RequestGroup
 
         # a protocol, guideline, orderset or other definition that is adhered to
         # in whole or in part by this request.
@@ -102,74 +99,73 @@ class RequestGroup(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'reasonReference'},
-
-            {'parent_entity': 'RequestGroup_Action',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'action'},
-
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'definition'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'replaces'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'definition'},
 
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'note'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'note'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'basedOn'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'context'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'context'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'author'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'replaces'},
+            {'parent_entity': 'RequestGroup_Action',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'action'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'groupIdentifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'groupIdentifier'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'reasonCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'reasonCodeableConcept'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RequestGroup',
-            'child_variable': 'author'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'subject'},
         ]
+
 
 class RequestGroup_Action(fhirbase):
     """A group of related requests that can be used to capture intended
@@ -179,225 +175,179 @@ class RequestGroup_Action(fhirbase):
 
     def __init__(self, dict_values=None):
         # a user-visible label for the action.
-        # a user-visible label for the action.
         self.label = None
         # type = string
-        # type = string
 
-        # the title of the action displayed to a user.
         # the title of the action displayed to a user.
         self.title = None
         # type = string
-        # type = string
 
-        # a short description of the action used to provide a summary to display
-        # to the user.
         # a short description of the action used to provide a summary to display
         # to the user.
         self.description = None
         # type = string
-        # type = string
 
-        # a text equivalent of the action to be performed. this provides a human-
-        # interpretable description of the action when the definition is consumed
-        # by a system that may not be capable of interpreting it dynamically.
         # a text equivalent of the action to be performed. this provides a human-
         # interpretable description of the action when the definition is consumed
         # by a system that may not be capable of interpreting it dynamically.
         self.textEquivalent = None
         # type = string
-        # type = string
 
         # a code that provides meaning for the action or action group. for
         # example, a section may have a loinc code for a the section of a
         # documentation template.
-        # a code that provides meaning for the action or action group. for
-        # example, a section may have a loinc code for a the section of a
-        # documentation template.
         self.code = None
-        # type = array
         # type = array
         # reference to CodeableConcept: CodeableConcept
 
         # didactic or other informational resources associated with the action
         # that can be provided to the cds recipient. information resources can
         # include inline text commentary and links to web resources.
-        # didactic or other informational resources associated with the action
-        # that can be provided to the cds recipient. information resources can
-        # include inline text commentary and links to web resources.
         self.documentation = None
-        # type = array
         # type = array
         # reference to RelatedArtifact: RelatedArtifact
 
         # an expression that describes applicability criteria, or start/stop
         # conditions for the action.
-        # an expression that describes applicability criteria, or start/stop
-        # conditions for the action.
         self.condition = None
-        # type = array
         # type = array
         # reference to RequestGroup_Condition: RequestGroup_Condition
 
         # a relationship to another action such as "before" or "30-60 minutes
         # after start of".
-        # a relationship to another action such as "before" or "30-60 minutes
-        # after start of".
         self.relatedAction = None
-        # type = array
         # type = array
         # reference to RequestGroup_RelatedAction: RequestGroup_RelatedAction
 
         # an optional value describing when the action should be performed.
-        # an optional value describing when the action should be performed.
         self.timingDateTime = None
         # type = string
-        # type = string
 
-        # an optional value describing when the action should be performed.
         # an optional value describing when the action should be performed.
         self.timingPeriod = None
         # reference to Period: Period
 
         # an optional value describing when the action should be performed.
-        # an optional value describing when the action should be performed.
         self.timingDuration = None
         # reference to Duration: Duration
 
-        # an optional value describing when the action should be performed.
         # an optional value describing when the action should be performed.
         self.timingRange = None
         # reference to Range: Range
 
         # an optional value describing when the action should be performed.
-        # an optional value describing when the action should be performed.
         self.timingTiming = None
         # reference to Timing: Timing
 
         # the participant that should perform or be responsible for this action.
-        # the participant that should perform or be responsible for this action.
         self.participant = None
-        # type = array
         # type = array
         # reference to Reference: identifier
 
-        # the type of action to perform (create, update, remove).
         # the type of action to perform (create, update, remove).
         self.type = None
         # reference to Coding: Coding
 
         # defines the grouping behavior for the action and its children.
-        # defines the grouping behavior for the action and its children.
         self.groupingBehavior = None
         # type = string
-        # type = string
 
-        # defines the selection behavior for the action and its children.
         # defines the selection behavior for the action and its children.
         self.selectionBehavior = None
         # type = string
-        # type = string
 
-        # defines the requiredness behavior for the action.
         # defines the requiredness behavior for the action.
         self.requiredBehavior = None
         # type = string
-        # type = string
 
-        # defines whether the action should usually be preselected.
         # defines whether the action should usually be preselected.
         self.precheckBehavior = None
         # type = string
-        # type = string
 
-        # defines whether the action can be selected multiple times.
         # defines whether the action can be selected multiple times.
         self.cardinalityBehavior = None
         # type = string
-        # type = string
 
-        # the resource that is the target of the action (e.g.
-        # communicationrequest).
         # the resource that is the target of the action (e.g.
         # communicationrequest).
         self.resource = None
         # reference to Reference: identifier
 
         # sub actions.
-        # sub actions.
         self.action = None
-        # type = array
         # type = array
         # reference to RequestGroup_Action: RequestGroup_Action
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'code'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'resource'},
 
             {'parent_entity': 'RequestGroup_RelatedAction',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'relatedAction'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'timingPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'relatedAction'},
 
             {'parent_entity': 'RequestGroup_Condition',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'condition'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'condition'},
 
-            {'parent_entity': 'RequestGroup_Action',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'action'},
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'timingPeriod'},
 
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'timingRange'},
-
-            {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'timingDuration'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'resource'},
-
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'timingTiming'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'participant'},
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'type'},
 
             {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_Action',
-            'child_variable': 'documentation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'documentation'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'timingRange'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'RequestGroup_Action',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'action'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'timingDuration'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'participant'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'timingTiming'},
         ]
+
 
 class RequestGroup_Condition(fhirbase):
     """A group of related requests that can be used to capture intended
@@ -407,36 +357,28 @@ class RequestGroup_Condition(fhirbase):
 
     def __init__(self, dict_values=None):
         # the kind of condition.
-        # the kind of condition.
         self.kind = None
         # type = string
-        # type = string
 
-        # a brief, natural language description of the condition that effectively
-        # communicates the intended semantics.
         # a brief, natural language description of the condition that effectively
         # communicates the intended semantics.
         self.description = None
         # type = string
-        # type = string
 
-        # the media type of the language for the expression.
         # the media type of the language for the expression.
         self.language = None
         # type = string
-        # type = string
 
-        # an expression that returns true or false, indicating whether or not the
-        # condition is satisfied.
         # an expression that returns true or false, indicating whether or not the
         # condition is satisfied.
         self.expression = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class RequestGroup_RelatedAction(fhirbase):
@@ -447,19 +389,13 @@ class RequestGroup_RelatedAction(fhirbase):
 
     def __init__(self, dict_values=None):
         # the element id of the action this is related to.
-        # the element id of the action this is related to.
         self.actionId = None
         # type = string
-        # type = string
 
-        # the relationship of this action to the related action.
         # the relationship of this action to the related action.
         self.relationship = None
         # type = string
-        # type = string
 
-        # a duration or range of durations to apply to the relationship. for
-        # example, 30-60 minutes before.
         # a duration or range of durations to apply to the relationship. for
         # example, 30-60 minutes before.
         self.offsetDuration = None
@@ -467,27 +403,25 @@ class RequestGroup_RelatedAction(fhirbase):
 
         # a duration or range of durations to apply to the relationship. for
         # example, 30-60 minutes before.
-        # a duration or range of durations to apply to the relationship. for
-        # example, 30-60 minutes before.
         self.offsetRange = None
         # reference to Range: Range
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_RelatedAction',
-            'child_variable': 'offsetDuration'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_RelatedAction',
+             'child_variable': 'offsetDuration'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'RequestGroup_RelatedAction',
-            'child_variable': 'offsetRange'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_RelatedAction',
+             'child_variable': 'offsetRange'},
         ]
-

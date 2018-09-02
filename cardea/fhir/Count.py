@@ -1,4 +1,5 @@
-from .fhirbase import * 
+from .fhirbase import fhirbase
+
 
 class Count(fhirbase):
     """A measured amount (or an amount that can potentially be measured). Note
@@ -7,8 +8,8 @@ class Count(fhirbase):
     """
 
     def __init__(self, dict_values=None):
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

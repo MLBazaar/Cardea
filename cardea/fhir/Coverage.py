@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class Coverage(fhirbase):
     """Financial instrument which may be used to reimburse or pay for health
@@ -13,7 +10,7 @@ class Coverage(fhirbase):
         # this is a coverage resource
         self.resourceType = 'Coverage'
         # type = string
-        # possible values = Coverage
+        # possible values: Coverage
 
         # the status of the resource instance.
         self.status = None
@@ -104,64 +101,63 @@ class Coverage(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Coverage',
-            'child_variable': 'subscriber'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Coverage',
-            'child_variable': 'beneficiary'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Coverage',
-            'child_variable': 'contract'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Coverage',
-            'child_variable': 'period'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Coverage',
+             'child_variable': 'subscriber'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Coverage',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Coverage',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Coverage',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Coverage',
-            'child_variable': 'payor'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Coverage',
-            'child_variable': 'relationship'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Coverage',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Coverage',
-            'child_variable': 'policyHolder'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Coverage',
+             'child_variable': 'contract'},
 
             {'parent_entity': 'Coverage_Grouping',
-            'parent_variable': 'object_id',
-            'child_entity': 'Coverage',
-            'child_variable': 'grouping'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Coverage',
+             'child_variable': 'grouping'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Coverage',
+             'child_variable': 'relationship'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Coverage',
+             'child_variable': 'policyHolder'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Coverage',
+             'child_variable': 'payor'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Coverage',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Coverage',
+             'child_variable': 'beneficiary'},
         ]
+
 
 class Coverage_Grouping(fhirbase):
     """Financial instrument which may be used to reimburse or pay for health
@@ -228,8 +224,8 @@ class Coverage_Grouping(fhirbase):
         self.subClassDisplay = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

@@ -1,5 +1,5 @@
-from .fhirbase import * 
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class HumanName(fhirbase):
     """A human's name with the ability to identify parts and usage.
@@ -9,7 +9,8 @@ class HumanName(fhirbase):
         # identifies the purpose for this name.
         self.use = None
         # type = string
-        # possible values = usual, official, temp, nickname, anonymous, old, maiden
+        # possible values: usual, official, temp, nickname, anonymous,
+        # old, maiden
 
         # a full text representation of the name.
         self.text = None
@@ -41,24 +42,26 @@ class HumanName(fhirbase):
         self.period = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.use is not None:
             for value in self.use:
-                if value != None and value.lower() not in ['usual', 'official', 'temp', 'nickname', 'anonymous', 'old', 'maiden']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'usual, official, temp, nickname, anonymous, old, maiden'))
+                if value is not None and value.lower() not in [
+                        'usual', 'official', 'temp', 'nickname', 'anonymous', 'old', 'maiden']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'usual, official, temp, nickname, anonymous, old, maiden'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'HumanName',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'HumanName',
+             'child_variable': 'period'},
         ]
-

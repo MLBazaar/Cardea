@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Period import Period
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class Flag(fhirbase):
     """Prospective warnings of potential issues when providing care to the
@@ -13,12 +10,12 @@ class Flag(fhirbase):
         # this is a flag resource
         self.resourceType = 'Flag'
         # type = string
-        # possible values = Flag
+        # possible values: Flag
 
         # supports basic workflow.
         self.status = None
         # type = string
-        # possible values = active, inactive, entered-in-error
+        # possible values: active, inactive, entered-in-error
 
         # allows an flag to be divided into different categories like clinical,
         # administrative etc. intended to be used as a means of filtering which
@@ -55,54 +52,53 @@ class Flag(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'inactive', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, inactive, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'active', 'inactive', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, inactive, entered-in-error'))
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Flag',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Flag',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Flag',
+             'child_variable': 'encounter'},
+
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Flag',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Flag',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Flag',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Flag',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Flag',
+             'child_variable': 'author'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Flag',
-            'child_variable': 'encounter'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Flag',
-            'child_variable': 'author'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Flag',
-            'child_variable': 'code'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Flag',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Flag',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Flag',
+             'child_variable': 'period'},
         ]
-

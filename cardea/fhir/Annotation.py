@@ -1,5 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class Annotation(fhirbase):
     """A  text note which also  contains information about who made the
@@ -23,17 +23,17 @@ class Annotation(fhirbase):
         self.text = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Annotation',
-            'child_variable': 'authorReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Annotation',
+             'child_variable': 'authorReference'},
         ]
-

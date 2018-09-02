@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class Task(fhirbase):
     """A task to be performed.
@@ -13,7 +9,7 @@ class Task(fhirbase):
         # this is a task resource
         self.resourceType = 'Task'
         # type = string
-        # possible values = Task
+        # possible values: Task
 
         # a reference to a formal or informal definition of the task.  for
         # example, a protocol, a step within a defined workflow definition, etc.
@@ -49,7 +45,9 @@ class Task(fhirbase):
         # the current status of the task.
         self.status = None
         # type = string
-        # possible values = draft, requested, received, accepted, rejected, ready, cancelled, in-progress, on-hold, failed, completed, entered-in-error
+        # possible values: draft, requested, received, accepted,
+        # rejected, ready, cancelled, in-progress, on-hold, failed, completed,
+        # entered-in-error
 
         # an explanation as to why this task is held, failed, was refused, etc.
         self.statusReason = None
@@ -158,126 +156,131 @@ class Task(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'requested', 'received', 'accepted', 'rejected', 'ready', 'cancelled', 'in-progress', 'on-hold', 'failed', 'completed', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, requested, received, accepted, rejected, ready, cancelled, in-progress, on-hold, failed, completed, entered-in-error'))
+                if value is not None and value.lower() not in [
+                    'draft', 'requested', 'received', 'accepted', 'rejected', 'ready',
+                    'cancelled', 'in-progress', 'on-hold', 'failed', 'completed',
+                        'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, requested, received, accepted, rejected, ready,'
+                        'cancelled, in-progress, on-hold, failed, completed,'
+                        'entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'statusReason'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': 'partOf'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Task_Output',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'output'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': 'relevantHistory'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'performerType'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'Task_Input',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'input'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task',
-            'child_variable': 'for'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'businessStatus'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'groupIdentifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task',
-            'child_variable': 'definitionReference'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task',
-            'child_variable': 'partOf'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task',
-            'child_variable': 'relevantHistory'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'reason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Task_Restriction',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'restriction'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'restriction'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task',
-            'child_variable': 'focus'},
-
-            {'parent_entity': 'Task_Requester',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'requester'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task',
-            'child_variable': 'owner'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'businessStatus'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task',
-            'child_variable': 'executionPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'groupIdentifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task',
-            'child_variable': 'context'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': 'definitionReference'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'reason'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': 'focus'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': 'owner'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Task_Output',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'output'},
+
+            {'parent_entity': 'Task_Requester',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'requester'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'executionPeriod'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'Task_Input',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'input'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'performerType'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'statusReason'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': '_for'},
         ]
+
 
 class Task_Requester(fhirbase):
     """A task to be performed.
@@ -293,24 +296,26 @@ class Task_Requester(fhirbase):
         self.onBehalfOf = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task_Requester',
-            'child_variable': 'onBehalfOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Task_Requester',
+             'child_variable': 'onBehalfOf'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task_Requester',
-            'child_variable': 'agent'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Task_Requester',
+             'child_variable': 'agent'},
         ]
+
 
 class Task_Restriction(fhirbase):
     """A task to be performed.
@@ -331,24 +336,26 @@ class Task_Restriction(fhirbase):
         # type = array
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task_Restriction',
-            'child_variable': 'recipient'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Task_Restriction',
+             'child_variable': 'recipient'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Restriction',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Restriction',
+             'child_variable': 'period'},
         ]
+
 
 class Task_Input(fhirbase):
     """A task to be performed.
@@ -572,199 +579,201 @@ class Task_Input(fhirbase):
         self.valueTriggerDefinition = None
         # reference to TriggerDefinition: TriggerDefinition
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Element',
-            'parent_variable': 'id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueElement'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueQuantity'},
-
-            {'parent_entity': 'ElementDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueElementDefinition'},
-
-            {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueHumanName'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueSimpleQuantity'},
-
-            {'parent_entity': 'Dosage',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueDosage'},
-
-            {'parent_entity': 'Signature',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueSignature'},
-
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueTiming'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueAnnotation'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueRange'},
-
-            {'parent_entity': 'Extension',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueExtension'},
-
-            {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueRelatedArtifact'},
-
-            {'parent_entity': 'ParameterDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueParameterDefinition'},
-
-            {'parent_entity': 'Narrative',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueNarrative'},
-
-            {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueDataRequirement'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueMoney'},
+            {'parent_entity': 'TriggerDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueTriggerDefinition'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueAddress'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueReference'},
-
-            {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueContributor'},
-
-            {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueDuration'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueAttachment'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueCoding'},
-
-            {'parent_entity': 'Distance',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueDistance'},
-
-            {'parent_entity': 'BackboneElement',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueBackboneElement'},
-
-            {'parent_entity': 'Meta',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueMeta'},
-
-            {'parent_entity': 'TriggerDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueTriggerDefinition'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueContactPoint'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueContactDetail'},
-
-            {'parent_entity': 'Count',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueCount'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueIdentifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'SampledData',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueSampledData'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valuePeriod'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueCoding'},
 
             {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueRatio'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueRatio'},
 
-            {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueAge'},
+            {'parent_entity': 'BackboneElement',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueBackboneElement'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueRelatedArtifact'},
 
             {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Input',
-            'child_variable': 'valueUsageContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueUsageContext'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueSampledData'},
+
+            {'parent_entity': 'ParameterDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueParameterDefinition'},
+
+            {'parent_entity': 'Narrative',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueNarrative'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueAddress'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueDuration'},
+
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueDataRequirement'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueContactDetail'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueReference'},
+
+            {'parent_entity': 'ElementDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueElementDefinition'},
+
+            {'parent_entity': 'Element',
+             'parent_variable': 'id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueElement'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueAnnotation'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueQuantity'},
+
+            {'parent_entity': 'Count',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueCount'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueAge'},
+
+            {'parent_entity': 'Meta',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueMeta'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueContactPoint'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueHumanName'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueIdentifier'},
+
+            {'parent_entity': 'Distance',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueDistance'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueMoney'},
+
+            {'parent_entity': 'Extension',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueExtension'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueDosage'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueRange'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueCodeableConcept'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valuePeriod'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueSimpleQuantity'},
+
+            {'parent_entity': 'Signature',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueSignature'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueTiming'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueContributor'},
         ]
+
 
 class Task_Output(fhirbase):
     """A task to be performed.
@@ -987,197 +996,197 @@ class Task_Output(fhirbase):
         self.valueTriggerDefinition = None
         # reference to TriggerDefinition: TriggerDefinition
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Distance',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueDistance'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueContactPoint'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueCoding'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueRange'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueAnnotation'},
-
-            {'parent_entity': 'Extension',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueExtension'},
-
-            {'parent_entity': 'SampledData',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueSampledData'},
-
-            {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueDuration'},
-
-            {'parent_entity': 'ParameterDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueParameterDefinition'},
-
-            {'parent_entity': 'Narrative',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueNarrative'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valuePeriod'},
-
-            {'parent_entity': 'Signature',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueSignature'},
-
-            {'parent_entity': 'Count',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueCount'},
+            {'parent_entity': 'Element',
+             'parent_variable': 'id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueElement'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueIdentifier'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueQuantity'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueMoney'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueContactDetail'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueAttachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueIdentifier'},
 
             {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueDataRequirement'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueDataRequirement'},
 
-            {'parent_entity': 'BackboneElement',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueBackboneElement'},
+            {'parent_entity': 'Count',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueCount'},
 
-            {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueContributor'},
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueMoney'},
 
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueSimpleQuantity'},
-
-            {'parent_entity': 'Element',
-            'parent_variable': 'id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueElement'},
-
-            {'parent_entity': 'TriggerDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueTriggerDefinition'},
-
-            {'parent_entity': 'Meta',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueMeta'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueReference'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueCodeableConcept'},
-
-            {'parent_entity': 'Dosage',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueDosage'},
-
-            {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueAge'},
-
-            {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueRelatedArtifact'},
-
-            {'parent_entity': 'ElementDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueElementDefinition'},
-
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueAddress'},
-
-            {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueHumanName'},
-
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueTiming'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueUsageContext'},
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueSampledData'},
 
             {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Task_Output',
-            'child_variable': 'valueRatio'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueRatio'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueCodeableConcept'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueDosage'},
+
+            {'parent_entity': 'Signature',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueSignature'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueCoding'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueReference'},
+
+            {'parent_entity': 'Narrative',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueNarrative'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueHumanName'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueContactPoint'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueDuration'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueAge'},
+
+            {'parent_entity': 'ParameterDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueParameterDefinition'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueRange'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueAnnotation'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valuePeriod'},
+
+            {'parent_entity': 'TriggerDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueTriggerDefinition'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueRelatedArtifact'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueUsageContext'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueContributor'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueTiming'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueQuantity'},
+
+            {'parent_entity': 'ElementDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueElementDefinition'},
+
+            {'parent_entity': 'Distance',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueDistance'},
+
+            {'parent_entity': 'BackboneElement',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueBackboneElement'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueAttachment'},
+
+            {'parent_entity': 'Extension',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueExtension'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueAddress'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueSimpleQuantity'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueContactDetail'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Meta',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueMeta'},
+        ]

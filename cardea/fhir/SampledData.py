@@ -1,5 +1,5 @@
-from .fhirbase import * 
-from .Quantity import Quantity
+from .fhirbase import fhirbase
+
 
 class SampledData(fhirbase):
     """A series of measurements taken by a device, with upper and lower limits.
@@ -44,17 +44,17 @@ class SampledData(fhirbase):
         self.data = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'SampledData',
-            'child_variable': 'origin'},
+             'parent_variable': 'object_id',
+             'child_entity': 'SampledData',
+             'child_variable': 'origin'},
         ]
-

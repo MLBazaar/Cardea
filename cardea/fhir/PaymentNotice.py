@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Identifier import Identifier
-from .CodeableConcept import CodeableConcept
+from .fhirbase import fhirbase
+
 
 class PaymentNotice(fhirbase):
     """This resource provides the status of the payment for goods and services
@@ -12,7 +10,7 @@ class PaymentNotice(fhirbase):
         # this is a paymentnotice resource
         self.resourceType = 'PaymentNotice'
         # type = string
-        # possible values = PaymentNotice
+        # possible values: PaymentNotice
 
         # the status of the resource instance.
         self.status = None
@@ -58,47 +56,44 @@ class PaymentNotice(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentNotice',
-            'child_variable': 'response'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentNotice',
-            'child_variable': 'identifier'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentNotice',
+             'child_variable': 'request'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentNotice',
-            'child_variable': 'request'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentNotice',
+             'child_variable': 'response'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentNotice',
+             'child_variable': 'target'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PaymentNotice',
-            'child_variable': 'paymentStatus'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentNotice',
+             'child_variable': 'paymentStatus'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentNotice',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentNotice',
-            'child_variable': 'target'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentNotice',
+             'child_variable': 'organization'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentNotice',
-            'child_variable': 'provider'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PaymentNotice',
-            'child_variable': 'organization'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentNotice',
+             'child_variable': 'provider'},
         ]
-

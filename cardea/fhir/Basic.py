@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class Basic(fhirbase):
     """Basic is used for handling concepts not yet defined in FHIR, narrative-
@@ -13,7 +11,7 @@ class Basic(fhirbase):
         # this is a basic resource
         self.resourceType = 'Basic'
         # type = string
-        # possible values = Basic
+        # possible values: Basic
 
         # identifies the 'type' of resource - equivalent to the resource name for
         # other resources.
@@ -39,32 +37,29 @@ class Basic(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Basic',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Basic',
-            'child_variable': 'subject'},
-
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Basic',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Basic',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Basic',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Basic',
-            'child_variable': 'author'},
-        ]
+             'parent_variable': 'identifier',
+             'child_entity': 'Basic',
+             'child_variable': 'subject'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Basic',
+             'child_variable': 'author'},
+        ]

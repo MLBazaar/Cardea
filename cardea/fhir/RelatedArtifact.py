@@ -1,6 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Attachment import Attachment
+from .fhirbase import fhirbase
+
 
 class RelatedArtifact(fhirbase):
     """Related artifacts such as additional documentation, justification, or
@@ -11,7 +10,8 @@ class RelatedArtifact(fhirbase):
         # the type of relationship to the related artifact.
         self.type = None
         # type = string
-        # possible values = documentation, justification, citation, predecessor, successor, derived-from, depends-on, composed-of
+        # possible values: documentation, justification, citation,
+        # predecessor, successor, derived-from, depends-on, composed-of
 
         # a brief description of the document or knowledge resource being
         # referenced, suitable for display to a consumer.
@@ -38,29 +38,33 @@ class RelatedArtifact(fhirbase):
         self.resource = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['documentation', 'justification', 'citation', 'predecessor', 'successor', 'derived-from', 'depends-on', 'composed-of']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'documentation, justification, citation, predecessor, successor, derived-from, depends-on, composed-of'))
+                if value is not None and value.lower() not in [
+                    'documentation', 'justification', 'citation', 'predecessor',
+                        'successor', 'derived-from', 'depends-on', 'composed-of']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'documentation, justification, citation, predecessor,'
+                        'successor, derived-from, depends-on, composed-of'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'RelatedArtifact',
-            'child_variable': 'document'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RelatedArtifact',
-            'child_variable': 'resource'},
-        ]
+             'parent_variable': 'identifier',
+             'child_entity': 'RelatedArtifact',
+             'child_variable': 'resource'},
 
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'RelatedArtifact',
+             'child_variable': 'document'},
+        ]

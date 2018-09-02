@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Money import Money
+from .fhirbase import fhirbase
+
 
 class ExplanationOfBenefit(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -15,12 +11,12 @@ class ExplanationOfBenefit(fhirbase):
         # this is a explanationofbenefit resource
         self.resourceType = 'ExplanationOfBenefit'
         # type = string
-        # possible values = ExplanationOfBenefit
+        # possible values: ExplanationOfBenefit
 
         # the status of the resource instance.
         self.status = None
         # type = string
-        # possible values = active, cancelled, draft, entered-in-error
+        # possible values: active, cancelled, draft, entered-in-error
 
         # the category of claim, eg, oral, pharmacy, vision, insitutional,
         # professional.
@@ -207,196 +203,197 @@ class ExplanationOfBenefit(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'cancelled', 'draft', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, cancelled, draft, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'active', 'cancelled', 'draft', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, cancelled, draft, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'form'},
-
-            {'parent_entity': 'ExplanationOfBenefit_BenefitBalance',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'benefitBalance'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'employmentImpacted'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Insurance',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'insurance'},
-
-            {'parent_entity': 'ExplanationOfBenefit_CareTeam',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'careTeam'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Information',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'information'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'billablePeriod'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Related',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'related'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'subType'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'referral'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'unallocDeductable'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Diagnosis',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'diagnosis'},
-
-            {'parent_entity': 'ExplanationOfBenefit_AddItem',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'addItem'},
-
-            {'parent_entity': 'ExplanationOfBenefit_ProcessNote',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'processNote'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'enterer'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'claim'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'claimResponse'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'hospitalization'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Procedure',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'procedure'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'totalCost'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'patient'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Accident',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'accident'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'provider'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'outcome'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Payee',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'payee'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Payment',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'payment'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'enterer'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'hospitalization'},
+
+            {'parent_entity': 'ExplanationOfBenefit_BenefitBalance',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'benefitBalance'},
+
+            {'parent_entity': 'ExplanationOfBenefit_CareTeam',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'careTeam'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'prescription'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'facility'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'facility'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'claim'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Accident',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'accident'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'insurer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'organization'},
 
-            {'parent_entity': 'ExplanationOfBenefit_Item',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'item'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'subType'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'originalPrescription'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'referral'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Insurance',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'insurance'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Diagnosis',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'diagnosis'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Payment',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'payment'},
 
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'totalBenefit'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'totalCost'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'billablePeriod'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Information',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'information'},
+
+            {'parent_entity': 'ExplanationOfBenefit_ProcessNote',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'processNote'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'employmentImpacted'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'unallocDeductable'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'organization'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'insurer'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit',
-            'child_variable': 'originalPrescription'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'claimResponse'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'outcome'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'form'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'provider'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Procedure',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'procedure'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'prescription'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'totalBenefit'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Related',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'related'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Item',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'item'},
+
+            {'parent_entity': 'ExplanationOfBenefit_AddItem',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'addItem'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Payee',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'payee'},
         ]
+
 
 class ExplanationOfBenefit_Related(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -420,29 +417,31 @@ class ExplanationOfBenefit_Related(fhirbase):
         self.reference = None
         # reference to Identifier: Identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_Related',
-            'child_variable': 'claim'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Related',
-            'child_variable': 'relationship'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Related',
+             'child_variable': 'relationship'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Related',
+             'child_variable': 'claim'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Related',
-            'child_variable': 'reference'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Related',
+             'child_variable': 'reference'},
         ]
+
 
 class ExplanationOfBenefit_Payee(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -463,29 +462,31 @@ class ExplanationOfBenefit_Payee(fhirbase):
         self.party = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Payee',
-            'child_variable': 'resourceType'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Payee',
+             'child_variable': 'type'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Payee',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Payee',
+             'child_variable': 'resourceType'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_Payee',
-            'child_variable': 'party'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Payee',
+             'child_variable': 'party'},
         ]
+
 
 class ExplanationOfBenefit_Information(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -543,49 +544,51 @@ class ExplanationOfBenefit_Information(fhirbase):
         self.reason = None
         # reference to Coding: Coding
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Information',
-            'child_variable': 'reason'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_Information',
-            'child_variable': 'valueReference'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Information',
-            'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Information',
-            'child_variable': 'code'},
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Information',
+             'child_variable': 'timingPeriod'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Information',
-            'child_variable': 'valueQuantity'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Information',
-            'child_variable': 'timingPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Information',
+             'child_variable': 'valueQuantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Information',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Information',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Information',
+             'child_variable': 'valueReference'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Information',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Information',
+             'child_variable': 'valueAttachment'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Information',
+             'child_variable': 'reason'},
         ]
+
 
 class ExplanationOfBenefit_CareTeam(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -616,29 +619,31 @@ class ExplanationOfBenefit_CareTeam(fhirbase):
         self.qualification = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_CareTeam',
-            'child_variable': 'role'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_CareTeam',
-            'child_variable': 'qualification'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_CareTeam',
-            'child_variable': 'provider'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_CareTeam',
+             'child_variable': 'provider'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_CareTeam',
+             'child_variable': 'qualification'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_CareTeam',
+             'child_variable': 'role'},
         ]
+
 
 class ExplanationOfBenefit_Diagnosis(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -670,34 +675,36 @@ class ExplanationOfBenefit_Diagnosis(fhirbase):
         self.packageCode = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Diagnosis',
-            'child_variable': 'packageCode'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Diagnosis',
+             'child_variable': 'packageCode'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Diagnosis',
-            'child_variable': 'diagnosisCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Diagnosis',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_Diagnosis',
-            'child_variable': 'diagnosisReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Diagnosis',
+             'child_variable': 'diagnosisReference'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Diagnosis',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Diagnosis',
+             'child_variable': 'diagnosisCodeableConcept'},
         ]
+
 
 class ExplanationOfBenefit_Procedure(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -722,24 +729,26 @@ class ExplanationOfBenefit_Procedure(fhirbase):
         self.procedureReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Procedure',
-            'child_variable': 'procedureCodeableConcept'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_Procedure',
-            'child_variable': 'procedureReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Procedure',
+             'child_variable': 'procedureReference'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Procedure',
+             'child_variable': 'procedureCodeableConcept'},
         ]
+
 
 class ExplanationOfBenefit_Insurance(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -756,19 +765,21 @@ class ExplanationOfBenefit_Insurance(fhirbase):
         self.preAuthRef = None
         # type = array
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_Insurance',
-            'child_variable': 'coverage'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Insurance',
+             'child_variable': 'coverage'},
         ]
+
 
 class ExplanationOfBenefit_Accident(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -793,29 +804,31 @@ class ExplanationOfBenefit_Accident(fhirbase):
         self.locationReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Accident',
-            'child_variable': 'locationAddress'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Accident',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Accident',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Accident',
+             'child_variable': 'locationAddress'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_Accident',
-            'child_variable': 'locationReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Accident',
+             'child_variable': 'locationReference'},
         ]
+
 
 class ExplanationOfBenefit_Item(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -954,104 +967,106 @@ class ExplanationOfBenefit_Item(fhirbase):
         # type = array
         # reference to ExplanationOfBenefit_Detail: ExplanationOfBenefit_Detail
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ExplanationOfBenefit_Detail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'detail'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'locationReference'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'locationCodeableConcept'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'quantity'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'programCode'},
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'net'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'servicedPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'servicedPeriod'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'service'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'net'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'modifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'revenue'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'locationCodeableConcept'},
 
             {'parent_entity': 'ExplanationOfBenefit_Adjudication',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'adjudication'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'adjudication'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'udi'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'locationReference'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'bodySite'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'service'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'bodySite'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'modifier'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Detail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'detail'},
 
             {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'locationAddress'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'locationAddress'},
 
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'unitPrice'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'category'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'encounter'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'encounter'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'programCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'udi'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'unitPrice'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Item',
-            'child_variable': 'subSite'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'revenue'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'quantity'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'subSite'},
         ]
+
 
 class ExplanationOfBenefit_Adjudication(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -1061,69 +1076,47 @@ class ExplanationOfBenefit_Adjudication(fhirbase):
 
     def __init__(self, dict_values=None):
         # code indicating: co-pay, deductable, elegible, benefit, tax, etc.
-        # code indicating: co-pay, deductable, elegible, benefit, tax, etc.
-        # code indicating: co-pay, deductable, elegible, benefit, tax, etc.
-        # code indicating: co-pay, deductable, elegible, benefit, tax, etc.
-        # code indicating: co-pay, deductable, elegible, benefit, tax, etc.
         self.category = None
         # reference to CodeableConcept: CodeableConcept
 
         # adjudication reason such as limit reached.
-        # adjudication reason such as limit reached.
-        # adjudication reason such as limit reached.
-        # adjudication reason such as limit reached.
-        # adjudication reason such as limit reached.
         self.reason = None
         # reference to CodeableConcept: CodeableConcept
 
-        # monitory amount associated with the code.
-        # monitory amount associated with the code.
-        # monitory amount associated with the code.
-        # monitory amount associated with the code.
         # monitory amount associated with the code.
         self.amount = None
         # reference to Money: Money
 
         # a non-monetary value for example a percentage. mutually exclusive to the
         # amount element above.
-        # a non-monetary value for example a percentage. mutually exclusive to the
-        # amount element above.
-        # a non-monetary value for example a percentage. mutually exclusive to the
-        # amount element above.
-        # a non-monetary value for example a percentage. mutually exclusive to the
-        # amount element above.
-        # a non-monetary value for example a percentage. mutually exclusive to the
-        # amount element above.
         self.value = None
         # type = int
-        # type = int
-        # type = int
-        # type = int
-        # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Adjudication',
+             'child_variable': 'category'},
+
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Adjudication',
-            'child_variable': 'amount'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Adjudication',
+             'child_variable': 'amount'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Adjudication',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Adjudication',
-            'child_variable': 'reason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Adjudication',
+             'child_variable': 'reason'},
         ]
+
 
 class ExplanationOfBenefit_Detail(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -1212,74 +1205,76 @@ class ExplanationOfBenefit_Detail(fhirbase):
         # type = array
         # reference to ExplanationOfBenefit_SubDetail: ExplanationOfBenefit_SubDetail
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'adjudication'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'net'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'modifier'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'programCode'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'programCode'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'service'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'udi'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'revenue'},
 
             {'parent_entity': 'ExplanationOfBenefit_SubDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'subDetail'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'unitPrice'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'subDetail'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'quantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'quantity'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'net'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'adjudication'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'revenue'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'unitPrice'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'udi'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'modifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'type'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'service'},
         ]
+
 
 class ExplanationOfBenefit_SubDetail(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -1359,69 +1354,71 @@ class ExplanationOfBenefit_SubDetail(fhirbase):
         # type = array
         # reference to ExplanationOfBenefit_Adjudication: ExplanationOfBenefit_Adjudication
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_SubDetail',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_SubDetail',
-            'child_variable': 'unitPrice'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'programCode'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_SubDetail',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_SubDetail',
-            'child_variable': 'adjudication'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ExplanationOfBenefit_SubDetail',
-            'child_variable': 'udi'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_SubDetail',
-            'child_variable': 'modifier'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_SubDetail',
-            'child_variable': 'net'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_SubDetail',
-            'child_variable': 'service'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_SubDetail',
-            'child_variable': 'programCode'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'revenue'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_SubDetail',
-            'child_variable': 'quantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_SubDetail',
-            'child_variable': 'revenue'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'unitPrice'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'adjudication'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'udi'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'net'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'modifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'service'},
         ]
+
 
 class ExplanationOfBenefit_AddItem(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -1477,49 +1474,51 @@ class ExplanationOfBenefit_AddItem(fhirbase):
         # type = array
         # reference to ExplanationOfBenefit_Detail1: ExplanationOfBenefit_Detail1
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_AddItem',
-            'child_variable': 'service'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_AddItem',
-            'child_variable': 'revenue'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_AddItem',
+             'child_variable': 'service'},
 
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_AddItem',
-            'child_variable': 'fee'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_AddItem',
+             'child_variable': 'fee'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_AddItem',
+             'child_variable': 'modifier'},
 
             {'parent_entity': 'ExplanationOfBenefit_Detail1',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_AddItem',
-            'child_variable': 'detail'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_AddItem',
+             'child_variable': 'detail'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_AddItem',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_AddItem',
+             'child_variable': 'revenue'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_AddItem',
+             'child_variable': 'category'},
 
             {'parent_entity': 'ExplanationOfBenefit_Adjudication',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_AddItem',
-            'child_variable': 'adjudication'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_AddItem',
-            'child_variable': 'modifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_AddItem',
+             'child_variable': 'adjudication'},
         ]
+
 
 class ExplanationOfBenefit_Detail1(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -1562,44 +1561,46 @@ class ExplanationOfBenefit_Detail1(fhirbase):
         # type = array
         # reference to ExplanationOfBenefit_Adjudication: ExplanationOfBenefit_Adjudication
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail1',
-            'child_variable': 'fee'},
-
             {'parent_entity': 'ExplanationOfBenefit_Adjudication',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail1',
-            'child_variable': 'adjudication'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail1',
+             'child_variable': 'adjudication'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail1',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail1',
+             'child_variable': 'service'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail1',
+             'child_variable': 'fee'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail1',
-            'child_variable': 'revenue'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail1',
+             'child_variable': 'revenue'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail1',
-            'child_variable': 'service'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail1',
+             'child_variable': 'category'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Detail1',
-            'child_variable': 'modifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail1',
+             'child_variable': 'modifier'},
         ]
+
 
 class ExplanationOfBenefit_Payment(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -1633,39 +1634,38 @@ class ExplanationOfBenefit_Payment(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Payment',
+             'child_variable': 'adjustmentReason'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Payment',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Payment',
+             'child_variable': 'adjustment'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Payment',
+             'child_variable': 'amount'},
+
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Payment',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Payment',
-            'child_variable': 'amount'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Payment',
-            'child_variable': 'adjustmentReason'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Payment',
-            'child_variable': 'adjustment'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Payment',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Payment',
+             'child_variable': 'identifier'},
         ]
+
 
 class ExplanationOfBenefit_ProcessNote(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -1694,24 +1694,26 @@ class ExplanationOfBenefit_ProcessNote(fhirbase):
         self.language = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_ProcessNote',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_ProcessNote',
+             'child_variable': 'language'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_ProcessNote',
-            'child_variable': 'language'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_ProcessNote',
+             'child_variable': 'type'},
         ]
+
 
 class ExplanationOfBenefit_BenefitBalance(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -1761,44 +1763,46 @@ class ExplanationOfBenefit_BenefitBalance(fhirbase):
         # type = array
         # reference to ExplanationOfBenefit_Financial: ExplanationOfBenefit_Financial
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ExplanationOfBenefit_Financial',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_BenefitBalance',
-            'child_variable': 'financial'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_BenefitBalance',
+             'child_variable': 'financial'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_BenefitBalance',
-            'child_variable': 'network'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_BenefitBalance',
+             'child_variable': 'category'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_BenefitBalance',
-            'child_variable': 'subCategory'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_BenefitBalance',
+             'child_variable': 'unit'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_BenefitBalance',
-            'child_variable': 'unit'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_BenefitBalance',
+             'child_variable': 'network'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_BenefitBalance',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_BenefitBalance',
+             'child_variable': 'term'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_BenefitBalance',
-            'child_variable': 'term'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_BenefitBalance',
+             'child_variable': 'subCategory'},
         ]
+
 
 class ExplanationOfBenefit_Financial(fhirbase):
     """This resource provides: the claim details; adjudication details from the
@@ -1831,27 +1835,27 @@ class ExplanationOfBenefit_Financial(fhirbase):
         self.usedMoney = None
         # reference to Money: Money
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Financial',
-            'child_variable': 'usedMoney'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Financial',
-            'child_variable': 'allowedMoney'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Financial',
+             'child_variable': 'allowedMoney'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExplanationOfBenefit_Financial',
-            'child_variable': 'type'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Financial',
+             'child_variable': 'type'},
 
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Financial',
+             'child_variable': 'usedMoney'},
+        ]

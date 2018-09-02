@@ -1,4 +1,5 @@
-from .fhirbase import * 
+from .fhirbase import fhirbase
+
 
 class OperationOutcome(fhirbase):
     """A collection of error, warning or information messages that result from
@@ -9,7 +10,7 @@ class OperationOutcome(fhirbase):
         # this is a operationoutcome resource
         self.resourceType = 'OperationOutcome'
         # type = string
-        # possible values = OperationOutcome
+        # possible values: OperationOutcome
 
         # an error, warning or information message that results from a system
         # action.
@@ -17,19 +18,21 @@ class OperationOutcome(fhirbase):
         # type = array
         # reference to OperationOutcome_Issue: OperationOutcome_Issue
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'OperationOutcome_Issue',
-            'parent_variable': 'object_id',
-            'child_entity': 'OperationOutcome',
-            'child_variable': 'issue'},
+             'parent_variable': 'object_id',
+             'child_entity': 'OperationOutcome',
+             'child_variable': 'issue'},
         ]
+
 
 class OperationOutcome_Issue(fhirbase):
     """A collection of error, warning or information messages that result from
@@ -41,7 +44,7 @@ class OperationOutcome_Issue(fhirbase):
         # processing.
         self.severity = None
         # type = string
-        # possible values = fatal, error, warning, information
+        # possible values: fatal, error, warning, information
 
         # describes the type of the issue. the system that creates an
         # operationoutcome shall choose the most applicable code from the
@@ -49,7 +52,11 @@ class OperationOutcome_Issue(fhirbase):
         # error in the details element.
         self.code = None
         # type = string
-        # possible values = invalid, structure, required, value, invariant, security, login, unknown, expired, forbidden, suppressed, processing, not-supported, duplicate, not-found, too-long, code-invalid, extension, too-costly, business-rule, conflict, incomplete, transient, lock-error, no-store, exception, timeout, throttled, informational
+        # possible values: invalid, structure, required, value,
+        # invariant, security, login, unknown, expired, forbidden, suppressed,
+        # processing, not-supported, duplicate, not-found, too-long, code-invalid,
+        # extension, too-costly, business-rule, conflict, incomplete, transient,
+        # lock-error, no-store, exception, timeout, throttled, informational
 
         # additional details about the error. this may be a text description of
         # the error, or a system code that identifies the error.
@@ -75,29 +82,42 @@ class OperationOutcome_Issue(fhirbase):
         self.expression = None
         # type = array
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.severity is not None:
             for value in self.severity:
-                if value != None and value.lower() not in ['fatal', 'error', 'warning', 'information']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'fatal, error, warning, information'))
+                if value is not None and value.lower() not in [
+                        'fatal', 'error', 'warning', 'information']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'fatal, error, warning, information'))
 
         if self.code is not None:
             for value in self.code:
-                if value != None and value.lower() not in ['invalid', 'structure', 'required', 'value', 'invariant', 'security', 'login', 'unknown', 'expired', 'forbidden', 'suppressed', 'processing', 'not-supported', 'duplicate', 'not-found', 'too-long', 'code-invalid', 'extension', 'too-costly', 'business-rule', 'conflict', 'incomplete', 'transient', 'lock-error', 'no-store', 'exception', 'timeout', 'throttled', 'informational']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'invalid, structure, required, value, invariant, security, login, unknown, expired, forbidden, suppressed, processing, not-supported, duplicate, not-found, too-long, code-invalid, extension, too-costly, business-rule, conflict, incomplete, transient, lock-error, no-store, exception, timeout, throttled, informational'))
+                if value is not None and value.lower() not in [
+                    'invalid', 'structure', 'required', 'value', 'invariant', 'security',
+                    'login', 'unknown', 'expired', 'forbidden', 'suppressed', 'processing',
+                    'not-supported', 'duplicate', 'not-found', 'too-long', 'code-invalid',
+                    'extension', 'too-costly', 'business-rule', 'conflict', 'incomplete',
+                    'transient', 'lock-error', 'no-store', 'exception', 'timeout',
+                        'throttled', 'informational']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'invalid, structure, required, value, invariant, security, login,'
+                        'unknown, expired, forbidden, suppressed, processing, not-supported,'
+                        'duplicate, not-found, too-long, code-invalid, extension, too-costly,'
+                        'business-rule, conflict, incomplete, transient, lock-error, no-store,'
+                        'exception, timeout, throttled, informational'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'OperationOutcome_Issue',
-            'child_variable': 'details'},
+             'parent_variable': 'object_id',
+             'child_entity': 'OperationOutcome_Issue',
+             'child_variable': 'details'},
         ]
-

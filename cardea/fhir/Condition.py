@@ -1,11 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Reference import Reference
-from .Age import Age
-from .Range import Range
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class Condition(fhirbase):
     """A clinical condition, problem, diagnosis, or other event, situation,
@@ -16,7 +10,7 @@ class Condition(fhirbase):
         # this is a condition resource
         self.resourceType = 'Condition'
         # type = string
-        # possible values = Condition
+        # possible values: Condition
 
         # the clinical status of the condition.
         self.clinicalStatus = None
@@ -25,7 +19,8 @@ class Condition(fhirbase):
         # the verification status to support the clinical status of the condition.
         self.verificationStatus = None
         # type = string
-        # possible values = provisional, differential, confirmed, refuted, entered-in-error, unknown
+        # possible values: provisional, differential, confirmed,
+        # refuted, entered-in-error, unknown
 
         # a category assigned to the condition.
         self.category = None
@@ -157,106 +152,109 @@ class Condition(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.verificationStatus is not None:
             for value in self.verificationStatus:
-                if value != None and value.lower() not in ['provisional', 'differential', 'confirmed', 'refuted', 'entered-in-error', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'provisional, differential, confirmed, refuted, entered-in-error, unknown'))
+                if value is not None and value.lower() not in [
+                    'provisional', 'differential', 'confirmed', 'refuted',
+                        'entered-in-error', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'provisional, differential, confirmed, refuted,'
+                        'entered-in-error, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Condition_Stage',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'stage'},
-
             {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'abatementAge'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Condition',
-            'child_variable': 'subject'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'abatementAge'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'onsetRange'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'severity'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'abatementRange'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Condition',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Condition',
-            'child_variable': 'asserter'},
-
-            {'parent_entity': 'Condition_Evidence',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'evidence'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'abatementRange'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'onsetPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'abatementPeriod'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'onsetRange'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'onsetPeriod'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Condition',
+             'child_variable': 'context'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'severity'},
 
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'code'},
 
-            {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'onsetAge'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Condition',
+             'child_variable': 'asserter'},
 
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'note'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Condition',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'onsetAge'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'bodySite'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'category'},
 
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition',
-            'child_variable': 'abatementPeriod'},
+            {'parent_entity': 'Condition_Evidence',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'evidence'},
+
+            {'parent_entity': 'Condition_Stage',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'stage'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'bodySite'},
         ]
+
 
 class Condition_Stage(fhirbase):
     """A clinical condition, problem, diagnosis, or other event, situation,
@@ -275,24 +273,26 @@ class Condition_Stage(fhirbase):
         # type = array
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition_Stage',
-            'child_variable': 'summary'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition_Stage',
+             'child_variable': 'summary'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Condition_Stage',
-            'child_variable': 'assessment'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Condition_Stage',
+             'child_variable': 'assessment'},
         ]
+
 
 class Condition_Evidence(fhirbase):
     """A clinical condition, problem, diagnosis, or other event, situation,
@@ -310,22 +310,22 @@ class Condition_Evidence(fhirbase):
         # type = array
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Condition_Evidence',
-            'child_variable': 'code'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Condition_Evidence',
-            'child_variable': 'detail'},
-        ]
+             'parent_variable': 'identifier',
+             'child_entity': 'Condition_Evidence',
+             'child_variable': 'detail'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition_Evidence',
+             'child_variable': 'code'},
+        ]

@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Attachment import Attachment
+from .fhirbase import fhirbase
+
 
 class DiagnosticReport(fhirbase):
     """The findings and interpretation of diagnostic  tests performed on
@@ -18,7 +14,7 @@ class DiagnosticReport(fhirbase):
         # this is a diagnosticreport resource
         self.resourceType = 'DiagnosticReport'
         # type = string
-        # possible values = DiagnosticReport
+        # possible values: DiagnosticReport
 
         # details concerning a test or procedure requested.
         self.basedOn = None
@@ -28,7 +24,8 @@ class DiagnosticReport(fhirbase):
         # the status of the diagnostic report as a whole.
         self.status = None
         # type = string
-        # possible values = registered, partial, preliminary, final, amended, corrected, appended, cancelled, entered-in-error, unknown
+        # possible values: registered, partial, preliminary, final,
+        # amended, corrected, appended, cancelled, entered-in-error, unknown
 
         # a code that classifies the clinical discipline, department or diagnostic
         # service that created the report (e.g. cardiology, biochemistry,
@@ -126,91 +123,94 @@ class DiagnosticReport(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['registered', 'partial', 'preliminary', 'final', 'amended', 'corrected', 'appended', 'cancelled', 'entered-in-error', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'registered, partial, preliminary, final, amended, corrected, appended, cancelled, entered-in-error, unknown'))
+                if value is not None and value.lower() not in [
+                    'registered', 'partial', 'preliminary', 'final', 'amended', 'corrected',
+                        'appended', 'cancelled', 'entered-in-error', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'registered, partial, preliminary, final, amended,'
+                        'corrected, appended, cancelled, entered-in-error, unknown'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'codedDiagnosis'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'effectivePeriod'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'basedOn'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'specimen'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'DiagnosticReport_Image',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'image'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'imagingStudy'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'specimen'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'DiagnosticReport_Performer',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'performer'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'performer'},
 
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'presentedForm'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'effectivePeriod'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'result'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'presentedForm'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'imagingStudy'},
+
+            {'parent_entity': 'DiagnosticReport_Image',
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'image'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'codedDiagnosis'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'result'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'subject'},
         ]
+
 
 class DiagnosticReport_Performer(fhirbase):
     """The findings and interpretation of diagnostic  tests performed on
@@ -233,24 +233,26 @@ class DiagnosticReport_Performer(fhirbase):
         self.actor = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport_Performer',
-            'child_variable': 'actor'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport_Performer',
+             'child_variable': 'actor'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport_Performer',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport_Performer',
+             'child_variable': 'role'},
         ]
+
 
 class DiagnosticReport_Image(fhirbase):
     """The findings and interpretation of diagnostic  tests performed on
@@ -272,17 +274,17 @@ class DiagnosticReport_Image(fhirbase):
         self.link = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport_Image',
-            'child_variable': 'link'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport_Image',
+             'child_variable': 'link'},
         ]
-

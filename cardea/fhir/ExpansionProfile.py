@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class ExpansionProfile(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
@@ -12,7 +9,7 @@ class ExpansionProfile(fhirbase):
         # this is a expansionprofile resource
         self.resourceType = 'ExpansionProfile'
         # type = string
-        # possible values = ExpansionProfile
+        # possible values: ExpansionProfile
 
         # an absolute uri that is used to identify this expansion profile when it
         # is referenced in a specification, model, design or an instance. this
@@ -43,7 +40,7 @@ class ExpansionProfile(fhirbase):
         # the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this expansion profile is authored for
         # testing purposes (or education/evaluation/marketing), and is not
@@ -151,56 +148,57 @@ class ExpansionProfile(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'ExpansionProfile_ExcludedSystem',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile',
-            'child_variable': 'excludedSystem'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'ExpansionProfile_Designation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile',
-            'child_variable': 'designation'},
-
-            {'parent_entity': 'ExpansionProfile_FixedVersion',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile',
-            'child_variable': 'fixedVersion'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile',
+             'child_variable': 'contact'},
 
             {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'ExpansionProfile_FixedVersion',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile',
+             'child_variable': 'fixedVersion'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'ExpansionProfile_Designation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile',
+             'child_variable': 'designation'},
+
+            {'parent_entity': 'ExpansionProfile_ExcludedSystem',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile',
+             'child_variable': 'excludedSystem'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile',
+             'child_variable': 'jurisdiction'},
         ]
+
 
 class ExpansionProfile_FixedVersion(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
@@ -220,19 +218,23 @@ class ExpansionProfile_FixedVersion(fhirbase):
         # and this fixed version of the system in the expansion profile.
         self.mode = None
         # type = string
-        # possible values = default, check, override
+        # possible values: default, check, override
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.mode is not None:
             for value in self.mode:
-                if value != None and value.lower() not in ['default', 'check', 'override']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'default, check, override'))
+                if value is not None and value.lower() not in [
+                        'default', 'check', 'override']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'default, check, override'))
+
 
 class ExpansionProfile_ExcludedSystem(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
@@ -248,9 +250,11 @@ class ExpansionProfile_ExcludedSystem(fhirbase):
         self.version = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class ExpansionProfile_Designation(fhirbase):
@@ -266,24 +270,26 @@ class ExpansionProfile_Designation(fhirbase):
         self.exclude = None
         # reference to ExpansionProfile_Exclude: ExpansionProfile_Exclude
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ExpansionProfile_Include',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile_Designation',
-            'child_variable': 'include'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile_Designation',
+             'child_variable': 'include'},
 
             {'parent_entity': 'ExpansionProfile_Exclude',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile_Designation',
-            'child_variable': 'exclude'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile_Designation',
+             'child_variable': 'exclude'},
         ]
+
 
 class ExpansionProfile_Include(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
@@ -295,19 +301,21 @@ class ExpansionProfile_Include(fhirbase):
         # type = array
         # reference to ExpansionProfile_Designation1: ExpansionProfile_Designation1
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ExpansionProfile_Designation1',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile_Include',
-            'child_variable': 'designation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile_Include',
+             'child_variable': 'designation'},
         ]
+
 
 class ExpansionProfile_Designation1(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
@@ -322,19 +330,21 @@ class ExpansionProfile_Designation1(fhirbase):
         self.use = None
         # reference to Coding: Coding
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile_Designation1',
-            'child_variable': 'use'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile_Designation1',
+             'child_variable': 'use'},
         ]
+
 
 class ExpansionProfile_Exclude(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
@@ -346,19 +356,21 @@ class ExpansionProfile_Exclude(fhirbase):
         # type = array
         # reference to ExpansionProfile_Designation2: ExpansionProfile_Designation2
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ExpansionProfile_Designation2',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile_Exclude',
-            'child_variable': 'designation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile_Exclude',
+             'child_variable': 'designation'},
         ]
+
 
 class ExpansionProfile_Designation2(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
@@ -373,17 +385,17 @@ class ExpansionProfile_Designation2(fhirbase):
         self.use = None
         # reference to Coding: Coding
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ExpansionProfile_Designation2',
-            'child_variable': 'use'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile_Designation2',
+             'child_variable': 'use'},
         ]
-

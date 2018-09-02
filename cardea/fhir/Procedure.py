@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class Procedure(fhirbase):
     """An action that is or was performed on a patient. This can be a physical
@@ -15,7 +11,7 @@ class Procedure(fhirbase):
         # this is a procedure resource
         self.resourceType = 'Procedure'
         # type = string
-        # possible values = Procedure
+        # possible values: Procedure
 
         # a protocol, guideline, orderset or other definition that was adhered to
         # in whole or in part by this procedure.
@@ -169,134 +165,133 @@ class Procedure(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'bodySite'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure',
+             'child_variable': 'usedReference'},
+
             {'parent_entity': 'Procedure_Performer',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'performer'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'outcome'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure',
-            'child_variable': 'complicationDetail'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'usedCode'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure',
-            'child_variable': 'location'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure',
-            'child_variable': 'usedReference'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Procedure_FocalDevice',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'focalDevice'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'followUp'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'notDoneReason'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure',
-            'child_variable': 'report'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'performer'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'performedPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'performedPeriod'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure',
+             'child_variable': 'location'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure',
+             'child_variable': 'basedOn'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'bodySite'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure',
-            'child_variable': 'subject'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'outcome'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'reasonCode'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure',
-            'child_variable': 'reasonReference'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'category'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure',
-            'child_variable': 'partOf'},
+            {'parent_entity': 'Procedure_FocalDevice',
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'focalDevice'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'followUp'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure',
-            'child_variable': 'definition'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure',
+             'child_variable': 'report'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure',
-            'child_variable': 'complication'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure',
+             'child_variable': 'partOf'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'complication'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'notDoneReason'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure',
+             'child_variable': 'complicationDetail'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure',
+             'child_variable': 'usedCode'},
         ]
+
 
 class Procedure_Performer(fhirbase):
     """An action that is or was performed on a patient. This can be a physical
@@ -317,29 +312,31 @@ class Procedure_Performer(fhirbase):
         self.onBehalfOf = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure_Performer',
-            'child_variable': 'actor'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure_Performer',
+             'child_variable': 'onBehalfOf'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure_Performer',
-            'child_variable': 'onBehalfOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure_Performer',
+             'child_variable': 'actor'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure_Performer',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure_Performer',
+             'child_variable': 'role'},
         ]
+
 
 class Procedure_FocalDevice(fhirbase):
     """An action that is or was performed on a patient. This can be a physical
@@ -356,22 +353,22 @@ class Procedure_FocalDevice(fhirbase):
         self.manipulated = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Procedure_FocalDevice',
-            'child_variable': 'action'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Procedure_FocalDevice',
+             'child_variable': 'action'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Procedure_FocalDevice',
-            'child_variable': 'manipulated'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Procedure_FocalDevice',
+             'child_variable': 'manipulated'},
         ]
-

@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Address import Address
-from .Reference import Reference
-from .ContactPoint import ContactPoint
-from .Coding import Coding
+from .fhirbase import fhirbase
+
 
 class Location(fhirbase):
     """Details and position information for a physical place where services are
@@ -16,14 +11,14 @@ class Location(fhirbase):
         # this is a location resource
         self.resourceType = 'Location'
         # type = string
-        # possible values = Location
+        # possible values: Location
 
         # the status property covers the general availability of the resource, not
         # the current value which may be covered by the operationstatus, or by a
         # schedule/slots if they are configured for the location.
         self.status = None
         # type = string
-        # possible values = active, suspended, inactive
+        # possible values: active, suspended, inactive
 
         # the operational status covers operation values most relevant to beds
         # (but can also apply to rooms/units/chair/etc such as an isolation
@@ -50,7 +45,7 @@ class Location(fhirbase):
         # a class of locations.
         self.mode = None
         # type = string
-        # possible values = instance, kind
+        # possible values: instance, kind
 
         # indicates the type of function performed at the location.
         self.type = None
@@ -96,76 +91,79 @@ class Location(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'suspended', 'inactive']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, suspended, inactive'))
+                if value is not None and value.lower() not in [
+                        'active', 'suspended', 'inactive']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, suspended, inactive'))
 
         if self.mode is not None:
             for value in self.mode:
-                if value != None and value.lower() not in ['instance', 'kind']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'instance, kind'))
+                if value is not None and value.lower() not in [
+                        'instance', 'kind']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'instance, kind'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Location',
-            'child_variable': 'telecom'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Location',
+             'child_variable': 'endpoint'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Location',
-            'child_variable': 'physicalType'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Location',
-            'child_variable': 'partOf'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Location',
+             'child_variable': 'physicalType'},
 
             {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Location',
-            'child_variable': 'address'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Location',
-            'child_variable': 'operationalStatus'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Location',
+             'child_variable': 'address'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Location',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Location',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Location',
+             'child_variable': 'operationalStatus'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Location',
+             'child_variable': 'telecom'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Location',
-            'child_variable': 'managingOrganization'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Location',
+             'child_variable': 'managingOrganization'},
 
             {'parent_entity': 'Location_Position',
-            'parent_variable': 'object_id',
-            'child_entity': 'Location',
-            'child_variable': 'position'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Location',
-            'child_variable': 'endpoint'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Location',
+             'child_variable': 'position'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Location',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Location',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Location',
+             'child_variable': 'partOf'},
         ]
+
 
 class Location_Position(fhirbase):
     """Details and position information for a physical place where services are
@@ -189,8 +187,8 @@ class Location_Position(fhirbase):
         self.altitude = None
         # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

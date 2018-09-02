@@ -1,6 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class Identifier(fhirbase):
     """A technical identifier - identifies some entity uniquely and
@@ -11,7 +10,7 @@ class Identifier(fhirbase):
         # the purpose of this identifier.
         self.use = None
         # type = string
-        # possible values = usual, official, temp, secondary
+        # possible values: usual, official, temp, secondary
 
         # a coded type for the identifier that can be used to determine which
         # identifier to use for a specific purpose.
@@ -35,29 +34,31 @@ class Identifier(fhirbase):
         # organization that issued/manages the identifier.
         self.assigner = None
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.use is not None:
             for value in self.use:
-                if value != None and value.lower() not in ['usual', 'official', 'temp', 'secondary']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'usual, official, temp, secondary'))
+                if value is not None and value.lower() not in [
+                        'usual', 'official', 'temp', 'secondary']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'usual, official, temp, secondary'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Identifier',
-            'child_variable': 'type'},
-
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Identifier',
-            'child_variable': 'period'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Identifier',
+             'child_variable': 'period'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Identifier',
+             'child_variable': 'type'},
+        ]

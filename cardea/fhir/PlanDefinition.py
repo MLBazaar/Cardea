@@ -1,12 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .UsageContext import UsageContext
-from .RelatedArtifact import RelatedArtifact
-from .Contributor import Contributor
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class PlanDefinition(fhirbase):
     """This resource allows for the definition of various types of plans as a
@@ -19,7 +12,7 @@ class PlanDefinition(fhirbase):
         # this is a plandefinition resource
         self.resourceType = 'PlanDefinition'
         # type = string
-        # possible values = PlanDefinition
+        # possible values: PlanDefinition
 
         # an absolute uri that is used to identify this plan definition when it is
         # referenced in a specification, model, design or an instance. this shall
@@ -63,7 +56,7 @@ class PlanDefinition(fhirbase):
         # the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this plan definition is authored for
         # testing purposes (or education/evaluation/marketing), and is not
@@ -184,81 +177,82 @@ class PlanDefinition(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'PlanDefinition_Action',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'action'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'useContext'},
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'contact'},
 
             {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'contributor'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'contributor'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'topic'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'relatedArtifact'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'PlanDefinition_Goal',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'goal'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'topic'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'library'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'library'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'relatedArtifact'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition',
-            'child_variable': 'effectivePeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'effectivePeriod'},
+
+            {'parent_entity': 'PlanDefinition_Action',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'action'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'PlanDefinition_Goal',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition',
+             'child_variable': 'goal'},
         ]
+
 
 class PlanDefinition_Goal(fhirbase):
     """This resource allows for the definition of various types of plans as a
@@ -305,49 +299,51 @@ class PlanDefinition_Goal(fhirbase):
         # type = array
         # reference to PlanDefinition_Target: PlanDefinition_Target
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Goal',
+             'child_variable': 'priority'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Goal',
+             'child_variable': 'start'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Goal',
+             'child_variable': 'addresses'},
+
             {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Goal',
-            'child_variable': 'documentation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Goal',
+             'child_variable': 'documentation'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Goal',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Goal',
-            'child_variable': 'priority'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Goal',
-            'child_variable': 'start'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Goal',
-            'child_variable': 'addresses'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Goal',
-            'child_variable': 'description'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Goal',
+             'child_variable': 'description'},
 
             {'parent_entity': 'PlanDefinition_Target',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Goal',
-            'child_variable': 'target'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Goal',
+             'child_variable': 'target'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Goal',
+             'child_variable': 'category'},
         ]
+
 
 class PlanDefinition_Target(fhirbase):
     """This resource allows for the definition of various types of plans as a
@@ -394,39 +390,41 @@ class PlanDefinition_Target(fhirbase):
         self.due = None
         # reference to Duration: Duration
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Target',
-            'child_variable': 'detailRange'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Target',
+             'child_variable': 'detailRange'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Target',
-            'child_variable': 'detailCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Target',
+             'child_variable': 'detailCodeableConcept'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Target',
-            'child_variable': 'detailQuantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Target',
+             'child_variable': 'detailQuantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Target',
-            'child_variable': 'measure'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Target',
+             'child_variable': 'measure'},
 
             {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Target',
-            'child_variable': 'due'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Target',
+             'child_variable': 'due'},
         ]
+
 
 class PlanDefinition_Action(fhirbase):
     """This resource allows for the definition of various types of plans as a
@@ -437,201 +435,136 @@ class PlanDefinition_Action(fhirbase):
 
     def __init__(self, dict_values=None):
         # a user-visible label for the action.
-        # a user-visible label for the action.
         self.label = None
         # type = string
-        # type = string
 
-        # the title of the action displayed to a user.
         # the title of the action displayed to a user.
         self.title = None
         # type = string
-        # type = string
 
-        # a short description of the action used to provide a summary to display
-        # to the user.
         # a short description of the action used to provide a summary to display
         # to the user.
         self.description = None
         # type = string
-        # type = string
 
-        # a text equivalent of the action to be performed. this provides a human-
-        # interpretable description of the action when the definition is consumed
-        # by a system that may not be capable of interpreting it dynamically.
         # a text equivalent of the action to be performed. this provides a human-
         # interpretable description of the action when the definition is consumed
         # by a system that may not be capable of interpreting it dynamically.
         self.textEquivalent = None
         # type = string
-        # type = string
 
-        # a code that provides meaning for the action or action group. for
-        # example, a section may have a loinc code for a the section of a
-        # documentation template.
         # a code that provides meaning for the action or action group. for
         # example, a section may have a loinc code for a the section of a
         # documentation template.
         self.code = None
         # type = array
-        # type = array
         # reference to CodeableConcept: CodeableConcept
 
-        # a description of why this action is necessary or appropriate.
         # a description of why this action is necessary or appropriate.
         self.reason = None
         # type = array
-        # type = array
         # reference to CodeableConcept: CodeableConcept
 
-        # didactic or other informational resources associated with the action
-        # that can be provided to the cds recipient. information resources can
-        # include inline text commentary and links to web resources.
         # didactic or other informational resources associated with the action
         # that can be provided to the cds recipient. information resources can
         # include inline text commentary and links to web resources.
         self.documentation = None
         # type = array
-        # type = array
         # reference to RelatedArtifact: RelatedArtifact
 
         # identifies goals that this action supports. the reference must be to a
         # goal element defined within this plan definition.
-        # identifies goals that this action supports. the reference must be to a
-        # goal element defined within this plan definition.
         self.goalId = None
-        # type = array
         # type = array
 
         # a description of when the action should be triggered.
-        # a description of when the action should be triggered.
         self.triggerDefinition = None
-        # type = array
         # type = array
         # reference to TriggerDefinition: TriggerDefinition
 
         # an expression that describes applicability criteria, or start/stop
         # conditions for the action.
-        # an expression that describes applicability criteria, or start/stop
-        # conditions for the action.
         self.condition = None
-        # type = array
         # type = array
         # reference to PlanDefinition_Condition: PlanDefinition_Condition
 
         # defines input data requirements for the action.
-        # defines input data requirements for the action.
         self.input = None
-        # type = array
         # type = array
         # reference to DataRequirement: DataRequirement
 
-        # defines the outputs of the action, if any.
         # defines the outputs of the action, if any.
         self.output = None
         # type = array
-        # type = array
         # reference to DataRequirement: DataRequirement
 
-        # a relationship to another action such as "before" or "30-60 minutes
-        # after start of".
         # a relationship to another action such as "before" or "30-60 minutes
         # after start of".
         self.relatedAction = None
         # type = array
-        # type = array
         # reference to PlanDefinition_RelatedAction: PlanDefinition_RelatedAction
 
         # an optional value describing when the action should be performed.
-        # an optional value describing when the action should be performed.
         self.timingDateTime = None
         # type = string
-        # type = string
 
-        # an optional value describing when the action should be performed.
         # an optional value describing when the action should be performed.
         self.timingPeriod = None
         # reference to Period: Period
 
         # an optional value describing when the action should be performed.
-        # an optional value describing when the action should be performed.
         self.timingDuration = None
         # reference to Duration: Duration
 
-        # an optional value describing when the action should be performed.
         # an optional value describing when the action should be performed.
         self.timingRange = None
         # reference to Range: Range
 
         # an optional value describing when the action should be performed.
-        # an optional value describing when the action should be performed.
         self.timingTiming = None
         # reference to Timing: Timing
 
         # indicates who should participate in performing the action described.
-        # indicates who should participate in performing the action described.
         self.participant = None
-        # type = array
         # type = array
         # reference to PlanDefinition_Participant: PlanDefinition_Participant
 
-        # the type of action to perform (create, update, remove).
         # the type of action to perform (create, update, remove).
         self.type = None
         # reference to Coding: Coding
 
         # defines the grouping behavior for the action and its children.
-        # defines the grouping behavior for the action and its children.
         self.groupingBehavior = None
         # type = string
-        # type = string
-        # possible values = visual-group, logical-group, sentence-group
-        # possible values = visual-group, logical-group, sentence-group
+        # possible values: visual-group, logical-group, sentence-group
 
-        # defines the selection behavior for the action and its children.
         # defines the selection behavior for the action and its children.
         self.selectionBehavior = None
         # type = string
-        # type = string
-        # possible values = any, all, all-or-none, exactly-one, at-most-one, one-or-more
-        # possible values = any, all, all-or-none, exactly-one, at-most-one, one-or-more
+        # possible values: any, all, all-or-none, exactly-one, at-most-
+        # one, one-or-more
 
-        # defines the requiredness behavior for the action.
         # defines the requiredness behavior for the action.
         self.requiredBehavior = None
         # type = string
-        # type = string
-        # possible values = must, could, must-unless-documented
-        # possible values = must, could, must-unless-documented
+        # possible values: must, could, must-unless-documented
 
-        # defines whether the action should usually be preselected.
         # defines whether the action should usually be preselected.
         self.precheckBehavior = None
         # type = string
-        # type = string
-        # possible values = yes, no
-        # possible values = yes, no
+        # possible values: yes, no
 
-        # defines whether the action can be selected multiple times.
         # defines whether the action can be selected multiple times.
         self.cardinalityBehavior = None
         # type = string
-        # type = string
-        # possible values = single, multiple
-        # possible values = single, multiple
+        # possible values: single, multiple
 
-        # a reference to an activitydefinition that describes the action to be
-        # taken in detail, or a plandefinition that describes a series of actions
-        # to be taken.
         # a reference to an activitydefinition that describes the action to be
         # taken in detail, or a plandefinition that describes a series of actions
         # to be taken.
         self.definition = None
         # reference to Reference: identifier
 
-        # a reference to a structuremap resource that defines a transform that can
-        # be executed to produce the intent resource using the activitydefinition
-        # instance as the input.
         # a reference to a structuremap resource that defines a transform that can
         # be executed to produce the intent resource using the activitydefinition
         # instance as the input.
@@ -643,13 +576,7 @@ class PlanDefinition_Action(fhirbase):
         # based on the patient's weight, a customization would be used to specify
         # an expression that calculated the weight, and the path on the resource
         # that would contain the result.
-        # customizations that should be applied to the statically defined
-        # resource. for example, if the dosage of a medication must be computed
-        # based on the patient's weight, a customization would be used to specify
-        # an expression that calculated the weight, and the path on the resource
-        # that would contain the result.
         self.dynamicValue = None
-        # type = array
         # type = array
         # reference to PlanDefinition_DynamicValue: PlanDefinition_DynamicValue
 
@@ -657,165 +584,184 @@ class PlanDefinition_Action(fhirbase):
         # action determines the functionality of the sub-actions. for example, a
         # selection behavior of at-most-one indicates that of the sub-actions, at
         # most one may be chosen as part of realizing the action definition.
-        # sub actions that are contained within the action. the behavior of this
-        # action determines the functionality of the sub-actions. for example, a
-        # selection behavior of at-most-one indicates that of the sub-actions, at
-        # most one may be chosen as part of realizing the action definition.
         self.action = None
-        # type = array
         # type = array
         # reference to PlanDefinition_Action: PlanDefinition_Action
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.groupingBehavior is not None:
             for value in self.groupingBehavior:
-                if value != None and value.lower() not in ['visual-group', 'logical-group', 'sentence-group']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'visual-group, logical-group, sentence-group'))
+                if value is not None and value.lower() not in [
+                        'visual-group', 'logical-group', 'sentence-group']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'visual-group, logical-group, sentence-group'))
 
         if self.selectionBehavior is not None:
             for value in self.selectionBehavior:
-                if value != None and value.lower() not in ['any', 'all', 'all-or-none', 'exactly-one', 'at-most-one', 'one-or-more']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'any, all, all-or-none, exactly-one, at-most-one, one-or-more'))
+                if value is not None and value.lower() not in [
+                    'any', 'all', 'all-or-none', 'exactly-one', 'at-most-one',
+                        'one-or-more']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'any, all, all-or-none, exactly-one, at-most-one, one-or-more'))
 
         if self.requiredBehavior is not None:
             for value in self.requiredBehavior:
-                if value != None and value.lower() not in ['must', 'could', 'must-unless-documented']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'must, could, must-unless-documented'))
+                if value is not None and value.lower() not in [
+                        'must', 'could', 'must-unless-documented']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'must, could, must-unless-documented'))
 
         if self.precheckBehavior is not None:
             for value in self.precheckBehavior:
-                if value != None and value.lower() not in ['yes', 'no']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'yes, no'))
+                if value is not None and value.lower() not in [
+                        'yes', 'no']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'yes, no'))
 
         if self.cardinalityBehavior is not None:
             for value in self.cardinalityBehavior:
-                if value != None and value.lower() not in ['single', 'multiple']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'single, multiple'))
+                if value is not None and value.lower() not in [
+                        'single', 'multiple']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'single, multiple'))
 
         if self.groupingBehavior is not None:
             for value in self.groupingBehavior:
-                if value != None and value.lower() not in ['visual-group', 'logical-group', 'sentence-group']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'visual-group, logical-group, sentence-group'))
+                if value is not None and value.lower() not in [
+                        'visual-group', 'logical-group', 'sentence-group']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'visual-group, logical-group, sentence-group'))
 
         if self.selectionBehavior is not None:
             for value in self.selectionBehavior:
-                if value != None and value.lower() not in ['any', 'all', 'all-or-none', 'exactly-one', 'at-most-one', 'one-or-more']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'any, all, all-or-none, exactly-one, at-most-one, one-or-more'))
+                if value is not None and value.lower() not in [
+                    'any', 'all', 'all-or-none', 'exactly-one', 'at-most-one',
+                        'one-or-more']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'any, all, all-or-none, exactly-one, at-most-one, one-or-more'))
 
         if self.requiredBehavior is not None:
             for value in self.requiredBehavior:
-                if value != None and value.lower() not in ['must', 'could', 'must-unless-documented']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'must, could, must-unless-documented'))
+                if value is not None and value.lower() not in [
+                        'must', 'could', 'must-unless-documented']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'must, could, must-unless-documented'))
 
         if self.precheckBehavior is not None:
             for value in self.precheckBehavior:
-                if value != None and value.lower() not in ['yes', 'no']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'yes, no'))
+                if value is not None and value.lower() not in [
+                        'yes', 'no']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'yes, no'))
 
         if self.cardinalityBehavior is not None:
             for value in self.cardinalityBehavior:
-                if value != None and value.lower() not in ['single', 'multiple']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'single, multiple'))
+                if value is not None and value.lower() not in [
+                        'single', 'multiple']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'single, multiple'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'PlanDefinition_Participant',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'participant'},
-
-            {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'documentation'},
-
-            {'parent_entity': 'PlanDefinition_RelatedAction',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'relatedAction'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'definition'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'reason'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'timingPeriod'},
-
-            {'parent_entity': 'PlanDefinition_Condition',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'condition'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'timingRange'},
-
-            {'parent_entity': 'TriggerDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'triggerDefinition'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'transform'},
+            {'parent_entity': 'PlanDefinition_Action',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'action'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'type'},
 
-            {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'timingDuration'},
+            {'parent_entity': 'PlanDefinition_RelatedAction',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'relatedAction'},
 
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'timingTiming'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'transform'},
+
+            {'parent_entity': 'PlanDefinition_Participant',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'participant'},
 
             {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'input'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'input'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'timingPeriod'},
+
+            {'parent_entity': 'TriggerDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'triggerDefinition'},
+
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'output'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'reason'},
 
-            {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'output'},
+            {'parent_entity': 'PlanDefinition_Condition',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'condition'},
 
-            {'parent_entity': 'PlanDefinition_Action',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'action'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'timingRange'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'timingTiming'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'code'},
 
             {'parent_entity': 'PlanDefinition_DynamicValue',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Action',
-            'child_variable': 'dynamicValue'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'dynamicValue'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'timingDuration'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Action',
+             'child_variable': 'documentation'},
         ]
+
 
 class PlanDefinition_Condition(fhirbase):
     """This resource allows for the definition of various types of plans as a
@@ -826,51 +772,39 @@ class PlanDefinition_Condition(fhirbase):
 
     def __init__(self, dict_values=None):
         # the kind of condition.
-        # the kind of condition.
         self.kind = None
         # type = string
-        # type = string
-        # possible values = applicability, start, stop
-        # possible values = applicability, start, stop
+        # possible values: applicability, start, stop
 
-        # a brief, natural language description of the condition that effectively
-        # communicates the intended semantics.
         # a brief, natural language description of the condition that effectively
         # communicates the intended semantics.
         self.description = None
         # type = string
-        # type = string
 
-        # the media type of the language for the expression.
         # the media type of the language for the expression.
         self.language = None
         # type = string
-        # type = string
 
-        # an expression that returns true or false, indicating whether or not the
-        # condition is satisfied.
         # an expression that returns true or false, indicating whether or not the
         # condition is satisfied.
         self.expression = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.kind is not None:
             for value in self.kind:
-                if value != None and value.lower() not in ['applicability', 'start', 'stop']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'applicability, start, stop'))
+                if value is not None and value.lower() not in [
+                        'applicability', 'start', 'stop']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'applicability, start, stop'))
 
-        if self.kind is not None:
-            for value in self.kind:
-                if value != None and value.lower() not in ['applicability', 'start', 'stop']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'applicability, start, stop'))
 
 class PlanDefinition_RelatedAction(fhirbase):
     """This resource allows for the definition of various types of plans as a
@@ -881,21 +815,16 @@ class PlanDefinition_RelatedAction(fhirbase):
 
     def __init__(self, dict_values=None):
         # the element id of the related action.
-        # the element id of the related action.
         self.actionId = None
         # type = string
-        # type = string
 
-        # the relationship of this action to the related action.
         # the relationship of this action to the related action.
         self.relationship = None
         # type = string
-        # type = string
-        # possible values = before-start, before, before-end, concurrent-with-start, concurrent, concurrent-with-end, after-start, after, after-end
-        # possible values = before-start, before, before-end, concurrent-with-start, concurrent, concurrent-with-end, after-start, after, after-end
+        # possible values: before-start, before, before-end, concurrent-
+        # with-start, concurrent, concurrent-with-end, after-start, after, after-
+        # end
 
-        # a duration or range of durations to apply to the relationship. for
-        # example, 30-60 minutes before.
         # a duration or range of durations to apply to the relationship. for
         # example, 30-60 minutes before.
         self.offsetDuration = None
@@ -903,41 +832,42 @@ class PlanDefinition_RelatedAction(fhirbase):
 
         # a duration or range of durations to apply to the relationship. for
         # example, 30-60 minutes before.
-        # a duration or range of durations to apply to the relationship. for
-        # example, 30-60 minutes before.
         self.offsetRange = None
         # reference to Range: Range
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.relationship is not None:
             for value in self.relationship:
-                if value != None and value.lower() not in ['before-start', 'before', 'before-end', 'concurrent-with-start', 'concurrent', 'concurrent-with-end', 'after-start', 'after', 'after-end']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'before-start, before, before-end, concurrent-with-start, concurrent, concurrent-with-end, after-start, after, after-end'))
-
-        if self.relationship is not None:
-            for value in self.relationship:
-                if value != None and value.lower() not in ['before-start', 'before', 'before-end', 'concurrent-with-start', 'concurrent', 'concurrent-with-end', 'after-start', 'after', 'after-end']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'before-start, before, before-end, concurrent-with-start, concurrent, concurrent-with-end, after-start, after, after-end'))
+                if value is not None and value.lower() not in [
+                    'before-start', 'before', 'before-end', 'concurrent-with-start',
+                    'concurrent', 'concurrent-with-end', 'after-start', 'after',
+                        'after-end']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'before-start, before, before-end, concurrent-with-start,'
+                        'concurrent,'
+                        'concurrent-with-end, after-start, after, after-end'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_RelatedAction',
-            'child_variable': 'offsetRange'},
-
             {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_RelatedAction',
-            'child_variable': 'offsetDuration'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_RelatedAction',
+             'child_variable': 'offsetDuration'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_RelatedAction',
+             'child_variable': 'offsetRange'},
         ]
+
 
 class PlanDefinition_Participant(fhirbase):
     """This resource allows for the definition of various types of plans as a
@@ -948,43 +878,38 @@ class PlanDefinition_Participant(fhirbase):
 
     def __init__(self, dict_values=None):
         # the type of participant in the action.
-        # the type of participant in the action.
         self.type = None
         # type = string
-        # type = string
-        # possible values = patient, practitioner, related-person
-        # possible values = patient, practitioner, related-person
+        # possible values: patient, practitioner, related-person
 
-        # the role the participant should play in performing the described action.
         # the role the participant should play in performing the described action.
         self.role = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['patient', 'practitioner', 'related-person']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'patient, practitioner, related-person'))
-
-        if self.type is not None:
-            for value in self.type:
-                if value != None and value.lower() not in ['patient', 'practitioner', 'related-person']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'patient, practitioner, related-person'))
+                if value is not None and value.lower() not in [
+                        'patient', 'practitioner', 'related-person']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'patient, practitioner, related-person'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PlanDefinition_Participant',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PlanDefinition_Participant',
+             'child_variable': 'role'},
         ]
+
 
 class PlanDefinition_DynamicValue(fhirbase):
     """This resource allows for the definition of various types of plans as a
@@ -996,36 +921,25 @@ class PlanDefinition_DynamicValue(fhirbase):
     def __init__(self, dict_values=None):
         # a brief, natural language description of the intended semantics of the
         # dynamic value.
-        # a brief, natural language description of the intended semantics of the
-        # dynamic value.
         self.description = None
         # type = string
-        # type = string
 
-        # the path to the element to be customized. this is the path on the
-        # resource that will hold the result of the calculation defined by the
-        # expression.
         # the path to the element to be customized. this is the path on the
         # resource that will hold the result of the calculation defined by the
         # expression.
         self.path = None
         # type = string
-        # type = string
 
-        # the media type of the language for the expression.
         # the media type of the language for the expression.
         self.language = None
         # type = string
-        # type = string
 
-        # an expression specifying the value of the customized element.
         # an expression specifying the value of the customized element.
         self.expression = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

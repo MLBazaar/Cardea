@@ -1,5 +1,5 @@
-from .fhirbase import * 
-from .ContactPoint import ContactPoint
+from .fhirbase import fhirbase
+
 
 class ContactDetail(fhirbase):
     """Specifies contact information for a person or organization.
@@ -16,17 +16,17 @@ class ContactDetail(fhirbase):
         # type = array
         # reference to ContactPoint: ContactPoint
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'ContactDetail',
-            'child_variable': 'telecom'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ContactDetail',
+             'child_variable': 'telecom'},
         ]
-

@@ -1,14 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .DataRequirement import DataRequirement
-from .Period import Period
-from .Attachment import Attachment
-from .UsageContext import UsageContext
-from .RelatedArtifact import RelatedArtifact
-from .Contributor import Contributor
-from .ParameterDefinition import ParameterDefinition
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class Library(fhirbase):
     """The Library resource is a general-purpose container for knowledge asset
@@ -21,7 +12,7 @@ class Library(fhirbase):
         # this is a library resource
         self.resourceType = 'Library'
         # type = string
-        # possible values = Library
+        # possible values: Library
 
         # an absolute uri that is used to identify this library when it is
         # referenced in a specification, model, design or an instance. this shall
@@ -60,7 +51,7 @@ class Library(fhirbase):
         # content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this library is authored for testing
         # purposes (or education/evaluation/marketing), and is not intended to be
@@ -187,79 +178,78 @@ class Library(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'useContext'},
-
-            {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'contributor'},
-
-            {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'relatedArtifact'},
-
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'content'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'effectivePeriod'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'content'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'dataRequirement'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'topic'},
 
             {'parent_entity': 'ParameterDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'parameter'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'parameter'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'effectivePeriod'},
+
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'dataRequirement'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'relatedArtifact'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'contributor'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Library',
-            'child_variable': 'topic'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'type'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Library',
+             'child_variable': 'jurisdiction'},
+        ]
