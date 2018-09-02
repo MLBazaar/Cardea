@@ -90,6 +90,15 @@ Ready to contribute? Here's how to set up `Cardea` for local development.
 
     $ make test-all
 
+   If flake8 or isort errors fail to pass, you must fix them prior to committing your
+   changes.  Some errors can be fixed automatically by running autopep8, autoflake and
+   isort with this command::
+
+    $ make fixlint
+
+   After running fixlint, re-run test-all to see if tests pass. Any remaining errors must be
+   manually fixed.
+
 7. Make also sure to include the necessary documentation in the code as docstrings following
    the [google](https://google.github.io/styleguide/pyguide.html?showone=Comments#Comments)
    or the [numpy](https://numpydoc.readthedocs.io/en/latest/format.html) docstring style.
