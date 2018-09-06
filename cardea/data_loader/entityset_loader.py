@@ -14,22 +14,25 @@ class EntitySetLoader(DataLoader):
         """
 
         df = object.get_dataframe()
+        object_name = object.__class__.__name__
 
         # get ID if exists
         if 'identifier' in df.columns:
             id = 'identifier'
         elif 'id' in df.columns:
             id = 'id'
-        else:
+        elif 'object_id' in df.columns:
             id = 'object_id'
+        else:
+            raise LookupError('{} is missing an identifier column', object_name)
 
-        if object.__class__.__name__ == 'Period':
-            entity_set.entity_from_dataframe(entity_id=str(object.__class__.__name__),
+        if object_name == 'Period':
+            entity_set.entity_from_dataframe(entity_id=str(object_name),
                                              dataframe=df,
                                              index=id,
                                              time_index="start")
         else:
-            entity_set.entity_from_dataframe(entity_id=str(object.__class__.__name__),
+            entity_set.entity_from_dataframe(entity_id=str(object_name),
                                              dataframe=df,
                                              index=id)
 
