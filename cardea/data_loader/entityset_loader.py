@@ -9,9 +9,7 @@ from cardea.data_loader import DataLoader
 class EntitySetLoader(DataLoader):
 
     def create_entity(self, object, entity_set):
-        """ this method receives FHIR objects and creates featuretools entities and adds them to the
-        entityset
-        """
+        """Create an entity from FHIR object and add it to entityset."""
 
         df = object.get_dataframe()
         object_name = object.__class__.__name__
@@ -37,8 +35,7 @@ class EntitySetLoader(DataLoader):
                                              index=id)
 
     def create_relationships(self, object, entity_set):
-        """ this method binds the different entities in the entityset
-        """
+        """Bind entities in the entityset."""
 
         for relation in object.get_relationships():
             # parent table: 0, field: 1
@@ -53,8 +50,7 @@ class EntitySetLoader(DataLoader):
                 entity_set.add_relationship(new_relationship)
 
     def load_data_entityset(self, folder_path):
-        """ this method takes the path of .csv files and loads them to FHIR schema entityset
-        """
+        """Return entityset loaded with .csv files in folder_path."""
 
         all_objects = []
         csv_files = glob(folder_path + "/*.csv")
