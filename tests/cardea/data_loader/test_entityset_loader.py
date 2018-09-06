@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import featuretools as ft
 import pandas as pd
 import pytest
 
-import featuretools as ft
-
 from cardea.data_loader import EntitySetLoader
+
 
 @pytest.fixture()
 def es_loader():
     return EntitySetLoader()
+
 
 @pytest.fixture()
 def objects(es_loader):
@@ -27,9 +28,11 @@ def objects(es_loader):
 
     return [encounter, period]
 
+
 @pytest.fixture()
 def relationships():
     return [('Encounter', 'period', 'Period', 'object_id')]
+
 
 @pytest.fixture()
 def entityset(objects, es_loader):
@@ -43,15 +46,19 @@ def entityset(objects, es_loader):
 
     return es
 
+
 def test_create_entity_addition_to_entityset(entityset):
     assert len(entityset.entities) == 2
 
+
 def test_create_entity_index(entityset):
-    ids = [entity.index for entity in entityset.entities]
-    assert ids[0] == 'identifier' and ids[1] == 'object_id'
+    ids = {entity.id: entity.index for entity in entityset.entities}
+    assert ids['Encounter'] == 'identifier' and ids['Period'] == 'object_id'
+
 
 def test_create_entity_setting_time_index(entityset):
     assert entityset['Period'].time_index == 'start' and entityset['Encounter'].time_index is None
+
 
 def test_number_relations_in_create_relationships(entityset):
     assert len(entityset.relationships) == 1
