@@ -6,6 +6,8 @@ class Contributor(fhirbase):
     editors, reviewers, and endorsers.
     """
 
+    __name__ = 'Contributor'
+
     def __init__(self, dict_values=None):
         # the type of contributor.
         self.type = None

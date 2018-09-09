@@ -8,6 +8,8 @@ class Immunization(fhirbase):
     protocol was followed.
     """
 
+    __name__ = 'Immunization'
+
     def __init__(self, dict_values=None):
         # this is a immunization resource
         self.resourceType = 'Immunization'
@@ -200,6 +202,8 @@ class Immunization_Practitioner(fhirbase):
     protocol was followed.
     """
 
+    __name__ = 'Immunization_Practitioner'
+
     def __init__(self, dict_values=None):
         # describes the type of performance (e.g. ordering provider, administering
         # provider, etc.).
@@ -237,6 +241,8 @@ class Immunization_Explanation(fhirbase):
     party and may include vaccine reaction information and what vaccination
     protocol was followed.
     """
+
+    __name__ = 'Immunization_Explanation'
 
     def __init__(self, dict_values=None):
         # reasons why a vaccine was administered.
@@ -277,6 +283,8 @@ class Immunization_Reaction(fhirbase):
     protocol was followed.
     """
 
+    __name__ = 'Immunization_Reaction'
+
     def __init__(self, dict_values=None):
         # date of reaction to the immunization.
         self.date = None
@@ -312,6 +320,8 @@ class Immunization_VaccinationProtocol(fhirbase):
     party and may include vaccine reaction information and what vaccination
     protocol was followed.
     """
+
+    __name__ = 'Immunization_VaccinationProtocol'
 
     def __init__(self, dict_values=None):
         # nominal position in a series.

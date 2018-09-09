@@ -6,6 +6,8 @@ class StructureMap(fhirbase):
     transform data.
     """
 
+    __name__ = 'StructureMap'
+
     def __init__(self, dict_values=None):
         # this is a structuremap resource
         self.resourceType = 'StructureMap'
@@ -175,6 +177,8 @@ class StructureMap_Structure(fhirbase):
     transform data.
     """
 
+    __name__ = 'StructureMap_Structure'
+
     def __init__(self, dict_values=None):
         # the canonical url that identifies the structure.
         self.url = None
@@ -213,6 +217,8 @@ class StructureMap_Group(fhirbase):
     """A Map of relationships between 2 structures that can be used to
     transform data.
     """
+
+    __name__ = 'StructureMap_Group'
 
     def __init__(self, dict_values=None):
         # a unique name for the group for the convenience of human readers.
@@ -280,6 +286,8 @@ class StructureMap_Input(fhirbase):
     transform data.
     """
 
+    __name__ = 'StructureMap_Input'
+
     def __init__(self, dict_values=None):
         # name for this instance of data.
         self.name = None
@@ -318,6 +326,8 @@ class StructureMap_Rule(fhirbase):
     """A Map of relationships between 2 structures that can be used to
     transform data.
     """
+
+    __name__ = 'StructureMap_Rule'
 
     def __init__(self, dict_values=None):
         # name of the rule for internal references.
@@ -383,6 +393,8 @@ class StructureMap_Source(fhirbase):
     """A Map of relationships between 2 structures that can be used to
     transform data.
     """
+
+    __name__ = 'StructureMap_Source'
 
     def __init__(self, dict_values=None):
         # type or variable this rule applies to.
@@ -844,6 +856,8 @@ class StructureMap_Target(fhirbase):
     transform data.
     """
 
+    __name__ = 'StructureMap_Target'
+
     def __init__(self, dict_values=None):
         # type or variable this rule applies to.
         self.context = None
@@ -954,6 +968,8 @@ class StructureMap_Parameter(fhirbase):
     transform data.
     """
 
+    __name__ = 'StructureMap_Parameter'
+
     def __init__(self, dict_values=None):
         # parameter value - variable or literal.
         self.valueId = None
@@ -986,6 +1002,8 @@ class StructureMap_Dependent(fhirbase):
     """A Map of relationships between 2 structures that can be used to
     transform data.
     """
+
+    __name__ = 'StructureMap_Dependent'
 
     def __init__(self, dict_values=None):
         # name of a rule or group to apply.

@@ -7,6 +7,8 @@ class ReferralRequest(fhirbase):
     organization.
     """
 
+    __name__ = 'ReferralRequest'
+
     def __init__(self, dict_values=None):
         # this is a referralrequest resource
         self.resourceType = 'ReferralRequest'
@@ -254,6 +256,8 @@ class ReferralRequest_Requester(fhirbase):
     transfer of a patient to the care of another provider or provider
     organization.
     """
+
+    __name__ = 'ReferralRequest_Requester'
 
     def __init__(self, dict_values=None):
         # the device, practitioner, etc. who initiated the request.

@@ -6,6 +6,8 @@ class ImagingManifest(fhirbase):
     ImagingManifest; or the reason for, or significance of, the selection.
     """
 
+    __name__ = 'ImagingManifest'
+
     def __init__(self, dict_values=None):
         # this is a imagingmanifest resource
         self.resourceType = 'ImagingManifest'
@@ -86,6 +88,8 @@ class ImagingManifest_Study(fhirbase):
     ImagingManifest; or the reason for, or significance of, the selection.
     """
 
+    __name__ = 'ImagingManifest_Study'
+
     def __init__(self, dict_values=None):
         # study instance uid of the sop instances in the selection.
         self.uid = None
@@ -141,6 +145,8 @@ class ImagingManifest_Series(fhirbase):
     ImagingManifest; or the reason for, or significance of, the selection.
     """
 
+    __name__ = 'ImagingManifest_Series'
+
     def __init__(self, dict_values=None):
         # series instance uid of the sop instances in the selection.
         self.uid = None
@@ -184,6 +190,8 @@ class ImagingManifest_Instance(fhirbase):
     """A text description of the DICOM SOP instances selected in the
     ImagingManifest; or the reason for, or significance of, the selection.
     """
+
+    __name__ = 'ImagingManifest_Instance'
 
     def __init__(self, dict_values=None):
         # sop class uid of the selected instance.

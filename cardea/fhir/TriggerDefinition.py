@@ -5,6 +5,8 @@ class TriggerDefinition(fhirbase):
     """A description of a triggering event.
     """
 
+    __name__ = 'TriggerDefinition'
+
     def __init__(self, dict_values=None):
         # the type of triggering event.
         self.type = None

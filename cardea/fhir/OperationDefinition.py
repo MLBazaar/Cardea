@@ -6,6 +6,8 @@ class OperationDefinition(fhirbase):
     interface) or a named query (using the search interaction).
     """
 
+    __name__ = 'OperationDefinition'
+
     def __init__(self, dict_values=None):
         # this is a operationdefinition resource
         self.resourceType = 'OperationDefinition'
@@ -210,6 +212,8 @@ class OperationDefinition_Parameter(fhirbase):
     interface) or a named query (using the search interaction).
     """
 
+    __name__ = 'OperationDefinition_Parameter'
+
     def __init__(self, dict_values=None):
         # the name of used to identify the parameter.
         self.name = None
@@ -322,6 +326,8 @@ class OperationDefinition_Binding(fhirbase):
     interface) or a named query (using the search interaction).
     """
 
+    __name__ = 'OperationDefinition_Binding'
+
     def __init__(self, dict_values=None):
         # indicates the degree of conformance expectations associated with this
         # binding - that is, the degree to which the provided value set must be
@@ -369,6 +375,8 @@ class OperationDefinition_Overload(fhirbase):
     """A formal computable definition of an operation (on the RESTful
     interface) or a named query (using the search interaction).
     """
+
+    __name__ = 'OperationDefinition_Overload'
 
     def __init__(self, dict_values=None):
         # name of parameter to include in overload.

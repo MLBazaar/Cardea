@@ -5,6 +5,8 @@ class Resource(fhirbase):
     """This is the base resource type for everything.
     """
 
+    __name__ = 'Resource'
+
     def __init__(self, dict_values=None):
         # the metadata about the resource. this is content that is maintained by
         # the infrastructure. changes to the content may not always be associated

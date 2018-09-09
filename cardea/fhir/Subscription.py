@@ -10,6 +10,8 @@ class Subscription(fhirbase):
     appropriate action.
     """
 
+    __name__ = 'Subscription'
+
     def __init__(self, dict_values=None):
         # this is a subscription resource
         self.resourceType = 'Subscription'
@@ -100,6 +102,8 @@ class Subscription_Channel(fhirbase):
     the defined "channel" so that another system is able to take an
     appropriate action.
     """
+
+    __name__ = 'Subscription_Channel'
 
     def __init__(self, dict_values=None):
         # the type of channel to send notifications on.

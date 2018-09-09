@@ -6,6 +6,8 @@ class Identifier(fhirbase):
     unambiguously.
     """
 
+    __name__ = 'Identifier'
+
     def __init__(self, dict_values=None):
         # the purpose of this identifier.
         self.use = None

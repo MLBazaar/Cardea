@@ -5,6 +5,8 @@ class MeasureReport(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
     """
 
+    __name__ = 'MeasureReport'
+
     def __init__(self, dict_values=None):
         # this is a measurereport resource
         self.resourceType = 'MeasureReport'
@@ -126,6 +128,8 @@ class MeasureReport_Group(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
     """
 
+    __name__ = 'MeasureReport_Group'
+
     def __init__(self, dict_values=None):
         # the populations that make up the population group, one for each type of
         # population appropriate for the measure.
@@ -177,6 +181,8 @@ class MeasureReport_Population(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
     """
 
+    __name__ = 'MeasureReport_Population'
+
     def __init__(self, dict_values=None):
         # the type of the population.
         self.code = None
@@ -223,6 +229,8 @@ class MeasureReport_Stratifier(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
     """
 
+    __name__ = 'MeasureReport_Stratifier'
+
     def __init__(self, dict_values=None):
         # this element contains the results for a single stratum within the
         # stratifier. for example, when stratifying on administrative gender,
@@ -256,6 +264,8 @@ class MeasureReport_Stratifier(fhirbase):
 class MeasureReport_Stratum(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
     """
+
+    __name__ = 'MeasureReport_Stratum'
 
     def __init__(self, dict_values=None):
         # the value for this stratum, expressed as a string. when defining
@@ -295,6 +305,8 @@ class MeasureReport_Stratum(fhirbase):
 class MeasureReport_Population1(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
     """
+
+    __name__ = 'MeasureReport_Population1'
 
     def __init__(self, dict_values=None):
         # the type of the population.

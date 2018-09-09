@@ -7,6 +7,8 @@ class Location(fhirbase):
     or accommodated.
     """
 
+    __name__ = 'Location'
+
     def __init__(self, dict_values=None):
         # this is a location resource
         self.resourceType = 'Location'
@@ -170,6 +172,8 @@ class Location_Position(fhirbase):
     provided  and resources and participants may be stored, found, contained
     or accommodated.
     """
+
+    __name__ = 'Location_Position'
 
     def __init__(self, dict_values=None):
         # longitude. the value domain and the interpretation are the same as for

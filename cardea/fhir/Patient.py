@@ -6,6 +6,8 @@ class Patient(fhirbase):
     animal receiving care or other health-related services.
     """
 
+    __name__ = 'Patient'
+
     def __init__(self, dict_values=None):
         # this is a patient resource
         self.resourceType = 'Patient'
@@ -185,6 +187,8 @@ class Patient_Contact(fhirbase):
     animal receiving care or other health-related services.
     """
 
+    __name__ = 'Patient_Contact'
+
     def __init__(self, dict_values=None):
         # the nature of the relationship between the patient and the contact
         # person.
@@ -277,6 +281,8 @@ class Patient_Animal(fhirbase):
     animal receiving care or other health-related services.
     """
 
+    __name__ = 'Patient_Animal'
+
     def __init__(self, dict_values=None):
         # identifies the high level taxonomic categorization of the kind of
         # animal.
@@ -322,6 +328,8 @@ class Patient_Communication(fhirbase):
     animal receiving care or other health-related services.
     """
 
+    __name__ = 'Patient_Communication'
+
     def __init__(self, dict_values=None):
         # the iso-639-1 alpha 2 code in lower case for the language, optionally
         # followed by a hyphen and the iso-3166-1 alpha 2 code for the region in
@@ -355,6 +363,8 @@ class Patient_Link(fhirbase):
     """Demographics and other administrative information about an individual or
     animal receiving care or other health-related services.
     """
+
+    __name__ = 'Patient_Link'
 
     def __init__(self, dict_values=None):
         # the other patient resource that the link refers to.

@@ -10,6 +10,8 @@ class ImagingStudy(fhirbase):
     different modalities.
     """
 
+    __name__ = 'ImagingStudy'
+
     def __init__(self, dict_values=None):
         # this is a imagingstudy resource
         self.resourceType = 'ImagingStudy'
@@ -211,6 +213,8 @@ class ImagingStudy_Series(fhirbase):
     different modalities.
     """
 
+    __name__ = 'ImagingStudy_Series'
+
     def __init__(self, dict_values=None):
         # formal identifier for this series.
         self.uid = None
@@ -340,6 +344,8 @@ class ImagingStudy_Instance(fhirbase):
     X-ray, CT, MR, ultrasound), but a study may have multiple series of
     different modalities.
     """
+
+    __name__ = 'ImagingStudy_Instance'
 
     def __init__(self, dict_values=None):
         # formal identifier for this image or other content.

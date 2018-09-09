@@ -8,6 +8,8 @@ class PlanDefinition(fhirbase):
     such as clinical decision support rules, order sets and protocols.
     """
 
+    __name__ = 'PlanDefinition'
+
     def __init__(self, dict_values=None):
         # this is a plandefinition resource
         self.resourceType = 'PlanDefinition'
@@ -261,6 +263,8 @@ class PlanDefinition_Goal(fhirbase):
     such as clinical decision support rules, order sets and protocols.
     """
 
+    __name__ = 'PlanDefinition_Goal'
+
     def __init__(self, dict_values=None):
         # indicates a category the goal falls within.
         self.category = None
@@ -352,6 +356,8 @@ class PlanDefinition_Target(fhirbase):
     such as clinical decision support rules, order sets and protocols.
     """
 
+    __name__ = 'PlanDefinition_Target'
+
     def __init__(self, dict_values=None):
         # the parameter whose value is to be tracked, e.g. body weigth, blood
         # pressure, or hemoglobin a1c level.
@@ -432,6 +438,8 @@ class PlanDefinition_Action(fhirbase):
     enough to support the description of a broad range of clinical artifacts
     such as clinical decision support rules, order sets and protocols.
     """
+
+    __name__ = 'PlanDefinition_Action'
 
     def __init__(self, dict_values=None):
         # a user-visible label for the action.
@@ -770,6 +778,8 @@ class PlanDefinition_Condition(fhirbase):
     such as clinical decision support rules, order sets and protocols.
     """
 
+    __name__ = 'PlanDefinition_Condition'
+
     def __init__(self, dict_values=None):
         # the kind of condition.
         self.kind = None
@@ -812,6 +822,8 @@ class PlanDefinition_RelatedAction(fhirbase):
     enough to support the description of a broad range of clinical artifacts
     such as clinical decision support rules, order sets and protocols.
     """
+
+    __name__ = 'PlanDefinition_RelatedAction'
 
     def __init__(self, dict_values=None):
         # the element id of the related action.
@@ -876,6 +888,8 @@ class PlanDefinition_Participant(fhirbase):
     such as clinical decision support rules, order sets and protocols.
     """
 
+    __name__ = 'PlanDefinition_Participant'
+
     def __init__(self, dict_values=None):
         # the type of participant in the action.
         self.type = None
@@ -917,6 +931,8 @@ class PlanDefinition_DynamicValue(fhirbase):
     enough to support the description of a broad range of clinical artifacts
     such as clinical decision support rules, order sets and protocols.
     """
+
+    __name__ = 'PlanDefinition_DynamicValue'
 
     def __init__(self, dict_values=None):
         # a brief, natural language description of the intended semantics of the

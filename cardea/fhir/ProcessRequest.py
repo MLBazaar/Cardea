@@ -7,6 +7,8 @@ class ProcessRequest(fhirbase):
     resources.
     """
 
+    __name__ = 'ProcessRequest'
+
     def __init__(self, dict_values=None):
         # this is a processrequest resource
         self.resourceType = 'ProcessRequest'
@@ -144,6 +146,8 @@ class ProcessRequest_Item(fhirbase):
     details for an action to be performed by the target on or about existing
     resources.
     """
+
+    __name__ = 'ProcessRequest_Item'
 
     def __init__(self, dict_values=None):
         # a service line number.

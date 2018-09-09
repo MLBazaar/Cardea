@@ -6,6 +6,8 @@ class Schedule(fhirbase):
     appointments.
     """
 
+    __name__ = 'Schedule'
+
     def __init__(self, dict_values=None):
         # this is a schedule resource
         self.resourceType = 'Schedule'

@@ -8,6 +8,8 @@ class EpisodeOfCare(fhirbase):
     this time.
     """
 
+    __name__ = 'EpisodeOfCare'
+
     def __init__(self, dict_values=None):
         # this is a episodeofcare resource
         self.resourceType = 'EpisodeOfCare'
@@ -161,6 +163,8 @@ class EpisodeOfCare_StatusHistory(fhirbase):
     this time.
     """
 
+    __name__ = 'EpisodeOfCare_StatusHistory'
+
     def __init__(self, dict_values=None):
         # planned | waitlist | active | onhold | finished | cancelled.
         self.status = None
@@ -205,6 +209,8 @@ class EpisodeOfCare_Diagnosis(fhirbase):
     organization assumes a level of responsibility for the patient during
     this time.
     """
+
+    __name__ = 'EpisodeOfCare_Diagnosis'
 
     def __init__(self, dict_values=None):
         # a list of conditions/problems/diagnoses that this episode of care is

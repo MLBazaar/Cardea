@@ -7,6 +7,8 @@ class DeviceRequest(fhirbase):
     such as a walker.
     """
 
+    __name__ = 'DeviceRequest'
+
     def __init__(self, dict_values=None):
         # this is a devicerequest resource
         self.resourceType = 'DeviceRequest'
@@ -252,6 +254,8 @@ class DeviceRequest_Requester(fhirbase):
     device may be an implantable device, or an external assistive device,
     such as a walker.
     """
+
+    __name__ = 'DeviceRequest_Requester'
 
     def __init__(self, dict_values=None):
         # the device, practitioner, etc. who initiated the request.

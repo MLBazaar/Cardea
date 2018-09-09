@@ -6,6 +6,8 @@ class SearchParameter(fhirbase):
     search/filter on a resource.
     """
 
+    __name__ = 'SearchParameter'
+
     def __init__(self, dict_values=None):
         # this is a searchparameter resource
         self.resourceType = 'SearchParameter'
@@ -235,6 +237,8 @@ class SearchParameter_Component(fhirbase):
     """A search parameter that defines a named search item that can be used to
     search/filter on a resource.
     """
+
+    __name__ = 'SearchParameter_Component'
 
     def __init__(self, dict_values=None):
         # the definition of the search parameter that describes this part.

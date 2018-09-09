@@ -5,6 +5,8 @@ class Attachment(fhirbase):
     """For referring to data content defined in other formats.
     """
 
+    __name__ = 'Attachment'
+
     def __init__(self, dict_values=None):
         # identifies the type of the data in the attachment and allows a method to
         # be chosen to interpret or render the data. includes mime type parameters

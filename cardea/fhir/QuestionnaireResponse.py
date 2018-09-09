@@ -7,6 +7,8 @@ class QuestionnaireResponse(fhirbase):
     structure of the grouping of the questionnaire being responded to.
     """
 
+    __name__ = 'QuestionnaireResponse'
+
     def __init__(self, dict_values=None):
         # this is a questionnaireresponse resource
         self.resourceType = 'QuestionnaireResponse'
@@ -142,6 +144,8 @@ class QuestionnaireResponse_Item(fhirbase):
     structure of the grouping of the questionnaire being responded to.
     """
 
+    __name__ = 'QuestionnaireResponse_Item'
+
     def __init__(self, dict_values=None):
         # the item from the questionnaire that corresponds to this item in the
         # questionnaireresponse resource.
@@ -204,6 +208,8 @@ class QuestionnaireResponse_Answer(fhirbase):
     ordered and grouped into coherent subsets, corresponding to the
     structure of the grouping of the questionnaire being responded to.
     """
+
+    __name__ = 'QuestionnaireResponse_Answer'
 
     def __init__(self, dict_values=None):
         # the answer (or one of the answers) provided by the respondent to the

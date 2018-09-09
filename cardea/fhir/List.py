@@ -5,6 +5,8 @@ class List(fhirbase):
     """A set of information summarized from a list of other resources.
     """
 
+    __name__ = 'List'
+
     def __init__(self, dict_values=None):
         # this is a list resource
         self.resourceType = 'List'
@@ -147,6 +149,8 @@ class List(fhirbase):
 class List_Entry(fhirbase):
     """A set of information summarized from a list of other resources.
     """
+
+    __name__ = 'List_Entry'
 
     def __init__(self, dict_values=None):
         # the flag allows the system constructing the list to indicate the role

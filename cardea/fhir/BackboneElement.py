@@ -6,6 +6,8 @@ class BackboneElement(fhirbase):
     but not those in a data type.
     """
 
+    __name__ = 'BackboneElement'
+
     def __init__(self, dict_values=None):
         # may be used to represent additional information that is not part of the
         # basic definition of the element, and that modifies the understanding of

@@ -6,6 +6,8 @@ class ValueSet(fhirbase):
     systems.
     """
 
+    __name__ = 'ValueSet'
+
     def __init__(self, dict_values=None):
         # this is a valueset resource
         self.resourceType = 'ValueSet'
@@ -179,6 +181,8 @@ class ValueSet_Compose(fhirbase):
     systems.
     """
 
+    __name__ = 'ValueSet_Compose'
+
     def __init__(self, dict_values=None):
         # if a locked date is defined, then the content logical definition must be
         # evaluated using the current version as of the locked date for referenced
@@ -233,6 +237,8 @@ class ValueSet_Include(fhirbase):
     systems.
     """
 
+    __name__ = 'ValueSet_Include'
+
     def __init__(self, dict_values=None):
         # an absolute uri which is the code system from which the selected codes
         # come from.
@@ -286,6 +292,8 @@ class ValueSet_Concept(fhirbase):
     systems.
     """
 
+    __name__ = 'ValueSet_Concept'
+
     def __init__(self, dict_values=None):
         # specifies a code for the concept to be included or excluded.
         self.code = None
@@ -325,6 +333,8 @@ class ValueSet_Designation(fhirbase):
     systems.
     """
 
+    __name__ = 'ValueSet_Designation'
+
     def __init__(self, dict_values=None):
         # the language this designation is defined for.
         self.language = None
@@ -358,6 +368,8 @@ class ValueSet_Filter(fhirbase):
     """A value set specifies a set of codes drawn from one or more code
     systems.
     """
+
+    __name__ = 'ValueSet_Filter'
 
     def __init__(self, dict_values=None):
         # a code that identifies a property defined in the code system.
@@ -399,6 +411,8 @@ class ValueSet_Expansion(fhirbase):
     """A value set specifies a set of codes drawn from one or more code
     systems.
     """
+
+    __name__ = 'ValueSet_Expansion'
 
     def __init__(self, dict_values=None):
         # the time at which the expansion was produced by the expanding system.
@@ -458,6 +472,8 @@ class ValueSet_Parameter(fhirbase):
     systems.
     """
 
+    __name__ = 'ValueSet_Parameter'
+
     def __init__(self, dict_values=None):
         # the name of the parameter.
         self.name = None
@@ -498,6 +514,8 @@ class ValueSet_Contains(fhirbase):
     """A value set specifies a set of codes drawn from one or more code
     systems.
     """
+
+    __name__ = 'ValueSet_Contains'
 
     def __init__(self, dict_values=None):
         # an absolute uri which is the code system in which the code for this item

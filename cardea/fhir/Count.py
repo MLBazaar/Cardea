@@ -7,6 +7,8 @@ class Count(fhirbase):
     including amounts involving arbitrary units and floating currencies.
     """
 
+    __name__ = 'Count'
+
     def __init__(self, dict_values=None):
         # unique identifier for object class
         self.object_id = None

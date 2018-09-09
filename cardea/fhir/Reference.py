@@ -5,6 +5,8 @@ class Reference(fhirbase):
     """A reference from one resource to another.
     """
 
+    __name__ = 'Reference'
+
     def __init__(self, dict_values=None):
         # a reference to a location at which the other resource is found. the
         # reference may be a relative reference, in which case it is relative to

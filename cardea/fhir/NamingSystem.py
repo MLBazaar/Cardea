@@ -7,6 +7,8 @@ class NamingSystem(fhirbase):
     "System" used within the Identifier and Coding data types.
     """
 
+    __name__ = 'NamingSystem'
+
     def __init__(self, dict_values=None):
         # this is a namingsystem resource
         self.resourceType = 'NamingSystem'
@@ -156,6 +158,8 @@ class NamingSystem_UniqueId(fhirbase):
     the identification of concepts, people, devices, etc.  Represents a
     "System" used within the Identifier and Coding data types.
     """
+
+    __name__ = 'NamingSystem_UniqueId'
 
     def __init__(self, dict_values=None):
         # identifies the unique identifier scheme used for this particular

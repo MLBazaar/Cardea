@@ -7,6 +7,8 @@ class RelatedPerson(fhirbase):
     in the care process.
     """
 
+    __name__ = 'RelatedPerson'
+
     def __init__(self, dict_values=None):
         # this is a relatedperson resource
         self.resourceType = 'RelatedPerson'

@@ -6,6 +6,8 @@ class Binary(fhirbase):
     archive, etc.
     """
 
+    __name__ = 'Binary'
+
     def __init__(self, dict_values=None):
         # this is a binary resource
         self.resourceType = 'Binary'

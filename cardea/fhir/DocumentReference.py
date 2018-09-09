@@ -5,6 +5,8 @@ class DocumentReference(fhirbase):
     """A reference to a document.
     """
 
+    __name__ = 'DocumentReference'
+
     def __init__(self, dict_values=None):
         # this is a documentreference resource
         self.resourceType = 'DocumentReference'
@@ -186,6 +188,8 @@ class DocumentReference_RelatesTo(fhirbase):
     """A reference to a document.
     """
 
+    __name__ = 'DocumentReference_RelatesTo'
+
     def __init__(self, dict_values=None):
         # the type of relationship that this document has with anther document.
         self.code = None
@@ -225,6 +229,8 @@ class DocumentReference_Content(fhirbase):
     """A reference to a document.
     """
 
+    __name__ = 'DocumentReference_Content'
+
     def __init__(self, dict_values=None):
         # the document or url of the document along with critical metadata to
         # prove content has integrity.
@@ -260,6 +266,8 @@ class DocumentReference_Content(fhirbase):
 class DocumentReference_Context(fhirbase):
     """A reference to a document.
     """
+
+    __name__ = 'DocumentReference_Context'
 
     def __init__(self, dict_values=None):
         # describes the clinical encounter or type of care that the document
@@ -349,6 +357,8 @@ class DocumentReference_Context(fhirbase):
 class DocumentReference_Related(fhirbase):
     """A reference to a document.
     """
+
+    __name__ = 'DocumentReference_Related'
 
     def __init__(self, dict_values=None):
         # related resource to this documentreference. if both id and ref are

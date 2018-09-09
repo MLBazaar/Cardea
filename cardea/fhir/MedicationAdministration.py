@@ -9,6 +9,8 @@ class MedicationAdministration(fhirbase):
     patient and health care practitioner.
     """
 
+    __name__ = 'MedicationAdministration'
+
     def __init__(self, dict_values=None):
         # this is a medicationadministration resource
         self.resourceType = 'MedicationAdministration'
@@ -271,6 +273,8 @@ class MedicationAdministration_Performer(fhirbase):
     patient and health care practitioner.
     """
 
+    __name__ = 'MedicationAdministration_Performer'
+
     def __init__(self, dict_values=None):
         # the device, practitioner, etc. who performed the action.
         self.actor = None
@@ -308,6 +312,8 @@ class MedicationAdministration_Dosage(fhirbase):
     to the authorizing prescription, and the specific encounter between
     patient and health care practitioner.
     """
+
+    __name__ = 'MedicationAdministration_Dosage'
 
     def __init__(self, dict_values=None):
         # free text dosage can be used for cases where the dosage administered is

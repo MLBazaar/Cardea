@@ -6,6 +6,8 @@ class DataElement(fhirbase):
     gathered and reported.
     """
 
+    __name__ = 'DataElement'
+
     def __init__(self, dict_values=None):
         # this is a dataelement resource
         self.resourceType = 'DataElement'
@@ -174,6 +176,8 @@ class DataElement_Mapping(fhirbase):
     """The formal description of a single piece of information that can be
     gathered and reported.
     """
+
+    __name__ = 'DataElement_Mapping'
 
     def __init__(self, dict_values=None):
         # an internal id that is used to identify this mapping set when specific

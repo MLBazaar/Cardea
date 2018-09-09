@@ -6,6 +6,8 @@ class RelatedArtifact(fhirbase):
     bibliographic references.
     """
 
+    __name__ = 'RelatedArtifact'
+
     def __init__(self, dict_values=None):
         # the type of relationship to the related artifact.
         self.type = None

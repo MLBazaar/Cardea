@@ -6,6 +6,8 @@ class Media(fhirbase):
     actual content may be inline or provided by direct reference.
     """
 
+    __name__ = 'Media'
+
     def __init__(self, dict_values=None):
         # this is a media resource
         self.resourceType = 'Media'

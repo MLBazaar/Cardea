@@ -7,6 +7,8 @@ class ExplanationOfBenefit(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit'
+
     def __init__(self, dict_values=None):
         # this is a explanationofbenefit resource
         self.resourceType = 'ExplanationOfBenefit'
@@ -401,6 +403,8 @@ class ExplanationOfBenefit_Related(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit_Related'
+
     def __init__(self, dict_values=None):
         # other claims which are related to this claim such as prior claim
         # versions or for related services.
@@ -449,6 +453,8 @@ class ExplanationOfBenefit_Payee(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit_Payee'
+
     def __init__(self, dict_values=None):
         # type of party to be reimbursed: subscriber, provider, other.
         self.type = None
@@ -493,6 +499,8 @@ class ExplanationOfBenefit_Information(fhirbase):
     processing of a Claim; and optionally account balance information, for
     informing the subscriber of the benefits provided.
     """
+
+    __name__ = 'ExplanationOfBenefit_Information'
 
     def __init__(self, dict_values=None):
         # sequence of the information element which serves to provide a link.
@@ -596,6 +604,8 @@ class ExplanationOfBenefit_CareTeam(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit_CareTeam'
+
     def __init__(self, dict_values=None):
         # sequence of careteam which serves to order and provide a link.
         self.sequence = None
@@ -650,6 +660,8 @@ class ExplanationOfBenefit_Diagnosis(fhirbase):
     processing of a Claim; and optionally account balance information, for
     informing the subscriber of the benefits provided.
     """
+
+    __name__ = 'ExplanationOfBenefit_Diagnosis'
 
     def __init__(self, dict_values=None):
         # sequence of diagnosis which serves to provide a link.
@@ -712,6 +724,8 @@ class ExplanationOfBenefit_Procedure(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit_Procedure'
+
     def __init__(self, dict_values=None):
         # sequence of procedures which serves to order and provide a link.
         self.sequence = None
@@ -756,6 +770,8 @@ class ExplanationOfBenefit_Insurance(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit_Insurance'
+
     def __init__(self, dict_values=None):
         # reference to the program or plan identification, underwriter or payor.
         self.coverage = None
@@ -786,6 +802,8 @@ class ExplanationOfBenefit_Accident(fhirbase):
     processing of a Claim; and optionally account balance information, for
     informing the subscriber of the benefits provided.
     """
+
+    __name__ = 'ExplanationOfBenefit_Accident'
 
     def __init__(self, dict_values=None):
         # date of an accident which these services are addressing.
@@ -835,6 +853,8 @@ class ExplanationOfBenefit_Item(fhirbase):
     processing of a Claim; and optionally account balance information, for
     informing the subscriber of the benefits provided.
     """
+
+    __name__ = 'ExplanationOfBenefit_Item'
 
     def __init__(self, dict_values=None):
         # a service line number.
@@ -1074,6 +1094,8 @@ class ExplanationOfBenefit_Adjudication(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit_Adjudication'
+
     def __init__(self, dict_values=None):
         # code indicating: co-pay, deductable, elegible, benefit, tax, etc.
         self.category = None
@@ -1123,6 +1145,8 @@ class ExplanationOfBenefit_Detail(fhirbase):
     processing of a Claim; and optionally account balance information, for
     informing the subscriber of the benefits provided.
     """
+
+    __name__ = 'ExplanationOfBenefit_Detail'
 
     def __init__(self, dict_values=None):
         # a service line number.
@@ -1282,6 +1306,8 @@ class ExplanationOfBenefit_SubDetail(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit_SubDetail'
+
     def __init__(self, dict_values=None):
         # a service line number.
         self.sequence = None
@@ -1426,6 +1452,8 @@ class ExplanationOfBenefit_AddItem(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit_AddItem'
+
     def __init__(self, dict_values=None):
         # list of input service items which this service line is intended to
         # replace.
@@ -1526,6 +1554,8 @@ class ExplanationOfBenefit_Detail1(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit_Detail1'
+
     def __init__(self, dict_values=None):
         # the type of reveneu or cost center providing the product and/or service.
         self.revenue = None
@@ -1608,6 +1638,8 @@ class ExplanationOfBenefit_Payment(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit_Payment'
+
     def __init__(self, dict_values=None):
         # whether this represents partial or complete payment of the claim.
         self.type = None
@@ -1673,6 +1705,8 @@ class ExplanationOfBenefit_ProcessNote(fhirbase):
     informing the subscriber of the benefits provided.
     """
 
+    __name__ = 'ExplanationOfBenefit_ProcessNote'
+
     def __init__(self, dict_values=None):
         # an integer associated with each note which may be referred to from each
         # service line item.
@@ -1720,6 +1754,8 @@ class ExplanationOfBenefit_BenefitBalance(fhirbase):
     processing of a Claim; and optionally account balance information, for
     informing the subscriber of the benefits provided.
     """
+
+    __name__ = 'ExplanationOfBenefit_BenefitBalance'
 
     def __init__(self, dict_values=None):
         # dental, vision, medical, pharmacy, rehab etc.
@@ -1809,6 +1845,8 @@ class ExplanationOfBenefit_Financial(fhirbase):
     processing of a Claim; and optionally account balance information, for
     informing the subscriber of the benefits provided.
     """
+
+    __name__ = 'ExplanationOfBenefit_Financial'
 
     def __init__(self, dict_values=None):
         # deductable, visits, benefit amount.

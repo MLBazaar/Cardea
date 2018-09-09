@@ -8,6 +8,8 @@ class Organization(fhirbase):
     groups, healthcare practice groups, etc.
     """
 
+    __name__ = 'Organization'
+
     def __init__(self, dict_values=None):
         # this is a organization resource
         self.resourceType = 'Organization'
@@ -112,6 +114,8 @@ class Organization_Contact(fhirbase):
     Includes companies, institutions, corporations, departments, community
     groups, healthcare practice groups, etc.
     """
+
+    __name__ = 'Organization_Contact'
 
     def __init__(self, dict_values=None):
         # indicates a purpose for which the contact can be reached.

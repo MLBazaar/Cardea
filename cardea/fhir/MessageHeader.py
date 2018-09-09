@@ -9,6 +9,8 @@ class MessageHeader(fhirbase):
     the first resource in the bundle.
     """
 
+    __name__ = 'MessageHeader'
+
     def __init__(self, dict_values=None):
         # this is a messageheader resource
         self.resourceType = 'MessageHeader'
@@ -152,6 +154,8 @@ class MessageHeader_Destination(fhirbase):
     the first resource in the bundle.
     """
 
+    __name__ = 'MessageHeader_Destination'
+
     def __init__(self, dict_values=None):
         # human-readable name for the target system.
         self.name = None
@@ -189,6 +193,8 @@ class MessageHeader_Source(fhirbase):
     transmitted in a bundle in which the MessageHeader resource instance is
     the first resource in the bundle.
     """
+
+    __name__ = 'MessageHeader_Source'
 
     def __init__(self, dict_values=None):
         # human-readable name for the source system.
@@ -236,6 +242,8 @@ class MessageHeader_Response(fhirbase):
     transmitted in a bundle in which the MessageHeader resource instance is
     the first resource in the bundle.
     """
+
+    __name__ = 'MessageHeader_Response'
 
     def __init__(self, dict_values=None):
         # code that identifies the type of response to the message - whether it

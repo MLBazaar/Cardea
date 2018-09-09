@@ -6,6 +6,8 @@ class CompartmentDefinition(fhirbase):
     server.
     """
 
+    __name__ = 'CompartmentDefinition'
+
     def __init__(self, dict_values=None):
         # this is a compartmentdefinition resource
         self.resourceType = 'CompartmentDefinition'
@@ -153,6 +155,8 @@ class CompartmentDefinition_Resource(fhirbase):
     """A compartment definition that defines how resources are accessed on a
     server.
     """
+
+    __name__ = 'CompartmentDefinition_Resource'
 
     def __init__(self, dict_values=None):
         # the name of a resource supported by the server.

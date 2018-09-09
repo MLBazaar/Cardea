@@ -5,6 +5,8 @@ class Coding(fhirbase):
     """A reference to a code defined by a terminology system.
     """
 
+    __name__ = 'Coding'
+
     def __init__(self, dict_values=None):
         # the identification of the code system that defines the meaning of the
         # symbol in the code.

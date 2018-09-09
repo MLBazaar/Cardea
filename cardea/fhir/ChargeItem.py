@@ -10,6 +10,8 @@ class ChargeItem(fhirbase):
     allocation.
     """
 
+    __name__ = 'ChargeItem'
+
     def __init__(self, dict_values=None):
         # this is a chargeitem resource
         self.resourceType = 'ChargeItem'
@@ -256,6 +258,8 @@ class ChargeItem_Participant(fhirbase):
     the ChargeItem is to enable the billing process and internal cost
     allocation.
     """
+
+    __name__ = 'ChargeItem_Participant'
 
     def __init__(self, dict_values=None):
         # describes the type of performance or participation(e.g. primary surgeon,

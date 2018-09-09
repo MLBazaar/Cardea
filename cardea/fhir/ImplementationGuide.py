@@ -7,6 +7,8 @@ class ImplementationGuide(fhirbase):
     a logical whole and to publish a computable definition of all the parts.
     """
 
+    __name__ = 'ImplementationGuide'
+
     def __init__(self, dict_values=None):
         # this is a implementationguide resource
         self.resourceType = 'ImplementationGuide'
@@ -190,6 +192,8 @@ class ImplementationGuide_Dependency(fhirbase):
     a logical whole and to publish a computable definition of all the parts.
     """
 
+    __name__ = 'ImplementationGuide_Dependency'
+
     def __init__(self, dict_values=None):
         # how the dependency is represented when the guide is published.
         self.type = None
@@ -221,6 +225,8 @@ class ImplementationGuide_Package(fhirbase):
     resource is used to gather all the parts of an implementation guide into
     a logical whole and to publish a computable definition of all the parts.
     """
+
+    __name__ = 'ImplementationGuide_Package'
 
     def __init__(self, dict_values=None):
         # the name for the group, as used in page.package.
@@ -260,6 +266,8 @@ class ImplementationGuide_Resource(fhirbase):
     resource is used to gather all the parts of an implementation guide into
     a logical whole and to publish a computable definition of all the parts.
     """
+
+    __name__ = 'ImplementationGuide_Resource'
 
     def __init__(self, dict_values=None):
         # whether a resource is included in the guide as part of the rules defined
@@ -325,6 +333,8 @@ class ImplementationGuide_Global(fhirbase):
     a logical whole and to publish a computable definition of all the parts.
     """
 
+    __name__ = 'ImplementationGuide_Global'
+
     def __init__(self, dict_values=None):
         # the type of resource that all instances must conform to.
         self.type = None
@@ -355,6 +365,8 @@ class ImplementationGuide_Page(fhirbase):
     resource is used to gather all the parts of an implementation guide into
     a logical whole and to publish a computable definition of all the parts.
     """
+
+    __name__ = 'ImplementationGuide_Page'
 
     def __init__(self, dict_values=None):
         # the source address for the page.

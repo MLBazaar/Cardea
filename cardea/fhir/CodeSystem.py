@@ -6,6 +6,8 @@ class CodeSystem(fhirbase):
     code systems.
     """
 
+    __name__ = 'CodeSystem'
+
     def __init__(self, dict_values=None):
         # this is a codesystem resource
         self.resourceType = 'CodeSystem'
@@ -233,6 +235,8 @@ class CodeSystem_Filter(fhirbase):
     code systems.
     """
 
+    __name__ = 'CodeSystem_Filter'
+
     def __init__(self, dict_values=None):
         # the code that identifies this filter when it is used in the instance.
         self.code = None
@@ -261,6 +265,8 @@ class CodeSystem_Property(fhirbase):
     """A code system resource specifies a set of codes drawn from one or more
     code systems.
     """
+
+    __name__ = 'CodeSystem_Property'
 
     def __init__(self, dict_values=None):
         # a code that is used to identify the property. the code is used
@@ -308,6 +314,8 @@ class CodeSystem_Concept(fhirbase):
     """A code system resource specifies a set of codes drawn from one or more
     code systems.
     """
+
+    __name__ = 'CodeSystem_Concept'
 
     def __init__(self, dict_values=None):
         # a code - a text symbol - that uniquely identifies the concept within the
@@ -376,6 +384,8 @@ class CodeSystem_Designation(fhirbase):
     code systems.
     """
 
+    __name__ = 'CodeSystem_Designation'
+
     def __init__(self, dict_values=None):
         # the language this designation is defined for.
         self.language = None
@@ -409,6 +419,8 @@ class CodeSystem_Property1(fhirbase):
     """A code system resource specifies a set of codes drawn from one or more
     code systems.
     """
+
+    __name__ = 'CodeSystem_Property1'
 
     def __init__(self, dict_values=None):
         # a code that is a reference to codesystem.property.code.

@@ -5,6 +5,8 @@ class Period(fhirbase):
     """A time period defined by a start and end date and optionally time.
     """
 
+    __name__ = 'Period'
+
     def __init__(self, dict_values=None):
         # the start of the period. the boundary is inclusive.
         self.start = None

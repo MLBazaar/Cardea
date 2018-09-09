@@ -7,6 +7,8 @@ class StructureDefinition(fhirbase):
     describing extensions and constraints on resources and data types.
     """
 
+    __name__ = 'StructureDefinition'
+
     def __init__(self, dict_values=None):
         # this is a structuredefinition resource
         self.resourceType = 'StructureDefinition'
@@ -269,6 +271,8 @@ class StructureDefinition_Mapping(fhirbase):
     describing extensions and constraints on resources and data types.
     """
 
+    __name__ = 'StructureDefinition_Mapping'
+
     def __init__(self, dict_values=None):
         # an internal id that is used to identify this mapping set when specific
         # mappings are made.
@@ -302,6 +306,8 @@ class StructureDefinition_Snapshot(fhirbase):
     describing extensions and constraints on resources and data types.
     """
 
+    __name__ = 'StructureDefinition_Snapshot'
+
     def __init__(self, dict_values=None):
         # captures constraints on each element within the resource.
         self.element = None
@@ -329,6 +335,8 @@ class StructureDefinition_Differential(fhirbase):
     underlying resources, data types defined in FHIR, and also for
     describing extensions and constraints on resources and data types.
     """
+
+    __name__ = 'StructureDefinition_Differential'
 
     def __init__(self, dict_values=None):
         # captures constraints on each element within the resource.

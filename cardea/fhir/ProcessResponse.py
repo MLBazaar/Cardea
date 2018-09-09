@@ -6,6 +6,8 @@ class ProcessResponse(fhirbase):
     processing of a resource.
     """
 
+    __name__ = 'ProcessResponse'
+
     def __init__(self, dict_values=None):
         # this is a processresponse resource
         self.resourceType = 'ProcessResponse'
@@ -135,6 +137,8 @@ class ProcessResponse_ProcessNote(fhirbase):
     """This resource provides processing status, errors and notes from the
     processing of a resource.
     """
+
+    __name__ = 'ProcessResponse_ProcessNote'
 
     def __init__(self, dict_values=None):
         # the note purpose: print/display.

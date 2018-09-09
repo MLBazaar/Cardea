@@ -11,6 +11,8 @@ class ResearchStudy(fhirbase):
     animal subjects.
     """
 
+    __name__ = 'ResearchStudy'
+
     def __init__(self, dict_values=None):
         # this is a researchstudy resource
         self.resourceType = 'ResearchStudy'
@@ -243,6 +245,8 @@ class ResearchStudy_Arm(fhirbase):
     ResearchStudy involves the gathering of information about human or
     animal subjects.
     """
+
+    __name__ = 'ResearchStudy_Arm'
 
     def __init__(self, dict_values=None):
         # unique, human-readable label for this arm of the study.

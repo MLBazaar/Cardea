@@ -6,6 +6,8 @@ class DataRequirement(fhirbase):
     data, and optional code or date-based filters of the data.
     """
 
+    __name__ = 'DataRequirement'
+
     def __init__(self, dict_values=None):
         # the type of the required data, specified as the type name of a resource.
         # for profiles, this value is set to the type of the base resource of the
@@ -66,6 +68,8 @@ class DataRequirement_CodeFilter(fhirbase):
     """Describes a required data item for evaluation in terms of the type of
     data, and optional code or date-based filters of the data.
     """
+
+    __name__ = 'DataRequirement_CodeFilter'
 
     def __init__(self, dict_values=None):
         # the code-valued attribute of the filter. the specified path must be
@@ -147,6 +151,8 @@ class DataRequirement_DateFilter(fhirbase):
     """Describes a required data item for evaluation in terms of the type of
     data, and optional code or date-based filters of the data.
     """
+
+    __name__ = 'DataRequirement_DateFilter'
 
     def __init__(self, dict_values=None):
         # the date-valued attribute of the filter. the specified path must be

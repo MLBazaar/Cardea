@@ -10,6 +10,8 @@ class DiagnosticReport(fhirbase):
     of diagnostic reports.
     """
 
+    __name__ = 'DiagnosticReport'
+
     def __init__(self, dict_values=None):
         # this is a diagnosticreport resource
         self.resourceType = 'DiagnosticReport'
@@ -221,6 +223,8 @@ class DiagnosticReport_Performer(fhirbase):
     of diagnostic reports.
     """
 
+    __name__ = 'DiagnosticReport_Performer'
+
     def __init__(self, dict_values=None):
         # describes the type of participation (e.g.  a responsible party, author,
         # or verifier).
@@ -262,6 +266,8 @@ class DiagnosticReport_Image(fhirbase):
     images, textual and coded interpretations, and formatted representation
     of diagnostic reports.
     """
+
+    __name__ = 'DiagnosticReport_Image'
 
     def __init__(self, dict_values=None):
         # a comment about the image. typically, this is used to provide an

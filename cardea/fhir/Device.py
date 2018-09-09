@@ -12,6 +12,8 @@ class Device(fhirbase):
     computer, application, etc.
     """
 
+    __name__ = 'Device'
+
     def __init__(self, dict_values=None):
         # this is a device resource
         self.resourceType = 'Device'
@@ -173,6 +175,8 @@ class Device_Udi(fhirbase):
     Non-medical devices may include items such as a machine, cellphone,
     computer, application, etc.
     """
+
+    __name__ = 'Device_Udi'
 
     def __init__(self, dict_values=None):
         # the device identifier (di) is a mandatory, fixed portion of a udi that

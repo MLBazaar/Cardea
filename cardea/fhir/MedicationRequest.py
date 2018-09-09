@@ -10,6 +10,8 @@ class MedicationRequest(fhirbase):
     and to harmonize with workflow patterns.
     """
 
+    __name__ = 'MedicationRequest'
+
     def __init__(self, dict_values=None):
         # this is a medicationrequest resource
         self.resourceType = 'MedicationRequest'
@@ -317,6 +319,8 @@ class MedicationRequest_Requester(fhirbase):
     and to harmonize with workflow patterns.
     """
 
+    __name__ = 'MedicationRequest_Requester'
+
     def __init__(self, dict_values=None):
         # the healthcare professional responsible for authorizing the initial
         # prescription.
@@ -356,6 +360,8 @@ class MedicationRequest_DispenseRequest(fhirbase):
     across inpatient and outpatient settings, including care plans, etc.,
     and to harmonize with workflow patterns.
     """
+
+    __name__ = 'MedicationRequest_DispenseRequest'
 
     def __init__(self, dict_values=None):
         # this indicates the validity period of a prescription (stale dating the
@@ -425,6 +431,8 @@ class MedicationRequest_Substitution(fhirbase):
     across inpatient and outpatient settings, including care plans, etc.,
     and to harmonize with workflow patterns.
     """
+
+    __name__ = 'MedicationRequest_Substitution'
 
     def __init__(self, dict_values=None):
         # true if the prescriber allows a different drug to be dispensed from what

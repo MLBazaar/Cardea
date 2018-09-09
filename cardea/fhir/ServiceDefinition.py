@@ -7,6 +7,8 @@ class ServiceDefinition(fhirbase):
     drug-drug interaction checking.
     """
 
+    __name__ = 'ServiceDefinition'
+
     def __init__(self, dict_values=None):
         # this is a servicedefinition resource
         self.resourceType = 'ServiceDefinition'

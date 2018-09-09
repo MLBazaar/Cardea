@@ -6,6 +6,8 @@ class AppointmentResponse(fhirbase):
     such as a confirmation or rejection.
     """
 
+    __name__ = 'AppointmentResponse'
+
     def __init__(self, dict_values=None):
         # this is a appointmentresponse resource
         self.resourceType = 'AppointmentResponse'

@@ -7,6 +7,8 @@ class Communication(fhirbase):
     about a reportable condition.
     """
 
+    __name__ = 'Communication'
+
     def __init__(self, dict_values=None):
         # this is a communication resource
         self.resourceType = 'Communication'
@@ -216,6 +218,8 @@ class Communication_Payload(fhirbase):
     sent to a responsible provider, a public health agency was notified
     about a reportable condition.
     """
+
+    __name__ = 'Communication_Payload'
 
     def __init__(self, dict_values=None):
         # a communicated content (or for multi-part communications, one portion of

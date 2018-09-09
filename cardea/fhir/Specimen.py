@@ -5,6 +5,8 @@ class Specimen(fhirbase):
     """A sample to be used for analysis.
     """
 
+    __name__ = 'Specimen'
+
     def __init__(self, dict_values=None):
         # this is a specimen resource
         self.resourceType = 'Specimen'
@@ -146,6 +148,8 @@ class Specimen_Collection(fhirbase):
     """A sample to be used for analysis.
     """
 
+    __name__ = 'Specimen_Collection'
+
     def __init__(self, dict_values=None):
         # person who collected the specimen.
         self.collector = None
@@ -217,6 +221,8 @@ class Specimen_Processing(fhirbase):
     """A sample to be used for analysis.
     """
 
+    __name__ = 'Specimen_Processing'
+
     def __init__(self, dict_values=None):
         # textual description of procedure.
         self.description = None
@@ -272,6 +278,8 @@ class Specimen_Processing(fhirbase):
 class Specimen_Container(fhirbase):
     """A sample to be used for analysis.
     """
+
+    __name__ = 'Specimen_Container'
 
     def __init__(self, dict_values=None):
         # textual description of the container.

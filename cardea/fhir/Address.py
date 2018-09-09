@@ -9,6 +9,8 @@ class Address(fhirbase):
     variety of postal address formats defined around the world.
     """
 
+    __name__ = 'Address'
+
     def __init__(self, dict_values=None):
         # the purpose of this address.
         self.use = None

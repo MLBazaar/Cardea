@@ -6,6 +6,8 @@ class EnrollmentResponse(fhirbase):
     of an Enrollment resource.
     """
 
+    __name__ = 'EnrollmentResponse'
+
     def __init__(self, dict_values=None):
         # this is a enrollmentresponse resource
         self.resourceType = 'EnrollmentResponse'

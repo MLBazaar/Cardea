@@ -5,6 +5,8 @@ class Extension(fhirbase):
     """Optional Extension Element - found in all resources.
     """
 
+    __name__ = 'Extension'
+
     def __init__(self, dict_values=None):
         # source of the definition for the extension code - a logical name or a
         # url.

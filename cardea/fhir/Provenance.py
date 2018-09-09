@@ -15,6 +15,8 @@ class Provenance(fhirbase):
     policies.
     """
 
+    __name__ = 'Provenance'
+
     def __init__(self, dict_values=None):
         # this is a provenance resource
         self.resourceType = 'Provenance'
@@ -139,6 +141,8 @@ class Provenance_Agent(fhirbase):
     policies.
     """
 
+    __name__ = 'Provenance_Agent'
+
     def __init__(self, dict_values=None):
         # the function of the agent with respect to the activity. the security
         # role enabling the agent with respect to the activity.
@@ -210,6 +214,8 @@ class Provenance_Entity(fhirbase):
     authenticated), all of which may impact security, privacy, and trust
     policies.
     """
+
+    __name__ = 'Provenance_Entity'
 
     def __init__(self, dict_values=None):
         # how the entity was used during the activity.

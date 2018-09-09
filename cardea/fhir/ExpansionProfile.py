@@ -5,6 +5,8 @@ class ExpansionProfile(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
+    __name__ = 'ExpansionProfile'
+
     def __init__(self, dict_values=None):
         # this is a expansionprofile resource
         self.resourceType = 'ExpansionProfile'
@@ -204,6 +206,8 @@ class ExpansionProfile_FixedVersion(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
+    __name__ = 'ExpansionProfile_FixedVersion'
+
     def __init__(self, dict_values=None):
         # the specific system for which to fix the version.
         self.system = None
@@ -240,6 +244,8 @@ class ExpansionProfile_ExcludedSystem(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
+    __name__ = 'ExpansionProfile_ExcludedSystem'
+
     def __init__(self, dict_values=None):
         # an absolute uri which is the code system to be excluded.
         self.system = None
@@ -260,6 +266,8 @@ class ExpansionProfile_ExcludedSystem(fhirbase):
 class ExpansionProfile_Designation(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
+
+    __name__ = 'ExpansionProfile_Designation'
 
     def __init__(self, dict_values=None):
         # designations to be included.
@@ -295,6 +303,8 @@ class ExpansionProfile_Include(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
+    __name__ = 'ExpansionProfile_Include'
+
     def __init__(self, dict_values=None):
         # a data group for each designation to be included.
         self.designation = None
@@ -320,6 +330,8 @@ class ExpansionProfile_Include(fhirbase):
 class ExpansionProfile_Designation1(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
+
+    __name__ = 'ExpansionProfile_Designation1'
 
     def __init__(self, dict_values=None):
         # the language this designation is defined for.
@@ -350,6 +362,8 @@ class ExpansionProfile_Exclude(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
+    __name__ = 'ExpansionProfile_Exclude'
+
     def __init__(self, dict_values=None):
         # a data group for each designation to be excluded.
         self.designation = None
@@ -375,6 +389,8 @@ class ExpansionProfile_Exclude(fhirbase):
 class ExpansionProfile_Designation2(fhirbase):
     """Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
+
+    __name__ = 'ExpansionProfile_Designation2'
 
     def __init__(self, dict_values=None):
         # the language this designation is defined for.

@@ -8,6 +8,8 @@ class Library(fhirbase):
     well as to describe a collection of knowledge assets.
     """
 
+    __name__ = 'Library'
+
     def __init__(self, dict_values=None):
         # this is a library resource
         self.resourceType = 'Library'

@@ -6,6 +6,8 @@ class PaymentReconciliation(fhirbase):
     bulk payment.
     """
 
+    __name__ = 'PaymentReconciliation'
+
     def __init__(self, dict_values=None):
         # this is a paymentreconciliation resource
         self.resourceType = 'PaymentReconciliation'
@@ -143,6 +145,8 @@ class PaymentReconciliation_Detail(fhirbase):
     bulk payment.
     """
 
+    __name__ = 'PaymentReconciliation_Detail'
+
     def __init__(self, dict_values=None):
         # code to indicate the nature of the payment, adjustment, funds advance,
         # etc.
@@ -218,6 +222,8 @@ class PaymentReconciliation_ProcessNote(fhirbase):
     """This resource provides payment details and claim references supporting a
     bulk payment.
     """
+
+    __name__ = 'PaymentReconciliation_ProcessNote'
 
     def __init__(self, dict_values=None):
         # the note purpose: print/display.

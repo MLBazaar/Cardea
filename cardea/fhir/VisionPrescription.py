@@ -6,6 +6,8 @@ class VisionPrescription(fhirbase):
     patient.
     """
 
+    __name__ = 'VisionPrescription'
+
     def __init__(self, dict_values=None):
         # this is a visionprescription resource
         self.resourceType = 'VisionPrescription'
@@ -101,6 +103,8 @@ class VisionPrescription_Dispense(fhirbase):
     """An authorization for the supply of glasses and/or contact lenses to a
     patient.
     """
+
+    __name__ = 'VisionPrescription_Dispense'
 
     def __init__(self, dict_values=None):
         # identifies the type of vision correction product which is required for

@@ -5,6 +5,8 @@ class Bundle(fhirbase):
     """A container for a collection of resources.
     """
 
+    __name__ = 'Bundle'
+
     def __init__(self, dict_values=None):
         # this is a bundle resource
         self.resourceType = 'Bundle'
@@ -85,6 +87,8 @@ class Bundle_Link(fhirbase):
     """A container for a collection of resources.
     """
 
+    __name__ = 'Bundle_Link'
+
     def __init__(self, dict_values=None):
         # a name which details the functional use for this link - see
         # [http://www.iana.org/assignments/link-relations/link-
@@ -107,6 +111,8 @@ class Bundle_Link(fhirbase):
 class Bundle_Entry(fhirbase):
     """A container for a collection of resources.
     """
+
+    __name__ = 'Bundle_Entry'
 
     def __init__(self, dict_values=None):
         # a series of links that provide context to this entry.
@@ -182,6 +188,8 @@ class Bundle_Search(fhirbase):
     """A container for a collection of resources.
     """
 
+    __name__ = 'Bundle_Search'
+
     def __init__(self, dict_values=None):
         # why this entry is in the result set - whether it's included as a match
         # or because of an _include requirement.
@@ -212,6 +220,8 @@ class Bundle_Search(fhirbase):
 class Bundle_Request(fhirbase):
     """A container for a collection of resources.
     """
+
+    __name__ = 'Bundle_Request'
 
     def __init__(self, dict_values=None):
         # the http verb for this entry in either a change history, or a
@@ -267,6 +277,8 @@ class Bundle_Request(fhirbase):
 class Bundle_Response(fhirbase):
     """A container for a collection of resources.
     """
+
+    __name__ = 'Bundle_Response'
 
     def __init__(self, dict_values=None):
         # the status code returned by processing this entry. the status shall

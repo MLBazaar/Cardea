@@ -6,6 +6,8 @@ class EligibilityResponse(fhirbase):
     of an Eligibility resource.
     """
 
+    __name__ = 'EligibilityResponse'
+
     def __init__(self, dict_values=None):
         # this is a eligibilityresponse resource
         self.resourceType = 'EligibilityResponse'
@@ -131,6 +133,8 @@ class EligibilityResponse_Insurance(fhirbase):
     of an Eligibility resource.
     """
 
+    __name__ = 'EligibilityResponse_Insurance'
+
     def __init__(self, dict_values=None):
         # a suite of updated or additional coverages from the insurer.
         self.coverage = None
@@ -175,6 +179,8 @@ class EligibilityResponse_BenefitBalance(fhirbase):
     """This resource provides eligibility and plan details from the processing
     of an Eligibility resource.
     """
+
+    __name__ = 'EligibilityResponse_BenefitBalance'
 
     def __init__(self, dict_values=None):
         # dental, vision, medical, pharmacy, rehab etc.
@@ -264,6 +270,8 @@ class EligibilityResponse_Financial(fhirbase):
     of an Eligibility resource.
     """
 
+    __name__ = 'EligibilityResponse_Financial'
+
     def __init__(self, dict_values=None):
         # deductable, visits, benefit amount.
         self.type = None
@@ -319,6 +327,8 @@ class EligibilityResponse_Error(fhirbase):
     """This resource provides eligibility and plan details from the processing
     of an Eligibility resource.
     """
+
+    __name__ = 'EligibilityResponse_Error'
 
     def __init__(self, dict_values=None):
         # an error code,from a specified code system, which details why the

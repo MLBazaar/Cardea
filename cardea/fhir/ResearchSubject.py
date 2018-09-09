@@ -11,6 +11,8 @@ class ResearchSubject(fhirbase):
     animal subjects.
     """
 
+    __name__ = 'ResearchSubject'
+
     def __init__(self, dict_values=None):
         # this is a researchsubject resource
         self.resourceType = 'ResearchSubject'

@@ -7,6 +7,8 @@ class ConceptMap(fhirbase):
     class models.
     """
 
+    __name__ = 'ConceptMap'
+
     def __init__(self, dict_values=None):
         # this is a conceptmap resource
         self.resourceType = 'ConceptMap'
@@ -191,6 +193,8 @@ class ConceptMap_Group(fhirbase):
     class models.
     """
 
+    __name__ = 'ConceptMap_Group'
+
     def __init__(self, dict_values=None):
         # an absolute uri that identifies the code system (if the source is a
         # value set that crosses more than one code system).
@@ -249,6 +253,8 @@ class ConceptMap_Element(fhirbase):
     class models.
     """
 
+    __name__ = 'ConceptMap_Element'
+
     def __init__(self, dict_values=None):
         # identity (code or path) or the element/item being mapped.
         self.code = None
@@ -285,6 +291,8 @@ class ConceptMap_Target(fhirbase):
     other concepts - either code systems or data elements, or classes in
     class models.
     """
+
+    __name__ = 'ConceptMap_Target'
 
     def __init__(self, dict_values=None):
         # identity (code or path) or the element/item that the map refers to.
@@ -363,6 +371,8 @@ class ConceptMap_DependsOn(fhirbase):
     class models.
     """
 
+    __name__ = 'ConceptMap_DependsOn'
+
     def __init__(self, dict_values=None):
         # a reference to an element that holds a coded value that corresponds to a
         # code system property. the idea is that the information model carries an
@@ -398,6 +408,8 @@ class ConceptMap_Unmapped(fhirbase):
     other concepts - either code systems or data elements, or classes in
     class models.
     """
+
+    __name__ = 'ConceptMap_Unmapped'
 
     def __init__(self, dict_values=None):
         # defines which action to take if there is no match in the group. one of 3

@@ -6,6 +6,8 @@ class Annotation(fhirbase):
     statement and when.
     """
 
+    __name__ = 'Annotation'
+
     def __init__(self, dict_values=None):
         # the individual responsible for making the annotation.
         self.authorReference = None

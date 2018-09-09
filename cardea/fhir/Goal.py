@@ -8,6 +8,8 @@ class Goal(fhirbase):
     objective, etc.
     """
 
+    __name__ = 'Goal'
+
     def __init__(self, dict_values=None):
         # this is a goal resource
         self.resourceType = 'Goal'
@@ -185,6 +187,8 @@ class Goal_Target(fhirbase):
     obtaining herd immunity via immunization, meeting a process improvement
     objective, etc.
     """
+
+    __name__ = 'Goal_Target'
 
     def __init__(self, dict_values=None):
         # the parameter whose value is being tracked, e.g. body weight, blood

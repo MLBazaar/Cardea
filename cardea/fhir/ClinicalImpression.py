@@ -11,6 +11,8 @@ class ClinicalImpression(fhirbase):
     with the recording of assessment tools such as Apgar score.
     """
 
+    __name__ = 'ClinicalImpression'
+
     def __init__(self, dict_values=None):
         # this is a clinicalimpression resource
         self.resourceType = 'ClinicalImpression'
@@ -217,6 +219,8 @@ class ClinicalImpression_Investigation(fhirbase):
     with the recording of assessment tools such as Apgar score.
     """
 
+    __name__ = 'ClinicalImpression_Investigation'
+
     def __init__(self, dict_values=None):
         # a name/code for the group ("set") of investigations. typically, this
         # will be something like "signs", "symptoms", "clinical", "diagnostic",
@@ -260,6 +264,8 @@ class ClinicalImpression_Finding(fhirbase):
     "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion
     with the recording of assessment tools such as Apgar score.
     """
+
+    __name__ = 'ClinicalImpression_Finding'
 
     def __init__(self, dict_values=None):
         # specific text, code or reference for finding or diagnosis, which may

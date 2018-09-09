@@ -6,6 +6,8 @@ class ClaimResponse(fhirbase):
     Claim resource.
     """
 
+    __name__ = 'ClaimResponse'
+
     def __init__(self, dict_values=None):
         # this is a claimresponse resource
         self.resourceType = 'ClaimResponse'
@@ -230,6 +232,8 @@ class ClaimResponse_Item(fhirbase):
     Claim resource.
     """
 
+    __name__ = 'ClaimResponse_Item'
+
     def __init__(self, dict_values=None):
         # a service line number.
         self.sequenceLinkId = None
@@ -274,6 +278,8 @@ class ClaimResponse_Adjudication(fhirbase):
     """This resource provides the adjudication details from the processing of a
     Claim resource.
     """
+
+    __name__ = 'ClaimResponse_Adjudication'
 
     def __init__(self, dict_values=None):
         # code indicating: co-pay, deductible, eligible, benefit, tax, etc.
@@ -324,6 +330,8 @@ class ClaimResponse_Detail(fhirbase):
     Claim resource.
     """
 
+    __name__ = 'ClaimResponse_Detail'
+
     def __init__(self, dict_values=None):
         # a service line number.
         self.sequenceLinkId = None
@@ -369,6 +377,8 @@ class ClaimResponse_SubDetail(fhirbase):
     Claim resource.
     """
 
+    __name__ = 'ClaimResponse_SubDetail'
+
     def __init__(self, dict_values=None):
         # a service line number.
         self.sequenceLinkId = None
@@ -403,6 +413,8 @@ class ClaimResponse_AddItem(fhirbase):
     """This resource provides the adjudication details from the processing of a
     Claim resource.
     """
+
+    __name__ = 'ClaimResponse_AddItem'
 
     def __init__(self, dict_values=None):
         # list of input service items which this service line is intended to
@@ -499,6 +511,8 @@ class ClaimResponse_Detail1(fhirbase):
     Claim resource.
     """
 
+    __name__ = 'ClaimResponse_Detail1'
+
     def __init__(self, dict_values=None):
         # the type of reveneu or cost center providing the product and/or service.
         self.revenue = None
@@ -579,6 +593,8 @@ class ClaimResponse_Error(fhirbase):
     Claim resource.
     """
 
+    __name__ = 'ClaimResponse_Error'
+
     def __init__(self, dict_values=None):
         # the sequence number of the line item submitted which contains the error.
         # this value is omitted when the error is elsewhere.
@@ -622,6 +638,8 @@ class ClaimResponse_Payment(fhirbase):
     """This resource provides the adjudication details from the processing of a
     Claim resource.
     """
+
+    __name__ = 'ClaimResponse_Payment'
 
     def __init__(self, dict_values=None):
         # whether this represents partial or complete payment of the claim.
@@ -687,6 +705,8 @@ class ClaimResponse_ProcessNote(fhirbase):
     Claim resource.
     """
 
+    __name__ = 'ClaimResponse_ProcessNote'
+
     def __init__(self, dict_values=None):
         # an integer associated with each note which may be referred to from each
         # service line item.
@@ -733,6 +753,8 @@ class ClaimResponse_Insurance(fhirbase):
     """This resource provides the adjudication details from the processing of a
     Claim resource.
     """
+
+    __name__ = 'ClaimResponse_Insurance'
 
     def __init__(self, dict_values=None):
         # a service line item.

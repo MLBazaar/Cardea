@@ -6,6 +6,8 @@ class CareTeam(fhirbase):
     participate in the coordination and delivery of care for a patient.
     """
 
+    __name__ = 'CareTeam'
+
     def __init__(self, dict_values=None):
         # this is a careteam resource
         self.resourceType = 'CareTeam'
@@ -149,6 +151,8 @@ class CareTeam_Participant(fhirbase):
     """The Care Team includes all the people and organizations who plan to
     participate in the coordination and delivery of care for a patient.
     """
+
+    __name__ = 'CareTeam_Participant'
 
     def __init__(self, dict_values=None):
         # indicates specific responsibility of an individual within the care team,

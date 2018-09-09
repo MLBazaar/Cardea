@@ -7,6 +7,8 @@ class ActivityDefinition(fhirbase):
     performance context.
     """
 
+    __name__ = 'ActivityDefinition'
+
     def __init__(self, dict_values=None):
         # this is a activitydefinition resource
         self.resourceType = 'ActivityDefinition'
@@ -376,6 +378,8 @@ class ActivityDefinition_Participant(fhirbase):
     performance context.
     """
 
+    __name__ = 'ActivityDefinition_Participant'
+
     def __init__(self, dict_values=None):
         # the type of participant in the action.
         self.type = None
@@ -406,6 +410,8 @@ class ActivityDefinition_DynamicValue(fhirbase):
     performed, independent of a particular patient, practitioner, or other
     performance context.
     """
+
+    __name__ = 'ActivityDefinition_DynamicValue'
 
     def __init__(self, dict_values=None):
         # a brief, natural language description of the intended semantics of the

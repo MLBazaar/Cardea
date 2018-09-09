@@ -8,6 +8,8 @@ class CapabilityStatement(fhirbase):
     implementation.
     """
 
+    __name__ = 'CapabilityStatement'
+
     def __init__(self, dict_values=None):
         # this is a capabilitystatement resource
         self.resourceType = 'CapabilityStatement'
@@ -272,6 +274,8 @@ class CapabilityStatement_Software(fhirbase):
     implementation.
     """
 
+    __name__ = 'CapabilityStatement_Software'
+
     def __init__(self, dict_values=None):
         # name software is known by.
         self.name = None
@@ -299,6 +303,8 @@ class CapabilityStatement_Implementation(fhirbase):
     implementation.
     """
 
+    __name__ = 'CapabilityStatement_Implementation'
+
     def __init__(self, dict_values=None):
         # information about the specific installation that this capability
         # statement relates to.
@@ -323,6 +329,8 @@ class CapabilityStatement_Rest(fhirbase):
     functionality or a statement of required or desired server
     implementation.
     """
+
+    __name__ = 'CapabilityStatement_Rest'
 
     def __init__(self, dict_values=None):
         # identifies whether this portion of the statement is describing the
@@ -424,6 +432,8 @@ class CapabilityStatement_Security(fhirbase):
     implementation.
     """
 
+    __name__ = 'CapabilityStatement_Security'
+
     def __init__(self, dict_values=None):
         # server adds cors headers when responding to requests - this enables
         # javascript applications to use the server.
@@ -472,6 +482,8 @@ class CapabilityStatement_Certificate(fhirbase):
     implementation.
     """
 
+    __name__ = 'CapabilityStatement_Certificate'
+
     def __init__(self, dict_values=None):
         # mime type for a certificate.
         self.type = None
@@ -494,6 +506,8 @@ class CapabilityStatement_Resource(fhirbase):
     functionality or a statement of required or desired server
     implementation.
     """
+
+    __name__ = 'CapabilityStatement_Resource'
 
     def __init__(self, dict_values=None):
         # a type of resource exposed via the restful interface.
@@ -641,6 +655,8 @@ class CapabilityStatement_Interaction(fhirbase):
     implementation.
     """
 
+    __name__ = 'CapabilityStatement_Interaction'
+
     def __init__(self, dict_values=None):
         # coded identifier of the operation, supported by the system resource.
         self.code = None
@@ -678,6 +694,8 @@ class CapabilityStatement_SearchParam(fhirbase):
     functionality or a statement of required or desired server
     implementation.
     """
+
+    __name__ = 'CapabilityStatement_SearchParam'
 
     def __init__(self, dict_values=None):
         # the name of the search parameter used in the interface.
@@ -726,6 +744,8 @@ class CapabilityStatement_Interaction1(fhirbase):
     implementation.
     """
 
+    __name__ = 'CapabilityStatement_Interaction1'
+
     def __init__(self, dict_values=None):
         # a coded identifier of the operation, supported by the system.
         self.code = None
@@ -762,6 +782,8 @@ class CapabilityStatement_Operation(fhirbase):
     implementation.
     """
 
+    __name__ = 'CapabilityStatement_Operation'
+
     def __init__(self, dict_values=None):
         # the name of the operation or query. for an operation, this is the name
         # prefixed with $ and used in the url. for a query, this is the name used
@@ -795,6 +817,8 @@ class CapabilityStatement_Messaging(fhirbase):
     functionality or a statement of required or desired server
     implementation.
     """
+
+    __name__ = 'CapabilityStatement_Messaging'
 
     def __init__(self, dict_values=None):
         # an endpoint (network accessible address) to which messages and/or
@@ -860,6 +884,8 @@ class CapabilityStatement_Endpoint(fhirbase):
     implementation.
     """
 
+    __name__ = 'CapabilityStatement_Endpoint'
+
     def __init__(self, dict_values=None):
         # a list of the messaging transport protocol(s) identifiers, supported by
         # this endpoint.
@@ -893,6 +919,8 @@ class CapabilityStatement_SupportedMessage(fhirbase):
     functionality or a statement of required or desired server
     implementation.
     """
+
+    __name__ = 'CapabilityStatement_SupportedMessage'
 
     def __init__(self, dict_values=None):
         # the mode of this event declaration - whether application is sender or
@@ -937,6 +965,8 @@ class CapabilityStatement_Event(fhirbase):
     functionality or a statement of required or desired server
     implementation.
     """
+
+    __name__ = 'CapabilityStatement_Event'
 
     def __init__(self, dict_values=None):
         # a coded identifier of a supported messaging event.
@@ -1020,6 +1050,8 @@ class CapabilityStatement_Document(fhirbase):
     functionality or a statement of required or desired server
     implementation.
     """
+
+    __name__ = 'CapabilityStatement_Document'
 
     def __init__(self, dict_values=None):
         # mode of this document declaration - whether an application is a producer

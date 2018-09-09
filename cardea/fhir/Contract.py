@@ -6,6 +6,8 @@ class Contract(fhirbase):
     exchange of information or other matters.
     """
 
+    __name__ = 'Contract'
+
     def __init__(self, dict_values=None):
         # this is a contract resource
         self.resourceType = 'Contract'
@@ -279,6 +281,8 @@ class Contract_Agent(fhirbase):
     exchange of information or other matters.
     """
 
+    __name__ = 'Contract_Agent'
+
     def __init__(self, dict_values=None):
         # who or what parties are assigned roles in this contract.
         self.actor = None
@@ -314,6 +318,8 @@ class Contract_Signer(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
+
+    __name__ = 'Contract_Signer'
 
     def __init__(self, dict_values=None):
         # role of this contract signer, e.g. notary, grantee.
@@ -359,6 +365,8 @@ class Contract_ValuedItem(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
+
+    __name__ = 'Contract_ValuedItem'
 
     def __init__(self, dict_values=None):
         # specific type of contract valued item that may be priced.
@@ -452,6 +460,8 @@ class Contract_Term(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
+
+    __name__ = 'Contract_Term'
 
     def __init__(self, dict_values=None):
         # when this contract provision was issued.
@@ -585,6 +595,8 @@ class Contract_Agent1(fhirbase):
     exchange of information or other matters.
     """
 
+    __name__ = 'Contract_Agent1'
+
     def __init__(self, dict_values=None):
         # the agent assigned a role in this contract provision.
         self.actor = None
@@ -621,6 +633,8 @@ class Contract_ValuedItem1(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
+
+    __name__ = 'Contract_ValuedItem1'
 
     def __init__(self, dict_values=None):
         # specific type of contract provision valued item that may be priced.
@@ -715,6 +729,8 @@ class Contract_Friendly(fhirbase):
     exchange of information or other matters.
     """
 
+    __name__ = 'Contract_Friendly'
+
     def __init__(self, dict_values=None):
         # human readable rendering of this contract in a format and representation
         # intended to enhance comprehension and ensure understandability.
@@ -752,6 +768,8 @@ class Contract_Legal(fhirbase):
     exchange of information or other matters.
     """
 
+    __name__ = 'Contract_Legal'
+
     def __init__(self, dict_values=None):
         # contract legal text in human renderable form.
         self.contentAttachment = None
@@ -786,6 +804,8 @@ class Contract_Rule(fhirbase):
     """A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
+
+    __name__ = 'Contract_Rule'
 
     def __init__(self, dict_values=None):
         # computable contract conveyed using a policy rule language (e.g. xacml,

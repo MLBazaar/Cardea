@@ -7,6 +7,8 @@ class CommunicationRequest(fhirbase):
     the public health agency be notified about a reportable condition.
     """
 
+    __name__ = 'CommunicationRequest'
+
     def __init__(self, dict_values=None):
         # this is a communicationrequest resource
         self.resourceType = 'CommunicationRequest'
@@ -224,6 +226,8 @@ class CommunicationRequest_Payload(fhirbase):
     the public health agency be notified about a reportable condition.
     """
 
+    __name__ = 'CommunicationRequest_Payload'
+
     def __init__(self, dict_values=None):
         # the communicated content (or for multi-part communications, one portion
         # of the communication).
@@ -266,6 +270,8 @@ class CommunicationRequest_Requester(fhirbase):
     alert be sent to a responsible provider, the CDS system proposes that
     the public health agency be notified about a reportable condition.
     """
+
+    __name__ = 'CommunicationRequest_Requester'
 
     def __init__(self, dict_values=None):
         # the device, practitioner, etc. who initiated the request.

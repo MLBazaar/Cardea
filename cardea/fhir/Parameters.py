@@ -7,6 +7,8 @@ class Parameters(fhirbase):
     endpoint associated with it.
     """
 
+    __name__ = 'Parameters'
+
     def __init__(self, dict_values=None):
         # a parameter passed to or received from the operation.
         self.parameter = None
@@ -34,6 +36,8 @@ class Parameters_Parameter(fhirbase):
     response (operations.html). It has no other use, and there is no RESTful
     endpoint associated with it.
     """
+
+    __name__ = 'Parameters_Parameter'
 
     def __init__(self, dict_values=None):
         # the name of the parameter (reference to the operation definition).

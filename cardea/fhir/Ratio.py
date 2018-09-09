@@ -6,6 +6,8 @@ class Ratio(fhirbase):
     denominator.
     """
 
+    __name__ = 'Ratio'
+
     def __init__(self, dict_values=None):
         # the value of the numerator.
         self.numerator = None

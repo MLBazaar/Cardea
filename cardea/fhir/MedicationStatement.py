@@ -27,6 +27,8 @@ class MedicationStatement(fhirbase):
     missing detailed information.
     """
 
+    __name__ = 'MedicationStatement'
+
     def __init__(self, dict_values=None):
         # this is a medicationstatement resource
         self.resourceType = 'MedicationStatement'

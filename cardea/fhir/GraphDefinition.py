@@ -7,6 +7,8 @@ class GraphDefinition(fhirbase):
     Graph Definition resource defines a set and makes rules about the set.
     """
 
+    __name__ = 'GraphDefinition'
+
     def __init__(self, dict_values=None):
         # this is a graphdefinition resource
         self.resourceType = 'GraphDefinition'
@@ -150,6 +152,8 @@ class GraphDefinition_Link(fhirbase):
     Graph Definition resource defines a set and makes rules about the set.
     """
 
+    __name__ = 'GraphDefinition_Link'
+
     def __init__(self, dict_values=None):
         # path in the resource that contains the link.
         self.path = None
@@ -187,6 +191,8 @@ class GraphDefinition_Target(fhirbase):
     coherent set of resources that form a graph by following references. The
     Graph Definition resource defines a set and makes rules about the set.
     """
+
+    __name__ = 'GraphDefinition_Target'
 
     def __init__(self, dict_values=None):
         # type of resource this link refers to.
@@ -233,6 +239,8 @@ class GraphDefinition_Compartment(fhirbase):
     coherent set of resources that form a graph by following references. The
     Graph Definition resource defines a set and makes rules about the set.
     """
+
+    __name__ = 'GraphDefinition_Compartment'
 
     def __init__(self, dict_values=None):
         # identifies the compartment.

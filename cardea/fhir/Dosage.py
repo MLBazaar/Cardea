@@ -6,6 +6,8 @@ class Dosage(fhirbase):
     patient.
     """
 
+    __name__ = 'Dosage'
+
     def __init__(self, dict_values=None):
         # indicates the order in which the dosage instructions should be applied
         # or interpreted.

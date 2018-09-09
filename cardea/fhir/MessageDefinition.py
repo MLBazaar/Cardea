@@ -7,6 +7,8 @@ class MessageDefinition(fhirbase):
     content to be transmitted and what response(s), if any, are permitted.
     """
 
+    __name__ = 'MessageDefinition'
+
     def __init__(self, dict_values=None):
         # this is a messagedefinition resource
         self.resourceType = 'MessageDefinition'
@@ -222,6 +224,8 @@ class MessageDefinition_Focus(fhirbase):
     content to be transmitted and what response(s), if any, are permitted.
     """
 
+    __name__ = 'MessageDefinition_Focus'
+
     def __init__(self, dict_values=None):
         # the kind of resource that must be the focus for this message.
         self.code = None
@@ -265,6 +269,8 @@ class MessageDefinition_AllowedResponse(fhirbase):
     systems, including the type of event that initiates the message, the
     content to be transmitted and what response(s), if any, are permitted.
     """
+
+    __name__ = 'MessageDefinition_AllowedResponse'
 
     def __init__(self, dict_values=None):
         # a reference to the message definition that must be adhered to by this

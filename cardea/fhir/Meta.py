@@ -7,6 +7,8 @@ class Meta(fhirbase):
     be associated with version changes to the resource.
     """
 
+    __name__ = 'Meta'
+
     def __init__(self, dict_values=None):
         # the version specific identifier, as it appears in the version portion of
         # the url. this values changes when the resource is created, updated, or

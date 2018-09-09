@@ -6,6 +6,8 @@ class ElementDefinition(fhirbase):
     extension.
     """
 
+    __name__ = 'ElementDefinition'
+
     def __init__(self, dict_values=None):
         # the path identifies the element and is expressed as a "."-separated list
         # of ancestor elements, beginning with the name of the resource or
@@ -1956,6 +1958,8 @@ class ElementDefinition_Slicing(fhirbase):
     extension.
     """
 
+    __name__ = 'ElementDefinition_Slicing'
+
     def __init__(self, dict_values=None):
         # designates which child elements are used to discriminate between the
         # slices when processing an instance. if one or more discriminators are
@@ -2014,6 +2018,8 @@ class ElementDefinition_Discriminator(fhirbase):
     extension.
     """
 
+    __name__ = 'ElementDefinition_Discriminator'
+
     def __init__(self, dict_values=None):
         # how the element value is interpreted when discrimination is evaluated.
         self.type = None
@@ -2046,6 +2052,8 @@ class ElementDefinition_Base(fhirbase):
     extension.
     """
 
+    __name__ = 'ElementDefinition_Base'
+
     def __init__(self, dict_values=None):
         # the path that identifies the base element - this matches the
         # elementdefinition.path for that element. across fhir, there is only one
@@ -2073,6 +2081,8 @@ class ElementDefinition_Type(fhirbase):
     """Captures constraints on each element within the resource, profile, or
     extension.
     """
+
+    __name__ = 'ElementDefinition_Type'
 
     def __init__(self, dict_values=None):
         # url of data type or resource that is a(or the) type used for this
@@ -2141,6 +2151,8 @@ class ElementDefinition_Example(fhirbase):
     """Captures constraints on each element within the resource, profile, or
     extension.
     """
+
+    __name__ = 'ElementDefinition_Example'
 
     def __init__(self, dict_values=None):
         # describes the purpose of this example amoung the set of examples.
@@ -2602,6 +2614,8 @@ class ElementDefinition_Constraint(fhirbase):
     extension.
     """
 
+    __name__ = 'ElementDefinition_Constraint'
+
     def __init__(self, dict_values=None):
         # allows identification of which elements have their cardinalities
         # impacted by the constraint.  will not be referenced for constraints that
@@ -2659,6 +2673,8 @@ class ElementDefinition_Binding(fhirbase):
     """Captures constraints on each element within the resource, profile, or
     extension.
     """
+
+    __name__ = 'ElementDefinition_Binding'
 
     def __init__(self, dict_values=None):
         # indicates the degree of conformance expectations associated with this
@@ -2719,6 +2735,8 @@ class ElementDefinition_Mapping(fhirbase):
     """Captures constraints on each element within the resource, profile, or
     extension.
     """
+
+    __name__ = 'ElementDefinition_Mapping'
 
     def __init__(self, dict_values=None):
         # an internal reference to the definition of a mapping.

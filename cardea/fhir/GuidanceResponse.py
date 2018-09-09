@@ -7,6 +7,8 @@ class GuidanceResponse(fhirbase):
     the description of any proposed actions to be taken.
     """
 
+    __name__ = 'GuidanceResponse'
+
     def __init__(self, dict_values=None):
         # this is a guidanceresponse resource
         self.resourceType = 'GuidanceResponse'

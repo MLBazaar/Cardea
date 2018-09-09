@@ -5,6 +5,8 @@ class Element(fhirbase):
     """Base definition for all elements in a resource.
     """
 
+    __name__ = 'Element'
+
     def __init__(self, dict_values=None):
         # may be used to represent additional information that is not part of the
         # basic definition of the element. in order to make the use of extensions

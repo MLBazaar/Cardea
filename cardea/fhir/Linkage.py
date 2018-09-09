@@ -6,6 +6,8 @@ class Linkage(fhirbase):
     to the same real-world "occurrence".
     """
 
+    __name__ = 'Linkage'
+
     def __init__(self, dict_values=None):
         # this is a linkage resource
         self.resourceType = 'Linkage'
@@ -55,6 +57,8 @@ class Linkage_Item(fhirbase):
     """Identifies two or more records (resource instances) that are referring
     to the same real-world "occurrence".
     """
+
+    __name__ = 'Linkage_Item'
 
     def __init__(self, dict_values=None):
         # distinguishes which item is "source of truth" (if any) and which items

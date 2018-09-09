@@ -6,6 +6,8 @@ class AllergyIntolerance(fhirbase):
     to an individual and associated with exposure to a substance.
     """
 
+    __name__ = 'AllergyIntolerance'
+
     def __init__(self, dict_values=None):
         # this is a allergyintolerance resource
         self.resourceType = 'AllergyIntolerance'
@@ -220,6 +222,8 @@ class AllergyIntolerance_Reaction(fhirbase):
     """Risk of harmful or undesirable, physiological response which is unique
     to an individual and associated with exposure to a substance.
     """
+
+    __name__ = 'AllergyIntolerance_Reaction'
 
     def __init__(self, dict_values=None):
         # identification of the specific substance (or pharmaceutical product)

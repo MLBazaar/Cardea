@@ -8,6 +8,8 @@ class Questionnaire(fhirbase):
     consistent data collection.
     """
 
+    __name__ = 'Questionnaire'
+
     def __init__(self, dict_values=None):
         # this is a questionnaire resource
         self.resourceType = 'Questionnaire'
@@ -200,6 +202,8 @@ class Questionnaire_Item(fhirbase):
     order, presentation, phraseology and grouping to allow coherent,
     consistent data collection.
     """
+
+    __name__ = 'Questionnaire_Item'
 
     def __init__(self, dict_values=None):
         # an identifier that is unique within the questionnaire allowing linkage
@@ -425,6 +429,8 @@ class Questionnaire_EnableWhen(fhirbase):
     consistent data collection.
     """
 
+    __name__ = 'Questionnaire_EnableWhen'
+
     def __init__(self, dict_values=None):
         # the linkid for the question whose answer (or lack of answer) governs
         # whether this item is enabled.
@@ -533,6 +539,8 @@ class Questionnaire_Option(fhirbase):
     order, presentation, phraseology and grouping to allow coherent,
     consistent data collection.
     """
+
+    __name__ = 'Questionnaire_Option'
 
     def __init__(self, dict_values=None):
         # a potential answer that's allowed as the answer to this question.

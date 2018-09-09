@@ -8,6 +8,8 @@ class ParameterDefinition(fhirbase):
     GuidanceResponse.
     """
 
+    __name__ = 'ParameterDefinition'
+
     def __init__(self, dict_values=None):
         # the name of the parameter used to allow access to the value of the
         # parameter in evaluation contexts.

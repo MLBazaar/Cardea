@@ -5,6 +5,8 @@ class TestReport(fhirbase):
     """A summary of information based on the results of executing a TestScript.
     """
 
+    __name__ = 'TestReport'
+
     def __init__(self, dict_values=None):
         # this is a testreport resource
         self.resourceType = 'TestReport'
@@ -128,6 +130,8 @@ class TestReport_Participant(fhirbase):
     """A summary of information based on the results of executing a TestScript.
     """
 
+    __name__ = 'TestReport_Participant'
+
     def __init__(self, dict_values=None):
         # the type of participant.
         self.type = None
@@ -162,6 +166,8 @@ class TestReport_Setup(fhirbase):
     """A summary of information based on the results of executing a TestScript.
     """
 
+    __name__ = 'TestReport_Setup'
+
     def __init__(self, dict_values=None):
         # action would contain either an operation or an assertion.
         self.action = None
@@ -187,6 +193,8 @@ class TestReport_Setup(fhirbase):
 class TestReport_Action(fhirbase):
     """A summary of information based on the results of executing a TestScript.
     """
+
+    __name__ = 'TestReport_Action'
 
     def __init__(self, dict_values=None):
         # the operation performed.
@@ -222,6 +230,8 @@ class TestReport_Operation(fhirbase):
     """A summary of information based on the results of executing a TestScript.
     """
 
+    __name__ = 'TestReport_Operation'
+
     def __init__(self, dict_values=None):
         # the result of this operation.
         self.result = None
@@ -256,6 +266,8 @@ class TestReport_Assert(fhirbase):
     """A summary of information based on the results of executing a TestScript.
     """
 
+    __name__ = 'TestReport_Assert'
+
     def __init__(self, dict_values=None):
         # the result of this assertion.
         self.result = None
@@ -289,6 +301,8 @@ class TestReport_Assert(fhirbase):
 class TestReport_Test(fhirbase):
     """A summary of information based on the results of executing a TestScript.
     """
+
+    __name__ = 'TestReport_Test'
 
     def __init__(self, dict_values=None):
         # the name of this test used for tracking/logging purposes by test
@@ -326,6 +340,8 @@ class TestReport_Action1(fhirbase):
     """A summary of information based on the results of executing a TestScript.
     """
 
+    __name__ = 'TestReport_Action1'
+
     def __init__(self, dict_values=None):
         # an operation would involve a rest request to a server.
         self.operation = None
@@ -360,6 +376,8 @@ class TestReport_Teardown(fhirbase):
     """A summary of information based on the results of executing a TestScript.
     """
 
+    __name__ = 'TestReport_Teardown'
+
     def __init__(self, dict_values=None):
         # the teardown action will only contain an operation.
         self.action = None
@@ -385,6 +403,8 @@ class TestReport_Teardown(fhirbase):
 class TestReport_Action2(fhirbase):
     """A summary of information based on the results of executing a TestScript.
     """
+
+    __name__ = 'TestReport_Action2'
 
     def __init__(self, dict_values=None):
         # an operation would involve a rest request to a server.

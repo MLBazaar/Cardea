@@ -6,6 +6,8 @@ class EnrollmentRequest(fhirbase):
     regarding a specified coverage.
     """
 
+    __name__ = 'EnrollmentRequest'
+
     def __init__(self, dict_values=None):
         # this is a enrollmentrequest resource
         self.resourceType = 'EnrollmentRequest'

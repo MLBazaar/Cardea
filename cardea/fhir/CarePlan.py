@@ -8,6 +8,8 @@ class CarePlan(fhirbase):
     conditions.
     """
 
+    __name__ = 'CarePlan'
+
     def __init__(self, dict_values=None):
         # this is a careplan resource
         self.resourceType = 'CarePlan'
@@ -243,6 +245,8 @@ class CarePlan_Activity(fhirbase):
     conditions.
     """
 
+    __name__ = 'CarePlan_Activity'
+
     def __init__(self, dict_values=None):
         # identifies the outcome at the point when the status of the activity is
         # assessed.  for example, the outcome of an education activity could be
@@ -317,6 +321,8 @@ class CarePlan_Detail(fhirbase):
     of time, possibly limited to care for a specific condition or set of
     conditions.
     """
+
+    __name__ = 'CarePlan_Detail'
 
     def __init__(self, dict_values=None):
         # high-level categorization of the type of activity in a care plan.

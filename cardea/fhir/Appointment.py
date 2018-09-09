@@ -7,6 +7,8 @@ class Appointment(fhirbase):
     result in one or more Encounter(s).
     """
 
+    __name__ = 'Appointment'
+
     def __init__(self, dict_values=None):
         # this is a appointment resource
         self.resourceType = 'Appointment'
@@ -218,6 +220,8 @@ class Appointment_Participant(fhirbase):
     related person(s) and/or device(s) for a specific date/time. This may
     result in one or more Encounter(s).
     """
+
+    __name__ = 'Appointment_Participant'
 
     def __init__(self, dict_values=None):
         # role of participant in the appointment.

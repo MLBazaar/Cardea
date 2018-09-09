@@ -7,6 +7,8 @@ class BodySite(fhirbase):
     necessary detail needed for the use case.
     """
 
+    __name__ = 'BodySite'
+
     def __init__(self, dict_values=None):
         # this is a bodysite resource
         self.resourceType = 'BodySite'

@@ -8,6 +8,8 @@ class DetectedIssue(fhirbase):
     conflict, etc.
     """
 
+    __name__ = 'DetectedIssue'
+
     def __init__(self, dict_values=None):
         # this is a detectedissue resource
         self.resourceType = 'DetectedIssue'
@@ -123,6 +125,8 @@ class DetectedIssue_Mitigation(fhirbase):
     interaction, Ineffective treatment frequency, Procedure-condition
     conflict, etc.
     """
+
+    __name__ = 'DetectedIssue_Mitigation'
 
     def __init__(self, dict_values=None):
         # describes the action that was taken or the observation that was made

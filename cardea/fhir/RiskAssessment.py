@@ -6,6 +6,8 @@ class RiskAssessment(fhirbase):
     well as the likelihood of each outcome.
     """
 
+    __name__ = 'RiskAssessment'
+
     def __init__(self, dict_values=None):
         # this is a riskassessment resource
         self.resourceType = 'RiskAssessment'
@@ -173,6 +175,8 @@ class RiskAssessment_Prediction(fhirbase):
     """An assessment of the likely outcome(s) for a patient or other subject as
     well as the likelihood of each outcome.
     """
+
+    __name__ = 'RiskAssessment_Prediction'
 
     def __init__(self, dict_values=None):
         # one of the potential outcomes for the patient (e.g. remission, death,  a

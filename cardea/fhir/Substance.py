@@ -5,6 +5,8 @@ class Substance(fhirbase):
     """A homogeneous material with a definite composition.
     """
 
+    __name__ = 'Substance'
+
     def __init__(self, dict_values=None):
         # this is a substance resource
         self.resourceType = 'Substance'
@@ -93,6 +95,8 @@ class Substance_Instance(fhirbase):
     """A homogeneous material with a definite composition.
     """
 
+    __name__ = 'Substance_Instance'
+
     def __init__(self, dict_values=None):
         # when the substance is no longer valid to use. for some substances, a
         # single arbitrary date is used for expiry.
@@ -129,6 +133,8 @@ class Substance_Instance(fhirbase):
 class Substance_Ingredient(fhirbase):
     """A homogeneous material with a definite composition.
     """
+
+    __name__ = 'Substance_Ingredient'
 
     def __init__(self, dict_values=None):
         # the amount of the ingredient in the substance - a concentration ratio.

@@ -6,6 +6,8 @@ class DeviceComponent(fhirbase):
     related component of a medical device.
     """
 
+    __name__ = 'DeviceComponent'
+
     def __init__(self, dict_values=None):
         # this is a devicecomponent resource
         self.resourceType = 'DeviceComponent'
@@ -131,6 +133,8 @@ class DeviceComponent_ProductionSpecification(fhirbase):
     """The characteristics, operational status and capabilities of a medical-
     related component of a medical device.
     """
+
+    __name__ = 'DeviceComponent_ProductionSpecification'
 
     def __init__(self, dict_values=None):
         # the specification type, such as, serial number, part number, hardware

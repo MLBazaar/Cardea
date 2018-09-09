@@ -6,6 +6,8 @@ class DeviceMetric(fhirbase):
     device.
     """
 
+    __name__ = 'DeviceMetric'
+
     def __init__(self, dict_values=None):
         # this is a devicemetric resource
         self.resourceType = 'DeviceMetric'
@@ -157,6 +159,8 @@ class DeviceMetric_Calibration(fhirbase):
     """Describes a measurement, calculation or setting capability of a medical
     device.
     """
+
+    __name__ = 'DeviceMetric_Calibration'
 
     def __init__(self, dict_values=None):
         # describes the type of the calibration method.

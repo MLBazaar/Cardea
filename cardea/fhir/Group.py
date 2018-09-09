@@ -8,6 +8,8 @@ class Group(fhirbase):
     entities that isn't an Organization.
     """
 
+    __name__ = 'Group'
+
     def __init__(self, dict_values=None):
         # this is a group resource
         self.resourceType = 'Group'
@@ -104,6 +106,8 @@ class Group_Characteristic(fhirbase):
     entities that isn't an Organization.
     """
 
+    __name__ = 'Group_Characteristic'
+
     def __init__(self, dict_values=None):
         # a code that identifies the kind of trait being asserted.
         self.code = None
@@ -181,6 +185,8 @@ class Group_Member(fhirbase):
     and are not formally or legally recognized; i.e. a collection of
     entities that isn't an Organization.
     """
+
+    __name__ = 'Group_Member'
 
     def __init__(self, dict_values=None):
         # a reference to the entity that is a member of the group. must be

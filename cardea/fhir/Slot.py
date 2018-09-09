@@ -6,6 +6,8 @@ class Slot(fhirbase):
     appointments.
     """
 
+    __name__ = 'Slot'
+
     def __init__(self, dict_values=None):
         # this is a slot resource
         self.resourceType = 'Slot'

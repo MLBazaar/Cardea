@@ -5,6 +5,8 @@ class HealthcareService(fhirbase):
     """The details of a healthcare service available at a location.
     """
 
+    __name__ = 'HealthcareService'
+
     def __init__(self, dict_values=None):
         # this is a healthcareservice resource
         self.resourceType = 'HealthcareService'
@@ -230,6 +232,8 @@ class HealthcareService_AvailableTime(fhirbase):
     """The details of a healthcare service available at a location.
     """
 
+    __name__ = 'HealthcareService_AvailableTime'
+
     def __init__(self, dict_values=None):
         # indicates which days of the week are available between the start and end
         # times.
@@ -271,6 +275,8 @@ class HealthcareService_AvailableTime(fhirbase):
 class HealthcareService_NotAvailable(fhirbase):
     """The details of a healthcare service available at a location.
     """
+
+    __name__ = 'HealthcareService_NotAvailable'
 
     def __init__(self, dict_values=None):
         # the reason that can be presented to the user as to why this time is not

@@ -6,6 +6,8 @@ class DocumentManifest(fhirbase):
     that applies to the collection.
     """
 
+    __name__ = 'DocumentManifest'
+
     def __init__(self, dict_values=None):
         # this is a documentmanifest resource
         self.resourceType = 'DocumentManifest'
@@ -144,6 +146,8 @@ class DocumentManifest_Content(fhirbase):
     that applies to the collection.
     """
 
+    __name__ = 'DocumentManifest_Content'
+
     def __init__(self, dict_values=None):
         # the list of references to document content, or attachment that consist
         # of the parts of this document manifest. usually, these would be document
@@ -184,6 +188,8 @@ class DocumentManifest_Related(fhirbase):
     """A collection of documents compiled for a purpose together with metadata
     that applies to the collection.
     """
+
+    __name__ = 'DocumentManifest_Related'
 
     def __init__(self, dict_values=None):
         # related resource to this documentmanifest. for example, order,

@@ -6,6 +6,8 @@ class Person(fhirbase):
     of a specific health-related context.
     """
 
+    __name__ = 'Person'
+
     def __init__(self, dict_values=None):
         # this is a person resource
         self.resourceType = 'Person'
@@ -116,6 +118,8 @@ class Person_Link(fhirbase):
     """Demographics and administrative information about a person independent
     of a specific health-related context.
     """
+
+    __name__ = 'Person_Link'
 
     def __init__(self, dict_values=None):
         # the resource to which this actual person is associated.

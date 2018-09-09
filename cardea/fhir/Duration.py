@@ -5,6 +5,8 @@ class Duration(fhirbase):
     """A length of time.
     """
 
+    __name__ = 'Duration'
+
     def __init__(self, dict_values=None):
         # unique identifier for object class
         self.object_id = None

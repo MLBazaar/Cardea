@@ -10,6 +10,8 @@ class Timing(fhirbase):
     out.
     """
 
+    __name__ = 'Timing'
+
     def __init__(self, dict_values=None):
         # identifies specific times when the event occurs.
         self.event = None
@@ -58,6 +60,8 @@ class Timing_Repeat(fhirbase):
     reporting the schedule to which past regular activities were carried
     out.
     """
+
+    __name__ = 'Timing_Repeat'
 
     def __init__(self, dict_values=None):
         # either a duration for the length of the timing schedule, a range of

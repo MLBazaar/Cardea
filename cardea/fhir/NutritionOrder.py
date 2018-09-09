@@ -6,6 +6,8 @@ class NutritionOrder(fhirbase):
     nutritional supplement to a patient/resident.
     """
 
+    __name__ = 'NutritionOrder'
+
     def __init__(self, dict_values=None):
         # this is a nutritionorder resource
         self.resourceType = 'NutritionOrder'
@@ -161,6 +163,8 @@ class NutritionOrder_OralDiet(fhirbase):
     nutritional supplement to a patient/resident.
     """
 
+    __name__ = 'NutritionOrder_OralDiet'
+
     def __init__(self, dict_values=None):
         # the kind of diet or dietary restriction such as fiber restricted diet or
         # diabetic diet.
@@ -239,6 +243,8 @@ class NutritionOrder_Nutrient(fhirbase):
     nutritional supplement to a patient/resident.
     """
 
+    __name__ = 'NutritionOrder_Nutrient'
+
     def __init__(self, dict_values=None):
         # the nutrient that is being modified such as carbohydrate or sodium.
         self.modifier = None
@@ -273,6 +279,8 @@ class NutritionOrder_Texture(fhirbase):
     """A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
     """
+
+    __name__ = 'NutritionOrder_Texture'
 
     def __init__(self, dict_values=None):
         # any texture modifications (for solid foods) that should be made, e.g.
@@ -310,6 +318,8 @@ class NutritionOrder_Supplement(fhirbase):
     """A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
     """
+
+    __name__ = 'NutritionOrder_Supplement'
 
     def __init__(self, dict_values=None):
         # the kind of nutritional supplement product required such as a high
@@ -368,6 +378,8 @@ class NutritionOrder_EnteralFormula(fhirbase):
     """A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
     """
+
+    __name__ = 'NutritionOrder_EnteralFormula'
 
     def __init__(self, dict_values=None):
         # the type of enteral or infant formula such as an adult standard formula
@@ -467,6 +479,8 @@ class NutritionOrder_Administration(fhirbase):
     """A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
     """
+
+    __name__ = 'NutritionOrder_Administration'
 
     def __init__(self, dict_values=None):
         # the time period and frequency at which the enteral formula should be

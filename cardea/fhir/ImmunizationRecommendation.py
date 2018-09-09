@@ -7,6 +7,8 @@ class ImmunizationRecommendation(fhirbase):
     published schedule) with optional supporting justification.
     """
 
+    __name__ = 'ImmunizationRecommendation'
+
     def __init__(self, dict_values=None):
         # this is a immunizationrecommendation resource
         self.resourceType = 'ImmunizationRecommendation'
@@ -56,6 +58,8 @@ class ImmunizationRecommendation_Recommendation(fhirbase):
     forecasting a patient's immunization eligibility according to a
     published schedule) with optional supporting justification.
     """
+
+    __name__ = 'ImmunizationRecommendation_Recommendation'
 
     def __init__(self, dict_values=None):
         # the date the immunization recommendation was created.
@@ -155,6 +159,8 @@ class ImmunizationRecommendation_DateCriterion(fhirbase):
     published schedule) with optional supporting justification.
     """
 
+    __name__ = 'ImmunizationRecommendation_DateCriterion'
+
     def __init__(self, dict_values=None):
         # date classification of recommendation.  for example, earliest date to
         # give, latest date to give, etc.
@@ -186,6 +192,8 @@ class ImmunizationRecommendation_Protocol(fhirbase):
     forecasting a patient's immunization eligibility according to a
     published schedule) with optional supporting justification.
     """
+
+    __name__ = 'ImmunizationRecommendation_Protocol'
 
     def __init__(self, dict_values=None):
         # indicates the nominal position in a series of the next dose.  this is

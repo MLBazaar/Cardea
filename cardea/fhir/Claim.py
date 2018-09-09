@@ -7,6 +7,8 @@ class Claim(fhirbase):
     recovery.
     """
 
+    __name__ = 'Claim'
+
     def __init__(self, dict_values=None):
         # this is a claim resource
         self.resourceType = 'Claim'
@@ -329,6 +331,8 @@ class Claim_Related(fhirbase):
     recovery.
     """
 
+    __name__ = 'Claim_Related'
+
     def __init__(self, dict_values=None):
         # other claims which are related to this claim such as prior claim
         # versions or for related services.
@@ -377,6 +381,8 @@ class Claim_Payee(fhirbase):
     recovery.
     """
 
+    __name__ = 'Claim_Payee'
+
     def __init__(self, dict_values=None):
         # type of party to be reimbursed: subscriber, provider, other.
         self.type = None
@@ -421,6 +427,8 @@ class Claim_CareTeam(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
+
+    __name__ = 'Claim_CareTeam'
 
     def __init__(self, dict_values=None):
         # sequence of the careteam which serves to order and provide a link.
@@ -476,6 +484,8 @@ class Claim_Information(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
+
+    __name__ = 'Claim_Information'
 
     def __init__(self, dict_values=None):
         # sequence of the information element which serves to provide a link.
@@ -579,6 +589,8 @@ class Claim_Diagnosis(fhirbase):
     recovery.
     """
 
+    __name__ = 'Claim_Diagnosis'
+
     def __init__(self, dict_values=None):
         # sequence of diagnosis which serves to provide a link.
         self.sequence = None
@@ -640,6 +652,8 @@ class Claim_Procedure(fhirbase):
     recovery.
     """
 
+    __name__ = 'Claim_Procedure'
+
     def __init__(self, dict_values=None):
         # sequence of procedures which serves to order and provide a link.
         self.sequence = None
@@ -683,6 +697,8 @@ class Claim_Insurance(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
+
+    __name__ = 'Claim_Insurance'
 
     def __init__(self, dict_values=None):
         # sequence of coverage which serves to provide a link and convey
@@ -739,6 +755,8 @@ class Claim_Accident(fhirbase):
     recovery.
     """
 
+    __name__ = 'Claim_Accident'
+
     def __init__(self, dict_values=None):
         # date of an accident which these services are addressing.
         self.date = None
@@ -787,6 +805,8 @@ class Claim_Item(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
+
+    __name__ = 'Claim_Item'
 
     def __init__(self, dict_values=None):
         # a service line number.
@@ -1012,6 +1032,8 @@ class Claim_Detail(fhirbase):
     recovery.
     """
 
+    __name__ = 'Claim_Detail'
+
     def __init__(self, dict_values=None):
         # a service line number.
         self.sequence = None
@@ -1146,6 +1168,8 @@ class Claim_SubDetail(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
+
+    __name__ = 'Claim_SubDetail'
 
     def __init__(self, dict_values=None):
         # a service line number.

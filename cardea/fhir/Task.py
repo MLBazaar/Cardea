@@ -5,6 +5,8 @@ class Task(fhirbase):
     """A task to be performed.
     """
 
+    __name__ = 'Task'
+
     def __init__(self, dict_values=None):
         # this is a task resource
         self.resourceType = 'Task'
@@ -286,6 +288,8 @@ class Task_Requester(fhirbase):
     """A task to be performed.
     """
 
+    __name__ = 'Task_Requester'
+
     def __init__(self, dict_values=None):
         # the device, practitioner, etc. who initiated the task.
         self.agent = None
@@ -320,6 +324,8 @@ class Task_Requester(fhirbase):
 class Task_Restriction(fhirbase):
     """A task to be performed.
     """
+
+    __name__ = 'Task_Restriction'
 
     def __init__(self, dict_values=None):
         # indicates the number of times the requested action should occur.
@@ -360,6 +366,8 @@ class Task_Restriction(fhirbase):
 class Task_Input(fhirbase):
     """A task to be performed.
     """
+
+    __name__ = 'Task_Input'
 
     def __init__(self, dict_values=None):
         # a code or description indicating how the input is intended to be used as
@@ -778,6 +786,8 @@ class Task_Input(fhirbase):
 class Task_Output(fhirbase):
     """A task to be performed.
     """
+
+    __name__ = 'Task_Output'
 
     def __init__(self, dict_values=None):
         # the name of the output parameter.

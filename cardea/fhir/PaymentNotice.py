@@ -6,6 +6,8 @@ class PaymentNotice(fhirbase):
     rendered, and the request and response resource references.
     """
 
+    __name__ = 'PaymentNotice'
+
     def __init__(self, dict_values=None):
         # this is a paymentnotice resource
         self.resourceType = 'PaymentNotice'

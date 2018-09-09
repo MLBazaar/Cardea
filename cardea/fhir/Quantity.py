@@ -7,6 +7,8 @@ class Quantity(fhirbase):
     including amounts involving arbitrary units and floating currencies.
     """
 
+    __name__ = 'Quantity'
+
     def __init__(self, dict_values=None):
         # the value of the measured amount. the value includes an implicit
         # precision in the presentation of the value.

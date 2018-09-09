@@ -8,6 +8,8 @@ class AdverseEvent(fhirbase):
     treatment, or hospitalization, or that results in death.
     """
 
+    __name__ = 'AdverseEvent'
+
     def __init__(self, dict_values=None):
         # this is a adverseevent resource
         self.resourceType = 'AdverseEvent'
@@ -185,6 +187,8 @@ class AdverseEvent_SuspectEntity(fhirbase):
     other healthcare setting factors that requires additional monitoring,
     treatment, or hospitalization, or that results in death.
     """
+
+    __name__ = 'AdverseEvent_SuspectEntity'
 
     def __init__(self, dict_values=None):
         # identifies the actual instance of what caused the adverse event.  may be

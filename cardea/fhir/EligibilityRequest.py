@@ -9,6 +9,8 @@ class EligibilityRequest(fhirbase):
     details of the policy.
     """
 
+    __name__ = 'EligibilityRequest'
+
     def __init__(self, dict_values=None):
         # this is a eligibilityrequest resource
         self.resourceType = 'EligibilityRequest'

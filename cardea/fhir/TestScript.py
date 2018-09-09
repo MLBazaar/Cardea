@@ -6,6 +6,8 @@ class TestScript(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript'
+
     def __init__(self, dict_values=None):
         # this is a testscript resource
         self.resourceType = 'TestScript'
@@ -261,6 +263,8 @@ class TestScript_Origin(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Origin'
+
     def __init__(self, dict_values=None):
         # abstract name given to an origin server in this test script.  the name
         # is provided as a number starting at 1.
@@ -292,6 +296,8 @@ class TestScript_Destination(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Destination'
+
     def __init__(self, dict_values=None):
         # abstract name given to a destination server in this test script.  the
         # name is provided as a number starting at 1.
@@ -322,6 +328,8 @@ class TestScript_Metadata(fhirbase):
     """A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
+
+    __name__ = 'TestScript_Metadata'
 
     def __init__(self, dict_values=None):
         # a link to the fhir specification that this test is covering.
@@ -361,6 +369,8 @@ class TestScript_Link(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Link'
+
     def __init__(self, dict_values=None):
         # url to a particular requirement or feature within the fhir
         # specification.
@@ -382,6 +392,8 @@ class TestScript_Capability(fhirbase):
     """A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
+
+    __name__ = 'TestScript_Capability'
 
     def __init__(self, dict_values=None):
         # whether or not the test execution will require the given capabilities of
@@ -439,6 +451,8 @@ class TestScript_Fixture(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Fixture'
+
     def __init__(self, dict_values=None):
         # whether or not to implicitly create the fixture during setup. if true,
         # the fixture is automatically created on each server being tested during
@@ -479,6 +493,8 @@ class TestScript_Variable(fhirbase):
     """A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
+
+    __name__ = 'TestScript_Variable'
 
     def __init__(self, dict_values=None):
         # descriptive name for this variable.
@@ -533,6 +549,8 @@ class TestScript_Rule(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Rule'
+
     def __init__(self, dict_values=None):
         # reference to the resource (containing the contents of the rule needed
         # for assertions).
@@ -570,6 +588,8 @@ class TestScript_Param(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Param'
+
     def __init__(self, dict_values=None):
         # descriptive name for this parameter that matches the external assert
         # rule parameter name.
@@ -592,6 +612,8 @@ class TestScript_Ruleset(fhirbase):
     """A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
+
+    __name__ = 'TestScript_Ruleset'
 
     def __init__(self, dict_values=None):
         # reference to the resource (containing the contents of the ruleset needed
@@ -630,6 +652,8 @@ class TestScript_Rule1(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Rule1'
+
     def __init__(self, dict_values=None):
         # id of the referenced rule within the external ruleset template.
         self.ruleId = None
@@ -661,6 +685,8 @@ class TestScript_Param1(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Param1'
+
     def __init__(self, dict_values=None):
         # descriptive name for this parameter that matches the external assert
         # ruleset rule parameter name.
@@ -683,6 +709,8 @@ class TestScript_Setup(fhirbase):
     """A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
+
+    __name__ = 'TestScript_Setup'
 
     def __init__(self, dict_values=None):
         # action would contain either an operation or an assertion.
@@ -710,6 +738,8 @@ class TestScript_Action(fhirbase):
     """A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
+
+    __name__ = 'TestScript_Action'
 
     def __init__(self, dict_values=None):
         # the operation to perform.
@@ -746,6 +776,8 @@ class TestScript_Operation(fhirbase):
     """A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
+
+    __name__ = 'TestScript_Operation'
 
     def __init__(self, dict_values=None):
         # server interaction or operation type.
@@ -895,6 +927,8 @@ class TestScript_RequestHeader(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_RequestHeader'
+
     def __init__(self, dict_values=None):
         # the http header field e.g. "accept".
         self.field = None
@@ -915,6 +949,8 @@ class TestScript_Assert(fhirbase):
     """A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
+
+    __name__ = 'TestScript_Assert'
 
     def __init__(self, dict_values=None):
         # the label would be used for tracking/logging purposes by test engines.
@@ -1145,6 +1181,8 @@ class TestScript_Rule2(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Rule2'
+
     def __init__(self, dict_values=None):
         # the testscript.rule id value this assert will evaluate.
         self.ruleId = None
@@ -1176,6 +1214,8 @@ class TestScript_Param2(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Param2'
+
     def __init__(self, dict_values=None):
         # descriptive name for this parameter that matches the external assert
         # rule parameter name.
@@ -1198,6 +1238,8 @@ class TestScript_Ruleset1(fhirbase):
     """A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
+
+    __name__ = 'TestScript_Ruleset1'
 
     def __init__(self, dict_values=None):
         # the testscript.ruleset id value this assert will evaluate.
@@ -1230,6 +1272,8 @@ class TestScript_Rule3(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Rule3'
+
     def __init__(self, dict_values=None):
         # id of the referenced rule within the external ruleset template.
         self.ruleId = None
@@ -1261,6 +1305,8 @@ class TestScript_Param3(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Param3'
+
     def __init__(self, dict_values=None):
         # descriptive name for this parameter that matches the external assert
         # ruleset rule parameter name.
@@ -1283,6 +1329,8 @@ class TestScript_Test(fhirbase):
     """A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
+
+    __name__ = 'TestScript_Test'
 
     def __init__(self, dict_values=None):
         # the name of this test used for tracking/logging purposes by test
@@ -1321,6 +1369,8 @@ class TestScript_Action1(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Action1'
+
     def __init__(self, dict_values=None):
         # an operation would involve a rest request to a server.
         self.operation = None
@@ -1357,6 +1407,8 @@ class TestScript_Teardown(fhirbase):
     determine compliance against the FHIR specification.
     """
 
+    __name__ = 'TestScript_Teardown'
+
     def __init__(self, dict_values=None):
         # the teardown action will only contain an operation.
         self.action = None
@@ -1383,6 +1435,8 @@ class TestScript_Action2(fhirbase):
     """A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
+
+    __name__ = 'TestScript_Action2'
 
     def __init__(self, dict_values=None):
         # an operation would involve a rest request to a server.

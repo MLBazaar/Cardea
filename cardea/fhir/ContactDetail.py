@@ -5,6 +5,8 @@ class ContactDetail(fhirbase):
     """Specifies contact information for a person or organization.
     """
 
+    __name__ = 'ContactDetail'
+
     def __init__(self, dict_values=None):
         # the name of an individual to contact.
         self.name = None

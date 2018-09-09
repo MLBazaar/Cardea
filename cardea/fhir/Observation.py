@@ -6,6 +6,8 @@ class Observation(fhirbase):
     subject.
     """
 
+    __name__ = 'Observation'
+
     def __init__(self, dict_values=None):
         # this is a observation resource
         self.resourceType = 'Observation'
@@ -334,6 +336,8 @@ class Observation_ReferenceRange(fhirbase):
     subject.
     """
 
+    __name__ = 'Observation_ReferenceRange'
+
     def __init__(self, dict_values=None):
         # the value of the low bound of the reference range.  the low bound of the
         # reference range endpoint is inclusive of the value (e.g.  reference
@@ -414,6 +418,8 @@ class Observation_Related(fhirbase):
     subject.
     """
 
+    __name__ = 'Observation_Related'
+
     def __init__(self, dict_values=None):
         # a code specifying the kind of relationship that exists with the target
         # resource.
@@ -458,6 +464,8 @@ class Observation_Component(fhirbase):
     """Measurements and simple assertions made about a patient, device or other
     subject.
     """
+
+    __name__ = 'Observation_Component'
 
     def __init__(self, dict_values=None):
         # describes what was observed. sometimes this is called the observation

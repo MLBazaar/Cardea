@@ -5,6 +5,8 @@ class Measure(fhirbase):
     """The Measure resource provides the definition of a quality measure.
     """
 
+    __name__ = 'Measure'
+
     def __init__(self, dict_values=None):
         # this is a measure resource
         self.resourceType = 'Measure'
@@ -322,6 +324,8 @@ class Measure_Group(fhirbase):
     """The Measure resource provides the definition of a quality measure.
     """
 
+    __name__ = 'Measure_Group'
+
     def __init__(self, dict_values=None):
         # optional name or short description of this group.
         self.name = None
@@ -375,6 +379,8 @@ class Measure_Population(fhirbase):
     """The Measure resource provides the definition of a quality measure.
     """
 
+    __name__ = 'Measure_Population'
+
     def __init__(self, dict_values=None):
         # the type of population criteria.
         self.code = None
@@ -420,6 +426,8 @@ class Measure_Stratifier(fhirbase):
     """The Measure resource provides the definition of a quality measure.
     """
 
+    __name__ = 'Measure_Stratifier'
+
     def __init__(self, dict_values=None):
         # the criteria for the stratifier. this must be the name of an expression
         # defined within a referenced library.
@@ -452,6 +460,8 @@ class Measure_Stratifier(fhirbase):
 class Measure_SupplementalData(fhirbase):
     """The Measure resource provides the definition of a quality measure.
     """
+
+    __name__ = 'Measure_SupplementalData'
 
     def __init__(self, dict_values=None):
         # an indicator of the intended usage for the supplemental data element.

@@ -7,6 +7,8 @@ class Basic(fhirbase):
     resources not appropriate for inclusion in the FHIR specification.
     """
 
+    __name__ = 'Basic'
+
     def __init__(self, dict_values=None):
         # this is a basic resource
         self.resourceType = 'Basic'

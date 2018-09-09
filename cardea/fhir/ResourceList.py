@@ -2,6 +2,8 @@ from .fhirbase import fhirbase
 
 
 class ResourceList(fhirbase):
+    __name__ = 'ResourceList'
+
     def __init__(self, dict_values=None):
         self.ref = None
 

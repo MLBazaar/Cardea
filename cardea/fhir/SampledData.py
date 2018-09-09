@@ -6,6 +6,8 @@ class SampledData(fhirbase):
     There may be more than one dimension in the data.
     """
 
+    __name__ = 'SampledData'
+
     def __init__(self, dict_values=None):
         # the base quantity that a measured value of zero represents. in addition,
         # this provides the units of the entire measurement series.

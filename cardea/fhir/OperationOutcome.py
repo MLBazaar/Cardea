@@ -6,6 +6,8 @@ class OperationOutcome(fhirbase):
     a system action.
     """
 
+    __name__ = 'OperationOutcome'
+
     def __init__(self, dict_values=None):
         # this is a operationoutcome resource
         self.resourceType = 'OperationOutcome'
@@ -38,6 +40,8 @@ class OperationOutcome_Issue(fhirbase):
     """A collection of error, warning or information messages that result from
     a system action.
     """
+
+    __name__ = 'OperationOutcome_Issue'
 
     def __init__(self, dict_values=None):
         # indicates whether the issue indicates a variation from successful

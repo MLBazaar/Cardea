@@ -7,6 +7,8 @@ class AuditEvent(fhirbase):
     inappropriate usage.
     """
 
+    __name__ = 'AuditEvent'
+
     def __init__(self, dict_values=None):
         # this is a auditevent resource
         self.resourceType = 'AuditEvent'
@@ -125,6 +127,8 @@ class AuditEvent_Agent(fhirbase):
     inappropriate usage.
     """
 
+    __name__ = 'AuditEvent_Agent'
+
     def __init__(self, dict_values=None):
         # the security role that the user was acting under, that come from local
         # codes defined by the access control security system (e.g. rbac, abac)
@@ -236,6 +240,8 @@ class AuditEvent_Network(fhirbase):
     inappropriate usage.
     """
 
+    __name__ = 'AuditEvent_Network'
+
     def __init__(self, dict_values=None):
         # an identifier for the network access point of the user device for the
         # audit event.
@@ -269,6 +275,8 @@ class AuditEvent_Source(fhirbase):
     Typical uses include detection of intrusion attempts and monitoring for
     inappropriate usage.
     """
+
+    __name__ = 'AuditEvent_Source'
 
     def __init__(self, dict_values=None):
         # logical source location within the healthcare enterprise network.  for
@@ -309,6 +317,8 @@ class AuditEvent_Entity(fhirbase):
     Typical uses include detection of intrusion attempts and monitoring for
     inappropriate usage.
     """
+
+    __name__ = 'AuditEvent_Entity'
 
     def __init__(self, dict_values=None):
         # identifies a specific instance of the entity. the reference should be
@@ -404,6 +414,8 @@ class AuditEvent_Detail(fhirbase):
     Typical uses include detection of intrusion attempts and monitoring for
     inappropriate usage.
     """
+
+    __name__ = 'AuditEvent_Detail'
 
     def __init__(self, dict_values=None):
         # the type of extra detail provided in the value.

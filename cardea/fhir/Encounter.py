@@ -7,6 +7,8 @@ class Encounter(fhirbase):
     status of a patient.
     """
 
+    __name__ = 'Encounter'
+
     def __init__(self, dict_values=None):
         # this is a encounter resource
         self.resourceType = 'Encounter'
@@ -259,6 +261,8 @@ class Encounter_StatusHistory(fhirbase):
     status of a patient.
     """
 
+    __name__ = 'Encounter_StatusHistory'
+
     def __init__(self, dict_values=None):
         # planned | arrived | triaged | in-progress | onleave | finished |
         # cancelled +.
@@ -304,6 +308,8 @@ class Encounter_ClassHistory(fhirbase):
     status of a patient.
     """
 
+    __name__ = 'Encounter_ClassHistory'
+
     def __init__(self, dict_values=None):
         # inpatient | outpatient | ambulatory | emergency +.
         self._class = None
@@ -339,6 +345,8 @@ class Encounter_Participant(fhirbase):
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
     """
+
+    __name__ = 'Encounter_Participant'
 
     def __init__(self, dict_values=None):
         # role of participant in encounter.
@@ -388,6 +396,8 @@ class Encounter_Diagnosis(fhirbase):
     status of a patient.
     """
 
+    __name__ = 'Encounter_Diagnosis'
+
     def __init__(self, dict_values=None):
         # reason the encounter takes place, as specified using information from
         # another resource. for admissions, this is the admission diagnosis. the
@@ -431,6 +441,8 @@ class Encounter_Hospitalization(fhirbase):
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
     """
+
+    __name__ = 'Encounter_Hospitalization'
 
     def __init__(self, dict_values=None):
         # pre-admission identifier.
@@ -534,6 +546,8 @@ class Encounter_Location(fhirbase):
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
     """
+
+    __name__ = 'Encounter_Location'
 
     def __init__(self, dict_values=None):
         # the location where the encounter takes place.

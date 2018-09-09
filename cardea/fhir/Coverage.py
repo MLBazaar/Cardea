@@ -6,6 +6,8 @@ class Coverage(fhirbase):
     care products and services.
     """
 
+    __name__ = 'Coverage'
+
     def __init__(self, dict_values=None):
         # this is a coverage resource
         self.resourceType = 'Coverage'
@@ -163,6 +165,8 @@ class Coverage_Grouping(fhirbase):
     """Financial instrument which may be used to reimburse or pay for health
     care products and services.
     """
+
+    __name__ = 'Coverage_Grouping'
 
     def __init__(self, dict_values=None):
         # identifies a style or collective of coverage issued by the underwriter,

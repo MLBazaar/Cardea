@@ -6,6 +6,8 @@ class Practitioner(fhirbase):
     healthcare.
     """
 
+    __name__ = 'Practitioner'
+
     def __init__(self, dict_values=None):
         # this is a practitioner resource
         self.resourceType = 'Practitioner'
@@ -120,6 +122,8 @@ class Practitioner_Qualification(fhirbase):
     """A person who is directly or indirectly involved in the provisioning of
     healthcare.
     """
+
+    __name__ = 'Practitioner_Qualification'
 
     def __init__(self, dict_values=None):
         # coded representation of the qualification.

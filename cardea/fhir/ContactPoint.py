@@ -6,6 +6,8 @@ class ContactPoint(fhirbase):
     or organization, including telephone, email, etc.
     """
 
+    __name__ = 'ContactPoint'
+
     def __init__(self, dict_values=None):
         # telecommunications form for contact point - what communications system
         # is required to make use of the contact.

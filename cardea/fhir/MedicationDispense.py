@@ -9,6 +9,8 @@ class MedicationDispense(fhirbase):
     responding to a medication order.
     """
 
+    __name__ = 'MedicationDispense'
+
     def __init__(self, dict_values=None):
         # this is a medicationdispense resource
         self.resourceType = 'MedicationDispense'
@@ -294,6 +296,8 @@ class MedicationDispense_Performer(fhirbase):
     responding to a medication order.
     """
 
+    __name__ = 'MedicationDispense_Performer'
+
     def __init__(self, dict_values=None):
         # the device, practitioner, etc. who performed the action.  it should be
         # assumed that the actor is the dispenser of the medication.
@@ -332,6 +336,8 @@ class MedicationDispense_Substitution(fhirbase):
     medication.  The medication dispense is the result of a pharmacy system
     responding to a medication order.
     """
+
+    __name__ = 'MedicationDispense_Substitution'
 
     def __init__(self, dict_values=None):
         # true if the dispenser dispensed a different drug or product from what

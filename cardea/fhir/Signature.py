@@ -8,6 +8,8 @@ class Signature(fhirbase):
     approaches have different utilities.
     """
 
+    __name__ = 'Signature'
+
     def __init__(self, dict_values=None):
         # an indication of the reason that the entity signed this document. this
         # may be explicitly included as part of the signature information and can

@@ -6,6 +6,8 @@ class CodeableConcept(fhirbase):
     ontology or may be provided by text.
     """
 
+    __name__ = 'CodeableConcept'
+
     def __init__(self, dict_values=None):
         # a reference to a code defined by a terminology system.
         self.coding = None

@@ -7,6 +7,8 @@ class Medication(fhirbase):
     medication.
     """
 
+    __name__ = 'Medication'
+
     def __init__(self, dict_values=None):
         # this is a medication resource
         self.resourceType = 'Medication'
@@ -115,6 +117,8 @@ class Medication_Ingredient(fhirbase):
     medication.
     """
 
+    __name__ = 'Medication_Ingredient'
+
     def __init__(self, dict_values=None):
         # the actual ingredient - either a substance (simple ingredient) or
         # another medication.
@@ -169,6 +173,8 @@ class Medication_Package(fhirbase):
     medication.
     """
 
+    __name__ = 'Medication_Package'
+
     def __init__(self, dict_values=None):
         # the kind of container that this package comes as.
         self.container = None
@@ -217,6 +223,8 @@ class Medication_Content(fhirbase):
     medication.
     """
 
+    __name__ = 'Medication_Content'
+
     def __init__(self, dict_values=None):
         # identifies one of the items in the package.
         self.itemCodeableConcept = None
@@ -261,6 +269,8 @@ class Medication_Batch(fhirbase):
     a medication. It covers the ingredients and the packaging for a
     medication.
     """
+
+    __name__ = 'Medication_Batch'
 
     def __init__(self, dict_values=None):
         # the assigned lot number of a batch of the specified product.

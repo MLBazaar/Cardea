@@ -7,6 +7,8 @@ class RequestGroup(fhirbase):
     after that one".
     """
 
+    __name__ = 'RequestGroup'
+
     def __init__(self, dict_values=None):
         # this is a requestgroup resource
         self.resourceType = 'RequestGroup'
@@ -172,6 +174,8 @@ class RequestGroup_Action(fhirbase):
     activities that have inter-dependencies such as "give this medication
     after that one".
     """
+
+    __name__ = 'RequestGroup_Action'
 
     def __init__(self, dict_values=None):
         # a user-visible label for the action.
@@ -355,6 +359,8 @@ class RequestGroup_Condition(fhirbase):
     after that one".
     """
 
+    __name__ = 'RequestGroup_Condition'
+
     def __init__(self, dict_values=None):
         # the kind of condition.
         self.kind = None
@@ -386,6 +392,8 @@ class RequestGroup_RelatedAction(fhirbase):
     activities that have inter-dependencies such as "give this medication
     after that one".
     """
+
+    __name__ = 'RequestGroup_RelatedAction'
 
     def __init__(self, dict_values=None):
         # the element id of the action this is related to.

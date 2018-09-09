@@ -5,6 +5,8 @@ class HumanName(fhirbase):
     """A human's name with the ability to identify parts and usage.
     """
 
+    __name__ = 'HumanName'
+
     def __init__(self, dict_values=None):
         # identifies the purpose for this name.
         self.use = None

@@ -6,6 +6,8 @@ class DeviceUseStatement(fhirbase):
     result of a report from the patient or another clinician.
     """
 
+    __name__ = 'DeviceUseStatement'
+
     def __init__(self, dict_values=None):
         # this is a deviceusestatement resource
         self.resourceType = 'DeviceUseStatement'

@@ -6,6 +6,8 @@ class FamilyMemberHistory(fhirbase):
     patient relevant in the context of care for the patient.
     """
 
+    __name__ = 'FamilyMemberHistory'
+
     def __init__(self, dict_values=None):
         # this is a familymemberhistory resource
         self.resourceType = 'FamilyMemberHistory'
@@ -249,6 +251,8 @@ class FamilyMemberHistory_Condition(fhirbase):
     """Significant health events and conditions for a person related to the
     patient relevant in the context of care for the patient.
     """
+
+    __name__ = 'FamilyMemberHistory_Condition'
 
     def __init__(self, dict_values=None):
         # the actual condition specified. could be a coded condition (like mi or

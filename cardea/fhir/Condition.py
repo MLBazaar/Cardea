@@ -6,6 +6,8 @@ class Condition(fhirbase):
     issue, or clinical concept that has risen to a level of concern.
     """
 
+    __name__ = 'Condition'
+
     def __init__(self, dict_values=None):
         # this is a condition resource
         self.resourceType = 'Condition'
@@ -261,6 +263,8 @@ class Condition_Stage(fhirbase):
     issue, or clinical concept that has risen to a level of concern.
     """
 
+    __name__ = 'Condition_Stage'
+
     def __init__(self, dict_values=None):
         # a simple summary of the stage such as "stage 3". the determination of
         # the stage is disease-specific.
@@ -298,6 +302,8 @@ class Condition_Evidence(fhirbase):
     """A clinical condition, problem, diagnosis, or other event, situation,
     issue, or clinical concept that has risen to a level of concern.
     """
+
+    __name__ = 'Condition_Evidence'
 
     def __init__(self, dict_values=None):
         # a manifestation or symptom that led to the recording of this condition.

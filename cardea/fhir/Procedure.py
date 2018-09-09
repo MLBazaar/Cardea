@@ -7,6 +7,8 @@ class Procedure(fhirbase):
     hypnotherapy.
     """
 
+    __name__ = 'Procedure'
+
     def __init__(self, dict_values=None):
         # this is a procedure resource
         self.resourceType = 'Procedure'
@@ -299,6 +301,8 @@ class Procedure_Performer(fhirbase):
     hypnotherapy.
     """
 
+    __name__ = 'Procedure_Performer'
+
     def __init__(self, dict_values=None):
         # for example: surgeon, anaethetist, endoscopist.
         self.role = None
@@ -343,6 +347,8 @@ class Procedure_FocalDevice(fhirbase):
     intervention like an operation, or less invasive like counseling or
     hypnotherapy.
     """
+
+    __name__ = 'Procedure_FocalDevice'
 
     def __init__(self, dict_values=None):
         # the kind of change that happened to the device during the procedure.

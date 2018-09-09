@@ -6,6 +6,8 @@ class Flag(fhirbase):
     patient.
     """
 
+    __name__ = 'Flag'
+
     def __init__(self, dict_values=None):
         # this is a flag resource
         self.resourceType = 'Flag'

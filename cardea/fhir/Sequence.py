@@ -5,6 +5,8 @@ class Sequence(fhirbase):
     """Raw data describing a biological sequence.
     """
 
+    __name__ = 'Sequence'
+
     def __init__(self, dict_values=None):
         # this is a sequence resource
         self.resourceType = 'Sequence'
@@ -167,6 +169,8 @@ class Sequence_ReferenceSeq(fhirbase):
     """Raw data describing a biological sequence.
     """
 
+    __name__ = 'Sequence_ReferenceSeq'
+
     def __init__(self, dict_values=None):
         # structural unit composed of a nucleic acid molecule which controls its
         # own replication through the interaction of specific proteins at one or
@@ -245,6 +249,8 @@ class Sequence_Variant(fhirbase):
     """Raw data describing a biological sequence.
     """
 
+    __name__ = 'Sequence_Variant'
+
     def __init__(self, dict_values=None):
         # start position of the variant on the  reference sequence.if the
         # coordinate system is either 0-based or 1-based, then start position is
@@ -308,6 +314,8 @@ class Sequence_Variant(fhirbase):
 class Sequence_Quality(fhirbase):
     """Raw data describing a biological sequence.
     """
+
+    __name__ = 'Sequence_Quality'
 
     def __init__(self, dict_values=None):
         # indel / snp / undefined variant.
@@ -426,6 +434,8 @@ class Sequence_Quality(fhirbase):
 class Sequence_Repository(fhirbase):
     """Raw data describing a biological sequence.
     """
+
+    __name__ = 'Sequence_Repository'
 
     def __init__(self, dict_values=None):
         # click and see / restful api / need login to see / restful api with

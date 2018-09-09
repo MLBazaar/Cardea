@@ -11,6 +11,8 @@ class Composition(fhirbase):
     is the first resource contained.
     """
 
+    __name__ = 'Composition'
+
     def __init__(self, dict_values=None):
         # this is a composition resource
         self.resourceType = 'Composition'
@@ -181,6 +183,8 @@ class Composition_Attester(fhirbase):
     is the first resource contained.
     """
 
+    __name__ = 'Composition_Attester'
+
     def __init__(self, dict_values=None):
         # the type of attestation the authenticator offers.
         self.mode = None
@@ -230,6 +234,8 @@ class Composition_RelatesTo(fhirbase):
     is the first resource contained.
     """
 
+    __name__ = 'Composition_RelatesTo'
+
     def __init__(self, dict_values=None):
         # the type of relationship that this composition has with anther
         # composition or document.
@@ -274,6 +280,8 @@ class Composition_Event(fhirbase):
     content of a document is contained in a Bundle, of which the Composition
     is the first resource contained.
     """
+
+    __name__ = 'Composition_Event'
 
     def __init__(self, dict_values=None):
         # this list of codes represents the main clinical acts, such as a
@@ -333,6 +341,8 @@ class Composition_Section(fhirbase):
     content of a document is contained in a Bundle, of which the Composition
     is the first resource contained.
     """
+
+    __name__ = 'Composition_Section'
 
     def __init__(self, dict_values=None):
         # the label for this particular section.  this will be part of the

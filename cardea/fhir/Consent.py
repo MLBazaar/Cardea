@@ -8,6 +8,8 @@ class Consent(fhirbase):
     periods of time.
     """
 
+    __name__ = 'Consent'
+
     def __init__(self, dict_values=None):
         # this is a consent resource
         self.resourceType = 'Consent'
@@ -240,6 +242,8 @@ class Consent_Actor(fhirbase):
     periods of time.
     """
 
+    __name__ = 'Consent_Actor'
+
     def __init__(self, dict_values=None):
         # how the individual is involved in the resources content that is
         # described in the consent.
@@ -280,6 +284,8 @@ class Consent_Policy(fhirbase):
     periods of time.
     """
 
+    __name__ = 'Consent_Policy'
+
     def __init__(self, dict_values=None):
         # entity or organization having regulatory jurisdiction or accountability
         # for  enforcing policies pertaining to consent directives.
@@ -305,6 +311,8 @@ class Consent_Data(fhirbase):
     more actions within a given policy context, for specific purposes and
     periods of time.
     """
+
+    __name__ = 'Consent_Data'
 
     def __init__(self, dict_values=None):
         # how the resource reference is interpreted when testing consent
@@ -349,6 +357,8 @@ class Consent_Except(fhirbase):
     more actions within a given policy context, for specific purposes and
     periods of time.
     """
+
+    __name__ = 'Consent_Except'
 
     def __init__(self, dict_values=None):
         # action  to take - permit or deny - when the exception conditions are
@@ -481,6 +491,8 @@ class Consent_Actor1(fhirbase):
     periods of time.
     """
 
+    __name__ = 'Consent_Actor1'
+
     def __init__(self, dict_values=None):
         # how the individual is involved in the resources content that is
         # described in the exception.
@@ -520,6 +532,8 @@ class Consent_Data1(fhirbase):
     more actions within a given policy context, for specific purposes and
     periods of time.
     """
+
+    __name__ = 'Consent_Data1'
 
     def __init__(self, dict_values=None):
         # how the resource reference is interpreted when testing consent

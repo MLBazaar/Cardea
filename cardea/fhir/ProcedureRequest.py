@@ -6,6 +6,8 @@ class ProcedureRequest(fhirbase):
     operations to be performed.
     """
 
+    __name__ = 'ProcedureRequest'
+
     def __init__(self, dict_values=None):
         # this is a procedurerequest resource
         self.resourceType = 'ProcedureRequest'
@@ -294,6 +296,8 @@ class ProcedureRequest_Requester(fhirbase):
     """A record of a request for diagnostic investigations, treatments, or
     operations to be performed.
     """
+
+    __name__ = 'ProcedureRequest_Requester'
 
     def __init__(self, dict_values=None):
         # the device, practitioner or organization who initiated the request.

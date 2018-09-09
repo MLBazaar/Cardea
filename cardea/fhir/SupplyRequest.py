@@ -6,6 +6,8 @@ class SupplyRequest(fhirbase):
     healthcare setting.
     """
 
+    __name__ = 'SupplyRequest'
+
     def __init__(self, dict_values=None):
         # this is a supplyrequest resource
         self.resourceType = 'SupplyRequest'
@@ -157,6 +159,8 @@ class SupplyRequest_OrderedItem(fhirbase):
     healthcare setting.
     """
 
+    __name__ = 'SupplyRequest_OrderedItem'
+
     def __init__(self, dict_values=None):
         # the amount that is being ordered of the indicated item.
         self.quantity = None
@@ -204,6 +208,8 @@ class SupplyRequest_Requester(fhirbase):
     """A record of a request for a medication, substance or device used in the
     healthcare setting.
     """
+
+    __name__ = 'SupplyRequest_Requester'
 
     def __init__(self, dict_values=None):
         # the device, practitioner, etc. who initiated the request.

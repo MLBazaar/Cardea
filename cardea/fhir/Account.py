@@ -7,6 +7,8 @@ class Account(fhirbase):
     centers, etc.
     """
 
+    __name__ = 'Account'
+
     def __init__(self, dict_values=None):
         # this is a account resource
         self.resourceType = 'Account'
@@ -142,6 +144,8 @@ class Account_Coverage(fhirbase):
     centers, etc.
     """
 
+    __name__ = 'Account_Coverage'
+
     def __init__(self, dict_values=None):
         # the party(s) that are responsible for payment (or part of) of charges
         # applied to this account (including self-pay).  a coverage may only be
@@ -175,6 +179,8 @@ class Account_Guarantor(fhirbase):
     In the healthcare field, used to track charges for a patient, cost
     centers, etc.
     """
+
+    __name__ = 'Account_Guarantor'
 
     def __init__(self, dict_values=None):
         # the entity who is responsible.

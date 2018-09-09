@@ -5,6 +5,8 @@ class DomainResource(fhirbase):
     """A resource that includes narrative, extensions, and contained resources.
     """
 
+    __name__ = 'DomainResource'
+
     def __init__(self, dict_values=None):
         # a human-readable narrative that contains a summary of the resource, and
         # may be used to represent the content of the resource to a human. the

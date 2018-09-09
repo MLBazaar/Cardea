@@ -8,6 +8,8 @@ class Endpoint(fhirbase):
     information.
     """
 
+    __name__ = 'Endpoint'
+
     def __init__(self, dict_values=None):
         # this is a endpoint resource
         self.resourceType = 'Endpoint'

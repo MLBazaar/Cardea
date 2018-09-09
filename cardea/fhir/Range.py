@@ -5,6 +5,8 @@ class Range(fhirbase):
     """A set of ordered Quantities defined by a low and high limit.
     """
 
+    __name__ = 'Range'
+
     def __init__(self, dict_values=None):
         # the low limit. the boundary is inclusive.
         self.low = None

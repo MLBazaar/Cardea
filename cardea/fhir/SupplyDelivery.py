@@ -5,6 +5,8 @@ class SupplyDelivery(fhirbase):
     """Record of delivery of what is supplied.
     """
 
+    __name__ = 'SupplyDelivery'
+
     def __init__(self, dict_values=None):
         # this is a supplydelivery resource
         self.resourceType = 'SupplyDelivery'
@@ -150,6 +152,8 @@ class SupplyDelivery(fhirbase):
 class SupplyDelivery_SuppliedItem(fhirbase):
     """Record of delivery of what is supplied.
     """
+
+    __name__ = 'SupplyDelivery_SuppliedItem'
 
     def __init__(self, dict_values=None):
         # the amount of supply that has been dispensed. includes unit of measure.

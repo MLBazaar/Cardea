@@ -6,6 +6,8 @@ class PractitionerRole(fhirbase):
     practitioner may perform at an organization for a period of time.
     """
 
+    __name__ = 'PractitionerRole'
+
     def __init__(self, dict_values=None):
         # this is a practitionerrole resource
         self.resourceType = 'PractitionerRole'
@@ -159,6 +161,8 @@ class PractitionerRole_AvailableTime(fhirbase):
     practitioner may perform at an organization for a period of time.
     """
 
+    __name__ = 'PractitionerRole_AvailableTime'
+
     def __init__(self, dict_values=None):
         # indicates which days of the week are available between the start and end
         # times.
@@ -191,6 +195,8 @@ class PractitionerRole_NotAvailable(fhirbase):
     """A specific set of Roles/Locations/specialties/services that a
     practitioner may perform at an organization for a period of time.
     """
+
+    __name__ = 'PractitionerRole_NotAvailable'
 
     def __init__(self, dict_values=None):
         # the reason that can be presented to the user as to why this time is not

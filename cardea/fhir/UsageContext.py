@@ -8,6 +8,8 @@ class UsageContext(fhirbase):
     specific context of care (e.g., venue, care setting, provider of care).
     """
 
+    __name__ = 'UsageContext'
+
     def __init__(self, dict_values=None):
         # a code that identifies the type of context being specified by this usage
         # context.
