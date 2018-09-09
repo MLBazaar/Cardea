@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .ContactDetail import ContactDetail
-from .UsageContext import UsageContext
+from .fhirbase import fhirbase
+
 
 class CompartmentDefinition(fhirbase):
     """A compartment definition that defines how resources are accessed on a
@@ -12,7 +10,7 @@ class CompartmentDefinition(fhirbase):
         # this is a compartmentdefinition resource
         self.resourceType = 'CompartmentDefinition'
         # type = string
-        # possible values = CompartmentDefinition
+        # possible values: CompartmentDefinition
 
         # an absolute uri that is used to identify this compartment definition
         # when it is referenced in a specification, model, design or an instance.
@@ -39,7 +37,7 @@ class CompartmentDefinition(fhirbase):
         # cycle of the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this compartment definition is authored
         # for testing purposes (or education/evaluation/marketing), and is not
@@ -92,7 +90,8 @@ class CompartmentDefinition(fhirbase):
         # which compartment this definition describes.
         self.code = None
         # type = string
-        # possible values = Patient, Encounter, RelatedPerson, Practitioner, Device
+        # possible values: Patient, Encounter, RelatedPerson,
+        # Practitioner, Device
 
         # whether the search syntax is supported,.
         self.search = None
@@ -103,46 +102,52 @@ class CompartmentDefinition(fhirbase):
         # type = array
         # reference to CompartmentDefinition_Resource: CompartmentDefinition_Resource
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
         if self.code is not None:
             for value in self.code:
-                if value != None and value.lower() not in ['patient', 'encounter', 'relatedperson', 'practitioner', 'device']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'patient, encounter, relatedperson, practitioner, device'))
+                if value is not None and value.lower() not in [
+                        'patient', 'encounter', 'relatedperson', 'practitioner', 'device']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'Patient, Encounter, RelatedPerson, Practitioner, Device'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CompartmentDefinition',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'CompartmentDefinition_Resource',
-            'parent_variable': 'object_id',
-            'child_entity': 'CompartmentDefinition',
-            'child_variable': 'resource'},
-
             {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'CompartmentDefinition',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CompartmentDefinition',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CompartmentDefinition',
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'CompartmentDefinition',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CompartmentDefinition',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'CompartmentDefinition_Resource',
+             'parent_variable': 'object_id',
+             'child_entity': 'CompartmentDefinition',
+             'child_variable': 'resource'},
         ]
+
 
 class CompartmentDefinition_Resource(fhirbase):
     """A compartment definition that defines how resources are accessed on a
@@ -164,8 +169,8 @@ class CompartmentDefinition_Resource(fhirbase):
         self.documentation = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

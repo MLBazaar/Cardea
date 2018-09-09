@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .ContactPoint import ContactPoint
-from .Period import Period
-from .Coding import Coding
+from .fhirbase import fhirbase
+
 
 class Endpoint(fhirbase):
     """The technical details of an endpoint that can be used for electronic
@@ -17,12 +12,13 @@ class Endpoint(fhirbase):
         # this is a endpoint resource
         self.resourceType = 'Endpoint'
         # type = string
-        # possible values = Endpoint
+        # possible values: Endpoint
 
         # active | suspended | error | off | test.
         self.status = None
         # type = string
-        # possible values = active, suspended, error, off, entered-in-error, test
+        # possible values: active, suspended, error, off, entered-in-
+        # error, test
 
         # a coded value that represents the technical details of the usage of this
         # endpoint, such as what wsdls should be used in what way. (e.g.
@@ -77,49 +73,48 @@ class Endpoint(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'suspended', 'error', 'off', 'entered-in-error', 'test']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, suspended, error, off, entered-in-error, test'))
+                if value is not None and value.lower() not in [
+                        'active', 'suspended', 'error', 'off', 'entered-in-error', 'test']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, suspended, error, off, entered-in-error, test'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Endpoint',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Endpoint',
+             'child_variable': 'managingOrganization'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Endpoint',
-            'child_variable': 'payloadType'},
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Endpoint',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Endpoint',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Endpoint',
-            'child_variable': 'connectionType'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Endpoint',
+             'child_variable': 'contact'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Endpoint',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Endpoint',
+             'child_variable': 'period'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Endpoint',
-            'child_variable': 'managingOrganization'},
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Endpoint',
+             'child_variable': 'connectionType'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Endpoint',
+             'child_variable': 'payloadType'},
         ]
-

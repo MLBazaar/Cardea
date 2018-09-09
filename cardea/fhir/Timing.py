@@ -1,5 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
+from .fhirbase import fhirbase
+
 
 class Timing(fhirbase):
     """Specifies an event that may occur multiple times. Timing schedules are
@@ -29,24 +29,26 @@ class Timing(fhirbase):
         self.code = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Timing',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Timing',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Timing_Repeat',
-            'parent_variable': 'object_id',
-            'child_entity': 'Timing',
-            'child_variable': 'repeat'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Timing',
+             'child_variable': 'repeat'},
         ]
+
 
 class Timing_Repeat(fhirbase):
     """Specifies an event that may occur multiple times. Timing schedules are
@@ -96,7 +98,7 @@ class Timing_Repeat(fhirbase):
         # the units of time for the duration, in ucum units.
         self.durationUnit = None
         # type = string
-        # possible values = s, min, h, d, wk, mo, a
+        # possible values: s, min, h, d, wk, mo, a
 
         # the number of times to repeat the action within the specified period /
         # period range (i.e. both period and periodmax provided).
@@ -124,7 +126,7 @@ class Timing_Repeat(fhirbase):
         # the units of time for the period in ucum units.
         self.periodUnit = None
         # type = string
-        # possible values = s, min, h, d, wk, mo, a
+        # possible values: s, min, h, d, wk, mo, a
 
         # if one or more days of week is provided, then the action happens only on
         # the specified day(s).
@@ -138,7 +140,8 @@ class Timing_Repeat(fhirbase):
         # real world events that the occurrence of the event should be tied to.
         self.when = None
         # type = array
-        # possible values = MORN, AFT, EVE, NIGHT, PHS, HS, WAKE, C, CM, CD, CV, AC, ACM, ACD, ACV, PC, PCM, PCD, PCV
+        # possible values: MORN, AFT, EVE, NIGHT, PHS, HS, WAKE, C, CM,
+        # CD, CV, AC, ACM, ACD, ACV, PC, PCM, PCD, PCV
 
         # the number of minutes from the event. if the event code does not
         # indicate whether the minutes is before or after the event, then the
@@ -146,44 +149,52 @@ class Timing_Repeat(fhirbase):
         self.offset = None
         # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.durationUnit is not None:
             for value in self.durationUnit:
-                if value != None and value.lower() not in ['s', 'min', 'h', 'd', 'wk', 'mo', 'a']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 's, min, h, d, wk, mo, a'))
+                if value is not None and value.lower() not in [
+                        's', 'min', 'h', 'd', 'wk', 'mo', 'a']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 's, min, h, d, wk, mo, a'))
 
         if self.periodUnit is not None:
             for value in self.periodUnit:
-                if value != None and value.lower() not in ['s', 'min', 'h', 'd', 'wk', 'mo', 'a']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 's, min, h, d, wk, mo, a'))
+                if value is not None and value.lower() not in [
+                        's', 'min', 'h', 'd', 'wk', 'mo', 'a']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 's, min, h, d, wk, mo, a'))
 
         if self.when is not None:
             for value in self.when:
-                if value != None and value.lower() not in ['morn', 'aft', 'eve', 'night', 'phs', 'hs', 'wake', 'c', 'cm', 'cd', 'cv', 'ac', 'acm', 'acd', 'acv', 'pc', 'pcm', 'pcd', 'pcv']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'morn, aft, eve, night, phs, hs, wake, c, cm, cd, cv, ac, acm, acd, acv, pc, pcm, pcd, pcv'))
+                if value is not None and value.lower() not in [
+                    'morn', 'aft', 'eve', 'night', 'phs', 'hs', 'wake', 'c', 'cm', 'cd',
+                        'cv', 'ac', 'acm', 'acd', 'acv', 'pc', 'pcm', 'pcd', 'pcv']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'MORN, AFT, EVE, NIGHT, PHS, HS, WAKE, C, CM, CD, CV, AC,'
+                        'ACM, ACD, ACV, PC, PCM, PCD, PCV'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Timing_Repeat',
-            'child_variable': 'boundsRange'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Timing_Repeat',
-            'child_variable': 'boundsPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Timing_Repeat',
+             'child_variable': 'boundsRange'},
 
             {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'Timing_Repeat',
-            'child_variable': 'boundsDuration'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Timing_Repeat',
+             'child_variable': 'boundsDuration'},
 
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Timing_Repeat',
+             'child_variable': 'boundsPeriod'},
+        ]

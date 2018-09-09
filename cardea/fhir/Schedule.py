@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Period import Period
-from .Identifier import Identifier
-from .CodeableConcept import CodeableConcept
+from .fhirbase import fhirbase
+
 
 class Schedule(fhirbase):
     """A container for slots of time that may be available for booking
@@ -13,7 +10,7 @@ class Schedule(fhirbase):
         # this is a schedule resource
         self.resourceType = 'Schedule'
         # type = string
-        # possible values = Schedule
+        # possible values: Schedule
 
         # whether this schedule record is in active use, or should not be used
         # (such as was entered in error).
@@ -62,42 +59,39 @@ class Schedule(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Schedule',
+             'child_variable': 'identifier'},
+
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Schedule',
-            'child_variable': 'actor'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Schedule',
+             'child_variable': 'actor'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Schedule',
+             'child_variable': 'specialty'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Schedule',
-            'child_variable': 'planningHorizon'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Schedule',
+             'child_variable': 'planningHorizon'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Schedule',
-            'child_variable': 'specialty'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Schedule',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Schedule',
+             'child_variable': 'serviceCategory'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Schedule',
-            'child_variable': 'serviceType'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Schedule',
-            'child_variable': 'serviceCategory'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Schedule',
+             'child_variable': 'serviceType'},
         ]
-

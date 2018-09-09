@@ -1,35 +1,5 @@
-from .fhirbase import * 
-from .HumanName import HumanName
-from .Timing import Timing
-from .Address import Address
-from .SampledData import SampledData
-from .TriggerDefinition import TriggerDefinition
-from .Period import Period
-from .Quantity import Quantity
-from .UsageContext import UsageContext
-from .Duration import Duration
-from .CodeableConcept import CodeableConcept
-from .DataRequirement import DataRequirement
-from .Count import Count
-from .ContactPoint import ContactPoint
-from .Money import Money
-from .Contributor import Contributor
-from .ContactDetail import ContactDetail
-from .ParameterDefinition import ParameterDefinition
-from .Annotation import Annotation
-from .Ratio import Ratio
-from .Age import Age
-from .Attachment import Attachment
-from .Meta import Meta
-from .Signature import Signature
-from .Coding import Coding
-from .Identifier import Identifier
-from .Narrative import Narrative
-from .Reference import Reference
-from .Dosage import Dosage
-from .Range import Range
-from .RelatedArtifact import RelatedArtifact
-from .Distance import Distance
+from .fhirbase import fhirbase
+
 
 class Extension(fhirbase):
     """Optional Extension Element - found in all resources.
@@ -303,177 +273,177 @@ class Extension(fhirbase):
         self.valueTriggerDefinition = None
         # reference to TriggerDefinition: TriggerDefinition
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Dosage',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueDosage'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueMoney'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Extension',
-            'child_variable': 'valueReference'},
-
-            {'parent_entity': 'Distance',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueDistance'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueSimpleQuantity'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueContactDetail'},
-
-            {'parent_entity': 'SampledData',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueSampledData'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueCodeableConcept'},
-
-            {'parent_entity': 'Signature',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueSignature'},
-
-            {'parent_entity': 'Count',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueCount'},
-
-            {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueHumanName'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueUsageContext'},
-
-            {'parent_entity': 'Narrative',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueNarrative'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueQuantity'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueIdentifier'},
-
-            {'parent_entity': 'ParameterDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueParameterDefinition'},
-
-            {'parent_entity': 'TriggerDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueTriggerDefinition'},
-
-            {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueContributor'},
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueDuration'},
 
             {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueTiming'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueTiming'},
 
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueCoding'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueAnnotation'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valuePeriod'},
-
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueAddress'},
-
-            {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueAge'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueRange'},
-
-            {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueRelatedArtifact'},
-
-            {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueDataRequirement'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueContactPoint'},
-
-            {'parent_entity': 'Meta',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueMeta'},
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueDosage'},
 
             {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueRatio'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueRatio'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueAddress'},
+
+            {'parent_entity': 'TriggerDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueTriggerDefinition'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueCodeableConcept'},
 
             {'parent_entity': 'Extension',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueExtension'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueExtension'},
 
-            {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'Extension',
-            'child_variable': 'valueDuration'},
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valuePeriod'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueMoney'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueAge'},
+
+            {'parent_entity': 'ParameterDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueParameterDefinition'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueSampledData'},
+
+            {'parent_entity': 'Distance',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueDistance'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueContactPoint'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueUsageContext'},
+
+            {'parent_entity': 'Count',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueCount'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueAttachment'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueAnnotation'},
+
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueDataRequirement'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueSimpleQuantity'},
+
+            {'parent_entity': 'Meta',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueMeta'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueHumanName'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Extension',
+             'child_variable': 'valueReference'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueRelatedArtifact'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueCoding'},
+
+            {'parent_entity': 'Narrative',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueNarrative'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueRange'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueContactDetail'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueContributor'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueIdentifier'},
+
+            {'parent_entity': 'Signature',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueSignature'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueQuantity'},
         ]
-

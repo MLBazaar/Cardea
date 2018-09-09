@@ -1,14 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .DataRequirement import DataRequirement
-from .Reference import Reference
-from .TriggerDefinition import TriggerDefinition
-from .Period import Period
-from .Contributor import Contributor
-from .UsageContext import UsageContext
-from .RelatedArtifact import RelatedArtifact
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class ServiceDefinition(fhirbase):
     """The ServiceDefinition describes a unit of decision support functionality
@@ -20,7 +11,7 @@ class ServiceDefinition(fhirbase):
         # this is a servicedefinition resource
         self.resourceType = 'ServiceDefinition'
         # type = string
-        # possible values = ServiceDefinition
+        # possible values: ServiceDefinition
 
         # an absolute uri that is used to identify this service definition when it
         # is referenced in a specification, model, design or an instance. this
@@ -56,7 +47,7 @@ class ServiceDefinition(fhirbase):
         # of the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this service definition is authored for
         # testing purposes (or education/evaluation/marketing), and is not
@@ -177,74 +168,73 @@ class ServiceDefinition(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'ServiceDefinition',
-            'child_variable': 'useContext'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ServiceDefinition',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'Contributor',
-            'parent_variable': 'object_id',
-            'child_entity': 'ServiceDefinition',
-            'child_variable': 'contributor'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ServiceDefinition',
-            'child_variable': 'effectivePeriod'},
-
             {'parent_entity': 'TriggerDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'ServiceDefinition',
-            'child_variable': 'trigger'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ServiceDefinition',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ServiceDefinition',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'RelatedArtifact',
-            'parent_variable': 'object_id',
-            'child_entity': 'ServiceDefinition',
-            'child_variable': 'relatedArtifact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ServiceDefinition',
+             'child_variable': 'trigger'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ServiceDefinition',
-            'child_variable': 'operationDefinition'},
-
-            {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'ServiceDefinition',
-            'child_variable': 'dataRequirement'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ServiceDefinition',
+             'child_variable': 'operationDefinition'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ServiceDefinition',
-            'child_variable': 'topic'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'ServiceDefinition',
+             'child_variable': 'jurisdiction'},
 
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'ServiceDefinition',
+             'child_variable': 'relatedArtifact'},
+
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'ServiceDefinition',
+             'child_variable': 'dataRequirement'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ServiceDefinition',
+             'child_variable': 'topic'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ServiceDefinition',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ServiceDefinition',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ServiceDefinition',
+             'child_variable': 'effectivePeriod'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'ServiceDefinition',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'ServiceDefinition',
+             'child_variable': 'contributor'},
+        ]

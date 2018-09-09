@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Attachment import Attachment
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class BodySite(fhirbase):
     """Record details about the anatomical location of a specimen or body part.
@@ -14,7 +11,7 @@ class BodySite(fhirbase):
         # this is a bodysite resource
         self.resourceType = 'BodySite'
         # type = string
-        # possible values = BodySite
+        # possible values: BodySite
 
         # whether this body site is in active use.
         self.active = None
@@ -48,37 +45,34 @@ class BodySite(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'BodySite',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'BodySite',
-            'child_variable': 'identifier'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'BodySite',
-            'child_variable': 'patient'},
+             'parent_variable': 'identifier',
+             'child_entity': 'BodySite',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'BodySite',
+             'child_variable': 'qualifier'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'BodySite',
-            'child_variable': 'image'},
+             'parent_variable': 'object_id',
+             'child_entity': 'BodySite',
+             'child_variable': 'image'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'BodySite',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'BodySite',
-            'child_variable': 'qualifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'BodySite',
+             'child_variable': 'code'},
         ]
-

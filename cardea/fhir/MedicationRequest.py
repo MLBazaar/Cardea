@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
-from .Dosage import Dosage
+from .fhirbase import fhirbase
+
 
 class MedicationRequest(fhirbase):
     """An order or request for both supply of the medication and the
@@ -18,7 +14,7 @@ class MedicationRequest(fhirbase):
         # this is a medicationrequest resource
         self.resourceType = 'MedicationRequest'
         # type = string
-        # possible values = MedicationRequest
+        # possible values: MedicationRequest
 
         # protocol or definition followed by this request.
         self.definition = None
@@ -41,12 +37,13 @@ class MedicationRequest(fhirbase):
         # be active or completed state.
         self.status = None
         # type = string
-        # possible values = active, on-hold, cancelled, completed, entered-in-error, stopped, draft, unknown
+        # possible values: active, on-hold, cancelled, completed,
+        # entered-in-error, stopped, draft, unknown
 
         # whether the request is a proposal, plan, or an original order.
         self.intent = None
         # type = string
-        # possible values = proposal, plan, order, instance-order
+        # possible values: proposal, plan, order, instance-order
 
         # indicates the type of medication order and where the medication is
         # expected to be consumed or administered.
@@ -57,7 +54,7 @@ class MedicationRequest(fhirbase):
         # respect to other requests.
         self.priority = None
         # type = string
-        # possible values = routine, urgent, stat, asap
+        # possible values: routine, urgent, stat, asap
 
         # identifies the medication being requested. this is a link to a resource
         # that represents the medication which may be the details of the
@@ -173,136 +170,143 @@ class MedicationRequest(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'on-hold', 'cancelled', 'completed', 'entered-in-error', 'stopped', 'draft', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, on-hold, cancelled, completed, entered-in-error, stopped, draft, unknown'))
+                if value is not None and value.lower() not in [
+                    'active', 'on-hold', 'cancelled', 'completed', 'entered-in-error',
+                        'stopped', 'draft', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, on-hold, cancelled, completed, entered-in-error,'
+                        'stopped, draft, unknown'))
 
         if self.intent is not None:
             for value in self.intent:
-                if value != None and value.lower() not in ['proposal', 'plan', 'order', 'instance-order']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'proposal, plan, order, instance-order'))
+                if value is not None and value.lower() not in [
+                        'proposal', 'plan', 'order', 'instance-order']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'proposal, plan, order, instance-order'))
 
         if self.priority is not None:
             for value in self.priority:
-                if value != None and value.lower() not in ['routine', 'urgent', 'stat', 'asap']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'routine, urgent, stat, asap'))
+                if value is not None and value.lower() not in [
+                        'routine', 'urgent', 'stat', 'asap']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'routine, urgent, stat, asap'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'Dosage',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'dosageInstruction'},
-
-            {'parent_entity': 'MedicationRequest_Requester',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'requester'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'reasonReference'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'recorder'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'definition'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'eventHistory'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'medicationCodeableConcept'},
 
             {'parent_entity': 'MedicationRequest_Substitution',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'substitution'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'substitution'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'supportingInformation'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'category'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'supportingInformation'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'detectedIssue'},
-
-            {'parent_entity': 'MedicationRequest_DispenseRequest',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'dispenseRequest'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'medicationCodeableConcept'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'priorPrescription'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'medicationReference'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'groupIdentifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'groupIdentifier'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'category'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest',
-            'child_variable': 'medicationReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'priorPrescription'},
+
+            {'parent_entity': 'MedicationRequest_Requester',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'requester'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'recorder'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'MedicationRequest_DispenseRequest',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'dispenseRequest'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'reasonCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'dosageInstruction'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'eventHistory'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest',
+             'child_variable': 'detectedIssue'},
         ]
+
 
 class MedicationRequest_Requester(fhirbase):
     """An order or request for both supply of the medication and the
@@ -323,24 +327,26 @@ class MedicationRequest_Requester(fhirbase):
         self.onBehalfOf = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest_Requester',
-            'child_variable': 'onBehalfOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest_Requester',
+             'child_variable': 'onBehalfOf'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest_Requester',
-            'child_variable': 'agent'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest_Requester',
+             'child_variable': 'agent'},
         ]
+
 
 class MedicationRequest_DispenseRequest(fhirbase):
     """An order or request for both supply of the medication and the
@@ -380,34 +386,36 @@ class MedicationRequest_DispenseRequest(fhirbase):
         self.performer = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest_DispenseRequest',
-            'child_variable': 'expectedSupplyDuration'},
-
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest_DispenseRequest',
-            'child_variable': 'quantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest_DispenseRequest',
+             'child_variable': 'quantity'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationRequest_DispenseRequest',
-            'child_variable': 'performer'},
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest_DispenseRequest',
+             'child_variable': 'expectedSupplyDuration'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest_DispenseRequest',
-            'child_variable': 'validityPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest_DispenseRequest',
+             'child_variable': 'validityPeriod'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationRequest_DispenseRequest',
+             'child_variable': 'performer'},
         ]
+
 
 class MedicationRequest_Substitution(fhirbase):
     """An order or request for both supply of the medication and the
@@ -429,17 +437,17 @@ class MedicationRequest_Substitution(fhirbase):
         self.reason = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationRequest_Substitution',
-            'child_variable': 'reason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationRequest_Substitution',
+             'child_variable': 'reason'},
         ]
-

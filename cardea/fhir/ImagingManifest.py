@@ -1,6 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Identifier import Identifier
+from .fhirbase import fhirbase
+
 
 class ImagingManifest(fhirbase):
     """A text description of the DICOM SOP instances selected in the
@@ -11,7 +10,7 @@ class ImagingManifest(fhirbase):
         # this is a imagingmanifest resource
         self.resourceType = 'ImagingManifest'
         # type = string
-        # possible values = ImagingManifest
+        # possible values: ImagingManifest
 
         # a patient resource reference which is the patient subject of all dicom
         # sop instances in this imagingmanifest.
@@ -54,34 +53,33 @@ class ImagingManifest(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingManifest',
-            'child_variable': 'patient'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingManifest',
+             'child_variable': 'author'},
 
             {'parent_entity': 'ImagingManifest_Study',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingManifest',
-            'child_variable': 'study'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingManifest',
+             'child_variable': 'study'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingManifest',
-            'child_variable': 'author'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingManifest',
+             'child_variable': 'patient'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingManifest',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingManifest',
+             'child_variable': 'identifier'},
         ]
+
 
 class ImagingManifest_Study(fhirbase):
     """A text description of the DICOM SOP instances selected in the
@@ -112,29 +110,31 @@ class ImagingManifest_Study(fhirbase):
         # type = array
         # reference to ImagingManifest_Series: ImagingManifest_Series
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingManifest_Study',
+             'child_variable': 'endpoint'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingManifest_Study',
+             'child_variable': 'imagingStudy'},
+
             {'parent_entity': 'ImagingManifest_Series',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingManifest_Study',
-            'child_variable': 'series'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingManifest_Study',
-            'child_variable': 'endpoint'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingManifest_Study',
-            'child_variable': 'imagingStudy'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingManifest_Study',
+             'child_variable': 'series'},
         ]
+
 
 class ImagingManifest_Series(fhirbase):
     """A text description of the DICOM SOP instances selected in the
@@ -159,24 +159,26 @@ class ImagingManifest_Series(fhirbase):
         # type = array
         # reference to ImagingManifest_Instance: ImagingManifest_Instance
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingManifest_Series',
-            'child_variable': 'endpoint'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingManifest_Series',
+             'child_variable': 'endpoint'},
 
             {'parent_entity': 'ImagingManifest_Instance',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingManifest_Series',
-            'child_variable': 'instance'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingManifest_Series',
+             'child_variable': 'instance'},
         ]
+
 
 class ImagingManifest_Instance(fhirbase):
     """A text description of the DICOM SOP instances selected in the
@@ -192,8 +194,8 @@ class ImagingManifest_Instance(fhirbase):
         self.uid = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

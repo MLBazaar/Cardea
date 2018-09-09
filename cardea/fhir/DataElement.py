@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .ElementDefinition import ElementDefinition
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class DataElement(fhirbase):
     """The formal description of a single piece of information that can be
@@ -14,7 +10,7 @@ class DataElement(fhirbase):
         # this is a dataelement resource
         self.resourceType = 'DataElement'
         # type = string
-        # possible values = DataElement
+        # possible values: DataElement
 
         # an absolute uri that is used to identify this data element when it is
         # referenced in a specification, model, design or an instance. this shall
@@ -38,7 +34,7 @@ class DataElement(fhirbase):
         # content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this data element is authored for
         # testing purposes (or education/evaluation/marketing), and is not
@@ -96,7 +92,8 @@ class DataElement(fhirbase):
         # identifies how precise the data element is in its definition.
         self.stringency = None
         # type = string
-        # possible values = comparable, fully-specified, equivalent, convertable, scaleable, flexible
+        # possible values: comparable, fully-specified, equivalent,
+        # convertable, scaleable, flexible
 
         # identifies a specification (other than a terminology) that the elements
         # which make up the dataelement have some correspondence with.
@@ -117,56 +114,61 @@ class DataElement(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
         if self.stringency is not None:
             for value in self.stringency:
-                if value != None and value.lower() not in ['comparable', 'fully-specified', 'equivalent', 'convertable', 'scaleable', 'flexible']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'comparable, fully-specified, equivalent, convertable, scaleable, flexible'))
+                if value is not None and value.lower() not in [
+                    'comparable', 'fully-specified', 'equivalent', 'convertable',
+                        'scaleable', 'flexible']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'comparable, fully-specified, equivalent, convertable, scaleable,'
+                        'flexible'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'DataElement_Mapping',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'mapping'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'DataElement_Mapping',
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'mapping'},
 
             {'parent_entity': 'ElementDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'element'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'element'},
         ]
+
 
 class DataElement_Mapping(fhirbase):
     """The formal description of a single piece of information that can be
@@ -193,8 +195,8 @@ class DataElement_Mapping(fhirbase):
         self.comment = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

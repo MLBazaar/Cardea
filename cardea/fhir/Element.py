@@ -1,5 +1,5 @@
-from .fhirbase import * 
-from .Extension import Extension
+from .fhirbase import fhirbase
+
 
 class Element(fhirbase):
     """Base definition for all elements in a resource.
@@ -21,17 +21,14 @@ class Element(fhirbase):
         self.id = None
         # type = string
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Extension',
-            'parent_variable': 'object_id',
-            'child_entity': 'Element',
-            'child_variable': 'extension'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Element',
+             'child_variable': 'extension'},
         ]
-

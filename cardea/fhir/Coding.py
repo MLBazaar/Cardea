@@ -1,4 +1,5 @@
-from .fhirbase import * 
+from .fhirbase import fhirbase
+
 
 class Coding(fhirbase):
     """A reference to a code defined by a terminology system.
@@ -34,8 +35,8 @@ class Coding(fhirbase):
         self.userSelected = None
         # type = boolean
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

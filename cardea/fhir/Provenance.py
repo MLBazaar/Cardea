@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Period import Period
-from .Coding import Coding
-from .Signature import Signature
+from .fhirbase import fhirbase
+
 
 class Provenance(fhirbase):
     """Provenance of a resource is a record that describes entities and
@@ -22,7 +19,7 @@ class Provenance(fhirbase):
         # this is a provenance resource
         self.resourceType = 'Provenance'
         # type = string
-        # possible values = Provenance
+        # possible values: Provenance
 
         # the reference(s) that were generated or updated by  the activity
         # described in this resource. a provenance can point to more than one
@@ -77,54 +74,56 @@ class Provenance(fhirbase):
         # type = array
         # reference to Signature: Signature
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Provenance',
-            'child_variable': 'target'},
-
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Provenance',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Provenance',
-            'child_variable': 'location'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Provenance_Agent',
-            'parent_variable': 'object_id',
-            'child_entity': 'Provenance',
-            'child_variable': 'agent'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance',
+             'child_variable': 'agent'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Provenance',
-            'child_variable': 'activity'},
-
-            {'parent_entity': 'Provenance_Entity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Provenance',
-            'child_variable': 'entity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance',
+             'child_variable': 'reason'},
 
             {'parent_entity': 'Signature',
-            'parent_variable': 'object_id',
-            'child_entity': 'Provenance',
-            'child_variable': 'signature'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance',
+             'child_variable': 'signature'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Provenance',
+             'child_variable': 'location'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Provenance',
-            'child_variable': 'reason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance',
+             'child_variable': 'activity'},
+
+            {'parent_entity': 'Provenance_Entity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance',
+             'child_variable': 'entity'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Provenance',
+             'child_variable': 'target'},
         ]
+
 
 class Provenance_Agent(fhirbase):
     """Provenance of a resource is a record that describes entities and
@@ -143,68 +142,60 @@ class Provenance_Agent(fhirbase):
     def __init__(self, dict_values=None):
         # the function of the agent with respect to the activity. the security
         # role enabling the agent with respect to the activity.
-        # the function of the agent with respect to the activity. the security
-        # role enabling the agent with respect to the activity.
         self.role = None
-        # type = array
         # type = array
         # reference to CodeableConcept: CodeableConcept
 
         # the individual, device or organization that participated in the event.
-        # the individual, device or organization that participated in the event.
         self.whoUri = None
         # type = string
-        # type = string
 
-        # the individual, device or organization that participated in the event.
         # the individual, device or organization that participated in the event.
         self.whoReference = None
         # reference to Reference: identifier
 
         # the individual, device, or organization for whom the change was made.
-        # the individual, device, or organization for whom the change was made.
         self.onBehalfOfUri = None
         # type = string
-        # type = string
 
-        # the individual, device, or organization for whom the change was made.
         # the individual, device, or organization for whom the change was made.
         self.onBehalfOfReference = None
         # reference to Reference: identifier
 
         # the type of relationship between agents.
-        # the type of relationship between agents.
         self.relatedAgentType = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Provenance_Agent',
-            'child_variable': 'onBehalfOfReference'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Provenance_Agent',
-            'child_variable': 'relatedAgentType'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Provenance_Agent',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance_Agent',
+             'child_variable': 'role'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Provenance_Agent',
-            'child_variable': 'whoReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Provenance_Agent',
+             'child_variable': 'whoReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Provenance_Agent',
+             'child_variable': 'onBehalfOfReference'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance_Agent',
+             'child_variable': 'relatedAgentType'},
         ]
+
 
 class Provenance_Entity(fhirbase):
     """Provenance of a resource is a record that describes entities and
@@ -224,7 +215,8 @@ class Provenance_Entity(fhirbase):
         # how the entity was used during the activity.
         self.role = None
         # type = string
-        # possible values = derivation, revision, quotation, source, removal
+        # possible values: derivation, revision, quotation, source,
+        # removal
 
         # identity of the  entity used. may be a logical or physical uri and maybe
         # absolute or relative.
@@ -249,34 +241,36 @@ class Provenance_Entity(fhirbase):
         # type = array
         # reference to Provenance_Agent: Provenance_Agent
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.role is not None:
             for value in self.role:
-                if value != None and value.lower() not in ['derivation', 'revision', 'quotation', 'source', 'removal']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'derivation, revision, quotation, source, removal'))
+                if value is not None and value.lower() not in [
+                        'derivation', 'revision', 'quotation', 'source', 'removal']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'derivation, revision, quotation, source, removal'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Provenance_Entity',
-            'child_variable': 'whatIdentifier'},
-
             {'parent_entity': 'Provenance_Agent',
-            'parent_variable': 'object_id',
-            'child_entity': 'Provenance_Entity',
-            'child_variable': 'agent'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance_Entity',
+             'child_variable': 'agent'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance_Entity',
+             'child_variable': 'whatIdentifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Provenance_Entity',
-            'child_variable': 'whatReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Provenance_Entity',
+             'child_variable': 'whatReference'},
         ]
-

@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Period import Period
-from .Identifier import Identifier
+from .fhirbase import fhirbase
+
 
 class MeasureReport(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
@@ -11,13 +9,13 @@ class MeasureReport(fhirbase):
         # this is a measurereport resource
         self.resourceType = 'MeasureReport'
         # type = string
-        # possible values = MeasureReport
+        # possible values: MeasureReport
 
         # the report status. no data will be available until the report status is
         # complete.
         self.status = None
         # type = string
-        # possible values = complete, pending, error
+        # possible values: complete, pending, error
 
         # the type of measure report. this may be an individual report, which
         # provides a single patient's score for the measure; a patient listing,
@@ -26,7 +24,7 @@ class MeasureReport(fhirbase):
         # of the criteria in the measure.
         self.type = None
         # type = string
-        # possible values = individual, patient-list, summary
+        # possible values: individual, patient-list, summary
 
         # a reference to the measure that was evaluated to produce this report.
         self.measure = None
@@ -65,61 +63,64 @@ class MeasureReport(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['complete', 'pending', 'error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'complete, pending, error'))
+                if value is not None and value.lower() not in [
+                        'complete', 'pending', 'error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'complete, pending, error'))
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['individual', 'patient-list', 'summary']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'individual, patient-list, summary'))
+                if value is not None and value.lower() not in [
+                        'individual', 'patient-list', 'summary']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'individual, patient-list, summary'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MeasureReport',
-            'child_variable': 'evaluatedResources'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport',
+             'child_variable': 'patient'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'MeasureReport',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport',
+             'child_variable': 'evaluatedResources'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'MeasureReport',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MeasureReport',
-            'child_variable': 'measure'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport',
+             'child_variable': 'measure'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MeasureReport',
-            'child_variable': 'patient'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport',
+             'child_variable': 'reportingOrganization'},
 
             {'parent_entity': 'MeasureReport_Group',
-            'parent_variable': 'identifier',
-            'child_entity': 'MeasureReport',
-            'child_variable': 'group'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MeasureReport',
-            'child_variable': 'reportingOrganization'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport',
+             'child_variable': 'group'},
         ]
+
 
 class MeasureReport_Group(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
@@ -149,29 +150,28 @@ class MeasureReport_Group(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'MeasureReport_Group',
-            'child_variable': 'identifier'},
-
             {'parent_entity': 'MeasureReport_Population',
-            'parent_variable': 'identifier',
-            'child_entity': 'MeasureReport_Group',
-            'child_variable': 'population'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport_Group',
+             'child_variable': 'population'},
 
             {'parent_entity': 'MeasureReport_Stratifier',
-            'parent_variable': 'identifier',
-            'child_entity': 'MeasureReport_Group',
-            'child_variable': 'stratifier'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport_Group',
+             'child_variable': 'stratifier'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport_Group',
+             'child_variable': 'identifier'},
         ]
+
 
 class MeasureReport_Population(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
@@ -196,29 +196,28 @@ class MeasureReport_Population(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport_Population',
+             'child_variable': 'identifier'},
+
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MeasureReport_Population',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport_Population',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MeasureReport_Population',
-            'child_variable': 'patients'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'MeasureReport_Population',
-            'child_variable': 'identifier'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport_Population',
+             'child_variable': 'patients'},
         ]
+
 
 class MeasureReport_Stratifier(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
@@ -236,24 +235,23 @@ class MeasureReport_Stratifier(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'MeasureReport_Stratifier',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport_Stratifier',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'MeasureReport_Stratum',
-            'parent_variable': 'object_id',
-            'child_entity': 'MeasureReport_Stratifier',
-            'child_variable': 'stratum'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport_Stratifier',
+             'child_variable': 'stratum'},
         ]
+
 
 class MeasureReport_Stratum(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
@@ -278,19 +276,21 @@ class MeasureReport_Stratum(fhirbase):
         self.measureScore = None
         # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'MeasureReport_Population1',
-            'parent_variable': 'identifier',
-            'child_entity': 'MeasureReport_Stratum',
-            'child_variable': 'population'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport_Stratum',
+             'child_variable': 'population'},
         ]
+
 
 class MeasureReport_Population1(fhirbase):
     """The MeasureReport resource contains the results of evaluating a measure.
@@ -315,27 +315,24 @@ class MeasureReport_Population1(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MeasureReport_Population1',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport_Population1',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MeasureReport_Population1',
-            'child_variable': 'patients'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport_Population1',
+             'child_variable': 'patients'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'MeasureReport_Population1',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport_Population1',
+             'child_variable': 'identifier'},
         ]
-

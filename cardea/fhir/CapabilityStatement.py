@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Reference import Reference
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class CapabilityStatement(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -15,7 +12,7 @@ class CapabilityStatement(fhirbase):
         # this is a capabilitystatement resource
         self.resourceType = 'CapabilityStatement'
         # type = string
-        # possible values = CapabilityStatement
+        # possible values: CapabilityStatement
 
         # an absolute uri that is used to identify this capability statement when
         # it is referenced in a specification, model, design or an instance. this
@@ -51,7 +48,7 @@ class CapabilityStatement(fhirbase):
         # of the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this capability statement is authored
         # for testing purposes (or education/evaluation/marketing), and is not
@@ -114,7 +111,7 @@ class CapabilityStatement(fhirbase):
         # purchase).
         self.kind = None
         # type = string
-        # possible values = instance, capability, requirements
+        # possible values: instance, capability, requirements
 
         # reference to a canonical url of another capabilitystatement that this
         # software implements or uses. this capability statement is a published
@@ -145,7 +142,7 @@ class CapabilityStatement(fhirbase):
         # or extensions when reading resources.
         self.acceptUnknown = None
         # type = string
-        # possible values = no, extensions, elements, both
+        # possible values: no, extensions, elements, both
 
         # a list of the formats supported by this implementation using their
         # content types.
@@ -189,76 +186,84 @@ class CapabilityStatement(fhirbase):
         # type = array
         # reference to CapabilityStatement_Document: CapabilityStatement_Document
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
         if self.kind is not None:
             for value in self.kind:
-                if value != None and value.lower() not in ['instance', 'capability', 'requirements']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'instance, capability, requirements'))
+                if value is not None and value.lower() not in [
+                        'instance', 'capability', 'requirements']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'instance, capability, requirements'))
 
         if self.acceptUnknown is not None:
             for value in self.acceptUnknown:
-                if value != None and value.lower() not in ['no', 'extensions', 'elements', 'both']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'no, extensions, elements, both'))
+                if value is not None and value.lower() not in [
+                        'no', 'extensions', 'elements', 'both']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'no, extensions, elements, both'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CapabilityStatement_Software',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement',
-            'child_variable': 'software'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement',
-            'child_variable': 'useContext'},
-
-            {'parent_entity': 'CapabilityStatement_Messaging',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement',
-            'child_variable': 'messaging'},
-
-            {'parent_entity': 'CapabilityStatement_Document',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement',
-            'child_variable': 'document'},
-
-            {'parent_entity': 'CapabilityStatement_Implementation',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement',
-            'child_variable': 'implementation'},
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'contact'},
 
             {'parent_entity': 'CapabilityStatement_Rest',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement',
-            'child_variable': 'rest'},
-
-            {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'rest'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement',
-            'child_variable': 'jurisdiction'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'CapabilityStatement_Software',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'software'},
+
+            {'parent_entity': 'CapabilityStatement_Document',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'document'},
+
+            {'parent_entity': 'CapabilityStatement_Implementation',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'implementation'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CapabilityStatement',
-            'child_variable': 'profile'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'profile'},
+
+            {'parent_entity': 'CapabilityStatement_Messaging',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'messaging'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'useContext'},
         ]
+
 
 class CapabilityStatement_Software(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -280,9 +285,11 @@ class CapabilityStatement_Software(fhirbase):
         self.releaseDate = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class CapabilityStatement_Implementation(fhirbase):
@@ -303,9 +310,11 @@ class CapabilityStatement_Implementation(fhirbase):
         self.url = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class CapabilityStatement_Rest(fhirbase):
@@ -320,7 +329,7 @@ class CapabilityStatement_Rest(fhirbase):
         # ability to initiate or receive restful operations.
         self.mode = None
         # type = string
-        # possible values = client, server
+        # possible values: client, server
 
         # information about the system's restful capabilities that apply across
         # all applications, such as security.
@@ -363,46 +372,50 @@ class CapabilityStatement_Rest(fhirbase):
         self.compartment = None
         # type = array
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.mode is not None:
             for value in self.mode:
-                if value != None and value.lower() not in ['client', 'server']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'client, server'))
+                if value is not None and value.lower() not in [
+                        'client', 'server']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'client, server'))
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CapabilityStatement_Resource',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Rest',
+             'child_variable': 'resource'},
+
             {'parent_entity': 'CapabilityStatement_SearchParam',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Rest',
-            'child_variable': 'searchParam'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Rest',
+             'child_variable': 'searchParam'},
 
             {'parent_entity': 'CapabilityStatement_Security',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Rest',
-            'child_variable': 'security'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Rest',
+             'child_variable': 'security'},
 
             {'parent_entity': 'CapabilityStatement_Operation',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Rest',
-            'child_variable': 'operation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Rest',
+             'child_variable': 'operation'},
 
             {'parent_entity': 'CapabilityStatement_Interaction1',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Rest',
-            'child_variable': 'interaction'},
-
-            {'parent_entity': 'CapabilityStatement_Resource',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Rest',
-            'child_variable': 'resource'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Rest',
+             'child_variable': 'interaction'},
         ]
+
 
 class CapabilityStatement_Security(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -431,24 +444,26 @@ class CapabilityStatement_Security(fhirbase):
         # type = array
         # reference to CapabilityStatement_Certificate: CapabilityStatement_Certificate
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CapabilityStatement_Certificate',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Security',
-            'child_variable': 'certificate'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Security',
-            'child_variable': 'service'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Security',
+             'child_variable': 'service'},
+
+            {'parent_entity': 'CapabilityStatement_Certificate',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Security',
+             'child_variable': 'certificate'},
         ]
+
 
 class CapabilityStatement_Certificate(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -466,9 +481,11 @@ class CapabilityStatement_Certificate(fhirbase):
         self.blob = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class CapabilityStatement_Resource(fhirbase):
@@ -507,7 +524,7 @@ class CapabilityStatement_Resource(fhirbase):
         # features, including using e-tags for version integrity in the api.
         self.versioning = None
         # type = string
-        # possible values = no-version, versioned, versioned-update
+        # possible values: no-version, versioned, versioned-update
 
         # a flag for whether the server is able to return past versions as part of
         # the vread operation.
@@ -529,7 +546,8 @@ class CapabilityStatement_Resource(fhirbase):
         # a code that indicates how the server supports conditional read.
         self.conditionalRead = None
         # type = string
-        # possible values = not-supported, modified-since, not-match, full-support
+        # possible values: not-supported, modified-since, not-match,
+        # full-support
 
         # a flag that indicates that the server supports conditional update.
         self.conditionalUpdate = None
@@ -538,12 +556,12 @@ class CapabilityStatement_Resource(fhirbase):
         # a code that indicates how the server supports conditional delete.
         self.conditionalDelete = None
         # type = string
-        # possible values = not-supported, single, multiple
+        # possible values: not-supported, single, multiple
 
         # a set of flags that defines how references are supported.
         self.referencePolicy = None
         # type = array
-        # possible values = literal, logical, resolves, enforced, local
+        # possible values: literal, logical, resolves, enforced, local
 
         # a list of _include values supported by the server.
         self.searchInclude = None
@@ -560,51 +578,61 @@ class CapabilityStatement_Resource(fhirbase):
         # type = array
         # reference to CapabilityStatement_SearchParam: CapabilityStatement_SearchParam
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.versioning is not None:
             for value in self.versioning:
-                if value != None and value.lower() not in ['no-version', 'versioned', 'versioned-update']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'no-version, versioned, versioned-update'))
+                if value is not None and value.lower() not in [
+                        'no-version', 'versioned', 'versioned-update']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'no-version, versioned, versioned-update'))
 
         if self.conditionalRead is not None:
             for value in self.conditionalRead:
-                if value != None and value.lower() not in ['not-supported', 'modified-since', 'not-match', 'full-support']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'not-supported, modified-since, not-match, full-support'))
+                if value is not None and value.lower() not in [
+                        'not-supported', 'modified-since', 'not-match', 'full-support']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'not-supported, modified-since, not-match, full-support'))
 
         if self.conditionalDelete is not None:
             for value in self.conditionalDelete:
-                if value != None and value.lower() not in ['not-supported', 'single', 'multiple']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'not-supported, single, multiple'))
+                if value is not None and value.lower() not in [
+                        'not-supported', 'single', 'multiple']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'not-supported, single, multiple'))
 
         if self.referencePolicy is not None:
             for value in self.referencePolicy:
-                if value != None and value.lower() not in ['literal', 'logical', 'resolves', 'enforced', 'local']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'literal, logical, resolves, enforced, local'))
+                if value is not None and value.lower() not in [
+                        'literal', 'logical', 'resolves', 'enforced', 'local']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'literal, logical, resolves, enforced, local'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CapabilityStatement_SearchParam',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Resource',
-            'child_variable': 'searchParam'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CapabilityStatement_Resource',
-            'child_variable': 'profile'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CapabilityStatement_Resource',
+             'child_variable': 'profile'},
 
             {'parent_entity': 'CapabilityStatement_Interaction',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Resource',
-            'child_variable': 'interaction'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Resource',
+             'child_variable': 'interaction'},
+
+            {'parent_entity': 'CapabilityStatement_SearchParam',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Resource',
+             'child_variable': 'searchParam'},
         ]
+
 
 class CapabilityStatement_Interaction(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -617,7 +645,8 @@ class CapabilityStatement_Interaction(fhirbase):
         # coded identifier of the operation, supported by the system resource.
         self.code = None
         # type = string
-        # possible values = read, vread, update, patch, delete, history-instance, history-type, create, search-type
+        # possible values: read, vread, update, patch, delete, history-
+        # instance, history-type, create, search-type
 
         # guidance specific to the implementation of this operation, such as
         # 'delete is a logical delete' or 'updates are only allowed with version
@@ -625,17 +654,23 @@ class CapabilityStatement_Interaction(fhirbase):
         self.documentation = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.code is not None:
             for value in self.code:
-                if value != None and value.lower() not in ['read', 'vread', 'update', 'patch', 'delete', 'history-instance', 'history-type', 'create', 'search-type']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'read, vread, update, patch, delete, history-instance, history-type, create, search-type'))
+                if value is not None and value.lower() not in [
+                    'read', 'vread', 'update', 'patch', 'delete', 'history-instance',
+                        'history-type', 'create', 'search-type']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'read, vread, update, patch, delete, history-instance,'
+                        'history-type, create, search-type'))
+
 
 class CapabilityStatement_SearchParam(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -646,55 +681,43 @@ class CapabilityStatement_SearchParam(fhirbase):
 
     def __init__(self, dict_values=None):
         # the name of the search parameter used in the interface.
-        # the name of the search parameter used in the interface.
         self.name = None
         # type = string
-        # type = string
 
-        # an absolute uri that is a formal reference to where this parameter was
-        # first defined, so that a client can be confident of the meaning of the
-        # search parameter (a reference to [[[searchparameter.url]]]).
         # an absolute uri that is a formal reference to where this parameter was
         # first defined, so that a client can be confident of the meaning of the
         # search parameter (a reference to [[[searchparameter.url]]]).
         self.definition = None
         # type = string
-        # type = string
 
-        # the type of value a search parameter refers to, and how the content is
-        # interpreted.
         # the type of value a search parameter refers to, and how the content is
         # interpreted.
         self.type = None
         # type = string
-        # type = string
-        # possible values = number, date, string, token, reference, composite, quantity, uri
-        # possible values = number, date, string, token, reference, composite, quantity, uri
+        # possible values: number, date, string, token, reference,
+        # composite, quantity, uri
 
-        # this allows documentation of any distinct behaviors about how the search
-        # parameter is used.  for example, text matching algorithms.
         # this allows documentation of any distinct behaviors about how the search
         # parameter is used.  for example, text matching algorithms.
         self.documentation = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['number', 'date', 'string', 'token', 'reference', 'composite', 'quantity', 'uri']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'number, date, string, token, reference, composite, quantity, uri'))
+                if value is not None and value.lower() not in [
+                    'number', 'date', 'string', 'token', 'reference', 'composite',
+                        'quantity', 'uri']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'number, date, string, token, reference, composite, quantity, uri'))
 
-        if self.type is not None:
-            for value in self.type:
-                if value != None and value.lower() not in ['number', 'date', 'string', 'token', 'reference', 'composite', 'quantity', 'uri']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'number, date, string, token, reference, composite, quantity, uri'))
 
 class CapabilityStatement_Interaction1(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -707,7 +730,8 @@ class CapabilityStatement_Interaction1(fhirbase):
         # a coded identifier of the operation, supported by the system.
         self.code = None
         # type = string
-        # possible values = transaction, batch, search-system, history-system
+        # possible values: transaction, batch, search-system, history-
+        # system
 
         # guidance specific to the implementation of this operation, such as
         # limitations on the kind of transactions allowed, or information about
@@ -715,17 +739,21 @@ class CapabilityStatement_Interaction1(fhirbase):
         self.documentation = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.code is not None:
             for value in self.code:
-                if value != None and value.lower() not in ['transaction', 'batch', 'search-system', 'history-system']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'transaction, batch, search-system, history-system'))
+                if value is not None and value.lower() not in [
+                        'transaction', 'batch', 'search-system', 'history-system']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'transaction, batch, search-system, history-system'))
+
 
 class CapabilityStatement_Operation(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -745,19 +773,21 @@ class CapabilityStatement_Operation(fhirbase):
         self.definition = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CapabilityStatement_Operation',
-            'child_variable': 'definition'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CapabilityStatement_Operation',
+             'child_variable': 'definition'},
         ]
+
 
 class CapabilityStatement_Messaging(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -797,29 +827,31 @@ class CapabilityStatement_Messaging(fhirbase):
         # type = array
         # reference to CapabilityStatement_Event: CapabilityStatement_Event
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CapabilityStatement_Event',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Messaging',
-            'child_variable': 'event'},
-
             {'parent_entity': 'CapabilityStatement_Endpoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Messaging',
-            'child_variable': 'endpoint'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Messaging',
+             'child_variable': 'endpoint'},
 
             {'parent_entity': 'CapabilityStatement_SupportedMessage',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Messaging',
-            'child_variable': 'supportedMessage'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Messaging',
+             'child_variable': 'supportedMessage'},
+
+            {'parent_entity': 'CapabilityStatement_Event',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Messaging',
+             'child_variable': 'event'},
         ]
+
 
 class CapabilityStatement_Endpoint(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -839,19 +871,21 @@ class CapabilityStatement_Endpoint(fhirbase):
         self.address = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Endpoint',
-            'child_variable': 'protocol'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Endpoint',
+             'child_variable': 'protocol'},
         ]
+
 
 class CapabilityStatement_SupportedMessage(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -865,33 +899,37 @@ class CapabilityStatement_SupportedMessage(fhirbase):
         # receiver.
         self.mode = None
         # type = string
-        # possible values = sender, receiver
+        # possible values: sender, receiver
 
         # points to a message definition that identifies the messaging event,
         # message structure, allowed responses, etc.
         self.definition = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.mode is not None:
             for value in self.mode:
-                if value != None and value.lower() not in ['sender', 'receiver']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'sender, receiver'))
+                if value is not None and value.lower() not in [
+                        'sender', 'receiver']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'sender, receiver'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CapabilityStatement_SupportedMessage',
-            'child_variable': 'definition'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CapabilityStatement_SupportedMessage',
+             'child_variable': 'definition'},
         ]
+
 
 class CapabilityStatement_Event(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -908,13 +946,13 @@ class CapabilityStatement_Event(fhirbase):
         # the impact of the content of the message.
         self.category = None
         # type = string
-        # possible values = Consequence, Currency, Notification
+        # possible values: Consequence, Currency, Notification
 
         # the mode of this event declaration - whether an application is a sender
         # or receiver.
         self.mode = None
         # type = string
-        # possible values = sender, receiver
+        # possible values: sender, receiver
 
         # a resource associated with the event.  this is the resource that defines
         # the event.
@@ -934,41 +972,47 @@ class CapabilityStatement_Event(fhirbase):
         self.documentation = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.category is not None:
             for value in self.category:
-                if value != None and value.lower() not in ['consequence', 'currency', 'notification']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'consequence, currency, notification'))
+                if value is not None and value.lower() not in [
+                        'consequence', 'currency', 'notification']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'Consequence, Currency, Notification'))
 
         if self.mode is not None:
             for value in self.mode:
-                if value != None and value.lower() not in ['sender', 'receiver']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'sender, receiver'))
+                if value is not None and value.lower() not in [
+                        'sender', 'receiver']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'sender, receiver'))
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CapabilityStatement_Event',
+             'child_variable': 'response'},
+
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'CapabilityStatement_Event',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Event',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CapabilityStatement_Event',
-            'child_variable': 'response'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CapabilityStatement_Event',
-            'child_variable': 'request'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CapabilityStatement_Event',
+             'child_variable': 'request'},
         ]
+
 
 class CapabilityStatement_Document(fhirbase):
     """A Capability Statement documents a set of capabilities (behaviors) of a
@@ -982,7 +1026,7 @@ class CapabilityStatement_Document(fhirbase):
         # or consumer.
         self.mode = None
         # type = string
-        # possible values = producer, consumer
+        # possible values: producer, consumer
 
         # a description of how the application supports or uses the specified
         # document profile.  for example, when documents are created, what action
@@ -994,24 +1038,26 @@ class CapabilityStatement_Document(fhirbase):
         self.profile = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.mode is not None:
             for value in self.mode:
-                if value != None and value.lower() not in ['producer', 'consumer']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'producer, consumer'))
+                if value is not None and value.lower() not in [
+                        'producer', 'consumer']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'producer, consumer'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CapabilityStatement_Document',
-            'child_variable': 'profile'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CapabilityStatement_Document',
+             'child_variable': 'profile'},
         ]
-

@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class Composition(fhirbase):
     """A set of healthcare-related information that is assembled together into
@@ -17,13 +15,13 @@ class Composition(fhirbase):
         # this is a composition resource
         self.resourceType = 'Composition'
         # type = string
-        # possible values = Composition
+        # possible values: Composition
 
         # the workflow/clinical status of this composition. the status is a marker
         # for the clinical standing of the document.
         self.status = None
         # type = string
-        # possible values = preliminary, final, amended, entered-in-error
+        # possible values: preliminary, final, amended, entered-in-error
 
         # specifies the particular kind of composition (e.g. history and physical,
         # discharge summary, progress note). this usually equates to the purpose
@@ -101,76 +99,77 @@ class Composition(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['preliminary', 'final', 'amended', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'preliminary, final, amended, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'preliminary', 'final', 'amended', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'preliminary, final, amended, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'Composition_RelatesTo',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition',
+             'child_variable': 'relatesTo'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Composition',
-            'child_variable': 'author'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Composition',
+             'child_variable': 'encounter'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Composition',
+             'child_variable': 'custodian'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Composition',
+             'child_variable': 'author'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition',
-            'child_variable': 'class'},
-
-            {'parent_entity': 'Composition_Attester',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition',
-            'child_variable': 'attester'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Composition',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Composition_RelatesTo',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition',
-            'child_variable': 'relatesTo'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Composition',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'Composition_Section',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition',
-            'child_variable': 'section'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition',
+             'child_variable': 'section'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition',
+             'child_variable': '_class'},
+
+            {'parent_entity': 'Composition_Attester',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition',
+             'child_variable': 'attester'},
 
             {'parent_entity': 'Composition_Event',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition',
-            'child_variable': 'event'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Composition',
-            'child_variable': 'custodian'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Composition',
-            'child_variable': 'encounter'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition',
+             'child_variable': 'event'},
         ]
+
 
 class Composition_Attester(fhirbase):
     """A set of healthcare-related information that is assembled together into
@@ -186,7 +185,7 @@ class Composition_Attester(fhirbase):
         # the type of attestation the authenticator offers.
         self.mode = None
         # type = array
-        # possible values = personal, professional, legal, official
+        # possible values: personal, professional, legal, official
 
         # when the composition was attested by the party.
         self.time = None
@@ -196,26 +195,30 @@ class Composition_Attester(fhirbase):
         self.party = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.mode is not None:
             for value in self.mode:
-                if value != None and value.lower() not in ['personal', 'professional', 'legal', 'official']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'personal, professional, legal, official'))
+                if value is not None and value.lower() not in [
+                        'personal', 'professional', 'legal', 'official']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'personal, professional, legal, official'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Composition_Attester',
-            'child_variable': 'party'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Composition_Attester',
+             'child_variable': 'party'},
         ]
+
 
 class Composition_RelatesTo(fhirbase):
     """A set of healthcare-related information that is assembled together into
@@ -241,24 +244,26 @@ class Composition_RelatesTo(fhirbase):
         self.targetReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition_RelatesTo',
-            'child_variable': 'targetIdentifier'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Composition_RelatesTo',
-            'child_variable': 'targetReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Composition_RelatesTo',
+             'child_variable': 'targetReference'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition_RelatesTo',
+             'child_variable': 'targetIdentifier'},
         ]
+
 
 class Composition_Event(fhirbase):
     """A set of healthcare-related information that is assembled together into
@@ -293,29 +298,31 @@ class Composition_Event(fhirbase):
         # type = array
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition_Event',
-            'child_variable': 'code'},
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition_Event',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Composition_Event',
-            'child_variable': 'detail'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Composition_Event',
+             'child_variable': 'detail'},
 
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition_Event',
-            'child_variable': 'period'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition_Event',
+             'child_variable': 'code'},
         ]
+
 
 class Composition_Section(fhirbase):
     """A set of healthcare-related information that is assembled together into
@@ -331,25 +338,14 @@ class Composition_Section(fhirbase):
         # the label for this particular section.  this will be part of the
         # rendered content for the document, and is often used to build a table of
         # contents.
-        # the label for this particular section.  this will be part of the
-        # rendered content for the document, and is often used to build a table of
-        # contents.
         self.title = None
         # type = string
-        # type = string
 
-        # a code identifying the kind of content contained within the section.
-        # this must be consistent with the section title.
         # a code identifying the kind of content contained within the section.
         # this must be consistent with the section title.
         self.code = None
         # reference to CodeableConcept: CodeableConcept
 
-        # a human-readable narrative that contains the attested content of the
-        # section, used to represent the content of the resource to a human. the
-        # narrative need not encode all the structured data, but is required to
-        # contain sufficient detail to make it "clinically safe" for a human to
-        # just read the narrative.
         # a human-readable narrative that contains the attested content of the
         # section, used to represent the content of the resource to a human. the
         # narrative need not encode all the structured data, but is required to
@@ -362,78 +358,65 @@ class Composition_Section(fhirbase):
         # suitable for being maintained on an ongoing basis, or if it represents a
         # snapshot of a list of items from another source, or whether it is a
         # prepared list where items may be marked as added, modified or deleted.
-        # how the entry list was prepared - whether it is a working list that is
-        # suitable for being maintained on an ongoing basis, or if it represents a
-        # snapshot of a list of items from another source, or whether it is a
-        # prepared list where items may be marked as added, modified or deleted.
         self.mode = None
         # type = string
-        # type = string
 
-        # specifies the order applied to the items in the section entries.
         # specifies the order applied to the items in the section entries.
         self.orderedBy = None
         # reference to CodeableConcept: CodeableConcept
 
         # a reference to the actual resource from which the narrative in the
         # section is derived.
-        # a reference to the actual resource from which the narrative in the
-        # section is derived.
         self.entry = None
-        # type = array
         # type = array
         # reference to Reference: identifier
 
-        # if the section is empty, why the list is empty. an empty section
-        # typically has some text explaining the empty reason.
         # if the section is empty, why the list is empty. an empty section
         # typically has some text explaining the empty reason.
         self.emptyReason = None
         # reference to CodeableConcept: CodeableConcept
 
         # a nested sub-section within this section.
-        # a nested sub-section within this section.
         self.section = None
-        # type = array
         # type = array
         # reference to Composition_Section: Composition_Section
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition_Section',
+             'child_variable': 'code'},
+
             {'parent_entity': 'Narrative',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition_Section',
-            'child_variable': 'text'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Composition_Section',
-            'child_variable': 'entry'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition_Section',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition_Section',
-            'child_variable': 'orderedBy'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition_Section',
-            'child_variable': 'emptyReason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition_Section',
+             'child_variable': 'text'},
 
             {'parent_entity': 'Composition_Section',
-            'parent_variable': 'object_id',
-            'child_entity': 'Composition_Section',
-            'child_variable': 'section'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition_Section',
+             'child_variable': 'section'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition_Section',
+             'child_variable': 'orderedBy'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Composition_Section',
+             'child_variable': 'entry'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition_Section',
+             'child_variable': 'emptyReason'},
+        ]

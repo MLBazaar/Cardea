@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Timing import Timing
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class ProcedureRequest(fhirbase):
     """A record of a request for diagnostic investigations, treatments, or
@@ -15,7 +10,7 @@ class ProcedureRequest(fhirbase):
         # this is a procedurerequest resource
         self.resourceType = 'ProcedureRequest'
         # type = string
-        # possible values = ProcedureRequest
+        # possible values: ProcedureRequest
 
         # protocol or definition followed by this request.
         self.definition = None
@@ -177,124 +172,123 @@ class ProcedureRequest(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'performer'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'bodySite'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'reasonReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'reasonReference'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'asNeededCodeableConcept'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'relevantHistory'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'supportingInfo'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'performerType'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'replaces'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'specimen'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'requisition'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'bodySite'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'definition'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'relevantHistory'},
 
             {'parent_entity': 'ProcedureRequest_Requester',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'requester'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'requester'},
 
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'occurrencePeriod'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'asNeededCodeableConcept'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'reasonCode'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'performerType'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'replaces'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'performer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'specimen'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'occurrenceTiming'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'occurrenceTiming'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'occurrencePeriod'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'supportingInfo'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'requisition'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'identifier'},
         ]
+
 
 class ProcedureRequest_Requester(fhirbase):
     """A record of a request for diagnostic investigations, treatments, or
@@ -310,22 +304,22 @@ class ProcedureRequest_Requester(fhirbase):
         self.onBehalfOf = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest_Requester',
-            'child_variable': 'onBehalfOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest_Requester',
+             'child_variable': 'onBehalfOf'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest_Requester',
-            'child_variable': 'agent'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest_Requester',
+             'child_variable': 'agent'},
         ]
-

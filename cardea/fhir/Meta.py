@@ -1,5 +1,5 @@
-from .fhirbase import * 
-from .Coding import Coding
+from .fhirbase import fhirbase
+
 
 class Meta(fhirbase):
     """The metadata about a resource. This is content in the resource that is
@@ -38,22 +38,22 @@ class Meta(fhirbase):
         # type = array
         # reference to Coding: Coding
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Meta',
-            'child_variable': 'tag'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Meta',
+             'child_variable': 'security'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Meta',
-            'child_variable': 'security'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Meta',
+             'child_variable': 'tag'},
         ]
-

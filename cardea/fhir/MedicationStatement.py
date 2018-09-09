@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
-from .Dosage import Dosage
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class MedicationStatement(fhirbase):
     """A record of a medication that is being consumed by a patient.   A
@@ -36,7 +31,7 @@ class MedicationStatement(fhirbase):
         # this is a medicationstatement resource
         self.resourceType = 'MedicationStatement'
         # type = string
-        # possible values = MedicationStatement
+        # possible values: MedicationStatement
 
         # a plan, proposal or order that is fulfilled in whole or in part by this
         # event.
@@ -59,7 +54,8 @@ class MedicationStatement(fhirbase):
         # this will be active or completed.
         self.status = None
         # type = string
-        # possible values = active, completed, entered-in-error, intended, stopped, on-hold
+        # possible values: active, completed, entered-in-error,
+        # intended, stopped, on-hold
 
         # indicates where type of medication statement and where the medication is
         # expected to be consumed or administered.
@@ -119,7 +115,7 @@ class MedicationStatement(fhirbase):
         # patient.
         self.taken = None
         # type = string
-        # possible values = y, n, unk, na
+        # possible values: y, n, unk, na
 
         # a code indicating why the medication was not taken.
         self.reasonNotTaken = None
@@ -159,104 +155,106 @@ class MedicationStatement(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'completed', 'entered-in-error', 'intended', 'stopped', 'on-hold']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, completed, entered-in-error, intended, stopped, on-hold'))
+                if value is not None and value.lower() not in [
+                        'active', 'completed', 'entered-in-error', 'intended', 'stopped',
+                        'on-hold']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, completed, entered-in-error, intended, stopped, on-hold'))
 
         if self.taken is not None:
             for value in self.taken:
-                if value != None and value.lower() not in ['y', 'n', 'unk', 'na']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'y, n, unk, na'))
+                if value is not None and value.lower() not in [
+                        'y', 'n', 'unk', 'na']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'y, n, unk, na'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'reasonNotTaken'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'reasonCode'},
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'note'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'partOf'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'informationSource'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'context'},
 
             {'parent_entity': 'Dosage',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'dosage'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'dosage'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'informationSource'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'reasonReference'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'medicationReference'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'effectivePeriod'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'derivedFrom'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'medicationCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'reasonNotTaken'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'note'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'reasonReference'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'MedicationStatement',
-            'child_variable': 'identifier'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'identifier'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'medicationReference'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'reasonCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'partOf'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'medicationCodeableConcept'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'derivedFrom'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'effectivePeriod'},
+        ]

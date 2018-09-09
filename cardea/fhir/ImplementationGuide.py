@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class ImplementationGuide(fhirbase):
     """A set of rules of how FHIR is used to solve a particular problem. This
@@ -13,7 +11,7 @@ class ImplementationGuide(fhirbase):
         # this is a implementationguide resource
         self.resourceType = 'ImplementationGuide'
         # type = string
-        # possible values = ImplementationGuide
+        # possible values: ImplementationGuide
 
         # an absolute uri that is used to identify this implementation guide when
         # it is referenced in a specification, model, design or an instance. this
@@ -45,7 +43,7 @@ class ImplementationGuide(fhirbase):
         # of the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this implementation guide is authored
         # for testing purposes (or education/evaluation/marketing), and is not
@@ -131,56 +129,60 @@ class ImplementationGuide(fhirbase):
         self.page = None
         # reference to ImplementationGuide_Page: ImplementationGuide_Page
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImplementationGuide',
-            'child_variable': 'useContext'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImplementationGuide',
-            'child_variable': 'jurisdiction'},
-
             {'parent_entity': 'ImplementationGuide_Page',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImplementationGuide',
-            'child_variable': 'page'},
-
-            {'parent_entity': 'ImplementationGuide_Dependency',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImplementationGuide',
-            'child_variable': 'dependency'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide',
+             'child_variable': 'page'},
 
             {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImplementationGuide',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide',
+             'child_variable': 'contact'},
 
-            {'parent_entity': 'ImplementationGuide_Package',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImplementationGuide',
-            'child_variable': 'package'},
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'ImplementationGuide_Dependency',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide',
+             'child_variable': 'dependency'},
 
             {'parent_entity': 'ImplementationGuide_Global',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImplementationGuide',
-            'child_variable': 'global'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide',
+             'child_variable': '_global'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'ImplementationGuide_Package',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide',
+             'child_variable': 'package'},
         ]
+
 
 class ImplementationGuide_Dependency(fhirbase):
     """A set of rules of how FHIR is used to solve a particular problem. This
@@ -192,23 +194,27 @@ class ImplementationGuide_Dependency(fhirbase):
         # how the dependency is represented when the guide is published.
         self.type = None
         # type = string
-        # possible values = reference, inclusion
+        # possible values: reference, inclusion
 
         # where the dependency is located.
         self.uri = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['reference', 'inclusion']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'reference, inclusion'))
+                if value is not None and value.lower() not in [
+                        'reference', 'inclusion']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'reference, inclusion'))
+
 
 class ImplementationGuide_Package(fhirbase):
     """A set of rules of how FHIR is used to solve a particular problem. This
@@ -233,19 +239,21 @@ class ImplementationGuide_Package(fhirbase):
         # type = array
         # reference to ImplementationGuide_Resource: ImplementationGuide_Resource
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ImplementationGuide_Resource',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImplementationGuide_Package',
-            'child_variable': 'resource'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide_Package',
+             'child_variable': 'resource'},
         ]
+
 
 class ImplementationGuide_Resource(fhirbase):
     """A set of rules of how FHIR is used to solve a particular problem. This
@@ -290,24 +298,26 @@ class ImplementationGuide_Resource(fhirbase):
         self.exampleFor = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImplementationGuide_Resource',
-            'child_variable': 'sourceReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImplementationGuide_Resource',
+             'child_variable': 'sourceReference'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImplementationGuide_Resource',
-            'child_variable': 'exampleFor'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImplementationGuide_Resource',
+             'child_variable': 'exampleFor'},
         ]
+
 
 class ImplementationGuide_Global(fhirbase):
     """A set of rules of how FHIR is used to solve a particular problem. This
@@ -324,19 +334,21 @@ class ImplementationGuide_Global(fhirbase):
         self.profile = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImplementationGuide_Global',
-            'child_variable': 'profile'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImplementationGuide_Global',
+             'child_variable': 'profile'},
         ]
+
 
 class ImplementationGuide_Page(fhirbase):
     """A set of rules of how FHIR is used to solve a particular problem. This
@@ -346,81 +358,62 @@ class ImplementationGuide_Page(fhirbase):
 
     def __init__(self, dict_values=None):
         # the source address for the page.
-        # the source address for the page.
         self.source = None
         # type = string
-        # type = string
 
-        # a short title used to represent this page in navigational structures
-        # such as table of contents, bread crumbs, etc.
         # a short title used to represent this page in navigational structures
         # such as table of contents, bread crumbs, etc.
         self.title = None
         # type = string
-        # type = string
 
-        # the kind of page that this is. some pages are autogenerated (list,
-        # example), and other kinds are of interest so that tools can navigate the
-        # user to the page of interest.
         # the kind of page that this is. some pages are autogenerated (list,
         # example), and other kinds are of interest so that tools can navigate the
         # user to the page of interest.
         self.kind = None
         # type = string
-        # type = string
-        # possible values = page, example, list, include, directory, dictionary, toc, resource
-        # possible values = page, example, list, include, directory, dictionary, toc, resource
+        # possible values: page, example, list, include, directory,
+        # dictionary, toc, resource
 
-        # for constructed pages, what kind of resources to include in the list.
         # for constructed pages, what kind of resources to include in the list.
         self.type = None
         # type = array
-        # type = array
 
-        # for constructed pages, a list of packages to include in the page (or
-        # else empty for everything).
         # for constructed pages, a list of packages to include in the page (or
         # else empty for everything).
         self.package = None
         # type = array
-        # type = array
 
-        # the format of the page.
         # the format of the page.
         self.format = None
         # type = string
-        # type = string
 
-        # nested pages/sections under this page.
         # nested pages/sections under this page.
         self.page = None
         # type = array
-        # type = array
         # reference to ImplementationGuide_Page: ImplementationGuide_Page
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.kind is not None:
             for value in self.kind:
-                if value != None and value.lower() not in ['page', 'example', 'list', 'include', 'directory', 'dictionary', 'toc', 'resource']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'page, example, list, include, directory, dictionary, toc, resource'))
-
-        if self.kind is not None:
-            for value in self.kind:
-                if value != None and value.lower() not in ['page', 'example', 'list', 'include', 'directory', 'dictionary', 'toc', 'resource']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'page, example, list, include, directory, dictionary, toc, resource'))
+                if value is not None and value.lower() not in [
+                    'page', 'example', 'list', 'include', 'directory', 'dictionary', 'toc',
+                        'resource']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'page, example, list, include, directory, dictionary,'
+                        'toc, resource'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ImplementationGuide_Page',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImplementationGuide_Page',
-            'child_variable': 'page'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide_Page',
+             'child_variable': 'page'},
         ]
-

@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Coding import Coding
-from .Duration import Duration
+from .fhirbase import fhirbase
+
 
 class Encounter(fhirbase):
     """An interaction between a patient and healthcare provider(s) for the
@@ -16,13 +11,14 @@ class Encounter(fhirbase):
         # this is a encounter resource
         self.resourceType = 'Encounter'
         # type = string
-        # possible values = Encounter
+        # possible values: Encounter
 
         # planned | arrived | triaged | in-progress | onleave | finished |
         # cancelled +.
         self.status = None
         # type = string
-        # possible values = planned, arrived, triaged, in-progress, onleave, finished, cancelled, entered-in-error, unknown
+        # possible values: planned, arrived, triaged, in-progress,
+        # onleave, finished, cancelled, entered-in-error, unknown
 
         # the status history permits the encounter resource to contain the status
         # history without needing to read through the historical versions of the
@@ -138,121 +134,124 @@ class Encounter(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['planned', 'arrived', 'triaged', 'in-progress', 'onleave', 'finished', 'cancelled', 'entered-in-error', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'planned, arrived, triaged, in-progress, onleave, finished, cancelled, entered-in-error, unknown'))
+                if value is not None and value.lower() not in [
+                    'planned', 'arrived', 'triaged', 'in-progress', 'onleave', 'finished',
+                        'cancelled', 'entered-in-error', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'planned, arrived, triaged, in-progress, onleave,'
+                        'finished, cancelled, entered-in-error, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter',
-            'child_variable': 'serviceProvider'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter',
-            'child_variable': 'partOf'},
-
-            {'parent_entity': 'Encounter_Diagnosis',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'diagnosis'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter',
-            'child_variable': 'appointment'},
-
-            {'parent_entity': 'Encounter_StatusHistory',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'statusHistory'},
-
-            {'parent_entity': 'Encounter_Hospitalization',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'hospitalization'},
-
             {'parent_entity': 'Encounter_Participant',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'participant'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'participant'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter',
-            'child_variable': 'episodeOfCare'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'class'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'type'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter',
-            'child_variable': 'account'},
-
-            {'parent_entity': 'Duration',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'length'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter',
-            'child_variable': 'incomingReferral'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'account'},
 
             {'parent_entity': 'Encounter_Location',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'location'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'priority'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'reason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'location'},
 
             {'parent_entity': 'Encounter_ClassHistory',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter',
-            'child_variable': 'classHistory'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'classHistory'},
+
+            {'parent_entity': 'Encounter_StatusHistory',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'statusHistory'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'appointment'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': '_class'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'episodeOfCare'},
+
+            {'parent_entity': 'Encounter_Hospitalization',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'hospitalization'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'serviceProvider'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'partOf'},
+
+            {'parent_entity': 'Encounter_Diagnosis',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'diagnosis'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'incomingReferral'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'priority'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'length'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'reason'},
         ]
+
 
 class Encounter_StatusHistory(fhirbase):
     """An interaction between a patient and healthcare provider(s) for the
@@ -265,32 +264,39 @@ class Encounter_StatusHistory(fhirbase):
         # cancelled +.
         self.status = None
         # type = string
-        # possible values = planned, arrived, triaged, in-progress, onleave, finished, cancelled, entered-in-error, unknown
+        # possible values: planned, arrived, triaged, in-progress,
+        # onleave, finished, cancelled, entered-in-error, unknown
 
         # the time that the episode was in the specified status.
         self.period = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['planned', 'arrived', 'triaged', 'in-progress', 'onleave', 'finished', 'cancelled', 'entered-in-error', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'planned, arrived, triaged, in-progress, onleave, finished, cancelled, entered-in-error, unknown'))
+                if value is not None and value.lower() not in [
+                    'planned', 'arrived', 'triaged', 'in-progress', 'onleave', 'finished',
+                        'cancelled', 'entered-in-error', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'planned, arrived, triaged, in-progress, onleave, finished,'
+                        'cancelled, entered-in-error, unknown'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_StatusHistory',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_StatusHistory',
+             'child_variable': 'period'},
         ]
+
 
 class Encounter_ClassHistory(fhirbase):
     """An interaction between a patient and healthcare provider(s) for the
@@ -307,24 +313,26 @@ class Encounter_ClassHistory(fhirbase):
         self.period = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_ClassHistory',
-            'child_variable': 'class'},
-
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_ClassHistory',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_ClassHistory',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_ClassHistory',
+             'child_variable': '_class'},
         ]
+
 
 class Encounter_Participant(fhirbase):
     """An interaction between a patient and healthcare provider(s) for the
@@ -348,29 +356,31 @@ class Encounter_Participant(fhirbase):
         self.individual = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_Participant',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter_Participant',
-            'child_variable': 'individual'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Participant',
+             'child_variable': 'period'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_Participant',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Participant',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter_Participant',
+             'child_variable': 'individual'},
         ]
+
 
 class Encounter_Diagnosis(fhirbase):
     """An interaction between a patient and healthcare provider(s) for the
@@ -395,24 +405,26 @@ class Encounter_Diagnosis(fhirbase):
         self.rank = None
         # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_Diagnosis',
-            'child_variable': 'role'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter_Diagnosis',
-            'child_variable': 'condition'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter_Diagnosis',
+             'child_variable': 'condition'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Diagnosis',
+             'child_variable': 'role'},
         ]
+
 
 class Encounter_Hospitalization(fhirbase):
     """An interaction between a patient and healthcare provider(s) for the
@@ -461,59 +473,61 @@ class Encounter_Hospitalization(fhirbase):
         self.dischargeDisposition = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_Hospitalization',
-            'child_variable': 'dietPreference'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'specialArrangement'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'dischargeDisposition'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'origin'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'reAdmission'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'specialCourtesy'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'admitSource'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'dietPreference'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_Hospitalization',
-            'child_variable': 'preAdmissionIdentifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_Hospitalization',
-            'child_variable': 'specialCourtesy'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_Hospitalization',
-            'child_variable': 'admitSource'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_Hospitalization',
-            'child_variable': 'reAdmission'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_Hospitalization',
-            'child_variable': 'specialArrangement'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_Hospitalization',
-            'child_variable': 'dischargeDisposition'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'preAdmissionIdentifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter_Hospitalization',
-            'child_variable': 'destination'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter_Hospitalization',
-            'child_variable': 'origin'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'destination'},
         ]
+
 
 class Encounter_Location(fhirbase):
     """An interaction between a patient and healthcare provider(s) for the
@@ -531,35 +545,37 @@ class Encounter_Location(fhirbase):
         # location, then the period will have an end date/time.
         self.status = None
         # type = string
-        # possible values = planned, active, reserved, completed
+        # possible values: planned, active, reserved, completed
 
         # time period during which the patient was present at the location.
         self.period = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['planned', 'active', 'reserved', 'completed']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'planned, active, reserved, completed'))
+                if value is not None and value.lower() not in [
+                        'planned', 'active', 'reserved', 'completed']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'planned, active, reserved, completed'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Encounter_Location',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Location',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Encounter_Location',
-            'child_variable': 'location'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter_Location',
+             'child_variable': 'location'},
         ]
-

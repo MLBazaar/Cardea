@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Identifier import Identifier
-from .CodeableConcept import CodeableConcept
+from .fhirbase import fhirbase
+
 
 class DeviceComponent(fhirbase):
     """The characteristics, operational status and capabilities of a medical-
@@ -12,7 +10,7 @@ class DeviceComponent(fhirbase):
         # this is a devicecomponent resource
         self.resourceType = 'DeviceComponent'
         # type = string
-        # possible values = DeviceComponent
+        # possible values: DeviceComponent
 
         # the component type as defined in the object-oriented or metric
         # nomenclature partition.
@@ -49,13 +47,15 @@ class DeviceComponent(fhirbase):
         # chemical, acoustical, etc.
         self.measurementPrinciple = None
         # type = string
-        # possible values = other, chemical, electrical, impedance, nuclear, optical, thermal, biological, mechanical, acoustical, manual
+        # possible values: other, chemical, electrical, impedance,
+        # nuclear, optical, thermal, biological, mechanical, acoustical, manual
 
         # the production specification such as component revision, serial number,
         # etc.
         self.productionSpecification = None
         # type = array
-        # reference to DeviceComponent_ProductionSpecification: DeviceComponent_ProductionSpecification
+        # reference to DeviceComponent_ProductionSpecification:
+        # DeviceComponent_ProductionSpecification
 
         # the language code for the human-readable text string produced by the
         # device. this language code will follow the ietf language tag. example:
@@ -68,61 +68,64 @@ class DeviceComponent(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.measurementPrinciple is not None:
             for value in self.measurementPrinciple:
-                if value != None and value.lower() not in ['other', 'chemical', 'electrical', 'impedance', 'nuclear', 'optical', 'thermal', 'biological', 'mechanical', 'acoustical', 'manual']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'other, chemical, electrical, impedance, nuclear, optical, thermal, biological, mechanical, acoustical, manual'))
+                if value is not None and value.lower() not in [
+                    'other', 'chemical', 'electrical', 'impedance', 'nuclear', 'optical',
+                        'thermal', 'biological', 'mechanical', 'acoustical', 'manual']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'other, chemical, electrical, impedance, nuclear, optical, thermal,'
+                        'biological, mechanical, acoustical, manual'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceComponent',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'operationalStatus'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceComponent',
-            'child_variable': 'parent'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'parameterGroup'},
 
             {'parent_entity': 'DeviceComponent_ProductionSpecification',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceComponent',
-            'child_variable': 'productionSpecification'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceComponent',
-            'child_variable': 'languageCode'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceComponent',
-            'child_variable': 'parameterGroup'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceComponent',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'productionSpecification'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DeviceComponent',
-            'child_variable': 'source'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'parent'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceComponent',
-            'child_variable': 'operationalStatus'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'languageCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'source'},
         ]
+
 
 class DeviceComponent_ProductionSpecification(fhirbase):
     """The characteristics, operational status and capabilities of a medical-
@@ -146,22 +149,22 @@ class DeviceComponent_ProductionSpecification(fhirbase):
         self.productionSpec = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceComponent_ProductionSpecification',
-            'child_variable': 'componentId'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceComponent_ProductionSpecification',
+             'child_variable': 'componentId'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DeviceComponent_ProductionSpecification',
-            'child_variable': 'specType'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceComponent_ProductionSpecification',
+             'child_variable': 'specType'},
         ]
-

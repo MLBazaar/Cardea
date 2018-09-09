@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Money import Money
+from .fhirbase import fhirbase
+
 
 class Claim(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -15,7 +11,7 @@ class Claim(fhirbase):
         # this is a claim resource
         self.resourceType = 'Claim'
         # type = string
-        # possible values = Claim
+        # possible values: Claim
 
         # the status of the resource instance.
         self.status = None
@@ -36,7 +32,7 @@ class Claim(fhirbase):
         # (pre-determination).
         self.use = None
         # type = string
-        # possible values = complete, proposed, exploratory, other
+        # possible values: complete, proposed, exploratory, other
 
         # patient resource.
         self.patient = None
@@ -175,156 +171,157 @@ class Claim(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.use is not None:
             for value in self.use:
-                if value != None and value.lower() not in ['complete', 'proposed', 'exploratory', 'other']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'complete, proposed, exploratory, other'))
+                if value is not None and value.lower() not in [
+                        'complete', 'proposed', 'exploratory', 'other']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'complete, proposed, exploratory, other'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim',
-            'child_variable': 'patient'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim',
-            'child_variable': 'prescription'},
-
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'billablePeriod'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'total'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'subType'},
-
-            {'parent_entity': 'Claim_CareTeam',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'careTeam'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'fundsReserve'},
-
-            {'parent_entity': 'Claim_Procedure',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'procedure'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim',
-            'child_variable': 'facility'},
-
-            {'parent_entity': 'Claim_Information',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'information'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'hospitalization'},
-
-            {'parent_entity': 'Claim_Payee',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'payee'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'priority'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim',
-            'child_variable': 'insurer'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'employmentImpacted'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim',
-            'child_variable': 'referral'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'Claim_Diagnosis',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'diagnosis'},
-
-            {'parent_entity': 'Claim_Item',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'item'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'hospitalization'},
 
             {'parent_entity': 'Claim_Related',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'related'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'related'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim',
-            'child_variable': 'originalPrescription'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'referral'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim',
-            'child_variable': 'enterer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'originalPrescription'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'billablePeriod'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim',
-            'child_variable': 'provider'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'organization'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'prescription'},
 
             {'parent_entity': 'Claim_Accident',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'accident'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'accident'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim',
-            'child_variable': 'organization'},
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'total'},
 
             {'parent_entity': 'Claim_Insurance',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim',
-            'child_variable': 'insurance'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'insurance'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'priority'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'fundsReserve'},
+
+            {'parent_entity': 'Claim_Payee',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'payee'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'employmentImpacted'},
+
+            {'parent_entity': 'Claim_Procedure',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'procedure'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'insurer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Claim_Information',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'information'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'provider'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'subType'},
+
+            {'parent_entity': 'Claim_CareTeam',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'careTeam'},
+
+            {'parent_entity': 'Claim_Item',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'item'},
+
+            {'parent_entity': 'Claim_Diagnosis',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'diagnosis'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'enterer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'facility'},
         ]
+
 
 class Claim_Related(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -348,29 +345,31 @@ class Claim_Related(fhirbase):
         self.reference = None
         # reference to Identifier: Identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Related',
-            'child_variable': 'claim'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Related',
+             'child_variable': 'claim'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Related',
-            'child_variable': 'relationship'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Related',
+             'child_variable': 'relationship'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Related',
-            'child_variable': 'reference'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Related',
+             'child_variable': 'reference'},
         ]
+
 
 class Claim_Payee(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -391,29 +390,31 @@ class Claim_Payee(fhirbase):
         self.party = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Payee',
-            'child_variable': 'resourceType'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Payee',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Payee',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Payee',
-            'child_variable': 'party'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Payee',
+             'child_variable': 'party'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Payee',
+             'child_variable': 'resourceType'},
         ]
+
 
 class Claim_CareTeam(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -444,29 +445,31 @@ class Claim_CareTeam(fhirbase):
         self.qualification = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_CareTeam',
-            'child_variable': 'qualification'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_CareTeam',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_CareTeam',
+             'child_variable': 'role'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_CareTeam',
-            'child_variable': 'provider'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_CareTeam',
+             'child_variable': 'provider'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_CareTeam',
+             'child_variable': 'qualification'},
         ]
+
 
 class Claim_Information(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -524,49 +527,51 @@ class Claim_Information(fhirbase):
         self.reason = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Information',
-            'child_variable': 'code'},
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Information',
+             'child_variable': 'valueQuantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Information',
-            'child_variable': 'reason'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Information',
-            'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Information',
-            'child_variable': 'valueReference'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Information',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Information',
-            'child_variable': 'timingPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Information',
+             'child_variable': 'timingPeriod'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Information',
+             'child_variable': 'valueReference'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Information',
+             'child_variable': 'valueAttachment'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Information',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Information',
+             'child_variable': 'category'},
 
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Information',
-            'child_variable': 'valueQuantity'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Information',
+             'child_variable': 'reason'},
         ]
+
 
 class Claim_Diagnosis(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -598,34 +603,36 @@ class Claim_Diagnosis(fhirbase):
         self.packageCode = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Diagnosis',
-            'child_variable': 'diagnosisReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Diagnosis',
+             'child_variable': 'diagnosisReference'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Diagnosis',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Diagnosis',
+             'child_variable': 'diagnosisCodeableConcept'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Diagnosis',
-            'child_variable': 'packageCode'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Diagnosis',
+             'child_variable': 'type'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Diagnosis',
-            'child_variable': 'diagnosisCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Diagnosis',
+             'child_variable': 'packageCode'},
         ]
+
 
 class Claim_Procedure(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -650,24 +657,26 @@ class Claim_Procedure(fhirbase):
         self.procedureReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Procedure',
-            'child_variable': 'procedureCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Procedure',
+             'child_variable': 'procedureCodeableConcept'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Procedure',
-            'child_variable': 'procedureReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Procedure',
+             'child_variable': 'procedureReference'},
         ]
+
 
 class Claim_Insurance(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -703,24 +712,26 @@ class Claim_Insurance(fhirbase):
         self.claimResponse = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Insurance',
-            'child_variable': 'coverage'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Insurance',
+             'child_variable': 'coverage'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Insurance',
-            'child_variable': 'claimResponse'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Insurance',
+             'child_variable': 'claimResponse'},
         ]
+
 
 class Claim_Accident(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -745,29 +756,31 @@ class Claim_Accident(fhirbase):
         self.locationReference = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Accident',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Accident',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Accident',
-            'child_variable': 'locationReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Accident',
+             'child_variable': 'locationReference'},
 
             {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Accident',
-            'child_variable': 'locationAddress'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Accident',
+             'child_variable': 'locationAddress'},
         ]
+
 
 class Claim_Item(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -897,99 +910,101 @@ class Claim_Item(fhirbase):
         # type = array
         # reference to Claim_Detail: Claim_Detail
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'service'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'locationCodeableConcept'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'quantity'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'servicedPeriod'},
-
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'net'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'net'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'bodySite'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'locationCodeableConcept'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'subSite'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'service'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'encounter'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'encounter'},
 
-            {'parent_entity': 'Claim_Detail',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'detail'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'udi'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'unitPrice'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'subSite'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'revenue'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'programCode'},
 
             {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'locationAddress'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'locationAddress'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'revenue'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'category'},
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'servicedPeriod'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'udi'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'unitPrice'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'locationReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'locationReference'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'modifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'modifier'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Item',
-            'child_variable': 'programCode'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'bodySite'},
+
+            {'parent_entity': 'Claim_Detail',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'detail'},
         ]
+
 
 class Claim_Detail(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -1065,64 +1080,66 @@ class Claim_Detail(fhirbase):
         # type = array
         # reference to Claim_SubDetail: Claim_SubDetail
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Detail',
-            'child_variable': 'programCode'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Detail',
-            'child_variable': 'service'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Detail',
-            'child_variable': 'unitPrice'},
-
             {'parent_entity': 'Claim_SubDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Detail',
-            'child_variable': 'subDetail'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Detail',
-            'child_variable': 'net'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Detail',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Detail',
-            'child_variable': 'revenue'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'subDetail'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_Detail',
-            'child_variable': 'udi'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'udi'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'net'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Detail',
-            'child_variable': 'quantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_Detail',
-            'child_variable': 'modifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'modifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'service'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'programCode'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'unitPrice'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'revenue'},
         ]
+
 
 class Claim_SubDetail(fhirbase):
     """A provider issued list of services and products provided, or to be
@@ -1189,57 +1206,57 @@ class Claim_SubDetail(fhirbase):
         # type = array
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Claim_SubDetail',
-            'child_variable': 'udi'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_SubDetail',
-            'child_variable': 'modifier'},
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_SubDetail',
+             'child_variable': 'unitPrice'},
 
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_SubDetail',
-            'child_variable': 'net'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_SubDetail',
+             'child_variable': 'net'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_SubDetail',
-            'child_variable': 'revenue'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_SubDetail',
+             'child_variable': 'category'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_SubDetail',
-            'child_variable': 'service'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_SubDetail',
+             'child_variable': 'revenue'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_SubDetail',
-            'child_variable': 'quantity'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_SubDetail',
-            'child_variable': 'unitPrice'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_SubDetail',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_SubDetail',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_SubDetail',
+             'child_variable': 'programCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_SubDetail',
+             'child_variable': 'udi'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Claim_SubDetail',
-            'child_variable': 'programCode'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_SubDetail',
+             'child_variable': 'service'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_SubDetail',
+             'child_variable': 'modifier'},
         ]
-

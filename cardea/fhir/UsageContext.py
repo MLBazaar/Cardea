@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Quantity import Quantity
-from .Coding import Coding
-from .Range import Range
+from .fhirbase import fhirbase
+
 
 class UsageContext(fhirbase):
     """Specifies clinical/business/etc metadata that can be used to retrieve,
@@ -32,32 +29,32 @@ class UsageContext(fhirbase):
         self.valueRange = None
         # reference to Range: Range
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'UsageContext',
-            'child_variable': 'code'},
-
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'UsageContext',
-            'child_variable': 'valueRange'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'UsageContext',
-            'child_variable': 'valueCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'UsageContext',
+             'child_variable': 'valueRange'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'UsageContext',
-            'child_variable': 'valueQuantity'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'UsageContext',
+             'child_variable': 'valueQuantity'},
 
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'UsageContext',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'UsageContext',
+             'child_variable': 'valueCodeableConcept'},
+        ]

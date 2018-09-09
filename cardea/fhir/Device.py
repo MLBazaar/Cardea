@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
-from .ContactPoint import ContactPoint
+from .fhirbase import fhirbase
+
 
 class Device(fhirbase):
     """This resource identifies an instance or a type of a manufactured item
@@ -20,7 +16,7 @@ class Device(fhirbase):
         # this is a device resource
         self.resourceType = 'Device'
         # type = string
-        # possible values = Device
+        # possible values: Device
 
         # [unique device identifier (udi)](device.html#5.11.3.2.2) assigned to
         # device label or package.
@@ -30,7 +26,7 @@ class Device(fhirbase):
         # status of the device availability.
         self.status = None
         # type = string
-        # possible values = active, inactive, entered-in-error, unknown
+        # possible values: active, inactive, entered-in-error, unknown
 
         # code or identifier to identify a kind of device.
         self.type = None
@@ -105,66 +101,67 @@ class Device(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'inactive', 'entered-in-error', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, inactive, entered-in-error, unknown'))
+                if value is not None and value.lower() not in [
+                        'active', 'inactive', 'entered-in-error', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, inactive, entered-in-error, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Device',
-            'child_variable': 'safety'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Device',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Device',
-            'child_variable': 'note'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Device',
-            'child_variable': 'owner'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Device',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Device',
-            'child_variable': 'patient'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Device',
-            'child_variable': 'location'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Device',
-            'child_variable': 'type'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Device',
+             'child_variable': 'patient'},
 
             {'parent_entity': 'Device_Udi',
-            'parent_variable': 'object_id',
-            'child_entity': 'Device',
-            'child_variable': 'udi'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Device',
+             'child_variable': 'udi'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Device',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Device',
+             'child_variable': 'safety'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Device',
+             'child_variable': 'owner'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Device',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Device',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Device',
+             'child_variable': 'location'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Device',
+             'child_variable': 'identifier'},
         ]
+
 
 class Device_Udi(fhirbase):
     """This resource identifies an instance or a type of a manufactured item
@@ -220,17 +217,20 @@ class Device_Udi(fhirbase):
         # a coded entry to indicate how the data was entered.
         self.entryType = None
         # type = string
-        # possible values = barcode, rfid, manual, card, self-reported, unknown
+        # possible values: barcode, rfid, manual, card, self-reported,
+        # unknown
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.entryType is not None:
             for value in self.entryType:
-                if value != None and value.lower() not in ['barcode', 'rfid', 'manual', 'card', 'self-reported', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'barcode, rfid, manual, card, self-reported, unknown'))
-
+                if value is not None and value.lower() not in [
+                        'barcode', 'rfid', 'manual', 'card', 'self-reported', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'barcode, rfid, manual, card, self-reported, unknown'))

@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
-from .Quantity import Quantity
+from .fhirbase import fhirbase
+
 
 class Immunization(fhirbase):
     """Describes the event of a patient being administered a vaccination or a
@@ -16,7 +12,7 @@ class Immunization(fhirbase):
         # this is a immunization resource
         self.resourceType = 'Immunization'
         # type = string
-        # possible values = Immunization
+        # possible values: Immunization
 
         # indicates the current status of the vaccination event.
         self.status = None
@@ -114,89 +110,88 @@ class Immunization(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Immunization_VaccinationProtocol',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization',
-            'child_variable': 'vaccinationProtocol'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization',
-            'child_variable': 'vaccineCode'},
-
-            {'parent_entity': 'Immunization_Explanation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization',
-            'child_variable': 'explanation'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Immunization',
-            'child_variable': 'location'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Immunization',
-            'child_variable': 'patient'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Immunization',
-            'child_variable': 'encounter'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization',
-            'child_variable': 'route'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'reportOrigin'},
 
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization',
-            'child_variable': 'note'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Immunization_VaccinationProtocol',
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'vaccinationProtocol'},
 
             {'parent_entity': 'Immunization_Reaction',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization',
-            'child_variable': 'reaction'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'reaction'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Immunization',
-            'child_variable': 'manufacturer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Immunization',
+             'child_variable': 'patient'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization',
-            'child_variable': 'doseQuantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'doseQuantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization',
-            'child_variable': 'site'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization',
-            'child_variable': 'reportOrigin'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'site'},
 
             {'parent_entity': 'Immunization_Practitioner',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization',
-            'child_variable': 'practitioner'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'practitioner'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Immunization',
+             'child_variable': 'encounter'},
+
+            {'parent_entity': 'Immunization_Explanation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'explanation'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Immunization',
+             'child_variable': 'location'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Immunization',
+             'child_variable': 'manufacturer'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'vaccineCode'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'route'},
         ]
+
 
 class Immunization_Practitioner(fhirbase):
     """Describes the event of a patient being administered a vaccination or a
@@ -215,24 +210,26 @@ class Immunization_Practitioner(fhirbase):
         self.actor = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization_Practitioner',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization_Practitioner',
+             'child_variable': 'role'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Immunization_Practitioner',
-            'child_variable': 'actor'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Immunization_Practitioner',
+             'child_variable': 'actor'},
         ]
+
 
 class Immunization_Explanation(fhirbase):
     """Describes the event of a patient being administered a vaccination or a
@@ -252,24 +249,26 @@ class Immunization_Explanation(fhirbase):
         # type = array
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization_Explanation',
-            'child_variable': 'reason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization_Explanation',
+             'child_variable': 'reasonNotGiven'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization_Explanation',
-            'child_variable': 'reasonNotGiven'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization_Explanation',
+             'child_variable': 'reason'},
         ]
+
 
 class Immunization_Reaction(fhirbase):
     """Describes the event of a patient being administered a vaccination or a
@@ -291,19 +290,21 @@ class Immunization_Reaction(fhirbase):
         self.reported = None
         # type = boolean
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Immunization_Reaction',
-            'child_variable': 'detail'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Immunization_Reaction',
+             'child_variable': 'detail'},
         ]
+
 
 class Immunization_VaccinationProtocol(fhirbase):
     """Describes the event of a patient being administered a vaccination or a
@@ -350,32 +351,32 @@ class Immunization_VaccinationProtocol(fhirbase):
         self.doseStatusReason = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization_VaccinationProtocol',
-            'child_variable': 'doseStatus'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization_VaccinationProtocol',
+             'child_variable': 'targetDisease'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization_VaccinationProtocol',
-            'child_variable': 'doseStatusReason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization_VaccinationProtocol',
+             'child_variable': 'doseStatusReason'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Immunization_VaccinationProtocol',
-            'child_variable': 'targetDisease'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization_VaccinationProtocol',
+             'child_variable': 'doseStatus'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Immunization_VaccinationProtocol',
-            'child_variable': 'authority'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Immunization_VaccinationProtocol',
+             'child_variable': 'authority'},
         ]
-

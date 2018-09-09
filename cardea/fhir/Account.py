@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Money import Money
+from .fhirbase import fhirbase
+
 
 class Account(fhirbase):
     """A financial tool for tracking value accrued for a particular purpose.
@@ -15,12 +11,12 @@ class Account(fhirbase):
         # this is a account resource
         self.resourceType = 'Account'
         # type = string
-        # possible values = Account
+        # possible values: Account
 
         # indicates whether the account is presently used/usable or not.
         self.status = None
         # type = string
-        # possible values = active, inactive, entered-in-error
+        # possible values: active, inactive, entered-in-error
 
         # categorizes the account for reporting and searching purposes.
         self.type = None
@@ -78,66 +74,67 @@ class Account(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'inactive', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, inactive, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'active', 'inactive', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, inactive, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Account',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Account_Coverage',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'coverage'},
-
-            {'parent_entity': 'Account_Guarantor',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'guarantor'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'balance'},
-
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'active'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'active'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Account',
-            'child_variable': 'owner'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Account',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Account_Coverage',
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'coverage'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Account_Guarantor',
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'guarantor'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Account',
+             'child_variable': 'owner'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'balance'},
         ]
+
 
 class Account_Coverage(fhirbase):
     """A financial tool for tracking value accrued for a particular purpose.
@@ -157,19 +154,21 @@ class Account_Coverage(fhirbase):
         self.priority = None
         # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Account_Coverage',
-            'child_variable': 'coverage'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Account_Coverage',
+             'child_variable': 'coverage'},
         ]
+
 
 class Account_Guarantor(fhirbase):
     """A financial tool for tracking value accrued for a particular purpose.
@@ -192,22 +191,22 @@ class Account_Guarantor(fhirbase):
         self.period = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Account_Guarantor',
-            'child_variable': 'party'},
-
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account_Guarantor',
-            'child_variable': 'period'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Account_Guarantor',
+             'child_variable': 'period'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Account_Guarantor',
+             'child_variable': 'party'},
+        ]

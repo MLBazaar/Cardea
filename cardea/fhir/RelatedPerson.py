@@ -1,12 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .HumanName import HumanName
-from .Address import Address
-from .Reference import Reference
-from .ContactPoint import ContactPoint
-from .Period import Period
-from .Attachment import Attachment
+from .fhirbase import fhirbase
+
 
 class RelatedPerson(fhirbase):
     """Information about a person that is involved in the care for a patient,
@@ -18,7 +11,7 @@ class RelatedPerson(fhirbase):
         # this is a relatedperson resource
         self.resourceType = 'RelatedPerson'
         # type = string
-        # possible values = RelatedPerson
+        # possible values: RelatedPerson
 
         # whether this related person record is in active use.
         self.active = None
@@ -47,7 +40,7 @@ class RelatedPerson(fhirbase):
         # for administration and record keeping purposes.
         self.gender = None
         # type = string
-        # possible values = male, female, other, unknown
+        # possible values: male, female, other, unknown
 
         # the date on which the related person was born.
         self.birthDate = None
@@ -73,59 +66,58 @@ class RelatedPerson(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.gender is not None:
             for value in self.gender:
-                if value != None and value.lower() not in ['male', 'female', 'other', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'male, female, other, unknown'))
+                if value is not None and value.lower() not in [
+                        'male', 'female', 'other', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'male, female, other, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RelatedPerson',
-            'child_variable': 'patient'},
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'RelatedPerson',
+             'child_variable': 'address'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'RelatedPerson',
-            'child_variable': 'photo'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RelatedPerson',
-            'child_variable': 'relationship'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'RelatedPerson',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'RelatedPerson',
-            'child_variable': 'telecom'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RelatedPerson',
+             'child_variable': 'photo'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'RelatedPerson',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RelatedPerson',
+             'child_variable': 'identifier'},
 
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'RelatedPerson',
-            'child_variable': 'address'},
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'RelatedPerson',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'RelatedPerson',
+             'child_variable': 'relationship'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RelatedPerson',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'RelatedPerson',
+             'child_variable': 'telecom'},
 
             {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'RelatedPerson',
-            'child_variable': 'name'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RelatedPerson',
+             'child_variable': 'name'},
         ]
-

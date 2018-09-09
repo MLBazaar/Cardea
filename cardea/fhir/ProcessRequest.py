@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Period import Period
-from .Identifier import Identifier
+from .fhirbase import fhirbase
+
 
 class ProcessRequest(fhirbase):
     """This resource provides the target, request and response, and action
@@ -13,7 +11,7 @@ class ProcessRequest(fhirbase):
         # this is a processrequest resource
         self.resourceType = 'ProcessRequest'
         # type = string
-        # possible values = ProcessRequest
+        # possible values: ProcessRequest
 
         # the status of the resource instance.
         self.status = None
@@ -23,7 +21,7 @@ class ProcessRequest(fhirbase):
         # readjudication, statusrequest,pendedrequest.
         self.action = None
         # type = string
-        # possible values = cancel, poll, reprocess, status
+        # possible values: cancel, poll, reprocess, status
 
         # the organization which is the target of the request.
         self.target = None
@@ -84,61 +82,62 @@ class ProcessRequest(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.action is not None:
             for value in self.action:
-                if value != None and value.lower() not in ['cancel', 'poll', 'reprocess', 'status']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'cancel, poll, reprocess, status'))
+                if value is not None and value.lower() not in [
+                        'cancel', 'poll', 'reprocess', 'status']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'cancel, poll, reprocess, status'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcessRequest',
-            'child_variable': 'provider'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcessRequest',
-            'child_variable': 'target'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcessRequest',
-            'child_variable': 'request'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcessRequest',
-            'child_variable': 'organization'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcessRequest',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcessRequest',
-            'child_variable': 'response'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessRequest',
+             'child_variable': 'response'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcessRequest',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessRequest',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessRequest',
+             'child_variable': 'organization'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessRequest',
+             'child_variable': 'target'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessRequest',
+             'child_variable': 'request'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessRequest',
+             'child_variable': 'period'},
 
             {'parent_entity': 'ProcessRequest_Item',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcessRequest',
-            'child_variable': 'item'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessRequest',
+             'child_variable': 'item'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessRequest',
+             'child_variable': 'provider'},
         ]
+
 
 class ProcessRequest_Item(fhirbase):
     """This resource provides the target, request and response, and action
@@ -151,8 +150,8 @@ class ProcessRequest_Item(fhirbase):
         self.sequenceLinkId = None
         # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

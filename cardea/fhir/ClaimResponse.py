@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Money import Money
-from .Coding import Coding
+from .fhirbase import fhirbase
+
 
 class ClaimResponse(fhirbase):
     """This resource provides the adjudication details from the processing of a
@@ -14,7 +10,7 @@ class ClaimResponse(fhirbase):
         # this is a claimresponse resource
         self.resourceType = 'ClaimResponse'
         # type = string
-        # possible values = ClaimResponse
+        # possible values: ClaimResponse
 
         # the status of the resource instance.
         self.status = None
@@ -121,114 +117,113 @@ class ClaimResponse(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'requestProvider'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'communicationRequest'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'requestOrganization'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'communicationRequest'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'reserved'},
-
-            {'parent_entity': 'ClaimResponse_Item',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'item'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'unallocDeductable'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'insurer'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'payeeType'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'totalCost'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'totalBenefit'},
-
-            {'parent_entity': 'ClaimResponse_ProcessNote',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'processNote'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'request'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'requestProvider'},
 
             {'parent_entity': 'ClaimResponse_AddItem',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'addItem'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'patient'},
-
-            {'parent_entity': 'ClaimResponse_Error',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'error'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'outcome'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'addItem'},
 
             {'parent_entity': 'ClaimResponse_Payment',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'payment'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'payment'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'form'},
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'totalBenefit'},
 
             {'parent_entity': 'ClaimResponse_Insurance',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse',
-            'child_variable': 'insurance'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'insurance'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'insurer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'request'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'payeeType'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'requestOrganization'},
+
+            {'parent_entity': 'ClaimResponse_Item',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'item'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'totalCost'},
+
+            {'parent_entity': 'ClaimResponse_Error',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'error'},
+
+            {'parent_entity': 'ClaimResponse_ProcessNote',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'processNote'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'form'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'reserved'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'unallocDeductable'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'outcome'},
         ]
+
 
 class ClaimResponse_Item(fhirbase):
     """This resource provides the adjudication details from the processing of a
@@ -254,24 +249,26 @@ class ClaimResponse_Item(fhirbase):
         # type = array
         # reference to ClaimResponse_Detail: ClaimResponse_Detail
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ClaimResponse_Adjudication',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Item',
-            'child_variable': 'adjudication'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Item',
+             'child_variable': 'adjudication'},
 
             {'parent_entity': 'ClaimResponse_Detail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Item',
-            'child_variable': 'detail'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Item',
+             'child_variable': 'detail'},
         ]
+
 
 class ClaimResponse_Adjudication(fhirbase):
     """This resource provides the adjudication details from the processing of a
@@ -280,69 +277,47 @@ class ClaimResponse_Adjudication(fhirbase):
 
     def __init__(self, dict_values=None):
         # code indicating: co-pay, deductible, eligible, benefit, tax, etc.
-        # code indicating: co-pay, deductible, eligible, benefit, tax, etc.
-        # code indicating: co-pay, deductible, eligible, benefit, tax, etc.
-        # code indicating: co-pay, deductible, eligible, benefit, tax, etc.
-        # code indicating: co-pay, deductible, eligible, benefit, tax, etc.
         self.category = None
         # reference to CodeableConcept: CodeableConcept
 
         # adjudication reason such as limit reached.
-        # adjudication reason such as limit reached.
-        # adjudication reason such as limit reached.
-        # adjudication reason such as limit reached.
-        # adjudication reason such as limit reached.
         self.reason = None
         # reference to CodeableConcept: CodeableConcept
 
-        # monetary amount associated with the code.
-        # monetary amount associated with the code.
-        # monetary amount associated with the code.
-        # monetary amount associated with the code.
         # monetary amount associated with the code.
         self.amount = None
         # reference to Money: Money
 
         # a non-monetary value for example a percentage. mutually exclusive to the
         # amount element above.
-        # a non-monetary value for example a percentage. mutually exclusive to the
-        # amount element above.
-        # a non-monetary value for example a percentage. mutually exclusive to the
-        # amount element above.
-        # a non-monetary value for example a percentage. mutually exclusive to the
-        # amount element above.
-        # a non-monetary value for example a percentage. mutually exclusive to the
-        # amount element above.
         self.value = None
         # type = int
-        # type = int
-        # type = int
-        # type = int
-        # type = int
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Adjudication',
+             'child_variable': 'reason'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Adjudication',
+             'child_variable': 'category'},
+
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Adjudication',
-            'child_variable': 'amount'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Adjudication',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Adjudication',
-            'child_variable': 'reason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Adjudication',
+             'child_variable': 'amount'},
         ]
+
 
 class ClaimResponse_Detail(fhirbase):
     """This resource provides the adjudication details from the processing of a
@@ -368,24 +343,26 @@ class ClaimResponse_Detail(fhirbase):
         # type = array
         # reference to ClaimResponse_SubDetail: ClaimResponse_SubDetail
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ClaimResponse_Adjudication',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Detail',
-            'child_variable': 'adjudication'},
-
             {'parent_entity': 'ClaimResponse_SubDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Detail',
-            'child_variable': 'subDetail'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Detail',
+             'child_variable': 'subDetail'},
+
+            {'parent_entity': 'ClaimResponse_Adjudication',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Detail',
+             'child_variable': 'adjudication'},
         ]
+
 
 class ClaimResponse_SubDetail(fhirbase):
     """This resource provides the adjudication details from the processing of a
@@ -406,19 +383,21 @@ class ClaimResponse_SubDetail(fhirbase):
         # type = array
         # reference to ClaimResponse_Adjudication: ClaimResponse_Adjudication
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'ClaimResponse_Adjudication',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_SubDetail',
-            'child_variable': 'adjudication'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_SubDetail',
+             'child_variable': 'adjudication'},
         ]
+
 
 class ClaimResponse_AddItem(fhirbase):
     """This resource provides the adjudication details from the processing of a
@@ -469,49 +448,51 @@ class ClaimResponse_AddItem(fhirbase):
         # type = array
         # reference to ClaimResponse_Detail1: ClaimResponse_Detail1
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_AddItem',
-            'child_variable': 'fee'},
+            {'parent_entity': 'ClaimResponse_Detail1',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_AddItem',
+             'child_variable': 'detail'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_AddItem',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_AddItem',
+             'child_variable': 'modifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_AddItem',
+             'child_variable': 'service'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_AddItem',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_AddItem',
+             'child_variable': 'revenue'},
 
             {'parent_entity': 'ClaimResponse_Adjudication',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_AddItem',
-            'child_variable': 'adjudication'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_AddItem',
+             'child_variable': 'adjudication'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_AddItem',
-            'child_variable': 'service'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_AddItem',
-            'child_variable': 'revenue'},
-
-            {'parent_entity': 'ClaimResponse_Detail1',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_AddItem',
-            'child_variable': 'detail'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_AddItem',
-            'child_variable': 'modifier'},
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_AddItem',
+             'child_variable': 'fee'},
         ]
+
 
 class ClaimResponse_Detail1(fhirbase):
     """This resource provides the adjudication details from the processing of a
@@ -552,44 +533,46 @@ class ClaimResponse_Detail1(fhirbase):
         # type = array
         # reference to ClaimResponse_Adjudication: ClaimResponse_Adjudication
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Detail1',
-            'child_variable': 'revenue'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Detail1',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Detail1',
-            'child_variable': 'modifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Detail1',
+             'child_variable': 'revenue'},
 
             {'parent_entity': 'ClaimResponse_Adjudication',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Detail1',
-            'child_variable': 'adjudication'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Detail1',
+             'child_variable': 'adjudication'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Detail1',
-            'child_variable': 'service'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Detail1',
+             'child_variable': 'category'},
 
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Detail1',
-            'child_variable': 'fee'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Detail1',
+             'child_variable': 'fee'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Detail1',
+             'child_variable': 'service'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Detail1',
+             'child_variable': 'modifier'},
         ]
+
 
 class ClaimResponse_Error(fhirbase):
     """This resource provides the adjudication details from the processing of a
@@ -619,19 +602,21 @@ class ClaimResponse_Error(fhirbase):
         self.code = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Error',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Error',
+             'child_variable': 'code'},
         ]
+
 
 class ClaimResponse_Payment(fhirbase):
     """This resource provides the adjudication details from the processing of a
@@ -664,39 +649,38 @@ class ClaimResponse_Payment(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Payment',
-            'child_variable': 'type'},
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Payment',
+             'child_variable': 'amount'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Payment',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Payment',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Payment',
-            'child_variable': 'amount'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Payment',
+             'child_variable': 'adjustment'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Payment',
-            'child_variable': 'adjustmentReason'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Payment',
+             'child_variable': 'type'},
 
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_Payment',
-            'child_variable': 'adjustment'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Payment',
+             'child_variable': 'adjustmentReason'},
         ]
+
 
 class ClaimResponse_ProcessNote(fhirbase):
     """This resource provides the adjudication details from the processing of a
@@ -724,24 +708,26 @@ class ClaimResponse_ProcessNote(fhirbase):
         self.language = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_ProcessNote',
-            'child_variable': 'language'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_ProcessNote',
+             'child_variable': 'type'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ClaimResponse_ProcessNote',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_ProcessNote',
+             'child_variable': 'language'},
         ]
+
 
 class ClaimResponse_Insurance(fhirbase):
     """This resource provides the adjudication details from the processing of a
@@ -775,22 +761,22 @@ class ClaimResponse_Insurance(fhirbase):
         self.claimResponse = None
         # reference to Reference: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClaimResponse_Insurance',
-            'child_variable': 'claimResponse'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse_Insurance',
+             'child_variable': 'claimResponse'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ClaimResponse_Insurance',
-            'child_variable': 'coverage'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse_Insurance',
+             'child_variable': 'coverage'},
         ]
-

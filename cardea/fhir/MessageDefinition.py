@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Coding import Coding
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class MessageDefinition(fhirbase):
     """Defines the characteristics of a message that can be shared between
@@ -16,7 +11,7 @@ class MessageDefinition(fhirbase):
         # this is a messagedefinition resource
         self.resourceType = 'MessageDefinition'
         # type = string
-        # possible values = MessageDefinition
+        # possible values: MessageDefinition
 
         # an absolute uri that is used to identify this message definition when it
         # is referenced in a specification, model, design or an instance. this
@@ -52,7 +47,7 @@ class MessageDefinition(fhirbase):
         # of the content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this message definition is authored for
         # testing purposes (or education/evaluation/marketing), and is not
@@ -154,71 +149,72 @@ class MessageDefinition(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageDefinition',
-            'child_variable': 'useContext'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageDefinition',
-            'child_variable': 'event'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageDefinition',
+             'child_variable': 'useContext'},
 
             {'parent_entity': 'MessageDefinition_AllowedResponse',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageDefinition',
-            'child_variable': 'allowedResponse'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageDefinition',
+             'child_variable': 'allowedResponse'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageDefinition',
+             'child_variable': 'event'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageDefinition',
-            'child_variable': 'parent'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageDefinition',
-            'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageDefinition',
-            'child_variable': 'base'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageDefinition',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageDefinition',
-            'child_variable': 'replaces'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageDefinition',
+             'child_variable': 'replaces'},
 
             {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageDefinition',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageDefinition',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageDefinition',
+             'child_variable': 'parent'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageDefinition',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'MessageDefinition_Focus',
-            'parent_variable': 'object_id',
-            'child_entity': 'MessageDefinition',
-            'child_variable': 'focus'},
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageDefinition',
+             'child_variable': 'focus'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'MessageDefinition',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageDefinition',
+             'child_variable': 'base'},
         ]
+
 
 class MessageDefinition_Focus(fhirbase):
     """Defines the characteristics of a message that can be shared between
@@ -248,19 +244,21 @@ class MessageDefinition_Focus(fhirbase):
         self.max = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageDefinition_Focus',
-            'child_variable': 'profile'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageDefinition_Focus',
+             'child_variable': 'profile'},
         ]
+
 
 class MessageDefinition_AllowedResponse(fhirbase):
     """Defines the characteristics of a message that can be shared between
@@ -279,17 +277,17 @@ class MessageDefinition_AllowedResponse(fhirbase):
         self.situation = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'MessageDefinition_AllowedResponse',
-            'child_variable': 'message'},
+             'parent_variable': 'identifier',
+             'child_entity': 'MessageDefinition_AllowedResponse',
+             'child_variable': 'message'},
         ]
-

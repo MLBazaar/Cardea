@@ -1,11 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Reference import Reference
-from .Age import Age
-from .Range import Range
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class FamilyMemberHistory(fhirbase):
     """Significant health events and conditions for a person related to the
@@ -16,7 +10,7 @@ class FamilyMemberHistory(fhirbase):
         # this is a familymemberhistory resource
         self.resourceType = 'FamilyMemberHistory'
         # type = string
-        # possible values = FamilyMemberHistory
+        # possible values: FamilyMemberHistory
 
         # a protocol or questionnaire that was adhered to in whole or in part by
         # this event.
@@ -28,7 +22,8 @@ class FamilyMemberHistory(fhirbase):
         # specific family member.
         self.status = None
         # type = string
-        # possible values = partial, completed, entered-in-error, health-unknown
+        # possible values: partial, completed, entered-in-error, health-
+        # unknown
 
         # if true, indicates the taking of an individual family member's history
         # did not occur. the notdone element should not be used to document
@@ -63,7 +58,7 @@ class FamilyMemberHistory(fhirbase):
         # have for administration and record keeping purposes.
         self.gender = None
         # type = string
-        # possible values = male, female, other, unknown
+        # possible values: male, female, other, unknown
 
         # the actual or approximate date of birth of the relative.
         self.bornPeriod = None
@@ -156,96 +151,99 @@ class FamilyMemberHistory(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['partial', 'completed', 'entered-in-error', 'health-unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'partial, completed, entered-in-error, health-unknown'))
+                if value is not None and value.lower() not in [
+                        'partial', 'completed', 'entered-in-error', 'health-unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'partial, completed, entered-in-error, health-unknown'))
 
         if self.gender is not None:
             for value in self.gender:
-                if value != None and value.lower() not in ['male', 'female', 'other', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'male, female, other, unknown'))
+                if value is not None and value.lower() not in [
+                        'male', 'female', 'other', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'male, female, other, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'definition'},
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'ageRange'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'bornPeriod'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'patient'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'deceasedRange'},
-
-            {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'ageAge'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'reasonReference'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'notDoneReason'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'relationship'},
-
-            {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'deceasedAge'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'ageRange'},
-
-            {'parent_entity': 'FamilyMemberHistory_Condition',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'condition'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'bornPeriod'},
 
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory',
-            'child_variable': 'note'},
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'FamilyMemberHistory_Condition',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'condition'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'deceasedAge'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'ageAge'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'reasonCode'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'notDoneReason'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'relationship'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'deceasedRange'},
         ]
+
 
 class FamilyMemberHistory_Condition(fhirbase):
     """Significant health events and conditions for a person related to the
@@ -294,42 +292,42 @@ class FamilyMemberHistory_Condition(fhirbase):
         # type = array
         # reference to Annotation: Annotation
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory_Condition',
+             'child_variable': 'note'},
+
             {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory_Condition',
-            'child_variable': 'onsetAge'},
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory_Condition',
+             'child_variable': 'onsetAge'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory_Condition',
+             'child_variable': 'outcome'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory_Condition',
-            'child_variable': 'onsetPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory_Condition',
+             'child_variable': 'onsetPeriod'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory_Condition',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory_Condition',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory_Condition',
-            'child_variable': 'outcome'},
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory_Condition',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'FamilyMemberHistory_Condition',
-            'child_variable': 'onsetRange'},
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory_Condition',
+             'child_variable': 'onsetRange'},
         ]
-

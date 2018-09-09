@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class CodeSystem(fhirbase):
     """A code system resource specifies a set of codes drawn from one or more
@@ -13,7 +10,7 @@ class CodeSystem(fhirbase):
         # this is a codesystem resource
         self.resourceType = 'CodeSystem'
         # type = string
-        # possible values = CodeSystem
+        # possible values: CodeSystem
 
         # an absolute uri that is used to identify this code system when it is
         # referenced in a specification, model, design or an instance. this shall
@@ -49,7 +46,7 @@ class CodeSystem(fhirbase):
         # content.
         self.status = None
         # type = string
-        # possible values = draft, active, retired, unknown
+        # possible values: draft, active, retired, unknown
 
         # a boolean value to indicate that this code system is authored for
         # testing purposes (or education/evaluation/marketing), and is not
@@ -116,7 +113,7 @@ class CodeSystem(fhirbase):
         # the meaning of the hierarchy of concepts.
         self.hierarchyMeaning = None
         # type = string
-        # possible values = grouped-by, is-a, part-of, classified-with
+        # possible values: grouped-by, is-a, part-of, classified-with
 
         # true if code system defines a post-composition grammar.
         self.compositional = None
@@ -132,7 +129,7 @@ class CodeSystem(fhirbase):
         # defines - are represented in this resource.
         self.content = None
         # type = string
-        # possible values = not-present, example, fragment, complete
+        # possible values: not-present, example, fragment, complete
 
         # the total number of concepts defined by the code system. where the code
         # system has a compositional grammar, the count refers to the number of
@@ -165,66 +162,71 @@ class CodeSystem(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
         if self.hierarchyMeaning is not None:
             for value in self.hierarchyMeaning:
-                if value != None and value.lower() not in ['grouped-by', 'is-a', 'part-of', 'classified-with']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'grouped-by, is-a, part-of, classified-with'))
+                if value is not None and value.lower() not in [
+                        'grouped-by', 'is-a', 'part-of', 'classified-with']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'grouped-by, is-a, part-of, classified-with'))
 
         if self.content is not None:
             for value in self.content:
-                if value != None and value.lower() not in ['not-present', 'example', 'fragment', 'complete']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'not-present, example, fragment, complete'))
+                if value is not None and value.lower() not in [
+                        'not-present', 'example', 'fragment', 'complete']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'not-present, example, fragment, complete'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem',
-            'child_variable': 'jurisdiction'},
+            {'parent_entity': 'CodeSystem_Concept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem',
+             'child_variable': 'concept'},
 
             {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'CodeSystem_Concept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem',
-            'child_variable': 'concept'},
-
-            {'parent_entity': 'CodeSystem_Filter',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem',
-            'child_variable': 'filter'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem',
-            'child_variable': 'useContext'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem',
+             'child_variable': 'contact'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeSystem_Filter',
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem',
+             'child_variable': 'filter'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem',
+             'child_variable': 'useContext'},
 
             {'parent_entity': 'CodeSystem_Property',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem',
-            'child_variable': 'property'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem',
+             'child_variable': 'property'},
         ]
+
 
 class CodeSystem_Filter(fhirbase):
     """A code system resource specifies a set of codes drawn from one or more
@@ -248,9 +250,11 @@ class CodeSystem_Filter(fhirbase):
         self.value = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class CodeSystem_Property(fhirbase):
@@ -281,19 +285,24 @@ class CodeSystem_Property(fhirbase):
         # concept).
         self.type = None
         # type = string
-        # possible values = code, Coding, string, integer, boolean, dateTime
+        # possible values: code, Coding, string, integer, boolean,
+        # dateTime
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['code', 'coding', 'string', 'integer', 'boolean', 'datetime']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'code, coding, string, integer, boolean, datetime'))
+                if value is not None and value.lower() not in [
+                        'code', 'coding', 'string', 'integer', 'boolean', 'datetime']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'code, Coding, string, integer, boolean, dateTime'))
+
 
 class CodeSystem_Concept(fhirbase):
     """A code system resource specifies a set of codes drawn from one or more
@@ -303,82 +312,64 @@ class CodeSystem_Concept(fhirbase):
     def __init__(self, dict_values=None):
         # a code - a text symbol - that uniquely identifies the concept within the
         # code system.
-        # a code - a text symbol - that uniquely identifies the concept within the
-        # code system.
         self.code = None
         # type = string
-        # type = string
 
-        # a human readable string that is the recommended default way to present
-        # this concept to a user.
         # a human readable string that is the recommended default way to present
         # this concept to a user.
         self.display = None
         # type = string
-        # type = string
 
-        # the formal definition of the concept. the code system resource does not
-        # make formal definitions required, because of the prevalence of legacy
-        # systems. however, they are highly recommended, as without them there is
-        # no formal meaning associated with the concept.
         # the formal definition of the concept. the code system resource does not
         # make formal definitions required, because of the prevalence of legacy
         # systems. however, they are highly recommended, as without them there is
         # no formal meaning associated with the concept.
         self.definition = None
         # type = string
-        # type = string
 
-        # additional representations for the concept - other languages, aliases,
-        # specialized purposes, used for particular purposes, etc.
         # additional representations for the concept - other languages, aliases,
         # specialized purposes, used for particular purposes, etc.
         self.designation = None
         # type = array
-        # type = array
         # reference to CodeSystem_Designation: CodeSystem_Designation
 
         # a property value for this concept.
-        # a property value for this concept.
         self.property = None
-        # type = array
         # type = array
         # reference to CodeSystem_Property1: CodeSystem_Property1
 
         # defines children of a concept to produce a hierarchy of concepts. the
         # nature of the relationships is variable (is-a/contains/categorizes) -
         # see hierarchymeaning.
-        # defines children of a concept to produce a hierarchy of concepts. the
-        # nature of the relationships is variable (is-a/contains/categorizes) -
-        # see hierarchymeaning.
         self.concept = None
-        # type = array
         # type = array
         # reference to CodeSystem_Concept: CodeSystem_Concept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeSystem_Property1',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem_Concept',
-            'child_variable': 'property'},
-
             {'parent_entity': 'CodeSystem_Concept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem_Concept',
-            'child_variable': 'concept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem_Concept',
+             'child_variable': 'concept'},
 
             {'parent_entity': 'CodeSystem_Designation',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem_Concept',
-            'child_variable': 'designation'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem_Concept',
+             'child_variable': 'designation'},
+
+            {'parent_entity': 'CodeSystem_Property1',
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem_Concept',
+             'child_variable': 'property'},
         ]
+
 
 class CodeSystem_Designation(fhirbase):
     """A code system resource specifies a set of codes drawn from one or more
@@ -387,35 +378,32 @@ class CodeSystem_Designation(fhirbase):
 
     def __init__(self, dict_values=None):
         # the language this designation is defined for.
-        # the language this designation is defined for.
         self.language = None
         # type = string
-        # type = string
 
-        # a code that details how this designation would be used.
         # a code that details how this designation would be used.
         self.use = None
         # reference to Coding: Coding
 
         # the text value for this designation.
-        # the text value for this designation.
         self.value = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem_Designation',
-            'child_variable': 'use'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem_Designation',
+             'child_variable': 'use'},
         ]
+
 
 class CodeSystem_Property1(fhirbase):
     """A code system resource specifies a set of codes drawn from one or more
@@ -424,57 +412,44 @@ class CodeSystem_Property1(fhirbase):
 
     def __init__(self, dict_values=None):
         # a code that is a reference to codesystem.property.code.
-        # a code that is a reference to codesystem.property.code.
         self.code = None
         # type = string
-        # type = string
 
-        # the value of this property.
         # the value of this property.
         self.valueCode = None
         # type = string
-        # type = string
 
-        # the value of this property.
         # the value of this property.
         self.valueCoding = None
         # reference to Coding: Coding
 
         # the value of this property.
-        # the value of this property.
         self.valueString = None
         # type = string
-        # type = string
 
-        # the value of this property.
         # the value of this property.
         self.valueInteger = None
         # type = int
-        # type = int
 
-        # the value of this property.
         # the value of this property.
         self.valueBoolean = None
         # type = boolean
-        # type = boolean
 
-        # the value of this property.
         # the value of this property.
         self.valueDateTime = None
         # type = string
-        # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'CodeSystem_Property1',
-            'child_variable': 'valueCoding'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem_Property1',
+             'child_variable': 'valueCoding'},
         ]
-

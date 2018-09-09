@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .DataRequirement import DataRequirement
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class GuidanceResponse(fhirbase):
     """A guidance response is the formal response to a guidance request,
@@ -15,7 +11,7 @@ class GuidanceResponse(fhirbase):
         # this is a guidanceresponse resource
         self.resourceType = 'GuidanceResponse'
         # type = string
-        # possible values = GuidanceResponse
+        # possible values: GuidanceResponse
 
         # the id of the request associated with this response. if an id was given
         # as part of the request, it will be reproduced here to enable the
@@ -39,7 +35,8 @@ class GuidanceResponse(fhirbase):
         # description of the additional requested information.
         self.status = None
         # type = string
-        # possible values = success, data-requested, data-required, in-progress, failure, entered-in-error
+        # possible values: success, data-requested, data-required, in-
+        # progress, failure, entered-in-error
 
         # the patient for which the request was processed.
         self.subject = None
@@ -112,79 +109,80 @@ class GuidanceResponse(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['success', 'data-requested', 'data-required', 'in-progress', 'failure', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'success, data-requested, data-required, in-progress, failure, entered-in-error'))
+                if value is not None and value.lower() not in [
+                    'success', 'data-requested', 'data-required', 'in-progress', 'failure',
+                        'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'success, data-requested, data-required, in-progress,'
+                        'failure, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'reasonCodeableConcept'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'module'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'evaluationMessage'},
+             'parent_variable': 'identifier',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'outputParameters'},
 
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'reasonCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'note'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'result'},
+             'parent_variable': 'identifier',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'context'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'performer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'performer'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'result'},
 
             {'parent_entity': 'DataRequirement',
-            'parent_variable': 'object_id',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'dataRequirement'},
+             'parent_variable': 'object_id',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'dataRequirement'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'outputParameters'},
+             'parent_variable': 'identifier',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'reasonReference'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'GuidanceResponse',
-            'child_variable': 'reasonReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'evaluationMessage'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'GuidanceResponse',
+             'child_variable': 'module'},
         ]
-

@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Address import Address
-from .Reference import Reference
-from .ContactPoint import ContactPoint
+from .fhirbase import fhirbase
+
 
 class Organization(fhirbase):
     """A formally or informally recognized grouping of people or organizations
@@ -16,7 +12,7 @@ class Organization(fhirbase):
         # this is a organization resource
         self.resourceType = 'Organization'
         # type = string
-        # possible values = Organization
+        # possible values: Organization
 
         # whether the organization's record is still in active use.
         self.active = None
@@ -67,49 +63,48 @@ class Organization(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Organization',
-            'child_variable': 'endpoint'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Organization',
-            'child_variable': 'partOf'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Organization',
-            'child_variable': 'telecom'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Organization',
+             'child_variable': 'partOf'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Organization',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Organization',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Organization_Contact',
-            'parent_variable': 'object_id',
-            'child_entity': 'Organization',
-            'child_variable': 'contact'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Organization',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Organization',
+             'child_variable': 'contact'},
 
             {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Organization',
-            'child_variable': 'address'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Organization',
+             'child_variable': 'address'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Organization',
+             'child_variable': 'endpoint'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Organization',
+             'child_variable': 'telecom'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Organization',
+             'child_variable': 'type'},
         ]
+
 
 class Organization_Contact(fhirbase):
     """A formally or informally recognized grouping of people or organizations
@@ -137,32 +132,32 @@ class Organization_Contact(fhirbase):
         self.address = None
         # reference to Address: Address
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Organization_Contact',
-            'child_variable': 'address'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Organization_Contact',
+             'child_variable': 'address'},
 
             {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Organization_Contact',
-            'child_variable': 'telecom'},
-
-            {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'Organization_Contact',
-            'child_variable': 'name'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Organization_Contact',
+             'child_variable': 'telecom'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Organization_Contact',
-            'child_variable': 'purpose'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Organization_Contact',
+             'child_variable': 'purpose'},
 
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'Organization_Contact',
+             'child_variable': 'name'},
+        ]

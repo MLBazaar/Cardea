@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .Period import Period
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class ResearchSubject(fhirbase):
     """A process where a researcher or organization plans and then executes a
@@ -17,12 +15,13 @@ class ResearchSubject(fhirbase):
         # this is a researchsubject resource
         self.resourceType = 'ResearchSubject'
         # type = string
-        # possible values = ResearchSubject
+        # possible values: ResearchSubject
 
         # the current state of the subject.
         self.status = None
         # type = string
-        # possible values = candidate, enrolled, active, suspended, withdrawn, completed
+        # possible values: candidate, enrolled, active, suspended,
+        # withdrawn, completed
 
         # the dates the subject began and ended their participation in the study.
         self.period = None
@@ -56,44 +55,44 @@ class ResearchSubject(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['candidate', 'enrolled', 'active', 'suspended', 'withdrawn', 'completed']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'candidate, enrolled, active, suspended, withdrawn, completed'))
+                if value is not None and value.lower() not in [
+                    'candidate', 'enrolled', 'active', 'suspended', 'withdrawn',
+                        'completed']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'candidate, enrolled, active, suspended, withdrawn, completed'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchSubject',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchSubject',
+             'child_variable': 'individual'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchSubject',
+             'child_variable': 'consent'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ResearchSubject',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchSubject',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchSubject',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ResearchSubject',
-            'child_variable': 'individual'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ResearchSubject',
-            'child_variable': 'consent'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ResearchSubject',
-            'child_variable': 'study'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchSubject',
+             'child_variable': 'study'},
         ]
-

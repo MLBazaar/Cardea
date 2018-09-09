@@ -1,6 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
+from .fhirbase import fhirbase
+
 
 class Group(fhirbase):
     """Represents a defined collection of entities that may be discussed or
@@ -13,7 +12,7 @@ class Group(fhirbase):
         # this is a group resource
         self.resourceType = 'Group'
         # type = string
-        # possible values = Group
+        # possible values: Group
 
         # indicates whether the record for the group is available for use or is
         # merely being retained for historical purposes.
@@ -24,7 +23,8 @@ class Group(fhirbase):
         # includes.
         self.type = None
         # type = string
-        # possible values = person, animal, practitioner, device, medication, substance
+        # possible values: person, animal, practitioner, device,
+        # medication, substance
 
         # if true, indicates that the resource refers to a specific group of real
         # individuals.  if false, the group defines a set of intended individuals.
@@ -60,41 +60,42 @@ class Group(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['person', 'animal', 'practitioner', 'device', 'medication', 'substance']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'person, animal, practitioner, device, medication, substance'))
+                if value is not None and value.lower() not in [
+                        'person', 'animal', 'practitioner', 'device', 'medication', 'substance']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'person, animal, practitioner, device, medication, substance'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Group',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Group_Characteristic',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group',
-            'child_variable': 'characteristic'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Group',
+             'child_variable': 'characteristic'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Group',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Group_Member',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group',
-            'child_variable': 'member'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Group',
+             'child_variable': 'member'},
         ]
+
 
 class Group_Characteristic(fhirbase):
     """Represents a defined collection of entities that may be discussed or
@@ -138,39 +139,41 @@ class Group_Characteristic(fhirbase):
         self.period = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Characteristic',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Characteristic',
-            'child_variable': 'valueCodeableConcept'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Characteristic',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Characteristic',
-            'child_variable': 'valueRange'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Characteristic',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Characteristic',
-            'child_variable': 'valueQuantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Characteristic',
+             'child_variable': 'valueQuantity'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Characteristic',
+             'child_variable': 'valueCodeableConcept'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Characteristic',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Characteristic',
+             'child_variable': 'valueRange'},
         ]
+
 
 class Group_Member(fhirbase):
     """Represents a defined collection of entities that may be discussed or
@@ -194,22 +197,22 @@ class Group_Member(fhirbase):
         self.inactive = None
         # type = boolean
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Group_Member',
-            'child_variable': 'entity'},
-
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Member',
-            'child_variable': 'period'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Member',
+             'child_variable': 'period'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Group_Member',
+             'child_variable': 'entity'},
+        ]

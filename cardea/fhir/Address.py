@@ -1,5 +1,5 @@
-from .fhirbase import * 
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class Address(fhirbase):
     """An address expressed using postal conventions (as opposed to GPS or
@@ -13,14 +13,14 @@ class Address(fhirbase):
         # the purpose of this address.
         self.use = None
         # type = string
-        # possible values = home, work, temp, old
+        # possible values: home, work, temp, old
 
         # distinguishes between physical addresses (those you can visit) and
         # mailing addresses (e.g. po boxes and care-of addresses). most addresses
         # are both.
         self.type = None
         # type = string
-        # possible values = postal, physical, both
+        # possible values: postal, physical, both
 
         # a full text representation of the address.
         self.text = None
@@ -59,29 +59,33 @@ class Address(fhirbase):
         self.period = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.use is not None:
             for value in self.use:
-                if value != None and value.lower() not in ['home', 'work', 'temp', 'old']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'home, work, temp, old'))
+                if value is not None and value.lower() not in [
+                        'home', 'work', 'temp', 'old']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'home, work, temp, old'))
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['postal', 'physical', 'both']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'postal, physical, both'))
+                if value is not None and value.lower() not in [
+                        'postal', 'physical', 'both']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'postal, physical, both'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Address',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Address',
+             'child_variable': 'period'},
         ]
-

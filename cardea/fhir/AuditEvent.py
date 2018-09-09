@@ -1,6 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Coding import Coding
+from .fhirbase import fhirbase
+
 
 class AuditEvent(fhirbase):
     """A record of an event made for purposes of maintaining a security log.
@@ -12,7 +11,7 @@ class AuditEvent(fhirbase):
         # this is a auditevent resource
         self.resourceType = 'AuditEvent'
         # type = string
-        # possible values = AuditEvent
+        # possible values: AuditEvent
 
         # identifier for a family of the event.  for example, a menu item,
         # program, rule, policy, function code, application name or url. it
@@ -29,7 +28,7 @@ class AuditEvent(fhirbase):
         # the audit.
         self.action = None
         # type = string
-        # possible values = C, R, U, D, E
+        # possible values: C, R, U, D, E
 
         # the time when the event occurred on the source.
         self.recorded = None
@@ -38,7 +37,7 @@ class AuditEvent(fhirbase):
         # indicates whether the event succeeded or failed.
         self.outcome = None
         # type = string
-        # possible values = 0, 4, 8, 12
+        # possible values: 0, 4, 8, 12
 
         # a free text description of the outcome of the event.
         self.outcomeDesc = None
@@ -63,56 +62,62 @@ class AuditEvent(fhirbase):
         # type = array
         # reference to AuditEvent_Entity: identifier
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.action is not None:
             for value in self.action:
-                if value != None and value.lower() not in ['c', 'r', 'u', 'd', 'e']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'c, r, u, d, e'))
+                if value is not None and value.lower() not in [
+                        'c', 'r', 'u', 'd', 'e']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'C, R, U, D, E'))
 
         if self.outcome is not None:
             for value in self.outcome:
-                if value != None and value.lower() not in ['0', '4', '8', '12']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, '0, 4, 8, 12'))
+                if value is not None and value.lower() not in [
+                        '0', '4', '8', '12']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, '0, 4, 8, 12'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'AuditEvent_Source',
-            'parent_variable': 'identifier',
-            'child_entity': 'AuditEvent',
-            'child_variable': 'source'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent',
-            'child_variable': 'purposeOfEvent'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent',
-            'child_variable': 'type'},
-
             {'parent_entity': 'AuditEvent_Entity',
-            'parent_variable': 'identifier',
-            'child_entity': 'AuditEvent',
-            'child_variable': 'entity'},
+             'parent_variable': 'identifier',
+             'child_entity': 'AuditEvent',
+             'child_variable': 'entity'},
 
             {'parent_entity': 'AuditEvent_Agent',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent',
-            'child_variable': 'agent'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent',
+             'child_variable': 'agent'},
+
+            {'parent_entity': 'AuditEvent_Source',
+             'parent_variable': 'identifier',
+             'child_entity': 'AuditEvent',
+             'child_variable': 'source'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent',
-            'child_variable': 'subtype'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent',
+             'child_variable': 'subtype'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent',
+             'child_variable': 'purposeOfEvent'},
         ]
+
 
 class AuditEvent_Agent(fhirbase):
     """A record of an event made for purposes of maintaining a security log.
@@ -179,49 +184,51 @@ class AuditEvent_Agent(fhirbase):
         # type = array
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AuditEvent_Agent',
-            'child_variable': 'reference'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AuditEvent_Agent',
-            'child_variable': 'location'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Agent',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Agent',
+             'child_variable': 'role'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Agent',
-            'child_variable': 'purposeOfUse'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Agent',
-            'child_variable': 'media'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AuditEvent_Agent',
+             'child_variable': 'reference'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Agent',
-            'child_variable': 'userId'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Agent',
+             'child_variable': 'userId'},
 
             {'parent_entity': 'AuditEvent_Network',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Agent',
-            'child_variable': 'network'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Agent',
+             'child_variable': 'network'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Agent',
+             'child_variable': 'purposeOfUse'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Agent',
+             'child_variable': 'media'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AuditEvent_Agent',
+             'child_variable': 'location'},
         ]
+
 
 class AuditEvent_Network(fhirbase):
     """A record of an event made for purposes of maintaining a security log.
@@ -239,19 +246,23 @@ class AuditEvent_Network(fhirbase):
         # audit event.
         self.type = None
         # type = string
-        # possible values = 1, 2, 3, 4, 5
+        # possible values: 1, 2, 3, 4, 5
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['1', '2', '3', '4', '5']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, '1, 2, 3, 4, 5'))
+                if value is not None and value.lower() not in [
+                        '1', '2', '3', '4', '5']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, '1, 2, 3, 4, 5'))
+
 
 class AuditEvent_Source(fhirbase):
     """A record of an event made for purposes of maintaining a security log.
@@ -275,24 +286,23 @@ class AuditEvent_Source(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Source',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Source',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Source',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Source',
+             'child_variable': 'identifier'},
         ]
+
 
 class AuditEvent_Entity(fhirbase):
     """A record of an event made for purposes of maintaining a security log.
@@ -346,49 +356,48 @@ class AuditEvent_Entity(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Entity',
-            'child_variable': 'role'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Entity',
-            'child_variable': 'lifecycle'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Entity',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Entity',
-            'child_variable': 'identifier'},
-
             {'parent_entity': 'AuditEvent_Detail',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Entity',
-            'child_variable': 'detail'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Entity',
+             'child_variable': 'detail'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'AuditEvent_Entity',
-            'child_variable': 'securityLabel'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Entity',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Entity',
+             'child_variable': 'lifecycle'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Entity',
+             'child_variable': 'securityLabel'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Entity',
+             'child_variable': 'role'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AuditEvent_Entity',
-            'child_variable': 'reference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'AuditEvent_Entity',
+             'child_variable': 'reference'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Entity',
+             'child_variable': 'identifier'},
         ]
+
 
 class AuditEvent_Detail(fhirbase):
     """A record of an event made for purposes of maintaining a security log.
@@ -405,8 +414,8 @@ class AuditEvent_Detail(fhirbase):
         self.value = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

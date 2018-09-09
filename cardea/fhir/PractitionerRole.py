@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .ContactPoint import ContactPoint
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class PractitionerRole(fhirbase):
     """A specific set of Roles/Locations/specialties/services that a
@@ -14,7 +10,7 @@ class PractitionerRole(fhirbase):
         # this is a practitionerrole resource
         self.resourceType = 'PractitionerRole'
         # type = string
-        # possible values = PractitionerRole
+        # possible values: PractitionerRole
 
         # whether this practitioner's record is in active use.
         self.active = None
@@ -90,74 +86,73 @@ class PractitionerRole(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'healthcareService'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'organization'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'endpoint'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'specialty'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'code'},
-
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'PractitionerRole_AvailableTime',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'availableTime'},
-
-            {'parent_entity': 'PractitionerRole_NotAvailable',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'notAvailable'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'telecom'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'location'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'PractitionerRole_NotAvailable',
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'notAvailable'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'practitioner'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'endpoint'},
+
+            {'parent_entity': 'PractitionerRole_AvailableTime',
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'availableTime'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'location'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'organization'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'practitioner'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'specialty'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'healthcareService'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'telecom'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'code'},
         ]
+
 
 class PractitionerRole_AvailableTime(fhirbase):
     """A specific set of Roles/Locations/specialties/services that a
@@ -185,9 +180,11 @@ class PractitionerRole_AvailableTime(fhirbase):
         self.availableEndTime = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class PractitionerRole_NotAvailable(fhirbase):
@@ -206,17 +203,17 @@ class PractitionerRole_NotAvailable(fhirbase):
         self.during = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole_NotAvailable',
-            'child_variable': 'during'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole_NotAvailable',
+             'child_variable': 'during'},
         ]
-

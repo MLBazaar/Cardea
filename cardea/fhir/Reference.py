@@ -1,5 +1,5 @@
-from .fhirbase import * 
-from .Identifier import Identifier
+from .fhirbase import fhirbase
+
 
 class Reference(fhirbase):
     """A reference from one resource to another.
@@ -33,17 +33,14 @@ class Reference(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Reference',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Reference',
+             'child_variable': 'identifier'},
         ]
-

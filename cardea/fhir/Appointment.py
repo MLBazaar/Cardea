@@ -1,8 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class Appointment(fhirbase):
     """A booking of a healthcare event among patient(s), practitioner(s),
@@ -14,14 +11,15 @@ class Appointment(fhirbase):
         # this is a appointment resource
         self.resourceType = 'Appointment'
         # type = string
-        # possible values = Appointment
+        # possible values: Appointment
 
         # the overall status of the appointment. each of the participants has
         # their own participation status which indicates their involvement in the
         # process, however this status indicates the shared status.
         self.status = None
         # type = string
-        # possible values = proposed, pending, booked, arrived, fulfilled, cancelled, noshow, entered-in-error
+        # possible values: proposed, pending, booked, arrived,
+        # fulfilled, cancelled, noshow, entered-in-error
 
         # a broad categorisation of the service that is to be performed during
         # this appointment.
@@ -136,81 +134,84 @@ class Appointment(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['proposed', 'pending', 'booked', 'arrived', 'fulfilled', 'cancelled', 'noshow', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'proposed, pending, booked, arrived, fulfilled, cancelled, noshow, entered-in-error'))
+                if value is not None and value.lower() not in [
+                    'proposed', 'pending', 'booked', 'arrived', 'fulfilled', 'cancelled',
+                        'noshow', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'proposed, pending, booked, arrived, fulfilled, cancelled, noshow,'
+                        'entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Appointment',
-            'child_variable': 'reason'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Appointment',
-            'child_variable': 'indication'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Appointment',
-            'child_variable': 'appointmentType'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Appointment',
-            'child_variable': 'serviceType'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Appointment',
-            'child_variable': 'slot'},
-
-            {'parent_entity': 'Appointment_Participant',
-            'parent_variable': 'object_id',
-            'child_entity': 'Appointment',
-            'child_variable': 'participant'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Appointment',
+             'child_variable': 'slot'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Appointment',
-            'child_variable': 'requestedPeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Appointment',
+             'child_variable': 'requestedPeriod'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Appointment',
+             'child_variable': 'specialty'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Appointment',
+             'child_variable': 'reason'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Appointment',
+             'child_variable': 'appointmentType'},
+
+            {'parent_entity': 'Appointment_Participant',
+             'parent_variable': 'object_id',
+             'child_entity': 'Appointment',
+             'child_variable': 'participant'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Appointment',
+             'child_variable': 'serviceCategory'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Appointment',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Appointment',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Appointment',
-            'child_variable': 'supportingInformation'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Appointment',
+             'child_variable': 'incomingReferral'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Appointment',
-            'child_variable': 'serviceCategory'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Appointment',
-            'child_variable': 'specialty'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Appointment',
+             'child_variable': 'serviceType'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Appointment',
-            'child_variable': 'incomingReferral'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Appointment',
+             'child_variable': 'supportingInformation'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Appointment',
+             'child_variable': 'indication'},
         ]
+
 
 class Appointment_Participant(fhirbase):
     """A booking of a healthcare event among patient(s), practitioner(s),
@@ -234,41 +235,45 @@ class Appointment_Participant(fhirbase):
         # specific patient, and the patient is not required to be present.
         self.required = None
         # type = string
-        # possible values = required, optional, information-only
+        # possible values: required, optional, information-only
 
         # participation status of the actor.
         self.status = None
         # type = string
-        # possible values = accepted, declined, tentative, needs-action
+        # possible values: accepted, declined, tentative, needs-action
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.required is not None:
             for value in self.required:
-                if value != None and value.lower() not in ['required', 'optional', 'information-only']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'required, optional, information-only'))
+                if value is not None and value.lower() not in [
+                        'required', 'optional', 'information-only']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'required, optional, information-only'))
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['accepted', 'declined', 'tentative', 'needs-action']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'accepted, declined, tentative, needs-action'))
+                if value is not None and value.lower() not in [
+                        'accepted', 'declined', 'tentative', 'needs-action']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'accepted, declined, tentative, needs-action'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Appointment_Participant',
-            'child_variable': 'type'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Appointment_Participant',
-            'child_variable': 'actor'},
-        ]
+             'parent_variable': 'identifier',
+             'child_entity': 'Appointment_Participant',
+             'child_variable': 'actor'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Appointment_Participant',
+             'child_variable': 'type'},
+        ]

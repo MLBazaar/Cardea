@@ -1,9 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .ContactPoint import ContactPoint
-from .Attachment import Attachment
+from .fhirbase import fhirbase
+
 
 class HealthcareService(fhirbase):
     """The details of a healthcare service available at a location.
@@ -13,7 +9,7 @@ class HealthcareService(fhirbase):
         # this is a healthcareservice resource
         self.resourceType = 'HealthcareService'
         # type = string
-        # possible values = HealthcareService
+        # possible values: HealthcareService
 
         # whether this healthcareservice record is in active use.
         self.active = None
@@ -142,94 +138,93 @@ class HealthcareService(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'HealthcareService_AvailableTime',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'availableTime'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'coverageArea'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'endpoint'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'serviceProvisionCode'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'eligibility'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'location'},
-
-            {'parent_entity': 'HealthcareService_NotAvailable',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'notAvailable'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'characteristic'},
+             'parent_variable': 'identifier',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'coverageArea'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'photo'},
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'photo'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'providedBy'},
+             'parent_variable': 'identifier',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'endpoint'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'specialty'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'referralMethod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'type'},
 
             {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'telecom'},
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'telecom'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'specialty'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'eligibility'},
+
+            {'parent_entity': 'HealthcareService_AvailableTime',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'availableTime'},
+
+            {'parent_entity': 'HealthcareService_NotAvailable',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'notAvailable'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'serviceProvisionCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'providedBy'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'location'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'referralMethod'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'characteristic'},
         ]
+
 
 class HealthcareService_AvailableTime(fhirbase):
     """The details of a healthcare service available at a location.
@@ -240,7 +235,7 @@ class HealthcareService_AvailableTime(fhirbase):
         # times.
         self.daysOfWeek = None
         # type = array
-        # possible values = mon, tue, wed, thu, fri, sat, sun
+        # possible values: mon, tue, wed, thu, fri, sat, sun
 
         # is this always available? (hence times are irrelevant) e.g. 24 hour
         # service.
@@ -257,17 +252,21 @@ class HealthcareService_AvailableTime(fhirbase):
         self.availableEndTime = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.daysOfWeek is not None:
             for value in self.daysOfWeek:
-                if value != None and value.lower() not in ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'mon, tue, wed, thu, fri, sat, sun'))
+                if value is not None and value.lower() not in [
+                        'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'mon, tue, wed, thu, fri, sat, sun'))
+
 
 class HealthcareService_NotAvailable(fhirbase):
     """The details of a healthcare service available at a location.
@@ -284,17 +283,17 @@ class HealthcareService_NotAvailable(fhirbase):
         self.during = None
         # reference to Period: Period
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'HealthcareService_NotAvailable',
-            'child_variable': 'during'},
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService_NotAvailable',
+             'child_variable': 'during'},
         ]
-

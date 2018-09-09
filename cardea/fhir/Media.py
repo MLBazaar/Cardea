@@ -1,10 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Annotation import Annotation
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Attachment import Attachment
+from .fhirbase import fhirbase
+
 
 class Media(fhirbase):
     """A photo, video, or audio recording acquired or used in healthcare. The
@@ -15,7 +10,7 @@ class Media(fhirbase):
         # this is a media resource
         self.resourceType = 'Media'
         # type = string
-        # possible values = Media
+        # possible values: Media
 
         # a procedure that is fulfilled in whole or in part by the creation of
         # this media.
@@ -27,7 +22,7 @@ class Media(fhirbase):
         # video recording.
         self.type = None
         # type = string
-        # possible values = photo, video, audio
+        # possible values: photo, video, audio
 
         # details of the type of the media - usually, how it was acquired (what
         # type of device). if images sourced from a dicom system, are wrapped in a
@@ -113,84 +108,83 @@ class Media(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['photo', 'video', 'audio']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'photo, video, audio'))
+                if value is not None and value.lower() not in [
+                        'photo', 'video', 'audio']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'photo, video, audio'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Media',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Media',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Media',
-            'child_variable': 'bodySite'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'Media',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Media',
-            'child_variable': 'subtype'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Media',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Media',
-            'child_variable': 'device'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Media',
-            'child_variable': 'occurrencePeriod'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Media',
-            'child_variable': 'operator'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Media',
-            'child_variable': 'view'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Media',
+             'child_variable': 'bodySite'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Media',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Media',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Media',
-            'child_variable': 'context'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Media',
+             'child_variable': 'operator'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Media',
+             'child_variable': 'view'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Media',
+             'child_variable': 'device'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Media',
+             'child_variable': 'occurrencePeriod'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Media',
+             'child_variable': 'subtype'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Media',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Media',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Media',
+             'child_variable': 'reasonCode'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Media',
-            'child_variable': 'content'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Media',
+             'child_variable': 'content'},
 
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Media',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Media',
+             'child_variable': 'basedOn'},
+        ]

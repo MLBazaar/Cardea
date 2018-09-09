@@ -1,4 +1,5 @@
-from .fhirbase import * 
+from .fhirbase import fhirbase
+
 
 class Attachment(fhirbase):
     """For referring to data content defined in other formats.
@@ -42,8 +43,8 @@ class Attachment(fhirbase):
         self.creation = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class AdverseEvent(fhirbase):
     """Actual or  potential/avoided event causing unintended physical injury
@@ -14,14 +12,14 @@ class AdverseEvent(fhirbase):
         # this is a adverseevent resource
         self.resourceType = 'AdverseEvent'
         # type = string
-        # possible values = AdverseEvent
+        # possible values: AdverseEvent
 
         # the type of event which is important to characterize what occurred and
         # caused harm to the subject, or had the potential to cause harm to the
         # subject.
         self.category = None
         # type = string
-        # possible values = AE, PAE
+        # possible values: AE, PAE
 
         # this element defines the specific type of event that occurred or that
         # was prevented from occurring.
@@ -99,86 +97,87 @@ class AdverseEvent(fhirbase):
         self.identifier = None
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.category is not None:
             for value in self.category:
-                if value != None and value.lower() not in ['ae', 'pae']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'ae, pae'))
+                if value is not None and value.lower() not in [
+                        'ae', 'pae']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'AE, PAE'))
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'recorder'},
+
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'outcome'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'type'},
 
             {'parent_entity': 'AdverseEvent_SuspectEntity',
-            'parent_variable': 'object_id',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'suspectEntity'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'subjectMedicalHistory'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'suspectEntity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'seriousness'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'outcome'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'reaction'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'eventParticipant'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'type'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'location'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'study'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'eventParticipant'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'recorder'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'seriousness'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'reaction'},
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'subjectMedicalHistory'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AdverseEvent',
-            'child_variable': 'referenceDocument'},
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'referenceDocument'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'location'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'study'},
         ]
+
 
 class AdverseEvent_SuspectEntity(fhirbase):
     """Actual or  potential/avoided event causing unintended physical injury
@@ -197,7 +196,7 @@ class AdverseEvent_SuspectEntity(fhirbase):
         # causality1 | causality2.
         self.causality = None
         # type = string
-        # possible values = causality1, causality2
+        # possible values: causality1, causality2
 
         # assess1 | assess2.
         self.causalityAssessment = None
@@ -219,44 +218,46 @@ class AdverseEvent_SuspectEntity(fhirbase):
         self.causalityResult = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.causality is not None:
             for value in self.causality:
-                if value != None and value.lower() not in ['causality1', 'causality2']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'causality1, causality2'))
+                if value is not None and value.lower() not in [
+                        'causality1', 'causality2']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'causality1, causality2'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AdverseEvent_SuspectEntity',
-            'child_variable': 'causalityAssessment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent_SuspectEntity',
+             'child_variable': 'causalityResult'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AdverseEvent_SuspectEntity',
-            'child_variable': 'instance'},
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent_SuspectEntity',
+             'child_variable': 'instance'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AdverseEvent_SuspectEntity',
-            'child_variable': 'causalityResult'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent_SuspectEntity',
+             'child_variable': 'causalityAssessment'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AdverseEvent_SuspectEntity',
-            'child_variable': 'causalityAuthor'},
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent_SuspectEntity',
+             'child_variable': 'causalityAuthor'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AdverseEvent_SuspectEntity',
-            'child_variable': 'causalityMethod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent_SuspectEntity',
+             'child_variable': 'causalityMethod'},
         ]
-

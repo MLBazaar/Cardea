@@ -1,11 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Reference import Reference
-from .Age import Age
-from .Range import Range
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class AllergyIntolerance(fhirbase):
     """Risk of harmful or undesirable, physiological response which is unique
@@ -16,36 +10,37 @@ class AllergyIntolerance(fhirbase):
         # this is a allergyintolerance resource
         self.resourceType = 'AllergyIntolerance'
         # type = string
-        # possible values = AllergyIntolerance
+        # possible values: AllergyIntolerance
 
         # the clinical status of the allergy or intolerance.
         self.clinicalStatus = None
         # type = string
-        # possible values = active, inactive, resolved
+        # possible values: active, inactive, resolved
 
         # assertion about certainty associated with the propensity, or potential
         # risk, of a reaction to the identified substance (including
         # pharmaceutical product).
         self.verificationStatus = None
         # type = string
-        # possible values = unconfirmed, confirmed, refuted, entered-in-error
+        # possible values: unconfirmed, confirmed, refuted, entered-in-
+        # error
 
         # identification of the underlying physiological mechanism for the
         # reaction risk.
         self.type = None
         # type = string
-        # possible values = allergy, intolerance
+        # possible values: allergy, intolerance
 
         # category of the identified substance.
         self.category = None
         # type = array
-        # possible values = food, medication, environment, biologic
+        # possible values: food, medication, environment, biologic
 
         # estimate of the potential clinical harm, or seriousness, of the reaction
         # to the identified substance.
         self.criticality = None
         # type = string
-        # possible values = low, high, unable-to-assess
+        # possible values: low, high, unable-to-assess
 
         # code for an allergy or intolerance statement (either a positive or a
         # negated/excluded statement).  this may be a code for a substance or
@@ -126,91 +121,100 @@ class AllergyIntolerance(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.clinicalStatus is not None:
             for value in self.clinicalStatus:
-                if value != None and value.lower() not in ['active', 'inactive', 'resolved']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, inactive, resolved'))
+                if value is not None and value.lower() not in [
+                        'active', 'inactive', 'resolved']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, inactive, resolved'))
 
         if self.verificationStatus is not None:
             for value in self.verificationStatus:
-                if value != None and value.lower() not in ['unconfirmed', 'confirmed', 'refuted', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'unconfirmed, confirmed, refuted, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'unconfirmed', 'confirmed', 'refuted', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'unconfirmed, confirmed, refuted, entered-in-error'))
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['allergy', 'intolerance']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'allergy, intolerance'))
+                if value is not None and value.lower() not in [
+                        'allergy', 'intolerance']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'allergy, intolerance'))
 
         if self.category is not None:
             for value in self.category:
-                if value != None and value.lower() not in ['food', 'medication', 'environment', 'biologic']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'food, medication, environment, biologic'))
+                if value is not None and value.lower() not in [
+                        'food', 'medication', 'environment', 'biologic']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'food, medication, environment, biologic'))
 
         if self.criticality is not None:
             for value in self.criticality:
-                if value != None and value.lower() not in ['low', 'high', 'unable-to-assess']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'low, high, unable-to-assess'))
+                if value is not None and value.lower() not in [
+                        'low', 'high', 'unable-to-assess']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'low, high, unable-to-assess'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'AllergyIntolerance',
-            'child_variable': 'onsetRange'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'onsetRange'},
 
-            {'parent_entity': 'AllergyIntolerance_Reaction',
-            'parent_variable': 'object_id',
-            'child_entity': 'AllergyIntolerance',
-            'child_variable': 'reaction'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'patient'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'AllergyIntolerance',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'AllergyIntolerance',
-            'child_variable': 'note'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AllergyIntolerance',
-            'child_variable': 'recorder'},
+             'parent_variable': 'identifier',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'asserter'},
+
+            {'parent_entity': 'AllergyIntolerance_Reaction',
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'reaction'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AllergyIntolerance',
-            'child_variable': 'patient'},
+             'parent_variable': 'identifier',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'recorder'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'AllergyIntolerance',
-            'child_variable': 'onsetPeriod'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'AllergyIntolerance',
-            'child_variable': 'asserter'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'onsetPeriod'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AllergyIntolerance',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'note'},
 
             {'parent_entity': 'Age',
-            'parent_variable': 'object_id',
-            'child_entity': 'AllergyIntolerance',
-            'child_variable': 'onsetAge'},
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'onsetAge'},
         ]
+
 
 class AllergyIntolerance_Reaction(fhirbase):
     """Risk of harmful or undesirable, physiological response which is unique
@@ -248,7 +252,7 @@ class AllergyIntolerance_Reaction(fhirbase):
         # potentially considering multiple different manifestations.
         self.severity = None
         # type = string
-        # possible values = mild, moderate, severe
+        # possible values: mild, moderate, severe
 
         # identification of the route by which the subject was exposed to the
         # substance.
@@ -261,39 +265,41 @@ class AllergyIntolerance_Reaction(fhirbase):
         # type = array
         # reference to Annotation: Annotation
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.severity is not None:
             for value in self.severity:
-                if value != None and value.lower() not in ['mild', 'moderate', 'severe']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'mild, moderate, severe'))
+                if value is not None and value.lower() not in [
+                        'mild', 'moderate', 'severe']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'mild, moderate, severe'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AllergyIntolerance_Reaction',
-            'child_variable': 'exposureRoute'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AllergyIntolerance_Reaction',
-            'child_variable': 'substance'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'AllergyIntolerance_Reaction',
-            'child_variable': 'manifestation'},
-
             {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'AllergyIntolerance_Reaction',
-            'child_variable': 'note'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance_Reaction',
+             'child_variable': 'note'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance_Reaction',
+             'child_variable': 'manifestation'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance_Reaction',
+             'child_variable': 'exposureRoute'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance_Reaction',
+             'child_variable': 'substance'},
+        ]

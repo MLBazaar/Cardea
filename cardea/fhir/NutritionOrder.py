@@ -1,7 +1,5 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class NutritionOrder(fhirbase):
     """A request to supply a diet, formula feeding (enteral) or oral
@@ -12,12 +10,13 @@ class NutritionOrder(fhirbase):
         # this is a nutritionorder resource
         self.resourceType = 'NutritionOrder'
         # type = string
-        # possible values = NutritionOrder
+        # possible values: NutritionOrder
 
         # the workflow status of the nutrition order/request.
         self.status = None
         # type = string
-        # possible values = proposed, draft, planned, requested, active, on-hold, completed, cancelled, entered-in-error
+        # possible values: proposed, draft, planned, requested, active,
+        # on-hold, completed, cancelled, entered-in-error
 
         # the person (patient) who needs the nutrition order for an oral diet,
         # nutritional supplement and/or enteral or formula feeding.
@@ -88,71 +87,74 @@ class NutritionOrder(fhirbase):
         # type = array
         # reference to Identifier: Identifier
 
-
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['proposed', 'draft', 'planned', 'requested', 'active', 'on-hold', 'completed', 'cancelled', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'proposed, draft, planned, requested, active, on-hold, completed, cancelled, entered-in-error'))
+                if value is not None and value.lower() not in [
+                    'proposed', 'draft', 'planned', 'requested', 'active', 'on-hold',
+                        'completed', 'cancelled', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'proposed, draft, planned, requested, active, on-hold, completed,'
+                        'cancelled, entered-in-error'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder',
-            'child_variable': 'excludeFoodModifier'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'NutritionOrder',
-            'child_variable': 'patient'},
-
-            {'parent_entity': 'NutritionOrder_EnteralFormula',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder',
-            'child_variable': 'enteralFormula'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder',
-            'child_variable': 'foodPreferenceModifier'},
-
-            {'parent_entity': 'NutritionOrder_Supplement',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder',
-            'child_variable': 'supplement'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'NutritionOrder',
-            'child_variable': 'encounter'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'NutritionOrder',
-            'child_variable': 'orderer'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'NutritionOrder',
-            'child_variable': 'allergyIntolerance'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'foodPreferenceModifier'},
 
             {'parent_entity': 'NutritionOrder_OralDiet',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder',
-            'child_variable': 'oralDiet'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'oralDiet'},
+
+            {'parent_entity': 'NutritionOrder_EnteralFormula',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'enteralFormula'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'excludeFoodModifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'allergyIntolerance'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'orderer'},
+
+            {'parent_entity': 'NutritionOrder_Supplement',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'supplement'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'encounter'},
         ]
+
 
 class NutritionOrder_OralDiet(fhirbase):
     """A request to supply a diet, formula feeding (enteral) or oral
@@ -196,39 +198,41 @@ class NutritionOrder_OralDiet(fhirbase):
         self.instruction = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_OralDiet',
-            'child_variable': 'type'},
+            {'parent_entity': 'NutritionOrder_Texture',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_OralDiet',
+             'child_variable': 'texture'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_OralDiet',
-            'child_variable': 'fluidConsistencyType'},
-
-            {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_OralDiet',
-            'child_variable': 'schedule'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_OralDiet',
+             'child_variable': 'type'},
 
             {'parent_entity': 'NutritionOrder_Nutrient',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_OralDiet',
-            'child_variable': 'nutrient'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_OralDiet',
+             'child_variable': 'nutrient'},
 
-            {'parent_entity': 'NutritionOrder_Texture',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_OralDiet',
-            'child_variable': 'texture'},
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_OralDiet',
+             'child_variable': 'schedule'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_OralDiet',
+             'child_variable': 'fluidConsistencyType'},
         ]
+
 
 class NutritionOrder_Nutrient(fhirbase):
     """A request to supply a diet, formula feeding (enteral) or oral
@@ -244,24 +248,26 @@ class NutritionOrder_Nutrient(fhirbase):
         self.amount = None
         # reference to Quantity: Quantity
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_Nutrient',
-            'child_variable': 'modifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Nutrient',
+             'child_variable': 'modifier'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_Nutrient',
-            'child_variable': 'amount'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Nutrient',
+             'child_variable': 'amount'},
         ]
+
 
 class NutritionOrder_Texture(fhirbase):
     """A request to supply a diet, formula feeding (enteral) or oral
@@ -279,24 +285,26 @@ class NutritionOrder_Texture(fhirbase):
         self.foodType = None
         # reference to CodeableConcept: CodeableConcept
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_Texture',
-            'child_variable': 'modifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Texture',
+             'child_variable': 'foodType'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_Texture',
-            'child_variable': 'foodType'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Texture',
+             'child_variable': 'modifier'},
         ]
+
 
 class NutritionOrder_Supplement(fhirbase):
     """A request to supply a diet, formula feeding (enteral) or oral
@@ -330,29 +338,31 @@ class NutritionOrder_Supplement(fhirbase):
         self.instruction = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_Supplement',
-            'child_variable': 'quantity'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_Supplement',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Supplement',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_Supplement',
-            'child_variable': 'schedule'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Supplement',
+             'child_variable': 'schedule'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Supplement',
+             'child_variable': 'type'},
         ]
+
 
 class NutritionOrder_EnteralFormula(fhirbase):
     """A request to supply a diet, formula feeding (enteral) or oral
@@ -412,44 +422,46 @@ class NutritionOrder_EnteralFormula(fhirbase):
         self.administrationInstruction = None
         # type = string
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_EnteralFormula',
-            'child_variable': 'routeofAdministration'},
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_EnteralFormula',
+             'child_variable': 'caloricDensity'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_EnteralFormula',
+             'child_variable': 'maxVolumeToDeliver'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_EnteralFormula',
-            'child_variable': 'baseFormulaType'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_EnteralFormula',
+             'child_variable': 'routeofAdministration'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_EnteralFormula',
+             'child_variable': 'additiveType'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_EnteralFormula',
+             'child_variable': 'baseFormulaType'},
 
             {'parent_entity': 'NutritionOrder_Administration',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_EnteralFormula',
-            'child_variable': 'administration'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_EnteralFormula',
-            'child_variable': 'additiveType'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_EnteralFormula',
-            'child_variable': 'maxVolumeToDeliver'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_EnteralFormula',
-            'child_variable': 'caloricDensity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_EnteralFormula',
+             'child_variable': 'administration'},
         ]
+
 
 class NutritionOrder_Administration(fhirbase):
     """A request to supply a diet, formula feeding (enteral) or oral
@@ -477,32 +489,32 @@ class NutritionOrder_Administration(fhirbase):
         self.rateRatio = None
         # reference to Ratio: Ratio
 
+        # unique identifier for object class
+        self.object_id = None
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_Administration',
-            'child_variable': 'rateRatio'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Administration',
+             'child_variable': 'rateRatio'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Administration',
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_Administration',
-            'child_variable': 'schedule'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Administration',
+             'child_variable': 'schedule'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_Administration',
-            'child_variable': 'rateSimpleQuantity'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'NutritionOrder_Administration',
-            'child_variable': 'quantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Administration',
+             'child_variable': 'rateSimpleQuantity'},
         ]
-
