@@ -20,36 +20,18 @@ def loader():
     return DataLoader()
 
 
-@pytest.fixture()
-def patient_object(patient_df, loader):
-    return loader.create_object(patient_df, 'Patient')
+def test_data_loader_create_object(loader, patient_df):
+    object = loader.create_object(patient_df, 'Patient')
+    object_df = object.get_dataframe()
+    assert len(object_df) == len(patient_df)
 
 
-@pytest.fixture()
-def patient_object_df(patient_object):
-    return patient_object.get_dataframe()
+def test_fhir_class_exist(loader, patient_df):
+    with pytest.raises(LookupError):
+        loader.create_object(patient_df, 'Inpatient')
 
 
-def test_object_number_of_attributes(patient_object_df, patient_df):
-    assert len(patient_object_df.columns) == len(patient_df.columns)
-
-
-def test_object_number_of_tuples(patient_object_df, patient_df):
-    assert len(patient_object_df) == len(patient_df)
-
-
-def test_get_relationships(patient_object):
-    relationships = patient_object.get_relationships()
-    assert len(relationships) == 12
-
-
-def test_assert_object_identifier(loader):
-    df = pd.DataFrame({"gender": ['female', 'male']})
-    with pytest.raises(Exception):
-        loader.create_object(df, 'Patient')
-
-
-def test_assert_type_enum(loader):
-    df = pd.DataFrame({"identifier": [0, 1], "gender": ['female', 'F']})  # F should be female
-    with pytest.raises(Exception):
+def test_assert_object_identifier(loader, patient_df):
+    df = patient_df[['gender']]
+    with pytest.raises(LookupError):
         loader.create_object(df, 'Patient')
