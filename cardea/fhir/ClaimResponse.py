@@ -2,122 +2,195 @@ from .fhirbase import fhirbase
 
 
 class ClaimResponse(fhirbase):
-    """This resource provides the adjudication details from the processing of a
-    Claim resource.
+    """
+    This resource provides the adjudication details from the processing of
+    a Claim resource.
     """
 
     __name__ = 'ClaimResponse'
 
     def __init__(self, dict_values=None):
-        # this is a claimresponse resource
         self.resourceType = 'ClaimResponse'
-        # type = string
-        # possible values: ClaimResponse
+        """
+        This is a ClaimResponse resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: ClaimResponse
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the resource instance.
 
-        # patient resource.
+        type: string
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        Patient Resource.
 
-        # the date when the enclosed suite of services were performed or
-        # completed.
+        reference to Reference: identifier
+        """
+
         self.created = None
-        # type = string
+        """
+        The date when the enclosed suite of services were performed or
+        completed.
 
-        # the insurer who produced this adjudicated response.
+        type: string
+        """
+
         self.insurer = None
-        # reference to Reference: identifier
+        """
+        The Insurer who produced this adjudicated response.
 
-        # the practitioner who is responsible for the services rendered to the
-        # patient.
+        reference to Reference: identifier
+        """
+
         self.requestProvider = None
-        # reference to Reference: identifier
+        """
+        The practitioner who is responsible for the services rendered to the
+        patient.
 
-        # the organization which is responsible for the services rendered to the
-        # patient.
+        reference to Reference: identifier
+        """
+
         self.requestOrganization = None
-        # reference to Reference: identifier
+        """
+        The organization which is responsible for the services rendered to the
+        patient.
 
-        # original request resource referrence.
+        reference to Reference: identifier
+        """
+
         self.request = None
-        # reference to Reference: identifier
+        """
+        Original request resource referrence.
 
-        # processing outcome errror, partial or complete processing.
+        reference to Reference: identifier
+        """
+
         self.outcome = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Processing outcome errror, partial or complete processing.
 
-        # a description of the status of the adjudication.
+        reference to CodeableConcept
+        """
+
         self.disposition = None
-        # type = string
+        """
+        A description of the status of the adjudication.
 
-        # party to be reimbursed: subscriber, provider, other.
+        type: string
+        """
+
         self.payeeType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Party to be reimbursed: Subscriber, provider, other.
 
-        # the first tier service adjudications for submitted services.
+        reference to CodeableConcept
+        """
+
         self.item = None
-        # type = array
-        # reference to ClaimResponse_Item: ClaimResponse_Item
+        """
+        The first tier service adjudications for submitted services.
 
-        # the first tier service adjudications for payor added services.
+        type: array
+        reference to ClaimResponse_Item
+        """
+
         self.addItem = None
-        # type = array
-        # reference to ClaimResponse_AddItem: ClaimResponse_AddItem
+        """
+        The first tier service adjudications for payor added services.
 
-        # mutually exclusive with services provided (item).
+        type: array
+        reference to ClaimResponse_AddItem
+        """
+
         self.error = None
-        # type = array
-        # reference to ClaimResponse_Error: ClaimResponse_Error
+        """
+        Mutually exclusive with Services Provided (Item).
 
-        # the total cost of the services reported.
+        type: array
+        reference to ClaimResponse_Error
+        """
+
         self.totalCost = None
-        # reference to Money: Money
+        """
+        The total cost of the services reported.
 
-        # the amount of deductible applied which was not allocated to any
-        # particular service line.
+        reference to Money
+        """
+
         self.unallocDeductable = None
-        # reference to Money: Money
+        """
+        The amount of deductible applied which was not allocated to any
+        particular service line.
 
-        # total amount of benefit payable (equal to sum of the benefit amounts
-        # from all detail lines and additions less the unallocated deductible).
+        reference to Money
+        """
+
         self.totalBenefit = None
-        # reference to Money: Money
+        """
+        Total amount of benefit payable (Equal to sum of the Benefit amounts
+        from all detail lines and additions less the Unallocated Deductible).
 
-        # payment details for the claim if the claim has been paid.
+        reference to Money
+        """
+
         self.payment = None
-        # reference to ClaimResponse_Payment: identifier
+        """
+        Payment details for the claim if the claim has been paid.
 
-        # status of funds reservation (for provider, for patient, none).
+        reference to ClaimResponse_Payment: identifier
+        """
+
         self.reserved = None
-        # reference to Coding: Coding
+        """
+        Status of funds reservation (For provider, for Patient, None).
 
-        # the form to be used for printing the content.
+        reference to Coding
+        """
+
         self.form = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The form to be used for printing the content.
 
-        # note text.
+        reference to CodeableConcept
+        """
+
         self.processNote = None
-        # type = array
-        # reference to ClaimResponse_ProcessNote: ClaimResponse_ProcessNote
+        """
+        Note text.
 
-        # request for additional supporting or authorizing information, such as:
-        # documents, images or resources.
+        type: array
+        reference to ClaimResponse_ProcessNote
+        """
+
         self.communicationRequest = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Request for additional supporting or authorizing information, such as:
+        documents, images or resources.
 
-        # financial instrument by which payment information for health care.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.insurance = None
-        # type = array
-        # reference to ClaimResponse_Insurance: ClaimResponse_Insurance
+        """
+        Financial instrument by which payment information for health care.
 
-        # the response business identifier.
+        type: array
+        reference to ClaimResponse_Insurance
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The Response business identifier.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -128,133 +201,146 @@ class ClaimResponse(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ClaimResponse',
-             'child_variable': 'communicationRequest'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'requestProvider'},
+             'child_variable': 'requestOrganization'},
 
             {'parent_entity': 'ClaimResponse_AddItem',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse',
              'child_variable': 'addItem'},
 
-            {'parent_entity': 'ClaimResponse_Payment',
+            {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ClaimResponse',
-             'child_variable': 'payment'},
+             'child_variable': 'requestProvider'},
 
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse',
              'child_variable': 'totalBenefit'},
 
-            {'parent_entity': 'ClaimResponse_Insurance',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'insurance'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'insurer'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'request'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse',
-             'child_variable': 'payeeType'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'requestOrganization'},
-
-            {'parent_entity': 'ClaimResponse_Item',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'item'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'totalCost'},
-
-            {'parent_entity': 'ClaimResponse_Error',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'error'},
-
-            {'parent_entity': 'ClaimResponse_ProcessNote',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'processNote'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'form'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'reserved'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ClaimResponse',
-             'child_variable': 'patient'},
+             'child_variable': 'outcome'},
 
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse',
              'child_variable': 'unallocDeductable'},
 
+            {'parent_entity': 'ClaimResponse_Error',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'error'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'ClaimResponse_ProcessNote',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'processNote'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'insurer'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'totalCost'},
+
+            {'parent_entity': 'ClaimResponse_Insurance',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'insurance'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse',
-             'child_variable': 'outcome'},
+             'child_variable': 'form'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'communicationRequest'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'reserved'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'request'},
+
+            {'parent_entity': 'ClaimResponse_Item',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'item'},
+
+            {'parent_entity': 'ClaimResponse_Payment',
+             'parent_variable': 'identifier',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'payment'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse',
+             'child_variable': 'payeeType'},
         ]
 
 
 class ClaimResponse_Item(fhirbase):
-    """This resource provides the adjudication details from the processing of a
-    Claim resource.
+    """
+    This resource provides the adjudication details from the processing of
+    a Claim resource.
     """
 
     __name__ = 'ClaimResponse_Item'
 
     def __init__(self, dict_values=None):
-        # a service line number.
         self.sequenceLinkId = None
-        # type = int
+        """
+        A service line number.
 
-        # a list of note references to the notes provided below.
+        type: int
+        """
+
         self.noteNumber = None
-        # type = array
+        """
+        A list of note references to the notes provided below.
 
-        # the adjudication results.
+        type: array
+        """
+
         self.adjudication = None
-        # type = array
-        # reference to ClaimResponse_Adjudication: ClaimResponse_Adjudication
+        """
+        The adjudication results.
 
-        # the second tier service adjudications for submitted services.
+        type: array
+        reference to ClaimResponse_Adjudication
+        """
+
         self.detail = None
-        # type = array
-        # reference to ClaimResponse_Detail: ClaimResponse_Detail
+        """
+        The second tier service adjudications for submitted services.
 
-        # unique identifier for object class
+        type: array
+        reference to ClaimResponse_Detail
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -262,45 +348,58 @@ class ClaimResponse_Item(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ClaimResponse_Adjudication',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse_Item',
-             'child_variable': 'adjudication'},
-
             {'parent_entity': 'ClaimResponse_Detail',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_Item',
              'child_variable': 'detail'},
+
+            {'parent_entity': 'ClaimResponse_Adjudication',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Item',
+             'child_variable': 'adjudication'},
         ]
 
 
 class ClaimResponse_Adjudication(fhirbase):
-    """This resource provides the adjudication details from the processing of a
-    Claim resource.
+    """
+    This resource provides the adjudication details from the processing of
+    a Claim resource.
     """
 
     __name__ = 'ClaimResponse_Adjudication'
 
     def __init__(self, dict_values=None):
-        # code indicating: co-pay, deductible, eligible, benefit, tax, etc.
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 
-        # adjudication reason such as limit reached.
+        reference to CodeableConcept
+        """
+
         self.reason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Adjudication reason such as limit reached.
 
-        # monetary amount associated with the code.
+        reference to CodeableConcept
+        """
+
         self.amount = None
-        # reference to Money: Money
+        """
+        Monetary amount associated with the code.
 
-        # a non-monetary value for example a percentage. mutually exclusive to the
-        # amount element above.
+        reference to Money
+        """
+
         self.value = None
-        # type = int
+        """
+        A non-monetary value for example a percentage. Mutually exclusive to
+        the amount element above.
 
-        # unique identifier for object class
+        type: int
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -308,11 +407,6 @@ class ClaimResponse_Adjudication(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse_Adjudication',
-             'child_variable': 'reason'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_Adjudication',
@@ -322,37 +416,55 @@ class ClaimResponse_Adjudication(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_Adjudication',
              'child_variable': 'amount'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Adjudication',
+             'child_variable': 'reason'},
         ]
 
 
 class ClaimResponse_Detail(fhirbase):
-    """This resource provides the adjudication details from the processing of a
-    Claim resource.
+    """
+    This resource provides the adjudication details from the processing of
+    a Claim resource.
     """
 
     __name__ = 'ClaimResponse_Detail'
 
     def __init__(self, dict_values=None):
-        # a service line number.
         self.sequenceLinkId = None
-        # type = int
+        """
+        A service line number.
 
-        # a list of note references to the notes provided below.
+        type: int
+        """
+
         self.noteNumber = None
-        # type = array
+        """
+        A list of note references to the notes provided below.
 
-        # the adjudications results.
+        type: array
+        """
+
         self.adjudication = None
-        # type = array
-        # reference to ClaimResponse_Adjudication: ClaimResponse_Adjudication
+        """
+        The adjudications results.
 
-        # the third tier service adjudications for submitted services.
+        type: array
+        reference to ClaimResponse_Adjudication
+        """
+
         self.subDetail = None
-        # type = array
-        # reference to ClaimResponse_SubDetail: ClaimResponse_SubDetail
+        """
+        The third tier service adjudications for submitted services.
 
-        # unique identifier for object class
+        type: array
+        reference to ClaimResponse_SubDetail
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -373,28 +485,38 @@ class ClaimResponse_Detail(fhirbase):
 
 
 class ClaimResponse_SubDetail(fhirbase):
-    """This resource provides the adjudication details from the processing of a
-    Claim resource.
+    """
+    This resource provides the adjudication details from the processing of
+    a Claim resource.
     """
 
     __name__ = 'ClaimResponse_SubDetail'
 
     def __init__(self, dict_values=None):
-        # a service line number.
         self.sequenceLinkId = None
-        # type = int
+        """
+        A service line number.
 
-        # a list of note references to the notes provided below.
+        type: int
+        """
+
         self.noteNumber = None
-        # type = array
+        """
+        A list of note references to the notes provided below.
 
-        # the adjudications results.
+        type: array
+        """
+
         self.adjudication = None
-        # type = array
-        # reference to ClaimResponse_Adjudication: ClaimResponse_Adjudication
+        """
+        The adjudications results.
 
-        # unique identifier for object class
+        type: array
+        reference to ClaimResponse_Adjudication
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -410,58 +532,87 @@ class ClaimResponse_SubDetail(fhirbase):
 
 
 class ClaimResponse_AddItem(fhirbase):
-    """This resource provides the adjudication details from the processing of a
-    Claim resource.
+    """
+    This resource provides the adjudication details from the processing of
+    a Claim resource.
     """
 
     __name__ = 'ClaimResponse_AddItem'
 
     def __init__(self, dict_values=None):
-        # list of input service items which this service line is intended to
-        # replace.
         self.sequenceLinkId = None
-        # type = array
+        """
+        List of input service items which this service line is intended to
+        replace.
 
-        # the type of reveneu or cost center providing the product and/or service.
+        type: array
+        """
+
         self.revenue = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of reveneu or cost center providing the product and/or
+        service.
 
-        # health care service type codes  to identify the classification of
-        # service or benefits.
+        reference to CodeableConcept
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Health Care Service Type Codes  to identify the classification of
+        service or benefits.
 
-        # a code to indicate the professional service or product supplied.
+        reference to CodeableConcept
+        """
+
         self.service = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code to indicate the Professional Service or Product supplied.
 
-        # item typification or modifiers codes, eg for oral whether the treatment
-        # is cosmetic or associated with tmj, or for medical whether the treatment
-        # was outside the clinic or out of office hours.
+        reference to CodeableConcept
+        """
+
         self.modifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Item typification or modifiers codes, eg for Oral whether the
+        treatment is cosmetic or associated with TMJ, or for medical whether
+        the treatment was outside the clinic or out of office hours.
 
-        # the fee charged for the professional service or product..
+        type: array
+        reference to CodeableConcept
+        """
+
         self.fee = None
-        # reference to Money: Money
+        """
+        The fee charged for the professional service or product..
 
-        # a list of note references to the notes provided below.
+        reference to Money
+        """
+
         self.noteNumber = None
-        # type = array
+        """
+        A list of note references to the notes provided below.
 
-        # the adjudications results.
+        type: array
+        """
+
         self.adjudication = None
-        # type = array
-        # reference to ClaimResponse_Adjudication: ClaimResponse_Adjudication
+        """
+        The adjudications results.
 
-        # the second tier service adjudications for payor added services.
+        type: array
+        reference to ClaimResponse_Adjudication
+        """
+
         self.detail = None
-        # type = array
-        # reference to ClaimResponse_Detail1: ClaimResponse_Detail1
+        """
+        The second tier service adjudications for payor added services.
 
-        # unique identifier for object class
+        type: array
+        reference to ClaimResponse_Detail1
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -469,10 +620,25 @@ class ClaimResponse_AddItem(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ClaimResponse_Detail1',
+            {'parent_entity': 'ClaimResponse_Adjudication',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_AddItem',
-             'child_variable': 'detail'},
+             'child_variable': 'adjudication'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_AddItem',
+             'child_variable': 'revenue'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_AddItem',
+             'child_variable': 'fee'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_AddItem',
+             'child_variable': 'category'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -484,71 +650,79 @@ class ClaimResponse_AddItem(fhirbase):
              'child_entity': 'ClaimResponse_AddItem',
              'child_variable': 'service'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'ClaimResponse_Detail1',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_AddItem',
-             'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse_AddItem',
-             'child_variable': 'revenue'},
-
-            {'parent_entity': 'ClaimResponse_Adjudication',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse_AddItem',
-             'child_variable': 'adjudication'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse_AddItem',
-             'child_variable': 'fee'},
+             'child_variable': 'detail'},
         ]
 
 
 class ClaimResponse_Detail1(fhirbase):
-    """This resource provides the adjudication details from the processing of a
-    Claim resource.
+    """
+    This resource provides the adjudication details from the processing of
+    a Claim resource.
     """
 
     __name__ = 'ClaimResponse_Detail1'
 
     def __init__(self, dict_values=None):
-        # the type of reveneu or cost center providing the product and/or service.
         self.revenue = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of reveneu or cost center providing the product and/or
+        service.
 
-        # health care service type codes  to identify the classification of
-        # service or benefits.
+        reference to CodeableConcept
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Health Care Service Type Codes  to identify the classification of
+        service or benefits.
 
-        # a code to indicate the professional service or product supplied.
+        reference to CodeableConcept
+        """
+
         self.service = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code to indicate the Professional Service or Product supplied.
 
-        # item typification or modifiers codes, eg for oral whether the treatment
-        # is cosmetic or associated with tmj, or for medical whether the treatment
-        # was outside the clinic or out of office hours.
+        reference to CodeableConcept
+        """
+
         self.modifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Item typification or modifiers codes, eg for Oral whether the
+        treatment is cosmetic or associated with TMJ, or for medical whether
+        the treatment was outside the clinic or out of office hours.
 
-        # the fee charged for the professional service or product..
+        type: array
+        reference to CodeableConcept
+        """
+
         self.fee = None
-        # reference to Money: Money
+        """
+        The fee charged for the professional service or product..
 
-        # a list of note references to the notes provided below.
+        reference to Money
+        """
+
         self.noteNumber = None
-        # type = array
+        """
+        A list of note references to the notes provided below.
 
-        # the adjudications results.
+        type: array
+        """
+
         self.adjudication = None
-        # type = array
-        # reference to ClaimResponse_Adjudication: ClaimResponse_Adjudication
+        """
+        The adjudications results.
 
-        # unique identifier for object class
+        type: array
+        reference to ClaimResponse_Adjudication
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -569,7 +743,7 @@ class ClaimResponse_Detail1(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_Detail1',
-             'child_variable': 'category'},
+             'child_variable': 'modifier'},
 
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
@@ -579,47 +753,60 @@ class ClaimResponse_Detail1(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_Detail1',
-             'child_variable': 'service'},
+             'child_variable': 'category'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_Detail1',
-             'child_variable': 'modifier'},
+             'child_variable': 'service'},
         ]
 
 
 class ClaimResponse_Error(fhirbase):
-    """This resource provides the adjudication details from the processing of a
-    Claim resource.
+    """
+    This resource provides the adjudication details from the processing of
+    a Claim resource.
     """
 
     __name__ = 'ClaimResponse_Error'
 
     def __init__(self, dict_values=None):
-        # the sequence number of the line item submitted which contains the error.
-        # this value is omitted when the error is elsewhere.
         self.sequenceLinkId = None
-        # type = int
+        """
+        The sequence number of the line item submitted which contains the
+        error. This value is omitted when the error is elsewhere.
 
-        # the sequence number of the addition within the line item submitted which
-        # contains the error. this value is omitted when the error is not related
-        # to an addition.
+        type: int
+        """
+
         self.detailSequenceLinkId = None
-        # type = int
+        """
+        The sequence number of the addition within the line item submitted
+        which contains the error. This value is omitted when the error is not
+        related to an Addition.
 
-        # the sequence number of the addition within the line item submitted which
-        # contains the error. this value is omitted when the error is not related
-        # to an addition.
+        type: int
+        """
+
         self.subdetailSequenceLinkId = None
-        # type = int
+        """
+        The sequence number of the addition within the line item submitted
+        which contains the error. This value is omitted when the error is not
+        related to an Addition.
 
-        # an error code,from a specified code system, which details why the claim
-        # could not be adjudicated.
+        type: int
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        An error code,from a specified code system, which details why the
+        claim could not be adjudicated.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -635,37 +822,56 @@ class ClaimResponse_Error(fhirbase):
 
 
 class ClaimResponse_Payment(fhirbase):
-    """This resource provides the adjudication details from the processing of a
-    Claim resource.
+    """
+    This resource provides the adjudication details from the processing of
+    a Claim resource.
     """
 
     __name__ = 'ClaimResponse_Payment'
 
     def __init__(self, dict_values=None):
-        # whether this represents partial or complete payment of the claim.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Whether this represents partial or complete payment of the claim.
 
-        # adjustment to the payment of this transaction which is not related to
-        # adjudication of this transaction.
+        reference to CodeableConcept
+        """
+
         self.adjustment = None
-        # reference to Money: Money
+        """
+        Adjustment to the payment of this transaction which is not related to
+        adjudication of this transaction.
 
-        # reason for the payment adjustment.
+        reference to Money
+        """
+
         self.adjustmentReason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Reason for the payment adjustment.
 
-        # estimated payment data.
+        reference to CodeableConcept
+        """
+
         self.date = None
-        # type = string
+        """
+        Estimated payment data.
 
-        # payable less any payment adjustment.
+        type: string
+        """
+
         self.amount = None
-        # reference to Money: Money
+        """
+        Payable less any payment adjustment.
 
-        # payment identifier.
+        reference to Money
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Payment identifier.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -673,63 +879,76 @@ class ClaimResponse_Payment(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'ClaimResponse_Payment',
-             'child_variable': 'amount'},
-
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_Payment',
              'child_variable': 'identifier'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ClaimResponse_Payment',
+             'child_variable': 'adjustmentReason'},
+
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_Payment',
-             'child_variable': 'adjustment'},
+             'child_variable': 'amount'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_Payment',
              'child_variable': 'type'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'ClaimResponse_Payment',
-             'child_variable': 'adjustmentReason'},
+             'child_variable': 'adjustment'},
         ]
 
 
 class ClaimResponse_ProcessNote(fhirbase):
-    """This resource provides the adjudication details from the processing of a
-    Claim resource.
+    """
+    This resource provides the adjudication details from the processing of
+    a Claim resource.
     """
 
     __name__ = 'ClaimResponse_ProcessNote'
 
     def __init__(self, dict_values=None):
-        # an integer associated with each note which may be referred to from each
-        # service line item.
         self.number = None
-        # type = int
+        """
+        An integer associated with each note which may be referred to from
+        each service line item.
 
-        # the note purpose: print/display.
+        type: int
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The note purpose: Print/Display.
 
-        # the note text.
+        reference to CodeableConcept
+        """
+
         self.text = None
-        # type = string
+        """
+        The note text.
 
-        # the iso-639-1 alpha 2 code in lower case for the language, optionally
-        # followed by a hyphen and the iso-3166-1 alpha 2 code for the region in
-        # upper case; e.g. "en" for english, or "en-us" for american english
-        # versus "en-en" for england english.
+        type: string
+        """
+
         self.language = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The ISO-639-1 alpha 2 code in lower case for the language, optionally
+        followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in
+        upper case; e.g. "en" for English, or "en-US" for American English
+        versus "en-EN" for England English.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -750,41 +969,61 @@ class ClaimResponse_ProcessNote(fhirbase):
 
 
 class ClaimResponse_Insurance(fhirbase):
-    """This resource provides the adjudication details from the processing of a
-    Claim resource.
+    """
+    This resource provides the adjudication details from the processing of
+    a Claim resource.
     """
 
     __name__ = 'ClaimResponse_Insurance'
 
     def __init__(self, dict_values=None):
-        # a service line item.
         self.sequence = None
-        # type = int
+        """
+        A service line item.
 
-        # the instance number of the coverage which is the focus for adjudication.
-        # the coverage against which the claim is to be adjudicated.
+        type: int
+        """
+
         self.focal = None
-        # type = boolean
+        """
+        The instance number of the Coverage which is the focus for
+        adjudication. The Coverage against which the claim is to be
+        adjudicated.
 
-        # reference to the program or plan identification, underwriter or payor.
+        type: boolean
+        """
+
         self.coverage = None
-        # reference to Reference: identifier
+        """
+        Reference to the program or plan identification, underwriter or payor.
 
-        # the contract number of a business agreement which describes the terms
-        # and conditions.
+        reference to Reference: identifier
+        """
+
         self.businessArrangement = None
-        # type = string
+        """
+        The contract number of a business agreement which describes the terms
+        and conditions.
 
-        # a list of references from the insurer to which these services pertain.
+        type: string
+        """
+
         self.preAuthRef = None
-        # type = array
+        """
+        A list of references from the Insurer to which these services pertain.
 
-        # the coverages adjudication details.
+        type: array
+        """
+
         self.claimResponse = None
-        # reference to Reference: identifier
+        """
+        The Coverages adjudication details.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

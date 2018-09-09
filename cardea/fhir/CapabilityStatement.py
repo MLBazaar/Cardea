@@ -2,8 +2,9 @@ from .fhirbase import fhirbase
 
 
 class CapabilityStatement(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -11,185 +12,272 @@ class CapabilityStatement(fhirbase):
     __name__ = 'CapabilityStatement'
 
     def __init__(self, dict_values=None):
-        # this is a capabilitystatement resource
         self.resourceType = 'CapabilityStatement'
-        # type = string
-        # possible values: CapabilityStatement
+        """
+        This is a CapabilityStatement resource
 
-        # an absolute uri that is used to identify this capability statement when
-        # it is referenced in a specification, model, design or an instance. this
-        # shall be a url, should be globally unique, and should be an address at
-        # which this capability statement is (or will be) published. the url
-        # should include the major version of the capability statement. for more
-        # information see [technical and business
-        # versions](resource.html#versions).
+        type: string
+        possible values: CapabilityStatement
+        """
+
         self.url = None
-        # type = string
+        """
+        An absolute URI that is used to identify this capability statement
+        when it is referenced in a specification, model, design or an
+        instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD
+        be an address at which this capability statement is (or will be)
+        published. The URL SHOULD include the major version of the capability
+        statement. For more information see [Technical and Business
+        Versions](resource.html#versions).
 
-        # the identifier that is used to identify this version of the capability
-        # statement when it is referenced in a specification, model, design or
-        # instance. this is an arbitrary value managed by the capability statement
-        # author and is not expected to be globally unique. for example, it might
-        # be a timestamp (e.g. yyyymmdd) if a managed version is not available.
-        # there is also no expectation that versions can be placed in a
-        # lexicographical sequence.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The identifier that is used to identify this version of the capability
+        statement when it is referenced in a specification, model, design or
+        instance. This is an arbitrary value managed by the capability
+        statement author and is not expected to be globally unique. For
+        example, it might be a timestamp (e.g. yyyymmdd) if a managed version
+        is not available. There is also no expectation that versions can be
+        placed in a lexicographical sequence.
 
-        # a natural language name identifying the capability statement. this name
-        # should be usable as an identifier for the module by machine processing
-        # applications such as code generation.
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        A natural language name identifying the capability statement. This
+        name should be usable as an identifier for the module by machine
+        processing applications such as code generation.
 
-        # a short, descriptive, user-friendly title for the capability statement.
+        type: string
+        """
+
         self.title = None
-        # type = string
+        """
+        A short, descriptive, user-friendly title for the capability
+        statement.
 
-        # the status of this capability statement. enables tracking the life-cycle
-        # of the content.
+        type: string
+        """
+
         self.status = None
-        # type = string
-        # possible values: draft, active, retired, unknown
+        """
+        The status of this capability statement. Enables tracking the
+        life-cycle of the content.
 
-        # a boolean value to indicate that this capability statement is authored
-        # for testing purposes (or education/evaluation/marketing), and is not
-        # intended to be used for genuine usage.
+        type: string
+        possible values: draft, active, retired, unknown
+        """
+
         self.experimental = None
-        # type = boolean
+        """
+        A boolean value to indicate that this capability statement is authored
+        for testing purposes (or education/evaluation/marketing), and is not
+        intended to be used for genuine usage.
 
-        # the date  (and optionally time) when the capability statement was
-        # published. the date must change if and when the business version changes
-        # and it must change if the status code changes. in addition, it should
-        # change when the substantive content of the capability statement changes.
+        type: boolean
+        """
+
         self.date = None
-        # type = string
+        """
+        The date  (and optionally time) when the capability statement was
+        published. The date must change if and when the business version
+        changes and it must change if the status code changes. In addition, it
+        should change when the substantive content of the capability statement
+        changes.
 
-        # the name of the individual or organization that published the capability
-        # statement.
+        type: string
+        """
+
         self.publisher = None
-        # type = string
+        """
+        The name of the individual or organization that published the
+        capability statement.
 
-        # contact details to assist a user in finding and communicating with the
-        # publisher.
+        type: string
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        """
+        Contact details to assist a user in finding and communicating with the
+        publisher.
 
-        # a free text natural language description of the capability statement
-        # from a consumer's perspective. typically, this is used when the
-        # capability statement describes a desired rather than an actual solution,
-        # for example as a formal expression of requirements as part of an rfp.
+        type: array
+        reference to ContactDetail
+        """
+
         self.description = None
-        # type = string
+        """
+        A free text natural language description of the capability statement
+        from a consumer's perspective. Typically, this is used when the
+        capability statement describes a desired rather than an actual
+        solution, for example as a formal expression of requirements as part
+        of an RFP.
 
-        # the content was developed with a focus and intent of supporting the
-        # contexts that are listed. these terms may be used to assist with
-        # indexing and searching for appropriate capability statement instances.
+        type: string
+        """
+
         self.useContext = None
-        # type = array
-        # reference to UsageContext: UsageContext
+        """
+        The content was developed with a focus and intent of supporting the
+        contexts that are listed. These terms may be used to assist with
+        indexing and searching for appropriate capability statement instances.
 
-        # a legal or geographic region in which the capability statement is
-        # intended to be used.
+        type: array
+        reference to UsageContext
+        """
+
         self.jurisdiction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A legal or geographic region in which the capability statement is
+        intended to be used.
 
-        # explaination of why this capability statement is needed and why it has
-        # been designed as it has.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.purpose = None
-        # type = string
+        """
+        Explaination of why this capability statement is needed and why it has
+        been designed as it has.
 
-        # a copyright statement relating to the capability statement and/or its
-        # contents. copyright statements are generally legal restrictions on the
-        # use and publishing of the capability statement.
+        type: string
+        """
+
         self.copyright = None
-        # type = string
+        """
+        A copyright statement relating to the capability statement and/or its
+        contents. Copyright statements are generally legal restrictions on the
+        use and publishing of the capability statement.
 
-        # the way that this statement is intended to be used, to describe an
-        # actual running instance of software, a particular product (kind not
-        # instance of software) or a class of implementation (e.g. a desired
-        # purchase).
+        type: string
+        """
+
         self.kind = None
-        # type = string
-        # possible values: instance, capability, requirements
+        """
+        The way that this statement is intended to be used, to describe an
+        actual running instance of software, a particular product (kind not
+        instance of software) or a class of implementation (e.g. a desired
+        purchase).
 
-        # reference to a canonical url of another capabilitystatement that this
-        # software implements or uses. this capability statement is a published
-        # api description that corresponds to a business service. the rest of the
-        # capability statement does not need to repeat the details of the
-        # referenced resource, but can do so.
+        type: string
+        possible values: instance, capability, requirements
+        """
+
         self.instantiates = None
-        # type = array
+        """
+        Reference to a canonical URL of another CapabilityStatement that this
+        software implements or uses. This capability statement is a published
+        API description that corresponds to a business service. The rest of
+        the capability statement does not need to repeat the details of the
+        referenced resource, but can do so.
 
-        # software that is covered by this capability statement.  it is used when
-        # the capability statement describes the capabilities of a particular
-        # software version, independent of an installation.
+        type: array
+        """
+
         self.software = None
-        # reference to CapabilityStatement_Software: CapabilityStatement_Software
+        """
+        Software that is covered by this capability statement.  It is used
+        when the capability statement describes the capabilities of a
+        particular software version, independent of an installation.
 
-        # identifies a specific implementation instance that is described by the
-        # capability statement - i.e. a particular installation, rather than the
-        # capabilities of a software program.
+        reference to CapabilityStatement_Software
+        """
+
         self.implementation = None
-        # reference to CapabilityStatement_Implementation: CapabilityStatement_Implementation
+        """
+        Identifies a specific implementation instance that is described by the
+        capability statement - i.e. a particular installation, rather than the
+        capabilities of a software program.
 
-        # the version of the fhir specification on which this capability statement
-        # is based.
+        reference to CapabilityStatement_Implementation
+        """
+
         self.fhirVersion = None
-        # type = string
+        """
+        The version of the FHIR specification on which this capability
+        statement is based.
 
-        # a code that indicates whether the application accepts unknown elements
-        # or extensions when reading resources.
+        type: string
+        """
+
         self.acceptUnknown = None
-        # type = string
-        # possible values: no, extensions, elements, both
+        """
+        A code that indicates whether the application accepts unknown elements
+        or extensions when reading resources.
 
-        # a list of the formats supported by this implementation using their
-        # content types.
+        type: string
+        possible values: no, extensions, elements, both
+        """
+
         self.format = None
-        # type = array
+        """
+        A list of the formats supported by this implementation using their
+        content types.
 
-        # a list of the patch formats supported by this implementation using their
-        # content types.
+        type: array
+        """
+
         self.patchFormat = None
-        # type = array
+        """
+        A list of the patch formats supported by this implementation using
+        their content types.
 
-        # a list of implementation guides that the server does (or should) support
-        # in their entirety.
+        type: array
+        """
+
         self.implementationGuide = None
-        # type = array
+        """
+        A list of implementation guides that the server does (or should)
+        support in their entirety.
 
-        # a list of profiles that represent different use cases supported by the
-        # system. for a server, "supported by the system" means the system
-        # hosts/produces a set of resources that are conformant to a particular
-        # profile, and allows clients that use its services to search using this
-        # profile and to find appropriate data. for a client, it means the system
-        # will search by this profile and process data according to the guidance
-        # implicit in the profile. see further discussion in [using
-        # profiles](profiling.html#profile-uses).
+        type: array
+        """
+
         self.profile = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A list of profiles that represent different use cases supported by the
+        system. For a server, "supported by the system" means the system
+        hosts/produces a set of resources that are conformant to a particular
+        profile, and allows clients that use its services to search using this
+        profile and to find appropriate data. For a client, it means the
+        system will search by this profile and process data according to the
+        guidance implicit in the profile. See further discussion in [Using
+        Profiles](profiling.html#profile-uses).
 
-        # a definition of the restful capabilities of the solution, if any.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.rest = None
-        # type = array
-        # reference to CapabilityStatement_Rest: CapabilityStatement_Rest
+        """
+        A definition of the restful capabilities of the solution, if any.
 
-        # a description of the messaging capabilities of the solution.
+        type: array
+        reference to CapabilityStatement_Rest
+        """
+
         self.messaging = None
-        # type = array
-        # reference to CapabilityStatement_Messaging: CapabilityStatement_Messaging
+        """
+        A description of the messaging capabilities of the solution.
 
-        # a document definition.
+        type: array
+        reference to CapabilityStatement_Messaging
+        """
+
         self.document = None
-        # type = array
-        # reference to CapabilityStatement_Document: CapabilityStatement_Document
+        """
+        A document definition.
 
-        # unique identifier for object class
+        type: array
+        reference to CapabilityStatement_Document
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -220,6 +308,21 @@ class CapabilityStatement(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CapabilityStatement_Implementation',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'implementation'},
+
+            {'parent_entity': 'CapabilityStatement_Document',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'document'},
+
+            {'parent_entity': 'CapabilityStatement_Messaging',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'messaging'},
+
             {'parent_entity': 'ContactDetail',
              'parent_variable': 'object_id',
              'child_entity': 'CapabilityStatement',
@@ -230,46 +333,32 @@ class CapabilityStatement(fhirbase):
              'child_entity': 'CapabilityStatement',
              'child_variable': 'rest'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CapabilityStatement',
+             'child_variable': 'profile'},
+
+            {'parent_entity': 'UsageContext',
              'parent_variable': 'object_id',
              'child_entity': 'CapabilityStatement',
-             'child_variable': 'jurisdiction'},
+             'child_variable': 'useContext'},
 
             {'parent_entity': 'CapabilityStatement_Software',
              'parent_variable': 'object_id',
              'child_entity': 'CapabilityStatement',
              'child_variable': 'software'},
 
-            {'parent_entity': 'CapabilityStatement_Document',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'CapabilityStatement',
-             'child_variable': 'document'},
-
-            {'parent_entity': 'CapabilityStatement_Implementation',
-             'parent_variable': 'object_id',
-             'child_entity': 'CapabilityStatement',
-             'child_variable': 'implementation'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'CapabilityStatement',
-             'child_variable': 'profile'},
-
-            {'parent_entity': 'CapabilityStatement_Messaging',
-             'parent_variable': 'object_id',
-             'child_entity': 'CapabilityStatement',
-             'child_variable': 'messaging'},
-
-            {'parent_entity': 'UsageContext',
-             'parent_variable': 'object_id',
-             'child_entity': 'CapabilityStatement',
-             'child_variable': 'useContext'},
+             'child_variable': 'jurisdiction'},
         ]
 
 
 class CapabilityStatement_Software(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -277,28 +366,38 @@ class CapabilityStatement_Software(fhirbase):
     __name__ = 'CapabilityStatement_Software'
 
     def __init__(self, dict_values=None):
-        # name software is known by.
         self.name = None
-        # type = string
+        """
+        Name software is known by.
 
-        # the version identifier for the software covered by this statement.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The version identifier for the software covered by this statement.
 
-        # date this version of the software was released.
+        type: string
+        """
+
         self.releaseDate = None
-        # type = string
+        """
+        Date this version of the software was released.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class CapabilityStatement_Implementation(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -306,26 +405,33 @@ class CapabilityStatement_Implementation(fhirbase):
     __name__ = 'CapabilityStatement_Implementation'
 
     def __init__(self, dict_values=None):
-        # information about the specific installation that this capability
-        # statement relates to.
         self.description = None
-        # type = string
+        """
+        Information about the specific installation that this capability
+        statement relates to.
 
-        # an absolute base url for the implementation.  this forms the base for
-        # rest interfaces as well as the mailbox and document interfaces.
+        type: string
+        """
+
         self.url = None
-        # type = string
+        """
+        An absolute base URL for the implementation.  This forms the base for
+        REST interfaces as well as the mailbox and document interfaces.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class CapabilityStatement_Rest(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -333,55 +439,79 @@ class CapabilityStatement_Rest(fhirbase):
     __name__ = 'CapabilityStatement_Rest'
 
     def __init__(self, dict_values=None):
-        # identifies whether this portion of the statement is describing the
-        # ability to initiate or receive restful operations.
         self.mode = None
-        # type = string
-        # possible values: client, server
+        """
+        Identifies whether this portion of the statement is describing the
+        ability to initiate or receive restful operations.
 
-        # information about the system's restful capabilities that apply across
-        # all applications, such as security.
+        type: string
+        possible values: client, server
+        """
+
         self.documentation = None
-        # type = string
+        """
+        Information about the system's restful capabilities that apply across
+        all applications, such as security.
 
-        # information about security implementation from an interface perspective
-        # - what a client needs to know.
+        type: string
+        """
+
         self.security = None
-        # reference to CapabilityStatement_Security: CapabilityStatement_Security
+        """
+        Information about security implementation from an interface
+        perspective - what a client needs to know.
 
-        # a specification of the restful capabilities of the solution for a
-        # specific resource type.
+        reference to CapabilityStatement_Security
+        """
+
         self.resource = None
-        # type = array
-        # reference to CapabilityStatement_Resource: CapabilityStatement_Resource
+        """
+        A specification of the restful capabilities of the solution for a
+        specific resource type.
 
-        # a specification of restful operations supported by the system.
+        type: array
+        reference to CapabilityStatement_Resource
+        """
+
         self.interaction = None
-        # type = array
-        # reference to CapabilityStatement_Interaction1: CapabilityStatement_Interaction1
+        """
+        A specification of restful operations supported by the system.
 
-        # search parameters that are supported for searching all resources for
-        # implementations to support and/or make use of - either references to
-        # ones defined in the specification, or additional ones defined for/by the
-        # implementation.
+        type: array
+        reference to CapabilityStatement_Interaction1
+        """
+
         self.searchParam = None
-        # type = array
-        # reference to CapabilityStatement_SearchParam: CapabilityStatement_SearchParam
+        """
+        Search parameters that are supported for searching all resources for
+        implementations to support and/or make use of - either references to
+        ones defined in the specification, or additional ones defined for/by
+        the implementation.
 
-        # definition of an operation or a named query together with its parameters
-        # and their meaning and type.
+        type: array
+        reference to CapabilityStatement_SearchParam
+        """
+
         self.operation = None
-        # type = array
-        # reference to CapabilityStatement_Operation: CapabilityStatement_Operation
+        """
+        Definition of an operation or a named query together with its
+        parameters and their meaning and type.
 
-        # an absolute uri which is a reference to the definition of a compartment
-        # that the system supports. the reference is to a compartmentdefinition
-        # resource by its canonical url .
+        type: array
+        reference to CapabilityStatement_Operation
+        """
+
         self.compartment = None
-        # type = array
+        """
+        An absolute URI which is a reference to the definition of a
+        compartment that the system supports. The reference is to a
+        CompartmentDefinition resource by its canonical URL .
 
-        # unique identifier for object class
+        type: array
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -398,36 +528,37 @@ class CapabilityStatement_Rest(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CapabilityStatement_Resource',
+            {'parent_entity': 'CapabilityStatement_Security',
              'parent_variable': 'object_id',
              'child_entity': 'CapabilityStatement_Rest',
-             'child_variable': 'resource'},
+             'child_variable': 'security'},
+
+            {'parent_entity': 'CapabilityStatement_Interaction1',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Rest',
+             'child_variable': 'interaction'},
 
             {'parent_entity': 'CapabilityStatement_SearchParam',
              'parent_variable': 'object_id',
              'child_entity': 'CapabilityStatement_Rest',
              'child_variable': 'searchParam'},
 
-            {'parent_entity': 'CapabilityStatement_Security',
+            {'parent_entity': 'CapabilityStatement_Resource',
              'parent_variable': 'object_id',
              'child_entity': 'CapabilityStatement_Rest',
-             'child_variable': 'security'},
+             'child_variable': 'resource'},
 
             {'parent_entity': 'CapabilityStatement_Operation',
              'parent_variable': 'object_id',
              'child_entity': 'CapabilityStatement_Rest',
              'child_variable': 'operation'},
-
-            {'parent_entity': 'CapabilityStatement_Interaction1',
-             'parent_variable': 'object_id',
-             'child_entity': 'CapabilityStatement_Rest',
-             'child_variable': 'interaction'},
         ]
 
 
 class CapabilityStatement_Security(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -435,27 +566,39 @@ class CapabilityStatement_Security(fhirbase):
     __name__ = 'CapabilityStatement_Security'
 
     def __init__(self, dict_values=None):
-        # server adds cors headers when responding to requests - this enables
-        # javascript applications to use the server.
         self.cors = None
-        # type = boolean
+        """
+        Server adds CORS headers when responding to requests - this enables
+        javascript applications to use the server.
 
-        # types of security services that are supported/required by the system.
+        type: boolean
+        """
+
         self.service = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Types of security services that are supported/required by the system.
 
-        # general description of how security works.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.description = None
-        # type = string
+        """
+        General description of how security works.
 
-        # certificates associated with security profiles.
+        type: string
+        """
+
         self.certificate = None
-        # type = array
-        # reference to CapabilityStatement_Certificate: CapabilityStatement_Certificate
+        """
+        Certificates associated with security profiles.
 
-        # unique identifier for object class
+        type: array
+        reference to CapabilityStatement_Certificate
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -476,8 +619,9 @@ class CapabilityStatement_Security(fhirbase):
 
 
 class CapabilityStatement_Certificate(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -485,24 +629,31 @@ class CapabilityStatement_Certificate(fhirbase):
     __name__ = 'CapabilityStatement_Certificate'
 
     def __init__(self, dict_values=None):
-        # mime type for a certificate.
         self.type = None
-        # type = string
+        """
+        Mime type for a certificate.
 
-        # actual certificate.
+        type: string
+        """
+
         self.blob = None
-        # type = string
+        """
+        Actual certificate.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class CapabilityStatement_Resource(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -510,90 +661,136 @@ class CapabilityStatement_Resource(fhirbase):
     __name__ = 'CapabilityStatement_Resource'
 
     def __init__(self, dict_values=None):
-        # a type of resource exposed via the restful interface.
         self.type = None
-        # type = string
+        """
+        A type of resource exposed via the restful interface.
 
-        # a specification of the profile that describes the solution's overall
-        # support for the resource, including any constraints on cardinality,
-        # bindings, lengths or other limitations. see further discussion in [using
-        # profiles](profiling.html#profile-uses).
+        type: string
+        """
+
         self.profile = None
-        # reference to Reference: identifier
+        """
+        A specification of the profile that describes the solution's overall
+        support for the resource, including any constraints on cardinality,
+        bindings, lengths or other limitations. See further discussion in
+        [Using Profiles](profiling.html#profile-uses).
 
-        # additional information about the resource type used by the system.
+        reference to Reference: identifier
+        """
+
         self.documentation = None
-        # type = string
+        """
+        Additional information about the resource type used by the system.
 
-        # identifies a restful operation supported by the solution.
+        type: string
+        """
+
         self.interaction = None
-        # type = array
-        # reference to CapabilityStatement_Interaction: CapabilityStatement_Interaction
+        """
+        Identifies a restful operation supported by the solution.
 
-        # this field is set to no-version to specify that the system does not
-        # support (server) or use (client) versioning for this resource type. if
-        # this has some other value, the server must at least correctly track and
-        # populate the versionid meta-property on resources. if the value is
-        # 'versioned-update', then the server supports all the versioning
-        # features, including using e-tags for version integrity in the api.
+        type: array
+        reference to CapabilityStatement_Interaction
+        """
+
         self.versioning = None
-        # type = string
-        # possible values: no-version, versioned, versioned-update
+        """
+        This field is set to no-version to specify that the system does not
+        support (server) or use (client) versioning for this resource type. If
+        this has some other value, the server must at least correctly track
+        and populate the versionId meta-property on resources. If the value is
+        'versioned-update', then the server supports all the versioning
+        features, including using e-tags for version integrity in the API.
 
-        # a flag for whether the server is able to return past versions as part of
-        # the vread operation.
+        type: string
+        possible values: no-version, versioned, versioned-update
+        """
+
         self.readHistory = None
-        # type = boolean
+        """
+        A flag for whether the server is able to return past versions as part
+        of the vRead operation.
 
-        # a flag to indicate that the server allows or needs to allow the client
-        # to create new identities on the server (e.g. that is, the client puts to
-        # a location where there is no existing resource). allowing this operation
-        # means that the server allows the client to create new identities on the
-        # server.
+        type: boolean
+        """
+
         self.updateCreate = None
-        # type = boolean
+        """
+        A flag to indicate that the server allows or needs to allow the client
+        to create new identities on the server (e.g. that is, the client PUTs
+        to a location where there is no existing resource). Allowing this
+        operation means that the server allows the client to create new
+        identities on the server.
 
-        # a flag that indicates that the server supports conditional create.
+        type: boolean
+        """
+
         self.conditionalCreate = None
-        # type = boolean
+        """
+        A flag that indicates that the server supports conditional create.
 
-        # a code that indicates how the server supports conditional read.
+        type: boolean
+        """
+
         self.conditionalRead = None
-        # type = string
-        # possible values: not-supported, modified-since, not-match,
-        # full-support
+        """
+        A code that indicates how the server supports conditional read.
 
-        # a flag that indicates that the server supports conditional update.
+        type: string
+        possible values: not-supported, modified-since, not-match,
+        full-support
+        """
+
         self.conditionalUpdate = None
-        # type = boolean
+        """
+        A flag that indicates that the server supports conditional update.
 
-        # a code that indicates how the server supports conditional delete.
+        type: boolean
+        """
+
         self.conditionalDelete = None
-        # type = string
-        # possible values: not-supported, single, multiple
+        """
+        A code that indicates how the server supports conditional delete.
 
-        # a set of flags that defines how references are supported.
+        type: string
+        possible values: not-supported, single, multiple
+        """
+
         self.referencePolicy = None
-        # type = array
-        # possible values: literal, logical, resolves, enforced, local
+        """
+        A set of flags that defines how references are supported.
 
-        # a list of _include values supported by the server.
+        type: array
+        possible values: literal, logical, resolves, enforced, local
+        """
+
         self.searchInclude = None
-        # type = array
+        """
+        A list of _include values supported by the server.
 
-        # a list of _revinclude (reverse include) values supported by the server.
+        type: array
+        """
+
         self.searchRevInclude = None
-        # type = array
+        """
+        A list of _revinclude (reverse include) values supported by the
+        server.
 
-        # search parameters for implementations to support and/or make use of -
-        # either references to ones defined in the specification, or additional
-        # ones defined for/by the implementation.
+        type: array
+        """
+
         self.searchParam = None
-        # type = array
-        # reference to CapabilityStatement_SearchParam: CapabilityStatement_SearchParam
+        """
+        Search parameters for implementations to support and/or make use of -
+        either references to ones defined in the specification, or additional
+        ones defined for/by the implementation.
 
-        # unique identifier for object class
+        type: array
+        reference to CapabilityStatement_SearchParam
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -631,26 +828,27 @@ class CapabilityStatement_Resource(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'CapabilityStatement_SearchParam',
+             'parent_variable': 'object_id',
              'child_entity': 'CapabilityStatement_Resource',
-             'child_variable': 'profile'},
+             'child_variable': 'searchParam'},
 
             {'parent_entity': 'CapabilityStatement_Interaction',
              'parent_variable': 'object_id',
              'child_entity': 'CapabilityStatement_Resource',
              'child_variable': 'interaction'},
 
-            {'parent_entity': 'CapabilityStatement_SearchParam',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'CapabilityStatement_Resource',
-             'child_variable': 'searchParam'},
+             'child_variable': 'profile'},
         ]
 
 
 class CapabilityStatement_Interaction(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -658,20 +856,26 @@ class CapabilityStatement_Interaction(fhirbase):
     __name__ = 'CapabilityStatement_Interaction'
 
     def __init__(self, dict_values=None):
-        # coded identifier of the operation, supported by the system resource.
         self.code = None
-        # type = string
-        # possible values: read, vread, update, patch, delete, history-
-        # instance, history-type, create, search-type
+        """
+        Coded identifier of the operation, supported by the system resource.
 
-        # guidance specific to the implementation of this operation, such as
-        # 'delete is a logical delete' or 'updates are only allowed with version
-        # id' or 'creates permitted from pre-authorized certificates only'.
+        type: string
+        possible values: read, vread, update, patch, delete,
+        history-instance, history-type, create, search-type
+        """
+
         self.documentation = None
-        # type = string
+        """
+        Guidance specific to the implementation of this operation, such as
+        'delete is a logical delete' or 'updates are only allowed with version
+        id' or 'creates permitted from pre-authorized certificates only'.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -684,13 +888,14 @@ class CapabilityStatement_Interaction(fhirbase):
                     'read', 'vread', 'update', 'patch', 'delete', 'history-instance',
                         'history-type', 'create', 'search-type']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'read, vread, update, patch, delete, history-instance,'
+                        value, 'read, vread, update, patch, delete, history-instance, '
                         'history-type, create, search-type'))
 
 
 class CapabilityStatement_SearchParam(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -698,30 +903,42 @@ class CapabilityStatement_SearchParam(fhirbase):
     __name__ = 'CapabilityStatement_SearchParam'
 
     def __init__(self, dict_values=None):
-        # the name of the search parameter used in the interface.
         self.name = None
-        # type = string
+        """
+        The name of the search parameter used in the interface.
 
-        # an absolute uri that is a formal reference to where this parameter was
-        # first defined, so that a client can be confident of the meaning of the
-        # search parameter (a reference to [[[searchparameter.url]]]).
+        type: string
+        """
+
         self.definition = None
-        # type = string
+        """
+        An absolute URI that is a formal reference to where this parameter was
+        first defined, so that a client can be confident of the meaning of the
+        search parameter (a reference to [[[SearchParameter.url]]]).
 
-        # the type of value a search parameter refers to, and how the content is
-        # interpreted.
+        type: string
+        """
+
         self.type = None
-        # type = string
-        # possible values: number, date, string, token, reference,
-        # composite, quantity, uri
+        """
+        The type of value a search parameter refers to, and how the content is
+        interpreted.
 
-        # this allows documentation of any distinct behaviors about how the search
-        # parameter is used.  for example, text matching algorithms.
+        type: string
+        possible values: number, date, string, token, reference,
+        composite, quantity, uri
+        """
+
         self.documentation = None
-        # type = string
+        """
+        This allows documentation of any distinct behaviors about how the
+        search parameter is used.  For example, text matching algorithms.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -738,8 +955,9 @@ class CapabilityStatement_SearchParam(fhirbase):
 
 
 class CapabilityStatement_Interaction1(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -747,20 +965,26 @@ class CapabilityStatement_Interaction1(fhirbase):
     __name__ = 'CapabilityStatement_Interaction1'
 
     def __init__(self, dict_values=None):
-        # a coded identifier of the operation, supported by the system.
         self.code = None
-        # type = string
-        # possible values: transaction, batch, search-system, history-
-        # system
+        """
+        A coded identifier of the operation, supported by the system.
 
-        # guidance specific to the implementation of this operation, such as
-        # limitations on the kind of transactions allowed, or information about
-        # system wide search is implemented.
+        type: string
+        possible values: transaction, batch, search-system,
+        history-system
+        """
+
         self.documentation = None
-        # type = string
+        """
+        Guidance specific to the implementation of this operation, such as
+        limitations on the kind of transactions allowed, or information about
+        system wide search is implemented.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -776,8 +1000,9 @@ class CapabilityStatement_Interaction1(fhirbase):
 
 
 class CapabilityStatement_Operation(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -785,18 +1010,24 @@ class CapabilityStatement_Operation(fhirbase):
     __name__ = 'CapabilityStatement_Operation'
 
     def __init__(self, dict_values=None):
-        # the name of the operation or query. for an operation, this is the name
-        # prefixed with $ and used in the url. for a query, this is the name used
-        # in the _query parameter when the query is called.
         self.name = None
-        # type = string
+        """
+        The name of the operation or query. For an operation, this is the name
+        prefixed with $ and used in the URL. For a query, this is the name
+        used in the _query parameter when the query is called.
 
-        # where the formal definition can be found.
+        type: string
+        """
+
         self.definition = None
-        # reference to Reference: identifier
+        """
+        Where the formal definition can be found.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -812,8 +1043,9 @@ class CapabilityStatement_Operation(fhirbase):
 
 
 class CapabilityStatement_Messaging(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -821,38 +1053,54 @@ class CapabilityStatement_Messaging(fhirbase):
     __name__ = 'CapabilityStatement_Messaging'
 
     def __init__(self, dict_values=None):
-        # an endpoint (network accessible address) to which messages and/or
-        # replies are to be sent.
         self.endpoint = None
-        # type = array
-        # reference to CapabilityStatement_Endpoint: CapabilityStatement_Endpoint
+        """
+        An endpoint (network accessible address) to which messages and/or
+        replies are to be sent.
 
-        # length if the receiver's reliable messaging cache in minutes (if a
-        # receiver) or how long the cache length on the receiver should be (if a
-        # sender).
+        type: array
+        reference to CapabilityStatement_Endpoint
+        """
+
         self.reliableCache = None
-        # type = int
+        """
+        Length if the receiver's reliable messaging cache in minutes (if a
+        receiver) or how long the cache length on the receiver should be (if a
+        sender).
 
-        # documentation about the system's messaging capabilities for this
-        # endpoint not otherwise documented by the capability statement.  for
-        # example, the process for becoming an authorized messaging exchange
-        # partner.
+        type: int
+        """
+
         self.documentation = None
-        # type = string
+        """
+        Documentation about the system's messaging capabilities for this
+        endpoint not otherwise documented by the capability statement.  For
+        example, the process for becoming an authorized messaging exchange
+        partner.
 
-        # references to message definitions for messages this system can send or
-        # receive.
+        type: string
+        """
+
         self.supportedMessage = None
-        # type = array
-        # reference to CapabilityStatement_SupportedMessage: CapabilityStatement_SupportedMessage
+        """
+        References to message definitions for messages this system can send or
+        receive.
 
-        # a description of the solution's support for an event at this end-point.
+        type: array
+        reference to CapabilityStatement_SupportedMessage
+        """
+
         self.event = None
-        # type = array
-        # reference to CapabilityStatement_Event: CapabilityStatement_Event
+        """
+        A description of the solution's support for an event at this
+        end-point.
 
-        # unique identifier for object class
+        type: array
+        reference to CapabilityStatement_Event
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -878,8 +1126,9 @@ class CapabilityStatement_Messaging(fhirbase):
 
 
 class CapabilityStatement_Endpoint(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -887,18 +1136,24 @@ class CapabilityStatement_Endpoint(fhirbase):
     __name__ = 'CapabilityStatement_Endpoint'
 
     def __init__(self, dict_values=None):
-        # a list of the messaging transport protocol(s) identifiers, supported by
-        # this endpoint.
         self.protocol = None
-        # reference to Coding: Coding
+        """
+        A list of the messaging transport protocol(s) identifiers, supported
+        by this endpoint.
 
-        # the network address of the end-point. for solutions that do not use
-        # network addresses for routing, it can be just an identifier.
+        reference to Coding
+        """
+
         self.address = None
-        # type = string
+        """
+        The network address of the end-point. For solutions that do not use
+        network addresses for routing, it can be just an identifier.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -914,8 +1169,9 @@ class CapabilityStatement_Endpoint(fhirbase):
 
 
 class CapabilityStatement_SupportedMessage(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -923,19 +1179,25 @@ class CapabilityStatement_SupportedMessage(fhirbase):
     __name__ = 'CapabilityStatement_SupportedMessage'
 
     def __init__(self, dict_values=None):
-        # the mode of this event declaration - whether application is sender or
-        # receiver.
         self.mode = None
-        # type = string
-        # possible values: sender, receiver
+        """
+        The mode of this event declaration - whether application is sender or
+        receiver.
 
-        # points to a message definition that identifies the messaging event,
-        # message structure, allowed responses, etc.
+        type: string
+        possible values: sender, receiver
+        """
+
         self.definition = None
-        # reference to Reference: identifier
+        """
+        Points to a message definition that identifies the messaging event,
+        message structure, allowed responses, etc.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -960,8 +1222,9 @@ class CapabilityStatement_SupportedMessage(fhirbase):
 
 
 class CapabilityStatement_Event(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -969,41 +1232,62 @@ class CapabilityStatement_Event(fhirbase):
     __name__ = 'CapabilityStatement_Event'
 
     def __init__(self, dict_values=None):
-        # a coded identifier of a supported messaging event.
         self.code = None
-        # reference to Coding: Coding
+        """
+        A coded identifier of a supported messaging event.
 
-        # the impact of the content of the message.
+        reference to Coding
+        """
+
         self.category = None
-        # type = string
-        # possible values: Consequence, Currency, Notification
+        """
+        The impact of the content of the message.
 
-        # the mode of this event declaration - whether an application is a sender
-        # or receiver.
+        type: string
+        possible values: Consequence, Currency, Notification
+        """
+
         self.mode = None
-        # type = string
-        # possible values: sender, receiver
+        """
+        The mode of this event declaration - whether an application is a
+        sender or receiver.
 
-        # a resource associated with the event.  this is the resource that defines
-        # the event.
+        type: string
+        possible values: sender, receiver
+        """
+
         self.focus = None
-        # type = string
+        """
+        A resource associated with the event.  This is the resource that
+        defines the event.
 
-        # information about the request for this event.
+        type: string
+        """
+
         self.request = None
-        # reference to Reference: identifier
+        """
+        Information about the request for this event.
 
-        # information about the response for this event.
+        reference to Reference: identifier
+        """
+
         self.response = None
-        # reference to Reference: identifier
+        """
+        Information about the response for this event.
 
-        # guidance on how this event is handled, such as internal system trigger
-        # points, business rules, etc.
+        reference to Reference: identifier
+        """
+
         self.documentation = None
-        # type = string
+        """
+        Guidance on how this event is handled, such as internal system trigger
+        points, business rules, etc.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1032,21 +1316,22 @@ class CapabilityStatement_Event(fhirbase):
              'child_entity': 'CapabilityStatement_Event',
              'child_variable': 'response'},
 
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'CapabilityStatement_Event',
-             'child_variable': 'code'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'CapabilityStatement_Event',
              'child_variable': 'request'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'CapabilityStatement_Event',
+             'child_variable': 'code'},
         ]
 
 
 class CapabilityStatement_Document(fhirbase):
-    """A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server
+    """
+    A Capability Statement documents a set of capabilities (behaviors) of
+    a FHIR Server that may be used as a statement of actual server
     functionality or a statement of required or desired server
     implementation.
     """
@@ -1054,24 +1339,33 @@ class CapabilityStatement_Document(fhirbase):
     __name__ = 'CapabilityStatement_Document'
 
     def __init__(self, dict_values=None):
-        # mode of this document declaration - whether an application is a producer
-        # or consumer.
         self.mode = None
-        # type = string
-        # possible values: producer, consumer
+        """
+        Mode of this document declaration - whether an application is a
+        producer or consumer.
 
-        # a description of how the application supports or uses the specified
-        # document profile.  for example, when documents are created, what action
-        # is taken with consumed documents, etc.
+        type: string
+        possible values: producer, consumer
+        """
+
         self.documentation = None
-        # type = string
+        """
+        A description of how the application supports or uses the specified
+        document profile.  For example, when documents are created, what
+        action is taken with consumed documents, etc.
 
-        # a constraint on a resource used in the document.
+        type: string
+        """
+
         self.profile = None
-        # reference to Reference: identifier
+        """
+        A constraint on a resource used in the document.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

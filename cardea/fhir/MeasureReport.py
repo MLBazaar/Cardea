@@ -2,68 +2,103 @@ from .fhirbase import fhirbase
 
 
 class MeasureReport(fhirbase):
-    """The MeasureReport resource contains the results of evaluating a measure.
+    """
+    The MeasureReport resource contains the results of evaluating a
+    measure.
     """
 
     __name__ = 'MeasureReport'
 
     def __init__(self, dict_values=None):
-        # this is a measurereport resource
         self.resourceType = 'MeasureReport'
-        # type = string
-        # possible values: MeasureReport
+        """
+        This is a MeasureReport resource
 
-        # the report status. no data will be available until the report status is
-        # complete.
+        type: string
+        possible values: MeasureReport
+        """
+
         self.status = None
-        # type = string
-        # possible values: complete, pending, error
+        """
+        The report status. No data will be available until the report status
+        is complete.
 
-        # the type of measure report. this may be an individual report, which
-        # provides a single patient's score for the measure; a patient listing,
-        # which returns the list of patients that meet the various criteria in the
-        # measure; or a summary report, which returns a population count for each
-        # of the criteria in the measure.
+        type: string
+        possible values: complete, pending, error
+        """
+
         self.type = None
-        # type = string
-        # possible values: individual, patient-list, summary
+        """
+        The type of measure report. This may be an individual report, which
+        provides a single patient's score for the measure; a patient listing,
+        which returns the list of patients that meet the various criteria in
+        the measure; or a summary report, which returns a population count for
+        each of the criteria in the measure.
 
-        # a reference to the measure that was evaluated to produce this report.
+        type: string
+        possible values: individual, patient-list, summary
+        """
+
         self.measure = None
-        # reference to Reference: identifier
+        """
+        A reference to the Measure that was evaluated to produce this report.
 
-        # optional patient if the report was requested for a single patient.
+        reference to Reference: identifier
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        Optional Patient if the report was requested for a single patient.
 
-        # the date this measure report was generated.
+        reference to Reference: identifier
+        """
+
         self.date = None
-        # type = string
+        """
+        The date this measure report was generated.
 
-        # reporting organization.
+        type: string
+        """
+
         self.reportingOrganization = None
-        # reference to Reference: identifier
+        """
+        Reporting Organization.
 
-        # the reporting period for which the report was calculated.
+        reference to Reference: identifier
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The reporting period for which the report was calculated.
 
-        # the results of the calculation, one for each population group in the
-        # measure.
+        reference to Period
+        """
+
         self.group = None
-        # type = array
-        # reference to MeasureReport_Group: identifier
+        """
+        The results of the calculation, one for each population group in the
+        measure.
 
-        # a reference to a bundle containing the resources that were used in the
-        # evaluation of this report.
+        type: array
+        reference to MeasureReport_Group: identifier
+        """
+
         self.evaluatedResources = None
-        # reference to Reference: identifier
+        """
+        A reference to a Bundle containing the Resources that were used in the
+        evaluation of this report.
 
-        # a formal identifier that is used to identify this report when it is
-        # represented in other formats, or referenced in a specification, model,
-        # design or an instance.
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        A formal identifier that is used to identify this report when it is
+        represented in other formats, or referenced in a specification, model,
+        design or an instance.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -87,25 +122,10 @@ class MeasureReport(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
+            {'parent_entity': 'MeasureReport_Group',
              'parent_variable': 'identifier',
              'child_entity': 'MeasureReport',
-             'child_variable': 'patient'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'MeasureReport',
-             'child_variable': 'period'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MeasureReport',
-             'child_variable': 'evaluatedResources'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'MeasureReport',
-             'child_variable': 'identifier'},
+             'child_variable': 'group'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -117,42 +137,71 @@ class MeasureReport(fhirbase):
              'child_entity': 'MeasureReport',
              'child_variable': 'reportingOrganization'},
 
-            {'parent_entity': 'MeasureReport_Group',
+            {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'MeasureReport',
-             'child_variable': 'group'},
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport',
+             'child_variable': 'evaluatedResources'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport',
+             'child_variable': 'period'},
         ]
 
 
 class MeasureReport_Group(fhirbase):
-    """The MeasureReport resource contains the results of evaluating a measure.
+    """
+    The MeasureReport resource contains the results of evaluating a
+    measure.
     """
 
     __name__ = 'MeasureReport_Group'
 
     def __init__(self, dict_values=None):
-        # the populations that make up the population group, one for each type of
-        # population appropriate for the measure.
         self.population = None
-        # type = array
-        # reference to MeasureReport_Population: identifier
+        """
+        The populations that make up the population group, one for each type
+        of population appropriate for the measure.
 
-        # the measure score for this population group, calculated as appropriate
-        # for the measure type and scoring method, and based on the contents of
-        # the populations defined in the group.
+        type: array
+        reference to MeasureReport_Population: identifier
+        """
+
         self.measureScore = None
-        # type = int
+        """
+        The measure score for this population group, calculated as appropriate
+        for the measure type and scoring method, and based on the contents of
+        the populations defined in the group.
 
-        # when a measure includes multiple stratifiers, there will be a stratifier
-        # group for each stratifier defined by the measure.
+        type: int
+        """
+
         self.stratifier = None
-        # type = array
-        # reference to MeasureReport_Stratifier: identifier
+        """
+        When a measure includes multiple stratifiers, there will be a
+        stratifier group for each stratifier defined by the measure.
 
-        # the identifier of the population group as defined in the measure
-        # definition.
+        type: array
+        reference to MeasureReport_Stratifier: identifier
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        The identifier of the population group as defined in the measure
+        definition.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -160,11 +209,6 @@ class MeasureReport_Group(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'MeasureReport_Population',
-             'parent_variable': 'identifier',
-             'child_entity': 'MeasureReport_Group',
-             'child_variable': 'population'},
-
             {'parent_entity': 'MeasureReport_Stratifier',
              'parent_variable': 'identifier',
              'child_entity': 'MeasureReport_Group',
@@ -174,33 +218,52 @@ class MeasureReport_Group(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'MeasureReport_Group',
              'child_variable': 'identifier'},
+
+            {'parent_entity': 'MeasureReport_Population',
+             'parent_variable': 'identifier',
+             'child_entity': 'MeasureReport_Group',
+             'child_variable': 'population'},
         ]
 
 
 class MeasureReport_Population(fhirbase):
-    """The MeasureReport resource contains the results of evaluating a measure.
+    """
+    The MeasureReport resource contains the results of evaluating a
+    measure.
     """
 
     __name__ = 'MeasureReport_Population'
 
     def __init__(self, dict_values=None):
-        # the type of the population.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of the population.
 
-        # the number of members of the population.
+        reference to CodeableConcept
+        """
+
         self.count = None
-        # type = int
+        """
+        The number of members of the population.
 
-        # this element refers to a list of patient level measurereport resources,
-        # one for each patient in this population.
+        type: int
+        """
+
         self.patients = None
-        # reference to Reference: identifier
+        """
+        This element refers to a List of patient level MeasureReport
+        resources, one for each patient in this population.
 
-        # the identifier of the population being reported, as defined by the
-        # population element of the measure.
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        The identifier of the population being reported, as defined by the
+        population element of the measure.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -208,15 +271,15 @@ class MeasureReport_Population(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'MeasureReport_Population',
-             'child_variable': 'identifier'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'MeasureReport_Population',
              'child_variable': 'code'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport_Population',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -226,22 +289,31 @@ class MeasureReport_Population(fhirbase):
 
 
 class MeasureReport_Stratifier(fhirbase):
-    """The MeasureReport resource contains the results of evaluating a measure.
+    """
+    The MeasureReport resource contains the results of evaluating a
+    measure.
     """
 
     __name__ = 'MeasureReport_Stratifier'
 
     def __init__(self, dict_values=None):
-        # this element contains the results for a single stratum within the
-        # stratifier. for example, when stratifying on administrative gender,
-        # there will be four strata, one for each possible gender value.
         self.stratum = None
-        # type = array
-        # reference to MeasureReport_Stratum: MeasureReport_Stratum
+        """
+        This element contains the results for a single stratum within the
+        stratifier. For example, when stratifying on administrative gender,
+        there will be four strata, one for each possible gender value.
 
-        # the identifier of this stratifier, as defined in the measure definition.
+        type: array
+        reference to MeasureReport_Stratum
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        The identifier of this stratifier, as defined in the measure
+        definition.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -249,45 +321,56 @@ class MeasureReport_Stratifier(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'MeasureReport_Stratifier',
-             'child_variable': 'identifier'},
-
             {'parent_entity': 'MeasureReport_Stratum',
              'parent_variable': 'object_id',
              'child_entity': 'MeasureReport_Stratifier',
              'child_variable': 'stratum'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'MeasureReport_Stratifier',
+             'child_variable': 'identifier'},
         ]
 
 
 class MeasureReport_Stratum(fhirbase):
-    """The MeasureReport resource contains the results of evaluating a measure.
+    """
+    The MeasureReport resource contains the results of evaluating a
+    measure.
     """
 
     __name__ = 'MeasureReport_Stratum'
 
     def __init__(self, dict_values=None):
-        # the value for this stratum, expressed as a string. when defining
-        # stratifiers on complex values, the value must be rendered such that the
-        # value for each stratum within the stratifier is unique.
         self.value = None
-        # type = string
+        """
+        The value for this stratum, expressed as a string. When defining
+        stratifiers on complex values, the value must be rendered such that
+        the value for each stratum within the stratifier is unique.
 
-        # the populations that make up the stratum, one for each type of
-        # population appropriate to the measure.
+        type: string
+        """
+
         self.population = None
-        # type = array
-        # reference to MeasureReport_Population1: identifier
+        """
+        The populations that make up the stratum, one for each type of
+        population appropriate to the measure.
 
-        # the measure score for this stratum, calculated as appropriate for the
-        # measure type and scoring method, and based on only the members of this
-        # stratum.
+        type: array
+        reference to MeasureReport_Population1: identifier
+        """
+
         self.measureScore = None
-        # type = int
+        """
+        The measure score for this stratum, calculated as appropriate for the
+        measure type and scoring method, and based on only the members of this
+        stratum.
 
-        # unique identifier for object class
+        type: int
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -303,29 +386,43 @@ class MeasureReport_Stratum(fhirbase):
 
 
 class MeasureReport_Population1(fhirbase):
-    """The MeasureReport resource contains the results of evaluating a measure.
+    """
+    The MeasureReport resource contains the results of evaluating a
+    measure.
     """
 
     __name__ = 'MeasureReport_Population1'
 
     def __init__(self, dict_values=None):
-        # the type of the population.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of the population.
 
-        # the number of members of the population in this stratum.
+        reference to CodeableConcept
+        """
+
         self.count = None
-        # type = int
+        """
+        The number of members of the population in this stratum.
 
-        # this element refers to a list of patient level measurereport resources,
-        # one for each patient in this population in this stratum.
+        type: int
+        """
+
         self.patients = None
-        # reference to Reference: identifier
+        """
+        This element refers to a List of patient level MeasureReport
+        resources, one for each patient in this population in this stratum.
 
-        # the identifier of the population being reported, as defined by the
-        # population element of the measure.
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        The identifier of the population being reported, as defined by the
+        population element of the measure.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)

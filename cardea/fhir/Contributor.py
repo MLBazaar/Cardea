@@ -2,31 +2,41 @@ from .fhirbase import fhirbase
 
 
 class Contributor(fhirbase):
-    """A contributor to the content of a knowledge asset, including authors,
+    """
+    A contributor to the content of a knowledge asset, including authors,
     editors, reviewers, and endorsers.
     """
 
     __name__ = 'Contributor'
 
     def __init__(self, dict_values=None):
-        # the type of contributor.
         self.type = None
-        # type = string
-        # possible values: author, editor, reviewer, endorser
+        """
+        The type of contributor.
 
-        # the name of the individual or organization responsible for the
-        # contribution.
+        type: string
+        possible values: author, editor, reviewer, endorser
+        """
+
         self.name = None
-        # type = string
+        """
+        The name of the individual or organization responsible for the
+        contribution.
 
-        # contact details to assist a user in finding and communicating with the
-        # contributor.
+        type: string
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        """
+        Contact details to assist a user in finding and communicating with the
+        contributor.
 
-        # unique identifier for object class
+        type: array
+        reference to ContactDetail
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

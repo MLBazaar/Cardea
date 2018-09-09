@@ -2,87 +2,127 @@ from .fhirbase import fhirbase
 
 
 class DocumentManifest(fhirbase):
-    """A collection of documents compiled for a purpose together with metadata
-    that applies to the collection.
+    """
+    A collection of documents compiled for a purpose together with
+    metadata that applies to the collection.
     """
 
     __name__ = 'DocumentManifest'
 
     def __init__(self, dict_values=None):
-        # this is a documentmanifest resource
         self.resourceType = 'DocumentManifest'
-        # type = string
-        # possible values: DocumentManifest
+        """
+        This is a DocumentManifest resource
 
-        # a single identifier that uniquely identifies this manifest. principally
-        # used to refer to the manifest in non-fhir contexts.
+        type: string
+        possible values: DocumentManifest
+        """
+
         self.masterIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        A single identifier that uniquely identifies this manifest.
+        Principally used to refer to the manifest in non-FHIR contexts.
 
-        # the status of this document manifest.
+        reference to Identifier
+        """
+
         self.status = None
-        # type = string
-        # possible values: current, superseded, entered-in-error
+        """
+        The status of this document manifest.
 
-        # specifies the kind of this set of documents (e.g. patient summary,
-        # discharge summary, prescription, etc.). the type of a set of documents
-        # may be the same as one of the documents in it - especially if there is
-        # only one - but it may be wider.
+        type: string
+        possible values: current, superseded, entered-in-error
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Specifies the kind of this set of documents (e.g. Patient Summary,
+        Discharge Summary, Prescription, etc.). The type of a set of documents
+        may be the same as one of the documents in it - especially if there is
+        only one - but it may be wider.
 
-        # who or what the set of documents is about. the documents can be about a
-        # person, (patient or healthcare practitioner), a device (i.e. machine) or
-        # even a group of subjects (such as a document about a herd of farm
-        # animals, or a set of patients that share a common exposure). if the
-        # documents cross more than one subject, then more than one subject is
-        # allowed here (unusual use case).
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        Who or what the set of documents is about. The documents can be about
+        a person, (patient or healthcare practitioner), a device (i.e.
+        machine) or even a group of subjects (such as a document about a herd
+        of farm animals, or a set of patients that share a common exposure).
+        If the documents cross more than one subject, then more than one
+        subject is allowed here (unusual use case).
 
-        # when the document manifest was created for submission to the server (not
-        # necessarily the same thing as the actual resource last modified time,
-        # since it may be modified, replicated, etc.).
+        reference to Reference: identifier
+        """
+
         self.created = None
-        # type = string
+        """
+        When the document manifest was created for submission to the server
+        (not necessarily the same thing as the actual resource last modified
+        time, since it may be modified, replicated, etc.).
 
-        # identifies who is responsible for creating the manifest, and adding
-        # documents to it.
+        type: string
+        """
+
         self.author = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Identifies who is responsible for creating the manifest, and adding
+        documents to it.
 
-        # a patient, practitioner, or organization for which this set of documents
-        # is intended.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.recipient = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A patient, practitioner, or organization for which this set of
+        documents is intended.
 
-        # identifies the source system, application, or software that produced the
-        # document manifest.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.source = None
-        # type = string
+        """
+        Identifies the source system, application, or software that produced
+        the document manifest.
 
-        # human-readable description of the source document. this is sometimes
-        # known as the "title".
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        Human-readable description of the source document. This is sometimes
+        known as the "title".
 
-        # the list of documents included in the manifest.
+        type: string
+        """
+
         self.content = None
-        # type = array
-        # reference to DocumentManifest_Content: DocumentManifest_Content
+        """
+        The list of Documents included in the manifest.
 
-        # related identifiers or resources associated with the documentmanifest.
+        type: array
+        reference to DocumentManifest_Content
+        """
+
         self.related = None
-        # type = array
-        # reference to DocumentManifest_Related: identifier
+        """
+        Related identifiers or resources associated with the DocumentManifest.
 
-        # other identifiers associated with the document manifest, including
-        # version independent  identifiers.
+        type: array
+        reference to DocumentManifest_Related: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Other identifiers associated with the document manifest, including
+        version independent  identifiers.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -102,6 +142,16 @@ class DocumentManifest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DocumentManifest',
+             'child_variable': 'recipient'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentManifest',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentManifest',
              'child_variable': 'subject'},
 
             {'parent_entity': 'Reference',
@@ -109,62 +159,59 @@ class DocumentManifest(fhirbase):
              'child_entity': 'DocumentManifest',
              'child_variable': 'author'},
 
-            {'parent_entity': 'Identifier',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'DocumentManifest',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'DocumentManifest',
-             'child_variable': 'masterIdentifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DocumentManifest',
-             'child_variable': 'recipient'},
+             'child_variable': 'type'},
 
             {'parent_entity': 'DocumentManifest_Related',
              'parent_variable': 'identifier',
              'child_entity': 'DocumentManifest',
              'child_variable': 'related'},
 
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentManifest',
+             'child_variable': 'masterIdentifier'},
+
             {'parent_entity': 'DocumentManifest_Content',
              'parent_variable': 'object_id',
              'child_entity': 'DocumentManifest',
              'child_variable': 'content'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'DocumentManifest',
-             'child_variable': 'type'},
         ]
 
 
 class DocumentManifest_Content(fhirbase):
-    """A collection of documents compiled for a purpose together with metadata
-    that applies to the collection.
+    """
+    A collection of documents compiled for a purpose together with
+    metadata that applies to the collection.
     """
 
     __name__ = 'DocumentManifest_Content'
 
     def __init__(self, dict_values=None):
-        # the list of references to document content, or attachment that consist
-        # of the parts of this document manifest. usually, these would be document
-        # references, but direct references to media or attachments are also
-        # allowed.
         self.pAttachment = None
-        # reference to Attachment: Attachment
+        """
+        The list of references to document content, or Attachment that consist
+        of the parts of this document manifest. Usually, these would be
+        document references, but direct references to Media or Attachments are
+        also allowed.
 
-        # the list of references to document content, or attachment that consist
-        # of the parts of this document manifest. usually, these would be document
-        # references, but direct references to media or attachments are also
-        # allowed.
+        reference to Attachment
+        """
+
         self.pReference = None
-        # reference to Reference: identifier
+        """
+        The list of references to document content, or Attachment that consist
+        of the parts of this document manifest. Usually, these would be
+        document references, but direct references to Media or Attachments are
+        also allowed.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -172,35 +219,42 @@ class DocumentManifest_Content(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
-             'child_entity': 'DocumentManifest_Content',
-             'child_variable': 'pAttachment'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DocumentManifest_Content',
              'child_variable': 'pReference'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentManifest_Content',
+             'child_variable': 'pAttachment'},
         ]
 
 
 class DocumentManifest_Related(fhirbase):
-    """A collection of documents compiled for a purpose together with metadata
-    that applies to the collection.
+    """
+    A collection of documents compiled for a purpose together with
+    metadata that applies to the collection.
     """
 
     __name__ = 'DocumentManifest_Related'
 
     def __init__(self, dict_values=None):
-        # related resource to this documentmanifest. for example, order,
-        # procedurerequest,  procedure, eligibilityrequest, etc.
         self.ref = None
-        # reference to Reference: identifier
+        """
+        Related Resource to this DocumentManifest. For example, Order,
+        ProcedureRequest,  Procedure, EligibilityRequest, etc.
 
-        # related identifier to this documentmanifest.  for example, order
-        # numbers, accession numbers, xdw workflow numbers.
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Related identifier to this DocumentManifest.  For example, Order
+        numbers, accession numbers, XDW workflow numbers.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -208,13 +262,13 @@ class DocumentManifest_Related(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DocumentManifest_Related',
-             'child_variable': 'ref'},
-
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'DocumentManifest_Related',
              'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentManifest_Related',
+             'child_variable': 'ref'},
         ]

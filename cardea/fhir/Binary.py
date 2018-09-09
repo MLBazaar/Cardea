@@ -2,34 +2,47 @@ from .fhirbase import fhirbase
 
 
 class Binary(fhirbase):
-    """A binary resource can contain any content, whether text, image, pdf, zip
-    archive, etc.
+    """
+    A binary resource can contain any content, whether text, image, pdf,
+    zip archive, etc.
     """
 
     __name__ = 'Binary'
 
     def __init__(self, dict_values=None):
-        # this is a binary resource
         self.resourceType = 'Binary'
-        # type = string
-        # possible values: Binary
+        """
+        This is a Binary resource
 
-        # mimetype of the binary content represented as a standard mimetype (bcp
-        # 13).
+        type: string
+        possible values: Binary
+        """
+
         self.contentType = None
-        # type = string
+        """
+        MimeType of the binary content represented as a standard MimeType (BCP
+        13).
 
-        # treat this binary as if it was this other resource for access control
-        # purposes.
+        type: string
+        """
+
         self.securityContext = None
-        # reference to Reference: identifier
+        """
+        Treat this binary as if it was this other resource for access control
+        purposes.
 
-        # the actual content, base64 encoded.
+        reference to Reference: identifier
+        """
+
         self.content = None
-        # type = string
+        """
+        The actual content, base64 encoded.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

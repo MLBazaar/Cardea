@@ -2,128 +2,187 @@ from .fhirbase import fhirbase
 
 
 class StructureMap(fhirbase):
-    """A Map of relationships between 2 structures that can be used to
+    """
+    A Map of relationships between 2 structures that can be used to
     transform data.
     """
 
     __name__ = 'StructureMap'
 
     def __init__(self, dict_values=None):
-        # this is a structuremap resource
         self.resourceType = 'StructureMap'
-        # type = string
-        # possible values: StructureMap
+        """
+        This is a StructureMap resource
 
-        # an absolute uri that is used to identify this structure map when it is
-        # referenced in a specification, model, design or an instance. this shall
-        # be a url, should be globally unique, and should be an address at which
-        # this structure map is (or will be) published. the url should include the
-        # major version of the structure map. for more information see [technical
-        # and business versions](resource.html#versions).
+        type: string
+        possible values: StructureMap
+        """
+
         self.url = None
-        # type = string
+        """
+        An absolute URI that is used to identify this structure map when it is
+        referenced in a specification, model, design or an instance. This
+        SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at
+        which this structure map is (or will be) published. The URL SHOULD
+        include the major version of the structure map. For more information
+        see [Technical and Business Versions](resource.html#versions).
 
-        # the identifier that is used to identify this version of the structure
-        # map when it is referenced in a specification, model, design or instance.
-        # this is an arbitrary value managed by the structure map author and is
-        # not expected to be globally unique. for example, it might be a timestamp
-        # (e.g. yyyymmdd) if a managed version is not available. there is also no
-        # expectation that versions can be placed in a lexicographical sequence.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The identifier that is used to identify this version of the structure
+        map when it is referenced in a specification, model, design or
+        instance. This is an arbitrary value managed by the structure map
+        author and is not expected to be globally unique. For example, it
+        might be a timestamp (e.g. yyyymmdd) if a managed version is not
+        available. There is also no expectation that versions can be placed in
+        a lexicographical sequence.
 
-        # a natural language name identifying the structure map. this name should
-        # be usable as an identifier for the module by machine processing
-        # applications such as code generation.
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        A natural language name identifying the structure map. This name
+        should be usable as an identifier for the module by machine processing
+        applications such as code generation.
 
-        # a short, descriptive, user-friendly title for the structure map.
+        type: string
+        """
+
         self.title = None
-        # type = string
+        """
+        A short, descriptive, user-friendly title for the structure map.
 
-        # the status of this structure map. enables tracking the life-cycle of the
-        # content.
+        type: string
+        """
+
         self.status = None
-        # type = string
-        # possible values: draft, active, retired, unknown
+        """
+        The status of this structure map. Enables tracking the life-cycle of
+        the content.
 
-        # a boolean value to indicate that this structure map is authored for
-        # testing purposes (or education/evaluation/marketing), and is not
-        # intended to be used for genuine usage.
+        type: string
+        possible values: draft, active, retired, unknown
+        """
+
         self.experimental = None
-        # type = boolean
+        """
+        A boolean value to indicate that this structure map is authored for
+        testing purposes (or education/evaluation/marketing), and is not
+        intended to be used for genuine usage.
 
-        # the date  (and optionally time) when the structure map was published.
-        # the date must change if and when the business version changes and it
-        # must change if the status code changes. in addition, it should change
-        # when the substantive content of the structure map changes.
+        type: boolean
+        """
+
         self.date = None
-        # type = string
+        """
+        The date  (and optionally time) when the structure map was published.
+        The date must change if and when the business version changes and it
+        must change if the status code changes. In addition, it should change
+        when the substantive content of the structure map changes.
 
-        # the name of the individual or organization that published the structure
-        # map.
+        type: string
+        """
+
         self.publisher = None
-        # type = string
+        """
+        The name of the individual or organization that published the
+        structure map.
 
-        # contact details to assist a user in finding and communicating with the
-        # publisher.
+        type: string
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        """
+        Contact details to assist a user in finding and communicating with the
+        publisher.
 
-        # a free text natural language description of the structure map from a
-        # consumer's perspective.
+        type: array
+        reference to ContactDetail
+        """
+
         self.description = None
-        # type = string
+        """
+        A free text natural language description of the structure map from a
+        consumer's perspective.
 
-        # the content was developed with a focus and intent of supporting the
-        # contexts that are listed. these terms may be used to assist with
-        # indexing and searching for appropriate structure map instances.
+        type: string
+        """
+
         self.useContext = None
-        # type = array
-        # reference to UsageContext: UsageContext
+        """
+        The content was developed with a focus and intent of supporting the
+        contexts that are listed. These terms may be used to assist with
+        indexing and searching for appropriate structure map instances.
 
-        # a legal or geographic region in which the structure map is intended to
-        # be used.
+        type: array
+        reference to UsageContext
+        """
+
         self.jurisdiction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A legal or geographic region in which the structure map is intended to
+        be used.
 
-        # explaination of why this structure map is needed and why it has been
-        # designed as it has.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.purpose = None
-        # type = string
+        """
+        Explaination of why this structure map is needed and why it has been
+        designed as it has.
 
-        # a copyright statement relating to the structure map and/or its contents.
-        # copyright statements are generally legal restrictions on the use and
-        # publishing of the structure map.
+        type: string
+        """
+
         self.copyright = None
-        # type = string
+        """
+        A copyright statement relating to the structure map and/or its
+        contents. Copyright statements are generally legal restrictions on the
+        use and publishing of the structure map.
 
-        # a structure definition used by this map. the structure definition may
-        # describe instances that are converted, or the instances that are
-        # produced.
+        type: string
+        """
+
         self.structure = None
-        # type = array
-        # reference to StructureMap_Structure: StructureMap_Structure
+        """
+        A structure definition used by this map. The structure definition may
+        describe instances that are converted, or the instances that are
+        produced.
 
-        # other maps used by this map (canonical urls).
+        type: array
+        reference to StructureMap_Structure
+        """
+
         self._import = None
-        # type = array
+        """
+        Other maps used by this map (canonical URLs).
 
-        # organizes the mapping into managable chunks for human review/ease of
-        # maintenance.
+        type: array
+        """
+
         self.group = None
-        # type = array
-        # reference to StructureMap_Group: StructureMap_Group
+        """
+        Organizes the mapping into managable chunks for human review/ease of
+        maintenance.
 
-        # a formal identifier that is used to identify this structure map when it
-        # is represented in other formats, or referenced in a specification,
-        # model, design or an instance.
+        type: array
+        reference to StructureMap_Group
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        A formal identifier that is used to identify this structure map when
+        it is represented in other formats, or referenced in a specification,
+        model, design or an instance.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -140,10 +199,15 @@ class StructureMap(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'StructureMap_Group',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap',
-             'child_variable': 'group'},
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'StructureMap_Structure',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap',
+             'child_variable': 'structure'},
 
             {'parent_entity': 'ContactDetail',
              'parent_variable': 'object_id',
@@ -155,50 +219,58 @@ class StructureMap(fhirbase):
              'child_entity': 'StructureMap',
              'child_variable': 'useContext'},
 
-            {'parent_entity': 'StructureMap_Structure',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap',
-             'child_variable': 'structure'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap',
-             'child_variable': 'identifier'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap',
              'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'StructureMap_Group',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap',
+             'child_variable': 'group'},
         ]
 
 
 class StructureMap_Structure(fhirbase):
-    """A Map of relationships between 2 structures that can be used to
+    """
+    A Map of relationships between 2 structures that can be used to
     transform data.
     """
 
     __name__ = 'StructureMap_Structure'
 
     def __init__(self, dict_values=None):
-        # the canonical url that identifies the structure.
         self.url = None
-        # type = string
+        """
+        The canonical URL that identifies the structure.
 
-        # how the referenced structure is used in this mapping.
+        type: string
+        """
+
         self.mode = None
-        # type = string
-        # possible values: source, queried, target, produced
+        """
+        How the referenced structure is used in this mapping.
 
-        # the name used for this type in the map.
+        type: string
+        possible values: source, queried, target, produced
+        """
+
         self.alias = None
-        # type = string
+        """
+        The name used for this type in the map.
 
-        # documentation that describes how the structure is used in the mapping.
+        type: string
+        """
+
         self.documentation = None
-        # type = string
+        """
+        Documentation that describes how the structure is used in the mapping.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -214,45 +286,64 @@ class StructureMap_Structure(fhirbase):
 
 
 class StructureMap_Group(fhirbase):
-    """A Map of relationships between 2 structures that can be used to
+    """
+    A Map of relationships between 2 structures that can be used to
     transform data.
     """
 
     __name__ = 'StructureMap_Group'
 
     def __init__(self, dict_values=None):
-        # a unique name for the group for the convenience of human readers.
         self.name = None
-        # type = string
+        """
+        A unique name for the group for the convenience of human readers.
 
-        # another group that this group adds rules to.
+        type: string
+        """
+
         self.extends = None
-        # type = string
+        """
+        Another group that this group adds rules to.
 
-        # if this is the default rule set to apply for thie source type, or this
-        # combination of types.
+        type: string
+        """
+
         self.typeMode = None
-        # type = string
-        # possible values: none, types, type-and-types
+        """
+        If this is the default rule set to apply for thie source type, or this
+        combination of types.
 
-        # additional supporting documentation that explains the purpose of the
-        # group and the types of mappings within it.
+        type: string
+        possible values: none, types, type-and-types
+        """
+
         self.documentation = None
-        # type = string
+        """
+        Additional supporting documentation that explains the purpose of the
+        group and the types of mappings within it.
 
-        # a name assigned to an instance of data. the instance must be provided
-        # when the mapping is invoked.
+        type: string
+        """
+
         self.input = None
-        # type = array
-        # reference to StructureMap_Input: StructureMap_Input
+        """
+        A name assigned to an instance of data. The instance must be provided
+        when the mapping is invoked.
 
-        # transform rule from source to target.
+        type: array
+        reference to StructureMap_Input
+        """
+
         self.rule = None
-        # type = array
-        # reference to StructureMap_Rule: StructureMap_Rule
+        """
+        Transform Rule from source to target.
 
-        # unique identifier for object class
+        type: array
+        reference to StructureMap_Rule
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -269,45 +360,58 @@ class StructureMap_Group(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'StructureMap_Input',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Group',
-             'child_variable': 'input'},
-
             {'parent_entity': 'StructureMap_Rule',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Group',
              'child_variable': 'rule'},
+
+            {'parent_entity': 'StructureMap_Input',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Group',
+             'child_variable': 'input'},
         ]
 
 
 class StructureMap_Input(fhirbase):
-    """A Map of relationships between 2 structures that can be used to
+    """
+    A Map of relationships between 2 structures that can be used to
     transform data.
     """
 
     __name__ = 'StructureMap_Input'
 
     def __init__(self, dict_values=None):
-        # name for this instance of data.
         self.name = None
-        # type = string
+        """
+        Name for this instance of data.
 
-        # type for this instance of data.
+        type: string
+        """
+
         self.type = None
-        # type = string
+        """
+        Type for this instance of data.
 
-        # mode for this instance of data.
+        type: string
+        """
+
         self.mode = None
-        # type = string
-        # possible values: source, target
+        """
+        Mode for this instance of data.
 
-        # documentation for this instance of data.
+        type: string
+        possible values: source, target
+        """
+
         self.documentation = None
-        # type = string
+        """
+        Documentation for this instance of data.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -323,43 +427,62 @@ class StructureMap_Input(fhirbase):
 
 
 class StructureMap_Rule(fhirbase):
-    """A Map of relationships between 2 structures that can be used to
+    """
+    A Map of relationships between 2 structures that can be used to
     transform data.
     """
 
     __name__ = 'StructureMap_Rule'
 
     def __init__(self, dict_values=None):
-        # name of the rule for internal references.
         self.name = None
-        # type = string
+        """
+        Name of the rule for internal references.
 
-        # source inputs to the mapping.
+        type: string
+        """
+
         self.source = None
-        # type = array
-        # reference to StructureMap_Source: StructureMap_Source
+        """
+        Source inputs to the mapping.
 
-        # content to create because of this mapping rule.
+        type: array
+        reference to StructureMap_Source
+        """
+
         self.target = None
-        # type = array
-        # reference to StructureMap_Target: StructureMap_Target
+        """
+        Content to create because of this mapping rule.
 
-        # rules contained in this rule.
+        type: array
+        reference to StructureMap_Target
+        """
+
         self.rule = None
-        # type = array
-        # reference to StructureMap_Rule: StructureMap_Rule
+        """
+        Rules contained in this rule.
 
-        # which other rules to apply in the context of this rule.
+        type: array
+        reference to StructureMap_Rule
+        """
+
         self.dependent = None
-        # type = array
-        # reference to StructureMap_Dependent: StructureMap_Dependent
+        """
+        Which other rules to apply in the context of this rule.
 
-        # documentation for this instance of data.
+        type: array
+        reference to StructureMap_Dependent
+        """
+
         self.documentation = None
-        # type = string
+        """
+        Documentation for this instance of data.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -367,6 +490,16 @@ class StructureMap_Rule(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'StructureMap_Dependent',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Rule',
+             'child_variable': 'dependent'},
+
+            {'parent_entity': 'StructureMap_Source',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Rule',
+             'child_variable': 'source'},
+
             {'parent_entity': 'StructureMap_Rule',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Rule',
@@ -376,283 +509,460 @@ class StructureMap_Rule(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Rule',
              'child_variable': 'target'},
-
-            {'parent_entity': 'StructureMap_Source',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Rule',
-             'child_variable': 'source'},
-
-            {'parent_entity': 'StructureMap_Dependent',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Rule',
-             'child_variable': 'dependent'},
         ]
 
 
 class StructureMap_Source(fhirbase):
-    """A Map of relationships between 2 structures that can be used to
+    """
+    A Map of relationships between 2 structures that can be used to
     transform data.
     """
 
     __name__ = 'StructureMap_Source'
 
     def __init__(self, dict_values=None):
-        # type or variable this rule applies to.
         self.context = None
-        # type = string
+        """
+        Type or variable this rule applies to.
 
-        # specified minimum cardinality for the element. this is optional; if
-        # present, it acts an implicit check on the input content.
+        type: string
+        """
+
         self.min = None
-        # type = int
+        """
+        Specified minimum cardinality for the element. This is optional; if
+        present, it acts an implicit check on the input content.
 
-        # specified maximum cardinality for the element - a number or a "*". this
-        # is optional; if present, it acts an implicit check on the input content
-        # (* just serves as documentation; it's the default value).
+        type: int
+        """
+
         self.max = None
-        # type = string
+        """
+        Specified maximum cardinality for the element - a number or a "*".
+        This is optional; if present, it acts an implicit check on the input
+        content (* just serves as documentation; it's the default value).
 
-        # specified type for the element. this works as a condition on the mapping
-        # - use for polymorphic elements.
+        type: string
+        """
+
         self.type = None
-        # type = string
+        """
+        Specified type for the element. This works as a condition on the
+        mapping - use for polymorphic elements.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueBoolean = None
-        # type = boolean
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: boolean
+        """
+
         self.defaultValueInteger = None
-        # type = int
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: int
+        """
+
         self.defaultValueDecimal = None
-        # type = int
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: int
+        """
+
         self.defaultValueBase64Binary = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueInstant = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueString = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueUri = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueDate = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueDateTime = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueTime = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueCode = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueOid = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueUuid = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueId = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueUnsignedInt = None
-        # type = int
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: int
+        """
+
         self.defaultValuePositiveInt = None
-        # type = int
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: int
+        """
+
         self.defaultValueMarkdown = None
-        # type = string
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        type: string
+        """
+
         self.defaultValueElement = None
-        # reference to Element: id
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Element: id
+        """
+
         self.defaultValueExtension = None
-        # reference to Extension: Extension
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Extension
+        """
+
         self.defaultValueBackboneElement = None
-        # reference to BackboneElement: BackboneElement
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to BackboneElement
+        """
+
         self.defaultValueNarrative = None
-        # reference to Narrative: Narrative
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Narrative
+        """
+
         self.defaultValueAnnotation = None
-        # reference to Annotation: Annotation
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Annotation
+        """
+
         self.defaultValueAttachment = None
-        # reference to Attachment: Attachment
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Attachment
+        """
+
         self.defaultValueIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Identifier
+        """
+
         self.defaultValueCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to CodeableConcept
+        """
+
         self.defaultValueCoding = None
-        # reference to Coding: Coding
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Coding
+        """
+
         self.defaultValueQuantity = None
-        # reference to Quantity: Quantity
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Quantity
+        """
+
         self.defaultValueDuration = None
-        # reference to Duration: Duration
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Duration
+        """
+
         self.defaultValueSimpleQuantity = None
-        # reference to Quantity: Quantity
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Quantity
+        """
+
         self.defaultValueDistance = None
-        # reference to Distance: Distance
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Distance
+        """
+
         self.defaultValueCount = None
-        # reference to Count: Count
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Count
+        """
+
         self.defaultValueMoney = None
-        # reference to Money: Money
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Money
+        """
+
         self.defaultValueAge = None
-        # reference to Age: Age
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Age
+        """
+
         self.defaultValueRange = None
-        # reference to Range: Range
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Range
+        """
+
         self.defaultValuePeriod = None
-        # reference to Period: Period
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Period
+        """
+
         self.defaultValueRatio = None
-        # reference to Ratio: Ratio
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Ratio
+        """
+
         self.defaultValueReference = None
-        # reference to Reference: identifier
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Reference: identifier
+        """
+
         self.defaultValueSampledData = None
-        # reference to SampledData: SampledData
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to SampledData
+        """
+
         self.defaultValueSignature = None
-        # reference to Signature: Signature
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Signature
+        """
+
         self.defaultValueHumanName = None
-        # reference to HumanName: HumanName
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to HumanName
+        """
+
         self.defaultValueAddress = None
-        # reference to Address: Address
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Address
+        """
+
         self.defaultValueContactPoint = None
-        # reference to ContactPoint: ContactPoint
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to ContactPoint
+        """
+
         self.defaultValueTiming = None
-        # reference to Timing: Timing
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Timing
+        """
+
         self.defaultValueMeta = None
-        # reference to Meta: Meta
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Meta
+        """
+
         self.defaultValueElementDefinition = None
-        # reference to ElementDefinition: ElementDefinition
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to ElementDefinition
+        """
+
         self.defaultValueContactDetail = None
-        # reference to ContactDetail: ContactDetail
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to ContactDetail
+        """
+
         self.defaultValueContributor = None
-        # reference to Contributor: Contributor
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Contributor
+        """
+
         self.defaultValueDosage = None
-        # reference to Dosage: Dosage
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to Dosage
+        """
+
         self.defaultValueRelatedArtifact = None
-        # reference to RelatedArtifact: RelatedArtifact
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to RelatedArtifact
+        """
+
         self.defaultValueUsageContext = None
-        # reference to UsageContext: UsageContext
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to UsageContext
+        """
+
         self.defaultValueDataRequirement = None
-        # reference to DataRequirement: DataRequirement
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to DataRequirement
+        """
+
         self.defaultValueParameterDefinition = None
-        # reference to ParameterDefinition: ParameterDefinition
+        """
+        A value to use if there is no existing value in the source object.
 
-        # a value to use if there is no existing value in the source object.
+        reference to ParameterDefinition
+        """
+
         self.defaultValueTriggerDefinition = None
-        # reference to TriggerDefinition: TriggerDefinition
+        """
+        A value to use if there is no existing value in the source object.
 
-        # optional field for this source.
+        reference to TriggerDefinition
+        """
+
         self.element = None
-        # type = string
+        """
+        Optional field for this source.
 
-        # how to handle the list mode for this element.
+        type: string
+        """
+
         self.listMode = None
-        # type = string
-        # possible values: first, not_first, last, not_last, only_one
+        """
+        How to handle the list mode for this element.
 
-        # named context for field, if a field is specified.
+        type: string
+        possible values: first, not_first, last, not_last, only_one
+        """
+
         self.variable = None
-        # type = string
+        """
+        Named context for field, if a field is specified.
 
-        # fhirpath expression  - must be true or the rule does not apply.
+        type: string
+        """
+
         self.condition = None
-        # type = string
+        """
+        FHIRPath expression  - must be true or the rule does not apply.
 
-        # fhirpath expression  - must be true or the mapping engine throws an
-        # error instead of completing.
+        type: string
+        """
+
         self.check = None
-        # type = string
+        """
+        FHIRPath expression  - must be true or the mapping engine throws an
+        error instead of completing.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -669,135 +979,80 @@ class StructureMap_Source(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'BackboneElement',
+            {'parent_entity': 'Ratio',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueBackboneElement'},
-
-            {'parent_entity': 'Duration',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueDuration'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueQuantity'},
-
-            {'parent_entity': 'ContactDetail',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueContactDetail'},
-
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueAnnotation'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValuePeriod'},
-
-            {'parent_entity': 'Signature',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueSignature'},
-
-            {'parent_entity': 'ElementDefinition',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueElementDefinition'},
-
-            {'parent_entity': 'UsageContext',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueUsageContext'},
-
-            {'parent_entity': 'Count',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueCount'},
-
-            {'parent_entity': 'SampledData',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueSampledData'},
-
-            {'parent_entity': 'ParameterDefinition',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueParameterDefinition'},
+             'child_variable': 'defaultValueRatio'},
 
             {'parent_entity': 'HumanName',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
              'child_variable': 'defaultValueHumanName'},
 
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueRange'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueDuration'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueDosage'},
+
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
              'child_variable': 'defaultValueIdentifier'},
 
-            {'parent_entity': 'Money',
+            {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueMoney'},
+             'child_variable': 'defaultValuePeriod'},
 
-            {'parent_entity': 'Timing',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueTiming'},
-
-            {'parent_entity': 'Ratio',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueRatio'},
-
-            {'parent_entity': 'Extension',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueExtension'},
+             'child_variable': 'defaultValueCodeableConcept'},
 
             {'parent_entity': 'ContactPoint',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
              'child_variable': 'defaultValueContactPoint'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueReference'},
-
-            {'parent_entity': 'Address',
+            {'parent_entity': 'Meta',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueAddress'},
+             'child_variable': 'defaultValueMeta'},
 
-            {'parent_entity': 'Distance',
+            {'parent_entity': 'Attachment',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueDistance'},
-
-            {'parent_entity': 'Contributor',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueContributor'},
-
-            {'parent_entity': 'DataRequirement',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueDataRequirement'},
+             'child_variable': 'defaultValueAttachment'},
 
             {'parent_entity': 'RelatedArtifact',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
              'child_variable': 'defaultValueRelatedArtifact'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueCodeableConcept'},
+             'child_variable': 'defaultValueCoding'},
+
+            {'parent_entity': 'Count',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueCount'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueSimpleQuantity'},
 
             {'parent_entity': 'Element',
              'parent_variable': 'id',
@@ -809,96 +1064,176 @@ class StructureMap_Source(fhirbase):
              'child_entity': 'StructureMap_Source',
              'child_variable': 'defaultValueAge'},
 
-            {'parent_entity': 'Narrative',
+            {'parent_entity': 'Annotation',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueNarrative'},
+             'child_variable': 'defaultValueAnnotation'},
 
-            {'parent_entity': 'Range',
+            {'parent_entity': 'ParameterDefinition',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueRange'},
-
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueAttachment'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueSimpleQuantity'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueCoding'},
-
-            {'parent_entity': 'Meta',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueMeta'},
-
-            {'parent_entity': 'Dosage',
-             'parent_variable': 'object_id',
-             'child_entity': 'StructureMap_Source',
-             'child_variable': 'defaultValueDosage'},
+             'child_variable': 'defaultValueParameterDefinition'},
 
             {'parent_entity': 'TriggerDefinition',
              'parent_variable': 'object_id',
              'child_entity': 'StructureMap_Source',
              'child_variable': 'defaultValueTriggerDefinition'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueSampledData'},
+
+            {'parent_entity': 'Signature',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueSignature'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueTiming'},
+
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueDataRequirement'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueUsageContext'},
+
+            {'parent_entity': 'ElementDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueElementDefinition'},
+
+            {'parent_entity': 'Extension',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueExtension'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueMoney'},
+
+            {'parent_entity': 'Distance',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueDistance'},
+
+            {'parent_entity': 'BackboneElement',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueBackboneElement'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueContributor'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueQuantity'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueContactDetail'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueAddress'},
+
+            {'parent_entity': 'Narrative',
+             'parent_variable': 'object_id',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueNarrative'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'StructureMap_Source',
+             'child_variable': 'defaultValueReference'},
         ]
 
 
 class StructureMap_Target(fhirbase):
-    """A Map of relationships between 2 structures that can be used to
+    """
+    A Map of relationships between 2 structures that can be used to
     transform data.
     """
 
     __name__ = 'StructureMap_Target'
 
     def __init__(self, dict_values=None):
-        # type or variable this rule applies to.
         self.context = None
-        # type = string
+        """
+        Type or variable this rule applies to.
 
-        # how to interpret the context.
+        type: string
+        """
+
         self.contextType = None
-        # type = string
-        # possible values: type, variable
+        """
+        How to interpret the context.
 
-        # field to create in the context.
+        type: string
+        possible values: type, variable
+        """
+
         self.element = None
-        # type = string
+        """
+        Field to create in the context.
 
-        # named context for field, if desired, and a field is specified.
+        type: string
+        """
+
         self.variable = None
-        # type = string
+        """
+        Named context for field, if desired, and a field is specified.
 
-        # if field is a list, how to manage the list.
+        type: string
+        """
+
         self.listMode = None
-        # type = array
-        # possible values: first, share, last, collate
+        """
+        If field is a list, how to manage the list.
 
-        # internal rule reference for shared list items.
+        type: array
+        possible values: first, share, last, collate
+        """
+
         self.listRuleId = None
-        # type = string
+        """
+        Internal rule reference for shared list items.
 
-        # how the data is copied / created.
+        type: string
+        """
+
         self.transform = None
-        # type = string
-        # possible values: create, copy, truncate, escape, cast, append,
-        # translate, reference, dateOp, uuid, pointer, evaluate, cc, c, qty, id,
-        # cp
+        """
+        How the data is copied / created.
 
-        # parameters to the transform.
+        type: string
+        possible values: create, copy, truncate, escape, cast, append,
+        translate, reference, dateOp, uuid, pointer, evaluate, cc, c, qty, id,
+        cp
+        """
+
         self.parameter = None
-        # type = array
-        # reference to StructureMap_Parameter: StructureMap_Parameter
+        """
+        Parameters to the transform.
 
-        # unique identifier for object class
+        type: array
+        reference to StructureMap_Parameter
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -923,10 +1258,10 @@ class StructureMap_Target(fhirbase):
             for value in self.transform:
                 if value is not None and value.lower() not in [
                     'create', 'copy', 'truncate', 'escape', 'cast', 'append', 'translate',
-                    'reference', 'dateop', 'uuid', 'pointer', 'evaluate', 'cc', 'c', 'qty',
-                        'id', 'cp']:
+                    'reference', 'dateop', 'uuid', 'pointer', 'evaluate', 'cc', 'c',
+                        'qty', 'id', 'cp']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'create, copy, truncate, escape, cast, append, translate,'
+                        value, 'create, copy, truncate, escape, cast, append, translate, '
                         'reference, dateOp, uuid, pointer, evaluate, cc, c, qty, id, cp'))
 
         if self.contextType is not None:
@@ -947,10 +1282,10 @@ class StructureMap_Target(fhirbase):
             for value in self.transform:
                 if value is not None and value.lower() not in [
                     'create', 'copy', 'truncate', 'escape', 'cast', 'append', 'translate',
-                    'reference', 'dateop', 'uuid', 'pointer', 'evaluate', 'cc', 'c', 'qty',
-                        'id', 'cp']:
+                    'reference', 'dateop', 'uuid', 'pointer', 'evaluate', 'cc', 'c',
+                        'qty', 'id', 'cp']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'create, copy, truncate, escape, cast, append, translate,'
+                        value, 'create, copy, truncate, escape, cast, append, translate, '
                         'reference, dateOp, uuid, pointer, evaluate, cc, c, qty, id, cp'))
 
     def get_relationships(self):
@@ -964,58 +1299,81 @@ class StructureMap_Target(fhirbase):
 
 
 class StructureMap_Parameter(fhirbase):
-    """A Map of relationships between 2 structures that can be used to
+    """
+    A Map of relationships between 2 structures that can be used to
     transform data.
     """
 
     __name__ = 'StructureMap_Parameter'
 
     def __init__(self, dict_values=None):
-        # parameter value - variable or literal.
         self.valueId = None
-        # type = string
+        """
+        Parameter value - variable or literal.
 
-        # parameter value - variable or literal.
+        type: string
+        """
+
         self.valueString = None
-        # type = string
+        """
+        Parameter value - variable or literal.
 
-        # parameter value - variable or literal.
+        type: string
+        """
+
         self.valueBoolean = None
-        # type = boolean
+        """
+        Parameter value - variable or literal.
 
-        # parameter value - variable or literal.
+        type: boolean
+        """
+
         self.valueInteger = None
-        # type = int
+        """
+        Parameter value - variable or literal.
 
-        # parameter value - variable or literal.
+        type: int
+        """
+
         self.valueDecimal = None
-        # type = int
+        """
+        Parameter value - variable or literal.
 
-        # unique identifier for object class
+        type: int
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class StructureMap_Dependent(fhirbase):
-    """A Map of relationships between 2 structures that can be used to
+    """
+    A Map of relationships between 2 structures that can be used to
     transform data.
     """
 
     __name__ = 'StructureMap_Dependent'
 
     def __init__(self, dict_values=None):
-        # name of a rule or group to apply.
         self.name = None
-        # type = string
+        """
+        Name of a rule or group to apply.
 
-        # variable to pass to the rule or group.
+        type: string
+        """
+
         self.variable = None
-        # type = array
+        """
+        Variable to pass to the rule or group.
 
-        # unique identifier for object class
+        type: array
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

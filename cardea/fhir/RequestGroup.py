@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class RequestGroup(fhirbase):
-    """A group of related requests that can be used to capture intended
+    """
+    A group of related requests that can be used to capture intended
     activities that have inter-dependencies such as "give this medication
     after that one".
     """
@@ -10,96 +11,147 @@ class RequestGroup(fhirbase):
     __name__ = 'RequestGroup'
 
     def __init__(self, dict_values=None):
-        # this is a requestgroup resource
         self.resourceType = 'RequestGroup'
-        # type = string
-        # possible values: RequestGroup
+        """
+        This is a RequestGroup resource
 
-        # a protocol, guideline, orderset or other definition that is adhered to
-        # in whole or in part by this request.
+        type: string
+        possible values: RequestGroup
+        """
+
         self.definition = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A protocol, guideline, orderset or other definition that is adhered to
+        in whole or in part by this request.
 
-        # a plan, proposal or order that is fulfilled in whole or in part by this
-        # request.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.basedOn = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A plan, proposal or order that is fulfilled in whole or in part by
+        this request.
 
-        # completed or terminated request(s) whose function is taken by this new
-        # request.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.replaces = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Completed or terminated request(s) whose function is taken by this new
+        request.
 
-        # a shared identifier common to all requests that were authorized more or
-        # less simultaneously by a single author, representing the identifier of
-        # the requisition, prescription or similar form.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.groupIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        A shared identifier common to all requests that were authorized more
+        or less simultaneously by a single author, representing the identifier
+        of the requisition, prescription or similar form.
 
-        # the current state of the request. for request groups, the status
-        # reflects the status of all the requests in the group.
+        reference to Identifier
+        """
+
         self.status = None
-        # type = string
+        """
+        The current state of the request. For request groups, the status
+        reflects the status of all the requests in the group.
 
-        # indicates the level of authority/intentionality associated with the
-        # request and where the request fits into the workflow chain.
+        type: string
+        """
+
         self.intent = None
-        # type = string
+        """
+        Indicates the level of authority/intentionality associated with the
+        request and where the request fits into the workflow chain.
 
-        # indicates how quickly the request should be addressed with respect to
-        # other requests.
+        type: string
+        """
+
         self.priority = None
-        # type = string
+        """
+        Indicates how quickly the request should be addressed with respect to
+        other requests.
 
-        # the subject for which the request group was created.
+        type: string
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        The subject for which the request group was created.
 
-        # describes the context of the request group, if any.
+        reference to Reference: identifier
+        """
+
         self.context = None
-        # reference to Reference: identifier
+        """
+        Describes the context of the request group, if any.
 
-        # indicates when the request group was created.
+        reference to Reference: identifier
+        """
+
         self.authoredOn = None
-        # type = string
+        """
+        Indicates when the request group was created.
 
-        # provides a reference to the author of the request group.
+        type: string
+        """
+
         self.author = None
-        # reference to Reference: identifier
+        """
+        Provides a reference to the author of the request group.
 
-        # indicates the reason the request group was created. this is typically
-        # provided as a parameter to the evaluation and echoed by the service,
-        # although for some use cases, such as subscription- or event-based
-        # scenarios, it may provide an indication of the cause for the response.
+        reference to Reference: identifier
+        """
+
         self.reasonCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates the reason the request group was created. This is typically
+        provided as a parameter to the evaluation and echoed by the service,
+        although for some use cases, such as subscription- or event-based
+        scenarios, it may provide an indication of the cause for the response.
 
-        # indicates the reason the request group was created. this is typically
-        # provided as a parameter to the evaluation and echoed by the service,
-        # although for some use cases, such as subscription- or event-based
-        # scenarios, it may provide an indication of the cause for the response.
+        reference to CodeableConcept
+        """
+
         self.reasonReference = None
-        # reference to Reference: identifier
+        """
+        Indicates the reason the request group was created. This is typically
+        provided as a parameter to the evaluation and echoed by the service,
+        although for some use cases, such as subscription- or event-based
+        scenarios, it may provide an indication of the cause for the response.
 
-        # provides a mechanism to communicate additional information about the
-        # response.
+        reference to Reference: identifier
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        Provides a mechanism to communicate additional information about the
+        response.
 
-        # the actions, if any, produced by the evaluation of the artifact.
+        type: array
+        reference to Annotation
+        """
+
         self.action = None
-        # type = array
-        # reference to RequestGroup_Action: RequestGroup_Action
+        """
+        The actions, if any, produced by the evaluation of the artifact.
 
-        # allows a service to provide a unique, business identifier for the
-        # request.
+        type: array
+        reference to RequestGroup_Action
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Allows a service to provide a unique, business identifier for the
+        request.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -107,16 +159,6 @@ class RequestGroup(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'RequestGroup',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'RequestGroup',
-             'child_variable': 'replaces'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'RequestGroup',
@@ -125,12 +167,12 @@ class RequestGroup(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'RequestGroup',
-             'child_variable': 'basedOn'},
+             'child_variable': 'context'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
              'child_entity': 'RequestGroup',
-             'child_variable': 'definition'},
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Annotation',
              'parent_variable': 'object_id',
@@ -140,7 +182,32 @@ class RequestGroup(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'RequestGroup',
-             'child_variable': 'context'},
+             'child_variable': 'replaces'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'groupIdentifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'reasonCodeableConcept'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup',
+             'child_variable': 'basedOn'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -151,26 +218,12 @@ class RequestGroup(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'RequestGroup',
              'child_variable': 'action'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'RequestGroup',
-             'child_variable': 'groupIdentifier'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'RequestGroup',
-             'child_variable': 'reasonCodeableConcept'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'RequestGroup',
-             'child_variable': 'subject'},
         ]
 
 
 class RequestGroup_Action(fhirbase):
-    """A group of related requests that can be used to capture intended
+    """
+    A group of related requests that can be used to capture intended
     activities that have inter-dependencies such as "give this medication
     after that one".
     """
@@ -178,112 +231,179 @@ class RequestGroup_Action(fhirbase):
     __name__ = 'RequestGroup_Action'
 
     def __init__(self, dict_values=None):
-        # a user-visible label for the action.
         self.label = None
-        # type = string
+        """
+        A user-visible label for the action.
 
-        # the title of the action displayed to a user.
+        type: string
+        """
+
         self.title = None
-        # type = string
+        """
+        The title of the action displayed to a user.
 
-        # a short description of the action used to provide a summary to display
-        # to the user.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        A short description of the action used to provide a summary to display
+        to the user.
 
-        # a text equivalent of the action to be performed. this provides a human-
-        # interpretable description of the action when the definition is consumed
-        # by a system that may not be capable of interpreting it dynamically.
+        type: string
+        """
+
         self.textEquivalent = None
-        # type = string
+        """
+        A text equivalent of the action to be performed. This provides a
+        human-interpretable description of the action when the definition is
+        consumed by a system that may not be capable of interpreting it
+        dynamically.
 
-        # a code that provides meaning for the action or action group. for
-        # example, a section may have a loinc code for a the section of a
-        # documentation template.
+        type: string
+        """
+
         self.code = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code that provides meaning for the action or action group. For
+        example, a section may have a LOINC code for a the section of a
+        documentation template.
 
-        # didactic or other informational resources associated with the action
-        # that can be provided to the cds recipient. information resources can
-        # include inline text commentary and links to web resources.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.documentation = None
-        # type = array
-        # reference to RelatedArtifact: RelatedArtifact
+        """
+        Didactic or other informational resources associated with the action
+        that can be provided to the CDS recipient. Information resources can
+        include inline text commentary and links to web resources.
 
-        # an expression that describes applicability criteria, or start/stop
-        # conditions for the action.
+        type: array
+        reference to RelatedArtifact
+        """
+
         self.condition = None
-        # type = array
-        # reference to RequestGroup_Condition: RequestGroup_Condition
+        """
+        An expression that describes applicability criteria, or start/stop
+        conditions for the action.
 
-        # a relationship to another action such as "before" or "30-60 minutes
-        # after start of".
+        type: array
+        reference to RequestGroup_Condition
+        """
+
         self.relatedAction = None
-        # type = array
-        # reference to RequestGroup_RelatedAction: RequestGroup_RelatedAction
+        """
+        A relationship to another action such as "before" or "30-60 minutes
+        after start of".
 
-        # an optional value describing when the action should be performed.
+        type: array
+        reference to RequestGroup_RelatedAction
+        """
+
         self.timingDateTime = None
-        # type = string
+        """
+        An optional value describing when the action should be performed.
 
-        # an optional value describing when the action should be performed.
+        type: string
+        """
+
         self.timingPeriod = None
-        # reference to Period: Period
+        """
+        An optional value describing when the action should be performed.
 
-        # an optional value describing when the action should be performed.
+        reference to Period
+        """
+
         self.timingDuration = None
-        # reference to Duration: Duration
+        """
+        An optional value describing when the action should be performed.
 
-        # an optional value describing when the action should be performed.
+        reference to Duration
+        """
+
         self.timingRange = None
-        # reference to Range: Range
+        """
+        An optional value describing when the action should be performed.
 
-        # an optional value describing when the action should be performed.
+        reference to Range
+        """
+
         self.timingTiming = None
-        # reference to Timing: Timing
+        """
+        An optional value describing when the action should be performed.
 
-        # the participant that should perform or be responsible for this action.
+        reference to Timing
+        """
+
         self.participant = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The participant that should perform or be responsible for this action.
 
-        # the type of action to perform (create, update, remove).
+        type: array
+        reference to Reference: identifier
+        """
+
         self.type = None
-        # reference to Coding: Coding
+        """
+        The type of action to perform (create, update, remove).
 
-        # defines the grouping behavior for the action and its children.
+        reference to Coding
+        """
+
         self.groupingBehavior = None
-        # type = string
+        """
+        Defines the grouping behavior for the action and its children.
 
-        # defines the selection behavior for the action and its children.
+        type: string
+        """
+
         self.selectionBehavior = None
-        # type = string
+        """
+        Defines the selection behavior for the action and its children.
 
-        # defines the requiredness behavior for the action.
+        type: string
+        """
+
         self.requiredBehavior = None
-        # type = string
+        """
+        Defines the requiredness behavior for the action.
 
-        # defines whether the action should usually be preselected.
+        type: string
+        """
+
         self.precheckBehavior = None
-        # type = string
+        """
+        Defines whether the action should usually be preselected.
 
-        # defines whether the action can be selected multiple times.
+        type: string
+        """
+
         self.cardinalityBehavior = None
-        # type = string
+        """
+        Defines whether the action can be selected multiple times.
 
-        # the resource that is the target of the action (e.g.
-        # communicationrequest).
+        type: string
+        """
+
         self.resource = None
-        # reference to Reference: identifier
+        """
+        The resource that is the target of the action (e.g.
+        CommunicationRequest).
 
-        # sub actions.
+        reference to Reference: identifier
+        """
+
         self.action = None
-        # type = array
-        # reference to RequestGroup_Action: RequestGroup_Action
+        """
+        Sub actions.
 
-        # unique identifier for object class
+        type: array
+        reference to RequestGroup_Action
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -291,50 +411,25 @@ class RequestGroup_Action(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'RequestGroup_Action',
-             'child_variable': 'resource'},
-
-            {'parent_entity': 'RequestGroup_RelatedAction',
-             'parent_variable': 'object_id',
-             'child_entity': 'RequestGroup_Action',
-             'child_variable': 'relatedAction'},
-
             {'parent_entity': 'RequestGroup_Condition',
              'parent_variable': 'object_id',
              'child_entity': 'RequestGroup_Action',
              'child_variable': 'condition'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'RequestGroup_Action',
-             'child_variable': 'timingPeriod'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'RequestGroup_Action',
-             'child_variable': 'type'},
-
-            {'parent_entity': 'RelatedArtifact',
-             'parent_variable': 'object_id',
-             'child_entity': 'RequestGroup_Action',
-             'child_variable': 'documentation'},
-
-            {'parent_entity': 'Range',
-             'parent_variable': 'object_id',
-             'child_entity': 'RequestGroup_Action',
-             'child_variable': 'timingRange'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'RequestGroup_Action',
              'child_variable': 'code'},
 
-            {'parent_entity': 'RequestGroup_Action',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'resource'},
+
+            {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'RequestGroup_Action',
-             'child_variable': 'action'},
+             'child_variable': 'type'},
 
             {'parent_entity': 'Duration',
              'parent_variable': 'object_id',
@@ -346,15 +441,41 @@ class RequestGroup_Action(fhirbase):
              'child_entity': 'RequestGroup_Action',
              'child_variable': 'participant'},
 
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'documentation'},
+
             {'parent_entity': 'Timing',
              'parent_variable': 'object_id',
              'child_entity': 'RequestGroup_Action',
              'child_variable': 'timingTiming'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'timingPeriod'},
+
+            {'parent_entity': 'RequestGroup_RelatedAction',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'relatedAction'},
+
+            {'parent_entity': 'RequestGroup_Action',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'action'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'RequestGroup_Action',
+             'child_variable': 'timingRange'},
         ]
 
 
 class RequestGroup_Condition(fhirbase):
-    """A group of related requests that can be used to capture intended
+    """
+    A group of related requests that can be used to capture intended
     activities that have inter-dependencies such as "give this medication
     after that one".
     """
@@ -362,33 +483,46 @@ class RequestGroup_Condition(fhirbase):
     __name__ = 'RequestGroup_Condition'
 
     def __init__(self, dict_values=None):
-        # the kind of condition.
         self.kind = None
-        # type = string
+        """
+        The kind of condition.
 
-        # a brief, natural language description of the condition that effectively
-        # communicates the intended semantics.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        A brief, natural language description of the condition that
+        effectively communicates the intended semantics.
 
-        # the media type of the language for the expression.
+        type: string
+        """
+
         self.language = None
-        # type = string
+        """
+        The media type of the language for the expression.
 
-        # an expression that returns true or false, indicating whether or not the
-        # condition is satisfied.
+        type: string
+        """
+
         self.expression = None
-        # type = string
+        """
+        An expression that returns true or false, indicating whether or not
+        the condition is satisfied.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class RequestGroup_RelatedAction(fhirbase):
-    """A group of related requests that can be used to capture intended
+    """
+    A group of related requests that can be used to capture intended
     activities that have inter-dependencies such as "give this medication
     after that one".
     """
@@ -396,26 +530,38 @@ class RequestGroup_RelatedAction(fhirbase):
     __name__ = 'RequestGroup_RelatedAction'
 
     def __init__(self, dict_values=None):
-        # the element id of the action this is related to.
         self.actionId = None
-        # type = string
+        """
+        The element id of the action this is related to.
 
-        # the relationship of this action to the related action.
+        type: string
+        """
+
         self.relationship = None
-        # type = string
+        """
+        The relationship of this action to the related action.
 
-        # a duration or range of durations to apply to the relationship. for
-        # example, 30-60 minutes before.
+        type: string
+        """
+
         self.offsetDuration = None
-        # reference to Duration: Duration
+        """
+        A duration or range of durations to apply to the relationship. For
+        example, 30-60 minutes before.
 
-        # a duration or range of durations to apply to the relationship. for
-        # example, 30-60 minutes before.
+        reference to Duration
+        """
+
         self.offsetRange = None
-        # reference to Range: Range
+        """
+        A duration or range of durations to apply to the relationship. For
+        example, 30-60 minutes before.
 
-        # unique identifier for object class
+        reference to Range
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

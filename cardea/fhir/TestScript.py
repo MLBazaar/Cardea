@@ -2,169 +2,252 @@ from .fhirbase import fhirbase
 
 
 class TestScript(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript'
 
     def __init__(self, dict_values=None):
-        # this is a testscript resource
         self.resourceType = 'TestScript'
-        # type = string
-        # possible values: TestScript
+        """
+        This is a TestScript resource
 
-        # an absolute uri that is used to identify this test script when it is
-        # referenced in a specification, model, design or an instance. this shall
-        # be a url, should be globally unique, and should be an address at which
-        # this test script is (or will be) published. the url should include the
-        # major version of the test script. for more information see [technical
-        # and business versions](resource.html#versions).
+        type: string
+        possible values: TestScript
+        """
+
         self.url = None
-        # type = string
+        """
+        An absolute URI that is used to identify this test script when it is
+        referenced in a specification, model, design or an instance. This
+        SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at
+        which this test script is (or will be) published. The URL SHOULD
+        include the major version of the test script. For more information see
+        [Technical and Business Versions](resource.html#versions).
 
-        # the identifier that is used to identify this version of the test script
-        # when it is referenced in a specification, model, design or instance.
-        # this is an arbitrary value managed by the test script author and is not
-        # expected to be globally unique. for example, it might be a timestamp
-        # (e.g. yyyymmdd) if a managed version is not available. there is also no
-        # expectation that versions can be placed in a lexicographical sequence.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The identifier that is used to identify this version of the test
+        script when it is referenced in a specification, model, design or
+        instance. This is an arbitrary value managed by the test script author
+        and is not expected to be globally unique. For example, it might be a
+        timestamp (e.g. yyyymmdd) if a managed version is not available. There
+        is also no expectation that versions can be placed in a
+        lexicographical sequence.
 
-        # a natural language name identifying the test script. this name should be
-        # usable as an identifier for the module by machine processing
-        # applications such as code generation.
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        A natural language name identifying the test script. This name should
+        be usable as an identifier for the module by machine processing
+        applications such as code generation.
 
-        # a short, descriptive, user-friendly title for the test script.
+        type: string
+        """
+
         self.title = None
-        # type = string
+        """
+        A short, descriptive, user-friendly title for the test script.
 
-        # the status of this test script. enables tracking the life-cycle of the
-        # content.
+        type: string
+        """
+
         self.status = None
-        # type = string
-        # possible values: draft, active, retired, unknown
+        """
+        The status of this test script. Enables tracking the life-cycle of the
+        content.
 
-        # a boolean value to indicate that this test script is authored for
-        # testing purposes (or education/evaluation/marketing), and is not
-        # intended to be used for genuine usage.
+        type: string
+        possible values: draft, active, retired, unknown
+        """
+
         self.experimental = None
-        # type = boolean
+        """
+        A boolean value to indicate that this test script is authored for
+        testing purposes (or education/evaluation/marketing), and is not
+        intended to be used for genuine usage.
 
-        # the date  (and optionally time) when the test script was published. the
-        # date must change if and when the business version changes and it must
-        # change if the status code changes. in addition, it should change when
-        # the substantive content of the test script changes.
+        type: boolean
+        """
+
         self.date = None
-        # type = string
+        """
+        The date  (and optionally time) when the test script was published.
+        The date must change if and when the business version changes and it
+        must change if the status code changes. In addition, it should change
+        when the substantive content of the test script changes.
 
-        # the name of the individual or organization that published the test
-        # script.
+        type: string
+        """
+
         self.publisher = None
-        # type = string
+        """
+        The name of the individual or organization that published the test
+        script.
 
-        # contact details to assist a user in finding and communicating with the
-        # publisher.
+        type: string
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        """
+        Contact details to assist a user in finding and communicating with the
+        publisher.
 
-        # a free text natural language description of the test script from a
-        # consumer's perspective.
+        type: array
+        reference to ContactDetail
+        """
+
         self.description = None
-        # type = string
+        """
+        A free text natural language description of the test script from a
+        consumer's perspective.
 
-        # the content was developed with a focus and intent of supporting the
-        # contexts that are listed. these terms may be used to assist with
-        # indexing and searching for appropriate test script instances.
+        type: string
+        """
+
         self.useContext = None
-        # type = array
-        # reference to UsageContext: UsageContext
+        """
+        The content was developed with a focus and intent of supporting the
+        contexts that are listed. These terms may be used to assist with
+        indexing and searching for appropriate test script instances.
 
-        # a legal or geographic region in which the test script is intended to be
-        # used.
+        type: array
+        reference to UsageContext
+        """
+
         self.jurisdiction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A legal or geographic region in which the test script is intended to
+        be used.
 
-        # explaination of why this test script is needed and why it has been
-        # designed as it has.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.purpose = None
-        # type = string
+        """
+        Explaination of why this test script is needed and why it has been
+        designed as it has.
 
-        # a copyright statement relating to the test script and/or its contents.
-        # copyright statements are generally legal restrictions on the use and
-        # publishing of the test script.
+        type: string
+        """
+
         self.copyright = None
-        # type = string
+        """
+        A copyright statement relating to the test script and/or its contents.
+        Copyright statements are generally legal restrictions on the use and
+        publishing of the test script.
 
-        # an abstract server used in operations within this test script in the
-        # origin element.
+        type: string
+        """
+
         self.origin = None
-        # type = array
-        # reference to TestScript_Origin: TestScript_Origin
+        """
+        An abstract server used in operations within this test script in the
+        origin element.
 
-        # an abstract server used in operations within this test script in the
-        # destination element.
+        type: array
+        reference to TestScript_Origin
+        """
+
         self.destination = None
-        # type = array
-        # reference to TestScript_Destination: TestScript_Destination
+        """
+        An abstract server used in operations within this test script in the
+        destination element.
 
-        # the required capability must exist and are assumed to function correctly
-        # on the fhir server being tested.
+        type: array
+        reference to TestScript_Destination
+        """
+
         self.metadata = None
-        # reference to TestScript_Metadata: TestScript_Metadata
+        """
+        The required capability must exist and are assumed to function
+        correctly on the FHIR server being tested.
 
-        # fixture in the test script - by reference (uri). all fixtures are
-        # required for the test script to execute.
+        reference to TestScript_Metadata
+        """
+
         self.fixture = None
-        # type = array
-        # reference to TestScript_Fixture: TestScript_Fixture
+        """
+        Fixture in the test script - by reference (uri). All fixtures are
+        required for the test script to execute.
 
-        # reference to the profile to be used for validation.
+        type: array
+        reference to TestScript_Fixture
+        """
+
         self.profile = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Reference to the profile to be used for validation.
 
-        # variable is set based either on element value in response body or on
-        # header field value in the response headers.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.variable = None
-        # type = array
-        # reference to TestScript_Variable: TestScript_Variable
+        """
+        Variable is set based either on element value in response body or on
+        header field value in the response headers.
 
-        # assert rule to be used in one or more asserts within the test script.
+        type: array
+        reference to TestScript_Variable
+        """
+
         self.rule = None
-        # type = array
-        # reference to TestScript_Rule: TestScript_Rule
+        """
+        Assert rule to be used in one or more asserts within the test script.
 
-        # contains one or more rules.  offers a way to group rules so assertions
-        # could reference the group of rules and have them all applied.
+        type: array
+        reference to TestScript_Rule
+        """
+
         self.ruleset = None
-        # type = array
-        # reference to TestScript_Ruleset: TestScript_Ruleset
+        """
+        Contains one or more rules.  Offers a way to group rules so assertions
+        could reference the group of rules and have them all applied.
 
-        # a series of required setup operations before tests are executed.
+        type: array
+        reference to TestScript_Ruleset
+        """
+
         self.setup = None
-        # reference to TestScript_Setup: TestScript_Setup
+        """
+        A series of required setup operations before tests are executed.
 
-        # a test in this script.
+        reference to TestScript_Setup
+        """
+
         self.test = None
-        # type = array
-        # reference to TestScript_Test: TestScript_Test
+        """
+        A test in this script.
 
-        # a series of operations required to clean up after the all the tests are
-        # executed (successfully or otherwise).
+        type: array
+        reference to TestScript_Test
+        """
+
         self.teardown = None
-        # reference to TestScript_Teardown: TestScript_Teardown
+        """
+        A series of operations required to clean up after the all the tests
+        are executed (successfully or otherwise).
 
-        # a formal identifier that is used to identify this test script when it is
-        # represented in other formats, or referenced in a specification, model,
-        # design or an instance.
+        reference to TestScript_Teardown
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        A formal identifier that is used to identify this test script when it
+        is represented in other formats, or referenced in a specification,
+        model, design or an instance.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -186,97 +269,104 @@ class TestScript(fhirbase):
              'child_entity': 'TestScript',
              'child_variable': 'ruleset'},
 
-            {'parent_entity': 'TestScript_Setup',
-             'parent_variable': 'object_id',
-             'child_entity': 'TestScript',
-             'child_variable': 'setup'},
-
-            {'parent_entity': 'TestScript_Destination',
-             'parent_variable': 'object_id',
-             'child_entity': 'TestScript',
-             'child_variable': 'destination'},
-
-            {'parent_entity': 'TestScript_Variable',
-             'parent_variable': 'object_id',
-             'child_entity': 'TestScript',
-             'child_variable': 'variable'},
-
-            {'parent_entity': 'TestScript_Origin',
-             'parent_variable': 'object_id',
-             'child_entity': 'TestScript',
-             'child_variable': 'origin'},
-
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'TestScript',
              'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'TestScript',
-             'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'TestScript_Rule',
-             'parent_variable': 'object_id',
-             'child_entity': 'TestScript',
-             'child_variable': 'rule'},
 
             {'parent_entity': 'TestScript_Fixture',
              'parent_variable': 'object_id',
              'child_entity': 'TestScript',
              'child_variable': 'fixture'},
 
-            {'parent_entity': 'UsageContext',
+            {'parent_entity': 'TestScript_Metadata',
              'parent_variable': 'object_id',
              'child_entity': 'TestScript',
-             'child_variable': 'useContext'},
+             'child_variable': 'metadata'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'TestScript',
-             'child_variable': 'profile'},
-
-            {'parent_entity': 'TestScript_Test',
+            {'parent_entity': 'TestScript_Setup',
              'parent_variable': 'object_id',
              'child_entity': 'TestScript',
-             'child_variable': 'test'},
-
-            {'parent_entity': 'TestScript_Teardown',
-             'parent_variable': 'object_id',
-             'child_entity': 'TestScript',
-             'child_variable': 'teardown'},
+             'child_variable': 'setup'},
 
             {'parent_entity': 'ContactDetail',
              'parent_variable': 'object_id',
              'child_entity': 'TestScript',
              'child_variable': 'contact'},
 
-            {'parent_entity': 'TestScript_Metadata',
+            {'parent_entity': 'UsageContext',
              'parent_variable': 'object_id',
              'child_entity': 'TestScript',
-             'child_variable': 'metadata'},
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'TestScript_Test',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'test'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'TestScript',
+             'child_variable': 'profile'},
+
+            {'parent_entity': 'TestScript_Rule',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'rule'},
+
+            {'parent_entity': 'TestScript_Teardown',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'teardown'},
+
+            {'parent_entity': 'TestScript_Destination',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'destination'},
+
+            {'parent_entity': 'TestScript_Origin',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'origin'},
+
+            {'parent_entity': 'TestScript_Variable',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript',
+             'child_variable': 'variable'},
         ]
 
 
 class TestScript_Origin(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Origin'
 
     def __init__(self, dict_values=None):
-        # abstract name given to an origin server in this test script.  the name
-        # is provided as a number starting at 1.
         self.index = None
-        # type = int
+        """
+        Abstract name given to an origin server in this test script.  The name
+        is provided as a number starting at 1.
 
-        # the type of origin profile the test system supports.
+        type: int
+        """
+
         self.profile = None
-        # reference to Coding: Coding
+        """
+        The type of origin profile the test system supports.
 
-        # unique identifier for object class
+        reference to Coding
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -292,24 +382,31 @@ class TestScript_Origin(fhirbase):
 
 
 class TestScript_Destination(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Destination'
 
     def __init__(self, dict_values=None):
-        # abstract name given to a destination server in this test script.  the
-        # name is provided as a number starting at 1.
         self.index = None
-        # type = int
+        """
+        Abstract name given to a destination server in this test script.  The
+        name is provided as a number starting at 1.
 
-        # the type of destination profile the test system supports.
+        type: int
+        """
+
         self.profile = None
-        # reference to Coding: Coding
+        """
+        The type of destination profile the test system supports.
 
-        # unique identifier for object class
+        reference to Coding
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -325,26 +422,33 @@ class TestScript_Destination(fhirbase):
 
 
 class TestScript_Metadata(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Metadata'
 
     def __init__(self, dict_values=None):
-        # a link to the fhir specification that this test is covering.
         self.link = None
-        # type = array
-        # reference to TestScript_Link: TestScript_Link
+        """
+        A link to the FHIR specification that this test is covering.
 
-        # capabilities that must exist and are assumed to function correctly on
-        # the fhir server being tested.
+        type: array
+        reference to TestScript_Link
+        """
+
         self.capability = None
-        # type = array
-        # reference to TestScript_Capability: TestScript_Capability
+        """
+        Capabilities that must exist and are assumed to function correctly on
+        the FHIR server being tested.
 
-        # unique identifier for object class
+        type: array
+        reference to TestScript_Capability
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -352,86 +456,115 @@ class TestScript_Metadata(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'TestScript_Capability',
-             'parent_variable': 'object_id',
-             'child_entity': 'TestScript_Metadata',
-             'child_variable': 'capability'},
-
             {'parent_entity': 'TestScript_Link',
              'parent_variable': 'object_id',
              'child_entity': 'TestScript_Metadata',
              'child_variable': 'link'},
+
+            {'parent_entity': 'TestScript_Capability',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestScript_Metadata',
+             'child_variable': 'capability'},
         ]
 
 
 class TestScript_Link(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Link'
 
     def __init__(self, dict_values=None):
-        # url to a particular requirement or feature within the fhir
-        # specification.
         self.url = None
-        # type = string
+        """
+        URL to a particular requirement or feature within the FHIR
+        specification.
 
-        # short description of the link.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        Short description of the link.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class TestScript_Capability(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Capability'
 
     def __init__(self, dict_values=None):
-        # whether or not the test execution will require the given capabilities of
-        # the server in order for this test script to execute.
         self.required = None
-        # type = boolean
+        """
+        Whether or not the test execution will require the given capabilities
+        of the server in order for this test script to execute.
 
-        # whether or not the test execution will validate the given capabilities
-        # of the server in order for this test script to execute.
+        type: boolean
+        """
+
         self.validated = None
-        # type = boolean
+        """
+        Whether or not the test execution will validate the given capabilities
+        of the server in order for this test script to execute.
 
-        # description of the capabilities that this test script is requiring the
-        # server to support.
+        type: boolean
+        """
+
         self.description = None
-        # type = string
+        """
+        Description of the capabilities that this test script is requiring the
+        server to support.
 
-        # which origin server these requirements apply to.
+        type: string
+        """
+
         self.origin = None
-        # type = array
+        """
+        Which origin server these requirements apply to.
 
-        # which server these requirements apply to.
+        type: array
+        """
+
         self.destination = None
-        # type = int
+        """
+        Which server these requirements apply to.
 
-        # links to the fhir specification that describes this interaction and the
-        # resources involved in more detail.
+        type: int
+        """
+
         self.link = None
-        # type = array
+        """
+        Links to the FHIR specification that describes this interaction and
+        the resources involved in more detail.
 
-        # minimum capabilities required of server for test script to execute
-        # successfully.   if server does not meet at a minimum the referenced
-        # capability statement, then all tests in this script are skipped.
+        type: array
+        """
+
         self.capabilities = None
-        # reference to Reference: identifier
+        """
+        Minimum capabilities required of server for test script to execute
+        successfully.   If server does not meet at a minimum the referenced
+        capability statement, then all tests in this script are skipped.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -447,34 +580,44 @@ class TestScript_Capability(fhirbase):
 
 
 class TestScript_Fixture(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Fixture'
 
     def __init__(self, dict_values=None):
-        # whether or not to implicitly create the fixture during setup. if true,
-        # the fixture is automatically created on each server being tested during
-        # setup, therefore no create operation is required for this fixture in the
-        # testscript.setup section.
         self.autocreate = None
-        # type = boolean
+        """
+        Whether or not to implicitly create the fixture during setup. If true,
+        the fixture is automatically created on each server being tested
+        during setup, therefore no create operation is required for this
+        fixture in the TestScript.setup section.
 
-        # whether or not to implicitly delete the fixture during teardown. if
-        # true, the fixture is automatically deleted on each server being tested
-        # during teardown, therefore no delete operation is required for this
-        # fixture in the testscript.teardown section.
+        type: boolean
+        """
+
         self.autodelete = None
-        # type = boolean
+        """
+        Whether or not to implicitly delete the fixture during teardown. If
+        true, the fixture is automatically deleted on each server being tested
+        during teardown, therefore no delete operation is required for this
+        fixture in the TestScript.teardown section.
 
-        # reference to the resource (containing the contents of the resource
-        # needed for operations).
+        type: boolean
+        """
+
         self.resource = None
-        # reference to Reference: identifier
+        """
+        Reference to the resource (containing the contents of the resource
+        needed for operations).
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -490,80 +633,113 @@ class TestScript_Fixture(fhirbase):
 
 
 class TestScript_Variable(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Variable'
 
     def __init__(self, dict_values=None):
-        # descriptive name for this variable.
         self.name = None
-        # type = string
+        """
+        Descriptive name for this variable.
 
-        # a default, hard-coded, or user-defined value for this variable.
+        type: string
+        """
+
         self.defaultValue = None
-        # type = string
+        """
+        A default, hard-coded, or user-defined value for this variable.
 
-        # a free text natural language description of the variable and its
-        # purpose.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        A free text natural language description of the variable and its
+        purpose.
 
-        # the fluentpath expression to evaluate against the fixture body. when
-        # variables are defined, only one of either expression, headerfield or
-        # path must be specified.
+        type: string
+        """
+
         self.expression = None
-        # type = string
+        """
+        The fluentpath expression to evaluate against the fixture body. When
+        variables are defined, only one of either expression, headerField or
+        path must be specified.
 
-        # will be used to grab the http header field value from the headers that
-        # sourceid is pointing to.
+        type: string
+        """
+
         self.headerField = None
-        # type = string
+        """
+        Will be used to grab the HTTP header field value from the headers that
+        sourceId is pointing to.
 
-        # displayable text string with hint help information to the user when
-        # entering a default value.
+        type: string
+        """
+
         self.hint = None
-        # type = string
+        """
+        Displayable text string with hint help information to the user when
+        entering a default value.
 
-        # xpath or jsonpath to evaluate against the fixture body.  when variables
-        # are defined, only one of either expression, headerfield or path must be
-        # specified.
+        type: string
+        """
+
         self.path = None
-        # type = string
+        """
+        XPath or JSONPath to evaluate against the fixture body.  When
+        variables are defined, only one of either expression, headerField or
+        path must be specified.
 
-        # fixture to evaluate the xpath/jsonpath expression or the headerfield
-        # against within this variable.
+        type: string
+        """
+
         self.sourceId = None
-        # type = string
+        """
+        Fixture to evaluate the XPath/JSONPath expression or the headerField
+        against within this variable.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class TestScript_Rule(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Rule'
 
     def __init__(self, dict_values=None):
-        # reference to the resource (containing the contents of the rule needed
-        # for assertions).
         self.resource = None
-        # reference to Reference: identifier
+        """
+        Reference to the resource (containing the contents of the rule needed
+        for assertions).
 
-        # each rule template can take one or more parameters for rule evaluation.
+        reference to Reference: identifier
+        """
+
         self.param = None
-        # type = array
-        # reference to TestScript_Param: TestScript_Param
+        """
+        Each rule template can take one or more parameters for rule
+        evaluation.
 
-        # unique identifier for object class
+        type: array
+        reference to TestScript_Param
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -584,50 +760,64 @@ class TestScript_Rule(fhirbase):
 
 
 class TestScript_Param(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Param'
 
     def __init__(self, dict_values=None):
-        # descriptive name for this parameter that matches the external assert
-        # rule parameter name.
         self.name = None
-        # type = string
+        """
+        Descriptive name for this parameter that matches the external assert
+        rule parameter name.
 
-        # the explicit or dynamic value for the parameter that will be passed on
-        # to the external rule template.
+        type: string
+        """
+
         self.value = None
-        # type = string
+        """
+        The explicit or dynamic value for the parameter that will be passed on
+        to the external rule template.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class TestScript_Ruleset(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Ruleset'
 
     def __init__(self, dict_values=None):
-        # reference to the resource (containing the contents of the ruleset needed
-        # for assertions).
         self.resource = None
-        # reference to Reference: identifier
+        """
+        Reference to the resource (containing the contents of the ruleset
+        needed for assertions).
 
-        # the referenced rule within the external ruleset template.
+        reference to Reference: identifier
+        """
+
         self.rule = None
-        # type = array
-        # reference to TestScript_Rule1: TestScript_Rule1
+        """
+        The referenced rule within the external ruleset template.
 
-        # unique identifier for object class
+        type: array
+        reference to TestScript_Rule1
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -648,24 +838,32 @@ class TestScript_Ruleset(fhirbase):
 
 
 class TestScript_Rule1(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Rule1'
 
     def __init__(self, dict_values=None):
-        # id of the referenced rule within the external ruleset template.
         self.ruleId = None
-        # type = string
+        """
+        Id of the referenced rule within the external ruleset template.
 
-        # each rule template can take one or more parameters for rule evaluation.
+        type: string
+        """
+
         self.param = None
-        # type = array
-        # reference to TestScript_Param1: TestScript_Param1
+        """
+        Each rule template can take one or more parameters for rule
+        evaluation.
 
-        # unique identifier for object class
+        type: array
+        reference to TestScript_Param1
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -681,45 +879,56 @@ class TestScript_Rule1(fhirbase):
 
 
 class TestScript_Param1(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Param1'
 
     def __init__(self, dict_values=None):
-        # descriptive name for this parameter that matches the external assert
-        # ruleset rule parameter name.
         self.name = None
-        # type = string
+        """
+        Descriptive name for this parameter that matches the external assert
+        ruleset rule parameter name.
 
-        # the value for the parameter that will be passed on to the external
-        # ruleset rule template.
+        type: string
+        """
+
         self.value = None
-        # type = string
+        """
+        The value for the parameter that will be passed on to the external
+        ruleset rule template.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class TestScript_Setup(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Setup'
 
     def __init__(self, dict_values=None):
-        # action would contain either an operation or an assertion.
         self.action = None
-        # type = array
-        # reference to TestScript_Action: TestScript_Action
+        """
+        Action would contain either an operation or an assertion.
 
-        # unique identifier for object class
+        type: array
+        reference to TestScript_Action
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -735,24 +944,31 @@ class TestScript_Setup(fhirbase):
 
 
 class TestScript_Action(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Action'
 
     def __init__(self, dict_values=None):
-        # the operation to perform.
         self.operation = None
-        # reference to TestScript_Operation: TestScript_Operation
+        """
+        The operation to perform.
 
-        # evaluates the results of previous operations to determine if the server
-        # under test behaves appropriately.
+        reference to TestScript_Operation
+        """
+
         self._assert = None
-        # reference to TestScript_Assert: TestScript_Assert
+        """
+        Evaluates the results of previous operations to determine if the
+        server under test behaves appropriately.
 
-        # unique identifier for object class
+        reference to TestScript_Assert
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -773,92 +989,142 @@ class TestScript_Action(fhirbase):
 
 
 class TestScript_Operation(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Operation'
 
     def __init__(self, dict_values=None):
-        # server interaction or operation type.
         self.type = None
-        # reference to Coding: Coding
+        """
+        Server interaction or operation type.
 
-        # the type of the resource.  see http://build.fhir.org/resourcelist.html.
+        reference to Coding
+        """
+
         self.resource = None
-        # type = string
+        """
+        The type of the resource.  See
+        http://build.fhir.org/resourcelist.html.
 
-        # the label would be used for tracking/logging purposes by test engines.
+        type: string
+        """
+
         self.label = None
-        # type = string
+        """
+        The label would be used for tracking/logging purposes by test engines.
 
-        # the description would be used by test engines for tracking and reporting
-        # purposes.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        The description would be used by test engines for tracking and
+        reporting purposes.
 
-        # the content-type or mime-type to use for restful operation in the
-        # 'accept' header.
+        type: string
+        """
+
         self.accept = None
-        # type = string
-        # possible values: xml, json, ttl, none
+        """
+        The content-type or mime-type to use for RESTful operation in the
+        'Accept' header.
 
-        # the content-type or mime-type to use for restful operation in the
-        # 'content-type' header.
+        type: string
+        possible values: xml, json, ttl, none
+        """
+
         self.contentType = None
-        # type = string
-        # possible values: xml, json, ttl, none
+        """
+        The content-type or mime-type to use for RESTful operation in the
+        'Content-Type' header.
 
-        # the server where the request message is destined for.  must be one of
-        # the server numbers listed in testscript.destination section.
+        type: string
+        possible values: xml, json, ttl, none
+        """
+
         self.destination = None
-        # type = int
+        """
+        The server where the request message is destined for.  Must be one of
+        the server numbers listed in TestScript.destination section.
 
-        # whether or not to implicitly send the request url in encoded format. the
-        # default is true to match the standard restful client behavior. set to
-        # false when communicating with a server that does not support encoded url
-        # paths.
+        type: int
+        """
+
         self.encodeRequestUrl = None
-        # type = boolean
+        """
+        Whether or not to implicitly send the request url in encoded format.
+        The default is true to match the standard RESTful client behavior. Set
+        to false when communicating with a server that does not support
+        encoded url paths.
 
-        # the server where the request message originates from.  must be one of
-        # the server numbers listed in testscript.origin section.
+        type: boolean
+        """
+
         self.origin = None
-        # type = int
+        """
+        The server where the request message originates from.  Must be one of
+        the server numbers listed in TestScript.origin section.
 
-        # path plus parameters after [type].  used to set parts of the request url
-        # explicitly.
+        type: int
+        """
+
         self.params = None
-        # type = string
+        """
+        Path plus parameters after [type].  Used to set parts of the request
+        URL explicitly.
 
-        # header elements would be used to set http headers.
+        type: string
+        """
+
         self.requestHeader = None
-        # type = array
-        # reference to TestScript_RequestHeader: TestScript_RequestHeader
+        """
+        Header elements would be used to set HTTP headers.
 
-        # the fixture id (maybe new) to map to the request.
+        type: array
+        reference to TestScript_RequestHeader
+        """
+
         self.requestId = None
-        # type = string
+        """
+        The fixture id (maybe new) to map to the request.
 
-        # the fixture id (maybe new) to map to the response.
+        type: string
+        """
+
         self.responseId = None
-        # type = string
+        """
+        The fixture id (maybe new) to map to the response.
 
-        # the id of the fixture used as the body of a put or post request.
+        type: string
+        """
+
         self.sourceId = None
-        # type = string
+        """
+        The id of the fixture used as the body of a PUT or POST request.
 
-        # id of fixture used for extracting the [id],  [type], and [vid] for get
-        # requests.
+        type: string
+        """
+
         self.targetId = None
-        # type = string
+        """
+        Id of fixture used for extracting the [id],  [type], and [vid] for GET
+        requests.
 
-        # complete request url.
+        type: string
+        """
+
         self.url = None
-        # type = string
+        """
+        Complete request URL.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -923,158 +1189,240 @@ class TestScript_Operation(fhirbase):
 
 
 class TestScript_RequestHeader(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_RequestHeader'
 
     def __init__(self, dict_values=None):
-        # the http header field e.g. "accept".
         self.field = None
-        # type = string
+        """
+        The HTTP header field e.g. "Accept".
 
-        # the value of the header e.g. "application/fhir+xml".
+        type: string
+        """
+
         self.value = None
-        # type = string
+        """
+        The value of the header e.g. "application/fhir+xml".
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class TestScript_Assert(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Assert'
 
     def __init__(self, dict_values=None):
-        # the label would be used for tracking/logging purposes by test engines.
         self.label = None
-        # type = string
+        """
+        The label would be used for tracking/logging purposes by test engines.
 
-        # the description would be used by test engines for tracking and reporting
-        # purposes.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        The description would be used by test engines for tracking and
+        reporting purposes.
 
-        # the direction to use for the assertion.
+        type: string
+        """
+
         self.direction = None
-        # type = string
-        # possible values: response, request
+        """
+        The direction to use for the assertion.
 
-        # id of the source fixture used as the contents to be evaluated by either
-        # the "source/expression" or "sourceid/path" definition.
+        type: string
+        possible values: response, request
+        """
+
         self.compareToSourceId = None
-        # type = string
+        """
+        Id of the source fixture used as the contents to be evaluated by
+        either the "source/expression" or "sourceId/path" definition.
 
-        # the fluentpath expression to evaluate against the source fixture. when
-        # comparetosourceid is defined, either comparetosourceexpression or
-        # comparetosourcepath must be defined, but not both.
+        type: string
+        """
+
         self.compareToSourceExpression = None
-        # type = string
+        """
+        The fluentpath expression to evaluate against the source fixture. When
+        compareToSourceId is defined, either compareToSourceExpression or
+        compareToSourcePath must be defined, but not both.
 
-        # xpath or jsonpath expression to evaluate against the source fixture.
-        # when comparetosourceid is defined, either comparetosourceexpression or
-        # comparetosourcepath must be defined, but not both.
+        type: string
+        """
+
         self.compareToSourcePath = None
-        # type = string
+        """
+        XPath or JSONPath expression to evaluate against the source fixture.
+        When compareToSourceId is defined, either compareToSourceExpression or
+        compareToSourcePath must be defined, but not both.
 
-        # the content-type or mime-type to use for restful operation in the
-        # 'content-type' header.
+        type: string
+        """
+
         self.contentType = None
-        # type = string
-        # possible values: xml, json, ttl, none
+        """
+        The content-type or mime-type to use for RESTful operation in the
+        'Content-Type' header.
 
-        # the fluentpath expression to be evaluated against the request or
-        # response message contents - http headers and payload.
+        type: string
+        possible values: xml, json, ttl, none
+        """
+
         self.expression = None
-        # type = string
+        """
+        The fluentpath expression to be evaluated against the request or
+        response message contents - HTTP headers and payload.
 
-        # the http header field name e.g. 'location'.
+        type: string
+        """
+
         self.headerField = None
-        # type = string
+        """
+        The HTTP header field name e.g. 'Location'.
 
-        # the id of a fixture.  asserts that the response contains at a minimum
-        # the fixture specified by minimumid.
+        type: string
+        """
+
         self.minimumId = None
-        # type = string
+        """
+        The ID of a fixture.  Asserts that the response contains at a minimum
+        the fixture specified by minimumId.
 
-        # whether or not the test execution performs validation on the bundle
-        # navigation links.
+        type: string
+        """
+
         self.navigationLinks = None
-        # type = boolean
+        """
+        Whether or not the test execution performs validation on the bundle
+        navigation links.
 
-        # the operator type defines the conditional behavior of the assert. if not
-        # defined, the default is equals.
+        type: boolean
+        """
+
         self.operator = None
-        # type = string
-        # possible values: equals, notEquals, in, notIn, greaterThan,
-        # lessThan, empty, notEmpty, contains, notContains, eval
+        """
+        The operator type defines the conditional behavior of the assert. If
+        not defined, the default is equals.
 
-        # the xpath or jsonpath expression to be evaluated against the fixture
-        # representing the response received from server.
+        type: string
+        possible values: equals, notEquals, in, notIn, greaterThan,
+        lessThan, empty, notEmpty, contains, notContains, eval
+        """
+
         self.path = None
-        # type = string
+        """
+        The XPath or JSONPath expression to be evaluated against the fixture
+        representing the response received from server.
 
-        # the request method or http operation code to compare against that used
-        # by the client system under test.
+        type: string
+        """
+
         self.requestMethod = None
-        # type = string
-        # possible values: delete, get, options, patch, post, put
+        """
+        The request method or HTTP operation code to compare against that used
+        by the client system under test.
 
-        # the value to use in a comparison against the request url path string.
+        type: string
+        possible values: delete, get, options, patch, post, put
+        """
+
         self.requestURL = None
-        # type = string
+        """
+        The value to use in a comparison against the request URL path string.
 
-        # the type of the resource.  see http://build.fhir.org/resourcelist.html.
+        type: string
+        """
+
         self.resource = None
-        # type = string
+        """
+        The type of the resource.  See
+        http://build.fhir.org/resourcelist.html.
 
-        # okay | created | nocontent | notmodified | bad | forbidden | notfound |
-        # methodnotallowed | conflict | gone | preconditionfailed | unprocessable.
+        type: string
+        """
+
         self.response = None
-        # type = string
-        # possible values: okay, created, noContent, notModified, bad,
-        # forbidden, notFound, methodNotAllowed, conflict, gone,
-        # preconditionFailed, unprocessable
+        """
+        okay | created | noContent | notModified | bad | forbidden | notFound
+        | methodNotAllowed | conflict | gone | preconditionFailed |
+        unprocessable.
 
-        # the value of the http response code to be tested.
+        type: string
+        possible values: okay, created, noContent, notModified, bad,
+        forbidden, notFound, methodNotAllowed, conflict, gone,
+        preconditionFailed, unprocessable
+        """
+
         self.responseCode = None
-        # type = string
+        """
+        The value of the HTTP response code to be tested.
 
-        # the testscript.rule this assert will evaluate.
+        type: string
+        """
+
         self.rule = None
-        # reference to TestScript_Rule2: TestScript_Rule2
+        """
+        The TestScript.rule this assert will evaluate.
 
-        # the testscript.ruleset this assert will evaluate.
+        reference to TestScript_Rule2
+        """
+
         self.ruleset = None
-        # reference to TestScript_Ruleset1: TestScript_Ruleset1
+        """
+        The TestScript.ruleset this assert will evaluate.
 
-        # fixture to evaluate the xpath/jsonpath expression or the headerfield
-        # against.
+        reference to TestScript_Ruleset1
+        """
+
         self.sourceId = None
-        # type = string
+        """
+        Fixture to evaluate the XPath/JSONPath expression or the headerField
+        against.
 
-        # the id of the profile to validate against.
+        type: string
+        """
+
         self.validateProfileId = None
-        # type = string
+        """
+        The ID of the Profile to validate against.
 
-        # the value to compare to.
+        type: string
+        """
+
         self.value = None
-        # type = string
+        """
+        The value to compare to.
 
-        # whether or not the test execution will produce a warning only on error
-        # for this assert.
+        type: string
+        """
+
         self.warningOnly = None
-        # type = boolean
+        """
+        Whether or not the test execution will produce a warning only on error
+        for this assert.
 
-        # unique identifier for object class
+        type: boolean
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1101,8 +1449,8 @@ class TestScript_Assert(fhirbase):
                     'equals', 'notequals', 'in', 'notin', 'greaterthan', 'lessthan',
                         'empty', 'notempty', 'contains', 'notcontains', 'eval']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'equals, notEquals, in, notIn, greaterThan, lessThan,'
-                        'empty, notEmpty, contains, notContains, eval'))
+                        value, 'equals, notEquals, in, notIn, greaterThan, lessThan, empty, '
+                        'notEmpty, contains, notContains, eval'))
 
         if self.requestMethod is not None:
             for value in self.requestMethod:
@@ -1141,8 +1489,8 @@ class TestScript_Assert(fhirbase):
                     'equals', 'notequals', 'in', 'notin', 'greaterthan', 'lessthan',
                         'empty', 'notempty', 'contains', 'notcontains', 'eval']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'equals, notEquals, in, notIn, greaterThan, lessThan,'
-                        'empty, notEmpty, contains, notContains, eval'))
+                        value, 'equals, notEquals, in, notIn, greaterThan, lessThan, empty, '
+                        'notEmpty, contains, notContains, eval'))
 
         if self.requestMethod is not None:
             for value in self.requestMethod:
@@ -1177,24 +1525,32 @@ class TestScript_Assert(fhirbase):
 
 
 class TestScript_Rule2(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Rule2'
 
     def __init__(self, dict_values=None):
-        # the testscript.rule id value this assert will evaluate.
         self.ruleId = None
-        # type = string
+        """
+        The TestScript.rule id value this assert will evaluate.
 
-        # each rule template can take one or more parameters for rule evaluation.
+        type: string
+        """
+
         self.param = None
-        # type = array
-        # reference to TestScript_Param2: TestScript_Param2
+        """
+        Each rule template can take one or more parameters for rule
+        evaluation.
 
-        # unique identifier for object class
+        type: array
+        reference to TestScript_Param2
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1210,49 +1566,63 @@ class TestScript_Rule2(fhirbase):
 
 
 class TestScript_Param2(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Param2'
 
     def __init__(self, dict_values=None):
-        # descriptive name for this parameter that matches the external assert
-        # rule parameter name.
         self.name = None
-        # type = string
+        """
+        Descriptive name for this parameter that matches the external assert
+        rule parameter name.
 
-        # the value for the parameter that will be passed on to the external rule
-        # template.
+        type: string
+        """
+
         self.value = None
-        # type = string
+        """
+        The value for the parameter that will be passed on to the external
+        rule template.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class TestScript_Ruleset1(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Ruleset1'
 
     def __init__(self, dict_values=None):
-        # the testscript.ruleset id value this assert will evaluate.
         self.rulesetId = None
-        # type = string
+        """
+        The TestScript.ruleset id value this assert will evaluate.
 
-        # the referenced rule within the external ruleset template.
+        type: string
+        """
+
         self.rule = None
-        # type = array
-        # reference to TestScript_Rule3: TestScript_Rule3
+        """
+        The referenced rule within the external ruleset template.
 
-        # unique identifier for object class
+        type: array
+        reference to TestScript_Rule3
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1268,24 +1638,32 @@ class TestScript_Ruleset1(fhirbase):
 
 
 class TestScript_Rule3(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Rule3'
 
     def __init__(self, dict_values=None):
-        # id of the referenced rule within the external ruleset template.
         self.ruleId = None
-        # type = string
+        """
+        Id of the referenced rule within the external ruleset template.
 
-        # each rule template can take one or more parameters for rule evaluation.
+        type: string
+        """
+
         self.param = None
-        # type = array
-        # reference to TestScript_Param3: TestScript_Param3
+        """
+        Each rule template can take one or more parameters for rule
+        evaluation.
 
-        # unique identifier for object class
+        type: array
+        reference to TestScript_Param3
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1301,55 +1679,72 @@ class TestScript_Rule3(fhirbase):
 
 
 class TestScript_Param3(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Param3'
 
     def __init__(self, dict_values=None):
-        # descriptive name for this parameter that matches the external assert
-        # ruleset rule parameter name.
         self.name = None
-        # type = string
+        """
+        Descriptive name for this parameter that matches the external assert
+        ruleset rule parameter name.
 
-        # the value for the parameter that will be passed on to the external
-        # ruleset rule template.
+        type: string
+        """
+
         self.value = None
-        # type = string
+        """
+        The value for the parameter that will be passed on to the external
+        ruleset rule template.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class TestScript_Test(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Test'
 
     def __init__(self, dict_values=None):
-        # the name of this test used for tracking/logging purposes by test
-        # engines.
         self.name = None
-        # type = string
+        """
+        The name of this test used for tracking/logging purposes by test
+        engines.
 
-        # a short description of the test used by test engines for tracking and
-        # reporting purposes.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        A short description of the test used by test engines for tracking and
+        reporting purposes.
 
-        # action would contain either an operation or an assertion.
+        type: string
+        """
+
         self.action = None
-        # type = array
-        # reference to TestScript_Action1: TestScript_Action1
+        """
+        Action would contain either an operation or an assertion.
 
-        # unique identifier for object class
+        type: array
+        reference to TestScript_Action1
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1365,24 +1760,31 @@ class TestScript_Test(fhirbase):
 
 
 class TestScript_Action1(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Action1'
 
     def __init__(self, dict_values=None):
-        # an operation would involve a rest request to a server.
         self.operation = None
-        # reference to TestScript_Operation: TestScript_Operation
+        """
+        An operation would involve a REST request to a server.
 
-        # evaluates the results of previous operations to determine if the server
-        # under test behaves appropriately.
+        reference to TestScript_Operation
+        """
+
         self._assert = None
-        # reference to TestScript_Assert: TestScript_Assert
+        """
+        Evaluates the results of previous operations to determine if the
+        server under test behaves appropriately.
 
-        # unique identifier for object class
+        reference to TestScript_Assert
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1403,20 +1805,24 @@ class TestScript_Action1(fhirbase):
 
 
 class TestScript_Teardown(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Teardown'
 
     def __init__(self, dict_values=None):
-        # the teardown action will only contain an operation.
         self.action = None
-        # type = array
-        # reference to TestScript_Action2: TestScript_Action2
+        """
+        The teardown action will only contain an operation.
 
-        # unique identifier for object class
+        type: array
+        reference to TestScript_Action2
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1432,19 +1838,23 @@ class TestScript_Teardown(fhirbase):
 
 
 class TestScript_Action2(fhirbase):
-    """A structured set of tests against a FHIR server implementation to
+    """
+    A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
     """
 
     __name__ = 'TestScript_Action2'
 
     def __init__(self, dict_values=None):
-        # an operation would involve a rest request to a server.
         self.operation = None
-        # reference to TestScript_Operation: TestScript_Operation
+        """
+        An operation would involve a REST request to a server.
 
-        # unique identifier for object class
+        reference to TestScript_Operation
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

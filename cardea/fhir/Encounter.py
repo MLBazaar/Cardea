@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class Encounter(fhirbase):
-    """An interaction between a patient and healthcare provider(s) for the
+    """
+    An interaction between a patient and healthcare provider(s) for the
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
     """
@@ -10,131 +11,198 @@ class Encounter(fhirbase):
     __name__ = 'Encounter'
 
     def __init__(self, dict_values=None):
-        # this is a encounter resource
         self.resourceType = 'Encounter'
-        # type = string
-        # possible values: Encounter
+        """
+        This is a Encounter resource
 
-        # planned | arrived | triaged | in-progress | onleave | finished |
-        # cancelled +.
+        type: string
+        possible values: Encounter
+        """
+
         self.status = None
-        # type = string
-        # possible values: planned, arrived, triaged, in-progress,
-        # onleave, finished, cancelled, entered-in-error, unknown
+        """
+        planned | arrived | triaged | in-progress | onleave | finished |
+        cancelled +.
 
-        # the status history permits the encounter resource to contain the status
-        # history without needing to read through the historical versions of the
-        # resource, or even have the server store them.
+        type: string
+        possible values: planned, arrived, triaged, in-progress,
+        onleave, finished, cancelled, entered-in-error, unknown
+        """
+
         self.statusHistory = None
-        # type = array
-        # reference to Encounter_StatusHistory: Encounter_StatusHistory
+        """
+        The status history permits the encounter resource to contain the
+        status history without needing to read through the historical versions
+        of the resource, or even have the server store them.
 
-        # inpatient | outpatient | ambulatory | emergency +.
+        type: array
+        reference to Encounter_StatusHistory
+        """
+
         self._class = None
-        # reference to Coding: Coding
+        """
+        inpatient | outpatient | ambulatory | emergency +.
 
-        # the class history permits the tracking of the encounters transitions
-        # without needing to go  through the resource history.  this would be used
-        # for a case where an admission starts of as an emergency encounter, then
-        # transisions into an inpatient scenario. doing this and not restarting a
-        # new encounter ensures that any lab/diagnostic results can more easily
-        # follow the patient and not require re-processing and not get lost or
-        # cancelled during a kindof discharge from emergency to inpatient.
+        reference to Coding
+        """
+
         self.classHistory = None
-        # type = array
-        # reference to Encounter_ClassHistory: Encounter_ClassHistory
+        """
+        The class history permits the tracking of the encounters transitions
+        without needing to go  through the resource history.  This would be
+        used for a case where an admission starts of as an emergency
+        encounter, then transisions into an inpatient scenario. Doing this and
+        not restarting a new encounter ensures that any lab/diagnostic results
+        can more easily follow the patient and not require re-processing and
+        not get lost or cancelled during a kindof discharge from emergency to
+        inpatient.
 
-        # specific type of encounter (e.g. e-mail consultation, surgical day-care,
-        # skilled nursing, rehabilitation).
+        type: array
+        reference to Encounter_ClassHistory
+        """
+
         self.type = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Specific type of encounter (e.g. e-mail consultation, surgical
+        day-care, skilled nursing, rehabilitation).
 
-        # indicates the urgency of the encounter.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.priority = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates the urgency of the encounter.
 
-        # the patient ro group present at the encounter.
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        The patient ro group present at the encounter.
 
-        # where a specific encounter should be classified as a part of a specific
-        # episode(s) of care this field should be used. this association can
-        # facilitate grouping of related encounters together for a specific
-        # purpose, such as government reporting, issue tracking, association via a
-        # common problem.  the association is recorded on the encounter as these
-        # are typically created after the episode of care, and grouped on entry
-        # rather than editing the episode of care to append another encounter to
-        # it (the episode of care could span years).
+        reference to Reference: identifier
+        """
+
         self.episodeOfCare = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Where a specific encounter should be classified as a part of a
+        specific episode(s) of care this field should be used. This
+        association can facilitate grouping of related encounters together for
+        a specific purpose, such as government reporting, issue tracking,
+        association via a common problem.  The association is recorded on the
+        encounter as these are typically created after the episode of care,
+        and grouped on entry rather than editing the episode of care to append
+        another encounter to it (the episode of care could span years).
 
-        # the referral request this encounter satisfies (incoming referral).
+        type: array
+        reference to Reference: identifier
+        """
+
         self.incomingReferral = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The referral request this encounter satisfies (incoming referral).
 
-        # the list of people responsible for providing the service.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.participant = None
-        # type = array
-        # reference to Encounter_Participant: Encounter_Participant
+        """
+        The list of people responsible for providing the service.
 
-        # the appointment that scheduled this encounter.
+        type: array
+        reference to Encounter_Participant
+        """
+
         self.appointment = None
-        # reference to Reference: identifier
+        """
+        The appointment that scheduled this encounter.
 
-        # the start and end time of the encounter.
+        reference to Reference: identifier
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The start and end time of the encounter.
 
-        # quantity of time the encounter lasted. this excludes the time during
-        # leaves of absence.
+        reference to Period
+        """
+
         self.length = None
-        # reference to Duration: Duration
+        """
+        Quantity of time the encounter lasted. This excludes the time during
+        leaves of absence.
 
-        # reason the encounter takes place, expressed as a code. for admissions,
-        # this can be used for a coded admission diagnosis.
+        reference to Duration
+        """
+
         self.reason = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Reason the encounter takes place, expressed as a code. For admissions,
+        this can be used for a coded admission diagnosis.
 
-        # the list of diagnosis relevant to this encounter.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.diagnosis = None
-        # type = array
-        # reference to Encounter_Diagnosis: Encounter_Diagnosis
+        """
+        The list of diagnosis relevant to this encounter.
 
-        # the set of accounts that may be used for billing for this encounter.
+        type: array
+        reference to Encounter_Diagnosis
+        """
+
         self.account = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The set of accounts that may be used for billing for this Encounter.
 
-        # details about the admission to a healthcare service.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.hospitalization = None
-        # reference to Encounter_Hospitalization: Encounter_Hospitalization
+        """
+        Details about the admission to a healthcare service.
 
-        # list of locations where  the patient has been during this encounter.
+        reference to Encounter_Hospitalization
+        """
+
         self.location = None
-        # type = array
-        # reference to Encounter_Location: Encounter_Location
+        """
+        List of locations where  the patient has been during this encounter.
 
-        # an organization that is in charge of maintaining the information of this
-        # encounter (e.g. who maintains the report or the master service catalog
-        # item, etc.). this may be the same as the organization on the patient
-        # record, however it could be different. this may not be not the service
-        # delivery location's organization.
+        type: array
+        reference to Encounter_Location
+        """
+
         self.serviceProvider = None
-        # reference to Reference: identifier
+        """
+        An organization that is in charge of maintaining the information of
+        this Encounter (e.g. who maintains the report or the master service
+        catalog item, etc.). This MAY be the same as the organization on the
+        Patient record, however it could be different. This MAY not be not the
+        Service Delivery Location's Organization.
 
-        # another encounter of which this encounter is a part of (administratively
-        # or in time).
+        reference to Reference: identifier
+        """
+
         self.partOf = None
-        # reference to Reference: identifier
+        """
+        Another Encounter of which this encounter is a part of
+        (administratively or in time).
 
-        # identifier(s) by which this encounter is known.
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Identifier(s) by which this encounter is known.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -147,46 +215,26 @@ class Encounter(fhirbase):
                     'planned', 'arrived', 'triaged', 'in-progress', 'onleave', 'finished',
                         'cancelled', 'entered-in-error', 'unknown']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'planned, arrived, triaged, in-progress, onleave,'
-                        'finished, cancelled, entered-in-error, unknown'))
+                        value, 'planned, arrived, triaged, in-progress, onleave, finished, '
+                        'cancelled, entered-in-error, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Encounter_Participant',
-             'parent_variable': 'object_id',
-             'child_entity': 'Encounter',
-             'child_variable': 'participant'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Encounter',
-             'child_variable': 'subject'},
+             'child_variable': 'partOf'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Encounter',
-             'child_variable': 'account'},
-
-            {'parent_entity': 'Encounter_Location',
+            {'parent_entity': 'Encounter_Hospitalization',
              'parent_variable': 'object_id',
              'child_entity': 'Encounter',
-             'child_variable': 'location'},
+             'child_variable': 'hospitalization'},
 
-            {'parent_entity': 'Encounter_ClassHistory',
+            {'parent_entity': 'Duration',
              'parent_variable': 'object_id',
              'child_entity': 'Encounter',
-             'child_variable': 'classHistory'},
-
-            {'parent_entity': 'Encounter_StatusHistory',
-             'parent_variable': 'object_id',
-             'child_entity': 'Encounter',
-             'child_variable': 'statusHistory'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Encounter',
-             'child_variable': 'appointment'},
+             'child_variable': 'length'},
 
             {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
@@ -196,42 +244,7 @@ class Encounter(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Encounter',
-             'child_variable': 'episodeOfCare'},
-
-            {'parent_entity': 'Encounter_Hospitalization',
-             'parent_variable': 'object_id',
-             'child_entity': 'Encounter',
-             'child_variable': 'hospitalization'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Encounter',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Encounter',
-             'child_variable': 'serviceProvider'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Encounter',
-             'child_variable': 'period'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Encounter',
-             'child_variable': 'partOf'},
-
-            {'parent_entity': 'Encounter_Diagnosis',
-             'parent_variable': 'object_id',
-             'child_entity': 'Encounter',
-             'child_variable': 'diagnosis'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Encounter',
-             'child_variable': 'incomingReferral'},
+             'child_variable': 'subject'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -243,20 +256,76 @@ class Encounter(fhirbase):
              'child_entity': 'Encounter',
              'child_variable': 'type'},
 
-            {'parent_entity': 'Duration',
+            {'parent_entity': 'Encounter_ClassHistory',
              'parent_variable': 'object_id',
              'child_entity': 'Encounter',
-             'child_variable': 'length'},
+             'child_variable': 'classHistory'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Encounter',
              'child_variable': 'reason'},
+
+            {'parent_entity': 'Encounter_Diagnosis',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'diagnosis'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'account'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Encounter_Participant',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'participant'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'episodeOfCare'},
+
+            {'parent_entity': 'Encounter_Location',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'location'},
+
+            {'parent_entity': 'Encounter_StatusHistory',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter',
+             'child_variable': 'statusHistory'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'appointment'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'incomingReferral'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter',
+             'child_variable': 'serviceProvider'},
         ]
 
 
 class Encounter_StatusHistory(fhirbase):
-    """An interaction between a patient and healthcare provider(s) for the
+    """
+    An interaction between a patient and healthcare provider(s) for the
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
     """
@@ -264,19 +333,25 @@ class Encounter_StatusHistory(fhirbase):
     __name__ = 'Encounter_StatusHistory'
 
     def __init__(self, dict_values=None):
-        # planned | arrived | triaged | in-progress | onleave | finished |
-        # cancelled +.
         self.status = None
-        # type = string
-        # possible values: planned, arrived, triaged, in-progress,
-        # onleave, finished, cancelled, entered-in-error, unknown
+        """
+        planned | arrived | triaged | in-progress | onleave | finished |
+        cancelled +.
 
-        # the time that the episode was in the specified status.
+        type: string
+        possible values: planned, arrived, triaged, in-progress,
+        onleave, finished, cancelled, entered-in-error, unknown
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The time that the episode was in the specified status.
 
-        # unique identifier for object class
+        reference to Period
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -289,7 +364,7 @@ class Encounter_StatusHistory(fhirbase):
                     'planned', 'arrived', 'triaged', 'in-progress', 'onleave', 'finished',
                         'cancelled', 'entered-in-error', 'unknown']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'planned, arrived, triaged, in-progress, onleave, finished,'
+                        value, 'planned, arrived, triaged, in-progress, onleave, finished, '
                         'cancelled, entered-in-error, unknown'))
 
     def get_relationships(self):
@@ -303,7 +378,8 @@ class Encounter_StatusHistory(fhirbase):
 
 
 class Encounter_ClassHistory(fhirbase):
-    """An interaction between a patient and healthcare provider(s) for the
+    """
+    An interaction between a patient and healthcare provider(s) for the
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
     """
@@ -311,16 +387,22 @@ class Encounter_ClassHistory(fhirbase):
     __name__ = 'Encounter_ClassHistory'
 
     def __init__(self, dict_values=None):
-        # inpatient | outpatient | ambulatory | emergency +.
         self._class = None
-        # reference to Coding: Coding
+        """
+        inpatient | outpatient | ambulatory | emergency +.
 
-        # the time that the episode was in the specified class.
+        reference to Coding
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The time that the episode was in the specified class.
 
-        # unique identifier for object class
+        reference to Period
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -341,7 +423,8 @@ class Encounter_ClassHistory(fhirbase):
 
 
 class Encounter_Participant(fhirbase):
-    """An interaction between a patient and healthcare provider(s) for the
+    """
+    An interaction between a patient and healthcare provider(s) for the
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
     """
@@ -349,23 +432,32 @@ class Encounter_Participant(fhirbase):
     __name__ = 'Encounter_Participant'
 
     def __init__(self, dict_values=None):
-        # role of participant in encounter.
         self.type = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Role of participant in encounter.
 
-        # the period of time that the specified participant participated in the
-        # encounter. these can overlap or be sub-sets of the overall encounter's
-        # period.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The period of time that the specified participant participated in the
+        encounter. These can overlap or be sub-sets of the overall encounter's
+        period.
 
-        # persons involved in the encounter other than the patient.
+        reference to Period
+        """
+
         self.individual = None
-        # reference to Reference: identifier
+        """
+        Persons involved in the encounter other than the patient.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -373,25 +465,26 @@ class Encounter_Participant(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'Encounter_Participant',
-             'child_variable': 'period'},
+             'child_variable': 'individual'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Encounter_Participant',
              'child_variable': 'type'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
              'child_entity': 'Encounter_Participant',
-             'child_variable': 'individual'},
+             'child_variable': 'period'},
         ]
 
 
 class Encounter_Diagnosis(fhirbase):
-    """An interaction between a patient and healthcare provider(s) for the
+    """
+    An interaction between a patient and healthcare provider(s) for the
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
     """
@@ -399,24 +492,33 @@ class Encounter_Diagnosis(fhirbase):
     __name__ = 'Encounter_Diagnosis'
 
     def __init__(self, dict_values=None):
-        # reason the encounter takes place, as specified using information from
-        # another resource. for admissions, this is the admission diagnosis. the
-        # indication will typically be a condition (with other resources
-        # referenced in the evidence.detail), or a procedure.
         self.condition = None
-        # reference to Reference: identifier
+        """
+        Reason the encounter takes place, as specified using information from
+        another resource. For admissions, this is the admission diagnosis. The
+        indication will typically be a Condition (with other resources
+        referenced in the evidence.detail), or a Procedure.
 
-        # role that this diagnosis has within the encounter (e.g. admission,
-        # billing, discharge …).
+        reference to Reference: identifier
+        """
+
         self.role = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Role that this diagnosis has within the encounter (e.g. admission,
+        billing, discharge …).
 
-        # ranking of the diagnosis (for each role type).
+        reference to CodeableConcept
+        """
+
         self.rank = None
-        # type = int
+        """
+        Ranking of the diagnosis (for each role type).
 
-        # unique identifier for object class
+        type: int
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -424,20 +526,21 @@ class Encounter_Diagnosis(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Encounter_Diagnosis',
-             'child_variable': 'condition'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Encounter_Diagnosis',
              'child_variable': 'role'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter_Diagnosis',
+             'child_variable': 'condition'},
         ]
 
 
 class Encounter_Hospitalization(fhirbase):
-    """An interaction between a patient and healthcare provider(s) for the
+    """
+    An interaction between a patient and healthcare provider(s) for the
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
     """
@@ -445,48 +548,76 @@ class Encounter_Hospitalization(fhirbase):
     __name__ = 'Encounter_Hospitalization'
 
     def __init__(self, dict_values=None):
-        # pre-admission identifier.
         self.preAdmissionIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        Pre-admission identifier.
 
-        # the location from which the patient came before admission.
+        reference to Identifier
+        """
+
         self.origin = None
-        # reference to Reference: identifier
+        """
+        The location from which the patient came before admission.
 
-        # from where patient was admitted (physician referral, transfer).
+        reference to Reference: identifier
+        """
+
         self.admitSource = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        From where patient was admitted (physician referral, transfer).
 
-        # whether this hospitalization is a readmission and why if known.
+        reference to CodeableConcept
+        """
+
         self.reAdmission = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Whether this hospitalization is a readmission and why if known.
 
-        # diet preferences reported by the patient.
+        reference to CodeableConcept
+        """
+
         self.dietPreference = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Diet preferences reported by the patient.
 
-        # special courtesies (vip, board member).
+        type: array
+        reference to CodeableConcept
+        """
+
         self.specialCourtesy = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Special courtesies (VIP, board member).
 
-        # any special requests that have been made for this hospitalization
-        # encounter, such as the provision of specific equipment or other things.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.specialArrangement = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Any special requests that have been made for this hospitalization
+        encounter, such as the provision of specific equipment or other
+        things.
 
-        # location to which the patient is discharged.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.destination = None
-        # reference to Reference: identifier
+        """
+        Location to which the patient is discharged.
 
-        # category or kind of location after discharge.
+        reference to Reference: identifier
+        """
+
         self.dischargeDisposition = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Category or kind of location after discharge.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -494,6 +625,36 @@ class Encounter_Hospitalization(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'preAdmissionIdentifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'specialCourtesy'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'reAdmission'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'dietPreference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'origin'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Encounter_Hospitalization',
+             'child_variable': 'destination'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Encounter_Hospitalization',
@@ -504,45 +665,16 @@ class Encounter_Hospitalization(fhirbase):
              'child_entity': 'Encounter_Hospitalization',
              'child_variable': 'dischargeDisposition'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Encounter_Hospitalization',
-             'child_variable': 'origin'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Encounter_Hospitalization',
-             'child_variable': 'reAdmission'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Encounter_Hospitalization',
-             'child_variable': 'specialCourtesy'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Encounter_Hospitalization',
              'child_variable': 'admitSource'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Encounter_Hospitalization',
-             'child_variable': 'dietPreference'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Encounter_Hospitalization',
-             'child_variable': 'preAdmissionIdentifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Encounter_Hospitalization',
-             'child_variable': 'destination'},
         ]
 
 
 class Encounter_Location(fhirbase):
-    """An interaction between a patient and healthcare provider(s) for the
+    """
+    An interaction between a patient and healthcare provider(s) for the
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
     """
@@ -550,23 +682,32 @@ class Encounter_Location(fhirbase):
     __name__ = 'Encounter_Location'
 
     def __init__(self, dict_values=None):
-        # the location where the encounter takes place.
         self.location = None
-        # reference to Reference: identifier
+        """
+        The location where the encounter takes place.
 
-        # the status of the participants' presence at the specified location
-        # during the period specified. if the participant is is no longer at the
-        # location, then the period will have an end date/time.
+        reference to Reference: identifier
+        """
+
         self.status = None
-        # type = string
-        # possible values: planned, active, reserved, completed
+        """
+        The status of the participants' presence at the specified location
+        during the period specified. If the participant is is no longer at the
+        location, then the period will have an end date/time.
 
-        # time period during which the patient was present at the location.
+        type: string
+        possible values: planned, active, reserved, completed
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        Time period during which the patient was present at the location.
 
-        # unique identifier for object class
+        reference to Period
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -583,13 +724,13 @@ class Encounter_Location(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Encounter_Location',
-             'child_variable': 'period'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Encounter_Location',
              'child_variable': 'location'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Encounter_Location',
+             'child_variable': 'period'},
         ]

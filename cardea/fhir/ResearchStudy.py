@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class ResearchStudy(fhirbase):
-    """A process where a researcher or organization plans and then executes a
+    """
+    A process where a researcher or organization plans and then executes a
     series of steps intended to increase the field of healthcare-related
     knowledge.  This includes studies of safety, efficacy, comparative
     effectiveness and other information about medications, devices,
@@ -14,123 +15,186 @@ class ResearchStudy(fhirbase):
     __name__ = 'ResearchStudy'
 
     def __init__(self, dict_values=None):
-        # this is a researchstudy resource
         self.resourceType = 'ResearchStudy'
-        # type = string
-        # possible values: ResearchStudy
+        """
+        This is a ResearchStudy resource
 
-        # a short, descriptive user-friendly label for the study.
+        type: string
+        possible values: ResearchStudy
+        """
+
         self.title = None
-        # type = string
+        """
+        A short, descriptive user-friendly label for the study.
 
-        # the set of steps expected to be performed as part of the execution of
-        # the study.
+        type: string
+        """
+
         self.protocol = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The set of steps expected to be performed as part of the execution of
+        the study.
 
-        # a larger research study of which this particular study is a component or
-        # step.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.partOf = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A larger research study of which this particular study is a component
+        or step.
 
-        # the current state of the study.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.status = None
-        # type = string
-        # possible values: draft, in-progress, suspended, stopped,
-        # completed, entered-in-error
+        """
+        The current state of the study.
 
-        # codes categorizing the type of study such as investigational vs.
-        # observational, type of blinding, type of randomization, safety vs.
-        # efficacy, etc.
+        type: string
+        possible values: draft, in-progress, suspended, stopped,
+        completed, entered-in-error
+        """
+
         self.category = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Codes categorizing the type of study such as investigational vs.
+        observational, type of blinding, type of randomization, safety vs.
+        efficacy, etc.
 
-        # the condition(s), medication(s), food(s), therapy(ies), device(s) or
-        # other concerns or interventions that the study is seeking to gain more
-        # information about.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.focus = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The condition(s), medication(s), food(s), therapy(ies), device(s) or
+        other concerns or interventions that the study is seeking to gain more
+        information about.
 
-        # contact details to assist a user in learning more about or engaging with
-        # the study.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        """
+        Contact details to assist a user in learning more about or engaging
+        with the study.
 
-        # citations, references and other related documents.
+        type: array
+        reference to ContactDetail
+        """
+
         self.relatedArtifact = None
-        # type = array
-        # reference to RelatedArtifact: RelatedArtifact
+        """
+        Citations, references and other related documents.
 
-        # key terms to aid in searching for or filtering the study.
+        type: array
+        reference to RelatedArtifact
+        """
+
         self.keyword = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Key terms to aid in searching for or filtering the study.
 
-        # indicates a country, state or other region where the study is taking
-        # place.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.jurisdiction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates a country, state or other region where the study is taking
+        place.
 
-        # a full description of how the study is being conducted.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.description = None
-        # type = string
+        """
+        A full description of how the study is being conducted.
 
-        # reference to a group that defines the criteria for and quantity of
-        # subjects participating in the study.  e.g. " 200 female europeans
-        # between the ages of 20 and 45 with early onset diabetes".
+        type: string
+        """
+
         self.enrollment = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Reference to a Group that defines the criteria for and quantity of
+        subjects participating in the study.  E.g. " 200 female Europeans
+        between the ages of 20 and 45 with early onset diabetes".
 
-        # identifies the start date and the expected (or actual, depending on
-        # status) end date for the study.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        Identifies the start date and the expected (or actual, depending on
+        status) end date for the study.
 
-        # the organization responsible for the execution of the study.
+        reference to Period
+        """
+
         self.sponsor = None
-        # reference to Reference: identifier
+        """
+        The organization responsible for the execution of the study.
 
-        # indicates the individual who has primary oversite of the execution of
-        # the study.
+        reference to Reference: identifier
+        """
+
         self.principalInvestigator = None
-        # reference to Reference: identifier
+        """
+        Indicates the individual who has primary oversite of the execution of
+        the study.
 
-        # clinic, hospital or other healthcare location that is participating in
-        # the study.
+        reference to Reference: identifier
+        """
+
         self.site = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Clinic, hospital or other healthcare location that is participating in
+        the study.
 
-        # a description and/or code explaining the premature termination of the
-        # study.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.reasonStopped = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A description and/or code explaining the premature termination of the
+        study.
 
-        # comments made about the event by the performer, subject or other
-        # participants.
+        reference to CodeableConcept
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        Comments made about the event by the performer, subject or other
+        participants.
 
-        # describes an expected sequence of events for one of the participants of
-        # a study.  e.g. exposure to drug a, wash-out, exposure to drug b, wash-
-        # out, follow-up.
+        type: array
+        reference to Annotation
+        """
+
         self.arm = None
-        # type = array
-        # reference to ResearchStudy_Arm: ResearchStudy_Arm
+        """
+        Describes an expected sequence of events for one of the participants
+        of a study.  E.g. Exposure to drug A, wash-out, exposure to drug B,
+        wash-out, follow-up.
 
-        # identifiers assigned to this research study by the sponsor or other
-        # systems.
+        type: array
+        reference to ResearchStudy_Arm
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Identifiers assigned to this research study by the sponsor or other
+        systems.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -140,10 +204,10 @@ class ResearchStudy(fhirbase):
         if self.status is not None:
             for value in self.status:
                 if value is not None and value.lower() not in [
-                        'draft', 'in-progress', 'suspended', 'stopped', 'completed',
+                    'draft', 'in-progress', 'suspended', 'stopped', 'completed',
                         'entered-in-error']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'draft, in-progress, suspended, stopped, completed,'
+                        value, 'draft, in-progress, suspended, stopped, completed, '
                         'entered-in-error'))
 
     def get_relationships(self):
@@ -152,7 +216,47 @@ class ResearchStudy(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ResearchStudy',
-             'child_variable': 'focus'},
+             'child_variable': 'category'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'relatedArtifact'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'sponsor'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'protocol'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'ResearchStudy_Arm',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'arm'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'enrollment'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -162,22 +266,12 @@ class ResearchStudy(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ResearchStudy',
-             'child_variable': 'jurisdiction'},
+             'child_variable': 'focus'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ResearchStudy',
-             'child_variable': 'sponsor'},
-
-            {'parent_entity': 'ContactDetail',
+            {'parent_entity': 'Annotation',
              'parent_variable': 'object_id',
              'child_entity': 'ResearchStudy',
-             'child_variable': 'contact'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'ResearchStudy',
-             'child_variable': 'identifier'},
+             'child_variable': 'note'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -187,57 +281,28 @@ class ResearchStudy(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ResearchStudy',
-             'child_variable': 'site'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ResearchStudy',
-             'child_variable': 'category'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ResearchStudy',
-             'child_variable': 'enrollment'},
-
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
-             'child_entity': 'ResearchStudy',
-             'child_variable': 'note'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ResearchStudy',
              'child_variable': 'principalInvestigator'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ResearchStudy',
-             'child_variable': 'protocol'},
-
-            {'parent_entity': 'ResearchStudy_Arm',
-             'parent_variable': 'object_id',
-             'child_entity': 'ResearchStudy',
-             'child_variable': 'arm'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'ResearchStudy',
-             'child_variable': 'period'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ResearchStudy',
              'child_variable': 'partOf'},
 
-            {'parent_entity': 'RelatedArtifact',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ResearchStudy',
+             'child_variable': 'site'},
+
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'ResearchStudy',
-             'child_variable': 'relatedArtifact'},
+             'child_variable': 'identifier'},
         ]
 
 
 class ResearchStudy_Arm(fhirbase):
-    """A process where a researcher or organization plans and then executes a
+    """
+    A process where a researcher or organization plans and then executes a
     series of steps intended to increase the field of healthcare-related
     knowledge.  This includes studies of safety, efficacy, comparative
     effectiveness and other information about medications, devices,
@@ -249,22 +314,31 @@ class ResearchStudy_Arm(fhirbase):
     __name__ = 'ResearchStudy_Arm'
 
     def __init__(self, dict_values=None):
-        # unique, human-readable label for this arm of the study.
         self.name = None
-        # type = string
+        """
+        Unique, human-readable label for this arm of the study.
 
-        # categorization of study arm, e.g. experimental, active comparator,
-        # placebo comparater.
+        type: string
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Categorization of study arm, e.g. experimental, active comparator,
+        placebo comparater.
 
-        # a succinct description of the path through the study that would be
-        # followed by a subject adhering to this arm.
+        reference to CodeableConcept
+        """
+
         self.description = None
-        # type = string
+        """
+        A succinct description of the path through the study that would be
+        followed by a subject adhering to this arm.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

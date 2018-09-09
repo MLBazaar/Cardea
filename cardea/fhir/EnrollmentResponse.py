@@ -2,57 +2,88 @@ from .fhirbase import fhirbase
 
 
 class EnrollmentResponse(fhirbase):
-    """This resource provides enrollment and plan details from the processing
+    """
+    This resource provides enrollment and plan details from the processing
     of an Enrollment resource.
     """
 
     __name__ = 'EnrollmentResponse'
 
     def __init__(self, dict_values=None):
-        # this is a enrollmentresponse resource
         self.resourceType = 'EnrollmentResponse'
-        # type = string
-        # possible values: EnrollmentResponse
+        """
+        This is a EnrollmentResponse resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: EnrollmentResponse
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the resource instance.
 
-        # original request resource reference.
+        type: string
+        """
+
         self.request = None
-        # reference to Reference: identifier
+        """
+        Original request resource reference.
 
-        # processing status: error, complete.
+        reference to Reference: identifier
+        """
+
         self.outcome = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Processing status: error, complete.
 
-        # a description of the status of the adjudication.
+        reference to CodeableConcept
+        """
+
         self.disposition = None
-        # type = string
+        """
+        A description of the status of the adjudication.
 
-        # the date when the enclosed suite of services were performed or
-        # completed.
+        type: string
+        """
+
         self.created = None
-        # type = string
+        """
+        The date when the enclosed suite of services were performed or
+        completed.
 
-        # the insurer who produced this adjudicated response.
+        type: string
+        """
+
         self.organization = None
-        # reference to Reference: identifier
+        """
+        The Insurer who produced this adjudicated response.
 
-        # the practitioner who is responsible for the services rendered to the
-        # patient.
+        reference to Reference: identifier
+        """
+
         self.requestProvider = None
-        # reference to Reference: identifier
+        """
+        The practitioner who is responsible for the services rendered to the
+        patient.
 
-        # the organization which is responsible for the services rendered to the
-        # patient.
+        reference to Reference: identifier
+        """
+
         self.requestOrganization = None
-        # reference to Reference: identifier
+        """
+        The organization which is responsible for the services rendered to the
+        patient.
 
-        # the response business identifier.
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The Response business identifier.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -68,16 +99,6 @@ class EnrollmentResponse(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EnrollmentResponse',
-             'child_variable': 'request'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'EnrollmentResponse',
-             'child_variable': 'outcome'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'EnrollmentResponse',
              'child_variable': 'requestOrganization'},
 
             {'parent_entity': 'Reference',
@@ -89,4 +110,14 @@ class EnrollmentResponse(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'EnrollmentResponse',
              'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EnrollmentResponse',
+             'child_variable': 'request'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'EnrollmentResponse',
+             'child_variable': 'outcome'},
         ]

@@ -2,83 +2,123 @@ from .fhirbase import fhirbase
 
 
 class CareTeam(fhirbase):
-    """The Care Team includes all the people and organizations who plan to
+    """
+    The Care Team includes all the people and organizations who plan to
     participate in the coordination and delivery of care for a patient.
     """
 
     __name__ = 'CareTeam'
 
     def __init__(self, dict_values=None):
-        # this is a careteam resource
         self.resourceType = 'CareTeam'
-        # type = string
-        # possible values: CareTeam
+        """
+        This is a CareTeam resource
 
-        # indicates the current state of the care team.
+        type: string
+        possible values: CareTeam
+        """
+
         self.status = None
-        # type = string
-        # possible values: proposed, active, suspended, inactive,
-        # entered-in-error
+        """
+        Indicates the current state of the care team.
 
-        # identifies what kind of team.  this is to support differentiation
-        # between multiple co-existing teams, such as care plan team, episode of
-        # care team, longitudinal care team.
+        type: string
+        possible values: proposed, active, suspended, inactive,
+        entered-in-error
+        """
+
         self.category = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Identifies what kind of team.  This is to support differentiation
+        between multiple co-existing teams, such as care plan team, episode of
+        care team, longitudinal care team.
 
-        # a label for human use intended to distinguish like teams.  e.g. the
-        # "red" vs. "green" trauma teams.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.name = None
-        # type = string
+        """
+        A label for human use intended to distinguish like teams.  E.g. the
+        "red" vs. "green" trauma teams.
 
-        # identifies the patient or group whose intended care is handled by the
-        # team.
+        type: string
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        Identifies the patient or group whose intended care is handled by the
+        team.
 
-        # the encounter or episode of care that establishes the context for this
-        # care team.
+        reference to Reference: identifier
+        """
+
         self.context = None
-        # reference to Reference: identifier
+        """
+        The encounter or episode of care that establishes the context for this
+        care team.
 
-        # indicates when the team did (or is intended to) come into effect and
-        # end.
+        reference to Reference: identifier
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        Indicates when the team did (or is intended to) come into effect and
+        end.
 
-        # identifies all people and organizations who are expected to be involved
-        # in the care team.
+        reference to Period
+        """
+
         self.participant = None
-        # type = array
-        # reference to CareTeam_Participant: CareTeam_Participant
+        """
+        Identifies all people and organizations who are expected to be
+        involved in the care team.
 
-        # describes why the care team exists.
+        type: array
+        reference to CareTeam_Participant
+        """
+
         self.reasonCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Describes why the care team exists.
 
-        # condition(s) that this care team addresses.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.reasonReference = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Condition(s) that this care team addresses.
 
-        # the organization responsible for the care team.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.managingOrganization = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The organization responsible for the care team.
 
-        # comments made about the careteam.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        Comments made about the CareTeam.
 
-        # this records identifiers associated with this care team that are defined
-        # by business processes and/or used to refer to it when a direct url
-        # reference to the resource itself is not appropriate.
+        type: array
+        reference to Annotation
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        This records identifiers associated with this care team that are
+        defined by business processes and/or used to refer to it when a direct
+        URL reference to the resource itself is not appropriate.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -98,22 +138,22 @@ class CareTeam(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'CareTeam',
-             'child_variable': 'context'},
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'category'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'CareTeam',
              'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'CareTeam',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'CareTeam',
-             'child_variable': 'managingOrganization'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
@@ -123,60 +163,73 @@ class CareTeam(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'CareTeam',
-             'child_variable': 'reasonReference'},
-
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
-             'child_entity': 'CareTeam',
-             'child_variable': 'note'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'CareTeam',
-             'child_variable': 'subject'},
+             'child_variable': 'context'},
 
             {'parent_entity': 'CareTeam_Participant',
              'parent_variable': 'object_id',
              'child_entity': 'CareTeam',
              'child_variable': 'participant'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam',
+             'child_variable': 'managingOrganization'},
+
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'CareTeam',
-             'child_variable': 'category'},
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam',
+             'child_variable': 'subject'},
         ]
 
 
 class CareTeam_Participant(fhirbase):
-    """The Care Team includes all the people and organizations who plan to
+    """
+    The Care Team includes all the people and organizations who plan to
     participate in the coordination and delivery of care for a patient.
     """
 
     __name__ = 'CareTeam_Participant'
 
     def __init__(self, dict_values=None):
-        # indicates specific responsibility of an individual within the care team,
-        # such as "primary care physician", "trained social worker counselor",
-        # "caregiver", etc.
         self.role = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates specific responsibility of an individual within the care
+        team, such as "Primary care physician", "Trained social worker
+        counselor", "Caregiver", etc.
 
-        # the specific person or organization who is participating/expected to
-        # participate in the care team.
+        reference to CodeableConcept
+        """
+
         self.member = None
-        # reference to Reference: identifier
+        """
+        The specific person or organization who is participating/expected to
+        participate in the care team.
 
-        # the organization of the practitioner.
+        reference to Reference: identifier
+        """
+
         self.onBehalfOf = None
-        # reference to Reference: identifier
+        """
+        The organization of the practitioner.
 
-        # indicates when the specific member or organization did (or is intended
-        # to) come into effect and end.
+        reference to Reference: identifier
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        Indicates when the specific member or organization did (or is intended
+        to) come into effect and end.
 
-        # unique identifier for object class
+        reference to Period
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

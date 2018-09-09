@@ -2,161 +2,250 @@ from .fhirbase import fhirbase
 
 
 class Task(fhirbase):
-    """A task to be performed.
+    """
+    A task to be performed.
     """
 
     __name__ = 'Task'
 
     def __init__(self, dict_values=None):
-        # this is a task resource
         self.resourceType = 'Task'
-        # type = string
-        # possible values: Task
+        """
+        This is a Task resource
 
-        # a reference to a formal or informal definition of the task.  for
-        # example, a protocol, a step within a defined workflow definition, etc.
+        type: string
+        possible values: Task
+        """
+
         self.definitionUri = None
-        # type = string
+        """
+        A reference to a formal or informal definition of the task.  For
+        example, a protocol, a step within a defined workflow definition, etc.
 
-        # a reference to a formal or informal definition of the task.  for
-        # example, a protocol, a step within a defined workflow definition, etc.
+        type: string
+        """
+
         self.definitionReference = None
-        # reference to Reference: identifier
+        """
+        A reference to a formal or informal definition of the task.  For
+        example, a protocol, a step within a defined workflow definition, etc.
 
-        # basedon refers to a higher-level authorization that triggered the
-        # creation of the task.  it references a "request" resource such as a
-        # procedurerequest, medicationrequest, procedurerequest, careplan, etc.
-        # which is distinct from the "request" resource the task is seeking to
-        # fulfil.  this latter resource is referenced by focuson.  for example,
-        # based on a procedurerequest (= basedon), a task is created to fulfil a
-        # procedurerequest ( = focuson ) to collect a specimen from a patient.
+        reference to Reference: identifier
+        """
+
         self.basedOn = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        BasedOn refers to a higher-level authorization that triggered the
+        creation of the task.  It references a "request" resource such as a
+        ProcedureRequest, MedicationRequest, ProcedureRequest, CarePlan, etc.
+        which is distinct from the "request" resource the task is seeking to
+        fulfil.  This latter resource is referenced by FocusOn.  For example,
+        based on a ProcedureRequest (= BasedOn), a task is created to fulfil a
+        procedureRequest ( = FocusOn ) to collect a specimen from a patient.
 
-        # an identifier that links together multiple tasks and other requests that
-        # were created in the same context.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.groupIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        An identifier that links together multiple tasks and other requests
+        that were created in the same context.
 
-        # task that this particular task is part of.
+        reference to Identifier
+        """
+
         self.partOf = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Task that this particular task is part of.
 
-        # the current status of the task.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.status = None
-        # type = string
-        # possible values: draft, requested, received, accepted,
-        # rejected, ready, cancelled, in-progress, on-hold, failed, completed,
-        # entered-in-error
+        """
+        The current status of the task.
 
-        # an explanation as to why this task is held, failed, was refused, etc.
+        type: string
+        possible values: draft, requested, received, accepted,
+        rejected, ready, cancelled, in-progress, on-hold, failed, completed,
+        entered-in-error
+        """
+
         self.statusReason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        An explanation as to why this task is held, failed, was refused, etc.
 
-        # contains business-specific nuances of the business state.
+        reference to CodeableConcept
+        """
+
         self.businessStatus = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Contains business-specific nuances of the business state.
 
-        # indicates the "level" of actionability associated with the task.  i.e.
-        # is this a proposed task, a planned task, an actionable task, etc.
+        reference to CodeableConcept
+        """
+
         self.intent = None
-        # type = string
+        """
+        Indicates the "level" of actionability associated with the Task.  I.e.
+        Is this a proposed task, a planned task, an actionable task, etc.
 
-        # indicates how quickly the task should be addressed with respect to other
-        # requests.
+        type: string
+        """
+
         self.priority = None
-        # type = string
+        """
+        Indicates how quickly the Task should be addressed with respect to
+        other requests.
 
-        # a name or code (or both) briefly describing what the task involves.
+        type: string
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A name or code (or both) briefly describing what the task involves.
 
-        # a free-text description of what is to be performed.
+        reference to CodeableConcept
+        """
+
         self.description = None
-        # type = string
+        """
+        A free-text description of what is to be performed.
 
-        # the request being actioned or the resource being manipulated by this
-        # task.
+        type: string
+        """
+
         self.focus = None
-        # reference to Reference: identifier
+        """
+        The request being actioned or the resource being manipulated by this
+        task.
 
-        # the entity who benefits from the performance of the service specified in
-        # the task (e.g., the patient).
+        reference to Reference: identifier
+        """
+
         self._for = None
-        # reference to Reference: identifier
+        """
+        The entity who benefits from the performance of the service specified
+        in the task (e.g., the patient).
 
-        # the healthcare event  (e.g. a patient and healthcare provider
-        # interaction) during which this task was created.
+        reference to Reference: identifier
+        """
+
         self.context = None
-        # reference to Reference: identifier
+        """
+        The healthcare event  (e.g. a patient and healthcare provider
+        interaction) during which this task was created.
 
-        # identifies the time action was first taken against the task (start)
-        # and/or the time final action was taken against the task prior to marking
-        # it as completed (end).
+        reference to Reference: identifier
+        """
+
         self.executionPeriod = None
-        # reference to Period: Period
+        """
+        Identifies the time action was first taken against the task (start)
+        and/or the time final action was taken against the task prior to
+        marking it as completed (end).
 
-        # the date and time this task was created.
+        reference to Period
+        """
+
         self.authoredOn = None
-        # type = string
+        """
+        The date and time this task was created.
 
-        # the date and time of last modification to this task.
+        type: string
+        """
+
         self.lastModified = None
-        # type = string
+        """
+        The date and time of last modification to this task.
 
-        # the creator of the task.
+        type: string
+        """
+
         self.requester = None
-        # reference to Task_Requester: Task_Requester
+        """
+        The creator of the task.
 
-        # the type of participant that can execute the task.
+        reference to Task_Requester
+        """
+
         self.performerType = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of participant that can execute the task.
 
-        # individual organization or device currently responsible for task
-        # execution.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.owner = None
-        # reference to Reference: identifier
+        """
+        Individual organization or Device currently responsible for task
+        execution.
 
-        # a description or code indicating why this task needs to be performed.
+        reference to Reference: identifier
+        """
+
         self.reason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A description or code indicating why this task needs to be performed.
 
-        # free-text information captured about the task as it progresses.
+        reference to CodeableConcept
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        Free-text information captured about the task as it progresses.
 
-        # links to provenance records for past versions of this task that identify
-        # key state transitions or updates that are likely to be relevant to a
-        # user looking at the current version of the task.
+        type: array
+        reference to Annotation
+        """
+
         self.relevantHistory = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Links to Provenance records for past versions of this Task that
+        identify key state transitions or updates that are likely to be
+        relevant to a user looking at the current version of the task.
 
-        # if the task.focus is a request resource and the task is seeking
-        # fulfillment (i.e is asking for the request to be actioned), this element
-        # identifies any limitations on what parts of the referenced request
-        # should be actioned.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.restriction = None
-        # reference to Task_Restriction: Task_Restriction
+        """
+        If the Task.focus is a request resource and the task is seeking
+        fulfillment (i.e is asking for the request to be actioned), this
+        element identifies any limitations on what parts of the referenced
+        request should be actioned.
 
-        # additional information that may be needed in the execution of the task.
+        reference to Task_Restriction
+        """
+
         self.input = None
-        # type = array
-        # reference to Task_Input: Task_Input
+        """
+        Additional information that may be needed in the execution of the
+        task.
 
-        # outputs produced by the task.
+        type: array
+        reference to Task_Input
+        """
+
         self.output = None
-        # type = array
-        # reference to Task_Output: Task_Output
+        """
+        Outputs produced by the Task.
 
-        # the business identifier for this task.
+        type: array
+        reference to Task_Output
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The business identifier for this task.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -170,17 +259,96 @@ class Task(fhirbase):
                     'cancelled', 'in-progress', 'on-hold', 'failed', 'completed',
                         'entered-in-error']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'draft, requested, received, accepted, rejected, ready,'
-                        'cancelled, in-progress, on-hold, failed, completed,'
-                        'entered-in-error'))
+                        value, 'draft, requested, received, accepted, rejected, ready, cancelled,'
+                        'in-progress, on-hold, failed, completed, entered-in-error'))
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'businessStatus'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': 'definitionReference'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'groupIdentifier'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': 'focus'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': 'owner'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'executionPeriod'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'performerType'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Task',
              'child_variable': 'partOf'},
+
+            {'parent_entity': 'Task_Input',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'input'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'statusReason'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': '_for'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'reason'},
+
+            {'parent_entity': 'Task_Output',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'output'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'Task_Requester',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task',
+             'child_variable': 'requester'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -197,111 +365,38 @@ class Task(fhirbase):
              'child_entity': 'Task',
              'child_variable': 'restriction'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task',
-             'child_variable': 'businessStatus'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task',
-             'child_variable': 'groupIdentifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Task',
-             'child_variable': 'definitionReference'},
-
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task',
-             'child_variable': 'note'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task',
-             'child_variable': 'reason'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Task',
-             'child_variable': 'focus'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Task',
-             'child_variable': 'owner'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Task',
              'child_variable': 'context'},
-
-            {'parent_entity': 'Task_Output',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task',
-             'child_variable': 'output'},
-
-            {'parent_entity': 'Task_Requester',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task',
-             'child_variable': 'requester'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task',
-             'child_variable': 'executionPeriod'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Task',
-             'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Task_Input',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task',
-             'child_variable': 'input'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task',
-             'child_variable': 'performerType'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task',
-             'child_variable': 'statusReason'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Task',
-             'child_variable': '_for'},
         ]
 
 
 class Task_Requester(fhirbase):
-    """A task to be performed.
+    """
+    A task to be performed.
     """
 
     __name__ = 'Task_Requester'
 
     def __init__(self, dict_values=None):
-        # the device, practitioner, etc. who initiated the task.
         self.agent = None
-        # reference to Reference: identifier
+        """
+        The device, practitioner, etc. who initiated the task.
 
-        # the organization the device or practitioner was acting on behalf of when
-        # they initiated the task.
+        reference to Reference: identifier
+        """
+
         self.onBehalfOf = None
-        # reference to Reference: identifier
+        """
+        The organization the device or practitioner was acting on behalf of
+        when they initiated the task.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -312,38 +407,48 @@ class Task_Requester(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Task_Requester',
-             'child_variable': 'onBehalfOf'},
+             'child_variable': 'agent'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Task_Requester',
-             'child_variable': 'agent'},
+             'child_variable': 'onBehalfOf'},
         ]
 
 
 class Task_Restriction(fhirbase):
-    """A task to be performed.
+    """
+    A task to be performed.
     """
 
     __name__ = 'Task_Restriction'
 
     def __init__(self, dict_values=None):
-        # indicates the number of times the requested action should occur.
         self.repetitions = None
-        # type = int
+        """
+        Indicates the number of times the requested action should occur.
 
-        # over what time-period is fulfillment sought.
+        type: int
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        Over what time-period is fulfillment sought.
 
-        # for requests that are targeted to more than on potential
-        # recipient/target, for whom is fulfillment sought?
+        reference to Period
+        """
+
         self.recipient = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        For requests that are targeted to more than on potential
+        recipient/target, for whom is fulfillment sought?
 
-        # unique identifier for object class
+        type: array
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -351,244 +456,407 @@ class Task_Restriction(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Task_Restriction',
-             'child_variable': 'recipient'},
-
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Restriction',
              'child_variable': 'period'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task_Restriction',
+             'child_variable': 'recipient'},
         ]
 
 
 class Task_Input(fhirbase):
-    """A task to be performed.
+    """
+    A task to be performed.
     """
 
     __name__ = 'Task_Input'
 
     def __init__(self, dict_values=None):
-        # a code or description indicating how the input is intended to be used as
-        # part of the task execution.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code or description indicating how the input is intended to be used
+        as part of the task execution.
 
-        # the value of the input parameter as a basic type.
+        reference to CodeableConcept
+        """
+
         self.valueBoolean = None
-        # type = boolean
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: boolean
+        """
+
         self.valueInteger = None
-        # type = int
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: int
+        """
+
         self.valueDecimal = None
-        # type = int
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: int
+        """
+
         self.valueBase64Binary = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueInstant = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueString = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueUri = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueDate = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueDateTime = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueTime = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueCode = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueOid = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueUuid = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueId = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueUnsignedInt = None
-        # type = int
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: int
+        """
+
         self.valuePositiveInt = None
-        # type = int
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: int
+        """
+
         self.valueMarkdown = None
-        # type = string
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        type: string
+        """
+
         self.valueElement = None
-        # reference to Element: id
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Element: id
+        """
+
         self.valueExtension = None
-        # reference to Extension: Extension
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Extension
+        """
+
         self.valueBackboneElement = None
-        # reference to BackboneElement: BackboneElement
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to BackboneElement
+        """
+
         self.valueNarrative = None
-        # reference to Narrative: Narrative
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Narrative
+        """
+
         self.valueAnnotation = None
-        # reference to Annotation: Annotation
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Annotation
+        """
+
         self.valueAttachment = None
-        # reference to Attachment: Attachment
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Attachment
+        """
+
         self.valueIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Identifier
+        """
+
         self.valueCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to CodeableConcept
+        """
+
         self.valueCoding = None
-        # reference to Coding: Coding
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Coding
+        """
+
         self.valueQuantity = None
-        # reference to Quantity: Quantity
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Quantity
+        """
+
         self.valueDuration = None
-        # reference to Duration: Duration
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Duration
+        """
+
         self.valueSimpleQuantity = None
-        # reference to Quantity: Quantity
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Quantity
+        """
+
         self.valueDistance = None
-        # reference to Distance: Distance
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Distance
+        """
+
         self.valueCount = None
-        # reference to Count: Count
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Count
+        """
+
         self.valueMoney = None
-        # reference to Money: Money
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Money
+        """
+
         self.valueAge = None
-        # reference to Age: Age
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Age
+        """
+
         self.valueRange = None
-        # reference to Range: Range
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Range
+        """
+
         self.valuePeriod = None
-        # reference to Period: Period
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Period
+        """
+
         self.valueRatio = None
-        # reference to Ratio: Ratio
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Ratio
+        """
+
         self.valueReference = None
-        # reference to Reference: identifier
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Reference: identifier
+        """
+
         self.valueSampledData = None
-        # reference to SampledData: SampledData
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to SampledData
+        """
+
         self.valueSignature = None
-        # reference to Signature: Signature
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Signature
+        """
+
         self.valueHumanName = None
-        # reference to HumanName: HumanName
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to HumanName
+        """
+
         self.valueAddress = None
-        # reference to Address: Address
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Address
+        """
+
         self.valueContactPoint = None
-        # reference to ContactPoint: ContactPoint
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to ContactPoint
+        """
+
         self.valueTiming = None
-        # reference to Timing: Timing
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Timing
+        """
+
         self.valueMeta = None
-        # reference to Meta: Meta
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Meta
+        """
+
         self.valueElementDefinition = None
-        # reference to ElementDefinition: ElementDefinition
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to ElementDefinition
+        """
+
         self.valueContactDetail = None
-        # reference to ContactDetail: ContactDetail
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to ContactDetail
+        """
+
         self.valueContributor = None
-        # reference to Contributor: Contributor
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Contributor
+        """
+
         self.valueDosage = None
-        # reference to Dosage: Dosage
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to Dosage
+        """
+
         self.valueRelatedArtifact = None
-        # reference to RelatedArtifact: RelatedArtifact
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to RelatedArtifact
+        """
+
         self.valueUsageContext = None
-        # reference to UsageContext: UsageContext
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to UsageContext
+        """
+
         self.valueDataRequirement = None
-        # reference to DataRequirement: DataRequirement
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to DataRequirement
+        """
+
         self.valueParameterDefinition = None
-        # reference to ParameterDefinition: ParameterDefinition
+        """
+        The value of the input parameter as a basic type.
 
-        # the value of the input parameter as a basic type.
+        reference to ParameterDefinition
+        """
+
         self.valueTriggerDefinition = None
-        # reference to TriggerDefinition: TriggerDefinition
+        """
+        The value of the input parameter as a basic type.
 
-        # unique identifier for object class
+        reference to TriggerDefinition
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -596,60 +864,80 @@ class Task_Input(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'TriggerDefinition',
+            {'parent_entity': 'ParameterDefinition',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
-             'child_variable': 'valueTriggerDefinition'},
-
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueCoding'},
-
-            {'parent_entity': 'Ratio',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueRatio'},
-
-            {'parent_entity': 'BackboneElement',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueBackboneElement'},
-
-            {'parent_entity': 'RelatedArtifact',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueRelatedArtifact'},
-
-            {'parent_entity': 'UsageContext',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueUsageContext'},
+             'child_variable': 'valueParameterDefinition'},
 
             {'parent_entity': 'SampledData',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
              'child_variable': 'valueSampledData'},
 
-            {'parent_entity': 'ParameterDefinition',
+            {'parent_entity': 'RelatedArtifact',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
-             'child_variable': 'valueParameterDefinition'},
+             'child_variable': 'valueRelatedArtifact'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueContactDetail'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueTiming'},
+
+            {'parent_entity': 'Element',
+             'parent_variable': 'id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueElement'},
+
+            {'parent_entity': 'Distance',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueDistance'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueCoding'},
 
             {'parent_entity': 'Narrative',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
              'child_variable': 'valueNarrative'},
 
-            {'parent_entity': 'Address',
+            {'parent_entity': 'Dosage',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
-             'child_variable': 'valueAddress'},
+             'child_variable': 'valueDosage'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueReference'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueHumanName'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueAnnotation'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueContributor'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueSimpleQuantity'},
 
             {'parent_entity': 'Duration',
              'parent_variable': 'object_id',
@@ -661,40 +949,35 @@ class Task_Input(fhirbase):
              'child_entity': 'Task_Input',
              'child_variable': 'valueDataRequirement'},
 
-            {'parent_entity': 'ContactDetail',
+            {'parent_entity': 'Ratio',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
-             'child_variable': 'valueContactDetail'},
+             'child_variable': 'valueRatio'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
-             'child_variable': 'valueReference'},
+             'child_variable': 'valueIdentifier'},
+
+            {'parent_entity': 'BackboneElement',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueBackboneElement'},
 
             {'parent_entity': 'ElementDefinition',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
              'child_variable': 'valueElementDefinition'},
 
-            {'parent_entity': 'Element',
-             'parent_variable': 'id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueElement'},
-
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueAnnotation'},
-
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
              'child_variable': 'valueQuantity'},
 
-            {'parent_entity': 'Count',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
-             'child_variable': 'valueCount'},
+             'child_variable': 'type'},
 
             {'parent_entity': 'Age',
              'parent_variable': 'object_id',
@@ -706,308 +989,456 @@ class Task_Input(fhirbase):
              'child_entity': 'Task_Input',
              'child_variable': 'valueMeta'},
 
-            {'parent_entity': 'ContactPoint',
+            {'parent_entity': 'Address',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
-             'child_variable': 'valueContactPoint'},
-
-            {'parent_entity': 'HumanName',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueHumanName'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueIdentifier'},
-
-            {'parent_entity': 'Distance',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueDistance'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'type'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueMoney'},
-
-            {'parent_entity': 'Extension',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueExtension'},
-
-            {'parent_entity': 'Dosage',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueDosage'},
-
-            {'parent_entity': 'Range',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueRange'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueCodeableConcept'},
+             'child_variable': 'valueAddress'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
              'child_variable': 'valuePeriod'},
 
-            {'parent_entity': 'Quantity',
+            {'parent_entity': 'ContactPoint',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
-             'child_variable': 'valueSimpleQuantity'},
+             'child_variable': 'valueContactPoint'},
+
+            {'parent_entity': 'TriggerDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueTriggerDefinition'},
+
+            {'parent_entity': 'Count',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueCount'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueAttachment'},
+
+            {'parent_entity': 'Extension',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueExtension'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueCodeableConcept'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueMoney'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueRange'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Input',
+             'child_variable': 'valueUsageContext'},
 
             {'parent_entity': 'Signature',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Input',
              'child_variable': 'valueSignature'},
-
-            {'parent_entity': 'Timing',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueTiming'},
-
-            {'parent_entity': 'Contributor',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Input',
-             'child_variable': 'valueContributor'},
         ]
 
 
 class Task_Output(fhirbase):
-    """A task to be performed.
+    """
+    A task to be performed.
     """
 
     __name__ = 'Task_Output'
 
     def __init__(self, dict_values=None):
-        # the name of the output parameter.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The name of the Output parameter.
 
-        # the value of the output parameter as a basic type.
+        reference to CodeableConcept
+        """
+
         self.valueBoolean = None
-        # type = boolean
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: boolean
+        """
+
         self.valueInteger = None
-        # type = int
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: int
+        """
+
         self.valueDecimal = None
-        # type = int
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: int
+        """
+
         self.valueBase64Binary = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueInstant = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueString = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueUri = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueDate = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueDateTime = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueTime = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueCode = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueOid = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueUuid = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueId = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueUnsignedInt = None
-        # type = int
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: int
+        """
+
         self.valuePositiveInt = None
-        # type = int
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: int
+        """
+
         self.valueMarkdown = None
-        # type = string
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        type: string
+        """
+
         self.valueElement = None
-        # reference to Element: id
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Element: id
+        """
+
         self.valueExtension = None
-        # reference to Extension: Extension
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Extension
+        """
+
         self.valueBackboneElement = None
-        # reference to BackboneElement: BackboneElement
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to BackboneElement
+        """
+
         self.valueNarrative = None
-        # reference to Narrative: Narrative
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Narrative
+        """
+
         self.valueAnnotation = None
-        # reference to Annotation: Annotation
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Annotation
+        """
+
         self.valueAttachment = None
-        # reference to Attachment: Attachment
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Attachment
+        """
+
         self.valueIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Identifier
+        """
+
         self.valueCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to CodeableConcept
+        """
+
         self.valueCoding = None
-        # reference to Coding: Coding
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Coding
+        """
+
         self.valueQuantity = None
-        # reference to Quantity: Quantity
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Quantity
+        """
+
         self.valueDuration = None
-        # reference to Duration: Duration
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Duration
+        """
+
         self.valueSimpleQuantity = None
-        # reference to Quantity: Quantity
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Quantity
+        """
+
         self.valueDistance = None
-        # reference to Distance: Distance
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Distance
+        """
+
         self.valueCount = None
-        # reference to Count: Count
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Count
+        """
+
         self.valueMoney = None
-        # reference to Money: Money
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Money
+        """
+
         self.valueAge = None
-        # reference to Age: Age
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Age
+        """
+
         self.valueRange = None
-        # reference to Range: Range
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Range
+        """
+
         self.valuePeriod = None
-        # reference to Period: Period
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Period
+        """
+
         self.valueRatio = None
-        # reference to Ratio: Ratio
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Ratio
+        """
+
         self.valueReference = None
-        # reference to Reference: identifier
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Reference: identifier
+        """
+
         self.valueSampledData = None
-        # reference to SampledData: SampledData
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to SampledData
+        """
+
         self.valueSignature = None
-        # reference to Signature: Signature
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Signature
+        """
+
         self.valueHumanName = None
-        # reference to HumanName: HumanName
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to HumanName
+        """
+
         self.valueAddress = None
-        # reference to Address: Address
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Address
+        """
+
         self.valueContactPoint = None
-        # reference to ContactPoint: ContactPoint
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to ContactPoint
+        """
+
         self.valueTiming = None
-        # reference to Timing: Timing
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Timing
+        """
+
         self.valueMeta = None
-        # reference to Meta: Meta
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Meta
+        """
+
         self.valueElementDefinition = None
-        # reference to ElementDefinition: ElementDefinition
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to ElementDefinition
+        """
+
         self.valueContactDetail = None
-        # reference to ContactDetail: ContactDetail
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to ContactDetail
+        """
+
         self.valueContributor = None
-        # reference to Contributor: Contributor
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Contributor
+        """
+
         self.valueDosage = None
-        # reference to Dosage: Dosage
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to Dosage
+        """
+
         self.valueRelatedArtifact = None
-        # reference to RelatedArtifact: RelatedArtifact
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to RelatedArtifact
+        """
+
         self.valueUsageContext = None
-        # reference to UsageContext: UsageContext
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to UsageContext
+        """
+
         self.valueDataRequirement = None
-        # reference to DataRequirement: DataRequirement
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to DataRequirement
+        """
+
         self.valueParameterDefinition = None
-        # reference to ParameterDefinition: ParameterDefinition
+        """
+        The value of the Output parameter as a basic type.
 
-        # the value of the output parameter as a basic type.
+        reference to ParameterDefinition
+        """
+
         self.valueTriggerDefinition = None
-        # reference to TriggerDefinition: TriggerDefinition
+        """
+        The value of the Output parameter as a basic type.
 
-        # unique identifier for object class
+        reference to TriggerDefinition
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1015,80 +1446,70 @@ class Task_Output(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Element',
-             'parent_variable': 'id',
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valueElement'},
+             'child_variable': 'valueRange'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueRelatedArtifact'},
+
+            {'parent_entity': 'Distance',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueDistance'},
+
+            {'parent_entity': 'Extension',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueExtension'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
              'child_variable': 'valueIdentifier'},
 
-            {'parent_entity': 'DataRequirement',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueDataRequirement'},
-
-            {'parent_entity': 'Count',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueCount'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueMoney'},
-
-            {'parent_entity': 'SampledData',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueSampledData'},
-
-            {'parent_entity': 'Ratio',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueRatio'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
              'child_variable': 'valueCodeableConcept'},
 
-            {'parent_entity': 'Dosage',
+            {'parent_entity': 'Meta',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valueDosage'},
-
-            {'parent_entity': 'Signature',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueSignature'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueCoding'},
+             'child_variable': 'valueMeta'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Task_Output',
              'child_variable': 'valueReference'},
 
-            {'parent_entity': 'Narrative',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueNarrative'},
-
-            {'parent_entity': 'HumanName',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueHumanName'},
-
             {'parent_entity': 'ContactPoint',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
              'child_variable': 'valueContactPoint'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueTiming'},
+
+            {'parent_entity': 'Element',
+             'parent_variable': 'id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueElement'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueDosage'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueAnnotation'},
 
             {'parent_entity': 'Duration',
              'parent_variable': 'object_id',
@@ -1100,35 +1521,25 @@ class Task_Output(fhirbase):
              'child_entity': 'Task_Output',
              'child_variable': 'valueAge'},
 
-            {'parent_entity': 'ParameterDefinition',
+            {'parent_entity': 'ContactDetail',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valueParameterDefinition'},
+             'child_variable': 'valueContactDetail'},
 
-            {'parent_entity': 'Range',
+            {'parent_entity': 'Attachment',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valueRange'},
+             'child_variable': 'valueAttachment'},
 
-            {'parent_entity': 'Annotation',
+            {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valueAnnotation'},
+             'child_variable': 'valueQuantity'},
 
-            {'parent_entity': 'Period',
+            {'parent_entity': 'Signature',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valuePeriod'},
-
-            {'parent_entity': 'TriggerDefinition',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueTriggerDefinition'},
-
-            {'parent_entity': 'RelatedArtifact',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueRelatedArtifact'},
+             'child_variable': 'valueSignature'},
 
             {'parent_entity': 'UsageContext',
              'parent_variable': 'object_id',
@@ -1140,63 +1551,83 @@ class Task_Output(fhirbase):
              'child_entity': 'Task_Output',
              'child_variable': 'valueContributor'},
 
-            {'parent_entity': 'Timing',
+            {'parent_entity': 'TriggerDefinition',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valueTiming'},
+             'child_variable': 'valueTriggerDefinition'},
 
-            {'parent_entity': 'Quantity',
+            {'parent_entity': 'DataRequirement',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valueQuantity'},
+             'child_variable': 'valueDataRequirement'},
 
-            {'parent_entity': 'ElementDefinition',
+            {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valueElementDefinition'},
+             'child_variable': 'valuePeriod'},
 
-            {'parent_entity': 'Distance',
+            {'parent_entity': 'Count',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valueDistance'},
-
-            {'parent_entity': 'BackboneElement',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueBackboneElement'},
-
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'Extension',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueExtension'},
-
-            {'parent_entity': 'Address',
-             'parent_variable': 'object_id',
-             'child_entity': 'Task_Output',
-             'child_variable': 'valueAddress'},
+             'child_variable': 'valueCount'},
 
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
              'child_variable': 'valueSimpleQuantity'},
 
-            {'parent_entity': 'ContactDetail',
+            {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valueContactDetail'},
+             'child_variable': 'valueMoney'},
+
+            {'parent_entity': 'ElementDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueElementDefinition'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
              'child_variable': 'type'},
 
-            {'parent_entity': 'Meta',
+            {'parent_entity': 'ParameterDefinition',
              'parent_variable': 'object_id',
              'child_entity': 'Task_Output',
-             'child_variable': 'valueMeta'},
+             'child_variable': 'valueParameterDefinition'},
+
+            {'parent_entity': 'BackboneElement',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueBackboneElement'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueCoding'},
+
+            {'parent_entity': 'Narrative',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueNarrative'},
+
+            {'parent_entity': 'Ratio',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueRatio'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueHumanName'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueAddress'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'Task_Output',
+             'child_variable': 'valueSampledData'},
         ]

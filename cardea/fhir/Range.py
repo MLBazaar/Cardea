@@ -2,22 +2,29 @@ from .fhirbase import fhirbase
 
 
 class Range(fhirbase):
-    """A set of ordered Quantities defined by a low and high limit.
+    """
+    A set of ordered Quantities defined by a low and high limit.
     """
 
     __name__ = 'Range'
 
     def __init__(self, dict_values=None):
-        # the low limit. the boundary is inclusive.
         self.low = None
-        # reference to Quantity: Quantity
+        """
+        The low limit. The boundary is inclusive.
 
-        # the high limit. the boundary is inclusive.
+        reference to Quantity
+        """
+
         self.high = None
-        # reference to Quantity: Quantity
+        """
+        The high limit. The boundary is inclusive.
 
-        # unique identifier for object class
+        reference to Quantity
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

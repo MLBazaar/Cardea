@@ -2,40 +2,56 @@ from .fhirbase import fhirbase
 
 
 class ContactPoint(fhirbase):
-    """Details for all kinds of technology mediated contact points for a person
-    or organization, including telephone, email, etc.
+    """
+    Details for all kinds of technology mediated contact points for a
+    person or organization, including telephone, email, etc.
     """
 
     __name__ = 'ContactPoint'
 
     def __init__(self, dict_values=None):
-        # telecommunications form for contact point - what communications system
-        # is required to make use of the contact.
         self.system = None
-        # type = string
-        # possible values: phone, fax, email, pager, url, sms, other
+        """
+        Telecommunications form for contact point - what communications system
+        is required to make use of the contact.
 
-        # the actual contact point details, in a form that is meaningful to the
-        # designated communication system (i.e. phone number or email address).
+        type: string
+        possible values: phone, fax, email, pager, url, sms, other
+        """
+
         self.value = None
-        # type = string
+        """
+        The actual contact point details, in a form that is meaningful to the
+        designated communication system (i.e. phone number or email address).
 
-        # identifies the purpose for the contact point.
+        type: string
+        """
+
         self.use = None
-        # type = string
-        # possible values: home, work, temp, old, mobile
+        """
+        Identifies the purpose for the contact point.
 
-        # specifies a preferred order in which to use a set of contacts. contacts
-        # are ranked with lower values coming before higher values.
+        type: string
+        possible values: home, work, temp, old, mobile
+        """
+
         self.rank = None
-        # type = int
+        """
+        Specifies a preferred order in which to use a set of contacts.
+        Contacts are ranked with lower values coming before higher values.
 
-        # time period when the contact point was/is in use.
+        type: int
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        Time period when the contact point was/is in use.
 
-        # unique identifier for object class
+        reference to Period
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

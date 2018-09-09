@@ -2,110 +2,160 @@ from .fhirbase import fhirbase
 
 
 class CompartmentDefinition(fhirbase):
-    """A compartment definition that defines how resources are accessed on a
+    """
+    A compartment definition that defines how resources are accessed on a
     server.
     """
 
     __name__ = 'CompartmentDefinition'
 
     def __init__(self, dict_values=None):
-        # this is a compartmentdefinition resource
         self.resourceType = 'CompartmentDefinition'
-        # type = string
-        # possible values: CompartmentDefinition
+        """
+        This is a CompartmentDefinition resource
 
-        # an absolute uri that is used to identify this compartment definition
-        # when it is referenced in a specification, model, design or an instance.
-        # this shall be a url, should be globally unique, and should be an address
-        # at which this compartment definition is (or will be) published. the url
-        # should include the major version of the compartment definition. for more
-        # information see [technical and business
-        # versions](resource.html#versions).
+        type: string
+        possible values: CompartmentDefinition
+        """
+
         self.url = None
-        # type = string
+        """
+        An absolute URI that is used to identify this compartment definition
+        when it is referenced in a specification, model, design or an
+        instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD
+        be an address at which this compartment definition is (or will be)
+        published. The URL SHOULD include the major version of the compartment
+        definition. For more information see [Technical and Business
+        Versions](resource.html#versions).
 
-        # a natural language name identifying the compartment definition. this
-        # name should be usable as an identifier for the module by machine
-        # processing applications such as code generation.
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        A natural language name identifying the compartment definition. This
+        name should be usable as an identifier for the module by machine
+        processing applications such as code generation.
 
-        # a short, descriptive, user-friendly title for the compartment
-        # definition.
+        type: string
+        """
+
         self.title = None
-        # type = string
+        """
+        A short, descriptive, user-friendly title for the compartment
+        definition.
 
-        # the status of this compartment definition. enables tracking the life-
-        # cycle of the content.
+        type: string
+        """
+
         self.status = None
-        # type = string
-        # possible values: draft, active, retired, unknown
+        """
+        The status of this compartment definition. Enables tracking the
+        life-cycle of the content.
 
-        # a boolean value to indicate that this compartment definition is authored
-        # for testing purposes (or education/evaluation/marketing), and is not
-        # intended to be used for genuine usage.
+        type: string
+        possible values: draft, active, retired, unknown
+        """
+
         self.experimental = None
-        # type = boolean
+        """
+        A boolean value to indicate that this compartment definition is
+        authored for testing purposes (or education/evaluation/marketing), and
+        is not intended to be used for genuine usage.
 
-        # the date  (and optionally time) when the compartment definition was
-        # published. the date must change if and when the business version changes
-        # and it must change if the status code changes. in addition, it should
-        # change when the substantive content of the compartment definition
-        # changes.
+        type: boolean
+        """
+
         self.date = None
-        # type = string
+        """
+        The date  (and optionally time) when the compartment definition was
+        published. The date must change if and when the business version
+        changes and it must change if the status code changes. In addition, it
+        should change when the substantive content of the compartment
+        definition changes.
 
-        # the name of the individual or organization that published the
-        # compartment definition.
+        type: string
+        """
+
         self.publisher = None
-        # type = string
+        """
+        The name of the individual or organization that published the
+        compartment definition.
 
-        # contact details to assist a user in finding and communicating with the
-        # publisher.
+        type: string
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        """
+        Contact details to assist a user in finding and communicating with the
+        publisher.
 
-        # a free text natural language description of the compartment definition
-        # from a consumer's perspective.
+        type: array
+        reference to ContactDetail
+        """
+
         self.description = None
-        # type = string
+        """
+        A free text natural language description of the compartment definition
+        from a consumer's perspective.
 
-        # explaination of why this compartment definition is needed and why it has
-        # been designed as it has.
+        type: string
+        """
+
         self.purpose = None
-        # type = string
+        """
+        Explaination of why this compartment definition is needed and why it
+        has been designed as it has.
 
-        # the content was developed with a focus and intent of supporting the
-        # contexts that are listed. these terms may be used to assist with
-        # indexing and searching for appropriate compartment definition instances.
+        type: string
+        """
+
         self.useContext = None
-        # type = array
-        # reference to UsageContext: UsageContext
+        """
+        The content was developed with a focus and intent of supporting the
+        contexts that are listed. These terms may be used to assist with
+        indexing and searching for appropriate compartment definition
+        instances.
 
-        # a legal or geographic region in which the compartment definition is
-        # intended to be used.
+        type: array
+        reference to UsageContext
+        """
+
         self.jurisdiction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A legal or geographic region in which the compartment definition is
+        intended to be used.
 
-        # which compartment this definition describes.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.code = None
-        # type = string
-        # possible values: Patient, Encounter, RelatedPerson,
-        # Practitioner, Device
+        """
+        Which compartment this definition describes.
 
-        # whether the search syntax is supported,.
+        type: string
+        possible values: Patient, Encounter, RelatedPerson,
+        Practitioner, Device
+        """
+
         self.search = None
-        # type = boolean
+        """
+        Whether the search syntax is supported,.
 
-        # information about how a resource is related to the compartment.
+        type: boolean
+        """
+
         self.resource = None
-        # type = array
-        # reference to CompartmentDefinition_Resource: CompartmentDefinition_Resource
+        """
+        Information about how a resource is related to the compartment.
 
-        # unique identifier for object class
+        type: array
+        reference to CompartmentDefinition_Resource
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -129,16 +179,6 @@ class CompartmentDefinition(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'UsageContext',
-             'parent_variable': 'object_id',
-             'child_entity': 'CompartmentDefinition',
-             'child_variable': 'useContext'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'CompartmentDefinition',
-             'child_variable': 'jurisdiction'},
-
             {'parent_entity': 'ContactDetail',
              'parent_variable': 'object_id',
              'child_entity': 'CompartmentDefinition',
@@ -148,33 +188,53 @@ class CompartmentDefinition(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'CompartmentDefinition',
              'child_variable': 'resource'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'CompartmentDefinition',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CompartmentDefinition',
+             'child_variable': 'jurisdiction'},
         ]
 
 
 class CompartmentDefinition_Resource(fhirbase):
-    """A compartment definition that defines how resources are accessed on a
+    """
+    A compartment definition that defines how resources are accessed on a
     server.
     """
 
     __name__ = 'CompartmentDefinition_Resource'
 
     def __init__(self, dict_values=None):
-        # the name of a resource supported by the server.
         self.code = None
-        # type = string
+        """
+        The name of a resource supported by the server.
 
-        # the name of a search parameter that represents the link to the
-        # compartment. more than one may be listed because a resource may be
-        # linked to a compartment in more than one way,.
+        type: string
+        """
+
         self.param = None
-        # type = array
+        """
+        The name of a search parameter that represents the link to the
+        compartment. More than one may be listed because a resource may be
+        linked to a compartment in more than one way,.
 
-        # additional documentation about the resource and compartment.
+        type: array
+        """
+
         self.documentation = None
-        # type = string
+        """
+        Additional documentation about the resource and compartment.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

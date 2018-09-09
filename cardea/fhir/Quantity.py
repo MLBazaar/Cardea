@@ -2,43 +2,60 @@ from .fhirbase import fhirbase
 
 
 class Quantity(fhirbase):
-    """A measured amount (or an amount that can potentially be measured). Note
-    that measured amounts include amounts that are not precisely quantified,
-    including amounts involving arbitrary units and floating currencies.
+    """
+    A measured amount (or an amount that can potentially be measured).
+    Note that measured amounts include amounts that are not precisely
+    quantified, including amounts involving arbitrary units and floating
+    currencies.
     """
 
     __name__ = 'Quantity'
 
     def __init__(self, dict_values=None):
-        # the value of the measured amount. the value includes an implicit
-        # precision in the presentation of the value.
         self.value = None
-        # type = int
+        """
+        The value of the measured amount. The value includes an implicit
+        precision in the presentation of the value.
 
-        # how the value should be understood and represented - whether the actual
-        # value is greater or less than the stated value due to measurement
-        # issues; e.g. if the comparator is "<" , then the real value is < stated
-        # value.
+        type: int
+        """
+
         self.comparator = None
-        # type = string
-        # possible values: <, <=, >=, >
+        """
+        How the value should be understood and represented - whether the
+        actual value is greater or less than the stated value due to
+        measurement issues; e.g. if the comparator is "<" , then the real
+        value is < stated value.
 
-        # a human-readable form of the unit.
+        type: string
+        possible values: <, <=, >=, >
+        """
+
         self.unit = None
-        # type = string
+        """
+        A human-readable form of the unit.
 
-        # the identification of the system that provides the coded form of the
-        # unit.
+        type: string
+        """
+
         self.system = None
-        # type = string
+        """
+        The identification of the system that provides the coded form of the
+        unit.
 
-        # a computer processable form of the unit in some unit representation
-        # system.
+        type: string
+        """
+
         self.code = None
-        # type = string
+        """
+        A computer processable form of the unit in some unit representation
+        system.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

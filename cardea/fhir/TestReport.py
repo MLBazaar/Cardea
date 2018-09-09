@@ -2,75 +2,117 @@ from .fhirbase import fhirbase
 
 
 class TestReport(fhirbase):
-    """A summary of information based on the results of executing a TestScript.
+    """
+    A summary of information based on the results of executing a
+    TestScript.
     """
 
     __name__ = 'TestReport'
 
     def __init__(self, dict_values=None):
-        # this is a testreport resource
         self.resourceType = 'TestReport'
-        # type = string
-        # possible values: TestReport
+        """
+        This is a TestReport resource
 
-        # a free text natural language name identifying the executed testscript.
+        type: string
+        possible values: TestReport
+        """
+
         self.name = None
-        # type = string
+        """
+        A free text natural language name identifying the executed TestScript.
 
-        # the current state of this test report.
+        type: string
+        """
+
         self.status = None
-        # type = string
-        # possible values: completed, in-progress, waiting, stopped,
-        # entered-in-error
+        """
+        The current state of this test report.
 
-        # ideally this is an absolute url that is used to identify the version-
-        # specific testscript that was executed, matching the `testscript.url`.
+        type: string
+        possible values: completed, in-progress, waiting, stopped,
+        entered-in-error
+        """
+
         self.testScript = None
-        # reference to Reference: identifier
+        """
+        Ideally this is an absolute URL that is used to identify the
+        version-specific TestScript that was executed, matching the
+        `TestScript.url`.
 
-        # the overall result from the execution of the testscript.
+        reference to Reference: identifier
+        """
+
         self.result = None
-        # type = string
-        # possible values: pass, fail, pending
+        """
+        The overall result from the execution of the TestScript.
 
-        # the final score (percentage of tests passed) resulting from the
-        # execution of the testscript.
+        type: string
+        possible values: pass, fail, pending
+        """
+
         self.score = None
-        # type = int
+        """
+        The final score (percentage of tests passed) resulting from the
+        execution of the TestScript.
 
-        # name of the tester producing this report (organization or individual).
+        type: int
+        """
+
         self.tester = None
-        # type = string
+        """
+        Name of the tester producing this report (Organization or individual).
 
-        # when the testscript was executed and this testreport was generated.
+        type: string
+        """
+
         self.issued = None
-        # type = string
+        """
+        When the TestScript was executed and this TestReport was generated.
 
-        # a participant in the test execution, either the execution engine, a
-        # client, or a server.
+        type: string
+        """
+
         self.participant = None
-        # type = array
-        # reference to TestReport_Participant: TestReport_Participant
+        """
+        A participant in the test execution, either the execution engine, a
+        client, or a server.
 
-        # the results of the series of required setup operations before the tests
-        # were executed.
+        type: array
+        reference to TestReport_Participant
+        """
+
         self.setup = None
-        # reference to TestReport_Setup: TestReport_Setup
+        """
+        The results of the series of required setup operations before the
+        tests were executed.
 
-        # a test executed from the test script.
+        reference to TestReport_Setup
+        """
+
         self.test = None
-        # type = array
-        # reference to TestReport_Test: TestReport_Test
+        """
+        A test executed from the test script.
 
-        # the results of the series of operations required to clean up after the
-        # all the tests were executed (successfully or otherwise).
+        type: array
+        reference to TestReport_Test
+        """
+
         self.teardown = None
-        # reference to TestReport_Teardown: TestReport_Teardown
+        """
+        The results of the series of operations required to clean up after the
+        all the tests were executed (successfully or otherwise).
 
-        # identifier for the testscript assigned for external purposes outside the
-        # context of fhir.
+        reference to TestReport_Teardown
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Identifier for the TestScript assigned for external purposes outside
+        the context of FHIR.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -99,15 +141,20 @@ class TestReport(fhirbase):
              'child_entity': 'TestReport',
              'child_variable': 'testScript'},
 
-            {'parent_entity': 'TestReport_Setup',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'TestReport',
-             'child_variable': 'setup'},
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'TestReport_Test',
              'parent_variable': 'object_id',
              'child_entity': 'TestReport',
              'child_variable': 'test'},
+
+            {'parent_entity': 'TestReport_Setup',
+             'parent_variable': 'object_id',
+             'child_entity': 'TestReport',
+             'child_variable': 'setup'},
 
             {'parent_entity': 'TestReport_Participant',
              'parent_variable': 'object_id',
@@ -118,36 +165,42 @@ class TestReport(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'TestReport',
              'child_variable': 'teardown'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'TestReport',
-             'child_variable': 'identifier'},
         ]
 
 
 class TestReport_Participant(fhirbase):
-    """A summary of information based on the results of executing a TestScript.
+    """
+    A summary of information based on the results of executing a
+    TestScript.
     """
 
     __name__ = 'TestReport_Participant'
 
     def __init__(self, dict_values=None):
-        # the type of participant.
         self.type = None
-        # type = string
-        # possible values: test-engine, client, server
+        """
+        The type of participant.
 
-        # the uri of the participant. an absolute url is preferred.
+        type: string
+        possible values: test-engine, client, server
+        """
+
         self.uri = None
-        # type = string
+        """
+        The uri of the participant. An absolute URL is preferred.
 
-        # the display name of the participant.
+        type: string
+        """
+
         self.display = None
-        # type = string
+        """
+        The display name of the participant.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -163,19 +216,24 @@ class TestReport_Participant(fhirbase):
 
 
 class TestReport_Setup(fhirbase):
-    """A summary of information based on the results of executing a TestScript.
+    """
+    A summary of information based on the results of executing a
+    TestScript.
     """
 
     __name__ = 'TestReport_Setup'
 
     def __init__(self, dict_values=None):
-        # action would contain either an operation or an assertion.
         self.action = None
-        # type = array
-        # reference to TestReport_Action: TestReport_Action
+        """
+        Action would contain either an operation or an assertion.
 
-        # unique identifier for object class
+        type: array
+        reference to TestReport_Action
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -191,22 +249,30 @@ class TestReport_Setup(fhirbase):
 
 
 class TestReport_Action(fhirbase):
-    """A summary of information based on the results of executing a TestScript.
+    """
+    A summary of information based on the results of executing a
+    TestScript.
     """
 
     __name__ = 'TestReport_Action'
 
     def __init__(self, dict_values=None):
-        # the operation performed.
         self.operation = None
-        # reference to TestReport_Operation: TestReport_Operation
+        """
+        The operation performed.
 
-        # the results of the assertion performed on the previous operations.
+        reference to TestReport_Operation
+        """
+
         self._assert = None
-        # reference to TestReport_Assert: TestReport_Assert
+        """
+        The results of the assertion performed on the previous operations.
 
-        # unique identifier for object class
+        reference to TestReport_Assert
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -227,27 +293,38 @@ class TestReport_Action(fhirbase):
 
 
 class TestReport_Operation(fhirbase):
-    """A summary of information based on the results of executing a TestScript.
+    """
+    A summary of information based on the results of executing a
+    TestScript.
     """
 
     __name__ = 'TestReport_Operation'
 
     def __init__(self, dict_values=None):
-        # the result of this operation.
         self.result = None
-        # type = string
-        # possible values: pass, skip, fail, warning, error
+        """
+        The result of this operation.
 
-        # an explanatory message associated with the result.
+        type: string
+        possible values: pass, skip, fail, warning, error
+        """
+
         self.message = None
-        # type = string
+        """
+        An explanatory message associated with the result.
 
-        # a link to further details on the result.
+        type: string
+        """
+
         self.detail = None
-        # type = string
+        """
+        A link to further details on the result.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -263,27 +340,38 @@ class TestReport_Operation(fhirbase):
 
 
 class TestReport_Assert(fhirbase):
-    """A summary of information based on the results of executing a TestScript.
+    """
+    A summary of information based on the results of executing a
+    TestScript.
     """
 
     __name__ = 'TestReport_Assert'
 
     def __init__(self, dict_values=None):
-        # the result of this assertion.
         self.result = None
-        # type = string
-        # possible values: pass, skip, fail, warning, error
+        """
+        The result of this assertion.
 
-        # an explanatory message associated with the result.
+        type: string
+        possible values: pass, skip, fail, warning, error
+        """
+
         self.message = None
-        # type = string
+        """
+        An explanatory message associated with the result.
 
-        # a link to further details on the result.
+        type: string
+        """
+
         self.detail = None
-        # type = string
+        """
+        A link to further details on the result.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -299,29 +387,40 @@ class TestReport_Assert(fhirbase):
 
 
 class TestReport_Test(fhirbase):
-    """A summary of information based on the results of executing a TestScript.
+    """
+    A summary of information based on the results of executing a
+    TestScript.
     """
 
     __name__ = 'TestReport_Test'
 
     def __init__(self, dict_values=None):
-        # the name of this test used for tracking/logging purposes by test
-        # engines.
         self.name = None
-        # type = string
+        """
+        The name of this test used for tracking/logging purposes by test
+        engines.
 
-        # a short description of the test used by test engines for tracking and
-        # reporting purposes.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        A short description of the test used by test engines for tracking and
+        reporting purposes.
 
-        # action would contain either an operation or an assertion.
+        type: string
+        """
+
         self.action = None
-        # type = array
-        # reference to TestReport_Action1: TestReport_Action1
+        """
+        Action would contain either an operation or an assertion.
 
-        # unique identifier for object class
+        type: array
+        reference to TestReport_Action1
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -337,22 +436,30 @@ class TestReport_Test(fhirbase):
 
 
 class TestReport_Action1(fhirbase):
-    """A summary of information based on the results of executing a TestScript.
+    """
+    A summary of information based on the results of executing a
+    TestScript.
     """
 
     __name__ = 'TestReport_Action1'
 
     def __init__(self, dict_values=None):
-        # an operation would involve a rest request to a server.
         self.operation = None
-        # reference to TestReport_Operation: TestReport_Operation
+        """
+        An operation would involve a REST request to a server.
 
-        # the results of the assertion performed on the previous operations.
+        reference to TestReport_Operation
+        """
+
         self._assert = None
-        # reference to TestReport_Assert: TestReport_Assert
+        """
+        The results of the assertion performed on the previous operations.
 
-        # unique identifier for object class
+        reference to TestReport_Assert
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -373,19 +480,24 @@ class TestReport_Action1(fhirbase):
 
 
 class TestReport_Teardown(fhirbase):
-    """A summary of information based on the results of executing a TestScript.
+    """
+    A summary of information based on the results of executing a
+    TestScript.
     """
 
     __name__ = 'TestReport_Teardown'
 
     def __init__(self, dict_values=None):
-        # the teardown action will only contain an operation.
         self.action = None
-        # type = array
-        # reference to TestReport_Action2: TestReport_Action2
+        """
+        The teardown action will only contain an operation.
 
-        # unique identifier for object class
+        type: array
+        reference to TestReport_Action2
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -401,18 +513,23 @@ class TestReport_Teardown(fhirbase):
 
 
 class TestReport_Action2(fhirbase):
-    """A summary of information based on the results of executing a TestScript.
+    """
+    A summary of information based on the results of executing a
+    TestScript.
     """
 
     __name__ = 'TestReport_Action2'
 
     def __init__(self, dict_values=None):
-        # an operation would involve a rest request to a server.
         self.operation = None
-        # reference to TestReport_Operation: TestReport_Operation
+        """
+        An operation would involve a REST request to a server.
 
-        # unique identifier for object class
+        reference to TestReport_Operation
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

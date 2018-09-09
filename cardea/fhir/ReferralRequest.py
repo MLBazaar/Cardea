@@ -2,156 +2,232 @@ from .fhirbase import fhirbase
 
 
 class ReferralRequest(fhirbase):
-    """Used to record and send details about a request for referral service or
-    transfer of a patient to the care of another provider or provider
+    """
+    Used to record and send details about a request for referral service
+    or transfer of a patient to the care of another provider or provider
     organization.
     """
 
     __name__ = 'ReferralRequest'
 
     def __init__(self, dict_values=None):
-        # this is a referralrequest resource
         self.resourceType = 'ReferralRequest'
-        # type = string
-        # possible values: ReferralRequest
+        """
+        This is a ReferralRequest resource
 
-        # a protocol, guideline, orderset or other definition that is adhered to
-        # in whole or in part by this request.
+        type: string
+        possible values: ReferralRequest
+        """
+
         self.definition = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A protocol, guideline, orderset or other definition that is adhered to
+        in whole or in part by this request.
 
-        # indicates any plans, proposals or orders that this request is intended
-        # to satisfy - in whole or in part.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.basedOn = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Indicates any plans, proposals or orders that this request is intended
+        to satisfy - in whole or in part.
 
-        # completed or terminated request(s) whose function is taken by this new
-        # request.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.replaces = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Completed or terminated request(s) whose function is taken by this new
+        request.
 
-        # the business identifier of the logical "grouping" request/order that
-        # this referral is a part of.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.groupIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        The business identifier of the logical "grouping" request/order that
+        this referral is a part of.
 
-        # the status of the authorization/intention reflected by the referral
-        # request record.
+        reference to Identifier
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the authorization/intention reflected by the referral
+        request record.
 
-        # distinguishes the "level" of authorization/demand implicit in this
-        # request.
+        type: string
+        """
+
         self.intent = None
-        # type = string
+        """
+        Distinguishes the "level" of authorization/demand implicit in this
+        request.
 
-        # an indication of the type of referral (or where applicable the type of
-        # transfer of care) request.
+        type: string
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        An indication of the type of referral (or where applicable the type of
+        transfer of care) request.
 
-        # an indication of the urgency of referral (or where applicable the type
-        # of transfer of care) request.
+        reference to CodeableConcept
+        """
+
         self.priority = None
-        # type = string
+        """
+        An indication of the urgency of referral (or where applicable the type
+        of transfer of care) request.
 
-        # the service(s) that is/are requested to be provided to the patient.  for
-        # example: cardiac pacemaker insertion.
+        type: string
+        """
+
         self.serviceRequested = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The service(s) that is/are requested to be provided to the patient.
+        For example: cardiac pacemaker insertion.
 
-        # the patient who is the subject of a referral or transfer of care
-        # request.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        The patient who is the subject of a referral or transfer of care
+        request.
 
-        # the encounter at which the request for referral or transfer of care is
-        # initiated.
+        reference to Reference: identifier
+        """
+
         self.context = None
-        # reference to Reference: identifier
+        """
+        The encounter at which the request for referral or transfer of care is
+        initiated.
 
-        # the period of time within which the services identified in the
-        # referral/transfer of care is specified or required to occur.
+        reference to Reference: identifier
+        """
+
         self.occurrenceDateTime = None
-        # type = string
+        """
+        The period of time within which the services identified in the
+        referral/transfer of care is specified or required to occur.
 
-        # the period of time within which the services identified in the
-        # referral/transfer of care is specified or required to occur.
+        type: string
+        """
+
         self.occurrencePeriod = None
-        # reference to Period: Period
+        """
+        The period of time within which the services identified in the
+        referral/transfer of care is specified or required to occur.
 
-        # date/datetime of creation for draft requests and date of activation for
-        # active requests.
+        reference to Period
+        """
+
         self.authoredOn = None
-        # type = string
+        """
+        Date/DateTime of creation for draft requests and date of activation
+        for active requests.
 
-        # the individual who initiated the request and has responsibility for its
-        # activation.
+        type: string
+        """
+
         self.requester = None
-        # reference to ReferralRequest_Requester: ReferralRequest_Requester
+        """
+        The individual who initiated the request and has responsibility for
+        its activation.
 
-        # indication of the clinical domain or discipline to which the referral or
-        # transfer of care request is sent.  for example: cardiology
-        # gastroenterology diabetology.
+        reference to ReferralRequest_Requester
+        """
+
         self.specialty = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indication of the clinical domain or discipline to which the referral
+        or transfer of care request is sent.  For example: Cardiology
+        Gastroenterology Diabetology.
 
-        # the healthcare provider(s) or provider organization(s) who/which is to
-        # receive the referral/transfer of care request.
+        reference to CodeableConcept
+        """
+
         self.recipient = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The healthcare provider(s) or provider organization(s) who/which is to
+        receive the referral/transfer of care request.
 
-        # description of clinical condition indicating why referral/transfer of
-        # care is requested.  for example:  pathological anomalies, disabled
-        # (physical or mental),  behavioral management.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.reasonCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Description of clinical condition indicating why referral/transfer of
+        care is requested.  For example:  Pathological Anomalies, Disabled
+        (physical or mental),  Behavioral Management.
 
-        # indicates another resource whose existence justifies this request.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.reasonReference = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Indicates another resource whose existence justifies this request.
 
-        # the reason element gives a short description of why the referral is
-        # being made, the description expands on this to support a more complete
-        # clinical summary.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.description = None
-        # type = string
+        """
+        The reason element gives a short description of why the referral is
+        being made, the description expands on this to support a more complete
+        clinical summary.
 
-        # any additional (administrative, financial or clinical) information
-        # required to support request for referral or transfer of care.  for
-        # example: presenting problems/chief complaints medical history family
-        # history alerts allergy/intolerance and adverse reactions medications
-        # observations/assessments (may include cognitive and fundtional
-        # assessments) diagnostic reports care plan.
+        type: string
+        """
+
         self.supportingInfo = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Any additional (administrative, financial or clinical) information
+        required to support request for referral or transfer of care.  For
+        example: Presenting problems/chief complaints Medical History Family
+        History Alerts Allergy/Intolerance and Adverse Reactions Medications
+        Observations/Assessments (may include cognitive and fundtional
+        assessments) Diagnostic Reports Care Plan.
 
-        # comments made about the referral request by any of the participants.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        Comments made about the referral request by any of the participants.
 
-        # links to provenance records for past versions of this resource or
-        # fulfilling request or event resources that identify key state
-        # transitions or updates that are likely to be relevant to a user looking
-        # at the current version of the resource.
+        type: array
+        reference to Annotation
+        """
+
         self.relevantHistory = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Links to Provenance records for past versions of this resource or
+        fulfilling request or event resources that identify key state
+        transitions or updates that are likely to be relevant to a user
+        looking at the current version of the resource.
 
-        # business identifier that uniquely identifies the referral/care transfer
-        # request instance.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Business identifier that uniquely identifies the referral/care
+        transfer request instance.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -162,22 +238,32 @@ class ReferralRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ReferralRequest',
-             'child_variable': 'replaces'},
+             'child_variable': 'recipient'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'ReferralRequest',
-             'child_variable': 'serviceRequested'},
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'definition'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'ReferralRequest',
-             'child_variable': 'identifier'},
+             'child_variable': 'groupIdentifier'},
 
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'ReferralRequest',
-             'child_variable': 'occurrencePeriod'},
+             'child_variable': 'relevantHistory'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'replaces'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -189,15 +275,45 @@ class ReferralRequest(fhirbase):
              'child_entity': 'ReferralRequest',
              'child_variable': 'type'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'supportingInfo'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ReferralRequest',
-             'child_variable': 'reasonCode'},
+             'child_variable': 'specialty'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'occurrencePeriod'},
+
+            {'parent_entity': 'ReferralRequest_Requester',
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'requester'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ReferralRequest',
+             'child_variable': 'serviceRequested'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ReferralRequest',
-             'child_variable': 'definition'},
+             'child_variable': 'context'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -207,69 +323,36 @@ class ReferralRequest(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ReferralRequest',
-             'child_variable': 'specialty'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'ReferralRequest',
-             'child_variable': 'groupIdentifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ReferralRequest',
-             'child_variable': 'recipient'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ReferralRequest',
-             'child_variable': 'relevantHistory'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ReferralRequest',
-             'child_variable': 'context'},
-
-            {'parent_entity': 'ReferralRequest_Requester',
-             'parent_variable': 'object_id',
-             'child_entity': 'ReferralRequest',
-             'child_variable': 'requester'},
-
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
-             'child_entity': 'ReferralRequest',
-             'child_variable': 'note'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ReferralRequest',
-             'child_variable': 'supportingInfo'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ReferralRequest',
-             'child_variable': 'reasonReference'},
+             'child_variable': 'reasonCode'},
         ]
 
 
 class ReferralRequest_Requester(fhirbase):
-    """Used to record and send details about a request for referral service or
-    transfer of a patient to the care of another provider or provider
+    """
+    Used to record and send details about a request for referral service
+    or transfer of a patient to the care of another provider or provider
     organization.
     """
 
     __name__ = 'ReferralRequest_Requester'
 
     def __init__(self, dict_values=None):
-        # the device, practitioner, etc. who initiated the request.
         self.agent = None
-        # reference to Reference: identifier
+        """
+        The device, practitioner, etc. who initiated the request.
 
-        # the organization the device or practitioner was acting on behalf of.
+        reference to Reference: identifier
+        """
+
         self.onBehalfOf = None
-        # reference to Reference: identifier
+        """
+        The organization the device or practitioner was acting on behalf of.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

@@ -2,70 +2,106 @@ from .fhirbase import fhirbase
 
 
 class AuditEvent(fhirbase):
-    """A record of an event made for purposes of maintaining a security log.
-    Typical uses include detection of intrusion attempts and monitoring for
-    inappropriate usage.
+    """
+    A record of an event made for purposes of maintaining a security log.
+    Typical uses include detection of intrusion attempts and monitoring
+    for inappropriate usage.
     """
 
     __name__ = 'AuditEvent'
 
     def __init__(self, dict_values=None):
-        # this is a auditevent resource
         self.resourceType = 'AuditEvent'
-        # type = string
-        # possible values: AuditEvent
+        """
+        This is a AuditEvent resource
 
-        # identifier for a family of the event.  for example, a menu item,
-        # program, rule, policy, function code, application name or url. it
-        # identifies the performed function.
+        type: string
+        possible values: AuditEvent
+        """
+
         self.type = None
-        # reference to Coding: Coding
+        """
+        Identifier for a family of the event.  For example, a menu item,
+        program, rule, policy, function code, application name or URL. It
+        identifies the performed function.
 
-        # identifier for the category of event.
+        reference to Coding
+        """
+
         self.subtype = None
-        # type = array
-        # reference to Coding: Coding
+        """
+        Identifier for the category of event.
 
-        # indicator for type of action performed during the event that generated
-        # the audit.
+        type: array
+        reference to Coding
+        """
+
         self.action = None
-        # type = string
-        # possible values: C, R, U, D, E
+        """
+        Indicator for type of action performed during the event that generated
+        the audit.
 
-        # the time when the event occurred on the source.
+        type: string
+        possible values: C, R, U, D, E
+        """
+
         self.recorded = None
-        # type = string
+        """
+        The time when the event occurred on the source.
 
-        # indicates whether the event succeeded or failed.
+        type: string
+        """
+
         self.outcome = None
-        # type = string
-        # possible values: 0, 4, 8, 12
+        """
+        Indicates whether the event succeeded or failed.
 
-        # a free text description of the outcome of the event.
+        type: string
+        possible values: 0, 4, 8, 12
+        """
+
         self.outcomeDesc = None
-        # type = string
+        """
+        A free text description of the outcome of the event.
 
-        # the purposeofuse (reason) that was used during the event being recorded.
+        type: string
+        """
+
         self.purposeOfEvent = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The purposeOfUse (reason) that was used during the event being
+        recorded.
 
-        # an actor taking an active role in the event or activity that is logged.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.agent = None
-        # type = array
-        # reference to AuditEvent_Agent: AuditEvent_Agent
+        """
+        An actor taking an active role in the event or activity that is
+        logged.
 
-        # the system that is reporting the event.
+        type: array
+        reference to AuditEvent_Agent
+        """
+
         self.source = None
-        # reference to AuditEvent_Source: identifier
+        """
+        The system that is reporting the event.
 
-        # specific instances of data or objects that have been accessed.
+        reference to AuditEvent_Source: identifier
+        """
+
         self.entity = None
-        # type = array
-        # reference to AuditEvent_Entity: identifier
+        """
+        Specific instances of data or objects that have been accessed.
 
-        # unique identifier for object class
+        type: array
+        reference to AuditEvent_Entity: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -99,11 +135,6 @@ class AuditEvent(fhirbase):
              'child_entity': 'AuditEvent',
              'child_variable': 'agent'},
 
-            {'parent_entity': 'AuditEvent_Source',
-             'parent_variable': 'identifier',
-             'child_entity': 'AuditEvent',
-             'child_variable': 'source'},
-
             {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'AuditEvent',
@@ -118,78 +149,117 @@ class AuditEvent(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'AuditEvent',
              'child_variable': 'purposeOfEvent'},
+
+            {'parent_entity': 'AuditEvent_Source',
+             'parent_variable': 'identifier',
+             'child_entity': 'AuditEvent',
+             'child_variable': 'source'},
         ]
 
 
 class AuditEvent_Agent(fhirbase):
-    """A record of an event made for purposes of maintaining a security log.
-    Typical uses include detection of intrusion attempts and monitoring for
-    inappropriate usage.
+    """
+    A record of an event made for purposes of maintaining a security log.
+    Typical uses include detection of intrusion attempts and monitoring
+    for inappropriate usage.
     """
 
     __name__ = 'AuditEvent_Agent'
 
     def __init__(self, dict_values=None):
-        # the security role that the user was acting under, that come from local
-        # codes defined by the access control security system (e.g. rbac, abac)
-        # used in the local context.
         self.role = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The security role that the user was acting under, that come from local
+        codes defined by the access control security system (e.g. RBAC, ABAC)
+        used in the local context.
 
-        # direct reference to a resource that identifies the agent.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.reference = None
-        # reference to Reference: identifier
+        """
+        Direct reference to a resource that identifies the agent.
 
-        # unique identifier for the user actively participating in the event.
+        reference to Reference: identifier
+        """
+
         self.userId = None
-        # reference to Identifier: Identifier
+        """
+        Unique identifier for the user actively participating in the event.
 
-        # alternative agent identifier. for a human, this should be a user
-        # identifier text string from authentication system. this identifier would
-        # be one known to a common authentication system (e.g. single sign-on), if
-        # available.
+        reference to Identifier
+        """
+
         self.altId = None
-        # type = string
+        """
+        Alternative agent Identifier. For a human, this should be a user
+        identifier text string from authentication system. This identifier
+        would be one known to a common authentication system (e.g. single
+        sign-on), if available.
 
-        # human-meaningful name for the agent.
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        Human-meaningful name for the agent.
 
-        # indicator that the user is or is not the requestor, or initiator, for
-        # the event being audited.
+        type: string
+        """
+
         self.requestor = None
-        # type = boolean
+        """
+        Indicator that the user is or is not the requestor, or initiator, for
+        the event being audited.
 
-        # where the event occurred.
+        type: boolean
+        """
+
         self.location = None
-        # reference to Reference: identifier
+        """
+        Where the event occurred.
 
-        # the policy or plan that authorized the activity being recorded.
-        # typically, a single activity may have multiple applicable policies, such
-        # as patient consent, guarantor funding, etc. the policy would also
-        # indicate the security token used.
+        reference to Reference: identifier
+        """
+
         self.policy = None
-        # type = array
+        """
+        The policy or plan that authorized the activity being recorded.
+        Typically, a single activity may have multiple applicable policies,
+        such as patient consent, guarantor funding, etc. The policy would also
+        indicate the security token used.
 
-        # type of media involved. used when the event is about exporting/importing
-        # onto media.
+        type: array
+        """
+
         self.media = None
-        # reference to Coding: Coding
+        """
+        Type of media involved. Used when the event is about
+        exporting/importing onto media.
 
-        # logical network location for application activity, if the activity has a
-        # network location.
+        reference to Coding
+        """
+
         self.network = None
-        # reference to AuditEvent_Network: AuditEvent_Network
+        """
+        Logical network location for application activity, if the activity has
+        a network location.
 
-        # the reason (purpose of use), specific to this agent, that was used
-        # during the event being recorded.
+        reference to AuditEvent_Network
+        """
+
         self.purposeOfUse = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The reason (purpose of use), specific to this agent, that was used
+        during the event being recorded.
 
-        # unique identifier for object class
+        type: array
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -197,6 +267,11 @@ class AuditEvent_Agent(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Agent',
+             'child_variable': 'media'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'AuditEvent_Agent',
@@ -206,11 +281,6 @@ class AuditEvent_Agent(fhirbase):
              'parent_variable': 'identifier',
              'child_entity': 'AuditEvent_Agent',
              'child_variable': 'reference'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'AuditEvent_Agent',
-             'child_variable': 'userId'},
 
             {'parent_entity': 'AuditEvent_Network',
              'parent_variable': 'object_id',
@@ -222,40 +292,47 @@ class AuditEvent_Agent(fhirbase):
              'child_entity': 'AuditEvent_Agent',
              'child_variable': 'purposeOfUse'},
 
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'AuditEvent_Agent',
-             'child_variable': 'media'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'AuditEvent_Agent',
              'child_variable': 'location'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Agent',
+             'child_variable': 'userId'},
         ]
 
 
 class AuditEvent_Network(fhirbase):
-    """A record of an event made for purposes of maintaining a security log.
-    Typical uses include detection of intrusion attempts and monitoring for
-    inappropriate usage.
+    """
+    A record of an event made for purposes of maintaining a security log.
+    Typical uses include detection of intrusion attempts and monitoring
+    for inappropriate usage.
     """
 
     __name__ = 'AuditEvent_Network'
 
     def __init__(self, dict_values=None):
-        # an identifier for the network access point of the user device for the
-        # audit event.
         self.address = None
-        # type = string
+        """
+        An identifier for the network access point of the user device for the
+        audit event.
 
-        # an identifier for the type of network access point that originated the
-        # audit event.
+        type: string
+        """
+
         self.type = None
-        # type = string
-        # possible values: 1, 2, 3, 4, 5
+        """
+        An identifier for the type of network access point that originated the
+        audit event.
 
-        # unique identifier for object class
+        type: string
+        possible values: 1, 2, 3, 4, 5
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -271,28 +348,38 @@ class AuditEvent_Network(fhirbase):
 
 
 class AuditEvent_Source(fhirbase):
-    """A record of an event made for purposes of maintaining a security log.
-    Typical uses include detection of intrusion attempts and monitoring for
-    inappropriate usage.
+    """
+    A record of an event made for purposes of maintaining a security log.
+    Typical uses include detection of intrusion attempts and monitoring
+    for inappropriate usage.
     """
 
     __name__ = 'AuditEvent_Source'
 
     def __init__(self, dict_values=None):
-        # logical source location within the healthcare enterprise network.  for
-        # example, a hospital or other provider location within a multi-entity
-        # provider group.
         self.site = None
-        # type = string
+        """
+        Logical source location within the healthcare enterprise network.  For
+        example, a hospital or other provider location within a multi-entity
+        provider group.
 
-        # code specifying the type of source where event originated.
+        type: string
+        """
+
         self.type = None
-        # type = array
-        # reference to Coding: Coding
+        """
+        Code specifying the type of source where event originated.
 
-        # identifier of the source where the event was detected.
+        type: array
+        reference to Coding
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Identifier of the source where the event was detected.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -300,71 +387,103 @@ class AuditEvent_Source(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'AuditEvent_Source',
-             'child_variable': 'type'},
-
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'AuditEvent_Source',
              'child_variable': 'identifier'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Source',
+             'child_variable': 'type'},
         ]
 
 
 class AuditEvent_Entity(fhirbase):
-    """A record of an event made for purposes of maintaining a security log.
-    Typical uses include detection of intrusion attempts and monitoring for
-    inappropriate usage.
+    """
+    A record of an event made for purposes of maintaining a security log.
+    Typical uses include detection of intrusion attempts and monitoring
+    for inappropriate usage.
     """
 
     __name__ = 'AuditEvent_Entity'
 
     def __init__(self, dict_values=None):
-        # identifies a specific instance of the entity. the reference should be
-        # version specific.
         self.reference = None
-        # reference to Reference: identifier
+        """
+        Identifies a specific instance of the entity. The reference should be
+        version specific.
 
-        # the type of the object that was involved in this audit event.
+        reference to Reference: identifier
+        """
+
         self.type = None
-        # reference to Coding: Coding
+        """
+        The type of the object that was involved in this audit event.
 
-        # code representing the role the entity played in the event being audited.
+        reference to Coding
+        """
+
         self.role = None
-        # reference to Coding: Coding
+        """
+        Code representing the role the entity played in the event being
+        audited.
 
-        # identifier for the data life-cycle stage for the entity.
+        reference to Coding
+        """
+
         self.lifecycle = None
-        # reference to Coding: Coding
+        """
+        Identifier for the data life-cycle stage for the entity.
 
-        # security labels for the identified entity.
+        reference to Coding
+        """
+
         self.securityLabel = None
-        # type = array
-        # reference to Coding: Coding
+        """
+        Security labels for the identified entity.
 
-        # a name of the entity in the audit event.
+        type: array
+        reference to Coding
+        """
+
         self.name = None
-        # type = string
+        """
+        A name of the entity in the audit event.
 
-        # text that describes the entity in more detail.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        Text that describes the entity in more detail.
 
-        # the query parameters for a query-type entities.
+        type: string
+        """
+
         self.query = None
-        # type = string
+        """
+        The query parameters for a query-type entities.
 
-        # tagged value pairs for conveying additional information about the
-        # entity.
+        type: string
+        """
+
         self.detail = None
-        # type = array
-        # reference to AuditEvent_Detail: AuditEvent_Detail
+        """
+        Tagged value pairs for conveying additional information about the
+        entity.
 
-        # identifies a specific instance of the entity. the reference should
-        # always be version specific.
+        type: array
+        reference to AuditEvent_Detail
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Identifies a specific instance of the entity. The reference should
+        always be version specific.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -372,62 +491,69 @@ class AuditEvent_Entity(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'AuditEvent_Detail',
-             'parent_variable': 'object_id',
-             'child_entity': 'AuditEvent_Entity',
-             'child_variable': 'detail'},
-
             {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'AuditEvent_Entity',
-             'child_variable': 'type'},
+             'child_variable': 'securityLabel'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Entity',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'AuditEvent_Entity',
              'child_variable': 'lifecycle'},
 
-            {'parent_entity': 'Coding',
+            {'parent_entity': 'AuditEvent_Detail',
              'parent_variable': 'object_id',
              'child_entity': 'AuditEvent_Entity',
-             'child_variable': 'securityLabel'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'AuditEvent_Entity',
-             'child_variable': 'role'},
+             'child_variable': 'detail'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'AuditEvent_Entity',
              'child_variable': 'reference'},
 
-            {'parent_entity': 'Identifier',
+            {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'AuditEvent_Entity',
-             'child_variable': 'identifier'},
+             'child_variable': 'role'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'AuditEvent_Entity',
+             'child_variable': 'type'},
         ]
 
 
 class AuditEvent_Detail(fhirbase):
-    """A record of an event made for purposes of maintaining a security log.
-    Typical uses include detection of intrusion attempts and monitoring for
-    inappropriate usage.
+    """
+    A record of an event made for purposes of maintaining a security log.
+    Typical uses include detection of intrusion attempts and monitoring
+    for inappropriate usage.
     """
 
     __name__ = 'AuditEvent_Detail'
 
     def __init__(self, dict_values=None):
-        # the type of extra detail provided in the value.
         self.type = None
-        # type = string
+        """
+        The type of extra detail provided in the value.
 
-        # the details, base64 encoded. used to carry bulk information.
+        type: string
+        """
+
         self.value = None
-        # type = string
+        """
+        The details, base64 encoded. Used to carry bulk information.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

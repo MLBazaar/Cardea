@@ -2,153 +2,227 @@ from .fhirbase import fhirbase
 
 
 class ExpansionProfile(fhirbase):
-    """Resource to define constraints on the Expansion of a FHIR ValueSet.
+    """
+    Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
     __name__ = 'ExpansionProfile'
 
     def __init__(self, dict_values=None):
-        # this is a expansionprofile resource
         self.resourceType = 'ExpansionProfile'
-        # type = string
-        # possible values: ExpansionProfile
+        """
+        This is a ExpansionProfile resource
 
-        # an absolute uri that is used to identify this expansion profile when it
-        # is referenced in a specification, model, design or an instance. this
-        # shall be a url, should be globally unique, and should be an address at
-        # which this expansion profile is (or will be) published. the url should
-        # include the major version of the expansion profile. for more information
-        # see [technical and business versions](resource.html#versions).
+        type: string
+        possible values: ExpansionProfile
+        """
+
         self.url = None
-        # type = string
+        """
+        An absolute URI that is used to identify this expansion profile when
+        it is referenced in a specification, model, design or an instance.
+        This SHALL be a URL, SHOULD be globally unique, and SHOULD be an
+        address at which this expansion profile is (or will be) published. The
+        URL SHOULD include the major version of the expansion profile. For
+        more information see [Technical and Business
+        Versions](resource.html#versions).
 
-        # the identifier that is used to identify this version of the expansion
-        # profile when it is referenced in a specification, model, design or
-        # instance. this is an arbitrary value managed by the expansion profile
-        # author and is not expected to be globally unique. for example, it might
-        # be a timestamp (e.g. yyyymmdd) if a managed version is not available.
-        # there is also no expectation that versions can be placed in a
-        # lexicographical sequence.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The identifier that is used to identify this version of the expansion
+        profile when it is referenced in a specification, model, design or
+        instance. This is an arbitrary value managed by the expansion profile
+        author and is not expected to be globally unique. For example, it
+        might be a timestamp (e.g. yyyymmdd) if a managed version is not
+        available. There is also no expectation that versions can be placed in
+        a lexicographical sequence.
 
-        # a natural language name identifying the expansion profile. this name
-        # should be usable as an identifier for the module by machine processing
-        # applications such as code generation.
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        A natural language name identifying the expansion profile. This name
+        should be usable as an identifier for the module by machine processing
+        applications such as code generation.
 
-        # the status of this expansion profile. enables tracking the life-cycle of
-        # the content.
+        type: string
+        """
+
         self.status = None
-        # type = string
-        # possible values: draft, active, retired, unknown
+        """
+        The status of this expansion profile. Enables tracking the life-cycle
+        of the content.
 
-        # a boolean value to indicate that this expansion profile is authored for
-        # testing purposes (or education/evaluation/marketing), and is not
-        # intended to be used for genuine usage.
+        type: string
+        possible values: draft, active, retired, unknown
+        """
+
         self.experimental = None
-        # type = boolean
+        """
+        A boolean value to indicate that this expansion profile is authored
+        for testing purposes (or education/evaluation/marketing), and is not
+        intended to be used for genuine usage.
 
-        # the date  (and optionally time) when the expansion profile was
-        # published. the date must change if and when the business version changes
-        # and it must change if the status code changes. in addition, it should
-        # change when the substantive content of the expansion profile changes.
+        type: boolean
+        """
+
         self.date = None
-        # type = string
+        """
+        The date  (and optionally time) when the expansion profile was
+        published. The date must change if and when the business version
+        changes and it must change if the status code changes. In addition, it
+        should change when the substantive content of the expansion profile
+        changes.
 
-        # the name of the individual or organization that published the expansion
-        # profile.
+        type: string
+        """
+
         self.publisher = None
-        # type = string
+        """
+        The name of the individual or organization that published the
+        expansion profile.
 
-        # contact details to assist a user in finding and communicating with the
-        # publisher.
+        type: string
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        """
+        Contact details to assist a user in finding and communicating with the
+        publisher.
 
-        # a free text natural language description of the expansion profile from a
-        # consumer's perspective.
+        type: array
+        reference to ContactDetail
+        """
+
         self.description = None
-        # type = string
+        """
+        A free text natural language description of the expansion profile from
+        a consumer's perspective.
 
-        # the content was developed with a focus and intent of supporting the
-        # contexts that are listed. these terms may be used to assist with
-        # indexing and searching for appropriate expansion profile instances.
+        type: string
+        """
+
         self.useContext = None
-        # type = array
-        # reference to UsageContext: UsageContext
+        """
+        The content was developed with a focus and intent of supporting the
+        contexts that are listed. These terms may be used to assist with
+        indexing and searching for appropriate expansion profile instances.
 
-        # a legal or geographic region in which the expansion profile is intended
-        # to be used.
+        type: array
+        reference to UsageContext
+        """
+
         self.jurisdiction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A legal or geographic region in which the expansion profile is
+        intended to be used.
 
-        # fix use of a particular code system to a particular version.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.fixedVersion = None
-        # type = array
-        # reference to ExpansionProfile_FixedVersion: ExpansionProfile_FixedVersion
+        """
+        Fix use of a particular code system to a particular version.
 
-        # code system, or a particular version of a code system to be excluded
-        # from value set expansions.
+        type: array
+        reference to ExpansionProfile_FixedVersion
+        """
+
         self.excludedSystem = None
-        # reference to ExpansionProfile_ExcludedSystem: ExpansionProfile_ExcludedSystem
+        """
+        Code system, or a particular version of a code system to be excluded
+        from value set expansions.
 
-        # controls whether concept designations are to be included or excluded in
-        # value set expansions.
+        reference to ExpansionProfile_ExcludedSystem
+        """
+
         self.includeDesignations = None
-        # type = boolean
+        """
+        Controls whether concept designations are to be included or excluded
+        in value set expansions.
 
-        # a set of criteria that provide the constraints imposed on the value set
-        # expansion by including or excluding designations.
+        type: boolean
+        """
+
         self.designation = None
-        # reference to ExpansionProfile_Designation: ExpansionProfile_Designation
+        """
+        A set of criteria that provide the constraints imposed on the value
+        set expansion by including or excluding designations.
 
-        # controls whether the value set definition is included or excluded in
-        # value set expansions.
+        reference to ExpansionProfile_Designation
+        """
+
         self.includeDefinition = None
-        # type = boolean
+        """
+        Controls whether the value set definition is included or excluded in
+        value set expansions.
 
-        # controls whether inactive concepts are included or excluded in value set
-        # expansions.
+        type: boolean
+        """
+
         self.activeOnly = None
-        # type = boolean
+        """
+        Controls whether inactive concepts are included or excluded in value
+        set expansions.
 
-        # controls whether or not the value set expansion nests codes or not (i.e.
-        # valueset.expansion.contains.contains).
+        type: boolean
+        """
+
         self.excludeNested = None
-        # type = boolean
+        """
+        Controls whether or not the value set expansion nests codes or not
+        (i.e. ValueSet.expansion.contains.contains).
 
-        # controls whether or not the value set expansion includes codes which
-        # cannot be displayed in user interfaces.
+        type: boolean
+        """
+
         self.excludeNotForUI = None
-        # type = boolean
+        """
+        Controls whether or not the value set expansion includes codes which
+        cannot be displayed in user interfaces.
 
-        # controls whether or not the value set expansion includes post
-        # coordinated codes.
+        type: boolean
+        """
+
         self.excludePostCoordinated = None
-        # type = boolean
+        """
+        Controls whether or not the value set expansion includes post
+        coordinated codes.
 
-        # specifies the language to be used for description in the expansions i.e.
-        # the language to be used for valueset.expansion.contains.display.
+        type: boolean
+        """
+
         self.displayLanguage = None
-        # type = string
+        """
+        Specifies the language to be used for description in the expansions
+        i.e. the language to be used for ValueSet.expansion.contains.display.
 
-        # if the value set being expanded is incomplete (because it is too big to
-        # expand), return a limited expansion (a subset) with an indicator that
-        # expansion is incomplete, using the extension
-        # [http://hl7.org/fhir/structuredefinition/valueset-toocostly](extension-
-        # valueset-toocostly.html).
+        type: string
+        """
+
         self.limitedExpansion = None
-        # type = boolean
+        """
+        If the value set being expanded is incomplete (because it is too big
+        to expand), return a limited expansion (a subset) with an indicator
+        that expansion is incomplete, using the extension
+        [http://hl7.org/fhir/StructureDefinition/valueset-toocostly](extension-valueset-toocostly.html).
 
-        # a formal identifier that is used to identify this expansion profile when
-        # it is represented in other formats, or referenced in a specification,
-        # model, design or an instance.
+        type: boolean
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        A formal identifier that is used to identify this expansion profile
+        when it is represented in other formats, or referenced in a
+        specification, model, design or an instance.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -165,20 +239,10 @@ class ExpansionProfile(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ContactDetail',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExpansionProfile',
-             'child_variable': 'contact'},
-
-            {'parent_entity': 'UsageContext',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExpansionProfile',
-             'child_variable': 'useContext'},
-
-            {'parent_entity': 'ExpansionProfile_FixedVersion',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExpansionProfile',
-             'child_variable': 'fixedVersion'},
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
@@ -190,42 +254,62 @@ class ExpansionProfile(fhirbase):
              'child_entity': 'ExpansionProfile',
              'child_variable': 'designation'},
 
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile',
+             'child_variable': 'useContext'},
+
             {'parent_entity': 'ExpansionProfile_ExcludedSystem',
              'parent_variable': 'object_id',
              'child_entity': 'ExpansionProfile',
              'child_variable': 'excludedSystem'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'ContactDetail',
              'parent_variable': 'object_id',
              'child_entity': 'ExpansionProfile',
-             'child_variable': 'jurisdiction'},
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'ExpansionProfile_FixedVersion',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExpansionProfile',
+             'child_variable': 'fixedVersion'},
         ]
 
 
 class ExpansionProfile_FixedVersion(fhirbase):
-    """Resource to define constraints on the Expansion of a FHIR ValueSet.
+    """
+    Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
     __name__ = 'ExpansionProfile_FixedVersion'
 
     def __init__(self, dict_values=None):
-        # the specific system for which to fix the version.
         self.system = None
-        # type = string
+        """
+        The specific system for which to fix the version.
 
-        # the version of the code system from which codes in the expansion should
-        # be included.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The version of the code system from which codes in the expansion
+        should be included.
 
-        # how to manage the intersection between a fixed version in a value set,
-        # and this fixed version of the system in the expansion profile.
+        type: string
+        """
+
         self.mode = None
-        # type = string
-        # possible values: default, check, override
+        """
+        How to manage the intersection between a fixed version in a value set,
+        and this fixed version of the system in the expansion profile.
 
-        # unique identifier for object class
+        type: string
+        possible values: default, check, override
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -241,45 +325,59 @@ class ExpansionProfile_FixedVersion(fhirbase):
 
 
 class ExpansionProfile_ExcludedSystem(fhirbase):
-    """Resource to define constraints on the Expansion of a FHIR ValueSet.
+    """
+    Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
     __name__ = 'ExpansionProfile_ExcludedSystem'
 
     def __init__(self, dict_values=None):
-        # an absolute uri which is the code system to be excluded.
         self.system = None
-        # type = string
+        """
+        An absolute URI which is the code system to be excluded.
 
-        # the version of the code system from which codes in the expansion should
-        # be excluded.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The version of the code system from which codes in the expansion
+        should be excluded.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class ExpansionProfile_Designation(fhirbase):
-    """Resource to define constraints on the Expansion of a FHIR ValueSet.
+    """
+    Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
     __name__ = 'ExpansionProfile_Designation'
 
     def __init__(self, dict_values=None):
-        # designations to be included.
         self.include = None
-        # reference to ExpansionProfile_Include: ExpansionProfile_Include
+        """
+        Designations to be included.
 
-        # designations to be excluded.
+        reference to ExpansionProfile_Include
+        """
+
         self.exclude = None
-        # reference to ExpansionProfile_Exclude: ExpansionProfile_Exclude
+        """
+        Designations to be excluded.
 
-        # unique identifier for object class
+        reference to ExpansionProfile_Exclude
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -300,19 +398,23 @@ class ExpansionProfile_Designation(fhirbase):
 
 
 class ExpansionProfile_Include(fhirbase):
-    """Resource to define constraints on the Expansion of a FHIR ValueSet.
+    """
+    Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
     __name__ = 'ExpansionProfile_Include'
 
     def __init__(self, dict_values=None):
-        # a data group for each designation to be included.
         self.designation = None
-        # type = array
-        # reference to ExpansionProfile_Designation1: ExpansionProfile_Designation1
+        """
+        A data group for each designation to be included.
 
-        # unique identifier for object class
+        type: array
+        reference to ExpansionProfile_Designation1
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -328,22 +430,29 @@ class ExpansionProfile_Include(fhirbase):
 
 
 class ExpansionProfile_Designation1(fhirbase):
-    """Resource to define constraints on the Expansion of a FHIR ValueSet.
+    """
+    Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
     __name__ = 'ExpansionProfile_Designation1'
 
     def __init__(self, dict_values=None):
-        # the language this designation is defined for.
         self.language = None
-        # type = string
+        """
+        The language this designation is defined for.
 
-        # which kinds of designation to include in the expansion.
+        type: string
+        """
+
         self.use = None
-        # reference to Coding: Coding
+        """
+        Which kinds of designation to include in the expansion.
 
-        # unique identifier for object class
+        reference to Coding
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -359,19 +468,23 @@ class ExpansionProfile_Designation1(fhirbase):
 
 
 class ExpansionProfile_Exclude(fhirbase):
-    """Resource to define constraints on the Expansion of a FHIR ValueSet.
+    """
+    Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
     __name__ = 'ExpansionProfile_Exclude'
 
     def __init__(self, dict_values=None):
-        # a data group for each designation to be excluded.
         self.designation = None
-        # type = array
-        # reference to ExpansionProfile_Designation2: ExpansionProfile_Designation2
+        """
+        A data group for each designation to be excluded.
 
-        # unique identifier for object class
+        type: array
+        reference to ExpansionProfile_Designation2
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -387,22 +500,29 @@ class ExpansionProfile_Exclude(fhirbase):
 
 
 class ExpansionProfile_Designation2(fhirbase):
-    """Resource to define constraints on the Expansion of a FHIR ValueSet.
+    """
+    Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
 
     __name__ = 'ExpansionProfile_Designation2'
 
     def __init__(self, dict_values=None):
-        # the language this designation is defined for.
         self.language = None
-        # type = string
+        """
+        The language this designation is defined for.
 
-        # which kinds of designation to exclude from the expansion.
+        type: string
+        """
+
         self.use = None
-        # reference to Coding: Coding
+        """
+        Which kinds of designation to exclude from the expansion.
 
-        # unique identifier for object class
+        reference to Coding
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

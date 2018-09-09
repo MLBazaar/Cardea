@@ -2,132 +2,195 @@ from .fhirbase import fhirbase
 
 
 class ValueSet(fhirbase):
-    """A value set specifies a set of codes drawn from one or more code
+    """
+    A value set specifies a set of codes drawn from one or more code
     systems.
     """
 
     __name__ = 'ValueSet'
 
     def __init__(self, dict_values=None):
-        # this is a valueset resource
         self.resourceType = 'ValueSet'
-        # type = string
-        # possible values: ValueSet
+        """
+        This is a ValueSet resource
 
-        # an absolute uri that is used to identify this value set when it is
-        # referenced in a specification, model, design or an instance. this shall
-        # be a url, should be globally unique, and should be an address at which
-        # this value set is (or will be) published. the url should include the
-        # major version of the value set. for more information see [technical and
-        # business versions](resource.html#versions).
+        type: string
+        possible values: ValueSet
+        """
+
         self.url = None
-        # type = string
+        """
+        An absolute URI that is used to identify this value set when it is
+        referenced in a specification, model, design or an instance. This
+        SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at
+        which this value set is (or will be) published. The URL SHOULD include
+        the major version of the value set. For more information see
+        [Technical and Business Versions](resource.html#versions).
 
-        # the identifier that is used to identify this version of the value set
-        # when it is referenced in a specification, model, design or instance.
-        # this is an arbitrary value managed by the value set author and is not
-        # expected to be globally unique. for example, it might be a timestamp
-        # (e.g. yyyymmdd) if a managed version is not available. there is also no
-        # expectation that versions can be placed in a lexicographical sequence.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The identifier that is used to identify this version of the value set
+        when it is referenced in a specification, model, design or instance.
+        This is an arbitrary value managed by the value set author and is not
+        expected to be globally unique. For example, it might be a timestamp
+        (e.g. yyyymmdd) if a managed version is not available. There is also
+        no expectation that versions can be placed in a lexicographical
+        sequence.
 
-        # a natural language name identifying the value set. this name should be
-        # usable as an identifier for the module by machine processing
-        # applications such as code generation.
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        A natural language name identifying the value set. This name should be
+        usable as an identifier for the module by machine processing
+        applications such as code generation.
 
-        # a short, descriptive, user-friendly title for the value set.
+        type: string
+        """
+
         self.title = None
-        # type = string
+        """
+        A short, descriptive, user-friendly title for the value set.
 
-        # the status of this value set. enables tracking the life-cycle of the
-        # content.
+        type: string
+        """
+
         self.status = None
-        # type = string
-        # possible values: draft, active, retired, unknown
+        """
+        The status of this value set. Enables tracking the life-cycle of the
+        content.
 
-        # a boolean value to indicate that this value set is authored for testing
-        # purposes (or education/evaluation/marketing), and is not intended to be
-        # used for genuine usage.
+        type: string
+        possible values: draft, active, retired, unknown
+        """
+
         self.experimental = None
-        # type = boolean
+        """
+        A boolean value to indicate that this value set is authored for
+        testing purposes (or education/evaluation/marketing), and is not
+        intended to be used for genuine usage.
 
-        # the date  (and optionally time) when the value set was published. the
-        # date must change if and when the business version changes and it must
-        # change if the status code changes. in addition, it should change when
-        # the substantive content of the value set changes. (e.g. the 'content
-        # logical definition').
+        type: boolean
+        """
+
         self.date = None
-        # type = string
+        """
+        The date  (and optionally time) when the value set was published. The
+        date must change if and when the business version changes and it must
+        change if the status code changes. In addition, it should change when
+        the substantive content of the value set changes. (e.g. the 'content
+        logical definition').
 
-        # the name of the individual or organization that published the value set.
+        type: string
+        """
+
         self.publisher = None
-        # type = string
+        """
+        The name of the individual or organization that published the value
+        set.
 
-        # contact details to assist a user in finding and communicating with the
-        # publisher.
+        type: string
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        """
+        Contact details to assist a user in finding and communicating with the
+        publisher.
 
-        # a free text natural language description of the value set from a
-        # consumer's perspective.
+        type: array
+        reference to ContactDetail
+        """
+
         self.description = None
-        # type = string
+        """
+        A free text natural language description of the value set from a
+        consumer's perspective.
 
-        # the content was developed with a focus and intent of supporting the
-        # contexts that are listed. these terms may be used to assist with
-        # indexing and searching for appropriate value set instances.
+        type: string
+        """
+
         self.useContext = None
-        # type = array
-        # reference to UsageContext: UsageContext
+        """
+        The content was developed with a focus and intent of supporting the
+        contexts that are listed. These terms may be used to assist with
+        indexing and searching for appropriate value set instances.
 
-        # a legal or geographic region in which the value set is intended to be
-        # used.
+        type: array
+        reference to UsageContext
+        """
+
         self.jurisdiction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A legal or geographic region in which the value set is intended to be
+        used.
 
-        # if this is set to 'true', then no new versions of the content logical
-        # definition can be created.  note: other metadata might still change.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.immutable = None
-        # type = boolean
+        """
+        If this is set to 'true', then no new versions of the content logical
+        definition can be created.  Note: Other metadata might still change.
 
-        # explaination of why this value set is needed and why it has been
-        # designed as it has.
+        type: boolean
+        """
+
         self.purpose = None
-        # type = string
+        """
+        Explaination of why this value set is needed and why it has been
+        designed as it has.
 
-        # a copyright statement relating to the value set and/or its contents.
-        # copyright statements are generally legal restrictions on the use and
-        # publishing of the value set.
+        type: string
+        """
+
         self.copyright = None
-        # type = string
+        """
+        A copyright statement relating to the value set and/or its contents.
+        Copyright statements are generally legal restrictions on the use and
+        publishing of the value set.
 
-        # whether this is intended to be used with an extensible binding or not.
+        type: string
+        """
+
         self.extensible = None
-        # type = boolean
+        """
+        Whether this is intended to be used with an extensible binding or not.
 
-        # a set of criteria that define the content logical definition of the
-        # value set by including or excluding codes from outside this value set.
-        # this i also known as the "content logical definition" (cld).
+        type: boolean
+        """
+
         self.compose = None
-        # reference to ValueSet_Compose: ValueSet_Compose
+        """
+        A set of criteria that define the content logical definition of the
+        value set by including or excluding codes from outside this value set.
+        This I also known as the "Content Logical Definition" (CLD).
 
-        # a value set can also be "expanded", where the value set is turned into a
-        # simple collection of enumerated codes. this element holds the expansion,
-        # if it has been performed.
+        reference to ValueSet_Compose
+        """
+
         self.expansion = None
-        # reference to ValueSet_Expansion: identifier
+        """
+        A value set can also be "expanded", where the value set is turned into
+        a simple collection of enumerated codes. This element holds the
+        expansion, if it has been performed.
 
-        # a formal identifier that is used to identify this value set when it is
-        # represented in other formats, or referenced in a specification, model,
-        # design or an instance.
+        reference to ValueSet_Expansion: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        A formal identifier that is used to identify this value set when it is
+        represented in other formats, or referenced in a specification, model,
+        design or an instance.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -144,75 +207,89 @@ class ValueSet(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'ValueSet',
-             'child_variable': 'identifier'},
-
             {'parent_entity': 'ValueSet_Compose',
              'parent_variable': 'object_id',
              'child_entity': 'ValueSet',
              'child_variable': 'compose'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'ValueSet',
-             'child_variable': 'jurisdiction'},
+             'child_variable': 'identifier'},
 
-            {'parent_entity': 'UsageContext',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'ValueSet_Expansion',
+             'parent_variable': 'identifier',
              'child_entity': 'ValueSet',
-             'child_variable': 'useContext'},
+             'child_variable': 'expansion'},
 
             {'parent_entity': 'ContactDetail',
              'parent_variable': 'object_id',
              'child_entity': 'ValueSet',
              'child_variable': 'contact'},
 
-            {'parent_entity': 'ValueSet_Expansion',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
              'child_entity': 'ValueSet',
-             'child_variable': 'expansion'},
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet',
+             'child_variable': 'jurisdiction'},
         ]
 
 
 class ValueSet_Compose(fhirbase):
-    """A value set specifies a set of codes drawn from one or more code
+    """
+    A value set specifies a set of codes drawn from one or more code
     systems.
     """
 
     __name__ = 'ValueSet_Compose'
 
     def __init__(self, dict_values=None):
-        # if a locked date is defined, then the content logical definition must be
-        # evaluated using the current version as of the locked date for referenced
-        # code system(s) and value set instances where
-        # valueset.compose.include.version is not defined.
         self.lockedDate = None
-        # type = string
+        """
+        If a locked date is defined, then the Content Logical Definition must
+        be evaluated using the current version as of the locked date for
+        referenced code system(s) and value set instances where
+        ValueSet.compose.include.version is not defined.
 
-        # whether inactive codes - codes that are not approved for current use -
-        # are in the value set. if inactive = true, inactive codes are to be
-        # included in the expansion, if inactive = false, the inactive codes will
-        # not be included in the expansion. if absent, the behavior is determined
-        # by the implementation, or by the applicable expansionprofile (but
-        # generally, inactive codes would be expected to be included).
+        type: string
+        """
+
         self.inactive = None
-        # type = boolean
+        """
+        Whether inactive codes - codes that are not approved for current use -
+        are in the value set. If inactive = true, inactive codes are to be
+        included in the expansion, if inactive = false, the inactive codes
+        will not be included in the expansion. If absent, the behavior is
+        determined by the implementation, or by the applicable
+        ExpansionProfile (but generally, inactive codes would be expected to
+        be included).
 
-        # include one or more codes from a code system or other value set(s).
+        type: boolean
+        """
+
         self.include = None
-        # type = array
-        # reference to ValueSet_Include: ValueSet_Include
+        """
+        Include one or more codes from a code system or other value set(s).
 
-        # exclude one or more codes from the value set based on code system
-        # filters and/or other value sets.
+        type: array
+        reference to ValueSet_Include
+        """
+
         self.exclude = None
-        # type = array
-        # reference to ValueSet_Include: ValueSet_Include
+        """
+        Exclude one or more codes from the value set based on code system
+        filters and/or other value sets.
 
-        # unique identifier for object class
+        type: array
+        reference to ValueSet_Include
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -233,41 +310,57 @@ class ValueSet_Compose(fhirbase):
 
 
 class ValueSet_Include(fhirbase):
-    """A value set specifies a set of codes drawn from one or more code
+    """
+    A value set specifies a set of codes drawn from one or more code
     systems.
     """
 
     __name__ = 'ValueSet_Include'
 
     def __init__(self, dict_values=None):
-        # an absolute uri which is the code system from which the selected codes
-        # come from.
         self.system = None
-        # type = string
+        """
+        An absolute URI which is the code system from which the selected codes
+        come from.
 
-        # the version of the code system that the codes are selected from.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The version of the code system that the codes are selected from.
 
-        # specifies a concept to be included or excluded.
+        type: string
+        """
+
         self.concept = None
-        # type = array
-        # reference to ValueSet_Concept: ValueSet_Concept
+        """
+        Specifies a concept to be included or excluded.
 
-        # select concepts by specify a matching criteria based on the properties
-        # (including relationships) defined by the system. if multiple filters are
-        # specified, they shall all be true.
+        type: array
+        reference to ValueSet_Concept
+        """
+
         self.filter = None
-        # type = array
-        # reference to ValueSet_Filter: ValueSet_Filter
+        """
+        Select concepts by specify a matching criteria based on the properties
+        (including relationships) defined by the system. If multiple filters
+        are specified, they SHALL all be true.
 
-        # selects concepts found in this value set. this is an absolute uri that
-        # is a reference to valueset.url.
+        type: array
+        reference to ValueSet_Filter
+        """
+
         self.valueSet = None
-        # type = array
+        """
+        Selects concepts found in this value set. This is an absolute URI that
+        is a reference to ValueSet.url.
 
-        # unique identifier for object class
+        type: array
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -288,32 +381,42 @@ class ValueSet_Include(fhirbase):
 
 
 class ValueSet_Concept(fhirbase):
-    """A value set specifies a set of codes drawn from one or more code
+    """
+    A value set specifies a set of codes drawn from one or more code
     systems.
     """
 
     __name__ = 'ValueSet_Concept'
 
     def __init__(self, dict_values=None):
-        # specifies a code for the concept to be included or excluded.
         self.code = None
-        # type = string
+        """
+        Specifies a code for the concept to be included or excluded.
 
-        # the text to display to the user for this concept in the context of this
-        # valueset. if no display is provided, then applications using the value
-        # set use the display specified for the code by the system.
+        type: string
+        """
+
         self.display = None
-        # type = string
+        """
+        The text to display to the user for this concept in the context of
+        this valueset. If no display is provided, then applications using the
+        value set use the display specified for the code by the system.
 
-        # additional representations for this concept when used in this value set
-        # - other languages, aliases, specialized purposes, used for particular
-        # purposes, etc.
+        type: string
+        """
+
         self.designation = None
-        # type = array
-        # reference to ValueSet_Designation: ValueSet_Designation
+        """
+        Additional representations for this concept when used in this value
+        set - other languages, aliases, specialized purposes, used for
+        particular purposes, etc.
 
-        # unique identifier for object class
+        type: array
+        reference to ValueSet_Designation
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -329,27 +432,37 @@ class ValueSet_Concept(fhirbase):
 
 
 class ValueSet_Designation(fhirbase):
-    """A value set specifies a set of codes drawn from one or more code
+    """
+    A value set specifies a set of codes drawn from one or more code
     systems.
     """
 
     __name__ = 'ValueSet_Designation'
 
     def __init__(self, dict_values=None):
-        # the language this designation is defined for.
         self.language = None
-        # type = string
+        """
+        The language this designation is defined for.
 
-        # a code that details how this designation would be used.
+        type: string
+        """
+
         self.use = None
-        # reference to Coding: Coding
+        """
+        A code that details how this designation would be used.
 
-        # the text value for this designation.
+        reference to Coding
+        """
+
         self.value = None
-        # type = string
+        """
+        The text value for this designation.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -365,32 +478,42 @@ class ValueSet_Designation(fhirbase):
 
 
 class ValueSet_Filter(fhirbase):
-    """A value set specifies a set of codes drawn from one or more code
+    """
+    A value set specifies a set of codes drawn from one or more code
     systems.
     """
 
     __name__ = 'ValueSet_Filter'
 
     def __init__(self, dict_values=None):
-        # a code that identifies a property defined in the code system.
         self.property = None
-        # type = string
+        """
+        A code that identifies a property defined in the code system.
 
-        # the kind of operation to perform as a part of the filter criteria.
+        type: string
+        """
+
         self.op = None
-        # type = string
-        # possible values: =, is-a, descendent-of, is-not-a, regex, in,
-        # not-in, generalizes, exists
+        """
+        The kind of operation to perform as a part of the filter criteria.
 
-        # the match value may be either a code defined by the system, or a string
-        # value, which is a regex match on the literal string of the property
-        # value when the operation is 'regex', or one of the values (true and
-        # false), when the operation is 'exists'.
+        type: string
+        possible values: =, is-a, descendent-of, is-not-a, regex, in,
+        not-in, generalizes, exists
+        """
+
         self.value = None
-        # type = string
+        """
+        The match value may be either a code defined by the system, or a
+        string value, which is a regex match on the literal string of the
+        property value when the operation is 'regex', or one of the values
+        (true and false), when the operation is 'exists'.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -403,51 +526,71 @@ class ValueSet_Filter(fhirbase):
                     '=', 'is-a', 'descendent-of', 'is-not-a', 'regex', 'in', 'not-in',
                         'generalizes', 'exists']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, '=, is-a, descendent-of, is-not-a, regex, in, not-in,'
-                        'generalizes, exists'))
+                        value, '=, is-a, descendent-of, is-not-a, regex, in, not-in, generalizes,'
+                        'exists'))
 
 
 class ValueSet_Expansion(fhirbase):
-    """A value set specifies a set of codes drawn from one or more code
+    """
+    A value set specifies a set of codes drawn from one or more code
     systems.
     """
 
     __name__ = 'ValueSet_Expansion'
 
     def __init__(self, dict_values=None):
-        # the time at which the expansion was produced by the expanding system.
         self.timestamp = None
-        # type = string
+        """
+        The time at which the expansion was produced by the expanding system.
 
-        # the total number of concepts in the expansion. if the number of concept
-        # nodes in this resource is less than the stated number, then the server
-        # can return more using the offset parameter.
+        type: string
+        """
+
         self.total = None
-        # type = int
+        """
+        The total number of concepts in the expansion. If the number of
+        concept nodes in this resource is less than the stated number, then
+        the server can return more using the offset parameter.
 
-        # if paging is being used, the offset at which this resource starts.  i.e.
-        # this resource is a partial view into the expansion. if paging is not
-        # being used, this element shall not be present.
+        type: int
+        """
+
         self.offset = None
-        # type = int
+        """
+        If paging is being used, the offset at which this resource starts.
+        I.e. this resource is a partial view into the expansion. If paging is
+        not being used, this element SHALL not be present.
 
-        # a parameter that controlled the expansion process. these parameters may
-        # be used by users of expanded value sets to check whether the expansion
-        # is suitable for a particular purpose, or to pick the correct expansion.
+        type: int
+        """
+
         self.parameter = None
-        # type = array
-        # reference to ValueSet_Parameter: ValueSet_Parameter
+        """
+        A parameter that controlled the expansion process. These parameters
+        may be used by users of expanded value sets to check whether the
+        expansion is suitable for a particular purpose, or to pick the correct
+        expansion.
 
-        # the codes that are contained in the value set expansion.
+        type: array
+        reference to ValueSet_Parameter
+        """
+
         self.contains = None
-        # type = array
-        # reference to ValueSet_Contains: ValueSet_Contains
+        """
+        The codes that are contained in the value set expansion.
 
-        # an identifier that uniquely identifies this expansion of the valueset.
-        # systems may re-use the same identifier as long as the expansion and the
-        # definition remain the same, but are not required to do so.
+        type: array
+        reference to ValueSet_Contains
+        """
+
         self.identifier = None
-        # type = string
+        """
+        An identifier that uniquely identifies this expansion of the valueset.
+        Systems may re-use the same identifier as long as the expansion and
+        the definition remain the same, but are not required to do so.
+
+        type: string
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -455,117 +598,164 @@ class ValueSet_Expansion(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ValueSet_Contains',
-             'parent_variable': 'object_id',
-             'child_entity': 'ValueSet_Expansion',
-             'child_variable': 'contains'},
-
             {'parent_entity': 'ValueSet_Parameter',
              'parent_variable': 'object_id',
              'child_entity': 'ValueSet_Expansion',
              'child_variable': 'parameter'},
+
+            {'parent_entity': 'ValueSet_Contains',
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Expansion',
+             'child_variable': 'contains'},
         ]
 
 
 class ValueSet_Parameter(fhirbase):
-    """A value set specifies a set of codes drawn from one or more code
+    """
+    A value set specifies a set of codes drawn from one or more code
     systems.
     """
 
     __name__ = 'ValueSet_Parameter'
 
     def __init__(self, dict_values=None):
-        # the name of the parameter.
         self.name = None
-        # type = string
+        """
+        The name of the parameter.
 
-        # the value of the parameter.
+        type: string
+        """
+
         self.valueString = None
-        # type = string
+        """
+        The value of the parameter.
 
-        # the value of the parameter.
+        type: string
+        """
+
         self.valueBoolean = None
-        # type = boolean
+        """
+        The value of the parameter.
 
-        # the value of the parameter.
+        type: boolean
+        """
+
         self.valueInteger = None
-        # type = int
+        """
+        The value of the parameter.
 
-        # the value of the parameter.
+        type: int
+        """
+
         self.valueDecimal = None
-        # type = int
+        """
+        The value of the parameter.
 
-        # the value of the parameter.
+        type: int
+        """
+
         self.valueUri = None
-        # type = string
+        """
+        The value of the parameter.
 
-        # the value of the parameter.
+        type: string
+        """
+
         self.valueCode = None
-        # type = string
+        """
+        The value of the parameter.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class ValueSet_Contains(fhirbase):
-    """A value set specifies a set of codes drawn from one or more code
+    """
+    A value set specifies a set of codes drawn from one or more code
     systems.
     """
 
     __name__ = 'ValueSet_Contains'
 
     def __init__(self, dict_values=None):
-        # an absolute uri which is the code system in which the code for this item
-        # in the expansion is defined.
         self.system = None
-        # type = string
+        """
+        An absolute URI which is the code system in which the code for this
+        item in the expansion is defined.
 
-        # if true, this entry is included in the expansion for navigational
-        # purposes, and the user cannot select the code directly as a proper
-        # value.
+        type: string
+        """
+
         self.abstract = None
-        # type = boolean
+        """
+        If true, this entry is included in the expansion for navigational
+        purposes, and the user cannot select the code directly as a proper
+        value.
 
-        # if the concept is inactive in the code system that defines it. inactive
-        # codes are those that are no longer to be used, but are maintained by the
-        # code system for understanding legacy data.
+        type: boolean
+        """
+
         self.inactive = None
-        # type = boolean
+        """
+        If the concept is inactive in the code system that defines it.
+        Inactive codes are those that are no longer to be used, but are
+        maintained by the code system for understanding legacy data.
 
-        # the version of this code system that defined this code and/or display.
-        # this should only be used with code systems that do not enforce concept
-        # permanence.
+        type: boolean
+        """
+
         self.version = None
-        # type = string
+        """
+        The version of this code system that defined this code and/or display.
+        This should only be used with code systems that do not enforce concept
+        permanence.
 
-        # the code for this item in the expansion hierarchy. if this code is
-        # missing the entry in the hierarchy is a place holder (abstract) and does
-        # not represent a valid code in the value set.
+        type: string
+        """
+
         self.code = None
-        # type = string
+        """
+        The code for this item in the expansion hierarchy. If this code is
+        missing the entry in the hierarchy is a place holder (abstract) and
+        does not represent a valid code in the value set.
 
-        # the recommended display for this item in the expansion.
+        type: string
+        """
+
         self.display = None
-        # type = string
+        """
+        The recommended display for this item in the expansion.
 
-        # additional representations for this item - other languages, aliases,
-        # specialized purposes, used for particular purposes, etc. these are
-        # relevant when the conditions of the expansion do not fix to a single
-        # correct representation.
+        type: string
+        """
+
         self.designation = None
-        # type = array
-        # reference to ValueSet_Designation: ValueSet_Designation
+        """
+        Additional representations for this item - other languages, aliases,
+        specialized purposes, used for particular purposes, etc. These are
+        relevant when the conditions of the expansion do not fix to a single
+        correct representation.
 
-        # other codes and entries contained under this entry in the hierarchy.
+        type: array
+        reference to ValueSet_Designation
+        """
+
         self.contains = None
-        # type = array
-        # reference to ValueSet_Contains: ValueSet_Contains
+        """
+        Other codes and entries contained under this entry in the hierarchy.
 
-        # unique identifier for object class
+        type: array
+        reference to ValueSet_Contains
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -573,13 +763,13 @@ class ValueSet_Contains(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ValueSet_Designation',
-             'parent_variable': 'object_id',
-             'child_entity': 'ValueSet_Contains',
-             'child_variable': 'designation'},
-
             {'parent_entity': 'ValueSet_Contains',
              'parent_variable': 'object_id',
              'child_entity': 'ValueSet_Contains',
              'child_variable': 'contains'},
+
+            {'parent_entity': 'ValueSet_Designation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ValueSet_Contains',
+             'child_variable': 'designation'},
         ]

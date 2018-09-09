@@ -2,73 +2,106 @@ from .fhirbase import fhirbase
 
 
 class DeviceComponent(fhirbase):
-    """The characteristics, operational status and capabilities of a medical-
-    related component of a medical device.
+    """
+    The characteristics, operational status and capabilities of a
+    medical-related component of a medical device.
     """
 
     __name__ = 'DeviceComponent'
 
     def __init__(self, dict_values=None):
-        # this is a devicecomponent resource
         self.resourceType = 'DeviceComponent'
-        # type = string
-        # possible values: DeviceComponent
+        """
+        This is a DeviceComponent resource
 
-        # the component type as defined in the object-oriented or metric
-        # nomenclature partition.
+        type: string
+        possible values: DeviceComponent
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The component type as defined in the object-oriented or metric
+        nomenclature partition.
 
-        # the timestamp for the most recent system change which includes device
-        # configuration or setting change.
+        reference to CodeableConcept
+        """
+
         self.lastSystemChange = None
-        # type = string
+        """
+        The timestamp for the most recent system change which includes device
+        configuration or setting change.
 
-        # the link to the source device that contains administrative device
-        # information such as manufacture, serial number, etc.
+        type: string
+        """
+
         self.source = None
-        # reference to Reference: identifier
+        """
+        The link to the source Device that contains administrative device
+        information such as manufacture, serial number, etc.
 
-        # the link to the parent resource. for example: channel is linked to its
-        # vmd parent.
+        reference to Reference: identifier
+        """
+
         self.parent = None
-        # reference to Reference: identifier
+        """
+        The link to the parent resource. For example: Channel is linked to its
+        VMD parent.
 
-        # the current operational status of the device. for example: on, off,
-        # standby, etc.
+        reference to Reference: identifier
+        """
+
         self.operationalStatus = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The current operational status of the device. For example: On, Off,
+        Standby, etc.
 
-        # the parameter group supported by the current device component that is
-        # based on some nomenclature, e.g. cardiovascular.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.parameterGroup = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The parameter group supported by the current device component that is
+        based on some nomenclature, e.g. cardiovascular.
 
-        # the physical principle of the measurement. for example: thermal,
-        # chemical, acoustical, etc.
+        reference to CodeableConcept
+        """
+
         self.measurementPrinciple = None
-        # type = string
-        # possible values: other, chemical, electrical, impedance,
-        # nuclear, optical, thermal, biological, mechanical, acoustical, manual
+        """
+        The physical principle of the measurement. For example: thermal,
+        chemical, acoustical, etc.
 
-        # the production specification such as component revision, serial number,
-        # etc.
+        type: string
+        possible values: other, chemical, electrical, impedance,
+        nuclear, optical, thermal, biological, mechanical, acoustical, manual
+        """
+
         self.productionSpecification = None
-        # type = array
-        # reference to DeviceComponent_ProductionSpecification:
-        # DeviceComponent_ProductionSpecification
+        """
+        The production specification such as component revision, serial
+        number, etc.
 
-        # the language code for the human-readable text string produced by the
-        # device. this language code will follow the ietf language tag. example:
-        # en-us.
+        type: array
+        reference to DeviceComponent_ProductionSpecification
+        """
+
         self.languageCode = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The language code for the human-readable text string produced by the
+        device. This language code will follow the IETF language tag. Example:
+        en-US.
 
-        # the locally assigned unique identification by the software. for example:
-        # handle id.
+        reference to CodeableConcept
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        The locally assigned unique identification by the software. For
+        example: handle ID.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -87,26 +120,6 @@ class DeviceComponent(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'DeviceComponent',
-             'child_variable': 'operationalStatus'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'DeviceComponent',
-             'child_variable': 'parameterGroup'},
-
-            {'parent_entity': 'DeviceComponent_ProductionSpecification',
-             'parent_variable': 'object_id',
-             'child_entity': 'DeviceComponent',
-             'child_variable': 'productionSpecification'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DeviceComponent',
-             'child_variable': 'parent'},
-
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'DeviceComponent',
@@ -120,41 +133,71 @@ class DeviceComponent(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'DeviceComponent',
-             'child_variable': 'languageCode'},
+             'child_variable': 'operationalStatus'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DeviceComponent',
              'child_variable': 'source'},
+
+            {'parent_entity': 'DeviceComponent_ProductionSpecification',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'productionSpecification'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'parameterGroup'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'parent'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceComponent',
+             'child_variable': 'languageCode'},
         ]
 
 
 class DeviceComponent_ProductionSpecification(fhirbase):
-    """The characteristics, operational status and capabilities of a medical-
-    related component of a medical device.
+    """
+    The characteristics, operational status and capabilities of a
+    medical-related component of a medical device.
     """
 
     __name__ = 'DeviceComponent_ProductionSpecification'
 
     def __init__(self, dict_values=None):
-        # the specification type, such as, serial number, part number, hardware
-        # revision, software revision, etc.
         self.specType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The specification type, such as, serial number, part number, hardware
+        revision, software revision, etc.
 
-        # the internal component unique identification. this is a provision for
-        # manufacture specific standard components using a private oid.
-        # 11073-10101 has a partition for private oid semantic that the
-        # manufacturer can make use of.
+        reference to CodeableConcept
+        """
+
         self.componentId = None
-        # reference to Identifier: Identifier
+        """
+        The internal component unique identification. This is a provision for
+        manufacture specific standard components using a private OID.
+        11073-10101 has a partition for private OID semantic that the
+        manufacturer can make use of.
 
-        # the printable string defining the component.
+        reference to Identifier
+        """
+
         self.productionSpec = None
-        # type = string
+        """
+        The printable string defining the component.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

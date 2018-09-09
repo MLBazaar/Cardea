@@ -2,108 +2,170 @@ from .fhirbase import fhirbase
 
 
 class Patient(fhirbase):
-    """Demographics and other administrative information about an individual or
-    animal receiving care or other health-related services.
+    """
+    Demographics and other administrative information about an individual
+    or animal receiving care or other health-related services.
     """
 
     __name__ = 'Patient'
 
     def __init__(self, dict_values=None):
-        # this is a patient resource
         self.resourceType = 'Patient'
-        # type = string
-        # possible values: Patient
+        """
+        This is a Patient resource
 
-        # whether this patient record is in active use.
+        type: string
+        possible values: Patient
+        """
+
         self.active = None
-        # type = boolean
+        """
+        Whether this patient record is in active use.
 
-        # a name associated with the individual.
+        type: boolean
+        """
+
         self.name = None
-        # type = array
-        # reference to HumanName: HumanName
+        """
+        A name associated with the individual.
 
-        # a contact detail (e.g. a telephone number or an email address) by which
-        # the individual may be contacted.
+        type: array
+        reference to HumanName
+        """
+
         self.telecom = None
-        # type = array
-        # reference to ContactPoint: ContactPoint
+        """
+        A contact detail (e.g. a telephone number or an email address) by
+        which the individual may be contacted.
 
-        # administrative gender - the gender that the patient is considered to
-        # have for administration and record keeping purposes.
+        type: array
+        reference to ContactPoint
+        """
+
         self.gender = None
-        # type = string
-        # possible values: male, female, other, unknown
+        """
+        Administrative Gender - the gender that the patient is considered to
+        have for administration and record keeping purposes.
 
-        # the date of birth for the individual.
+        type: string
+        possible values: male, female, other, unknown
+        """
+
         self.birthDate = None
-        # type = string
+        """
+        The date of birth for the individual.
 
-        # indicates if the individual is deceased or not.
+        type: string
+        """
+
         self.deceasedBoolean = None
-        # type = boolean
+        """
+        Indicates if the individual is deceased or not.
 
-        # indicates if the individual is deceased or not.
+        type: boolean
+        """
+
         self.deceasedDateTime = None
-        # type = string
+        """
+        Indicates if the individual is deceased or not.
 
-        # addresses for the individual.
+        type: string
+        """
+
         self.address = None
-        # type = array
-        # reference to Address: Address
+        """
+        Addresses for the individual.
 
-        # this field contains a patient's most recent marital (civil) status.
+        type: array
+        reference to Address
+        """
+
         self.maritalStatus = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        This field contains a patient's most recent marital (civil) status.
 
-        # indicates whether the patient is part of a multiple (bool) or indicates
-        # the actual birth order (integer).
+        reference to CodeableConcept
+        """
+
         self.multipleBirthBoolean = None
-        # type = boolean
+        """
+        Indicates whether the patient is part of a multiple (bool) or
+        indicates the actual birth order (integer).
 
-        # indicates whether the patient is part of a multiple (bool) or indicates
-        # the actual birth order (integer).
+        type: boolean
+        """
+
         self.multipleBirthInteger = None
-        # type = int
+        """
+        Indicates whether the patient is part of a multiple (bool) or
+        indicates the actual birth order (integer).
 
-        # image of the patient.
+        type: int
+        """
+
         self.photo = None
-        # type = array
-        # reference to Attachment: Attachment
+        """
+        Image of the patient.
 
-        # a contact party (e.g. guardian, partner, friend) for the patient.
+        type: array
+        reference to Attachment
+        """
+
         self.contact = None
-        # type = array
-        # reference to Patient_Contact: Patient_Contact
+        """
+        A contact party (e.g. guardian, partner, friend) for the patient.
 
-        # this patient is known to be an animal.
+        type: array
+        reference to Patient_Contact
+        """
+
         self.animal = None
-        # reference to Patient_Animal: Patient_Animal
+        """
+        This patient is known to be an animal.
 
-        # languages which may be used to communicate with the patient about his or
-        # her health.
+        reference to Patient_Animal
+        """
+
         self.communication = None
-        # type = array
-        # reference to Patient_Communication: Patient_Communication
+        """
+        Languages which may be used to communicate with the patient about his
+        or her health.
 
-        # patient's nominated care provider.
+        type: array
+        reference to Patient_Communication
+        """
+
         self.generalPractitioner = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Patient's nominated care provider.
 
-        # organization that is the custodian of the patient record.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.managingOrganization = None
-        # reference to Reference: identifier
+        """
+        Organization that is the custodian of the patient record.
 
-        # link to another patient resource that concerns the same actual patient.
+        reference to Reference: identifier
+        """
+
         self.link = None
-        # type = array
-        # reference to Patient_Link: Patient_Link
+        """
+        Link to another patient resource that concerns the same actual
+        patient.
 
-        # an identifier for this patient.
+        type: array
+        reference to Patient_Link
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        An identifier for this patient.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -120,10 +182,10 @@ class Patient(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Patient_Link',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Patient',
-             'child_variable': 'link'},
+             'child_variable': 'maritalStatus'},
 
             {'parent_entity': 'Patient_Animal',
              'parent_variable': 'object_id',
@@ -133,42 +195,12 @@ class Patient(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Patient',
-             'child_variable': 'generalPractitioner'},
-
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
-             'child_entity': 'Patient',
-             'child_variable': 'photo'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Patient',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Patient',
-             'child_variable': 'maritalStatus'},
-
-            {'parent_entity': 'Patient_Communication',
-             'parent_variable': 'object_id',
-             'child_entity': 'Patient',
-             'child_variable': 'communication'},
+             'child_variable': 'managingOrganization'},
 
             {'parent_entity': 'Patient_Contact',
              'parent_variable': 'object_id',
              'child_entity': 'Patient',
              'child_variable': 'contact'},
-
-            {'parent_entity': 'ContactPoint',
-             'parent_variable': 'object_id',
-             'child_entity': 'Patient',
-             'child_variable': 'telecom'},
-
-            {'parent_entity': 'Address',
-             'parent_variable': 'object_id',
-             'child_entity': 'Patient',
-             'child_variable': 'address'},
 
             {'parent_entity': 'HumanName',
              'parent_variable': 'object_id',
@@ -178,56 +210,108 @@ class Patient(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Patient',
-             'child_variable': 'managingOrganization'},
+             'child_variable': 'generalPractitioner'},
+
+            {'parent_entity': 'Patient_Link',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'link'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'telecom'},
+
+            {'parent_entity': 'Patient_Communication',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'communication'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'address'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient',
+             'child_variable': 'photo'},
         ]
 
 
 class Patient_Contact(fhirbase):
-    """Demographics and other administrative information about an individual or
-    animal receiving care or other health-related services.
+    """
+    Demographics and other administrative information about an individual
+    or animal receiving care or other health-related services.
     """
 
     __name__ = 'Patient_Contact'
 
     def __init__(self, dict_values=None):
-        # the nature of the relationship between the patient and the contact
-        # person.
         self.relationship = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The nature of the relationship between the patient and the contact
+        person.
 
-        # a name associated with the contact person.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.name = None
-        # reference to HumanName: HumanName
+        """
+        A name associated with the contact person.
 
-        # a contact detail for the person, e.g. a telephone number or an email
-        # address.
+        reference to HumanName
+        """
+
         self.telecom = None
-        # type = array
-        # reference to ContactPoint: ContactPoint
+        """
+        A contact detail for the person, e.g. a telephone number or an email
+        address.
 
-        # address for the contact person.
+        type: array
+        reference to ContactPoint
+        """
+
         self.address = None
-        # reference to Address: Address
+        """
+        Address for the contact person.
 
-        # administrative gender - the gender that the contact person is considered
-        # to have for administration and record keeping purposes.
+        reference to Address
+        """
+
         self.gender = None
-        # type = string
-        # possible values: male, female, other, unknown
+        """
+        Administrative Gender - the gender that the contact person is
+        considered to have for administration and record keeping purposes.
 
-        # organization on behalf of which the contact is acting or for which the
-        # contact is working.
+        type: string
+        possible values: male, female, other, unknown
+        """
+
         self.organization = None
-        # reference to Reference: identifier
+        """
+        Organization on behalf of which the contact is acting or for which the
+        contact is working.
 
-        # the period during which this contact person or organization is valid to
-        # be contacted relating to this patient.
+        reference to Reference: identifier
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The period during which this contact person or organization is valid
+        to be contacted relating to this patient.
 
-        # unique identifier for object class
+        reference to Period
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -244,61 +328,71 @@ class Patient_Contact(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'Patient_Contact',
-             'child_variable': 'relationship'},
-
-            {'parent_entity': 'ContactPoint',
-             'parent_variable': 'object_id',
-             'child_entity': 'Patient_Contact',
-             'child_variable': 'telecom'},
+             'child_variable': 'organization'},
 
             {'parent_entity': 'Address',
              'parent_variable': 'object_id',
              'child_entity': 'Patient_Contact',
              'child_variable': 'address'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
              'child_entity': 'Patient_Contact',
-             'child_variable': 'organization'},
+             'child_variable': 'telecom'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient_Contact',
+             'child_variable': 'name'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Patient_Contact',
              'child_variable': 'period'},
 
-            {'parent_entity': 'HumanName',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Patient_Contact',
-             'child_variable': 'name'},
+             'child_variable': 'relationship'},
         ]
 
 
 class Patient_Animal(fhirbase):
-    """Demographics and other administrative information about an individual or
-    animal receiving care or other health-related services.
+    """
+    Demographics and other administrative information about an individual
+    or animal receiving care or other health-related services.
     """
 
     __name__ = 'Patient_Animal'
 
     def __init__(self, dict_values=None):
-        # identifies the high level taxonomic categorization of the kind of
-        # animal.
         self.species = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Identifies the high level taxonomic categorization of the kind of
+        animal.
 
-        # identifies the detailed categorization of the kind of animal.
+        reference to CodeableConcept
+        """
+
         self.breed = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Identifies the detailed categorization of the kind of animal.
 
-        # indicates the current state of the animal's reproductive organs.
+        reference to CodeableConcept
+        """
+
         self.genderStatus = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates the current state of the animal's reproductive organs.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -309,42 +403,49 @@ class Patient_Animal(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Patient_Animal',
+             'child_variable': 'genderStatus'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Patient_Animal',
              'child_variable': 'species'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Patient_Animal',
              'child_variable': 'breed'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Patient_Animal',
-             'child_variable': 'genderStatus'},
         ]
 
 
 class Patient_Communication(fhirbase):
-    """Demographics and other administrative information about an individual or
-    animal receiving care or other health-related services.
+    """
+    Demographics and other administrative information about an individual
+    or animal receiving care or other health-related services.
     """
 
     __name__ = 'Patient_Communication'
 
     def __init__(self, dict_values=None):
-        # the iso-639-1 alpha 2 code in lower case for the language, optionally
-        # followed by a hyphen and the iso-3166-1 alpha 2 code for the region in
-        # upper case; e.g. "en" for english, or "en-us" for american english
-        # versus "en-en" for england english.
         self.language = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The ISO-639-1 alpha 2 code in lower case for the language, optionally
+        followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in
+        upper case; e.g. "en" for English, or "en-US" for American English
+        versus "en-EN" for England English.
 
-        # indicates whether or not the patient prefers this language (over other
-        # languages he masters up a certain level).
+        reference to CodeableConcept
+        """
+
         self.preferred = None
-        # type = boolean
+        """
+        Indicates whether or not the patient prefers this language (over other
+        languages he masters up a certain level).
 
-        # unique identifier for object class
+        type: boolean
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -360,25 +461,32 @@ class Patient_Communication(fhirbase):
 
 
 class Patient_Link(fhirbase):
-    """Demographics and other administrative information about an individual or
-    animal receiving care or other health-related services.
+    """
+    Demographics and other administrative information about an individual
+    or animal receiving care or other health-related services.
     """
 
     __name__ = 'Patient_Link'
 
     def __init__(self, dict_values=None):
-        # the other patient resource that the link refers to.
         self.other = None
-        # reference to Reference: identifier
+        """
+        The other patient resource that the link refers to.
 
-        # the type of link between this patient resource and another patient
-        # resource.
+        reference to Reference: identifier
+        """
+
         self.type = None
-        # type = string
-        # possible values: replaced-by, replaces, refer, seealso
+        """
+        The type of link between this patient resource and another patient
+        resource.
 
-        # unique identifier for object class
+        type: string
+        possible values: replaced-by, replaces, refer, seealso
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

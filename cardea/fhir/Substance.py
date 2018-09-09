@@ -2,52 +2,77 @@ from .fhirbase import fhirbase
 
 
 class Substance(fhirbase):
-    """A homogeneous material with a definite composition.
+    """
+    A homogeneous material with a definite composition.
     """
 
     __name__ = 'Substance'
 
     def __init__(self, dict_values=None):
-        # this is a substance resource
         self.resourceType = 'Substance'
-        # type = string
-        # possible values: Substance
+        """
+        This is a Substance resource
 
-        # a code to indicate if the substance is actively used.
+        type: string
+        possible values: Substance
+        """
+
         self.status = None
-        # type = string
-        # possible values: active, inactive, entered-in-error
+        """
+        A code to indicate if the substance is actively used.
 
-        # a code that classifies the general type of substance.  this is used  for
-        # searching, sorting and display purposes.
+        type: string
+        possible values: active, inactive, entered-in-error
+        """
+
         self.category = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code that classifies the general type of substance.  This is used
+        for searching, sorting and display purposes.
 
-        # a code (or set of codes) that identify this substance.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code (or set of codes) that identify this substance.
 
-        # a description of the substance - its appearance, handling requirements,
-        # and other usage notes.
+        reference to CodeableConcept
+        """
+
         self.description = None
-        # type = string
+        """
+        A description of the substance - its appearance, handling
+        requirements, and other usage notes.
 
-        # substance may be used to describe a kind of substance, or a specific
-        # package/container of the substance: an instance.
+        type: string
+        """
+
         self.instance = None
-        # type = array
-        # reference to Substance_Instance: identifier
+        """
+        Substance may be used to describe a kind of substance, or a specific
+        package/container of the substance: an instance.
 
-        # a substance can be composed of other substances.
+        type: array
+        reference to Substance_Instance: identifier
+        """
+
         self.ingredient = None
-        # type = array
-        # reference to Substance_Ingredient: Substance_Ingredient
+        """
+        A substance can be composed of other substances.
 
-        # unique identifier for the substance.
+        type: array
+        reference to Substance_Ingredient
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Unique identifier for the substance.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -67,22 +92,22 @@ class Substance(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Substance',
-             'child_variable': 'category'},
+             'child_variable': 'code'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Substance',
              'child_variable': 'identifier'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Substance',
-             'child_variable': 'code'},
-
             {'parent_entity': 'Substance_Ingredient',
              'parent_variable': 'object_id',
              'child_entity': 'Substance',
              'child_variable': 'ingredient'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Substance',
+             'child_variable': 'category'},
 
             {'parent_entity': 'Substance_Instance',
              'parent_variable': 'identifier',
@@ -92,25 +117,35 @@ class Substance(fhirbase):
 
 
 class Substance_Instance(fhirbase):
-    """A homogeneous material with a definite composition.
+    """
+    A homogeneous material with a definite composition.
     """
 
     __name__ = 'Substance_Instance'
 
     def __init__(self, dict_values=None):
-        # when the substance is no longer valid to use. for some substances, a
-        # single arbitrary date is used for expiry.
         self.expiry = None
-        # type = string
+        """
+        When the substance is no longer valid to use. For some substances, a
+        single arbitrary date is used for expiry.
 
-        # the amount of the substance.
+        type: string
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The amount of the substance.
 
-        # identifier associated with the package/container (usually a label
-        # affixed directly).
+        reference to Quantity
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Identifier associated with the package/container (usually a label
+        affixed directly).
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -118,39 +153,49 @@ class Substance_Instance(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'Substance_Instance',
-             'child_variable': 'quantity'},
-
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Substance_Instance',
              'child_variable': 'identifier'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Substance_Instance',
+             'child_variable': 'quantity'},
         ]
 
 
 class Substance_Ingredient(fhirbase):
-    """A homogeneous material with a definite composition.
+    """
+    A homogeneous material with a definite composition.
     """
 
     __name__ = 'Substance_Ingredient'
 
     def __init__(self, dict_values=None):
-        # the amount of the ingredient in the substance - a concentration ratio.
         self.quantity = None
-        # reference to Ratio: Ratio
+        """
+        The amount of the ingredient in the substance - a concentration ratio.
 
-        # another substance that is a component of this substance.
+        reference to Ratio
+        """
+
         self.substanceCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Another substance that is a component of this substance.
 
-        # another substance that is a component of this substance.
+        reference to CodeableConcept
+        """
+
         self.substanceReference = None
-        # reference to Reference: identifier
+        """
+        Another substance that is a component of this substance.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -158,11 +203,6 @@ class Substance_Ingredient(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Substance_Ingredient',
-             'child_variable': 'substanceReference'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Substance_Ingredient',
@@ -172,4 +212,9 @@ class Substance_Ingredient(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Substance_Ingredient',
              'child_variable': 'quantity'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Substance_Ingredient',
+             'child_variable': 'substanceReference'},
         ]

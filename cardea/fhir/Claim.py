@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class Claim(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -10,168 +11,262 @@ class Claim(fhirbase):
     __name__ = 'Claim'
 
     def __init__(self, dict_values=None):
-        # this is a claim resource
         self.resourceType = 'Claim'
-        # type = string
-        # possible values: Claim
+        """
+        This is a Claim resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: Claim
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the resource instance.
 
-        # the category of claim, eg, oral, pharmacy, vision, insitutional,
-        # professional.
+        type: string
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The category of claim, eg, oral, pharmacy, vision, insitutional,
+        professional.
 
-        # a finer grained suite of claim subtype codes which may convey inpatient
-        # vs outpatient and/or a specialty service. in the us the billtype.
+        reference to CodeableConcept
+        """
+
         self.subType = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A finer grained suite of claim subtype codes which may convey
+        Inpatient vs Outpatient and/or a specialty service. In the US the
+        BillType.
 
-        # complete (bill or claim), proposed (pre-authorization), exploratory
-        # (pre-determination).
+        type: array
+        reference to CodeableConcept
+        """
+
         self.use = None
-        # type = string
-        # possible values: complete, proposed, exploratory, other
+        """
+        Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory
+        (Pre-determination).
 
-        # patient resource.
+        type: string
+        possible values: complete, proposed, exploratory, other
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        Patient Resource.
 
-        # the billable period for which charges are being submitted.
+        reference to Reference: identifier
+        """
+
         self.billablePeriod = None
-        # reference to Period: Period
+        """
+        The billable period for which charges are being submitted.
 
-        # the date when the enclosed suite of services were performed or
-        # completed.
+        reference to Period
+        """
+
         self.created = None
-        # type = string
+        """
+        The date when the enclosed suite of services were performed or
+        completed.
 
-        # person who created the invoice/claim/pre-determination or pre-
-        # authorization.
+        type: string
+        """
+
         self.enterer = None
-        # reference to Reference: identifier
+        """
+        Person who created the invoice/claim/pre-determination or
+        pre-authorization.
 
-        # the insurer who is target of the request.
+        reference to Reference: identifier
+        """
+
         self.insurer = None
-        # reference to Reference: identifier
+        """
+        The Insurer who is target of the request.
 
-        # the provider which is responsible for the bill, claim pre-determination,
-        # pre-authorization.
+        reference to Reference: identifier
+        """
+
         self.provider = None
-        # reference to Reference: identifier
+        """
+        The provider which is responsible for the bill, claim
+        pre-determination, pre-authorization.
 
-        # the organization which is responsible for the bill, claim pre-
-        # determination, pre-authorization.
+        reference to Reference: identifier
+        """
+
         self.organization = None
-        # reference to Reference: identifier
+        """
+        The organization which is responsible for the bill, claim
+        pre-determination, pre-authorization.
 
-        # immediate (stat), best effort (normal), deferred (defer).
+        reference to Reference: identifier
+        """
+
         self.priority = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Immediate (STAT), best effort (NORMAL), deferred (DEFER).
 
-        # in the case of a pre-determination/pre-authorization the provider may
-        # request that funds in the amount of the expected benefit be reserved
-        # ('patient' or 'provider') to pay for the benefits determined on the
-        # subsequent claim(s). 'none' explicitly indicates no funds reserving is
-        # requested.
+        reference to CodeableConcept
+        """
+
         self.fundsReserve = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        In the case of a Pre-Determination/Pre-Authorization the provider may
+        request that funds in the amount of the expected Benefit be reserved
+        ('Patient' or 'Provider') to pay for the Benefits determined on the
+        subsequent claim(s). 'None' explicitly indicates no funds reserving is
+        requested.
 
-        # other claims which are related to this claim such as prior claim
-        # versions or for related services.
+        reference to CodeableConcept
+        """
+
         self.related = None
-        # type = array
-        # reference to Claim_Related: Claim_Related
+        """
+        Other claims which are related to this claim such as prior claim
+        versions or for related services.
 
-        # prescription to support the dispensing of pharmacy or vision products.
+        type: array
+        reference to Claim_Related
+        """
+
         self.prescription = None
-        # reference to Reference: identifier
+        """
+        Prescription to support the dispensing of Pharmacy or Vision products.
 
-        # original prescription which has been superceded by this prescription to
-        # support the dispensing of pharmacy services, medications or products.
-        # for example, a physician may prescribe a medication which the pharmacy
-        # determines is contraindicated, or for which the patient has an
-        # intolerance, and therefor issues a new precription for an alternate
-        # medication which has the same theraputic intent. the prescription from
-        # the pharmacy becomes the 'prescription' and that from the physician
-        # becomes the 'original prescription'.
+        reference to Reference: identifier
+        """
+
         self.originalPrescription = None
-        # reference to Reference: identifier
+        """
+        Original prescription which has been superceded by this prescription
+        to support the dispensing of pharmacy services, medications or
+        products. For example, a physician may prescribe a medication which
+        the pharmacy determines is contraindicated, or for which the patient
+        has an intolerance, and therefor issues a new precription for an
+        alternate medication which has the same theraputic intent. The
+        prescription from the pharmacy becomes the 'prescription' and that
+        from the physician becomes the 'original prescription'.
 
-        # the party to be reimbursed for the services.
+        reference to Reference: identifier
+        """
+
         self.payee = None
-        # reference to Claim_Payee: Claim_Payee
+        """
+        The party to be reimbursed for the services.
 
-        # the referral resource which lists the date, practitioner, reason and
-        # other supporting information.
+        reference to Claim_Payee
+        """
+
         self.referral = None
-        # reference to Reference: identifier
+        """
+        The referral resource which lists the date, practitioner, reason and
+        other supporting information.
 
-        # facility where the services were provided.
+        reference to Reference: identifier
+        """
+
         self.facility = None
-        # reference to Reference: identifier
+        """
+        Facility where the services were provided.
 
-        # the members of the team who provided the overall service as well as
-        # their role and whether responsible and qualifications.
+        reference to Reference: identifier
+        """
+
         self.careTeam = None
-        # type = array
-        # reference to Claim_CareTeam: Claim_CareTeam
+        """
+        The members of the team who provided the overall service as well as
+        their role and whether responsible and qualifications.
 
-        # additional information codes regarding exceptions, special
-        # considerations, the condition, situation, prior or concurrent issues.
-        # often there are mutiple jurisdiction specific valuesets which are
-        # required.
+        type: array
+        reference to Claim_CareTeam
+        """
+
         self.information = None
-        # type = array
-        # reference to Claim_Information: Claim_Information
+        """
+        Additional information codes regarding exceptions, special
+        considerations, the condition, situation, prior or concurrent issues.
+        Often there are mutiple jurisdiction specific valuesets which are
+        required.
 
-        # list of patient diagnosis for which care is sought.
+        type: array
+        reference to Claim_Information
+        """
+
         self.diagnosis = None
-        # type = array
-        # reference to Claim_Diagnosis: Claim_Diagnosis
+        """
+        List of patient diagnosis for which care is sought.
 
-        # ordered list of patient procedures performed to support the
-        # adjudication.
+        type: array
+        reference to Claim_Diagnosis
+        """
+
         self.procedure = None
-        # type = array
-        # reference to Claim_Procedure: Claim_Procedure
+        """
+        Ordered list of patient procedures performed to support the
+        adjudication.
 
-        # financial instrument by which payment information for health care.
+        type: array
+        reference to Claim_Procedure
+        """
+
         self.insurance = None
-        # type = array
-        # reference to Claim_Insurance: Claim_Insurance
+        """
+        Financial instrument by which payment information for health care.
 
-        # an accident which resulted in the need for healthcare services.
+        type: array
+        reference to Claim_Insurance
+        """
+
         self.accident = None
-        # reference to Claim_Accident: Claim_Accident
+        """
+        An accident which resulted in the need for healthcare services.
 
-        # the start and optional end dates of when the patient was precluded from
-        # working due to the treatable condition(s).
+        reference to Claim_Accident
+        """
+
         self.employmentImpacted = None
-        # reference to Period: Period
+        """
+        The start and optional end dates of when the patient was precluded
+        from working due to the treatable condition(s).
 
-        # the start and optional end dates of when the patient was confined to a
-        # treatment center.
+        reference to Period
+        """
+
         self.hospitalization = None
-        # reference to Period: Period
+        """
+        The start and optional end dates of when the patient was confined to a
+        treatment center.
 
-        # first tier of goods and services.
+        reference to Period
+        """
+
         self.item = None
-        # type = array
-        # reference to Claim_Item: Claim_Item
+        """
+        First tier of goods and services.
 
-        # the total value of the claim.
+        type: array
+        reference to Claim_Item
+        """
+
         self.total = None
-        # reference to Money: Money
+        """
+        The total value of the claim.
 
-        # the business identifier for the instance: claim number, pre-
-        # determination or pre-authorization number.
+        reference to Money
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The business identifier for the instance: claim number,
+        pre-determination or pre-authorization number.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -188,66 +283,6 @@ class Claim(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'hospitalization'},
-
-            {'parent_entity': 'Claim_Related',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'related'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Claim',
-             'child_variable': 'referral'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Claim',
-             'child_variable': 'originalPrescription'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'billablePeriod'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Claim',
-             'child_variable': 'organization'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Claim',
-             'child_variable': 'prescription'},
-
-            {'parent_entity': 'Claim_Accident',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'accident'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'total'},
-
-            {'parent_entity': 'Claim_Insurance',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'insurance'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'priority'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim',
@@ -258,55 +293,65 @@ class Claim(fhirbase):
              'child_entity': 'Claim',
              'child_variable': 'payee'},
 
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'employmentImpacted'},
-
-            {'parent_entity': 'Claim_Procedure',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'procedure'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Claim',
              'child_variable': 'insurer'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Claim',
-             'child_variable': 'patient'},
-
-            {'parent_entity': 'Claim_Information',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'information'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Claim',
-             'child_variable': 'provider'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim',
-             'child_variable': 'subType'},
 
             {'parent_entity': 'Claim_CareTeam',
              'parent_variable': 'object_id',
              'child_entity': 'Claim',
              'child_variable': 'careTeam'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'facility'},
+
+            {'parent_entity': 'Claim_Procedure',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'procedure'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'employmentImpacted'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'prescription'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'total'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'hospitalization'},
+
+            {'parent_entity': 'Claim_Information',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'information'},
+
+            {'parent_entity': 'Claim_Insurance',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'insurance'},
+
             {'parent_entity': 'Claim_Item',
              'parent_variable': 'object_id',
              'child_entity': 'Claim',
              'child_variable': 'item'},
 
-            {'parent_entity': 'Claim_Diagnosis',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim',
-             'child_variable': 'diagnosis'},
+             'child_variable': 'subType'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -316,17 +361,68 @@ class Claim(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Claim',
-             'child_variable': 'enterer'},
+             'child_variable': 'referral'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Claim',
-             'child_variable': 'facility'},
+             'child_variable': 'organization'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'priority'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'provider'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'billablePeriod'},
+
+            {'parent_entity': 'Claim_Related',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'related'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'enterer'},
+
+            {'parent_entity': 'Claim_Accident',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'accident'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'originalPrescription'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Claim_Diagnosis',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim',
+             'child_variable': 'diagnosis'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim',
+             'child_variable': 'patient'},
         ]
 
 
 class Claim_Related(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -334,23 +430,32 @@ class Claim_Related(fhirbase):
     __name__ = 'Claim_Related'
 
     def __init__(self, dict_values=None):
-        # other claims which are related to this claim such as prior claim
-        # versions or for related services.
         self.claim = None
-        # reference to Reference: identifier
+        """
+        Other claims which are related to this claim such as prior claim
+        versions or for related services.
 
-        # for example prior or umbrella.
+        reference to Reference: identifier
+        """
+
         self.relationship = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        For example prior or umbrella.
 
-        # an alternate organizational reference to the case or file to which this
-        # particular claim pertains - eg property/casualy insurer claim # or
-        # workers compensation case # .
+        reference to CodeableConcept
+        """
+
         self.reference = None
-        # reference to Identifier: Identifier
+        """
+        An alternate organizational reference to the case or file to which
+        this particular claim pertains - eg Property/Casualy insurer claim #
+        or Workers Compensation case # .
 
-        # unique identifier for object class
+        reference to Identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -363,20 +468,21 @@ class Claim_Related(fhirbase):
              'child_entity': 'Claim_Related',
              'child_variable': 'claim'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim_Related',
-             'child_variable': 'relationship'},
-
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Related',
              'child_variable': 'reference'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Related',
+             'child_variable': 'relationship'},
         ]
 
 
 class Claim_Payee(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -384,20 +490,29 @@ class Claim_Payee(fhirbase):
     __name__ = 'Claim_Payee'
 
     def __init__(self, dict_values=None):
-        # type of party to be reimbursed: subscriber, provider, other.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Type of Party to be reimbursed: Subscriber, provider, other.
 
-        # organization | patient | practitioner | relatedperson.
+        reference to CodeableConcept
+        """
+
         self.resourceType = None
-        # reference to Coding: Coding
+        """
+        organization | patient | practitioner | relatedperson.
 
-        # party to be reimbursed: subscriber, provider, other.
+        reference to Coding
+        """
+
         self.party = None
-        # reference to Reference: identifier
+        """
+        Party to be reimbursed: Subscriber, provider, other.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -405,15 +520,15 @@ class Claim_Payee(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim_Payee',
-             'child_variable': 'type'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Claim_Payee',
              'child_variable': 'party'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Payee',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
@@ -423,7 +538,8 @@ class Claim_Payee(fhirbase):
 
 
 class Claim_CareTeam(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -431,30 +547,45 @@ class Claim_CareTeam(fhirbase):
     __name__ = 'Claim_CareTeam'
 
     def __init__(self, dict_values=None):
-        # sequence of the careteam which serves to order and provide a link.
         self.sequence = None
-        # type = int
+        """
+        Sequence of the careTeam which serves to order and provide a link.
 
-        # member of the team who provided the overall service.
+        type: int
+        """
+
         self.provider = None
-        # reference to Reference: identifier
+        """
+        Member of the team who provided the overall service.
 
-        # the party who is billing and responsible for the claimed good or service
-        # rendered to the patient.
+        reference to Reference: identifier
+        """
+
         self.responsible = None
-        # type = boolean
+        """
+        The party who is billing and responsible for the claimed good or
+        service rendered to the patient.
 
-        # the lead, assisting or supervising practitioner and their discipline if
-        # a multidisiplinary team.
+        type: boolean
+        """
+
         self.role = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The lead, assisting or supervising practitioner and their discipline
+        if a multidisiplinary team.
 
-        # the qualification which is applicable for this service.
+        reference to CodeableConcept
+        """
+
         self.qualification = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The qualification which is applicable for this service.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -465,7 +596,7 @@ class Claim_CareTeam(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_CareTeam',
-             'child_variable': 'role'},
+             'child_variable': 'qualification'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -475,12 +606,13 @@ class Claim_CareTeam(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_CareTeam',
-             'child_variable': 'qualification'},
+             'child_variable': 'role'},
         ]
 
 
 class Claim_Information(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -488,57 +620,91 @@ class Claim_Information(fhirbase):
     __name__ = 'Claim_Information'
 
     def __init__(self, dict_values=None):
-        # sequence of the information element which serves to provide a link.
         self.sequence = None
-        # type = int
+        """
+        Sequence of the information element which serves to provide a link.
 
-        # the general class of the information supplied: information; exception;
-        # accident, employment; onset, etc.
+        type: int
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The general class of the information supplied: information; exception;
+        accident, employment; onset, etc.
 
-        # system and code pertaining to the specific information regarding special
-        # conditions relating to the setting, treatment or patient  for which care
-        # is sought which may influence the adjudication.
+        reference to CodeableConcept
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        System and code pertaining to the specific information regarding
+        special conditions relating to the setting, treatment or patient  for
+        which care is sought which may influence the adjudication.
 
-        # the date when or period to which this information refers.
+        reference to CodeableConcept
+        """
+
         self.timingDate = None
-        # type = string
+        """
+        The date when or period to which this information refers.
 
-        # the date when or period to which this information refers.
+        type: string
+        """
+
         self.timingPeriod = None
-        # reference to Period: Period
+        """
+        The date when or period to which this information refers.
 
-        # additional data or information such as resources, documents, images etc.
-        # including references to the data or the actual inclusion of the data.
+        reference to Period
+        """
+
         self.valueString = None
-        # type = string
+        """
+        Additional data or information such as resources, documents, images
+        etc. including references to the data or the actual inclusion of the
+        data.
 
-        # additional data or information such as resources, documents, images etc.
-        # including references to the data or the actual inclusion of the data.
+        type: string
+        """
+
         self.valueQuantity = None
-        # reference to Quantity: Quantity
+        """
+        Additional data or information such as resources, documents, images
+        etc. including references to the data or the actual inclusion of the
+        data.
 
-        # additional data or information such as resources, documents, images etc.
-        # including references to the data or the actual inclusion of the data.
+        reference to Quantity
+        """
+
         self.valueAttachment = None
-        # reference to Attachment: Attachment
+        """
+        Additional data or information such as resources, documents, images
+        etc. including references to the data or the actual inclusion of the
+        data.
 
-        # additional data or information such as resources, documents, images etc.
-        # including references to the data or the actual inclusion of the data.
+        reference to Attachment
+        """
+
         self.valueReference = None
-        # reference to Reference: identifier
+        """
+        Additional data or information such as resources, documents, images
+        etc. including references to the data or the actual inclusion of the
+        data.
 
-        # for example, provides the reason for: the additional stay, or missing
-        # tooth or any other situation where a reason code is required in addition
-        # to the content.
+        reference to Reference: identifier
+        """
+
         self.reason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        For example, provides the reason for: the additional stay, or missing
+        tooth or any other situation where a reason code is required in
+        addition to the content.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -554,17 +720,12 @@ class Claim_Information(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Information',
-             'child_variable': 'code'},
+             'child_variable': 'category'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Information',
              'child_variable': 'timingPeriod'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Claim_Information',
-             'child_variable': 'valueReference'},
 
             {'parent_entity': 'Attachment',
              'parent_variable': 'object_id',
@@ -574,7 +735,12 @@ class Claim_Information(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Information',
-             'child_variable': 'category'},
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Information',
+             'child_variable': 'valueReference'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -584,7 +750,8 @@ class Claim_Information(fhirbase):
 
 
 class Claim_Diagnosis(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -592,31 +759,46 @@ class Claim_Diagnosis(fhirbase):
     __name__ = 'Claim_Diagnosis'
 
     def __init__(self, dict_values=None):
-        # sequence of diagnosis which serves to provide a link.
         self.sequence = None
-        # type = int
+        """
+        Sequence of diagnosis which serves to provide a link.
 
-        # the diagnosis.
+        type: int
+        """
+
         self.diagnosisCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The diagnosis.
 
-        # the diagnosis.
+        reference to CodeableConcept
+        """
+
         self.diagnosisReference = None
-        # reference to Reference: identifier
+        """
+        The diagnosis.
 
-        # the type of the diagnosis, for example: admitting, primary, secondary,
-        # discharge.
+        reference to Reference: identifier
+        """
+
         self.type = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of the Diagnosis, for example: admitting, primary, secondary,
+        discharge.
 
-        # the package billing code, for example drg, based on the assigned
-        # grouping code system.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.packageCode = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The package billing code, for example DRG, based on the assigned
+        grouping code system.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -624,11 +806,6 @@ class Claim_Diagnosis(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Claim_Diagnosis',
-             'child_variable': 'diagnosisReference'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Diagnosis',
@@ -639,6 +816,11 @@ class Claim_Diagnosis(fhirbase):
              'child_entity': 'Claim_Diagnosis',
              'child_variable': 'type'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Diagnosis',
+             'child_variable': 'diagnosisReference'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Diagnosis',
@@ -647,7 +829,8 @@ class Claim_Diagnosis(fhirbase):
 
 
 class Claim_Procedure(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -655,24 +838,36 @@ class Claim_Procedure(fhirbase):
     __name__ = 'Claim_Procedure'
 
     def __init__(self, dict_values=None):
-        # sequence of procedures which serves to order and provide a link.
         self.sequence = None
-        # type = int
+        """
+        Sequence of procedures which serves to order and provide a link.
 
-        # date and optionally time the procedure was performed .
+        type: int
+        """
+
         self.date = None
-        # type = string
+        """
+        Date and optionally time the procedure was performed .
 
-        # the procedure code.
+        type: string
+        """
+
         self.procedureCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The procedure code.
 
-        # the procedure code.
+        reference to CodeableConcept
+        """
+
         self.procedureReference = None
-        # reference to Reference: identifier
+        """
+        The procedure code.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -693,7 +888,8 @@ class Claim_Procedure(fhirbase):
 
 
 class Claim_Insurance(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -701,35 +897,53 @@ class Claim_Insurance(fhirbase):
     __name__ = 'Claim_Insurance'
 
     def __init__(self, dict_values=None):
-        # sequence of coverage which serves to provide a link and convey
-        # coordination of benefit order.
         self.sequence = None
-        # type = int
+        """
+        Sequence of coverage which serves to provide a link and convey
+        coordination of benefit order.
 
-        # a flag to indicate that this coverage is the focus for adjudication. the
-        # coverage against which the claim is to be adjudicated.
+        type: int
+        """
+
         self.focal = None
-        # type = boolean
+        """
+        A flag to indicate that this Coverage is the focus for adjudication.
+        The Coverage against which the claim is to be adjudicated.
 
-        # reference to the program or plan identification, underwriter or payor.
+        type: boolean
+        """
+
         self.coverage = None
-        # reference to Reference: identifier
+        """
+        Reference to the program or plan identification, underwriter or payor.
 
-        # the contract number of a business agreement which describes the terms
-        # and conditions.
+        reference to Reference: identifier
+        """
+
         self.businessArrangement = None
-        # type = string
+        """
+        The contract number of a business agreement which describes the terms
+        and conditions.
 
-        # a list of references from the insurer to which these services pertain.
+        type: string
+        """
+
         self.preAuthRef = None
-        # type = array
+        """
+        A list of references from the Insurer to which these services pertain.
 
-        # the coverages adjudication details.
+        type: array
+        """
+
         self.claimResponse = None
-        # reference to Reference: identifier
+        """
+        The Coverages adjudication details.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -740,17 +954,18 @@ class Claim_Insurance(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Claim_Insurance',
-             'child_variable': 'coverage'},
+             'child_variable': 'claimResponse'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Claim_Insurance',
-             'child_variable': 'claimResponse'},
+             'child_variable': 'coverage'},
         ]
 
 
 class Claim_Accident(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -758,24 +973,36 @@ class Claim_Accident(fhirbase):
     __name__ = 'Claim_Accident'
 
     def __init__(self, dict_values=None):
-        # date of an accident which these services are addressing.
         self.date = None
-        # type = string
+        """
+        Date of an accident which these services are addressing.
 
-        # type of accident: work, auto, etc.
+        type: string
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Type of accident: work, auto, etc.
 
-        # accident place.
+        reference to CodeableConcept
+        """
+
         self.locationAddress = None
-        # reference to Address: Address
+        """
+        Accident Place.
 
-        # accident place.
+        reference to Address
+        """
+
         self.locationReference = None
-        # reference to Reference: identifier
+        """
+        Accident Place.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -783,11 +1010,6 @@ class Claim_Accident(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim_Accident',
-             'child_variable': 'type'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Claim_Accident',
@@ -797,11 +1019,17 @@ class Claim_Accident(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Accident',
              'child_variable': 'locationAddress'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Accident',
+             'child_variable': 'type'},
         ]
 
 
 class Claim_Item(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -809,129 +1037,202 @@ class Claim_Item(fhirbase):
     __name__ = 'Claim_Item'
 
     def __init__(self, dict_values=None):
-        # a service line number.
         self.sequence = None
-        # type = int
+        """
+        A service line number.
 
-        # careteam applicable for this service or product line.
+        type: int
+        """
+
         self.careTeamLinkId = None
-        # type = array
+        """
+        CareTeam applicable for this service or product line.
 
-        # diagnosis applicable for this service or product line.
+        type: array
+        """
+
         self.diagnosisLinkId = None
-        # type = array
+        """
+        Diagnosis applicable for this service or product line.
 
-        # procedures applicable for this service or product line.
+        type: array
+        """
+
         self.procedureLinkId = None
-        # type = array
+        """
+        Procedures applicable for this service or product line.
 
-        # exceptions, special conditions and supporting information pplicable for
-        # this service or product line.
+        type: array
+        """
+
         self.informationLinkId = None
-        # type = array
+        """
+        Exceptions, special conditions and supporting information pplicable
+        for this service or product line.
 
-        # the type of reveneu or cost center providing the product and/or service.
+        type: array
+        """
+
         self.revenue = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of reveneu or cost center providing the product and/or
+        service.
 
-        # health care service type codes  to identify the classification of
-        # service or benefits.
+        reference to CodeableConcept
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Health Care Service Type Codes  to identify the classification of
+        service or benefits.
 
-        # if this is an actual service or product line, ie. not a group, then use
-        # code to indicate the professional service or product supplied (eg. ctp,
-        # hcpcs,uscls,icd10, ncpdp,din,rxnorm,achi,cci). if a grouping item then
-        # use a group code to indicate the type of thing being grouped eg.
-        # 'glasses' or 'compound'.
+        reference to CodeableConcept
+        """
+
         self.service = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        If this is an actual service or product line, ie. not a Group, then
+        use code to indicate the Professional Service or Product supplied (eg.
+        CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,RXNorm,ACHI,CCI). If a grouping item
+        then use a group code to indicate the type of thing being grouped eg.
+        'glasses' or 'compound'.
 
-        # item typification or modifiers codes, eg for oral whether the treatment
-        # is cosmetic or associated with tmj, or for medical whether the treatment
-        # was outside the clinic or out of office hours.
+        reference to CodeableConcept
+        """
+
         self.modifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Item typification or modifiers codes, eg for Oral whether the
+        treatment is cosmetic or associated with TMJ, or for medical whether
+        the treatment was outside the clinic or out of office hours.
 
-        # for programs which require reason codes for the inclusion or covering of
-        # this billed item under the program or sub-program.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.programCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        For programs which require reason codes for the inclusion or covering
+        of this billed item under the program or sub-program.
 
-        # the date or dates when the enclosed suite of services were performed or
-        # completed.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.servicedDate = None
-        # type = string
+        """
+        The date or dates when the enclosed suite of services were performed
+        or completed.
 
-        # the date or dates when the enclosed suite of services were performed or
-        # completed.
+        type: string
+        """
+
         self.servicedPeriod = None
-        # reference to Period: Period
+        """
+        The date or dates when the enclosed suite of services were performed
+        or completed.
 
-        # where the service was provided.
+        reference to Period
+        """
+
         self.locationCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Where the service was provided.
 
-        # where the service was provided.
+        reference to CodeableConcept
+        """
+
         self.locationAddress = None
-        # reference to Address: Address
+        """
+        Where the service was provided.
 
-        # where the service was provided.
+        reference to Address
+        """
+
         self.locationReference = None
-        # reference to Reference: identifier
+        """
+        Where the service was provided.
 
-        # the number of repetitions of a service or product.
+        reference to Reference: identifier
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The number of repetitions of a service or product.
 
-        # if the item is a node then this is the fee for the product or service,
-        # otherwise this is the total of the fees for the children of the group.
+        reference to Quantity
+        """
+
         self.unitPrice = None
-        # reference to Money: Money
+        """
+        If the item is a node then this is the fee for the product or service,
+        otherwise this is the total of the fees for the children of the group.
 
-        # a real number that represents a multiplier used in determining the
-        # overall value of services delivered and/or goods received. the concept
-        # of a factor allows for a discount or surcharge multiplier to be applied
-        # to a monetary amount.
+        reference to Money
+        """
+
         self.factor = None
-        # type = int
+        """
+        A real number that represents a multiplier used in determining the
+        overall value of services delivered and/or goods received. The concept
+        of a Factor allows for a discount or surcharge multiplier to be
+        applied to a monetary amount.
 
-        # the quantity times the unit price for an addittional service or product
-        # or charge. for example, the formula: unit quantity * unit price (cost
-        # per point) * factor number  * points = net amount. quantity, factor and
-        # points are assumed to be 1 if not supplied.
+        type: int
+        """
+
         self.net = None
-        # reference to Money: Money
+        """
+        The quantity times the unit price for an addittional service or
+        product or charge. For example, the formula: unit Quantity * unit
+        Price (Cost per Point) * factor Number  * points = net Amount.
+        Quantity, factor and points are assumed to be 1 if not supplied.
 
-        # list of unique device identifiers associated with this line item.
+        reference to Money
+        """
+
         self.udi = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        List of Unique Device Identifiers associated with this line item.
 
-        # physical service site on the patient (limb, tooth, etc).
+        type: array
+        reference to Reference: identifier
+        """
+
         self.bodySite = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Physical service site on the patient (limb, tooth, etc).
 
-        # a region or surface of the site, eg. limb region or tooth surface(s).
+        reference to CodeableConcept
+        """
+
         self.subSite = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A region or surface of the site, eg. limb region or tooth surface(s).
 
-        # a billed item may include goods or services provided in multiple
-        # encounters.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.encounter = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A billed item may include goods or services provided in multiple
+        encounters.
 
-        # second tier of goods and services.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.detail = None
-        # type = array
-        # reference to Claim_Detail: Claim_Detail
+        """
+        Second tier of goods and services.
 
-        # unique identifier for object class
+        type: array
+        reference to Claim_Detail
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -939,6 +1240,16 @@ class Claim_Item(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'programCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'encounter'},
+
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Item',
@@ -947,32 +1258,47 @@ class Claim_Item(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Item',
-             'child_variable': 'locationCodeableConcept'},
+             'child_variable': 'modifier'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'quantity'},
+
+            {'parent_entity': 'Claim_Detail',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'detail'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'locationReference'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Item',
              'child_variable': 'subSite'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Item',
-             'child_variable': 'service'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Claim_Item',
-             'child_variable': 'encounter'},
+             'child_variable': 'unitPrice'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Claim_Item',
              'child_variable': 'udi'},
 
-            {'parent_entity': 'Money',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Item',
-             'child_variable': 'unitPrice'},
+             'child_variable': 'bodySite'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Item',
+             'child_variable': 'category'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -982,7 +1308,7 @@ class Claim_Item(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Item',
-             'child_variable': 'programCode'},
+             'child_variable': 'service'},
 
             {'parent_entity': 'Address',
              'parent_variable': 'object_id',
@@ -994,40 +1320,16 @@ class Claim_Item(fhirbase):
              'child_entity': 'Claim_Item',
              'child_variable': 'servicedPeriod'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Claim_Item',
-             'child_variable': 'locationReference'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Item',
-             'child_variable': 'modifier'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim_Item',
-             'child_variable': 'quantity'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim_Item',
-             'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim_Item',
-             'child_variable': 'bodySite'},
-
-            {'parent_entity': 'Claim_Detail',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim_Item',
-             'child_variable': 'detail'},
+             'child_variable': 'locationCodeableConcept'},
         ]
 
 
 class Claim_Detail(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -1035,75 +1337,112 @@ class Claim_Detail(fhirbase):
     __name__ = 'Claim_Detail'
 
     def __init__(self, dict_values=None):
-        # a service line number.
         self.sequence = None
-        # type = int
+        """
+        A service line number.
 
-        # the type of reveneu or cost center providing the product and/or service.
+        type: int
+        """
+
         self.revenue = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of reveneu or cost center providing the product and/or
+        service.
 
-        # health care service type codes  to identify the classification of
-        # service or benefits.
+        reference to CodeableConcept
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Health Care Service Type Codes  to identify the classification of
+        service or benefits.
 
-        # if this is an actual service or product line, ie. not a group, then use
-        # code to indicate the professional service or product supplied (eg. ctp,
-        # hcpcs,uscls,icd10, ncpdp,din,achi,cci). if a grouping item then use a
-        # group code to indicate the type of thing being grouped eg. 'glasses' or
-        # 'compound'.
+        reference to CodeableConcept
+        """
+
         self.service = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        If this is an actual service or product line, ie. not a Group, then
+        use code to indicate the Professional Service or Product supplied (eg.
+        CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then
+        use a group code to indicate the type of thing being grouped eg.
+        'glasses' or 'compound'.
 
-        # item typification or modifiers codes, eg for oral whether the treatment
-        # is cosmetic or associated with tmj, or for medical whether the treatment
-        # was outside the clinic or out of office hours.
+        reference to CodeableConcept
+        """
+
         self.modifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Item typification or modifiers codes, eg for Oral whether the
+        treatment is cosmetic or associated with TMJ, or for medical whether
+        the treatment was outside the clinic or out of office hours.
 
-        # for programs which require reson codes for the inclusion, covering, of
-        # this billed item under the program or sub-program.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.programCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        For programs which require reson codes for the inclusion, covering, of
+        this billed item under the program or sub-program.
 
-        # the number of repetitions of a service or product.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The number of repetitions of a service or product.
 
-        # if the item is a node then this is the fee for the product or service,
-        # otherwise this is the total of the fees for the children of the group.
+        reference to Quantity
+        """
+
         self.unitPrice = None
-        # reference to Money: Money
+        """
+        If the item is a node then this is the fee for the product or service,
+        otherwise this is the total of the fees for the children of the group.
 
-        # a real number that represents a multiplier used in determining the
-        # overall value of services delivered and/or goods received. the concept
-        # of a factor allows for a discount or surcharge multiplier to be applied
-        # to a monetary amount.
+        reference to Money
+        """
+
         self.factor = None
-        # type = int
+        """
+        A real number that represents a multiplier used in determining the
+        overall value of services delivered and/or goods received. The concept
+        of a Factor allows for a discount or surcharge multiplier to be
+        applied to a monetary amount.
 
-        # the quantity times the unit price for an addittional service or product
-        # or charge. for example, the formula: unit quantity * unit price (cost
-        # per point) * factor number  * points = net amount. quantity, factor and
-        # points are assumed to be 1 if not supplied.
+        type: int
+        """
+
         self.net = None
-        # reference to Money: Money
+        """
+        The quantity times the unit price for an addittional service or
+        product or charge. For example, the formula: unit Quantity * unit
+        Price (Cost per Point) * factor Number  * points = net Amount.
+        Quantity, factor and points are assumed to be 1 if not supplied.
 
-        # list of unique device identifiers associated with this line item.
+        reference to Money
+        """
+
         self.udi = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        List of Unique Device Identifiers associated with this line item.
 
-        # third tier of goods and services.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.subDetail = None
-        # type = array
-        # reference to Claim_SubDetail: Claim_SubDetail
+        """
+        Third tier of goods and services.
 
-        # unique identifier for object class
+        type: array
+        reference to Claim_SubDetail
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1111,20 +1450,15 @@ class Claim_Detail(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Claim_SubDetail',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Detail',
-             'child_variable': 'subDetail'},
+             'child_variable': 'modifier'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Claim_Detail',
-             'child_variable': 'udi'},
-
-            {'parent_entity': 'Money',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Detail',
-             'child_variable': 'net'},
+             'child_variable': 'category'},
 
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
@@ -1134,37 +1468,43 @@ class Claim_Detail(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Detail',
-             'child_variable': 'modifier'},
+             'child_variable': 'programCode'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Detail',
              'child_variable': 'service'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'udi'},
+
+            {'parent_entity': 'Claim_SubDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_Detail',
+             'child_variable': 'subDetail'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Detail',
-             'child_variable': 'programCode'},
+             'child_variable': 'revenue'},
 
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Detail',
              'child_variable': 'unitPrice'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_Detail',
-             'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim_Detail',
-             'child_variable': 'revenue'},
+             'child_variable': 'net'},
         ]
 
 
 class Claim_SubDetail(fhirbase):
-    """A provider issued list of services and products provided, or to be
+    """
+    A provider issued list of services and products provided, or to be
     provided, to a patient which is provided to an insurer for payment
     recovery.
     """
@@ -1172,66 +1512,100 @@ class Claim_SubDetail(fhirbase):
     __name__ = 'Claim_SubDetail'
 
     def __init__(self, dict_values=None):
-        # a service line number.
         self.sequence = None
-        # type = int
+        """
+        A service line number.
 
-        # the type of reveneu or cost center providing the product and/or service.
+        type: int
+        """
+
         self.revenue = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of reveneu or cost center providing the product and/or
+        service.
 
-        # health care service type codes  to identify the classification of
-        # service or benefits.
+        reference to CodeableConcept
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Health Care Service Type Codes  to identify the classification of
+        service or benefits.
 
-        # a code to indicate the professional service or product supplied (eg.
-        # ctp, hcpcs,uscls,icd10, ncpdp,din,achi,cci).
+        reference to CodeableConcept
+        """
+
         self.service = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code to indicate the Professional Service or Product supplied (eg.
+        CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).
 
-        # item typification or modifiers codes, eg for oral whether the treatment
-        # is cosmetic or associated with tmj, or for medical whether the treatment
-        # was outside the clinic or out of office hours.
+        reference to CodeableConcept
+        """
+
         self.modifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Item typification or modifiers codes, eg for Oral whether the
+        treatment is cosmetic or associated with TMJ, or for medical whether
+        the treatment was outside the clinic or out of office hours.
 
-        # for programs which require reson codes for the inclusion, covering, of
-        # this billed item under the program or sub-program.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.programCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        For programs which require reson codes for the inclusion, covering, of
+        this billed item under the program or sub-program.
 
-        # the number of repetitions of a service or product.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The number of repetitions of a service or product.
 
-        # the fee for an addittional service or product or charge.
+        reference to Quantity
+        """
+
         self.unitPrice = None
-        # reference to Money: Money
+        """
+        The fee for an addittional service or product or charge.
 
-        # a real number that represents a multiplier used in determining the
-        # overall value of services delivered and/or goods received. the concept
-        # of a factor allows for a discount or surcharge multiplier to be applied
-        # to a monetary amount.
+        reference to Money
+        """
+
         self.factor = None
-        # type = int
+        """
+        A real number that represents a multiplier used in determining the
+        overall value of services delivered and/or goods received. The concept
+        of a Factor allows for a discount or surcharge multiplier to be
+        applied to a monetary amount.
 
-        # the quantity times the unit price for an addittional service or product
-        # or charge. for example, the formula: unit quantity * unit price (cost
-        # per point) * factor number  * points = net amount. quantity, factor and
-        # points are assumed to be 1 if not supplied.
+        type: int
+        """
+
         self.net = None
-        # reference to Money: Money
+        """
+        The quantity times the unit price for an addittional service or
+        product or charge. For example, the formula: unit Quantity * unit
+        Price (Cost per Point) * factor Number  * points = net Amount.
+        Quantity, factor and points are assumed to be 1 if not supplied.
 
-        # list of unique device identifiers associated with this line item.
+        reference to Money
+        """
+
         self.udi = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        List of Unique Device Identifiers associated with this line item.
 
-        # unique identifier for object class
+        type: array
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1242,22 +1616,7 @@ class Claim_SubDetail(fhirbase):
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_SubDetail',
-             'child_variable': 'unitPrice'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim_SubDetail',
              'child_variable': 'net'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim_SubDetail',
-             'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Claim_SubDetail',
-             'child_variable': 'revenue'},
 
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
@@ -1267,12 +1626,17 @@ class Claim_SubDetail(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_SubDetail',
-             'child_variable': 'programCode'},
+             'child_variable': 'revenue'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Claim_SubDetail',
              'child_variable': 'udi'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_SubDetail',
+             'child_variable': 'unitPrice'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -1282,5 +1646,15 @@ class Claim_SubDetail(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Claim_SubDetail',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_SubDetail',
              'child_variable': 'modifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Claim_SubDetail',
+             'child_variable': 'programCode'},
         ]

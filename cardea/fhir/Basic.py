@@ -2,42 +2,62 @@ from .fhirbase import fhirbase
 
 
 class Basic(fhirbase):
-    """Basic is used for handling concepts not yet defined in FHIR, narrative-
-    only resources that don't map to an existing resource, and custom
-    resources not appropriate for inclusion in the FHIR specification.
+    """
+    Basic is used for handling concepts not yet defined in FHIR,
+    narrative-only resources that don't map to an existing resource, and
+    custom resources not appropriate for inclusion in the FHIR
+    specification.
     """
 
     __name__ = 'Basic'
 
     def __init__(self, dict_values=None):
-        # this is a basic resource
         self.resourceType = 'Basic'
-        # type = string
-        # possible values: Basic
+        """
+        This is a Basic resource
 
-        # identifies the 'type' of resource - equivalent to the resource name for
-        # other resources.
+        type: string
+        possible values: Basic
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Identifies the 'type' of resource - equivalent to the resource name
+        for other resources.
 
-        # identifies the patient, practitioner, device or any other resource that
-        # is the "focus" of this resource.
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        Identifies the patient, practitioner, device or any other resource
+        that is the "focus" of this resource.
 
-        # identifies when the resource was first created.
+        reference to Reference: identifier
+        """
+
         self.created = None
-        # type = string
+        """
+        Identifies when the resource was first created.
 
-        # indicates who was responsible for creating the resource instance.
+        type: string
+        """
+
         self.author = None
-        # reference to Reference: identifier
+        """
+        Indicates who was responsible for creating the resource instance.
 
-        # identifier assigned to the resource for business purposes, outside the
-        # context of fhir.
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Identifier assigned to the resource for business purposes, outside the
+        context of FHIR.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -45,10 +65,10 @@ class Basic(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'Basic',
-             'child_variable': 'identifier'},
+             'child_variable': 'author'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -60,8 +80,8 @@ class Basic(fhirbase):
              'child_entity': 'Basic',
              'child_variable': 'subject'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
              'child_entity': 'Basic',
-             'child_variable': 'author'},
+             'child_variable': 'identifier'},
         ]

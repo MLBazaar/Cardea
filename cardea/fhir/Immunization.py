@@ -2,115 +2,183 @@ from .fhirbase import fhirbase
 
 
 class Immunization(fhirbase):
-    """Describes the event of a patient being administered a vaccination or a
-    record of a vaccination as reported by a patient, a clinician or another
-    party and may include vaccine reaction information and what vaccination
-    protocol was followed.
+    """
+    Describes the event of a patient being administered a vaccination or a
+    record of a vaccination as reported by a patient, a clinician or
+    another party and may include vaccine reaction information and what
+    vaccination protocol was followed.
     """
 
     __name__ = 'Immunization'
 
     def __init__(self, dict_values=None):
-        # this is a immunization resource
         self.resourceType = 'Immunization'
-        # type = string
-        # possible values: Immunization
+        """
+        This is a Immunization resource
 
-        # indicates the current status of the vaccination event.
+        type: string
+        possible values: Immunization
+        """
+
         self.status = None
-        # type = string
+        """
+        Indicates the current status of the vaccination event.
 
-        # indicates if the vaccination was or was not given.
+        type: string
+        """
+
         self.notGiven = None
-        # type = boolean
+        """
+        Indicates if the vaccination was or was not given.
 
-        # vaccine that was administered or was to be administered.
+        type: boolean
+        """
+
         self.vaccineCode = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Vaccine that was administered or was to be administered.
 
-        # the patient who either received or did not receive the immunization.
+        reference to CodeableConcept
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        The patient who either received or did not receive the immunization.
 
-        # the visit or admission or other contact between patient and health care
-        # provider the immunization was performed as part of.
+        reference to Reference: identifier
+        """
+
         self.encounter = None
-        # reference to Reference: identifier
+        """
+        The visit or admission or other contact between patient and health
+        care provider the immunization was performed as part of.
 
-        # date vaccine administered or was to be administered.
+        reference to Reference: identifier
+        """
+
         self.date = None
-        # type = string
+        """
+        Date vaccine administered or was to be administered.
 
-        # an indication that the content of the record is based on information
-        # from the person who administered the vaccine. this reflects the context
-        # under which the data was originally recorded.
+        type: string
+        """
+
         self.primarySource = None
-        # type = boolean
+        """
+        An indication that the content of the record is based on information
+        from the person who administered the vaccine. This reflects the
+        context under which the data was originally recorded.
 
-        # the source of the data when the report of the immunization event is not
-        # based on information from the person who administered the vaccine.
+        type: boolean
+        """
+
         self.reportOrigin = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The source of the data when the report of the immunization event is
+        not based on information from the person who administered the vaccine.
 
-        # the service delivery location where the vaccine administration occurred.
+        reference to CodeableConcept
+        """
+
         self.location = None
-        # reference to Reference: identifier
+        """
+        The service delivery location where the vaccine administration
+        occurred.
 
-        # name of vaccine manufacturer.
+        reference to Reference: identifier
+        """
+
         self.manufacturer = None
-        # reference to Reference: identifier
+        """
+        Name of vaccine manufacturer.
 
-        # lot number of the  vaccine product.
+        reference to Reference: identifier
+        """
+
         self.lotNumber = None
-        # type = string
+        """
+        Lot number of the  vaccine product.
 
-        # date vaccine batch expires.
+        type: string
+        """
+
         self.expirationDate = None
-        # type = string
+        """
+        Date vaccine batch expires.
 
-        # body site where vaccine was administered.
+        type: string
+        """
+
         self.site = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Body site where vaccine was administered.
 
-        # the path by which the vaccine product is taken into the body.
+        reference to CodeableConcept
+        """
+
         self.route = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The path by which the vaccine product is taken into the body.
 
-        # the quantity of vaccine product that was administered.
+        reference to CodeableConcept
+        """
+
         self.doseQuantity = None
-        # reference to Quantity: Quantity
+        """
+        The quantity of vaccine product that was administered.
 
-        # indicates who or what performed the event.
+        reference to Quantity
+        """
+
         self.practitioner = None
-        # type = array
-        # reference to Immunization_Practitioner: Immunization_Practitioner
+        """
+        Indicates who or what performed the event.
 
-        # extra information about the immunization that is not conveyed by the
-        # other attributes.
+        type: array
+        reference to Immunization_Practitioner
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        Extra information about the immunization that is not conveyed by the
+        other attributes.
 
-        # reasons why a vaccine was or was not administered.
+        type: array
+        reference to Annotation
+        """
+
         self.explanation = None
-        # reference to Immunization_Explanation: Immunization_Explanation
+        """
+        Reasons why a vaccine was or was not administered.
 
-        # categorical data indicating that an adverse event is associated in time
-        # to an immunization.
+        reference to Immunization_Explanation
+        """
+
         self.reaction = None
-        # type = array
-        # reference to Immunization_Reaction: Immunization_Reaction
+        """
+        Categorical data indicating that an adverse event is associated in
+        time to an immunization.
 
-        # contains information about the protocol(s) under which the vaccine was
-        # administered.
+        type: array
+        reference to Immunization_Reaction
+        """
+
         self.vaccinationProtocol = None
-        # type = array
-        # reference to Immunization_VaccinationProtocol: Immunization_VaccinationProtocol
+        """
+        Contains information about the protocol(s) under which the vaccine was
+        administered.
 
-        # a unique identifier assigned to this immunization record.
+        type: array
+        reference to Immunization_VaccinationProtocol
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        A unique identifier assigned to this immunization record.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -121,101 +189,108 @@ class Immunization(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Immunization',
-             'child_variable': 'reportOrigin'},
-
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
-             'child_entity': 'Immunization',
-             'child_variable': 'note'},
-
-            {'parent_entity': 'Immunization_VaccinationProtocol',
-             'parent_variable': 'object_id',
-             'child_entity': 'Immunization',
-             'child_variable': 'vaccinationProtocol'},
-
-            {'parent_entity': 'Immunization_Reaction',
-             'parent_variable': 'object_id',
-             'child_entity': 'Immunization',
-             'child_variable': 'reaction'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Immunization',
-             'child_variable': 'patient'},
+             'child_variable': 'vaccineCode'},
 
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'Immunization',
              'child_variable': 'doseQuantity'},
 
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'note'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Immunization',
              'child_variable': 'site'},
-
-            {'parent_entity': 'Immunization_Practitioner',
-             'parent_variable': 'object_id',
-             'child_entity': 'Immunization',
-             'child_variable': 'practitioner'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Immunization',
              'child_variable': 'identifier'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Immunization',
-             'child_variable': 'encounter'},
-
-            {'parent_entity': 'Immunization_Explanation',
+            {'parent_entity': 'Immunization_Practitioner',
              'parent_variable': 'object_id',
              'child_entity': 'Immunization',
-             'child_variable': 'explanation'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Immunization',
-             'child_variable': 'location'},
+             'child_variable': 'practitioner'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Immunization',
              'child_variable': 'manufacturer'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Immunization_Explanation',
              'parent_variable': 'object_id',
              'child_entity': 'Immunization',
-             'child_variable': 'vaccineCode'},
+             'child_variable': 'explanation'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Immunization',
              'child_variable': 'route'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'reportOrigin'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Immunization',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Immunization_VaccinationProtocol',
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'vaccinationProtocol'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Immunization',
+             'child_variable': 'encounter'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Immunization',
+             'child_variable': 'location'},
+
+            {'parent_entity': 'Immunization_Reaction',
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization',
+             'child_variable': 'reaction'},
         ]
 
 
 class Immunization_Practitioner(fhirbase):
-    """Describes the event of a patient being administered a vaccination or a
-    record of a vaccination as reported by a patient, a clinician or another
-    party and may include vaccine reaction information and what vaccination
-    protocol was followed.
+    """
+    Describes the event of a patient being administered a vaccination or a
+    record of a vaccination as reported by a patient, a clinician or
+    another party and may include vaccine reaction information and what
+    vaccination protocol was followed.
     """
 
     __name__ = 'Immunization_Practitioner'
 
     def __init__(self, dict_values=None):
-        # describes the type of performance (e.g. ordering provider, administering
-        # provider, etc.).
         self.role = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Describes the type of performance (e.g. ordering provider,
+        administering provider, etc.).
 
-        # the device, practitioner, etc. who performed the action.
+        reference to CodeableConcept
+        """
+
         self.actor = None
-        # reference to Reference: identifier
+        """
+        The device, practitioner, etc. who performed the action.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -236,27 +311,34 @@ class Immunization_Practitioner(fhirbase):
 
 
 class Immunization_Explanation(fhirbase):
-    """Describes the event of a patient being administered a vaccination or a
-    record of a vaccination as reported by a patient, a clinician or another
-    party and may include vaccine reaction information and what vaccination
-    protocol was followed.
+    """
+    Describes the event of a patient being administered a vaccination or a
+    record of a vaccination as reported by a patient, a clinician or
+    another party and may include vaccine reaction information and what
+    vaccination protocol was followed.
     """
 
     __name__ = 'Immunization_Explanation'
 
     def __init__(self, dict_values=None):
-        # reasons why a vaccine was administered.
         self.reason = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Reasons why a vaccine was administered.
 
-        # reason why a vaccine was not administered.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.reasonNotGiven = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Reason why a vaccine was not administered.
 
-        # unique identifier for object class
+        type: array
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -267,39 +349,49 @@ class Immunization_Explanation(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Immunization_Explanation',
-             'child_variable': 'reasonNotGiven'},
+             'child_variable': 'reason'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Immunization_Explanation',
-             'child_variable': 'reason'},
+             'child_variable': 'reasonNotGiven'},
         ]
 
 
 class Immunization_Reaction(fhirbase):
-    """Describes the event of a patient being administered a vaccination or a
-    record of a vaccination as reported by a patient, a clinician or another
-    party and may include vaccine reaction information and what vaccination
-    protocol was followed.
+    """
+    Describes the event of a patient being administered a vaccination or a
+    record of a vaccination as reported by a patient, a clinician or
+    another party and may include vaccine reaction information and what
+    vaccination protocol was followed.
     """
 
     __name__ = 'Immunization_Reaction'
 
     def __init__(self, dict_values=None):
-        # date of reaction to the immunization.
         self.date = None
-        # type = string
+        """
+        Date of reaction to the immunization.
 
-        # details of the reaction.
+        type: string
+        """
+
         self.detail = None
-        # reference to Reference: identifier
+        """
+        Details of the reaction.
 
-        # self-reported indicator.
+        reference to Reference: identifier
+        """
+
         self.reported = None
-        # type = boolean
+        """
+        Self-reported indicator.
 
-        # unique identifier for object class
+        type: boolean
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -315,54 +407,79 @@ class Immunization_Reaction(fhirbase):
 
 
 class Immunization_VaccinationProtocol(fhirbase):
-    """Describes the event of a patient being administered a vaccination or a
-    record of a vaccination as reported by a patient, a clinician or another
-    party and may include vaccine reaction information and what vaccination
-    protocol was followed.
+    """
+    Describes the event of a patient being administered a vaccination or a
+    record of a vaccination as reported by a patient, a clinician or
+    another party and may include vaccine reaction information and what
+    vaccination protocol was followed.
     """
 
     __name__ = 'Immunization_VaccinationProtocol'
 
     def __init__(self, dict_values=None):
-        # nominal position in a series.
         self.doseSequence = None
-        # type = int
+        """
+        Nominal position in a series.
 
-        # contains the description about the protocol under which the vaccine was
-        # administered.
+        type: int
+        """
+
         self.description = None
-        # type = string
+        """
+        Contains the description about the protocol under which the vaccine
+        was administered.
 
-        # indicates the authority who published the protocol.  e.g. acip.
+        type: string
+        """
+
         self.authority = None
-        # reference to Reference: identifier
+        """
+        Indicates the authority who published the protocol.  E.g. ACIP.
 
-        # one possible path to achieve presumed immunity against a disease -
-        # within the context of an authority.
+        reference to Reference: identifier
+        """
+
         self.series = None
-        # type = string
+        """
+        One possible path to achieve presumed immunity against a disease -
+        within the context of an authority.
 
-        # the recommended number of doses to achieve immunity.
+        type: string
+        """
+
         self.seriesDoses = None
-        # type = int
+        """
+        The recommended number of doses to achieve immunity.
 
-        # the targeted disease.
+        type: int
+        """
+
         self.targetDisease = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The targeted disease.
 
-        # indicates if the immunization event should "count" against  the
-        # protocol.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.doseStatus = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates if the immunization event should "count" against  the
+        protocol.
 
-        # provides an explanation as to why an immunization event should or should
-        # not count against the protocol.
+        reference to CodeableConcept
+        """
+
         self.doseStatusReason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Provides an explanation as to why an immunization event should or
+        should not count against the protocol.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -370,11 +487,6 @@ class Immunization_VaccinationProtocol(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Immunization_VaccinationProtocol',
-             'child_variable': 'targetDisease'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Immunization_VaccinationProtocol',
@@ -389,4 +501,9 @@ class Immunization_VaccinationProtocol(fhirbase):
              'parent_variable': 'identifier',
              'child_entity': 'Immunization_VaccinationProtocol',
              'child_variable': 'authority'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Immunization_VaccinationProtocol',
+             'child_variable': 'targetDisease'},
         ]

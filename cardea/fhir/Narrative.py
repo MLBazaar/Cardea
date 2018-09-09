@@ -2,25 +2,32 @@ from .fhirbase import fhirbase
 
 
 class Narrative(fhirbase):
-    """A human-readable formatted text, including images.
+    """
+    A human-readable formatted text, including images.
     """
 
     __name__ = 'Narrative'
 
     def __init__(self, dict_values=None):
-        # the status of the narrative - whether it's entirely generated (from just
-        # the defined data or the extensions too), or whether a human authored it
-        # and it may contain additional data.
         self.status = None
-        # type = string
-        # possible values: generated, extensions, additional, empty
+        """
+        The status of the narrative - whether it's entirely generated (from
+        just the defined data or the extensions too), or whether a human
+        authored it and it may contain additional data.
 
-        # the actual narrative content, a stripped down version of xhtml.
+        type: string
+        possible values: generated, extensions, additional, empty
+        """
+
         self.div = None
-        # type = string
+        """
+        The actual narrative content, a stripped down version of XHTML.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

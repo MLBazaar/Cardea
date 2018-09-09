@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class QuestionnaireResponse(fhirbase):
-    """A structured set of questions and their answers. The questions are
+    """
+    A structured set of questions and their answers. The questions are
     ordered and grouped into coherent subsets, corresponding to the
     structure of the grouping of the questionnaire being responded to.
     """
@@ -10,71 +11,108 @@ class QuestionnaireResponse(fhirbase):
     __name__ = 'QuestionnaireResponse'
 
     def __init__(self, dict_values=None):
-        # this is a questionnaireresponse resource
         self.resourceType = 'QuestionnaireResponse'
-        # type = string
-        # possible values: QuestionnaireResponse
+        """
+        This is a QuestionnaireResponse resource
 
-        # the order, proposal or plan that is fulfilled in whole or in part by
-        # this questionnaireresponse.  for example, a procedurerequest seeking an
-        # intake assessment or a decision support recommendation to assess for
-        # post-partum depression.
+        type: string
+        possible values: QuestionnaireResponse
+        """
+
         self.basedOn = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The order, proposal or plan that is fulfilled in whole or in part by
+        this QuestionnaireResponse.  For example, a ProcedureRequest seeking
+        an intake assessment or a decision support recommendation to assess
+        for post-partum depression.
 
-        # a procedure or observation that this questionnaire was performed as part
-        # of the execution of.  for example, the surgery a checklist was executed
-        # as part of.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.parent = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A procedure or observation that this questionnaire was performed as
+        part of the execution of.  For example, the surgery a checklist was
+        executed as part of.
 
-        # the questionnaire that defines and organizes the questions for which
-        # answers are being provided.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.questionnaire = None
-        # reference to Reference: identifier
+        """
+        The Questionnaire that defines and organizes the questions for which
+        answers are being provided.
 
-        # the position of the questionnaire response within its overall lifecycle.
+        reference to Reference: identifier
+        """
+
         self.status = None
-        # type = string
-        # possible values: in-progress, completed, amended, entered-in-
-        # error, stopped
+        """
+        The position of the questionnaire response within its overall
+        lifecycle.
 
-        # the subject of the questionnaire response.  this could be a patient,
-        # organization, practitioner, device, etc.  this is who/what the answers
-        # apply to, but is not necessarily the source of information.
+        type: string
+        possible values: in-progress, completed, amended,
+        entered-in-error, stopped
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        The subject of the questionnaire response.  This could be a patient,
+        organization, practitioner, device, etc.  This is who/what the answers
+        apply to, but is not necessarily the source of information.
 
-        # the encounter or episode of care with primary association to the
-        # questionnaire response.
+        reference to Reference: identifier
+        """
+
         self.context = None
-        # reference to Reference: identifier
+        """
+        The encounter or episode of care with primary association to the
+        questionnaire response.
 
-        # the date and/or time that this set of answers were last changed.
+        reference to Reference: identifier
+        """
+
         self.authored = None
-        # type = string
+        """
+        The date and/or time that this set of answers were last changed.
 
-        # person who received the answers to the questions in the
-        # questionnaireresponse and recorded them in the system.
+        type: string
+        """
+
         self.author = None
-        # reference to Reference: identifier
+        """
+        Person who received the answers to the questions in the
+        QuestionnaireResponse and recorded them in the system.
 
-        # the person who answered the questions about the subject.
+        reference to Reference: identifier
+        """
+
         self.source = None
-        # reference to Reference: identifier
+        """
+        The person who answered the questions about the subject.
 
-        # a group or question item from the original questionnaire for which
-        # answers are provided.
+        reference to Reference: identifier
+        """
+
         self.item = None
-        # type = array
-        # reference to QuestionnaireResponse_Item: QuestionnaireResponse_Item
+        """
+        A group or question item from the original questionnaire for which
+        answers are provided.
 
-        # a business identifier assigned to a particular completed (or partially
-        # completed) questionnaire.
+        type: array
+        reference to QuestionnaireResponse_Item
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        A business identifier assigned to a particular completed (or partially
+        completed) questionnaire.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -91,6 +129,11 @@ class QuestionnaireResponse(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'QuestionnaireResponse_Item',
+             'parent_variable': 'object_id',
+             'child_entity': 'QuestionnaireResponse',
+             'child_variable': 'item'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'QuestionnaireResponse',
@@ -101,15 +144,10 @@ class QuestionnaireResponse(fhirbase):
              'child_entity': 'QuestionnaireResponse',
              'child_variable': 'parent'},
 
-            {'parent_entity': 'QuestionnaireResponse_Item',
-             'parent_variable': 'object_id',
-             'child_entity': 'QuestionnaireResponse',
-             'child_variable': 'item'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'QuestionnaireResponse',
-             'child_variable': 'basedOn'},
+             'child_variable': 'source'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -119,7 +157,7 @@ class QuestionnaireResponse(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'QuestionnaireResponse',
-             'child_variable': 'source'},
+             'child_variable': 'subject'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
@@ -129,7 +167,7 @@ class QuestionnaireResponse(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'QuestionnaireResponse',
-             'child_variable': 'subject'},
+             'child_variable': 'basedOn'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -139,7 +177,8 @@ class QuestionnaireResponse(fhirbase):
 
 
 class QuestionnaireResponse_Item(fhirbase):
-    """A structured set of questions and their answers. The questions are
+    """
+    A structured set of questions and their answers. The questions are
     ordered and grouped into coherent subsets, corresponding to the
     structure of the grouping of the questionnaire being responded to.
     """
@@ -147,38 +186,56 @@ class QuestionnaireResponse_Item(fhirbase):
     __name__ = 'QuestionnaireResponse_Item'
 
     def __init__(self, dict_values=None):
-        # the item from the questionnaire that corresponds to this item in the
-        # questionnaireresponse resource.
         self.linkId = None
-        # type = string
+        """
+        The item from the Questionnaire that corresponds to this item in the
+        QuestionnaireResponse resource.
 
-        # a reference to an [[[elementdefinition]]] that provides the details for
-        # the item.
+        type: string
+        """
+
         self.definition = None
-        # type = string
+        """
+        A reference to an [[[ElementDefinition]]] that provides the details
+        for the item.
 
-        # text that is displayed above the contents of the group or as the text of
-        # the question being answered.
+        type: string
+        """
+
         self.text = None
-        # type = string
+        """
+        Text that is displayed above the contents of the group or as the text
+        of the question being answered.
 
-        # more specific subject this section's answers are about, details the
-        # subject given in questionnaireresponse.
+        type: string
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        More specific subject this section's answers are about, details the
+        subject given in QuestionnaireResponse.
 
-        # the respondent's answer(s) to the question.
+        reference to Reference: identifier
+        """
+
         self.answer = None
-        # type = array
-        # reference to QuestionnaireResponse_Answer: QuestionnaireResponse_Answer
+        """
+        The respondent's answer(s) to the question.
 
-        # questions or sub-groups nested beneath a question or group.
+        type: array
+        reference to QuestionnaireResponse_Answer
+        """
+
         self.item = None
-        # type = array
-        # reference to QuestionnaireResponse_Item: QuestionnaireResponse_Item
+        """
+        Questions or sub-groups nested beneath a question or group.
 
-        # unique identifier for object class
+        type: array
+        reference to QuestionnaireResponse_Item
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -204,7 +261,8 @@ class QuestionnaireResponse_Item(fhirbase):
 
 
 class QuestionnaireResponse_Answer(fhirbase):
-    """A structured set of questions and their answers. The questions are
+    """
+    A structured set of questions and their answers. The questions are
     ordered and grouped into coherent subsets, corresponding to the
     structure of the grouping of the questionnaire being responded to.
     """
@@ -212,73 +270,112 @@ class QuestionnaireResponse_Answer(fhirbase):
     __name__ = 'QuestionnaireResponse_Answer'
 
     def __init__(self, dict_values=None):
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
         self.valueBoolean = None
-        # type = boolean
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
+        type: boolean
+        """
+
         self.valueDecimal = None
-        # type = int
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
+        type: int
+        """
+
         self.valueInteger = None
-        # type = int
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
+        type: int
+        """
+
         self.valueDate = None
-        # type = string
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
+        type: string
+        """
+
         self.valueDateTime = None
-        # type = string
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
+        type: string
+        """
+
         self.valueTime = None
-        # type = string
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
+        type: string
+        """
+
         self.valueString = None
-        # type = string
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
+        type: string
+        """
+
         self.valueUri = None
-        # type = string
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
+        type: string
+        """
+
         self.valueAttachment = None
-        # reference to Attachment: Attachment
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
+        reference to Attachment
+        """
+
         self.valueCoding = None
-        # reference to Coding: Coding
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
+        reference to Coding
+        """
+
         self.valueQuantity = None
-        # reference to Quantity: Quantity
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # the answer (or one of the answers) provided by the respondent to the
-        # question.
+        reference to Quantity
+        """
+
         self.valueReference = None
-        # reference to Reference: identifier
+        """
+        The answer (or one of the answers) provided by the respondent to the
+        question.
 
-        # nested groups and/or questions found within this particular answer.
+        reference to Reference: identifier
+        """
+
         self.item = None
-        # type = array
-        # reference to QuestionnaireResponse_Item: QuestionnaireResponse_Item
+        """
+        Nested groups and/or questions found within this particular answer.
 
-        # unique identifier for object class
+        type: array
+        reference to QuestionnaireResponse_Item
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -286,6 +383,16 @@ class QuestionnaireResponse_Answer(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'QuestionnaireResponse_Answer',
+             'child_variable': 'valueQuantity'},
+
+            {'parent_entity': 'QuestionnaireResponse_Item',
+             'parent_variable': 'object_id',
+             'child_entity': 'QuestionnaireResponse_Answer',
+             'child_variable': 'item'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'QuestionnaireResponse_Answer',
@@ -300,14 +407,4 @@ class QuestionnaireResponse_Answer(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'QuestionnaireResponse_Answer',
              'child_variable': 'valueCoding'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'QuestionnaireResponse_Answer',
-             'child_variable': 'valueQuantity'},
-
-            {'parent_entity': 'QuestionnaireResponse_Item',
-             'parent_variable': 'object_id',
-             'child_entity': 'QuestionnaireResponse_Answer',
-             'child_variable': 'item'},
         ]

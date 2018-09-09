@@ -2,167 +2,247 @@ from .fhirbase import fhirbase
 
 
 class CodeSystem(fhirbase):
-    """A code system resource specifies a set of codes drawn from one or more
+    """
+    A code system resource specifies a set of codes drawn from one or more
     code systems.
     """
 
     __name__ = 'CodeSystem'
 
     def __init__(self, dict_values=None):
-        # this is a codesystem resource
         self.resourceType = 'CodeSystem'
-        # type = string
-        # possible values: CodeSystem
+        """
+        This is a CodeSystem resource
 
-        # an absolute uri that is used to identify this code system when it is
-        # referenced in a specification, model, design or an instance. this shall
-        # be a url, should be globally unique, and should be an address at which
-        # this code system is (or will be) published. the url should include the
-        # major version of the code system. for more information see [technical
-        # and business versions](resource.html#versions). this is used in
-        # [coding]{datatypes.html#coding}.system.
+        type: string
+        possible values: CodeSystem
+        """
+
         self.url = None
-        # type = string
+        """
+        An absolute URI that is used to identify this code system when it is
+        referenced in a specification, model, design or an instance. This
+        SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at
+        which this code system is (or will be) published. The URL SHOULD
+        include the major version of the code system. For more information see
+        [Technical and Business Versions](resource.html#versions). This is
+        used in [Coding]{datatypes.html#Coding}.system.
 
-        # the identifier that is used to identify this version of the code system
-        # when it is referenced in a specification, model, design or instance.
-        # this is an arbitrary value managed by the code system author and is not
-        # expected to be globally unique. for example, it might be a timestamp
-        # (e.g. yyyymmdd) if a managed version is not available. there is also no
-        # expectation that versions can be placed in a lexicographical sequence.
-        # this is used in [coding]{datatypes.html#coding}.version.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The identifier that is used to identify this version of the code
+        system when it is referenced in a specification, model, design or
+        instance. This is an arbitrary value managed by the code system author
+        and is not expected to be globally unique. For example, it might be a
+        timestamp (e.g. yyyymmdd) if a managed version is not available. There
+        is also no expectation that versions can be placed in a
+        lexicographical sequence. This is used in
+        [Coding]{datatypes.html#Coding}.version.
 
-        # a natural language name identifying the code system. this name should be
-        # usable as an identifier for the module by machine processing
-        # applications such as code generation.
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        A natural language name identifying the code system. This name should
+        be usable as an identifier for the module by machine processing
+        applications such as code generation.
 
-        # a short, descriptive, user-friendly title for the code system.
+        type: string
+        """
+
         self.title = None
-        # type = string
+        """
+        A short, descriptive, user-friendly title for the code system.
 
-        # the status of this code system. enables tracking the life-cycle of the
-        # content.
+        type: string
+        """
+
         self.status = None
-        # type = string
-        # possible values: draft, active, retired, unknown
+        """
+        The status of this code system. Enables tracking the life-cycle of the
+        content.
 
-        # a boolean value to indicate that this code system is authored for
-        # testing purposes (or education/evaluation/marketing), and is not
-        # intended to be used for genuine usage.
+        type: string
+        possible values: draft, active, retired, unknown
+        """
+
         self.experimental = None
-        # type = boolean
+        """
+        A boolean value to indicate that this code system is authored for
+        testing purposes (or education/evaluation/marketing), and is not
+        intended to be used for genuine usage.
 
-        # the date  (and optionally time) when the code system was published. the
-        # date must change if and when the business version changes and it must
-        # change if the status code changes. in addition, it should change when
-        # the substantive content of the code system changes.
+        type: boolean
+        """
+
         self.date = None
-        # type = string
+        """
+        The date  (and optionally time) when the code system was published.
+        The date must change if and when the business version changes and it
+        must change if the status code changes. In addition, it should change
+        when the substantive content of the code system changes.
 
-        # the name of the individual or organization that published the code
-        # system.
+        type: string
+        """
+
         self.publisher = None
-        # type = string
+        """
+        The name of the individual or organization that published the code
+        system.
 
-        # contact details to assist a user in finding and communicating with the
-        # publisher.
+        type: string
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        """
+        Contact details to assist a user in finding and communicating with the
+        publisher.
 
-        # a free text natural language description of the code system from a
-        # consumer's perspective.
+        type: array
+        reference to ContactDetail
+        """
+
         self.description = None
-        # type = string
+        """
+        A free text natural language description of the code system from a
+        consumer's perspective.
 
-        # the content was developed with a focus and intent of supporting the
-        # contexts that are listed. these terms may be used to assist with
-        # indexing and searching for appropriate code system instances.
+        type: string
+        """
+
         self.useContext = None
-        # type = array
-        # reference to UsageContext: UsageContext
+        """
+        The content was developed with a focus and intent of supporting the
+        contexts that are listed. These terms may be used to assist with
+        indexing and searching for appropriate code system instances.
 
-        # a legal or geographic region in which the code system is intended to be
-        # used.
+        type: array
+        reference to UsageContext
+        """
+
         self.jurisdiction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A legal or geographic region in which the code system is intended to
+        be used.
 
-        # explaination of why this code system is needed and why it has been
-        # designed as it has.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.purpose = None
-        # type = string
+        """
+        Explaination of why this code system is needed and why it has been
+        designed as it has.
 
-        # a copyright statement relating to the code system and/or its contents.
-        # copyright statements are generally legal restrictions on the use and
-        # publishing of the code system.
+        type: string
+        """
+
         self.copyright = None
-        # type = string
+        """
+        A copyright statement relating to the code system and/or its contents.
+        Copyright statements are generally legal restrictions on the use and
+        publishing of the code system.
 
-        # if code comparison is case sensitive when codes within this system are
-        # compared to each other.
+        type: string
+        """
+
         self.caseSensitive = None
-        # type = boolean
+        """
+        If code comparison is case sensitive when codes within this system are
+        compared to each other.
 
-        # canonical url of value set that contains the entire code system.
+        type: boolean
+        """
+
         self.valueSet = None
-        # type = string
+        """
+        Canonical URL of value set that contains the entire code system.
 
-        # the meaning of the hierarchy of concepts.
+        type: string
+        """
+
         self.hierarchyMeaning = None
-        # type = string
-        # possible values: grouped-by, is-a, part-of, classified-with
+        """
+        The meaning of the hierarchy of concepts.
 
-        # true if code system defines a post-composition grammar.
+        type: string
+        possible values: grouped-by, is-a, part-of, classified-with
+        """
+
         self.compositional = None
-        # type = boolean
+        """
+        True If code system defines a post-composition grammar.
 
-        # this flag is used to signify that the code system has not (or does not)
-        # maintain the definitions, and a version must be specified when
-        # referencing this code system.
+        type: boolean
+        """
+
         self.versionNeeded = None
-        # type = boolean
+        """
+        This flag is used to signify that the code system has not (or does
+        not) maintain the definitions, and a version must be specified when
+        referencing this code system.
 
-        # how much of the content of the code system - the concepts and codes it
-        # defines - are represented in this resource.
+        type: boolean
+        """
+
         self.content = None
-        # type = string
-        # possible values: not-present, example, fragment, complete
+        """
+        How much of the content of the code system - the concepts and codes it
+        defines - are represented in this resource.
 
-        # the total number of concepts defined by the code system. where the code
-        # system has a compositional grammar, the count refers to the number of
-        # base (primitive) concepts.
+        type: string
+        possible values: not-present, example, fragment, complete
+        """
+
         self.count = None
-        # type = int
+        """
+        The total number of concepts defined by the code system. Where the
+        code system has a compositional grammar, the count refers to the
+        number of base (primitive) concepts.
 
-        # a filter that can be used in a value set compose statement when
-        # selecting concepts using a filter.
+        type: int
+        """
+
         self.filter = None
-        # type = array
-        # reference to CodeSystem_Filter: CodeSystem_Filter
+        """
+        A filter that can be used in a value set compose statement when
+        selecting concepts using a filter.
 
-        # a property defines an additional slot through which additional
-        # information can be provided about a concept.
+        type: array
+        reference to CodeSystem_Filter
+        """
+
         self.property = None
-        # type = array
-        # reference to CodeSystem_Property: CodeSystem_Property
+        """
+        A property defines an additional slot through which additional
+        information can be provided about a concept.
 
-        # concepts that are in the code system. the concept definitions are
-        # inherently hierarchical, but the definitions must be consulted to
-        # determine what the meaning of the hierarchical relationships are.
+        type: array
+        reference to CodeSystem_Property
+        """
+
         self.concept = None
-        # type = array
-        # reference to CodeSystem_Concept: CodeSystem_Concept
+        """
+        Concepts that are in the code system. The concept definitions are
+        inherently hierarchical, but the definitions must be consulted to
+        determine what the meaning of the hierarchical relationships are.
 
-        # a formal identifier that is used to identify this code system when it is
-        # represented in other formats, or referenced in a specification, model,
-        # design or an instance.
+        type: array
+        reference to CodeSystem_Concept
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        A formal identifier that is used to identify this code system when it
+        is represented in other formats, or referenced in a specification,
+        model, design or an instance.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -193,35 +273,35 @@ class CodeSystem(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeSystem_Concept',
-             'parent_variable': 'object_id',
-             'child_entity': 'CodeSystem',
-             'child_variable': 'concept'},
-
-            {'parent_entity': 'ContactDetail',
-             'parent_variable': 'object_id',
-             'child_entity': 'CodeSystem',
-             'child_variable': 'contact'},
-
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'CodeSystem',
              'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeSystem_Concept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem',
+             'child_variable': 'concept'},
 
             {'parent_entity': 'CodeSystem_Filter',
              'parent_variable': 'object_id',
              'child_entity': 'CodeSystem',
              'child_variable': 'filter'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'ContactDetail',
              'parent_variable': 'object_id',
              'child_entity': 'CodeSystem',
-             'child_variable': 'jurisdiction'},
+             'child_variable': 'contact'},
 
             {'parent_entity': 'UsageContext',
              'parent_variable': 'object_id',
              'child_entity': 'CodeSystem',
              'child_variable': 'useContext'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem',
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'CodeSystem_Property',
              'parent_variable': 'object_id',
@@ -231,71 +311,97 @@ class CodeSystem(fhirbase):
 
 
 class CodeSystem_Filter(fhirbase):
-    """A code system resource specifies a set of codes drawn from one or more
+    """
+    A code system resource specifies a set of codes drawn from one or more
     code systems.
     """
 
     __name__ = 'CodeSystem_Filter'
 
     def __init__(self, dict_values=None):
-        # the code that identifies this filter when it is used in the instance.
         self.code = None
-        # type = string
+        """
+        The code that identifies this filter when it is used in the instance.
 
-        # a description of how or why the filter is used.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        A description of how or why the filter is used.
 
-        # a list of operators that can be used with the filter.
+        type: string
+        """
+
         self.operator = None
-        # type = array
+        """
+        A list of operators that can be used with the filter.
 
-        # a description of what the value for the filter should be.
+        type: array
+        """
+
         self.value = None
-        # type = string
+        """
+        A description of what the value for the filter should be.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class CodeSystem_Property(fhirbase):
-    """A code system resource specifies a set of codes drawn from one or more
+    """
+    A code system resource specifies a set of codes drawn from one or more
     code systems.
     """
 
     __name__ = 'CodeSystem_Property'
 
     def __init__(self, dict_values=None):
-        # a code that is used to identify the property. the code is used
-        # internally (in codesystem.concept.property.code) and also externally,
-        # such as in property filters.
         self.code = None
-        # type = string
+        """
+        A code that is used to identify the property. The code is used
+        internally (in CodeSystem.concept.property.code) and also externally,
+        such as in property filters.
 
-        # reference to the formal meaning of the property. one possible source of
-        # meaning is the [concept properties](codesystem-concept-properties.html)
-        # code system.
+        type: string
+        """
+
         self.uri = None
-        # type = string
+        """
+        Reference to the formal meaning of the property. One possible source
+        of meaning is the [Concept
+        Properties](codesystem-concept-properties.html) code system.
 
-        # a description of the property- why it is defined, and how its value
-        # might be used.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        A description of the property- why it is defined, and how its value
+        might be used.
 
-        # the type of the property value. properties of type "code" contain a code
-        # defined by the code system (e.g. a reference to anotherr defined
-        # concept).
+        type: string
+        """
+
         self.type = None
-        # type = string
-        # possible values: code, Coding, string, integer, boolean,
-        # dateTime
+        """
+        The type of the property value. Properties of type "code" contain a
+        code defined by the code system (e.g. a reference to anotherr defined
+        concept).
 
-        # unique identifier for object class
+        type: string
+        possible values: code, Coding, string, integer, boolean,
+        dateTime
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -311,50 +417,69 @@ class CodeSystem_Property(fhirbase):
 
 
 class CodeSystem_Concept(fhirbase):
-    """A code system resource specifies a set of codes drawn from one or more
+    """
+    A code system resource specifies a set of codes drawn from one or more
     code systems.
     """
 
     __name__ = 'CodeSystem_Concept'
 
     def __init__(self, dict_values=None):
-        # a code - a text symbol - that uniquely identifies the concept within the
-        # code system.
         self.code = None
-        # type = string
+        """
+        A code - a text symbol - that uniquely identifies the concept within
+        the code system.
 
-        # a human readable string that is the recommended default way to present
-        # this concept to a user.
+        type: string
+        """
+
         self.display = None
-        # type = string
+        """
+        A human readable string that is the recommended default way to present
+        this concept to a user.
 
-        # the formal definition of the concept. the code system resource does not
-        # make formal definitions required, because of the prevalence of legacy
-        # systems. however, they are highly recommended, as without them there is
-        # no formal meaning associated with the concept.
+        type: string
+        """
+
         self.definition = None
-        # type = string
+        """
+        The formal definition of the concept. The code system resource does
+        not make formal definitions required, because of the prevalence of
+        legacy systems. However, they are highly recommended, as without them
+        there is no formal meaning associated with the concept.
 
-        # additional representations for the concept - other languages, aliases,
-        # specialized purposes, used for particular purposes, etc.
+        type: string
+        """
+
         self.designation = None
-        # type = array
-        # reference to CodeSystem_Designation: CodeSystem_Designation
+        """
+        Additional representations for the concept - other languages, aliases,
+        specialized purposes, used for particular purposes, etc.
 
-        # a property value for this concept.
+        type: array
+        reference to CodeSystem_Designation
+        """
+
         self.property = None
-        # type = array
-        # reference to CodeSystem_Property1: CodeSystem_Property1
+        """
+        A property value for this concept.
 
-        # defines children of a concept to produce a hierarchy of concepts. the
-        # nature of the relationships is variable (is-a/contains/categorizes) -
-        # see hierarchymeaning.
+        type: array
+        reference to CodeSystem_Property1
+        """
+
         self.concept = None
-        # type = array
-        # reference to CodeSystem_Concept: CodeSystem_Concept
+        """
+        Defines children of a concept to produce a hierarchy of concepts. The
+        nature of the relationships is variable (is-a/contains/categorizes) -
+        see hierarchyMeaning.
 
-        # unique identifier for object class
+        type: array
+        reference to CodeSystem_Concept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -362,6 +487,11 @@ class CodeSystem_Concept(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeSystem_Property1',
+             'parent_variable': 'object_id',
+             'child_entity': 'CodeSystem_Concept',
+             'child_variable': 'property'},
+
             {'parent_entity': 'CodeSystem_Concept',
              'parent_variable': 'object_id',
              'child_entity': 'CodeSystem_Concept',
@@ -371,36 +501,41 @@ class CodeSystem_Concept(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'CodeSystem_Concept',
              'child_variable': 'designation'},
-
-            {'parent_entity': 'CodeSystem_Property1',
-             'parent_variable': 'object_id',
-             'child_entity': 'CodeSystem_Concept',
-             'child_variable': 'property'},
         ]
 
 
 class CodeSystem_Designation(fhirbase):
-    """A code system resource specifies a set of codes drawn from one or more
+    """
+    A code system resource specifies a set of codes drawn from one or more
     code systems.
     """
 
     __name__ = 'CodeSystem_Designation'
 
     def __init__(self, dict_values=None):
-        # the language this designation is defined for.
         self.language = None
-        # type = string
+        """
+        The language this designation is defined for.
 
-        # a code that details how this designation would be used.
+        type: string
+        """
+
         self.use = None
-        # reference to Coding: Coding
+        """
+        A code that details how this designation would be used.
 
-        # the text value for this designation.
+        reference to Coding
+        """
+
         self.value = None
-        # type = string
+        """
+        The text value for this designation.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -416,43 +551,65 @@ class CodeSystem_Designation(fhirbase):
 
 
 class CodeSystem_Property1(fhirbase):
-    """A code system resource specifies a set of codes drawn from one or more
+    """
+    A code system resource specifies a set of codes drawn from one or more
     code systems.
     """
 
     __name__ = 'CodeSystem_Property1'
 
     def __init__(self, dict_values=None):
-        # a code that is a reference to codesystem.property.code.
         self.code = None
-        # type = string
+        """
+        A code that is a reference to CodeSystem.property.code.
 
-        # the value of this property.
+        type: string
+        """
+
         self.valueCode = None
-        # type = string
+        """
+        The value of this property.
 
-        # the value of this property.
+        type: string
+        """
+
         self.valueCoding = None
-        # reference to Coding: Coding
+        """
+        The value of this property.
 
-        # the value of this property.
+        reference to Coding
+        """
+
         self.valueString = None
-        # type = string
+        """
+        The value of this property.
 
-        # the value of this property.
+        type: string
+        """
+
         self.valueInteger = None
-        # type = int
+        """
+        The value of this property.
 
-        # the value of this property.
+        type: int
+        """
+
         self.valueBoolean = None
-        # type = boolean
+        """
+        The value of this property.
 
-        # the value of this property.
+        type: boolean
+        """
+
         self.valueDateTime = None
-        # type = string
+        """
+        The value of this property.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

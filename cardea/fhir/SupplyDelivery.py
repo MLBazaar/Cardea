@@ -2,80 +2,123 @@ from .fhirbase import fhirbase
 
 
 class SupplyDelivery(fhirbase):
-    """Record of delivery of what is supplied.
+    """
+    Record of delivery of what is supplied.
     """
 
     __name__ = 'SupplyDelivery'
 
     def __init__(self, dict_values=None):
-        # this is a supplydelivery resource
         self.resourceType = 'SupplyDelivery'
-        # type = string
-        # possible values: SupplyDelivery
+        """
+        This is a SupplyDelivery resource
 
-        # a plan, proposal or order that is fulfilled in whole or in part by this
-        # event.
+        type: string
+        possible values: SupplyDelivery
+        """
+
         self.basedOn = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A plan, proposal or order that is fulfilled in whole or in part by
+        this event.
 
-        # a larger event of which this particular event is a component or step.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.partOf = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A larger event of which this particular event is a component or step.
 
-        # a code specifying the state of the dispense event.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.status = None
-        # type = string
-        # possible values: in-progress, completed, abandoned, entered-
-        # in-error
+        """
+        A code specifying the state of the dispense event.
 
-        # a link to a resource representing the person whom the delivered item is
-        # for.
+        type: string
+        possible values: in-progress, completed, abandoned,
+        entered-in-error
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        A link to a resource representing the person whom the delivered item
+        is for.
 
-        # indicates the type of dispensing event that is performed. examples
-        # include: trial fill, completion of trial, partial fill, emergency fill,
-        # samples, etc.
+        reference to Reference: identifier
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates the type of dispensing event that is performed. Examples
+        include: Trial Fill, Completion of Trial, Partial Fill, Emergency
+        Fill, Samples, etc.
 
-        # the item that is being delivered or has been supplied.
+        reference to CodeableConcept
+        """
+
         self.suppliedItem = None
-        # reference to SupplyDelivery_SuppliedItem: SupplyDelivery_SuppliedItem
+        """
+        The item that is being delivered or has been supplied.
 
-        # the date or time(s) the activity occurred.
+        reference to SupplyDelivery_SuppliedItem
+        """
+
         self.occurrenceDateTime = None
-        # type = string
+        """
+        The date or time(s) the activity occurred.
 
-        # the date or time(s) the activity occurred.
+        type: string
+        """
+
         self.occurrencePeriod = None
-        # reference to Period: Period
+        """
+        The date or time(s) the activity occurred.
 
-        # the date or time(s) the activity occurred.
+        reference to Period
+        """
+
         self.occurrenceTiming = None
-        # reference to Timing: Timing
+        """
+        The date or time(s) the activity occurred.
 
-        # the individual responsible for dispensing the medication, supplier or
-        # device.
+        reference to Timing
+        """
+
         self.supplier = None
-        # reference to Reference: identifier
+        """
+        The individual responsible for dispensing the medication, supplier or
+        device.
 
-        # identification of the facility/location where the supply was shipped to,
-        # as part of the dispense event.
+        reference to Reference: identifier
+        """
+
         self.destination = None
-        # reference to Reference: identifier
+        """
+        Identification of the facility/location where the Supply was shipped
+        to, as part of the dispense event.
 
-        # identifies the person who picked up the supply.
+        reference to Reference: identifier
+        """
+
         self.receiver = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Identifies the person who picked up the Supply.
 
-        # identifier assigned by the dispensing facility when the item(s) is
-        # dispensed.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Identifier assigned by the dispensing facility when the item(s) is
+        dispensed.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -92,50 +135,15 @@ class SupplyDelivery(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'SupplyDelivery',
-             'child_variable': 'type'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'SupplyDelivery',
-             'child_variable': 'destination'},
-
-            {'parent_entity': 'Timing',
-             'parent_variable': 'object_id',
-             'child_entity': 'SupplyDelivery',
-             'child_variable': 'occurrenceTiming'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'SupplyDelivery',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'SupplyDelivery',
-             'child_variable': 'supplier'},
-
-            {'parent_entity': 'SupplyDelivery_SuppliedItem',
-             'parent_variable': 'object_id',
-             'child_entity': 'SupplyDelivery',
-             'child_variable': 'suppliedItem'},
+             'child_variable': 'partOf'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'SupplyDelivery',
              'child_variable': 'receiver'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'SupplyDelivery',
-             'child_variable': 'patient'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'SupplyDelivery',
-             'child_variable': 'partOf'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -146,34 +154,80 @@ class SupplyDelivery(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'SupplyDelivery',
              'child_variable': 'occurrencePeriod'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'supplier'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'occurrenceTiming'},
+
+            {'parent_entity': 'SupplyDelivery_SuppliedItem',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'suppliedItem'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'destination'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyDelivery',
+             'child_variable': 'patient'},
         ]
 
 
 class SupplyDelivery_SuppliedItem(fhirbase):
-    """Record of delivery of what is supplied.
+    """
+    Record of delivery of what is supplied.
     """
 
     __name__ = 'SupplyDelivery_SuppliedItem'
 
     def __init__(self, dict_values=None):
-        # the amount of supply that has been dispensed. includes unit of measure.
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The amount of supply that has been dispensed. Includes unit of
+        measure.
 
-        # identifies the medication, substance or device being dispensed. this is
-        # either a link to a resource representing the details of the item or a
-        # code that identifies the item from a known list.
+        reference to Quantity
+        """
+
         self.itemCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Identifies the medication, substance or device being dispensed. This
+        is either a link to a resource representing the details of the item or
+        a code that identifies the item from a known list.
 
-        # identifies the medication, substance or device being dispensed. this is
-        # either a link to a resource representing the details of the item or a
-        # code that identifies the item from a known list.
+        reference to CodeableConcept
+        """
+
         self.itemReference = None
-        # reference to Reference: identifier
+        """
+        Identifies the medication, substance or device being dispensed. This
+        is either a link to a resource representing the details of the item or
+        a code that identifies the item from a known list.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

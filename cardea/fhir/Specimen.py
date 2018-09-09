@@ -2,80 +2,120 @@ from .fhirbase import fhirbase
 
 
 class Specimen(fhirbase):
-    """A sample to be used for analysis.
+    """
+    A sample to be used for analysis.
     """
 
     __name__ = 'Specimen'
 
     def __init__(self, dict_values=None):
-        # this is a specimen resource
         self.resourceType = 'Specimen'
-        # type = string
-        # possible values: Specimen
+        """
+        This is a Specimen resource
 
-        # the identifier assigned by the lab when accessioning specimen(s). this
-        # is not necessarily the same as the specimen identifier, depending on
-        # local lab procedures.
+        type: string
+        possible values: Specimen
+        """
+
         self.accessionIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        The identifier assigned by the lab when accessioning specimen(s). This
+        is not necessarily the same as the specimen identifier, depending on
+        local lab procedures.
 
-        # the availability of the specimen.
+        reference to Identifier
+        """
+
         self.status = None
-        # type = string
-        # possible values: available, unavailable, unsatisfactory,
-        # entered-in-error
+        """
+        The availability of the specimen.
 
-        # the kind of material that forms the specimen.
+        type: string
+        possible values: available, unavailable, unsatisfactory,
+        entered-in-error
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The kind of material that forms the specimen.
 
-        # where the specimen came from. this may be from the patient(s) or from
-        # the environment or a device.
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        Where the specimen came from. This may be from the patient(s) or from
+        the environment or a device.
 
-        # time when specimen was received for processing or testing.
+        reference to Reference: identifier
+        """
+
         self.receivedTime = None
-        # type = string
+        """
+        Time when specimen was received for processing or testing.
 
-        # reference to the parent (source) specimen which is used when the
-        # specimen was either derived from or a component of another specimen.
+        type: string
+        """
+
         self.parent = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Reference to the parent (source) specimen which is used when the
+        specimen was either derived from or a component of another specimen.
 
-        # details concerning a test or procedure request that required a specimen
-        # to be collected.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.request = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Details concerning a test or procedure request that required a
+        specimen to be collected.
 
-        # details concerning the specimen collection.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.collection = None
-        # reference to Specimen_Collection: Specimen_Collection
+        """
+        Details concerning the specimen collection.
 
-        # details concerning processing and processing steps for the specimen.
+        reference to Specimen_Collection
+        """
+
         self.processing = None
-        # type = array
-        # reference to Specimen_Processing: Specimen_Processing
+        """
+        Details concerning processing and processing steps for the specimen.
 
-        # the container holding the specimen.  the recursive nature of containers;
-        # i.e. blood in tube in tray in rack is not addressed here.
+        type: array
+        reference to Specimen_Processing
+        """
+
         self.container = None
-        # type = array
-        # reference to Specimen_Container: identifier
+        """
+        The container holding the specimen.  The recursive nature of
+        containers; i.e. blood in tube in tray in rack is not addressed here.
 
-        # to communicate any details or issues about the specimen or during the
-        # specimen collection. (for example: broken vial, sent with patient,
-        # frozen).
+        type: array
+        reference to Specimen_Container: identifier
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        To communicate any details or issues about the specimen or during the
+        specimen collection. (for example: broken vial, sent with patient,
+        frozen).
 
-        # id for specimen.
+        type: array
+        reference to Annotation
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Id for specimen.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -95,27 +135,32 @@ class Specimen(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Specimen',
-             'child_variable': 'subject'},
+             'child_variable': 'request'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Specimen',
+             'child_variable': 'parent'},
+
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Specimen',
-             'child_variable': 'type'},
-
-            {'parent_entity': 'Specimen_Collection',
-             'parent_variable': 'object_id',
-             'child_entity': 'Specimen',
-             'child_variable': 'collection'},
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Annotation',
              'parent_variable': 'object_id',
              'child_entity': 'Specimen',
              'child_variable': 'note'},
 
-            {'parent_entity': 'Specimen_Container',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Specimen_Collection',
+             'parent_variable': 'object_id',
              'child_entity': 'Specimen',
-             'child_variable': 'container'},
+             'child_variable': 'collection'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
@@ -125,17 +170,12 @@ class Specimen(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Specimen',
-             'child_variable': 'request'},
+             'child_variable': 'subject'},
 
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Specimen',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
+            {'parent_entity': 'Specimen_Container',
              'parent_variable': 'identifier',
              'child_entity': 'Specimen',
-             'child_variable': 'parent'},
+             'child_variable': 'container'},
 
             {'parent_entity': 'Specimen_Processing',
              'parent_variable': 'object_id',
@@ -145,44 +185,63 @@ class Specimen(fhirbase):
 
 
 class Specimen_Collection(fhirbase):
-    """A sample to be used for analysis.
+    """
+    A sample to be used for analysis.
     """
 
     __name__ = 'Specimen_Collection'
 
     def __init__(self, dict_values=None):
-        # person who collected the specimen.
         self.collector = None
-        # reference to Reference: identifier
+        """
+        Person who collected the specimen.
 
-        # time when specimen was collected from subject - the physiologically
-        # relevant time.
+        reference to Reference: identifier
+        """
+
         self.collectedDateTime = None
-        # type = string
+        """
+        Time when specimen was collected from subject - the physiologically
+        relevant time.
 
-        # time when specimen was collected from subject - the physiologically
-        # relevant time.
+        type: string
+        """
+
         self.collectedPeriod = None
-        # reference to Period: Period
+        """
+        Time when specimen was collected from subject - the physiologically
+        relevant time.
 
-        # the quantity of specimen collected; for instance the volume of a blood
-        # sample, or the physical measurement of an anatomic pathology sample.
+        reference to Period
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The quantity of specimen collected; for instance the volume of a blood
+        sample, or the physical measurement of an anatomic pathology sample.
 
-        # a coded value specifying the technique that is used to perform the
-        # procedure.
+        reference to Quantity
+        """
+
         self.method = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A coded value specifying the technique that is used to perform the
+        procedure.
 
-        # anatomical location from which the specimen was collected (if subject is
-        # a patient). this is the target site.  this element is not used for
-        # environmental specimens.
+        reference to CodeableConcept
+        """
+
         self.bodySite = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Anatomical location from which the specimen was collected (if subject
+        is a patient). This is the target site.  This element is not used for
+        environmental specimens.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -200,11 +259,6 @@ class Specimen_Collection(fhirbase):
              'child_entity': 'Specimen_Collection',
              'child_variable': 'quantity'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Specimen_Collection',
-             'child_variable': 'method'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Specimen_Collection',
@@ -214,43 +268,64 @@ class Specimen_Collection(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Specimen_Collection',
              'child_variable': 'bodySite'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Collection',
+             'child_variable': 'method'},
         ]
 
 
 class Specimen_Processing(fhirbase):
-    """A sample to be used for analysis.
+    """
+    A sample to be used for analysis.
     """
 
     __name__ = 'Specimen_Processing'
 
     def __init__(self, dict_values=None):
-        # textual description of procedure.
         self.description = None
-        # type = string
+        """
+        Textual description of procedure.
 
-        # a coded value specifying the procedure used to process the specimen.
+        type: string
+        """
+
         self.procedure = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A coded value specifying the procedure used to process the specimen.
 
-        # material used in the processing step.
+        reference to CodeableConcept
+        """
+
         self.additive = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Material used in the processing step.
 
-        # a record of the time or period when the specimen processing occurred.
-        # for example the time of sample fixation or the period of time the sample
-        # was in formalin.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.timeDateTime = None
-        # type = string
+        """
+        A record of the time or period when the specimen processing occurred.
+        For example the time of sample fixation or the period of time the
+        sample was in formalin.
 
-        # a record of the time or period when the specimen processing occurred.
-        # for example the time of sample fixation or the period of time the sample
-        # was in formalin.
+        type: string
+        """
+
         self.timePeriod = None
-        # reference to Period: Period
+        """
+        A record of the time or period when the specimen processing occurred.
+        For example the time of sample fixation or the period of time the
+        sample was in formalin.
 
-        # unique identifier for object class
+        reference to Period
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -258,6 +333,11 @@ class Specimen_Processing(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Processing',
+             'child_variable': 'timePeriod'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Specimen_Processing',
@@ -267,55 +347,72 @@ class Specimen_Processing(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Specimen_Processing',
              'child_variable': 'procedure'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Specimen_Processing',
-             'child_variable': 'timePeriod'},
         ]
 
 
 class Specimen_Container(fhirbase):
-    """A sample to be used for analysis.
+    """
+    A sample to be used for analysis.
     """
 
     __name__ = 'Specimen_Container'
 
     def __init__(self, dict_values=None):
-        # textual description of the container.
         self.description = None
-        # type = string
+        """
+        Textual description of the container.
 
-        # the type of container associated with the specimen (e.g. slide, aliquot,
-        # etc.).
+        type: string
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of container associated with the specimen (e.g. slide,
+        aliquot, etc.).
 
-        # the capacity (volume or other measure) the container may contain.
+        reference to CodeableConcept
+        """
+
         self.capacity = None
-        # reference to Quantity: Quantity
+        """
+        The capacity (volume or other measure) the container may contain.
 
-        # the quantity of specimen in the container; may be volume, dimensions, or
-        # other appropriate measurements, depending on the specimen type.
+        reference to Quantity
+        """
+
         self.specimenQuantity = None
-        # reference to Quantity: Quantity
+        """
+        The quantity of specimen in the container; may be volume, dimensions,
+        or other appropriate measurements, depending on the specimen type.
 
-        # introduced substance to preserve, maintain or enhance the specimen.
-        # examples: formalin, citrate, edta.
+        reference to Quantity
+        """
+
         self.additiveCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Introduced substance to preserve, maintain or enhance the specimen.
+        Examples: Formalin, Citrate, EDTA.
 
-        # introduced substance to preserve, maintain or enhance the specimen.
-        # examples: formalin, citrate, edta.
+        reference to CodeableConcept
+        """
+
         self.additiveReference = None
-        # reference to Reference: identifier
+        """
+        Introduced substance to preserve, maintain or enhance the specimen.
+        Examples: Formalin, Citrate, EDTA.
 
-        # id for container. there may be multiple; a manufacturer's bar code, lab
-        # assigned identifier, etc. the container id may differ from the specimen
-        # id in some circumstances.
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Id for container. There may be multiple; a manufacturer's bar code,
+        lab assigned identifier, etc. The container ID may differ from the
+        specimen id in some circumstances.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -323,15 +420,20 @@ class Specimen_Container(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Specimen_Container',
-             'child_variable': 'type'},
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Specimen_Container',
              'child_variable': 'additiveCodeableConcept'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Specimen_Container',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -347,9 +449,4 @@ class Specimen_Container(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Specimen_Container',
              'child_variable': 'capacity'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Specimen_Container',
-             'child_variable': 'identifier'},
         ]

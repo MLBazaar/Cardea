@@ -2,154 +2,225 @@ from .fhirbase import fhirbase
 
 
 class MedicationAdministration(fhirbase):
-    """Describes the event of a patient consuming or otherwise being
-    administered a medication.  This may be as simple as swallowing a tablet
-    or it may be a long running infusion.  Related resources tie this event
-    to the authorizing prescription, and the specific encounter between
-    patient and health care practitioner.
+    """
+    Describes the event of a patient consuming or otherwise being
+    administered a medication.  This may be as simple as swallowing a
+    tablet or it may be a long running infusion.  Related resources tie
+    this event to the authorizing prescription, and the specific encounter
+    between patient and health care practitioner.
     """
 
     __name__ = 'MedicationAdministration'
 
     def __init__(self, dict_values=None):
-        # this is a medicationadministration resource
         self.resourceType = 'MedicationAdministration'
-        # type = string
-        # possible values: MedicationAdministration
+        """
+        This is a MedicationAdministration resource
 
-        # a protocol, guideline, orderset or other definition that was adhered to
-        # in whole or in part by this event.
+        type: string
+        possible values: MedicationAdministration
+        """
+
         self.definition = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A protocol, guideline, orderset or other definition that was adhered
+        to in whole or in part by this event.
 
-        # a larger event of which this particular event is a component or step.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.partOf = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A larger event of which this particular event is a component or step.
 
-        # will generally be set to show that the administration has been
-        # completed.  for some long running administrations such as infusions it
-        # is possible for an administration to be started but not completed or it
-        # may be paused while some other process is under way.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.status = None
-        # type = string
-        # possible values: in-progress, on-hold, completed, entered-in-
-        # error, stopped, unknown
+        """
+        Will generally be set to show that the administration has been
+        completed.  For some long running administrations such as infusions it
+        is possible for an administration to be started but not completed or
+        it may be paused while some other process is under way.
 
-        # indicates the type of medication administration and where the medication
-        # is expected to be consumed or administered.
+        type: string
+        possible values: in-progress, on-hold, completed,
+        entered-in-error, stopped, unknown
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates the type of medication administration and where the
+        medication is expected to be consumed or administered.
 
-        # identifies the medication that was administered. this is either a link
-        # to a resource representing the details of the medication or a simple
-        # attribute carrying a code that identifies the medication from a known
-        # list of medications.
+        reference to CodeableConcept
+        """
+
         self.medicationCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Identifies the medication that was administered. This is either a link
+        to a resource representing the details of the medication or a simple
+        attribute carrying a code that identifies the medication from a known
+        list of medications.
 
-        # identifies the medication that was administered. this is either a link
-        # to a resource representing the details of the medication or a simple
-        # attribute carrying a code that identifies the medication from a known
-        # list of medications.
+        reference to CodeableConcept
+        """
+
         self.medicationReference = None
-        # reference to Reference: identifier
+        """
+        Identifies the medication that was administered. This is either a link
+        to a resource representing the details of the medication or a simple
+        attribute carrying a code that identifies the medication from a known
+        list of medications.
 
-        # the person or animal or group receiving the medication.
+        reference to Reference: identifier
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        The person or animal or group receiving the medication.
 
-        # the visit, admission or other contact between patient and health care
-        # provider the medication administration was performed as part of.
+        reference to Reference: identifier
+        """
+
         self.context = None
-        # reference to Reference: identifier
+        """
+        The visit, admission or other contact between patient and health care
+        provider the medication administration was performed as part of.
 
-        # additional information (for example, patient height and weight) that
-        # supports the administration of the medication.
+        reference to Reference: identifier
+        """
+
         self.supportingInformation = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Additional information (for example, patient height and weight) that
+        supports the administration of the medication.
 
-        # a specific date/time or interval of time during which the administration
-        # took place (or did not take place, when the 'notgiven' attribute is
-        # true). for many administrations, such as swallowing a tablet the use of
-        # datetime is more appropriate.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.effectiveDateTime = None
-        # type = string
+        """
+        A specific date/time or interval of time during which the
+        administration took place (or did not take place, when the 'notGiven'
+        attribute is true). For many administrations, such as swallowing a
+        tablet the use of dateTime is more appropriate.
 
-        # a specific date/time or interval of time during which the administration
-        # took place (or did not take place, when the 'notgiven' attribute is
-        # true). for many administrations, such as swallowing a tablet the use of
-        # datetime is more appropriate.
+        type: string
+        """
+
         self.effectivePeriod = None
-        # reference to Period: Period
+        """
+        A specific date/time or interval of time during which the
+        administration took place (or did not take place, when the 'notGiven'
+        attribute is true). For many administrations, such as swallowing a
+        tablet the use of dateTime is more appropriate.
 
-        # the individual who was responsible for giving the medication to the
-        # patient.
+        reference to Period
+        """
+
         self.performer = None
-        # type = array
-        # reference to MedicationAdministration_Performer: MedicationAdministration_Performer
+        """
+        The individual who was responsible for giving the medication to the
+        patient.
 
-        # set this to true if the record is saying that the medication was not
-        # administered.
+        type: array
+        reference to MedicationAdministration_Performer
+        """
+
         self.notGiven = None
-        # type = boolean
+        """
+        Set this to true if the record is saying that the medication was NOT
+        administered.
 
-        # a code indicating why the administration was not performed.
+        type: boolean
+        """
+
         self.reasonNotGiven = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code indicating why the administration was not performed.
 
-        # a code indicating why the medication was given.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.reasonCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code indicating why the medication was given.
 
-        # condition or observation that supports why the medication was
-        # administered.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.reasonReference = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Condition or observation that supports why the medication was
+        administered.
 
-        # the original request, instruction or authority to perform the
-        # administration.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.prescription = None
-        # reference to Reference: identifier
+        """
+        The original request, instruction or authority to perform the
+        administration.
 
-        # the device used in administering the medication to the patient.  for
-        # example, a particular infusion pump.
+        reference to Reference: identifier
+        """
+
         self.device = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The device used in administering the medication to the patient.  For
+        example, a particular infusion pump.
 
-        # extra information about the medication administration that is not
-        # conveyed by the other attributes.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        Extra information about the medication administration that is not
+        conveyed by the other attributes.
 
-        # describes the medication dosage information details e.g. dose, rate,
-        # site, route, etc.
+        type: array
+        reference to Annotation
+        """
+
         self.dosage = None
-        # reference to MedicationAdministration_Dosage: MedicationAdministration_Dosage
+        """
+        Describes the medication dosage information details e.g. dose, rate,
+        site, route, etc.
 
-        # a summary of the events of interest that have occurred, such as when the
-        # administration was verified.
+        reference to MedicationAdministration_Dosage
+        """
+
         self.eventHistory = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A summary of the events of interest that have occurred, such as when
+        the administration was verified.
 
-        # external identifier - fhir will generate its own internal identifiers
-        # (probably urls) which do not need to be explicitly managed by the
-        # resource.  the identifier here is one that would be used by another non-
-        # fhir system - for example an automated medication pump would provide a
-        # record each time it operated; an administration while the patient was
-        # off the ward might be made with a different system and entered after the
-        # event.  particularly important if these records have to be updated.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        External identifier - FHIR will generate its own internal identifiers
+        (probably URLs) which do not need to be explicitly managed by the
+        resource.  The identifier here is one that would be used by another
+        non-FHIR system - for example an automated medication pump would
+        provide a record each time it operated; an administration while the
+        patient was off the ward might be made with a different system and
+        entered after the event.  Particularly important if these records have
+        to be updated.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -162,8 +233,8 @@ class MedicationAdministration(fhirbase):
                     'in-progress', 'on-hold', 'completed', 'entered-in-error', 'stopped',
                         'unknown']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'in-progress, on-hold, completed, entered-in-error,'
-                        'stopped, unknown'))
+                        value, 'in-progress, on-hold, completed, entered-in-error, stopped, '
+                        'unknown'))
 
     def get_relationships(self):
 
@@ -171,57 +242,7 @@ class MedicationAdministration(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'MedicationAdministration',
-             'child_variable': 'supportingInformation'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationAdministration',
-             'child_variable': 'reasonReference'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'MedicationAdministration',
-             'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'MedicationAdministration',
-             'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationAdministration',
-             'child_variable': 'prescription'},
-
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
-             'child_entity': 'MedicationAdministration',
-             'child_variable': 'note'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'MedicationAdministration',
-             'child_variable': 'effectivePeriod'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationAdministration',
-             'child_variable': 'device'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationAdministration',
-             'child_variable': 'context'},
-
-            {'parent_entity': 'MedicationAdministration_Dosage',
-             'parent_variable': 'object_id',
-             'child_entity': 'MedicationAdministration',
-             'child_variable': 'dosage'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'MedicationAdministration',
-             'child_variable': 'identifier'},
+             'child_variable': 'eventHistory'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -231,22 +252,42 @@ class MedicationAdministration(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'MedicationAdministration',
-             'child_variable': 'partOf'},
+             'child_variable': 'subject'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationAdministration',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationAdministration',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationAdministration',
+             'child_variable': 'prescription'},
+
+            {'parent_entity': 'MedicationAdministration_Dosage',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationAdministration',
-             'child_variable': 'reasonNotGiven'},
+             'child_variable': 'dosage'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
              'child_entity': 'MedicationAdministration',
-             'child_variable': 'eventHistory'},
+             'child_variable': 'effectivePeriod'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
              'child_entity': 'MedicationAdministration',
-             'child_variable': 'subject'},
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationAdministration',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -261,31 +302,68 @@ class MedicationAdministration(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'MedicationAdministration',
+             'child_variable': 'device'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationAdministration',
+             'child_variable': 'reasonCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationAdministration',
+             'child_variable': 'supportingInformation'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationAdministration',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationAdministration',
+             'child_variable': 'partOf'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationAdministration',
+             'child_variable': 'reasonNotGiven'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationAdministration',
              'child_variable': 'medicationReference'},
         ]
 
 
 class MedicationAdministration_Performer(fhirbase):
-    """Describes the event of a patient consuming or otherwise being
-    administered a medication.  This may be as simple as swallowing a tablet
-    or it may be a long running infusion.  Related resources tie this event
-    to the authorizing prescription, and the specific encounter between
-    patient and health care practitioner.
+    """
+    Describes the event of a patient consuming or otherwise being
+    administered a medication.  This may be as simple as swallowing a
+    tablet or it may be a long running infusion.  Related resources tie
+    this event to the authorizing prescription, and the specific encounter
+    between patient and health care practitioner.
     """
 
     __name__ = 'MedicationAdministration_Performer'
 
     def __init__(self, dict_values=None):
-        # the device, practitioner, etc. who performed the action.
         self.actor = None
-        # reference to Reference: identifier
+        """
+        The device, practitioner, etc. who performed the action.
 
-        # the organization the device or practitioner was acting on behalf of.
+        reference to Reference: identifier
+        """
+
         self.onBehalfOf = None
-        # reference to Reference: identifier
+        """
+        The organization the device or practitioner was acting on behalf of.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -306,65 +384,88 @@ class MedicationAdministration_Performer(fhirbase):
 
 
 class MedicationAdministration_Dosage(fhirbase):
-    """Describes the event of a patient consuming or otherwise being
-    administered a medication.  This may be as simple as swallowing a tablet
-    or it may be a long running infusion.  Related resources tie this event
-    to the authorizing prescription, and the specific encounter between
-    patient and health care practitioner.
+    """
+    Describes the event of a patient consuming or otherwise being
+    administered a medication.  This may be as simple as swallowing a
+    tablet or it may be a long running infusion.  Related resources tie
+    this event to the authorizing prescription, and the specific encounter
+    between patient and health care practitioner.
     """
 
     __name__ = 'MedicationAdministration_Dosage'
 
     def __init__(self, dict_values=None):
-        # free text dosage can be used for cases where the dosage administered is
-        # too complex to code. when coded dosage is present, the free text dosage
-        # may still be present for display to humans.  the dosage instructions
-        # should reflect the dosage of the medication that was administered.
         self.text = None
-        # type = string
+        """
+        Free text dosage can be used for cases where the dosage administered
+        is too complex to code. When coded dosage is present, the free text
+        dosage may still be present for display to humans.  The dosage
+        instructions should reflect the dosage of the medication that was
+        administered.
 
-        # a coded specification of the anatomic site where the medication first
-        # entered the body.  for example, "left arm".
+        type: string
+        """
+
         self.site = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A coded specification of the anatomic site where the medication first
+        entered the body.  For example, "left arm".
 
-        # a code specifying the route or physiological path of administration of a
-        # therapeutic agent into or onto the patient.  for example, topical,
-        # intravenous, etc.
+        reference to CodeableConcept
+        """
+
         self.route = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code specifying the route or physiological path of administration of
+        a therapeutic agent into or onto the patient.  For example, topical,
+        intravenous, etc.
 
-        # a coded value indicating the method by which the medication is intended
-        # to be or was introduced into or on the body.  this attribute will most
-        # often not be populated.  it is most commonly used for injections.  for
-        # example, slow push, deep iv.
+        reference to CodeableConcept
+        """
+
         self.method = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A coded value indicating the method by which the medication is
+        intended to be or was introduced into or on the body.  This attribute
+        will most often NOT be populated.  It is most commonly used for
+        injections.  For example, Slow Push, Deep IV.
 
-        # the amount of the medication given at one administration event.   use
-        # this value when the administration is essentially an instantaneous event
-        # such as a swallowing a tablet or giving an injection.
+        reference to CodeableConcept
+        """
+
         self.dose = None
-        # reference to Quantity: Quantity
+        """
+        The amount of the medication given at one administration event.   Use
+        this value when the administration is essentially an instantaneous
+        event such as a swallowing a tablet or giving an injection.
 
-        # identifies the speed with which the medication was or will be introduced
-        # into the patient.  typically the rate for an infusion e.g. 100 ml per 1
-        # hour or 100 ml/hr.  may also be expressed as a rate per unit of time
-        # e.g. 500 ml per 2 hours.  other examples:  200 mcg/min or 200 mcg/1
-        # minute; 1 liter/8 hours.
+        reference to Quantity
+        """
+
         self.rateRatio = None
-        # reference to Ratio: Ratio
+        """
+        Identifies the speed with which the medication was or will be
+        introduced into the patient.  Typically the rate for an infusion e.g.
+        100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per
+        unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or
+        200 mcg/1 minute; 1 liter/8 hours.
 
-        # identifies the speed with which the medication was or will be introduced
-        # into the patient.  typically the rate for an infusion e.g. 100 ml per 1
-        # hour or 100 ml/hr.  may also be expressed as a rate per unit of time
-        # e.g. 500 ml per 2 hours.  other examples:  200 mcg/min or 200 mcg/1
-        # minute; 1 liter/8 hours.
+        reference to Ratio
+        """
+
         self.rateSimpleQuantity = None
-        # reference to Quantity: Quantity
+        """
+        Identifies the speed with which the medication was or will be
+        introduced into the patient.  Typically the rate for an infusion e.g.
+        100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per
+        unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or
+        200 mcg/1 minute; 1 liter/8 hours.
 
-        # unique identifier for object class
+        reference to Quantity
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -372,25 +473,25 @@ class MedicationAdministration_Dosage(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Ratio',
+            {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationAdministration_Dosage',
-             'child_variable': 'rateRatio'},
+             'child_variable': 'dose'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationAdministration_Dosage',
              'child_variable': 'method'},
 
-            {'parent_entity': 'Quantity',
+            {'parent_entity': 'Ratio',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationAdministration_Dosage',
-             'child_variable': 'rateSimpleQuantity'},
+             'child_variable': 'rateRatio'},
 
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationAdministration_Dosage',
-             'child_variable': 'dose'},
+             'child_variable': 'rateSimpleQuantity'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',

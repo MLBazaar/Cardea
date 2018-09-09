@@ -2,26 +2,34 @@ from .fhirbase import fhirbase
 
 
 class Element(fhirbase):
-    """Base definition for all elements in a resource.
+    """
+    Base definition for all elements in a resource.
     """
 
     __name__ = 'Element'
 
     def __init__(self, dict_values=None):
-        # may be used to represent additional information that is not part of the
-        # basic definition of the element. in order to make the use of extensions
-        # safe and manageable, there is a strict set of governance  applied to the
-        # definition and use of extensions. though any implementer is allowed to
-        # define an extension, there is a set of requirements that shall be met as
-        # part of the definition of the extension.
         self.extension = None
-        # type = array
-        # reference to Extension: Extension
+        """
+        May be used to represent additional information that is not part of
+        the basic definition of the element. In order to make the use of
+        extensions safe and manageable, there is a strict set of governance
+        applied to the definition and use of extensions. Though any
+        implementer is allowed to define an extension, there is a set of
+        requirements that SHALL be met as part of the definition of the
+        extension.
 
-        # unique id for the element within a resource (for internal references).
-        # this may be any string value that does not contain spaces.
+        type: array
+        reference to Extension
+        """
+
         self.id = None
-        # type = string
+        """
+        unique id for the element within a resource (for internal references).
+        This may be any string value that does not contain spaces.
+
+        type: string
+        """
 
         if dict_values:
             self.set_attributes(dict_values)

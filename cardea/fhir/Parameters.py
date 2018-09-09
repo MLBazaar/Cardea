@@ -2,21 +2,25 @@ from .fhirbase import fhirbase
 
 
 class Parameters(fhirbase):
-    """This special resource type is used to represent an operation request and
-    response (operations.html). It has no other use, and there is no RESTful
-    endpoint associated with it.
+    """
+    This special resource type is used to represent an operation request
+    and response (operations.html). It has no other use, and there is no
+    RESTful endpoint associated with it.
     """
 
     __name__ = 'Parameters'
 
     def __init__(self, dict_values=None):
-        # a parameter passed to or received from the operation.
         self.parameter = None
-        # type = array
-        # reference to Parameters_Parameter: Parameters_Parameter
+        """
+        A parameter passed to or received from the operation.
 
-        # unique identifier for object class
+        type: array
+        reference to Parameters_Parameter
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -32,241 +36,410 @@ class Parameters(fhirbase):
 
 
 class Parameters_Parameter(fhirbase):
-    """This special resource type is used to represent an operation request and
-    response (operations.html). It has no other use, and there is no RESTful
-    endpoint associated with it.
+    """
+    This special resource type is used to represent an operation request
+    and response (operations.html). It has no other use, and there is no
+    RESTful endpoint associated with it.
     """
 
     __name__ = 'Parameters_Parameter'
 
     def __init__(self, dict_values=None):
-        # the name of the parameter (reference to the operation definition).
         self.name = None
-        # type = string
+        """
+        The name of the parameter (reference to the operation definition).
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueBoolean = None
-        # type = boolean
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: boolean
+        """
+
         self.valueInteger = None
-        # type = int
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: int
+        """
+
         self.valueDecimal = None
-        # type = int
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: int
+        """
+
         self.valueBase64Binary = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueInstant = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueString = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueUri = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueDate = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueDateTime = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueTime = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueCode = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueOid = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueUuid = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueId = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueUnsignedInt = None
-        # type = int
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: int
+        """
+
         self.valuePositiveInt = None
-        # type = int
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: int
+        """
+
         self.valueMarkdown = None
-        # type = string
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        type: string
+        """
+
         self.valueElement = None
-        # reference to Element: id
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Element: id
+        """
+
         self.valueExtension = None
-        # reference to Extension: Extension
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Extension
+        """
+
         self.valueBackboneElement = None
-        # reference to BackboneElement: BackboneElement
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to BackboneElement
+        """
+
         self.valueNarrative = None
-        # reference to Narrative: Narrative
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Narrative
+        """
+
         self.valueAnnotation = None
-        # reference to Annotation: Annotation
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Annotation
+        """
+
         self.valueAttachment = None
-        # reference to Attachment: Attachment
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Attachment
+        """
+
         self.valueIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Identifier
+        """
+
         self.valueCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to CodeableConcept
+        """
+
         self.valueCoding = None
-        # reference to Coding: Coding
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Coding
+        """
+
         self.valueQuantity = None
-        # reference to Quantity: Quantity
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Quantity
+        """
+
         self.valueDuration = None
-        # reference to Duration: Duration
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Duration
+        """
+
         self.valueSimpleQuantity = None
-        # reference to Quantity: Quantity
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Quantity
+        """
+
         self.valueDistance = None
-        # reference to Distance: Distance
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Distance
+        """
+
         self.valueCount = None
-        # reference to Count: Count
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Count
+        """
+
         self.valueMoney = None
-        # reference to Money: Money
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Money
+        """
+
         self.valueAge = None
-        # reference to Age: Age
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Age
+        """
+
         self.valueRange = None
-        # reference to Range: Range
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Range
+        """
+
         self.valuePeriod = None
-        # reference to Period: Period
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Period
+        """
+
         self.valueRatio = None
-        # reference to Ratio: Ratio
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Ratio
+        """
+
         self.valueReference = None
-        # reference to Reference: identifier
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Reference: identifier
+        """
+
         self.valueSampledData = None
-        # reference to SampledData: SampledData
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to SampledData
+        """
+
         self.valueSignature = None
-        # reference to Signature: Signature
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Signature
+        """
+
         self.valueHumanName = None
-        # reference to HumanName: HumanName
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to HumanName
+        """
+
         self.valueAddress = None
-        # reference to Address: Address
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Address
+        """
+
         self.valueContactPoint = None
-        # reference to ContactPoint: ContactPoint
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to ContactPoint
+        """
+
         self.valueTiming = None
-        # reference to Timing: Timing
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Timing
+        """
+
         self.valueMeta = None
-        # reference to Meta: Meta
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Meta
+        """
+
         self.valueElementDefinition = None
-        # reference to ElementDefinition: ElementDefinition
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to ElementDefinition
+        """
+
         self.valueContactDetail = None
-        # reference to ContactDetail: ContactDetail
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to ContactDetail
+        """
+
         self.valueContributor = None
-        # reference to Contributor: Contributor
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Contributor
+        """
+
         self.valueDosage = None
-        # reference to Dosage: Dosage
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to Dosage
+        """
+
         self.valueRelatedArtifact = None
-        # reference to RelatedArtifact: RelatedArtifact
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to RelatedArtifact
+        """
+
         self.valueUsageContext = None
-        # reference to UsageContext: UsageContext
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to UsageContext
+        """
+
         self.valueDataRequirement = None
-        # reference to DataRequirement: DataRequirement
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to DataRequirement
+        """
+
         self.valueParameterDefinition = None
-        # reference to ParameterDefinition: ParameterDefinition
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a data type.
+        reference to ParameterDefinition
+        """
+
         self.valueTriggerDefinition = None
-        # reference to TriggerDefinition: TriggerDefinition
+        """
+        If the parameter is a data type.
 
-        # if the parameter is a whole resource.
+        reference to TriggerDefinition
+        """
+
         self.resource = None
-        # reference to ResourceList: ResourceList
+        """
+        If the parameter is a whole resource.
 
-        # a named part of a multi-part parameter.
+        reference to ResourceList
+        """
+
         self.part = None
-        # type = array
-        # reference to Parameters_Parameter: Parameters_Parameter
+        """
+        A named part of a multi-part parameter.
 
-        # unique identifier for object class
+        type: array
+        reference to Parameters_Parameter
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -274,145 +447,100 @@ class Parameters_Parameter(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Narrative',
+            {'parent_entity': 'ContactPoint',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueNarrative'},
+             'child_variable': 'valueContactPoint'},
 
-            {'parent_entity': 'Annotation',
+            {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueAnnotation'},
-
-            {'parent_entity': 'ResourceList',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'resource'},
-
-            {'parent_entity': 'ContactDetail',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueContactDetail'},
-
-            {'parent_entity': 'Address',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueAddress'},
-
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'Distance',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueDistance'},
-
-            {'parent_entity': 'Timing',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueTiming'},
-
-            {'parent_entity': 'Meta',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueMeta'},
-
-            {'parent_entity': 'Dosage',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueDosage'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueSimpleQuantity'},
-
-            {'parent_entity': 'ParameterDefinition',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueParameterDefinition'},
-
-            {'parent_entity': 'Signature',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueSignature'},
+             'child_variable': 'valueCoding'},
 
             {'parent_entity': 'Extension',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
              'child_variable': 'valueExtension'},
 
-            {'parent_entity': 'Duration',
+            {'parent_entity': 'Address',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueDuration'},
+             'child_variable': 'valueAddress'},
 
-            {'parent_entity': 'Parameters_Parameter',
+            {'parent_entity': 'Timing',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'part'},
+             'child_variable': 'valueTiming'},
 
-            {'parent_entity': 'Ratio',
+            {'parent_entity': 'ResourceList',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueRatio'},
+             'child_variable': 'resource'},
 
-            {'parent_entity': 'TriggerDefinition',
+            {'parent_entity': 'ElementDefinition',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueTriggerDefinition'},
-
-            {'parent_entity': 'HumanName',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueHumanName'},
-
-            {'parent_entity': 'BackboneElement',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueBackboneElement'},
+             'child_variable': 'valueElementDefinition'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Parameters_Parameter',
              'child_variable': 'valueReference'},
 
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueIdentifier'},
+
+            {'parent_entity': 'Parameters_Parameter',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'part'},
+
             {'parent_entity': 'Range',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
              'child_variable': 'valueRange'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'HumanName',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueCodeableConcept'},
+             'child_variable': 'valueHumanName'},
 
-            {'parent_entity': 'ContactPoint',
+            {'parent_entity': 'ParameterDefinition',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueContactPoint'},
+             'child_variable': 'valueParameterDefinition'},
 
-            {'parent_entity': 'Money',
+            {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueMoney'},
+             'child_variable': 'valuePeriod'},
 
-            {'parent_entity': 'Element',
-             'parent_variable': 'id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueElement'},
-
-            {'parent_entity': 'Count',
+            {'parent_entity': 'Dosage',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueCount'},
+             'child_variable': 'valueDosage'},
 
             {'parent_entity': 'UsageContext',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
              'child_variable': 'valueUsageContext'},
+
+            {'parent_entity': 'Signature',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueSignature'},
+
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueDataRequirement'},
+
+            {'parent_entity': 'TriggerDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueTriggerDefinition'},
 
             {'parent_entity': 'RelatedArtifact',
              'parent_variable': 'object_id',
@@ -424,43 +552,88 @@ class Parameters_Parameter(fhirbase):
              'child_entity': 'Parameters_Parameter',
              'child_variable': 'valueContributor'},
 
-            {'parent_entity': 'Coding',
+            {'parent_entity': 'Ratio',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueCoding'},
+             'child_variable': 'valueRatio'},
 
-            {'parent_entity': 'SampledData',
+            {'parent_entity': 'Attachment',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueSampledData'},
+             'child_variable': 'valueAttachment'},
 
-            {'parent_entity': 'Identifier',
+            {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueIdentifier'},
-
-            {'parent_entity': 'DataRequirement',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueDataRequirement'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueQuantity'},
+             'child_variable': 'valueMoney'},
 
             {'parent_entity': 'Age',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
              'child_variable': 'valueAge'},
 
-            {'parent_entity': 'Period',
+            {'parent_entity': 'Distance',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valuePeriod'},
+             'child_variable': 'valueDistance'},
 
-            {'parent_entity': 'ElementDefinition',
+            {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'Parameters_Parameter',
-             'child_variable': 'valueElementDefinition'},
+             'child_variable': 'valueSimpleQuantity'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueSampledData'},
+
+            {'parent_entity': 'Count',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueCount'},
+
+            {'parent_entity': 'BackboneElement',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueBackboneElement'},
+
+            {'parent_entity': 'Meta',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueMeta'},
+
+            {'parent_entity': 'Element',
+             'parent_variable': 'id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueElement'},
+
+            {'parent_entity': 'Narrative',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueNarrative'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueCodeableConcept'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueAnnotation'},
+
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueContactDetail'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueQuantity'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'Parameters_Parameter',
+             'child_variable': 'valueDuration'},
         ]

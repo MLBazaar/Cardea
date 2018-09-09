@@ -2,38 +2,51 @@ from .fhirbase import fhirbase
 
 
 class Linkage(fhirbase):
-    """Identifies two or more records (resource instances) that are referring
+    """
+    Identifies two or more records (resource instances) that are referring
     to the same real-world "occurrence".
     """
 
     __name__ = 'Linkage'
 
     def __init__(self, dict_values=None):
-        # this is a linkage resource
         self.resourceType = 'Linkage'
-        # type = string
-        # possible values: Linkage
+        """
+        This is a Linkage resource
 
-        # indicates whether the asserted set of linkages are considered to be "in
-        # effect".
+        type: string
+        possible values: Linkage
+        """
+
         self.active = None
-        # type = boolean
+        """
+        Indicates whether the asserted set of linkages are considered to be
+        "in effect".
 
-        # identifies the user or organization responsible for asserting the
-        # linkages and who establishes the context for evaluating the nature of
-        # each linkage.
+        type: boolean
+        """
+
         self.author = None
-        # reference to Reference: identifier
+        """
+        Identifies the user or organization responsible for asserting the
+        linkages and who establishes the context for evaluating the nature of
+        each linkage.
 
-        # identifies one of the records that is considered to refer to the same
-        # real-world occurrence as well as how the items hould be evaluated within
-        # the collection of linked items.
+        reference to Reference: identifier
+        """
+
         self.item = None
-        # type = array
-        # reference to Linkage_Item: Linkage_Item
+        """
+        Identifies one of the records that is considered to refer to the same
+        real-world occurrence as well as how the items hould be evaluated
+        within the collection of linked items.
 
-        # unique identifier for object class
+        type: array
+        reference to Linkage_Item
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -41,38 +54,45 @@ class Linkage(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Linkage',
-             'child_variable': 'author'},
-
             {'parent_entity': 'Linkage_Item',
              'parent_variable': 'object_id',
              'child_entity': 'Linkage',
              'child_variable': 'item'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Linkage',
+             'child_variable': 'author'},
         ]
 
 
 class Linkage_Item(fhirbase):
-    """Identifies two or more records (resource instances) that are referring
+    """
+    Identifies two or more records (resource instances) that are referring
     to the same real-world "occurrence".
     """
 
     __name__ = 'Linkage_Item'
 
     def __init__(self, dict_values=None):
-        # distinguishes which item is "source of truth" (if any) and which items
-        # are no longer considered to be current representations.
         self.type = None
-        # type = string
-        # possible values: source, alternate, historical
+        """
+        Distinguishes which item is "source of truth" (if any) and which items
+        are no longer considered to be current representations.
 
-        # the resource instance being linked as part of the group.
+        type: string
+        possible values: source, alternate, historical
+        """
+
         self.resource = None
-        # reference to Reference: identifier
+        """
+        The resource instance being linked as part of the group.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

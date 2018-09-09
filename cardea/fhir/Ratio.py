@@ -2,23 +2,30 @@ from .fhirbase import fhirbase
 
 
 class Ratio(fhirbase):
-    """A relationship of two Quantity values - expressed as a numerator and a
+    """
+    A relationship of two Quantity values - expressed as a numerator and a
     denominator.
     """
 
     __name__ = 'Ratio'
 
     def __init__(self, dict_values=None):
-        # the value of the numerator.
         self.numerator = None
-        # reference to Quantity: Quantity
+        """
+        The value of the numerator.
 
-        # the value of the denominator.
+        reference to Quantity
+        """
+
         self.denominator = None
-        # reference to Quantity: Quantity
+        """
+        The value of the denominator.
 
-        # unique identifier for object class
+        reference to Quantity
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -29,10 +36,10 @@ class Ratio(fhirbase):
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'Ratio',
-             'child_variable': 'numerator'},
+             'child_variable': 'denominator'},
 
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'Ratio',
-             'child_variable': 'denominator'},
+             'child_variable': 'numerator'},
         ]

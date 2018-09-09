@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class Address(fhirbase):
-    """An address expressed using postal conventions (as opposed to GPS or
+    """
+    An address expressed using postal conventions (as opposed to GPS or
     other location definition formats).  This data type may be used to
     convey addresses for use in delivering mail as well as for visiting
     locations which might not be valid for mail delivery.  There are a
@@ -12,57 +13,87 @@ class Address(fhirbase):
     __name__ = 'Address'
 
     def __init__(self, dict_values=None):
-        # the purpose of this address.
         self.use = None
-        # type = string
-        # possible values: home, work, temp, old
+        """
+        The purpose of this address.
 
-        # distinguishes between physical addresses (those you can visit) and
-        # mailing addresses (e.g. po boxes and care-of addresses). most addresses
-        # are both.
+        type: string
+        possible values: home, work, temp, old
+        """
+
         self.type = None
-        # type = string
-        # possible values: postal, physical, both
+        """
+        Distinguishes between physical addresses (those you can visit) and
+        mailing addresses (e.g. PO Boxes and care-of addresses). Most
+        addresses are both.
 
-        # a full text representation of the address.
+        type: string
+        possible values: postal, physical, both
+        """
+
         self.text = None
-        # type = string
+        """
+        A full text representation of the address.
 
-        # this component contains the house number, apartment number, street name,
-        # street direction,  p.o. box number, delivery hints, and similar address
-        # information.
+        type: string
+        """
+
         self.line = None
-        # type = array
+        """
+        This component contains the house number, apartment number, street
+        name, street direction,  P.O. Box number, delivery hints, and similar
+        address information.
 
-        # the name of the city, town, village or other community or delivery
-        # center.
+        type: array
+        """
+
         self.city = None
-        # type = string
+        """
+        The name of the city, town, village or other community or delivery
+        center.
 
-        # the name of the administrative area (county).
+        type: string
+        """
+
         self.district = None
-        # type = string
+        """
+        The name of the administrative area (county).
 
-        # sub-unit of a country with limited sovereignty in a federally organized
-        # country. a code may be used if codes are in common use (i.e. us 2 letter
-        # state codes).
+        type: string
+        """
+
         self.state = None
-        # type = string
+        """
+        Sub-unit of a country with limited sovereignty in a federally
+        organized country. A code may be used if codes are in common use (i.e.
+        US 2 letter state codes).
 
-        # a postal code designating a region defined by the postal service.
+        type: string
+        """
+
         self.postalCode = None
-        # type = string
+        """
+        A postal code designating a region defined by the postal service.
 
-        # country - a nation as commonly understood or generally accepted.
+        type: string
+        """
+
         self.country = None
-        # type = string
+        """
+        Country - a nation as commonly understood or generally accepted.
 
-        # time period when address was/is in use.
+        type: string
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        Time period when address was/is in use.
 
-        # unique identifier for object class
+        reference to Period
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

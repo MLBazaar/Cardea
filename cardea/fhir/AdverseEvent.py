@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class AdverseEvent(fhirbase):
-    """Actual or  potential/avoided event causing unintended physical injury
+    """
+    Actual or  potential/avoided event causing unintended physical injury
     resulting from or contributed to by medical care, a research study or
     other healthcare setting factors that requires additional monitoring,
     treatment, or hospitalization, or that results in death.
@@ -11,93 +12,146 @@ class AdverseEvent(fhirbase):
     __name__ = 'AdverseEvent'
 
     def __init__(self, dict_values=None):
-        # this is a adverseevent resource
         self.resourceType = 'AdverseEvent'
-        # type = string
-        # possible values: AdverseEvent
+        """
+        This is a AdverseEvent resource
 
-        # the type of event which is important to characterize what occurred and
-        # caused harm to the subject, or had the potential to cause harm to the
-        # subject.
+        type: string
+        possible values: AdverseEvent
+        """
+
         self.category = None
-        # type = string
-        # possible values: AE, PAE
+        """
+        The type of event which is important to characterize what occurred and
+        caused harm to the subject, or had the potential to cause harm to the
+        subject.
 
-        # this element defines the specific type of event that occurred or that
-        # was prevented from occurring.
+        type: string
+        possible values: AE, PAE
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        This element defines the specific type of event that occurred or that
+        was prevented from occurring.
 
-        # this subject or group impacted by the event.  with a prospective adverse
-        # event, there will be no subject as the adverse event was prevented.
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        This subject or group impacted by the event.  With a prospective
+        adverse event, there will be no subject as the adverse event was
+        prevented.
 
-        # the date (and perhaps time) when the adverse event occurred.
+        reference to Reference: identifier
+        """
+
         self.date = None
-        # type = string
+        """
+        The date (and perhaps time) when the adverse event occurred.
 
-        # includes information about the reaction that occurred as a result of
-        # exposure to a substance (for example, a drug or a chemical).
+        type: string
+        """
+
         self.reaction = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Includes information about the reaction that occurred as a result of
+        exposure to a substance (for example, a drug or a chemical).
 
-        # the information about where the adverse event occurred.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.location = None
-        # reference to Reference: identifier
+        """
+        The information about where the adverse event occurred.
 
-        # describes the seriousness or severity of the adverse event.
+        reference to Reference: identifier
+        """
+
         self.seriousness = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Describes the seriousness or severity of the adverse event.
 
-        # describes the type of outcome from the adverse event.
+        reference to CodeableConcept
+        """
+
         self.outcome = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Describes the type of outcome from the adverse event.
 
-        # information on who recorded the adverse event.  may be the patient or a
-        # practitioner.
+        reference to CodeableConcept
+        """
+
         self.recorder = None
-        # reference to Reference: identifier
+        """
+        Information on who recorded the adverse event.  May be the patient or
+        a practitioner.
 
-        # parties that may or should contribute or have contributed information to
-        # the act. such information includes information leading to the decision
-        # to perform the act and how to perform the act (e.g. consultant),
-        # information that the act itself seeks to reveal (e.g. informant of
-        # clinical history), or information about what act was performed (e.g.
-        # informant witness).
+        reference to Reference: identifier
+        """
+
         self.eventParticipant = None
-        # reference to Reference: identifier
+        """
+        Parties that may or should contribute or have contributed information
+        to the Act. Such information includes information leading to the
+        decision to perform the Act and how to perform the Act (e.g.
+        consultant), information that the Act itself seeks to reveal (e.g.
+        informant of clinical history), or information about what Act was
+        performed (e.g. informant witness).
 
-        # describes the adverse event in text.
+        reference to Reference: identifier
+        """
+
         self.description = None
-        # type = string
+        """
+        Describes the adverse event in text.
 
-        # describes the entity that is suspected to have caused the adverse event.
+        type: string
+        """
+
         self.suspectEntity = None
-        # type = array
-        # reference to AdverseEvent_SuspectEntity: AdverseEvent_SuspectEntity
+        """
+        Describes the entity that is suspected to have caused the adverse
+        event.
 
-        # adverseevent.subjectmedicalhistory.
+        type: array
+        reference to AdverseEvent_SuspectEntity
+        """
+
         self.subjectMedicalHistory = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        AdverseEvent.subjectMedicalHistory.
 
-        # adverseevent.referencedocument.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.referenceDocument = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        AdverseEvent.referenceDocument.
 
-        # adverseevent.study.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.study = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        AdverseEvent.study.
 
-        # the identifier(s) of this adverse event that are assigned by business
-        # processes and/or used to refer to it when a direct url reference to the
-        # resource itsefl is not appropriate.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        The identifier(s) of this adverse event that are assigned by business
+        processes and/or used to refer to it when a direct URL reference to
+        the resource itsefl is not appropriate.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -114,50 +168,10 @@ class AdverseEvent(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'AdverseEvent',
-             'child_variable': 'recorder'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'AdverseEvent',
-             'child_variable': 'type'},
-
             {'parent_entity': 'AdverseEvent_SuspectEntity',
              'parent_variable': 'object_id',
              'child_entity': 'AdverseEvent',
              'child_variable': 'suspectEntity'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'AdverseEvent',
-             'child_variable': 'outcome'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'AdverseEvent',
-             'child_variable': 'reaction'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'AdverseEvent',
-             'child_variable': 'eventParticipant'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'AdverseEvent',
-             'child_variable': 'seriousness'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'AdverseEvent',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'AdverseEvent',
-             'child_variable': 'subjectMedicalHistory'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -167,7 +181,22 @@ class AdverseEvent(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'AdverseEvent',
-             'child_variable': 'location'},
+             'child_variable': 'recorder'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'subjectMedicalHistory'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'reaction'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'study'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -177,12 +206,38 @@ class AdverseEvent(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'AdverseEvent',
-             'child_variable': 'study'},
+             'child_variable': 'location'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'seriousness'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'outcome'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent',
+             'child_variable': 'eventParticipant'},
         ]
 
 
 class AdverseEvent_SuspectEntity(fhirbase):
-    """Actual or  potential/avoided event causing unintended physical injury
+    """
+    Actual or  potential/avoided event causing unintended physical injury
     resulting from or contributed to by medical care, a research study or
     other healthcare setting factors that requires additional monitoring,
     treatment, or hospitalization, or that results in death.
@@ -191,39 +246,60 @@ class AdverseEvent_SuspectEntity(fhirbase):
     __name__ = 'AdverseEvent_SuspectEntity'
 
     def __init__(self, dict_values=None):
-        # identifies the actual instance of what caused the adverse event.  may be
-        # a substance, medication, medication administration, medication statement
-        # or a device.
         self.instance = None
-        # reference to Reference: identifier
+        """
+        Identifies the actual instance of what caused the adverse event.  May
+        be a substance, medication, medication administration, medication
+        statement or a device.
 
-        # causality1 | causality2.
+        reference to Reference: identifier
+        """
+
         self.causality = None
-        # type = string
-        # possible values: causality1, causality2
+        """
+        causality1 | causality2.
 
-        # assess1 | assess2.
+        type: string
+        possible values: causality1, causality2
+        """
+
         self.causalityAssessment = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        assess1 | assess2.
 
-        # adverseevent.suspectentity.causalityproductrelatedness.
+        reference to CodeableConcept
+        """
+
         self.causalityProductRelatedness = None
-        # type = string
+        """
+        AdverseEvent.suspectEntity.causalityProductRelatedness.
 
-        # method1 | method2.
+        type: string
+        """
+
         self.causalityMethod = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        method1 | method2.
 
-        # adverseevent.suspectentity.causalityauthor.
+        reference to CodeableConcept
+        """
+
         self.causalityAuthor = None
-        # reference to Reference: identifier
+        """
+        AdverseEvent.suspectEntity.causalityAuthor.
 
-        # result1 | result2.
+        reference to Reference: identifier
+        """
+
         self.causalityResult = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        result1 | result2.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -240,15 +316,20 @@ class AdverseEvent_SuspectEntity(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AdverseEvent_SuspectEntity',
+             'child_variable': 'causalityAuthor'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'AdverseEvent_SuspectEntity',
              'child_variable': 'causalityResult'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
              'child_entity': 'AdverseEvent_SuspectEntity',
-             'child_variable': 'instance'},
+             'child_variable': 'causalityMethod'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -258,10 +339,5 @@ class AdverseEvent_SuspectEntity(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'AdverseEvent_SuspectEntity',
-             'child_variable': 'causalityAuthor'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'AdverseEvent_SuspectEntity',
-             'child_variable': 'causalityMethod'},
+             'child_variable': 'instance'},
         ]

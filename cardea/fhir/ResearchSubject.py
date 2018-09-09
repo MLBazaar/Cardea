@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class ResearchSubject(fhirbase):
-    """A process where a researcher or organization plans and then executes a
+    """
+    A process where a researcher or organization plans and then executes a
     series of steps intended to increase the field of healthcare-related
     knowledge.  This includes studies of safety, efficacy, comparative
     effectiveness and other information about medications, devices,
@@ -14,48 +15,76 @@ class ResearchSubject(fhirbase):
     __name__ = 'ResearchSubject'
 
     def __init__(self, dict_values=None):
-        # this is a researchsubject resource
         self.resourceType = 'ResearchSubject'
-        # type = string
-        # possible values: ResearchSubject
+        """
+        This is a ResearchSubject resource
 
-        # the current state of the subject.
+        type: string
+        possible values: ResearchSubject
+        """
+
         self.status = None
-        # type = string
-        # possible values: candidate, enrolled, active, suspended,
-        # withdrawn, completed
+        """
+        The current state of the subject.
 
-        # the dates the subject began and ended their participation in the study.
+        type: string
+        possible values: candidate, enrolled, active, suspended,
+        withdrawn, completed
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The dates the subject began and ended their participation in the
+        study.
 
-        # reference to the study the subject is participating in.
+        reference to Period
+        """
+
         self.study = None
-        # reference to Reference: identifier
+        """
+        Reference to the study the subject is participating in.
 
-        # the record of the person or animal who is involved in the study.
+        reference to Reference: identifier
+        """
+
         self.individual = None
-        # reference to Reference: identifier
+        """
+        The record of the person or animal who is involved in the study.
 
-        # the name of the arm in the study the subject is expected to follow as
-        # part of this study.
+        reference to Reference: identifier
+        """
+
         self.assignedArm = None
-        # type = string
+        """
+        The name of the arm in the study the subject is expected to follow as
+        part of this study.
 
-        # the name of the arm in the study the subject actually followed as part
-        # of this study.
+        type: string
+        """
+
         self.actualArm = None
-        # type = string
+        """
+        The name of the arm in the study the subject actually followed as part
+        of this study.
 
-        # a record of the patient's informed agreement to participate in the
-        # study.
+        type: string
+        """
+
         self.consent = None
-        # reference to Reference: identifier
+        """
+        A record of the patient's informed agreement to participate in the
+        study.
 
-        # identifiers assigned to this research study by the sponsor or other
-        # systems.
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Identifiers assigned to this research study by the sponsor or other
+        systems.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)

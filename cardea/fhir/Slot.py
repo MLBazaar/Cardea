@@ -2,75 +2,112 @@ from .fhirbase import fhirbase
 
 
 class Slot(fhirbase):
-    """A slot of time on a schedule that may be available for booking
+    """
+    A slot of time on a schedule that may be available for booking
     appointments.
     """
 
     __name__ = 'Slot'
 
     def __init__(self, dict_values=None):
-        # this is a slot resource
         self.resourceType = 'Slot'
-        # type = string
-        # possible values: Slot
+        """
+        This is a Slot resource
 
-        # a broad categorisation of the service that is to be performed during
-        # this appointment.
+        type: string
+        possible values: Slot
+        """
+
         self.serviceCategory = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A broad categorisation of the service that is to be performed during
+        this appointment.
 
-        # the type of appointments that can be booked into this slot (ideally this
-        # would be an identifiable service - which is at a location, rather than
-        # the location itself). if provided then this overrides the value provided
-        # on the availability resource.
+        reference to CodeableConcept
+        """
+
         self.serviceType = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of appointments that can be booked into this slot (ideally
+        this would be an identifiable service - which is at a location, rather
+        than the location itself). If provided then this overrides the value
+        provided on the availability resource.
 
-        # the specialty of a practitioner that would be required to perform the
-        # service requested in this appointment.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.specialty = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The specialty of a practitioner that would be required to perform the
+        service requested in this appointment.
 
-        # the style of appointment or patient that may be booked in the slot (not
-        # service type).
+        type: array
+        reference to CodeableConcept
+        """
+
         self.appointmentType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The style of appointment or patient that may be booked in the slot
+        (not service type).
 
-        # the schedule resource that this slot defines an interval of status
-        # information.
+        reference to CodeableConcept
+        """
+
         self.schedule = None
-        # reference to Reference: identifier
+        """
+        The schedule resource that this slot defines an interval of status
+        information.
 
-        # busy | free | busy-unavailable | busy-tentative | entered-in-error.
+        reference to Reference: identifier
+        """
+
         self.status = None
-        # type = string
-        # possible values: busy, free, busy-unavailable, busy-tentative,
-        # entered-in-error
+        """
+        busy | free | busy-unavailable | busy-tentative | entered-in-error.
 
-        # date/time that the slot is to begin.
+        type: string
+        possible values: busy, free, busy-unavailable, busy-tentative,
+        entered-in-error
+        """
+
         self.start = None
-        # type = string
+        """
+        Date/Time that the slot is to begin.
 
-        # date/time that the slot is to conclude.
+        type: string
+        """
+
         self.end = None
-        # type = string
+        """
+        Date/Time that the slot is to conclude.
 
-        # this slot has already been overbooked, appointments are unlikely to be
-        # accepted for this time.
+        type: string
+        """
+
         self.overbooked = None
-        # type = boolean
+        """
+        This slot has already been overbooked, appointments are unlikely to be
+        accepted for this time.
 
-        # comments on the slot to describe any extended information. such as
-        # custom constraints on the slot.
+        type: boolean
+        """
+
         self.comment = None
-        # type = string
+        """
+        Comments on the slot to describe any extended information. Such as
+        custom constraints on the slot.
 
-        # external ids for this item.
+        type: string
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        External Ids for this item.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -88,6 +125,16 @@ class Slot(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Slot',
+             'child_variable': 'serviceCategory'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Slot',
+             'child_variable': 'identifier'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Slot',
@@ -98,16 +145,6 @@ class Slot(fhirbase):
              'child_entity': 'Slot',
              'child_variable': 'serviceType'},
 
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Slot',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Slot',
-             'child_variable': 'specialty'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Slot',
@@ -116,5 +153,5 @@ class Slot(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Slot',
-             'child_variable': 'serviceCategory'},
+             'child_variable': 'specialty'},
         ]

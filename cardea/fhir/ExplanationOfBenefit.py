@@ -2,208 +2,330 @@ from .fhirbase import fhirbase
 
 
 class ExplanationOfBenefit(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit'
 
     def __init__(self, dict_values=None):
-        # this is a explanationofbenefit resource
         self.resourceType = 'ExplanationOfBenefit'
-        # type = string
-        # possible values: ExplanationOfBenefit
+        """
+        This is a ExplanationOfBenefit resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: ExplanationOfBenefit
+        """
+
         self.status = None
-        # type = string
-        # possible values: active, cancelled, draft, entered-in-error
+        """
+        The status of the resource instance.
 
-        # the category of claim, eg, oral, pharmacy, vision, insitutional,
-        # professional.
+        type: string
+        possible values: active, cancelled, draft, entered-in-error
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The category of claim, eg, oral, pharmacy, vision, insitutional,
+        professional.
 
-        # a finer grained suite of claim subtype codes which may convey inpatient
-        # vs outpatient and/or a specialty service. in the us the billtype.
+        reference to CodeableConcept
+        """
+
         self.subType = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A finer grained suite of claim subtype codes which may convey
+        Inpatient vs Outpatient and/or a specialty service. In the US the
+        BillType.
 
-        # patient resource.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        Patient Resource.
 
-        # the billable period for which charges are being submitted.
+        reference to Reference: identifier
+        """
+
         self.billablePeriod = None
-        # reference to Period: Period
+        """
+        The billable period for which charges are being submitted.
 
-        # the date when the eob was created.
+        reference to Period
+        """
+
         self.created = None
-        # type = string
+        """
+        The date when the EOB was created.
 
-        # the person who created the explanation of benefit.
+        type: string
+        """
+
         self.enterer = None
-        # reference to Reference: identifier
+        """
+        The person who created the explanation of benefit.
 
-        # the insurer which is responsible for the explanation of benefit.
+        reference to Reference: identifier
+        """
+
         self.insurer = None
-        # reference to Reference: identifier
+        """
+        The insurer which is responsible for the explanation of benefit.
 
-        # the provider which is responsible for the claim.
+        reference to Reference: identifier
+        """
+
         self.provider = None
-        # reference to Reference: identifier
+        """
+        The provider which is responsible for the claim.
 
-        # the provider which is responsible for the claim.
+        reference to Reference: identifier
+        """
+
         self.organization = None
-        # reference to Reference: identifier
+        """
+        The provider which is responsible for the claim.
 
-        # the referral resource which lists the date, practitioner, reason and
-        # other supporting information.
+        reference to Reference: identifier
+        """
+
         self.referral = None
-        # reference to Reference: identifier
+        """
+        The referral resource which lists the date, practitioner, reason and
+        other supporting information.
 
-        # facility where the services were provided.
+        reference to Reference: identifier
+        """
+
         self.facility = None
-        # reference to Reference: identifier
+        """
+        Facility where the services were provided.
 
-        # the business identifier for the instance: invoice number, claim number,
-        # pre-determination or pre-authorization number.
+        reference to Reference: identifier
+        """
+
         self.claim = None
-        # reference to Reference: identifier
+        """
+        The business identifier for the instance: invoice number, claim
+        number, pre-determination or pre-authorization number.
 
-        # the business identifier for the instance: invoice number, claim number,
-        # pre-determination or pre-authorization number.
+        reference to Reference: identifier
+        """
+
         self.claimResponse = None
-        # reference to Reference: identifier
+        """
+        The business identifier for the instance: invoice number, claim
+        number, pre-determination or pre-authorization number.
 
-        # processing outcome errror, partial or complete processing.
+        reference to Reference: identifier
+        """
+
         self.outcome = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Processing outcome errror, partial or complete processing.
 
-        # a description of the status of the adjudication.
+        reference to CodeableConcept
+        """
+
         self.disposition = None
-        # type = string
+        """
+        A description of the status of the adjudication.
 
-        # other claims which are related to this claim such as prior claim
-        # versions or for related services.
+        type: string
+        """
+
         self.related = None
-        # type = array
-        # reference to ExplanationOfBenefit_Related: ExplanationOfBenefit_Related
+        """
+        Other claims which are related to this claim such as prior claim
+        versions or for related services.
 
-        # prescription to support the dispensing of pharmacy or vision products.
+        type: array
+        reference to ExplanationOfBenefit_Related
+        """
+
         self.prescription = None
-        # reference to Reference: identifier
+        """
+        Prescription to support the dispensing of Pharmacy or Vision products.
 
-        # original prescription which has been superceded by this prescription to
-        # support the dispensing of pharmacy services, medications or products.
-        # for example, a physician may prescribe a medication which the pharmacy
-        # determines is contraindicated, or for which the patient has an
-        # intolerance, and therefor issues a new precription for an alternate
-        # medication which has the same theraputic intent. the prescription from
-        # the pharmacy becomes the 'prescription' and that from the physician
-        # becomes the 'original prescription'.
+        reference to Reference: identifier
+        """
+
         self.originalPrescription = None
-        # reference to Reference: identifier
+        """
+        Original prescription which has been superceded by this prescription
+        to support the dispensing of pharmacy services, medications or
+        products. For example, a physician may prescribe a medication which
+        the pharmacy determines is contraindicated, or for which the patient
+        has an intolerance, and therefor issues a new precription for an
+        alternate medication which has the same theraputic intent. The
+        prescription from the pharmacy becomes the 'prescription' and that
+        from the physician becomes the 'original prescription'.
 
-        # the party to be reimbursed for the services.
+        reference to Reference: identifier
+        """
+
         self.payee = None
-        # reference to ExplanationOfBenefit_Payee: ExplanationOfBenefit_Payee
+        """
+        The party to be reimbursed for the services.
 
-        # additional information codes regarding exceptions, special
-        # considerations, the condition, situation, prior or concurrent issues.
-        # often there are mutiple jurisdiction specific valuesets which are
-        # required.
+        reference to ExplanationOfBenefit_Payee
+        """
+
         self.information = None
-        # type = array
-        # reference to ExplanationOfBenefit_Information: ExplanationOfBenefit_Information
+        """
+        Additional information codes regarding exceptions, special
+        considerations, the condition, situation, prior or concurrent issues.
+        Often there are mutiple jurisdiction specific valuesets which are
+        required.
 
-        # the members of the team who provided the overall service as well as
-        # their role and whether responsible and qualifications.
+        type: array
+        reference to ExplanationOfBenefit_Information
+        """
+
         self.careTeam = None
-        # type = array
-        # reference to ExplanationOfBenefit_CareTeam: ExplanationOfBenefit_CareTeam
+        """
+        The members of the team who provided the overall service as well as
+        their role and whether responsible and qualifications.
 
-        # ordered list of patient diagnosis for which care is sought.
+        type: array
+        reference to ExplanationOfBenefit_CareTeam
+        """
+
         self.diagnosis = None
-        # type = array
-        # reference to ExplanationOfBenefit_Diagnosis: ExplanationOfBenefit_Diagnosis
+        """
+        Ordered list of patient diagnosis for which care is sought.
 
-        # ordered list of patient procedures performed to support the
-        # adjudication.
+        type: array
+        reference to ExplanationOfBenefit_Diagnosis
+        """
+
         self.procedure = None
-        # type = array
-        # reference to ExplanationOfBenefit_Procedure: ExplanationOfBenefit_Procedure
+        """
+        Ordered list of patient procedures performed to support the
+        adjudication.
 
-        # precedence (primary, secondary, etc.).
+        type: array
+        reference to ExplanationOfBenefit_Procedure
+        """
+
         self.precedence = None
-        # type = int
+        """
+        Precedence (primary, secondary, etc.).
 
-        # financial instrument by which payment information for health care.
+        type: int
+        """
+
         self.insurance = None
-        # reference to ExplanationOfBenefit_Insurance: ExplanationOfBenefit_Insurance
+        """
+        Financial instrument by which payment information for health care.
 
-        # an accident which resulted in the need for healthcare services.
+        reference to ExplanationOfBenefit_Insurance
+        """
+
         self.accident = None
-        # reference to ExplanationOfBenefit_Accident: ExplanationOfBenefit_Accident
+        """
+        An accident which resulted in the need for healthcare services.
 
-        # the start and optional end dates of when the patient was precluded from
-        # working due to the treatable condition(s).
+        reference to ExplanationOfBenefit_Accident
+        """
+
         self.employmentImpacted = None
-        # reference to Period: Period
+        """
+        The start and optional end dates of when the patient was precluded
+        from working due to the treatable condition(s).
 
-        # the start and optional end dates of when the patient was confined to a
-        # treatment center.
+        reference to Period
+        """
+
         self.hospitalization = None
-        # reference to Period: Period
+        """
+        The start and optional end dates of when the patient was confined to a
+        treatment center.
 
-        # first tier of goods and services.
+        reference to Period
+        """
+
         self.item = None
-        # type = array
-        # reference to ExplanationOfBenefit_Item: ExplanationOfBenefit_Item
+        """
+        First tier of goods and services.
 
-        # the first tier service adjudications for payor added services.
+        type: array
+        reference to ExplanationOfBenefit_Item
+        """
+
         self.addItem = None
-        # type = array
-        # reference to ExplanationOfBenefit_AddItem: ExplanationOfBenefit_AddItem
+        """
+        The first tier service adjudications for payor added services.
 
-        # the total cost of the services reported.
+        type: array
+        reference to ExplanationOfBenefit_AddItem
+        """
+
         self.totalCost = None
-        # reference to Money: Money
+        """
+        The total cost of the services reported.
 
-        # the amount of deductable applied which was not allocated to any
-        # particular service line.
+        reference to Money
+        """
+
         self.unallocDeductable = None
-        # reference to Money: Money
+        """
+        The amount of deductable applied which was not allocated to any
+        particular service line.
 
-        # total amount of benefit payable (equal to sum of the benefit amounts
-        # from all detail lines and additions less the unallocated deductable).
+        reference to Money
+        """
+
         self.totalBenefit = None
-        # reference to Money: Money
+        """
+        Total amount of benefit payable (Equal to sum of the Benefit amounts
+        from all detail lines and additions less the Unallocated Deductable).
 
-        # payment details for the claim if the claim has been paid.
+        reference to Money
+        """
+
         self.payment = None
-        # reference to ExplanationOfBenefit_Payment: identifier
+        """
+        Payment details for the claim if the claim has been paid.
 
-        # the form to be used for printing the content.
+        reference to ExplanationOfBenefit_Payment: identifier
+        """
+
         self.form = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The form to be used for printing the content.
 
-        # note text.
+        reference to CodeableConcept
+        """
+
         self.processNote = None
-        # type = array
-        # reference to ExplanationOfBenefit_ProcessNote: ExplanationOfBenefit_ProcessNote
+        """
+        Note text.
 
-        # balance by benefit category.
+        type: array
+        reference to ExplanationOfBenefit_ProcessNote
+        """
+
         self.benefitBalance = None
-        # type = array
-        # reference to ExplanationOfBenefit_BenefitBalance: ExplanationOfBenefit_BenefitBalance
+        """
+        Balance by Benefit Category.
 
-        # the eob business identifier.
+        type: array
+        reference to ExplanationOfBenefit_BenefitBalance
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The EOB Business Identifier.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -220,95 +342,10 @@ class ExplanationOfBenefit(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'enterer'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'hospitalization'},
-
-            {'parent_entity': 'ExplanationOfBenefit_BenefitBalance',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'benefitBalance'},
-
-            {'parent_entity': 'ExplanationOfBenefit_CareTeam',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'careTeam'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'facility'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'claim'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Accident',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'accident'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'organization'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'subType'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'originalPrescription'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'type'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'referral'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Insurance',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'insurance'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Diagnosis',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'diagnosis'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Payment',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'payment'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'totalCost'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'billablePeriod'},
+             'child_variable': 'outcome'},
 
             {'parent_entity': 'ExplanationOfBenefit_Information',
              'parent_variable': 'object_id',
@@ -320,35 +357,15 @@ class ExplanationOfBenefit(fhirbase):
              'child_entity': 'ExplanationOfBenefit',
              'child_variable': 'processNote'},
 
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'employmentImpacted'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'unallocDeductable'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'insurer'},
+             'child_variable': 'prescription'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'claimResponse'},
-
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'ExplanationOfBenefit_Payee',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'outcome'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'form'},
+             'child_variable': 'payee'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -358,71 +375,186 @@ class ExplanationOfBenefit(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'patient'},
+             'child_variable': 'referral'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'claimResponse'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'hospitalization'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'form'},
 
             {'parent_entity': 'ExplanationOfBenefit_Procedure',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit',
              'child_variable': 'procedure'},
 
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'billablePeriod'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Insurance',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'insurance'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'prescription'},
+             'child_variable': 'organization'},
 
-            {'parent_entity': 'Money',
+            {'parent_entity': 'ExplanationOfBenefit_Diagnosis',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'totalBenefit'},
+             'child_variable': 'diagnosis'},
 
-            {'parent_entity': 'ExplanationOfBenefit_Related',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'related'},
+             'child_variable': 'claim'},
 
-            {'parent_entity': 'ExplanationOfBenefit_Item',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'item'},
+             'child_variable': 'insurer'},
 
             {'parent_entity': 'ExplanationOfBenefit_AddItem',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit',
              'child_variable': 'addItem'},
 
-            {'parent_entity': 'ExplanationOfBenefit_Payee',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'facility'},
+
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit',
-             'child_variable': 'payee'},
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Payment',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'payment'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Related',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'related'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'totalCost'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Accident',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'accident'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'employmentImpacted'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'enterer'},
+
+            {'parent_entity': 'ExplanationOfBenefit_BenefitBalance',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'benefitBalance'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'unallocDeductable'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Item',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'item'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'originalPrescription'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'totalBenefit'},
+
+            {'parent_entity': 'ExplanationOfBenefit_CareTeam',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'careTeam'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit',
+             'child_variable': 'subType'},
         ]
 
 
 class ExplanationOfBenefit_Related(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Related'
 
     def __init__(self, dict_values=None):
-        # other claims which are related to this claim such as prior claim
-        # versions or for related services.
         self.claim = None
-        # reference to Reference: identifier
+        """
+        Other claims which are related to this claim such as prior claim
+        versions or for related services.
 
-        # for example prior or umbrella.
+        reference to Reference: identifier
+        """
+
         self.relationship = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        For example prior or umbrella.
 
-        # an alternate organizational reference to the case or file to which this
-        # particular claim pertains - eg property/casualy insurer claim # or
-        # workers compensation case # .
+        reference to CodeableConcept
+        """
+
         self.reference = None
-        # reference to Identifier: Identifier
+        """
+        An alternate organizational reference to the case or file to which
+        this particular claim pertains - eg Property/Casualy insurer claim #
+        or Workers Compensation case # .
 
-        # unique identifier for object class
+        reference to Identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -448,28 +580,38 @@ class ExplanationOfBenefit_Related(fhirbase):
 
 
 class ExplanationOfBenefit_Payee(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Payee'
 
     def __init__(self, dict_values=None):
-        # type of party to be reimbursed: subscriber, provider, other.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Type of Party to be reimbursed: Subscriber, provider, other.
 
-        # organization | patient | practitioner | relatedperson.
+        reference to CodeableConcept
+        """
+
         self.resourceType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        organization | patient | practitioner | relatedperson.
 
-        # party to be reimbursed: subscriber, provider, other.
+        reference to CodeableConcept
+        """
+
         self.party = None
-        # reference to Reference: identifier
+        """
+        Party to be reimbursed: Subscriber, provider, other.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -482,78 +624,113 @@ class ExplanationOfBenefit_Payee(fhirbase):
              'child_entity': 'ExplanationOfBenefit_Payee',
              'child_variable': 'type'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Payee',
-             'child_variable': 'resourceType'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ExplanationOfBenefit_Payee',
              'child_variable': 'party'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Payee',
+             'child_variable': 'resourceType'},
         ]
 
 
 class ExplanationOfBenefit_Information(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Information'
 
     def __init__(self, dict_values=None):
-        # sequence of the information element which serves to provide a link.
         self.sequence = None
-        # type = int
+        """
+        Sequence of the information element which serves to provide a link.
 
-        # the general class of the information supplied: information; exception;
-        # accident, employment; onset, etc.
+        type: int
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The general class of the information supplied: information; exception;
+        accident, employment; onset, etc.
 
-        # system and code pertaining to the specific information regarding special
-        # conditions relating to the setting, treatment or patient  for which care
-        # is sought which may influence the adjudication.
+        reference to CodeableConcept
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        System and code pertaining to the specific information regarding
+        special conditions relating to the setting, treatment or patient  for
+        which care is sought which may influence the adjudication.
 
-        # the date when or period to which this information refers.
+        reference to CodeableConcept
+        """
+
         self.timingDate = None
-        # type = string
+        """
+        The date when or period to which this information refers.
 
-        # the date when or period to which this information refers.
+        type: string
+        """
+
         self.timingPeriod = None
-        # reference to Period: Period
+        """
+        The date when or period to which this information refers.
 
-        # additional data or information such as resources, documents, images etc.
-        # including references to the data or the actual inclusion of the data.
+        reference to Period
+        """
+
         self.valueString = None
-        # type = string
+        """
+        Additional data or information such as resources, documents, images
+        etc. including references to the data or the actual inclusion of the
+        data.
 
-        # additional data or information such as resources, documents, images etc.
-        # including references to the data or the actual inclusion of the data.
+        type: string
+        """
+
         self.valueQuantity = None
-        # reference to Quantity: Quantity
+        """
+        Additional data or information such as resources, documents, images
+        etc. including references to the data or the actual inclusion of the
+        data.
 
-        # additional data or information such as resources, documents, images etc.
-        # including references to the data or the actual inclusion of the data.
+        reference to Quantity
+        """
+
         self.valueAttachment = None
-        # reference to Attachment: Attachment
+        """
+        Additional data or information such as resources, documents, images
+        etc. including references to the data or the actual inclusion of the
+        data.
 
-        # additional data or information such as resources, documents, images etc.
-        # including references to the data or the actual inclusion of the data.
+        reference to Attachment
+        """
+
         self.valueReference = None
-        # reference to Reference: identifier
+        """
+        Additional data or information such as resources, documents, images
+        etc. including references to the data or the actual inclusion of the
+        data.
 
-        # for example, provides the reason for: the additional stay, or missing
-        # tooth or any other situation where a reason code is required in addition
-        # to the content.
+        reference to Reference: identifier
+        """
+
         self.reason = None
-        # reference to Coding: Coding
+        """
+        For example, provides the reason for: the additional stay, or missing
+        tooth or any other situation where a reason code is required in
+        addition to the content.
 
-        # unique identifier for object class
+        reference to Coding
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -561,76 +738,92 @@ class ExplanationOfBenefit_Information(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Information',
-             'child_variable': 'timingPeriod'},
-
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Information',
              'child_variable': 'valueQuantity'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Information',
+             'child_variable': 'reason'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Information',
+             'child_variable': 'timingPeriod'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Information',
              'child_variable': 'code'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Information',
-             'child_variable': 'valueReference'},
+             'child_variable': 'valueAttachment'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Information',
              'child_variable': 'category'},
 
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'ExplanationOfBenefit_Information',
-             'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Information',
-             'child_variable': 'reason'},
+             'child_variable': 'valueReference'},
         ]
 
 
 class ExplanationOfBenefit_CareTeam(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_CareTeam'
 
     def __init__(self, dict_values=None):
-        # sequence of careteam which serves to order and provide a link.
         self.sequence = None
-        # type = int
+        """
+        Sequence of careteam which serves to order and provide a link.
 
-        # the members of the team who provided the overall service.
+        type: int
+        """
+
         self.provider = None
-        # reference to Reference: identifier
+        """
+        The members of the team who provided the overall service.
 
-        # the practitioner who is billing and responsible for the claimed services
-        # rendered to the patient.
+        reference to Reference: identifier
+        """
+
         self.responsible = None
-        # type = boolean
+        """
+        The practitioner who is billing and responsible for the claimed
+        services rendered to the patient.
 
-        # the lead, assisting or supervising practitioner and their discipline if
-        # a multidisiplinary team.
+        type: boolean
+        """
+
         self.role = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The lead, assisting or supervising practitioner and their discipline
+        if a multidisiplinary team.
 
-        # the qualification which is applicable for this service.
+        reference to CodeableConcept
+        """
+
         self.qualification = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The qualification which is applicable for this service.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -646,49 +839,65 @@ class ExplanationOfBenefit_CareTeam(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_CareTeam',
-             'child_variable': 'qualification'},
+             'child_variable': 'role'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_CareTeam',
-             'child_variable': 'role'},
+             'child_variable': 'qualification'},
         ]
 
 
 class ExplanationOfBenefit_Diagnosis(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Diagnosis'
 
     def __init__(self, dict_values=None):
-        # sequence of diagnosis which serves to provide a link.
         self.sequence = None
-        # type = int
+        """
+        Sequence of diagnosis which serves to provide a link.
 
-        # the diagnosis.
+        type: int
+        """
+
         self.diagnosisCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The diagnosis.
 
-        # the diagnosis.
+        reference to CodeableConcept
+        """
+
         self.diagnosisReference = None
-        # reference to Reference: identifier
+        """
+        The diagnosis.
 
-        # the type of the diagnosis, for example: admitting, primary, secondary,
-        # discharge.
+        reference to Reference: identifier
+        """
+
         self.type = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of the Diagnosis, for example: admitting, primary, secondary,
+        discharge.
 
-        # the package billing code, for example drg, based on the assigned
-        # grouping code system.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.packageCode = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The package billing code, for example DRG, based on the assigned
+        grouping code system.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -699,12 +908,12 @@ class ExplanationOfBenefit_Diagnosis(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Diagnosis',
-             'child_variable': 'packageCode'},
+             'child_variable': 'type'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Diagnosis',
-             'child_variable': 'type'},
+             'child_variable': 'diagnosisCodeableConcept'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -714,37 +923,50 @@ class ExplanationOfBenefit_Diagnosis(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Diagnosis',
-             'child_variable': 'diagnosisCodeableConcept'},
+             'child_variable': 'packageCode'},
         ]
 
 
 class ExplanationOfBenefit_Procedure(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Procedure'
 
     def __init__(self, dict_values=None):
-        # sequence of procedures which serves to order and provide a link.
         self.sequence = None
-        # type = int
+        """
+        Sequence of procedures which serves to order and provide a link.
 
-        # date and optionally time the procedure was performed .
+        type: int
+        """
+
         self.date = None
-        # type = string
+        """
+        Date and optionally time the procedure was performed .
 
-        # the procedure code.
+        type: string
+        """
+
         self.procedureCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The procedure code.
 
-        # the procedure code.
+        reference to CodeableConcept
+        """
+
         self.procedureReference = None
-        # reference to Reference: identifier
+        """
+        The procedure code.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -752,37 +974,44 @@ class ExplanationOfBenefit_Procedure(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit_Procedure',
-             'child_variable': 'procedureReference'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Procedure',
              'child_variable': 'procedureCodeableConcept'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Procedure',
+             'child_variable': 'procedureReference'},
         ]
 
 
 class ExplanationOfBenefit_Insurance(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Insurance'
 
     def __init__(self, dict_values=None):
-        # reference to the program or plan identification, underwriter or payor.
         self.coverage = None
-        # reference to Reference: identifier
+        """
+        Reference to the program or plan identification, underwriter or payor.
 
-        # a list of references from the insurer to which these services pertain.
+        reference to Reference: identifier
+        """
+
         self.preAuthRef = None
-        # type = array
+        """
+        A list of references from the Insurer to which these services pertain.
 
-        # unique identifier for object class
+        type: array
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -798,32 +1027,45 @@ class ExplanationOfBenefit_Insurance(fhirbase):
 
 
 class ExplanationOfBenefit_Accident(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Accident'
 
     def __init__(self, dict_values=None):
-        # date of an accident which these services are addressing.
         self.date = None
-        # type = string
+        """
+        Date of an accident which these services are addressing.
 
-        # type of accident: work, auto, etc.
+        type: string
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Type of accident: work, auto, etc.
 
-        # where the accident occurred.
+        reference to CodeableConcept
+        """
+
         self.locationAddress = None
-        # reference to Address: Address
+        """
+        Where the accident occurred.
 
-        # where the accident occurred.
+        reference to Address
+        """
+
         self.locationReference = None
-        # reference to Reference: identifier
+        """
+        Where the accident occurred.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -831,11 +1073,6 @@ class ExplanationOfBenefit_Accident(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Accident',
-             'child_variable': 'type'},
-
             {'parent_entity': 'Address',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Accident',
@@ -845,150 +1082,235 @@ class ExplanationOfBenefit_Accident(fhirbase):
              'parent_variable': 'identifier',
              'child_entity': 'ExplanationOfBenefit_Accident',
              'child_variable': 'locationReference'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Accident',
+             'child_variable': 'type'},
         ]
 
 
 class ExplanationOfBenefit_Item(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Item'
 
     def __init__(self, dict_values=None):
-        # a service line number.
         self.sequence = None
-        # type = int
+        """
+        A service line number.
 
-        # careteam applicable for this service or product line.
+        type: int
+        """
+
         self.careTeamLinkId = None
-        # type = array
+        """
+        Careteam applicable for this service or product line.
 
-        # diagnosis applicable for this service or product line.
+        type: array
+        """
+
         self.diagnosisLinkId = None
-        # type = array
+        """
+        Diagnosis applicable for this service or product line.
 
-        # procedures applicable for this service or product line.
+        type: array
+        """
+
         self.procedureLinkId = None
-        # type = array
+        """
+        Procedures applicable for this service or product line.
 
-        # exceptions, special conditions and supporting information pplicable for
-        # this service or product line.
+        type: array
+        """
+
         self.informationLinkId = None
-        # type = array
+        """
+        Exceptions, special conditions and supporting information pplicable
+        for this service or product line.
 
-        # the type of reveneu or cost center providing the product and/or service.
+        type: array
+        """
+
         self.revenue = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of reveneu or cost center providing the product and/or
+        service.
 
-        # health care service type codes  to identify the classification of
-        # service or benefits.
+        reference to CodeableConcept
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Health Care Service Type Codes  to identify the classification of
+        service or benefits.
 
-        # if this is an actual service or product line, ie. not a group, then use
-        # code to indicate the professional service or product supplied (eg. ctp,
-        # hcpcs,uscls,icd10, ncpdp,din,achi,cci). if a grouping item then use a
-        # group code to indicate the type of thing being grouped eg. 'glasses' or
-        # 'compound'.
+        reference to CodeableConcept
+        """
+
         self.service = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        If this is an actual service or product line, ie. not a Group, then
+        use code to indicate the Professional Service or Product supplied (eg.
+        CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then
+        use a group code to indicate the type of thing being grouped eg.
+        'glasses' or 'compound'.
 
-        # item typification or modifiers codes, eg for oral whether the treatment
-        # is cosmetic or associated with tmj, or for medical whether the treatment
-        # was outside the clinic or out of office hours.
+        reference to CodeableConcept
+        """
+
         self.modifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Item typification or modifiers codes, eg for Oral whether the
+        treatment is cosmetic or associated with TMJ, or for medical whether
+        the treatment was outside the clinic or out of office hours.
 
-        # for programs which require reson codes for the inclusion, covering, of
-        # this billed item under the program or sub-program.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.programCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        For programs which require reson codes for the inclusion, covering, of
+        this billed item under the program or sub-program.
 
-        # the date or dates when the enclosed suite of services were performed or
-        # completed.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.servicedDate = None
-        # type = string
+        """
+        The date or dates when the enclosed suite of services were performed
+        or completed.
 
-        # the date or dates when the enclosed suite of services were performed or
-        # completed.
+        type: string
+        """
+
         self.servicedPeriod = None
-        # reference to Period: Period
+        """
+        The date or dates when the enclosed suite of services were performed
+        or completed.
 
-        # where the service was provided.
+        reference to Period
+        """
+
         self.locationCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Where the service was provided.
 
-        # where the service was provided.
+        reference to CodeableConcept
+        """
+
         self.locationAddress = None
-        # reference to Address: Address
+        """
+        Where the service was provided.
 
-        # where the service was provided.
+        reference to Address
+        """
+
         self.locationReference = None
-        # reference to Reference: identifier
+        """
+        Where the service was provided.
 
-        # the number of repetitions of a service or product.
+        reference to Reference: identifier
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The number of repetitions of a service or product.
 
-        # if the item is a node then this is the fee for the product or service,
-        # otherwise this is the total of the fees for the children of the group.
+        reference to Quantity
+        """
+
         self.unitPrice = None
-        # reference to Money: Money
+        """
+        If the item is a node then this is the fee for the product or service,
+        otherwise this is the total of the fees for the children of the group.
 
-        # a real number that represents a multiplier used in determining the
-        # overall value of services delivered and/or goods received. the concept
-        # of a factor allows for a discount or surcharge multiplier to be applied
-        # to a monetary amount.
+        reference to Money
+        """
+
         self.factor = None
-        # type = int
+        """
+        A real number that represents a multiplier used in determining the
+        overall value of services delivered and/or goods received. The concept
+        of a Factor allows for a discount or surcharge multiplier to be
+        applied to a monetary amount.
 
-        # the quantity times the unit price for an addittional service or product
-        # or charge. for example, the formula: unit quantity * unit price (cost
-        # per point) * factor number  * points = net amount. quantity, factor and
-        # points are assumed to be 1 if not supplied.
+        type: int
+        """
+
         self.net = None
-        # reference to Money: Money
+        """
+        The quantity times the unit price for an addittional service or
+        product or charge. For example, the formula: unit Quantity * unit
+        Price (Cost per Point) * factor Number  * points = net Amount.
+        Quantity, factor and points are assumed to be 1 if not supplied.
 
-        # list of unique device identifiers associated with this line item.
+        reference to Money
+        """
+
         self.udi = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        List of Unique Device Identifiers associated with this line item.
 
-        # physical service site on the patient (limb, tooth, etc).
+        type: array
+        reference to Reference: identifier
+        """
+
         self.bodySite = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Physical service site on the patient (limb, tooth, etc).
 
-        # a region or surface of the site, eg. limb region or tooth surface(s).
+        reference to CodeableConcept
+        """
+
         self.subSite = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A region or surface of the site, eg. limb region or tooth surface(s).
 
-        # a billed item may include goods or services provided in multiple
-        # encounters.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.encounter = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A billed item may include goods or services provided in multiple
+        encounters.
 
-        # a list of note references to the notes provided below.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.noteNumber = None
-        # type = array
+        """
+        A list of note references to the notes provided below.
 
-        # the adjudications results.
+        type: array
+        """
+
         self.adjudication = None
-        # type = array
-        # reference to ExplanationOfBenefit_Adjudication: ExplanationOfBenefit_Adjudication
+        """
+        The adjudications results.
 
-        # second tier of goods and services.
+        type: array
+        reference to ExplanationOfBenefit_Adjudication
+        """
+
         self.detail = None
-        # type = array
-        # reference to ExplanationOfBenefit_Detail: ExplanationOfBenefit_Detail
+        """
+        Second tier of goods and services.
 
-        # unique identifier for object class
+        type: array
+        reference to ExplanationOfBenefit_Detail
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -996,50 +1318,15 @@ class ExplanationOfBenefit_Item(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Item',
-             'child_variable': 'net'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Item',
-             'child_variable': 'servicedPeriod'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Item',
-             'child_variable': 'locationCodeableConcept'},
-
             {'parent_entity': 'ExplanationOfBenefit_Adjudication',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Item',
              'child_variable': 'adjudication'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit_Item',
-             'child_variable': 'locationReference'},
-
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Item',
-             'child_variable': 'service'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Item',
-             'child_variable': 'bodySite'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Item',
-             'child_variable': 'modifier'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Detail',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Item',
-             'child_variable': 'detail'},
+             'child_variable': 'net'},
 
             {'parent_entity': 'Address',
              'parent_variable': 'object_id',
@@ -1054,16 +1341,6 @@ class ExplanationOfBenefit_Item(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ExplanationOfBenefit_Item',
-             'child_variable': 'encounter'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Item',
-             'child_variable': 'programCode'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit_Item',
              'child_variable': 'udi'},
 
             {'parent_entity': 'Money',
@@ -1071,10 +1348,10 @@ class ExplanationOfBenefit_Item(fhirbase):
              'child_entity': 'ExplanationOfBenefit_Item',
              'child_variable': 'unitPrice'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'ExplanationOfBenefit_Item',
-             'child_variable': 'revenue'},
+             'child_variable': 'locationReference'},
 
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
@@ -1084,38 +1361,96 @@ class ExplanationOfBenefit_Item(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'service'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'revenue'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'bodySite'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'locationCodeableConcept'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'encounter'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'servicedPeriod'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'programCode'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
              'child_variable': 'subSite'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Detail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'detail'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Item',
+             'child_variable': 'modifier'},
         ]
 
 
 class ExplanationOfBenefit_Adjudication(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Adjudication'
 
     def __init__(self, dict_values=None):
-        # code indicating: co-pay, deductable, elegible, benefit, tax, etc.
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.
 
-        # adjudication reason such as limit reached.
+        reference to CodeableConcept
+        """
+
         self.reason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Adjudication reason such as limit reached.
 
-        # monitory amount associated with the code.
+        reference to CodeableConcept
+        """
+
         self.amount = None
-        # reference to Money: Money
+        """
+        Monitory amount associated with the code.
 
-        # a non-monetary value for example a percentage. mutually exclusive to the
-        # amount element above.
+        reference to Money
+        """
+
         self.value = None
-        # type = int
+        """
+        A non-monetary value for example a percentage. Mutually exclusive to
+        the amount element above.
 
-        # unique identifier for object class
+        type: int
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1141,96 +1476,143 @@ class ExplanationOfBenefit_Adjudication(fhirbase):
 
 
 class ExplanationOfBenefit_Detail(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Detail'
 
     def __init__(self, dict_values=None):
-        # a service line number.
         self.sequence = None
-        # type = int
+        """
+        A service line number.
 
-        # the type of product or service.
+        type: int
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of product or service.
 
-        # the type of reveneu or cost center providing the product and/or service.
+        reference to CodeableConcept
+        """
+
         self.revenue = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of reveneu or cost center providing the product and/or
+        service.
 
-        # health care service type codes  to identify the classification of
-        # service or benefits.
+        reference to CodeableConcept
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Health Care Service Type Codes  to identify the classification of
+        service or benefits.
 
-        # if this is an actual service or product line, ie. not a group, then use
-        # code to indicate the professional service or product supplied (eg. ctp,
-        # hcpcs,uscls,icd10, ncpdp,din,achi,cci). if a grouping item then use a
-        # group code to indicate the type of thing being grouped eg. 'glasses' or
-        # 'compound'.
+        reference to CodeableConcept
+        """
+
         self.service = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        If this is an actual service or product line, ie. not a Group, then
+        use code to indicate the Professional Service or Product supplied (eg.
+        CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then
+        use a group code to indicate the type of thing being grouped eg.
+        'glasses' or 'compound'.
 
-        # item typification or modifiers codes, eg for oral whether the treatment
-        # is cosmetic or associated with tmj, or for medical whether the treatment
-        # was outside the clinic or out of office hours.
+        reference to CodeableConcept
+        """
+
         self.modifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Item typification or modifiers codes, eg for Oral whether the
+        treatment is cosmetic or associated with TMJ, or for medical whether
+        the treatment was outside the clinic or out of office hours.
 
-        # for programs which require reson codes for the inclusion, covering, of
-        # this billed item under the program or sub-program.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.programCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        For programs which require reson codes for the inclusion, covering, of
+        this billed item under the program or sub-program.
 
-        # the number of repetitions of a service or product.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The number of repetitions of a service or product.
 
-        # if the item is a node then this is the fee for the product or service,
-        # otherwise this is the total of the fees for the children of the group.
+        reference to Quantity
+        """
+
         self.unitPrice = None
-        # reference to Money: Money
+        """
+        If the item is a node then this is the fee for the product or service,
+        otherwise this is the total of the fees for the children of the group.
 
-        # a real number that represents a multiplier used in determining the
-        # overall value of services delivered and/or goods received. the concept
-        # of a factor allows for a discount or surcharge multiplier to be applied
-        # to a monetary amount.
+        reference to Money
+        """
+
         self.factor = None
-        # type = int
+        """
+        A real number that represents a multiplier used in determining the
+        overall value of services delivered and/or goods received. The concept
+        of a Factor allows for a discount or surcharge multiplier to be
+        applied to a monetary amount.
 
-        # the quantity times the unit price for an addittional service or product
-        # or charge. for example, the formula: unit quantity * unit price (cost
-        # per point) * factor number  * points = net amount. quantity, factor and
-        # points are assumed to be 1 if not supplied.
+        type: int
+        """
+
         self.net = None
-        # reference to Money: Money
+        """
+        The quantity times the unit price for an addittional service or
+        product or charge. For example, the formula: unit Quantity * unit
+        Price (Cost per Point) * factor Number  * points = net Amount.
+        Quantity, factor and points are assumed to be 1 if not supplied.
 
-        # list of unique device identifiers associated with this line item.
+        reference to Money
+        """
+
         self.udi = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        List of Unique Device Identifiers associated with this line item.
 
-        # a list of note references to the notes provided below.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.noteNumber = None
-        # type = array
+        """
+        A list of note references to the notes provided below.
 
-        # the adjudications results.
+        type: array
+        """
+
         self.adjudication = None
-        # type = array
-        # reference to ExplanationOfBenefit_Adjudication: ExplanationOfBenefit_Adjudication
+        """
+        The adjudications results.
 
-        # third tier of goods and services.
+        type: array
+        reference to ExplanationOfBenefit_Adjudication
+        """
+
         self.subDetail = None
-        # type = array
-        # reference to ExplanationOfBenefit_SubDetail: ExplanationOfBenefit_SubDetail
+        """
+        Third tier of goods and services.
 
-        # unique identifier for object class
+        type: array
+        reference to ExplanationOfBenefit_SubDetail
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1238,150 +1620,194 @@ class ExplanationOfBenefit_Detail(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'quantity'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'revenue'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Detail',
              'child_variable': 'modifier'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'net'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'service'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'udi'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Detail',
              'child_variable': 'programCode'},
 
+            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'adjudication'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Detail',
-             'child_variable': 'revenue'},
+             'child_variable': 'category'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail',
+             'child_variable': 'unitPrice'},
 
             {'parent_entity': 'ExplanationOfBenefit_SubDetail',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Detail',
              'child_variable': 'subDetail'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Detail',
-             'child_variable': 'quantity'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Detail',
-             'child_variable': 'net'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Detail',
-             'child_variable': 'adjudication'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Detail',
-             'child_variable': 'category'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Detail',
-             'child_variable': 'unitPrice'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit_Detail',
-             'child_variable': 'udi'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Detail',
-             'child_variable': 'type'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Detail',
-             'child_variable': 'service'},
         ]
 
 
 class ExplanationOfBenefit_SubDetail(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_SubDetail'
 
     def __init__(self, dict_values=None):
-        # a service line number.
         self.sequence = None
-        # type = int
+        """
+        A service line number.
 
-        # the type of product or service.
+        type: int
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of product or service.
 
-        # the type of reveneu or cost center providing the product and/or service.
+        reference to CodeableConcept
+        """
+
         self.revenue = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of reveneu or cost center providing the product and/or
+        service.
 
-        # health care service type codes  to identify the classification of
-        # service or benefits.
+        reference to CodeableConcept
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Health Care Service Type Codes  to identify the classification of
+        service or benefits.
 
-        # a code to indicate the professional service or product supplied (eg.
-        # ctp, hcpcs,uscls,icd10, ncpdp,din,achi,cci).
+        reference to CodeableConcept
+        """
+
         self.service = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code to indicate the Professional Service or Product supplied (eg.
+        CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).
 
-        # item typification or modifiers codes, eg for oral whether the treatment
-        # is cosmetic or associated with tmj, or for medical whether the treatment
-        # was outside the clinic or out of office hours.
+        reference to CodeableConcept
+        """
+
         self.modifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Item typification or modifiers codes, eg for Oral whether the
+        treatment is cosmetic or associated with TMJ, or for medical whether
+        the treatment was outside the clinic or out of office hours.
 
-        # for programs which require reson codes for the inclusion, covering, of
-        # this billed item under the program or sub-program.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.programCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        For programs which require reson codes for the inclusion, covering, of
+        this billed item under the program or sub-program.
 
-        # the number of repetitions of a service or product.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The number of repetitions of a service or product.
 
-        # the fee for an addittional service or product or charge.
+        reference to Quantity
+        """
+
         self.unitPrice = None
-        # reference to Money: Money
+        """
+        The fee for an addittional service or product or charge.
 
-        # a real number that represents a multiplier used in determining the
-        # overall value of services delivered and/or goods received. the concept
-        # of a factor allows for a discount or surcharge multiplier to be applied
-        # to a monetary amount.
+        reference to Money
+        """
+
         self.factor = None
-        # type = int
+        """
+        A real number that represents a multiplier used in determining the
+        overall value of services delivered and/or goods received. The concept
+        of a Factor allows for a discount or surcharge multiplier to be
+        applied to a monetary amount.
 
-        # the quantity times the unit price for an addittional service or product
-        # or charge. for example, the formula: unit quantity * unit price (cost
-        # per point) * factor number  * points = net amount. quantity, factor and
-        # points are assumed to be 1 if not supplied.
+        type: int
+        """
+
         self.net = None
-        # reference to Money: Money
+        """
+        The quantity times the unit price for an addittional service or
+        product or charge. For example, the formula: unit Quantity * unit
+        Price (Cost per Point) * factor Number  * points = net Amount.
+        Quantity, factor and points are assumed to be 1 if not supplied.
 
-        # list of unique device identifiers associated with this line item.
+        reference to Money
+        """
+
         self.udi = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        List of Unique Device Identifiers associated with this line item.
 
-        # a list of note references to the notes provided below.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.noteNumber = None
-        # type = array
+        """
+        A list of note references to the notes provided below.
 
-        # the adjudications results.
+        type: array
+        """
+
         self.adjudication = None
-        # type = array
-        # reference to ExplanationOfBenefit_Adjudication: ExplanationOfBenefit_Adjudication
+        """
+        The adjudications results.
 
-        # unique identifier for object class
+        type: array
+        reference to ExplanationOfBenefit_Adjudication
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1392,22 +1818,12 @@ class ExplanationOfBenefit_SubDetail(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_SubDetail',
-             'child_variable': 'programCode'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_SubDetail',
-             'child_variable': 'revenue'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_SubDetail',
-             'child_variable': 'quantity'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_SubDetail',
              'child_variable': 'category'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'adjudication'},
 
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
@@ -1417,22 +1833,7 @@ class ExplanationOfBenefit_SubDetail(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_SubDetail',
-             'child_variable': 'type'},
-
-            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_SubDetail',
-             'child_variable': 'adjudication'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ExplanationOfBenefit_SubDetail',
-             'child_variable': 'udi'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_SubDetail',
-             'child_variable': 'net'},
+             'child_variable': 'service'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -1442,68 +1843,122 @@ class ExplanationOfBenefit_SubDetail(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_SubDetail',
-             'child_variable': 'service'},
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'net'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'quantity'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'programCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'udi'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_SubDetail',
+             'child_variable': 'revenue'},
         ]
 
 
 class ExplanationOfBenefit_AddItem(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_AddItem'
 
     def __init__(self, dict_values=None):
-        # list of input service items which this service line is intended to
-        # replace.
         self.sequenceLinkId = None
-        # type = array
+        """
+        List of input service items which this service line is intended to
+        replace.
 
-        # the type of reveneu or cost center providing the product and/or service.
+        type: array
+        """
+
         self.revenue = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of reveneu or cost center providing the product and/or
+        service.
 
-        # health care service type codes  to identify the classification of
-        # service or benefits.
+        reference to CodeableConcept
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Health Care Service Type Codes  to identify the classification of
+        service or benefits.
 
-        # if this is an actual service or product line, ie. not a group, then use
-        # code to indicate the professional service or product supplied (eg. ctp,
-        # hcpcs,uscls,icd10, ncpdp,din,achi,cci). if a grouping item then use a
-        # group code to indicate the type of thing being grouped eg. 'glasses' or
-        # 'compound'.
+        reference to CodeableConcept
+        """
+
         self.service = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        If this is an actual service or product line, ie. not a Group, then
+        use code to indicate the Professional Service or Product supplied (eg.
+        CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then
+        use a group code to indicate the type of thing being grouped eg.
+        'glasses' or 'compound'.
 
-        # item typification or modifiers codes, eg for oral whether the treatment
-        # is cosmetic or associated with tmj, or for medical whether the treatment
-        # was outside the clinic or out of office hours.
+        reference to CodeableConcept
+        """
+
         self.modifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Item typification or modifiers codes, eg for Oral whether the
+        treatment is cosmetic or associated with TMJ, or for medical whether
+        the treatment was outside the clinic or out of office hours.
 
-        # the fee charged for the professional service or product.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.fee = None
-        # reference to Money: Money
+        """
+        The fee charged for the professional service or product.
 
-        # a list of note references to the notes provided below.
+        reference to Money
+        """
+
         self.noteNumber = None
-        # type = array
+        """
+        A list of note references to the notes provided below.
 
-        # the adjudications results.
+        type: array
+        """
+
         self.adjudication = None
-        # type = array
-        # reference to ExplanationOfBenefit_Adjudication: ExplanationOfBenefit_Adjudication
+        """
+        The adjudications results.
 
-        # the second tier service adjudications for payor added services.
+        type: array
+        reference to ExplanationOfBenefit_Adjudication
+        """
+
         self.detail = None
-        # type = array
-        # reference to ExplanationOfBenefit_Detail1: ExplanationOfBenefit_Detail1
+        """
+        The second tier service adjudications for payor added services.
 
-        # unique identifier for object class
+        type: array
+        reference to ExplanationOfBenefit_Detail1
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1514,17 +1969,12 @@ class ExplanationOfBenefit_AddItem(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_AddItem',
-             'child_variable': 'service'},
+             'child_variable': 'revenue'},
 
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_AddItem',
              'child_variable': 'fee'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_AddItem',
-             'child_variable': 'modifier'},
 
             {'parent_entity': 'ExplanationOfBenefit_Detail1',
              'parent_variable': 'object_id',
@@ -1534,65 +1984,93 @@ class ExplanationOfBenefit_AddItem(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_AddItem',
-             'child_variable': 'revenue'},
+             'child_variable': 'modifier'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_AddItem',
+             'child_variable': 'adjudication'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_AddItem',
              'child_variable': 'category'},
 
-            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_AddItem',
-             'child_variable': 'adjudication'},
+             'child_variable': 'service'},
         ]
 
 
 class ExplanationOfBenefit_Detail1(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Detail1'
 
     def __init__(self, dict_values=None):
-        # the type of reveneu or cost center providing the product and/or service.
         self.revenue = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of reveneu or cost center providing the product and/or
+        service.
 
-        # health care service type codes  to identify the classification of
-        # service or benefits.
+        reference to CodeableConcept
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Health Care Service Type Codes  to identify the classification of
+        service or benefits.
 
-        # a code to indicate the professional service or product supplied (eg.
-        # ctp, hcpcs,uscls,icd10, ncpdp,din,achi,cci).
+        reference to CodeableConcept
+        """
+
         self.service = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code to indicate the Professional Service or Product supplied (eg.
+        CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).
 
-        # item typification or modifiers codes, eg for oral whether the treatment
-        # is cosmetic or associated with tmj, or for medical whether the treatment
-        # was outside the clinic or out of office hours.
+        reference to CodeableConcept
+        """
+
         self.modifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Item typification or modifiers codes, eg for Oral whether the
+        treatment is cosmetic or associated with TMJ, or for medical whether
+        the treatment was outside the clinic or out of office hours.
 
-        # the fee charged for the professional service or product.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.fee = None
-        # reference to Money: Money
+        """
+        The fee charged for the professional service or product.
 
-        # a list of note references to the notes provided below.
+        reference to Money
+        """
+
         self.noteNumber = None
-        # type = array
+        """
+        A list of note references to the notes provided below.
 
-        # the adjudications results.
+        type: array
+        """
+
         self.adjudication = None
-        # type = array
-        # reference to ExplanationOfBenefit_Adjudication: ExplanationOfBenefit_Adjudication
+        """
+        The adjudications results.
 
-        # unique identifier for object class
+        type: array
+        reference to ExplanationOfBenefit_Adjudication
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1600,15 +2078,25 @@ class ExplanationOfBenefit_Detail1(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Detail1',
-             'child_variable': 'adjudication'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Detail1',
              'child_variable': 'service'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail1',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail1',
+             'child_variable': 'revenue'},
+
+            {'parent_entity': 'ExplanationOfBenefit_Adjudication',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Detail1',
+             'child_variable': 'adjudication'},
 
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
@@ -1618,53 +2106,62 @@ class ExplanationOfBenefit_Detail1(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Detail1',
-             'child_variable': 'revenue'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Detail1',
-             'child_variable': 'category'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Detail1',
              'child_variable': 'modifier'},
         ]
 
 
 class ExplanationOfBenefit_Payment(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Payment'
 
     def __init__(self, dict_values=None):
-        # whether this represents partial or complete payment of the claim.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Whether this represents partial or complete payment of the claim.
 
-        # adjustment to the payment of this transaction which is not related to
-        # adjudication of this transaction.
+        reference to CodeableConcept
+        """
+
         self.adjustment = None
-        # reference to Money: Money
+        """
+        Adjustment to the payment of this transaction which is not related to
+        adjudication of this transaction.
 
-        # reason for the payment adjustment.
+        reference to Money
+        """
+
         self.adjustmentReason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Reason for the payment adjustment.
 
-        # estimated payment date.
+        reference to CodeableConcept
+        """
+
         self.date = None
-        # type = string
+        """
+        Estimated payment date.
 
-        # payable less any payment adjustment.
+        type: string
+        """
+
         self.amount = None
-        # reference to Money: Money
+        """
+        Payable less any payment adjustment.
 
-        # payment identifer.
+        reference to Money
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Payment identifer.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1672,64 +2169,77 @@ class ExplanationOfBenefit_Payment(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Payment',
-             'child_variable': 'adjustmentReason'},
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Payment',
              'child_variable': 'type'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Payment',
-             'child_variable': 'adjustment'},
 
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Payment',
              'child_variable': 'amount'},
 
-            {'parent_entity': 'Identifier',
+            {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Payment',
-             'child_variable': 'identifier'},
+             'child_variable': 'adjustment'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Payment',
+             'child_variable': 'adjustmentReason'},
         ]
 
 
 class ExplanationOfBenefit_ProcessNote(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_ProcessNote'
 
     def __init__(self, dict_values=None):
-        # an integer associated with each note which may be referred to from each
-        # service line item.
         self.number = None
-        # type = int
+        """
+        An integer associated with each note which may be referred to from
+        each service line item.
 
-        # the note purpose: print/display.
+        type: int
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The note purpose: Print/Display.
 
-        # the note text.
+        reference to CodeableConcept
+        """
+
         self.text = None
-        # type = string
+        """
+        The note text.
 
-        # the iso-639-1 alpha 2 code in lower case for the language, optionally
-        # followed by a hyphen and the iso-3166-1 alpha 2 code for the region in
-        # upper case; e.g. "en" for english, or "en-us" for american english
-        # versus "en-en" for england english.
+        type: string
+        """
+
         self.language = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The ISO-639-1 alpha 2 code in lower case for the language, optionally
+        followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in
+        upper case; e.g. "en" for English, or "en-US" for American English
+        versus "en-EN" for England English.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1740,67 +2250,95 @@ class ExplanationOfBenefit_ProcessNote(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_ProcessNote',
-             'child_variable': 'language'},
+             'child_variable': 'type'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_ProcessNote',
-             'child_variable': 'type'},
+             'child_variable': 'language'},
         ]
 
 
 class ExplanationOfBenefit_BenefitBalance(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_BenefitBalance'
 
     def __init__(self, dict_values=None):
-        # dental, vision, medical, pharmacy, rehab etc.
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Dental, Vision, Medical, Pharmacy, Rehab etc.
 
-        # dental: basic, major, ortho; vision exam, glasses, contacts; etc.
+        reference to CodeableConcept
+        """
+
         self.subCategory = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.
 
-        # true if the indicated class of service is excluded from the plan,
-        # missing or false indicated the service is included in the coverage.
+        reference to CodeableConcept
+        """
+
         self.excluded = None
-        # type = boolean
+        """
+        True if the indicated class of service is excluded from the plan,
+        missing or False indicated the service is included in the coverage.
 
-        # a short name or tag for the benefit, for example med01, or dent2.
+        type: boolean
+        """
+
         self.name = None
-        # type = string
+        """
+        A short name or tag for the benefit, for example MED01, or DENT2.
 
-        # a richer description of the benefit, for example 'dent2 covers 100% of
-        # basic, 50% of major but exclused ortho, implants and costmetic
-        # services'.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        A richer description of the benefit, for example 'DENT2 covers 100% of
+        basic, 50% of major but exclused Ortho, Implants and Costmetic
+        services'.
 
-        # network designation.
+        type: string
+        """
+
         self.network = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Network designation.
 
-        # unit designation: individual or family.
+        reference to CodeableConcept
+        """
+
         self.unit = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Unit designation: individual or family.
 
-        # the term or period of the values such as 'maximum lifetime benefit' or
-        # 'maximum annual vistis'.
+        reference to CodeableConcept
+        """
+
         self.term = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The term or period of the values such as 'maximum lifetime benefit' or
+        'maximum annual vistis'.
 
-        # benefits used to date.
+        reference to CodeableConcept
+        """
+
         self.financial = None
-        # type = array
-        # reference to ExplanationOfBenefit_Financial: ExplanationOfBenefit_Financial
+        """
+        Benefits Used to date.
 
-        # unique identifier for object class
+        type: array
+        reference to ExplanationOfBenefit_Financial
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1816,12 +2354,12 @@ class ExplanationOfBenefit_BenefitBalance(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_BenefitBalance',
-             'child_variable': 'category'},
+             'child_variable': 'term'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_BenefitBalance',
-             'child_variable': 'unit'},
+             'child_variable': 'category'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -1831,7 +2369,7 @@ class ExplanationOfBenefit_BenefitBalance(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_BenefitBalance',
-             'child_variable': 'term'},
+             'child_variable': 'unit'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -1841,40 +2379,59 @@ class ExplanationOfBenefit_BenefitBalance(fhirbase):
 
 
 class ExplanationOfBenefit_Financial(fhirbase):
-    """This resource provides: the claim details; adjudication details from the
-    processing of a Claim; and optionally account balance information, for
-    informing the subscriber of the benefits provided.
+    """
+    This resource provides: the claim details; adjudication details from
+    the processing of a Claim; and optionally account balance information,
+    for informing the subscriber of the benefits provided.
     """
 
     __name__ = 'ExplanationOfBenefit_Financial'
 
     def __init__(self, dict_values=None):
-        # deductable, visits, benefit amount.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Deductable, visits, benefit amount.
 
-        # benefits allowed.
+        reference to CodeableConcept
+        """
+
         self.allowedUnsignedInt = None
-        # type = int
+        """
+        Benefits allowed.
 
-        # benefits allowed.
+        type: int
+        """
+
         self.allowedString = None
-        # type = string
+        """
+        Benefits allowed.
 
-        # benefits allowed.
+        type: string
+        """
+
         self.allowedMoney = None
-        # reference to Money: Money
+        """
+        Benefits allowed.
 
-        # benefits used.
+        reference to Money
+        """
+
         self.usedUnsignedInt = None
-        # type = int
+        """
+        Benefits used.
 
-        # benefits used.
+        type: int
+        """
+
         self.usedMoney = None
-        # reference to Money: Money
+        """
+        Benefits used.
 
-        # unique identifier for object class
+        reference to Money
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -1885,15 +2442,15 @@ class ExplanationOfBenefit_Financial(fhirbase):
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Financial',
+             'child_variable': 'usedMoney'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'ExplanationOfBenefit_Financial',
              'child_variable': 'allowedMoney'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ExplanationOfBenefit_Financial',
              'child_variable': 'type'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'ExplanationOfBenefit_Financial',
-             'child_variable': 'usedMoney'},
         ]

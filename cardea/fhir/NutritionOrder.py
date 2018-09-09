@@ -2,92 +2,134 @@ from .fhirbase import fhirbase
 
 
 class NutritionOrder(fhirbase):
-    """A request to supply a diet, formula feeding (enteral) or oral
+    """
+    A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
     """
 
     __name__ = 'NutritionOrder'
 
     def __init__(self, dict_values=None):
-        # this is a nutritionorder resource
         self.resourceType = 'NutritionOrder'
-        # type = string
-        # possible values: NutritionOrder
+        """
+        This is a NutritionOrder resource
 
-        # the workflow status of the nutrition order/request.
+        type: string
+        possible values: NutritionOrder
+        """
+
         self.status = None
-        # type = string
-        # possible values: proposed, draft, planned, requested, active,
-        # on-hold, completed, cancelled, entered-in-error
+        """
+        The workflow status of the nutrition order/request.
 
-        # the person (patient) who needs the nutrition order for an oral diet,
-        # nutritional supplement and/or enteral or formula feeding.
+        type: string
+        possible values: proposed, draft, planned, requested, active,
+        on-hold, completed, cancelled, entered-in-error
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        The person (patient) who needs the nutrition order for an oral diet,
+        nutritional supplement and/or enteral or formula feeding.
 
-        # an encounter that provides additional information about the healthcare
-        # context in which this request is made.
+        reference to Reference: identifier
+        """
+
         self.encounter = None
-        # reference to Reference: identifier
+        """
+        An encounter that provides additional information about the healthcare
+        context in which this request is made.
 
-        # the date and time that this nutrition order was requested.
+        reference to Reference: identifier
+        """
+
         self.dateTime = None
-        # type = string
+        """
+        The date and time that this nutrition order was requested.
 
-        # the practitioner that holds legal responsibility for ordering the diet,
-        # nutritional supplement, or formula feedings.
+        type: string
+        """
+
         self.orderer = None
-        # reference to Reference: identifier
+        """
+        The practitioner that holds legal responsibility for ordering the
+        diet, nutritional supplement, or formula feedings.
 
-        # a link to a record of allergies or intolerances  which should be
-        # included in the nutrition order.
+        reference to Reference: identifier
+        """
+
         self.allergyIntolerance = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A link to a record of allergies or intolerances  which should be
+        included in the nutrition order.
 
-        # this modifier is used to convey order-specific modifiers about the type
-        # of food that should be given. these can be derived from patient
-        # allergies, intolerances, or preferences such as halal, vegan or kosher.
-        # this modifier applies to the entire nutrition order inclusive of the
-        # oral diet, nutritional supplements and enteral formula feedings.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.foodPreferenceModifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        This modifier is used to convey order-specific modifiers about the
+        type of food that should be given. These can be derived from patient
+        allergies, intolerances, or preferences such as Halal, Vegan or
+        Kosher. This modifier applies to the entire nutrition order inclusive
+        of the oral diet, nutritional supplements and enteral formula
+        feedings.
 
-        # this modifier is used to convey order-specific modifiers about the type
-        # of food that should not be given. these can be derived from patient
-        # allergies, intolerances, or preferences such as no red meat, no soy or
-        # no wheat or  gluten-free.  while it should not be necessary to repeat
-        # allergy or intolerance information captured in the referenced
-        # allergyintolerance resource in the excludefoodmodifier, this element may
-        # be used to convey additional specificity related to foods that should be
-        # eliminated from the patient’s diet for any reason.  this modifier
-        # applies to the entire nutrition order inclusive of the oral diet,
-        # nutritional supplements and enteral formula feedings.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.excludeFoodModifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        This modifier is used to convey order-specific modifiers about the
+        type of food that should NOT be given. These can be derived from
+        patient allergies, intolerances, or preferences such as No Red Meat,
+        No Soy or No Wheat or  Gluten-Free.  While it should not be necessary
+        to repeat allergy or intolerance information captured in the
+        referenced AllergyIntolerance resource in the excludeFoodModifier,
+        this element may be used to convey additional specificity related to
+        foods that should be eliminated from the patient’s diet for any
+        reason.  This modifier applies to the entire nutrition order inclusive
+        of the oral diet, nutritional supplements and enteral formula
+        feedings.
 
-        # diet given orally in contrast to enteral (tube) feeding.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.oralDiet = None
-        # reference to NutritionOrder_OralDiet: NutritionOrder_OralDiet
+        """
+        Diet given orally in contrast to enteral (tube) feeding.
 
-        # oral nutritional products given in order to add further nutritional
-        # value to the patient's diet.
+        reference to NutritionOrder_OralDiet
+        """
+
         self.supplement = None
-        # type = array
-        # reference to NutritionOrder_Supplement: NutritionOrder_Supplement
+        """
+        Oral nutritional products given in order to add further nutritional
+        value to the patient's diet.
 
-        # feeding provided through the gastrointestinal tract via a tube,
-        # catheter, or stoma that delivers nutrition distal to the oral cavity.
+        type: array
+        reference to NutritionOrder_Supplement
+        """
+
         self.enteralFormula = None
-        # reference to NutritionOrder_EnteralFormula: NutritionOrder_EnteralFormula
+        """
+        Feeding provided through the gastrointestinal tract via a tube,
+        catheter, or stoma that delivers nutrition distal to the oral cavity.
 
-        # identifiers assigned to this order by the order sender or by the order
-        # receiver.
+        reference to NutritionOrder_EnteralFormula
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Identifiers assigned to this order by the order sender or by the order
+        receiver.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -106,46 +148,6 @@ class NutritionOrder(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'NutritionOrder',
-             'child_variable': 'foodPreferenceModifier'},
-
-            {'parent_entity': 'NutritionOrder_OralDiet',
-             'parent_variable': 'object_id',
-             'child_entity': 'NutritionOrder',
-             'child_variable': 'oralDiet'},
-
-            {'parent_entity': 'NutritionOrder_EnteralFormula',
-             'parent_variable': 'object_id',
-             'child_entity': 'NutritionOrder',
-             'child_variable': 'enteralFormula'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'NutritionOrder',
-             'child_variable': 'excludeFoodModifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'NutritionOrder',
-             'child_variable': 'patient'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'NutritionOrder',
-             'child_variable': 'allergyIntolerance'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'NutritionOrder',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'NutritionOrder',
-             'child_variable': 'orderer'},
-
             {'parent_entity': 'NutritionOrder_Supplement',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder',
@@ -155,55 +157,115 @@ class NutritionOrder(fhirbase):
              'parent_variable': 'identifier',
              'child_entity': 'NutritionOrder',
              'child_variable': 'encounter'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'excludeFoodModifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'allergyIntolerance'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'orderer'},
+
+            {'parent_entity': 'NutritionOrder_EnteralFormula',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'enteralFormula'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'foodPreferenceModifier'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'NutritionOrder_OralDiet',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder',
+             'child_variable': 'oralDiet'},
         ]
 
 
 class NutritionOrder_OralDiet(fhirbase):
-    """A request to supply a diet, formula feeding (enteral) or oral
+    """
+    A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
     """
 
     __name__ = 'NutritionOrder_OralDiet'
 
     def __init__(self, dict_values=None):
-        # the kind of diet or dietary restriction such as fiber restricted diet or
-        # diabetic diet.
         self.type = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The kind of diet or dietary restriction such as fiber restricted diet
+        or diabetic diet.
 
-        # the time period and frequency at which the diet should be given.  the
-        # diet should be given for the combination of all schedules if more than
-        # one schedule is present.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.schedule = None
-        # type = array
-        # reference to Timing: Timing
+        """
+        The time period and frequency at which the diet should be given.  The
+        diet should be given for the combination of all schedules if more than
+        one schedule is present.
 
-        # class that defines the quantity and type of nutrient modifications (for
-        # example carbohydrate, fiber or sodium) required for the oral diet.
+        type: array
+        reference to Timing
+        """
+
         self.nutrient = None
-        # type = array
-        # reference to NutritionOrder_Nutrient: NutritionOrder_Nutrient
+        """
+        Class that defines the quantity and type of nutrient modifications
+        (for example carbohydrate, fiber or sodium) required for the oral
+        diet.
 
-        # class that describes any texture modifications required for the patient
-        # to safely consume various types of solid foods.
+        type: array
+        reference to NutritionOrder_Nutrient
+        """
+
         self.texture = None
-        # type = array
-        # reference to NutritionOrder_Texture: NutritionOrder_Texture
+        """
+        Class that describes any texture modifications required for the
+        patient to safely consume various types of solid foods.
 
-        # the required consistency (e.g. honey-thick, nectar-thick, thin,
-        # thickened.) of liquids or fluids served to the patient.
+        type: array
+        reference to NutritionOrder_Texture
+        """
+
         self.fluidConsistencyType = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The required consistency (e.g. honey-thick, nectar-thick, thin,
+        thickened.) of liquids or fluids served to the patient.
 
-        # free text or additional instructions or information pertaining to the
-        # oral diet.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.instruction = None
-        # type = string
+        """
+        Free text or additional instructions or information pertaining to the
+        oral diet.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -211,6 +273,16 @@ class NutritionOrder_OralDiet(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'NutritionOrder_Nutrient',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_OralDiet',
+             'child_variable': 'nutrient'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_OralDiet',
+             'child_variable': 'type'},
+
             {'parent_entity': 'NutritionOrder_Texture',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_OralDiet',
@@ -219,43 +291,40 @@ class NutritionOrder_OralDiet(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_OralDiet',
-             'child_variable': 'type'},
-
-            {'parent_entity': 'NutritionOrder_Nutrient',
-             'parent_variable': 'object_id',
-             'child_entity': 'NutritionOrder_OralDiet',
-             'child_variable': 'nutrient'},
+             'child_variable': 'fluidConsistencyType'},
 
             {'parent_entity': 'Timing',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_OralDiet',
              'child_variable': 'schedule'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'NutritionOrder_OralDiet',
-             'child_variable': 'fluidConsistencyType'},
         ]
 
 
 class NutritionOrder_Nutrient(fhirbase):
-    """A request to supply a diet, formula feeding (enteral) or oral
+    """
+    A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
     """
 
     __name__ = 'NutritionOrder_Nutrient'
 
     def __init__(self, dict_values=None):
-        # the nutrient that is being modified such as carbohydrate or sodium.
         self.modifier = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The nutrient that is being modified such as carbohydrate or sodium.
 
-        # the quantity of the specified nutrient to include in diet.
+        reference to CodeableConcept
+        """
+
         self.amount = None
-        # reference to Quantity: Quantity
+        """
+        The quantity of the specified nutrient to include in diet.
 
-        # unique identifier for object class
+        reference to Quantity
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -263,38 +332,45 @@ class NutritionOrder_Nutrient(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'NutritionOrder_Nutrient',
-             'child_variable': 'modifier'},
-
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_Nutrient',
              'child_variable': 'amount'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_Nutrient',
+             'child_variable': 'modifier'},
         ]
 
 
 class NutritionOrder_Texture(fhirbase):
-    """A request to supply a diet, formula feeding (enteral) or oral
+    """
+    A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
     """
 
     __name__ = 'NutritionOrder_Texture'
 
     def __init__(self, dict_values=None):
-        # any texture modifications (for solid foods) that should be made, e.g.
-        # easy to chew, chopped, ground, and pureed.
         self.modifier = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Any texture modifications (for solid foods) that should be made, e.g.
+        easy to chew, chopped, ground, and pureed.
 
-        # the food type(s) (e.g. meats, all foods)  that the texture modification
-        # applies to.  this could be all foods types.
+        reference to CodeableConcept
+        """
+
         self.foodType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The food type(s) (e.g. meats, all foods)  that the texture
+        modification applies to.  This could be all foods types.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -305,51 +381,67 @@ class NutritionOrder_Texture(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_Texture',
-             'child_variable': 'foodType'},
+             'child_variable': 'modifier'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_Texture',
-             'child_variable': 'modifier'},
+             'child_variable': 'foodType'},
         ]
 
 
 class NutritionOrder_Supplement(fhirbase):
-    """A request to supply a diet, formula feeding (enteral) or oral
+    """
+    A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
     """
 
     __name__ = 'NutritionOrder_Supplement'
 
     def __init__(self, dict_values=None):
-        # the kind of nutritional supplement product required such as a high
-        # protein or pediatric clear liquid supplement.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The kind of nutritional supplement product required such as a high
+        protein or pediatric clear liquid supplement.
 
-        # the product or brand name of the nutritional supplement such as "acme
-        # protein shake".
+        reference to CodeableConcept
+        """
+
         self.productName = None
-        # type = string
+        """
+        The product or brand name of the nutritional supplement such as "Acme
+        Protein Shake".
 
-        # the time period and frequency at which the supplement(s) should be
-        # given.  the supplement should be given for the combination of all
-        # schedules if more than one schedule is present.
+        type: string
+        """
+
         self.schedule = None
-        # type = array
-        # reference to Timing: Timing
+        """
+        The time period and frequency at which the supplement(s) should be
+        given.  The supplement should be given for the combination of all
+        schedules if more than one schedule is present.
 
-        # the amount of the nutritional supplement to be given.
+        type: array
+        reference to Timing
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The amount of the nutritional supplement to be given.
 
-        # free text or additional instructions or information pertaining to the
-        # oral supplement.
+        reference to Quantity
+        """
+
         self.instruction = None
-        # type = string
+        """
+        Free text or additional instructions or information pertaining to the
+        oral supplement.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -357,85 +449,115 @@ class NutritionOrder_Supplement(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Quantity',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_Supplement',
-             'child_variable': 'quantity'},
+             'child_variable': 'type'},
 
             {'parent_entity': 'Timing',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_Supplement',
              'child_variable': 'schedule'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_Supplement',
-             'child_variable': 'type'},
+             'child_variable': 'quantity'},
         ]
 
 
 class NutritionOrder_EnteralFormula(fhirbase):
-    """A request to supply a diet, formula feeding (enteral) or oral
+    """
+    A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
     """
 
     __name__ = 'NutritionOrder_EnteralFormula'
 
     def __init__(self, dict_values=None):
-        # the type of enteral or infant formula such as an adult standard formula
-        # with fiber or a soy-based infant formula.
         self.baseFormulaType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of enteral or infant formula such as an adult standard
+        formula with fiber or a soy-based infant formula.
 
-        # the product or brand name of the enteral or infant formula product such
-        # as "acme adult standard formula".
+        reference to CodeableConcept
+        """
+
         self.baseFormulaProductName = None
-        # type = string
+        """
+        The product or brand name of the enteral or infant formula product
+        such as "ACME Adult Standard Formula".
 
-        # indicates the type of modular component such as protein, carbohydrate,
-        # fat or fiber to be provided in addition to or mixed with the base
-        # formula.
+        type: string
+        """
+
         self.additiveType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates the type of modular component such as protein, carbohydrate,
+        fat or fiber to be provided in addition to or mixed with the base
+        formula.
 
-        # the product or brand name of the type of modular component to be added
-        # to the formula.
+        reference to CodeableConcept
+        """
+
         self.additiveProductName = None
-        # type = string
+        """
+        The product or brand name of the type of modular component to be added
+        to the formula.
 
-        # the amount of energy (calories) that the formula should provide per
-        # specified volume, typically per ml or fluid oz.  for example, an infant
-        # may require a formula that provides 24 calories per fluid ounce or an
-        # adult may require an enteral formula that provides 1.5 calorie/ml.
+        type: string
+        """
+
         self.caloricDensity = None
-        # reference to Quantity: Quantity
+        """
+        The amount of energy (calories) that the formula should provide per
+        specified volume, typically per mL or fluid oz.  For example, an
+        infant may require a formula that provides 24 calories per fluid ounce
+        or an adult may require an enteral formula that provides 1.5
+        calorie/mL.
 
-        # the route or physiological path of administration into the patient's
-        # gastrointestinal  tract for purposes of providing the formula feeding,
-        # e.g. nasogastric tube.
+        reference to Quantity
+        """
+
         self.routeofAdministration = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The route or physiological path of administration into the patient's
+        gastrointestinal  tract for purposes of providing the formula feeding,
+        e.g. nasogastric tube.
 
-        # formula administration instructions as structured data.  this repeating
-        # structure allows for changing the administration rate or volume over
-        # time for both bolus and continuous feeding.  an example of this would be
-        # an instruction to increase the rate of continuous feeding every 2 hours.
+        reference to CodeableConcept
+        """
+
         self.administration = None
-        # type = array
-        # reference to NutritionOrder_Administration: NutritionOrder_Administration
+        """
+        Formula administration instructions as structured data.  This
+        repeating structure allows for changing the administration rate or
+        volume over time for both bolus and continuous feeding.  An example of
+        this would be an instruction to increase the rate of continuous
+        feeding every 2 hours.
 
-        # the maximum total quantity of formula that may be administered to a
-        # subject over the period of time, e.g. 1440 ml over 24 hours.
+        type: array
+        reference to NutritionOrder_Administration
+        """
+
         self.maxVolumeToDeliver = None
-        # reference to Quantity: Quantity
+        """
+        The maximum total quantity of formula that may be administered to a
+        subject over the period of time, e.g. 1440 mL over 24 hours.
 
-        # free text formula administration, feeding instructions or additional
-        # instructions or information.
+        reference to Quantity
+        """
+
         self.administrationInstruction = None
-        # type = string
+        """
+        Free text formula administration, feeding instructions or additional
+        instructions or information.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -448,6 +570,11 @@ class NutritionOrder_EnteralFormula(fhirbase):
              'child_entity': 'NutritionOrder_EnteralFormula',
              'child_variable': 'caloricDensity'},
 
+            {'parent_entity': 'NutritionOrder_Administration',
+             'parent_variable': 'object_id',
+             'child_entity': 'NutritionOrder_EnteralFormula',
+             'child_variable': 'administration'},
+
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_EnteralFormula',
@@ -456,7 +583,7 @@ class NutritionOrder_EnteralFormula(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_EnteralFormula',
-             'child_variable': 'routeofAdministration'},
+             'child_variable': 'baseFormulaType'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -466,45 +593,53 @@ class NutritionOrder_EnteralFormula(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_EnteralFormula',
-             'child_variable': 'baseFormulaType'},
-
-            {'parent_entity': 'NutritionOrder_Administration',
-             'parent_variable': 'object_id',
-             'child_entity': 'NutritionOrder_EnteralFormula',
-             'child_variable': 'administration'},
+             'child_variable': 'routeofAdministration'},
         ]
 
 
 class NutritionOrder_Administration(fhirbase):
-    """A request to supply a diet, formula feeding (enteral) or oral
+    """
+    A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
     """
 
     __name__ = 'NutritionOrder_Administration'
 
     def __init__(self, dict_values=None):
-        # the time period and frequency at which the enteral formula should be
-        # delivered to the patient.
         self.schedule = None
-        # reference to Timing: Timing
+        """
+        The time period and frequency at which the enteral formula should be
+        delivered to the patient.
 
-        # the volume of formula to provide to the patient per the specified
-        # administration schedule.
+        reference to Timing
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The volume of formula to provide to the patient per the specified
+        administration schedule.
 
-        # the rate of administration of formula via a feeding pump, e.g. 60 ml per
-        # hour, according to the specified schedule.
+        reference to Quantity
+        """
+
         self.rateSimpleQuantity = None
-        # reference to Quantity: Quantity
+        """
+        The rate of administration of formula via a feeding pump, e.g. 60 mL
+        per hour, according to the specified schedule.
 
-        # the rate of administration of formula via a feeding pump, e.g. 60 ml per
-        # hour, according to the specified schedule.
+        reference to Quantity
+        """
+
         self.rateRatio = None
-        # reference to Ratio: Ratio
+        """
+        The rate of administration of formula via a feeding pump, e.g. 60 mL
+        per hour, according to the specified schedule.
 
-        # unique identifier for object class
+        reference to Ratio
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -520,7 +655,7 @@ class NutritionOrder_Administration(fhirbase):
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_Administration',
-             'child_variable': 'quantity'},
+             'child_variable': 'rateSimpleQuantity'},
 
             {'parent_entity': 'Timing',
              'parent_variable': 'object_id',
@@ -530,5 +665,5 @@ class NutritionOrder_Administration(fhirbase):
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'NutritionOrder_Administration',
-             'child_variable': 'rateSimpleQuantity'},
+             'child_variable': 'quantity'},
         ]

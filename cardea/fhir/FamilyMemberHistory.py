@@ -2,156 +2,239 @@ from .fhirbase import fhirbase
 
 
 class FamilyMemberHistory(fhirbase):
-    """Significant health events and conditions for a person related to the
+    """
+    Significant health events and conditions for a person related to the
     patient relevant in the context of care for the patient.
     """
 
     __name__ = 'FamilyMemberHistory'
 
     def __init__(self, dict_values=None):
-        # this is a familymemberhistory resource
         self.resourceType = 'FamilyMemberHistory'
-        # type = string
-        # possible values: FamilyMemberHistory
+        """
+        This is a FamilyMemberHistory resource
 
-        # a protocol or questionnaire that was adhered to in whole or in part by
-        # this event.
+        type: string
+        possible values: FamilyMemberHistory
+        """
+
         self.definition = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A protocol or questionnaire that was adhered to in whole or in part by
+        this event.
 
-        # a code specifying the status of the record of the family history of a
-        # specific family member.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.status = None
-        # type = string
-        # possible values: partial, completed, entered-in-error, health-
-        # unknown
+        """
+        A code specifying the status of the record of the family history of a
+        specific family member.
 
-        # if true, indicates the taking of an individual family member's history
-        # did not occur. the notdone element should not be used to document
-        # negated conditions, such as a family member that did not have a
-        # condition.
+        type: string
+        possible values: partial, completed, entered-in-error,
+        health-unknown
+        """
+
         self.notDone = None
-        # type = boolean
+        """
+        If true, indicates the taking of an individual family member's history
+        did not occur. The notDone element should not be used to document
+        negated conditions, such as a family member that did not have a
+        condition.
 
-        # describes why the family member's history is absent.
+        type: boolean
+        """
+
         self.notDoneReason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Describes why the family member's history is absent.
 
-        # the person who this history concerns.
+        reference to CodeableConcept
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        The person who this history concerns.
 
-        # the date (and possibly time) when the family member history was taken.
+        reference to Reference: identifier
+        """
+
         self.date = None
-        # type = string
+        """
+        The date (and possibly time) when the family member history was taken.
 
-        # this will either be a name or a description; e.g. "aunt susan", "my
-        # cousin with the red hair".
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        This will either be a name or a description; e.g. "Aunt Susan", "my
+        cousin with the red hair".
 
-        # the type of relationship this person has to the patient (father, mother,
-        # brother etc.).
+        type: string
+        """
+
         self.relationship = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of relationship this person has to the patient (father,
+        mother, brother etc.).
 
-        # administrative gender - the gender that the relative is considered to
-        # have for administration and record keeping purposes.
+        reference to CodeableConcept
+        """
+
         self.gender = None
-        # type = string
-        # possible values: male, female, other, unknown
+        """
+        Administrative Gender - the gender that the relative is considered to
+        have for administration and record keeping purposes.
 
-        # the actual or approximate date of birth of the relative.
+        type: string
+        possible values: male, female, other, unknown
+        """
+
         self.bornPeriod = None
-        # reference to Period: Period
+        """
+        The actual or approximate date of birth of the relative.
 
-        # the actual or approximate date of birth of the relative.
+        reference to Period
+        """
+
         self.bornDate = None
-        # type = string
+        """
+        The actual or approximate date of birth of the relative.
 
-        # the actual or approximate date of birth of the relative.
+        type: string
+        """
+
         self.bornString = None
-        # type = string
+        """
+        The actual or approximate date of birth of the relative.
 
-        # the age of the relative at the time the family member history is
-        # recorded.
+        type: string
+        """
+
         self.ageAge = None
-        # reference to Age: Age
+        """
+        The age of the relative at the time the family member history is
+        recorded.
 
-        # the age of the relative at the time the family member history is
-        # recorded.
+        reference to Age
+        """
+
         self.ageRange = None
-        # reference to Range: Range
+        """
+        The age of the relative at the time the family member history is
+        recorded.
 
-        # the age of the relative at the time the family member history is
-        # recorded.
+        reference to Range
+        """
+
         self.ageString = None
-        # type = string
+        """
+        The age of the relative at the time the family member history is
+        recorded.
 
-        # if true, indicates that the age value specified is an estimated value.
+        type: string
+        """
+
         self.estimatedAge = None
-        # type = boolean
+        """
+        If true, indicates that the age value specified is an estimated value.
 
-        # deceased flag or the actual or approximate age of the relative at the
-        # time of death for the family member history record.
+        type: boolean
+        """
+
         self.deceasedBoolean = None
-        # type = boolean
+        """
+        Deceased flag or the actual or approximate age of the relative at the
+        time of death for the family member history record.
 
-        # deceased flag or the actual or approximate age of the relative at the
-        # time of death for the family member history record.
+        type: boolean
+        """
+
         self.deceasedAge = None
-        # reference to Age: Age
+        """
+        Deceased flag or the actual or approximate age of the relative at the
+        time of death for the family member history record.
 
-        # deceased flag or the actual or approximate age of the relative at the
-        # time of death for the family member history record.
+        reference to Age
+        """
+
         self.deceasedRange = None
-        # reference to Range: Range
+        """
+        Deceased flag or the actual or approximate age of the relative at the
+        time of death for the family member history record.
 
-        # deceased flag or the actual or approximate age of the relative at the
-        # time of death for the family member history record.
+        reference to Range
+        """
+
         self.deceasedDate = None
-        # type = string
+        """
+        Deceased flag or the actual or approximate age of the relative at the
+        time of death for the family member history record.
 
-        # deceased flag or the actual or approximate age of the relative at the
-        # time of death for the family member history record.
+        type: string
+        """
+
         self.deceasedString = None
-        # type = string
+        """
+        Deceased flag or the actual or approximate age of the relative at the
+        time of death for the family member history record.
 
-        # describes why the family member history occurred in coded or textual
-        # form.
+        type: string
+        """
+
         self.reasonCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Describes why the family member history occurred in coded or textual
+        form.
 
-        # indicates a condition, observation, allergyintolerance, or
-        # questionnaireresponse that justifies this family member history event.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.reasonReference = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Indicates a Condition, Observation, AllergyIntolerance, or
+        QuestionnaireResponse that justifies this family member history event.
 
-        # this property allows a non condition-specific note to the made about the
-        # related person. ideally, the note would be in the condition property,
-        # but this is not always possible.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        This property allows a non condition-specific note to the made about
+        the related person. Ideally, the note would be in the condition
+        property, but this is not always possible.
 
-        # the significant conditions (or condition) that the family member had.
-        # this is a repeating section to allow a system to represent more than one
-        # condition per resource, though there is nothing stopping multiple
-        # resources - one per condition.
+        type: array
+        reference to Annotation
+        """
+
         self.condition = None
-        # type = array
-        # reference to FamilyMemberHistory_Condition: FamilyMemberHistory_Condition
+        """
+        The significant Conditions (or condition) that the family member had.
+        This is a repeating section to allow a system to represent more than
+        one condition per resource, though there is nothing stopping multiple
+        resources - one per condition.
 
-        # this records identifiers associated with this family member history
-        # record that are defined by business processes and/ or used to refer to
-        # it when a direct url reference to the resource itself is not appropriate
-        # (e.g. in cda documents, or in written / printed documentation).
+        type: array
+        reference to FamilyMemberHistory_Condition
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        This records identifiers associated with this family member history
+        record that are defined by business processes and/ or used to refer to
+        it when a direct URL reference to the resource itself is not
+        appropriate (e.g. in CDA documents, or in written / printed
+        documentation).
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -175,11 +258,6 @@ class FamilyMemberHistory(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Range',
-             'parent_variable': 'object_id',
-             'child_entity': 'FamilyMemberHistory',
-             'child_variable': 'ageRange'},
-
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'FamilyMemberHistory',
@@ -190,45 +268,45 @@ class FamilyMemberHistory(fhirbase):
              'child_entity': 'FamilyMemberHistory',
              'child_variable': 'note'},
 
-            {'parent_entity': 'FamilyMemberHistory_Condition',
+            {'parent_entity': 'Age',
              'parent_variable': 'object_id',
              'child_entity': 'FamilyMemberHistory',
-             'child_variable': 'condition'},
+             'child_variable': 'ageAge'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'deceasedRange'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'FamilyMemberHistory',
              'child_variable': 'identifier'},
 
-            {'parent_entity': 'Age',
-             'parent_variable': 'object_id',
-             'child_entity': 'FamilyMemberHistory',
-             'child_variable': 'deceasedAge'},
-
-            {'parent_entity': 'Age',
-             'parent_variable': 'object_id',
-             'child_entity': 'FamilyMemberHistory',
-             'child_variable': 'ageAge'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'FamilyMemberHistory',
-             'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'FamilyMemberHistory',
-             'child_variable': 'notDoneReason'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'FamilyMemberHistory',
              'child_variable': 'patient'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
              'child_entity': 'FamilyMemberHistory',
-             'child_variable': 'reasonReference'},
+             'child_variable': 'relationship'},
+
+            {'parent_entity': 'FamilyMemberHistory_Condition',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'condition'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'reasonCode'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -238,66 +316,95 @@ class FamilyMemberHistory(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'FamilyMemberHistory',
-             'child_variable': 'relationship'},
+             'child_variable': 'notDoneReason'},
 
             {'parent_entity': 'Range',
              'parent_variable': 'object_id',
              'child_entity': 'FamilyMemberHistory',
-             'child_variable': 'deceasedRange'},
+             'child_variable': 'ageRange'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory',
+             'child_variable': 'deceasedAge'},
         ]
 
 
 class FamilyMemberHistory_Condition(fhirbase):
-    """Significant health events and conditions for a person related to the
+    """
+    Significant health events and conditions for a person related to the
     patient relevant in the context of care for the patient.
     """
 
     __name__ = 'FamilyMemberHistory_Condition'
 
     def __init__(self, dict_values=None):
-        # the actual condition specified. could be a coded condition (like mi or
-        # diabetes) or a less specific string like 'cancer' depending on how much
-        # is known about the condition and the capabilities of the creating
-        # system.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The actual condition specified. Could be a coded condition (like MI or
+        Diabetes) or a less specific string like 'cancer' depending on how
+        much is known about the condition and the capabilities of the creating
+        system.
 
-        # indicates what happened as a result of this condition.  if the condition
-        # resulted in death, deceased date is captured on the relation.
+        reference to CodeableConcept
+        """
+
         self.outcome = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates what happened as a result of this condition.  If the
+        condition resulted in death, deceased date is captured on the
+        relation.
 
-        # either the age of onset, range of approximate age or descriptive string
-        # can be recorded.  for conditions with multiple occurrences, this
-        # describes the first known occurrence.
+        reference to CodeableConcept
+        """
+
         self.onsetAge = None
-        # reference to Age: Age
+        """
+        Either the age of onset, range of approximate age or descriptive
+        string can be recorded.  For conditions with multiple occurrences,
+        this describes the first known occurrence.
 
-        # either the age of onset, range of approximate age or descriptive string
-        # can be recorded.  for conditions with multiple occurrences, this
-        # describes the first known occurrence.
+        reference to Age
+        """
+
         self.onsetRange = None
-        # reference to Range: Range
+        """
+        Either the age of onset, range of approximate age or descriptive
+        string can be recorded.  For conditions with multiple occurrences,
+        this describes the first known occurrence.
 
-        # either the age of onset, range of approximate age or descriptive string
-        # can be recorded.  for conditions with multiple occurrences, this
-        # describes the first known occurrence.
+        reference to Range
+        """
+
         self.onsetPeriod = None
-        # reference to Period: Period
+        """
+        Either the age of onset, range of approximate age or descriptive
+        string can be recorded.  For conditions with multiple occurrences,
+        this describes the first known occurrence.
 
-        # either the age of onset, range of approximate age or descriptive string
-        # can be recorded.  for conditions with multiple occurrences, this
-        # describes the first known occurrence.
+        reference to Period
+        """
+
         self.onsetString = None
-        # type = string
+        """
+        Either the age of onset, range of approximate age or descriptive
+        string can be recorded.  For conditions with multiple occurrences,
+        this describes the first known occurrence.
 
-        # an area where general notes can be placed about this specific condition.
+        type: string
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        An area where general notes can be placed about this specific
+        condition.
 
-        # unique identifier for object class
+        type: array
+        reference to Annotation
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -310,15 +417,10 @@ class FamilyMemberHistory_Condition(fhirbase):
              'child_entity': 'FamilyMemberHistory_Condition',
              'child_variable': 'note'},
 
-            {'parent_entity': 'Age',
+            {'parent_entity': 'Range',
              'parent_variable': 'object_id',
              'child_entity': 'FamilyMemberHistory_Condition',
-             'child_variable': 'onsetAge'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'FamilyMemberHistory_Condition',
-             'child_variable': 'outcome'},
+             'child_variable': 'onsetRange'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
@@ -330,8 +432,13 @@ class FamilyMemberHistory_Condition(fhirbase):
              'child_entity': 'FamilyMemberHistory_Condition',
              'child_variable': 'code'},
 
-            {'parent_entity': 'Range',
+            {'parent_entity': 'Age',
              'parent_variable': 'object_id',
              'child_entity': 'FamilyMemberHistory_Condition',
-             'child_variable': 'onsetRange'},
+             'child_variable': 'onsetAge'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'FamilyMemberHistory_Condition',
+             'child_variable': 'outcome'},
         ]

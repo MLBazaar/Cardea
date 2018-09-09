@@ -2,26 +2,33 @@ from .fhirbase import fhirbase
 
 
 class OperationOutcome(fhirbase):
-    """A collection of error, warning or information messages that result from
-    a system action.
+    """
+    A collection of error, warning or information messages that result
+    from a system action.
     """
 
     __name__ = 'OperationOutcome'
 
     def __init__(self, dict_values=None):
-        # this is a operationoutcome resource
         self.resourceType = 'OperationOutcome'
-        # type = string
-        # possible values: OperationOutcome
+        """
+        This is a OperationOutcome resource
 
-        # an error, warning or information message that results from a system
-        # action.
+        type: string
+        possible values: OperationOutcome
+        """
+
         self.issue = None
-        # type = array
-        # reference to OperationOutcome_Issue: OperationOutcome_Issue
+        """
+        An error, warning or information message that results from a system
+        action.
 
-        # unique identifier for object class
+        type: array
+        reference to OperationOutcome_Issue
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -37,57 +44,77 @@ class OperationOutcome(fhirbase):
 
 
 class OperationOutcome_Issue(fhirbase):
-    """A collection of error, warning or information messages that result from
-    a system action.
+    """
+    A collection of error, warning or information messages that result
+    from a system action.
     """
 
     __name__ = 'OperationOutcome_Issue'
 
     def __init__(self, dict_values=None):
-        # indicates whether the issue indicates a variation from successful
-        # processing.
         self.severity = None
-        # type = string
-        # possible values: fatal, error, warning, information
+        """
+        Indicates whether the issue indicates a variation from successful
+        processing.
 
-        # describes the type of the issue. the system that creates an
-        # operationoutcome shall choose the most applicable code from the
-        # issuetype value set, and may additional provide its own code for the
-        # error in the details element.
+        type: string
+        possible values: fatal, error, warning, information
+        """
+
         self.code = None
-        # type = string
-        # possible values: invalid, structure, required, value,
-        # invariant, security, login, unknown, expired, forbidden, suppressed,
-        # processing, not-supported, duplicate, not-found, too-long, code-invalid,
-        # extension, too-costly, business-rule, conflict, incomplete, transient,
-        # lock-error, no-store, exception, timeout, throttled, informational
+        """
+        Describes the type of the issue. The system that creates an
+        OperationOutcome SHALL choose the most applicable code from the
+        IssueType value set, and may additional provide its own code for the
+        error in the details element.
 
-        # additional details about the error. this may be a text description of
-        # the error, or a system code that identifies the error.
+        type: string
+        possible values: invalid, structure, required, value,
+        invariant, security, login, unknown, expired, forbidden, suppressed,
+        processing, not-supported, duplicate, not-found, too-long,
+        code-invalid, extension, too-costly, business-rule, conflict,
+        incomplete, transient, lock-error, no-store, exception, timeout,
+        throttled, informational
+        """
+
         self.details = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Additional details about the error. This may be a text description of
+        the error, or a system code that identifies the error.
 
-        # additional diagnostic information about the issue.  typically, this may
-        # be a description of how a value is erroneous, or a stack dump to help
-        # trace the issue.
+        reference to CodeableConcept
+        """
+
         self.diagnostics = None
-        # type = string
+        """
+        Additional diagnostic information about the issue.  Typically, this
+        may be a description of how a value is erroneous, or a stack dump to
+        help trace the issue.
 
-        # for resource issues, this will be a simple xpath limited to element
-        # names, repetition indicators and the default child access that
-        # identifies one of the elements in the resource that caused this issue to
-        # be raised.  for http errors, will be "http." + the parameter name.
+        type: string
+        """
+
         self.location = None
-        # type = array
+        """
+        For resource issues, this will be a simple XPath limited to element
+        names, repetition indicators and the default child access that
+        identifies one of the elements in the resource that caused this issue
+        to be raised.  For HTTP errors, will be "http." + the parameter name.
 
-        # a simple fhirpath limited to element names, repetition indicators and
-        # the default child access that identifies one of the elements in the
-        # resource that caused this issue to be raised.
+        type: array
+        """
+
         self.expression = None
-        # type = array
+        """
+        A simple FHIRPath limited to element names, repetition indicators and
+        the default child access that identifies one of the elements in the
+        resource that caused this issue to be raised.
 
-        # unique identifier for object class
+        type: array
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -105,11 +132,11 @@ class OperationOutcome_Issue(fhirbase):
             for value in self.code:
                 if value is not None and value.lower() not in [
                     'invalid', 'structure', 'required', 'value', 'invariant', 'security',
-                    'login', 'unknown', 'expired', 'forbidden', 'suppressed', 'processing',
-                    'not-supported', 'duplicate', 'not-found', 'too-long', 'code-invalid',
-                    'extension', 'too-costly', 'business-rule', 'conflict', 'incomplete',
-                    'transient', 'lock-error', 'no-store', 'exception', 'timeout',
-                        'throttled', 'informational']:
+                    'login', 'unknown', 'expired', 'forbidden', 'suppressed',
+                    'processing', 'not-supported', 'duplicate', 'not-found', 'too-long',
+                    'code-invalid', 'extension', 'too-costly', 'business-rule',
+                    'conflict', 'incomplete', 'transient', 'lock-error', 'no-store',
+                        'exception', 'timeout', 'throttled', 'informational']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
                         value, 'invalid, structure, required, value, invariant, security, login,'
                         'unknown, expired, forbidden, suppressed, processing, not-supported,'

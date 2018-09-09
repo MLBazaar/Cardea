@@ -2,236 +2,354 @@ from .fhirbase import fhirbase
 
 
 class Measure(fhirbase):
-    """The Measure resource provides the definition of a quality measure.
+    """
+    The Measure resource provides the definition of a quality measure.
     """
 
     __name__ = 'Measure'
 
     def __init__(self, dict_values=None):
-        # this is a measure resource
         self.resourceType = 'Measure'
-        # type = string
-        # possible values: Measure
+        """
+        This is a Measure resource
 
-        # an absolute uri that is used to identify this measure when it is
-        # referenced in a specification, model, design or an instance. this shall
-        # be a url, should be globally unique, and should be an address at which
-        # this measure is (or will be) published. the url should include the major
-        # version of the measure. for more information see [technical and business
-        # versions](resource.html#versions).
+        type: string
+        possible values: Measure
+        """
+
         self.url = None
-        # type = string
+        """
+        An absolute URI that is used to identify this measure when it is
+        referenced in a specification, model, design or an instance. This
+        SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at
+        which this measure is (or will be) published. The URL SHOULD include
+        the major version of the measure. For more information see [Technical
+        and Business Versions](resource.html#versions).
 
-        # the identifier that is used to identify this version of the measure when
-        # it is referenced in a specification, model, design or instance. this is
-        # an arbitrary value managed by the measure author and is not expected to
-        # be globally unique. for example, it might be a timestamp (e.g. yyyymmdd)
-        # if a managed version is not available. there is also no expectation that
-        # versions can be placed in a lexicographical sequence. to provide a
-        # version consistent with the decision support service specification, use
-        # the format major.minor.revision (e.g. 1.0.0). for more information on
-        # versioning knowledge assets, refer to the decision support service
-        # specification. note that a version is required for non-experimental
-        # active artifacts.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The identifier that is used to identify this version of the measure
+        when it is referenced in a specification, model, design or instance.
+        This is an arbitrary value managed by the measure author and is not
+        expected to be globally unique. For example, it might be a timestamp
+        (e.g. yyyymmdd) if a managed version is not available. There is also
+        no expectation that versions can be placed in a lexicographical
+        sequence. To provide a version consistent with the Decision Support
+        Service specification, use the format Major.Minor.Revision (e.g.
+        1.0.0). For more information on versioning knowledge assets, refer to
+        the Decision Support Service specification. Note that a version is
+        required for non-experimental active artifacts.
 
-        # a natural language name identifying the measure. this name should be
-        # usable as an identifier for the module by machine processing
-        # applications such as code generation.
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        A natural language name identifying the measure. This name should be
+        usable as an identifier for the module by machine processing
+        applications such as code generation.
 
-        # a short, descriptive, user-friendly title for the measure.
+        type: string
+        """
+
         self.title = None
-        # type = string
+        """
+        A short, descriptive, user-friendly title for the measure.
 
-        # the status of this measure. enables tracking the life-cycle of the
-        # content.
+        type: string
+        """
+
         self.status = None
-        # type = string
-        # possible values: draft, active, retired, unknown
+        """
+        The status of this measure. Enables tracking the life-cycle of the
+        content.
 
-        # a boolean value to indicate that this measure is authored for testing
-        # purposes (or education/evaluation/marketing), and is not intended to be
-        # used for genuine usage.
+        type: string
+        possible values: draft, active, retired, unknown
+        """
+
         self.experimental = None
-        # type = boolean
+        """
+        A boolean value to indicate that this measure is authored for testing
+        purposes (or education/evaluation/marketing), and is not intended to
+        be used for genuine usage.
 
-        # the date  (and optionally time) when the measure was published. the date
-        # must change if and when the business version changes and it must change
-        # if the status code changes. in addition, it should change when the
-        # substantive content of the measure changes.
+        type: boolean
+        """
+
         self.date = None
-        # type = string
+        """
+        The date  (and optionally time) when the measure was published. The
+        date must change if and when the business version changes and it must
+        change if the status code changes. In addition, it should change when
+        the substantive content of the measure changes.
 
-        # the name of the individual or organization that published the measure.
+        type: string
+        """
+
         self.publisher = None
-        # type = string
+        """
+        The name of the individual or organization that published the measure.
 
-        # a free text natural language description of the measure from a
-        # consumer's perspective.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        A free text natural language description of the measure from a
+        consumer's perspective.
 
-        # explaination of why this measure is needed and why it has been designed
-        # as it has.
+        type: string
+        """
+
         self.purpose = None
-        # type = string
+        """
+        Explaination of why this measure is needed and why it has been
+        designed as it has.
 
-        # a detailed description of how the measure is used from a clinical
-        # perspective.
+        type: string
+        """
+
         self.usage = None
-        # type = string
+        """
+        A detailed description of how the measure is used from a clinical
+        perspective.
 
-        # the date on which the resource content was approved by the publisher.
-        # approval happens once when the content is officially approved for usage.
+        type: string
+        """
+
         self.approvalDate = None
-        # type = string
+        """
+        The date on which the resource content was approved by the publisher.
+        Approval happens once when the content is officially approved for
+        usage.
 
-        # the date on which the resource content was last reviewed. review happens
-        # periodically after approval, but doesn't change the original approval
-        # date.
+        type: string
+        """
+
         self.lastReviewDate = None
-        # type = string
+        """
+        The date on which the resource content was last reviewed. Review
+        happens periodically after approval, but doesn't change the original
+        approval date.
 
-        # the period during which the measure content was or is planned to be in
-        # active use.
+        type: string
+        """
+
         self.effectivePeriod = None
-        # reference to Period: Period
+        """
+        The period during which the measure content was or is planned to be in
+        active use.
 
-        # the content was developed with a focus and intent of supporting the
-        # contexts that are listed. these terms may be used to assist with
-        # indexing and searching for appropriate measure instances.
+        reference to Period
+        """
+
         self.useContext = None
-        # type = array
-        # reference to UsageContext: UsageContext
+        """
+        The content was developed with a focus and intent of supporting the
+        contexts that are listed. These terms may be used to assist with
+        indexing and searching for appropriate measure instances.
 
-        # a legal or geographic region in which the measure is intended to be
-        # used.
+        type: array
+        reference to UsageContext
+        """
+
         self.jurisdiction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A legal or geographic region in which the measure is intended to be
+        used.
 
-        # descriptive topics related to the content of the measure. topics provide
-        # a high-level categorization of the type of the measure that can be
-        # useful for filtering and searching.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.topic = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Descriptive topics related to the content of the measure. Topics
+        provide a high-level categorization of the type of the measure that
+        can be useful for filtering and searching.
 
-        # a contributor to the content of the measure, including authors, editors,
-        # reviewers, and endorsers.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.contributor = None
-        # type = array
-        # reference to Contributor: Contributor
+        """
+        A contributor to the content of the measure, including authors,
+        editors, reviewers, and endorsers.
 
-        # contact details to assist a user in finding and communicating with the
-        # publisher.
+        type: array
+        reference to Contributor
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        """
+        Contact details to assist a user in finding and communicating with the
+        publisher.
 
-        # a copyright statement relating to the measure and/or its contents.
-        # copyright statements are generally legal restrictions on the use and
-        # publishing of the measure.
+        type: array
+        reference to ContactDetail
+        """
+
         self.copyright = None
-        # type = string
+        """
+        A copyright statement relating to the measure and/or its contents.
+        Copyright statements are generally legal restrictions on the use and
+        publishing of the measure.
 
-        # related artifacts such as additional documentation, justification, or
-        # bibliographic references.
+        type: string
+        """
+
         self.relatedArtifact = None
-        # type = array
-        # reference to RelatedArtifact: RelatedArtifact
+        """
+        Related artifacts such as additional documentation, justification, or
+        bibliographic references.
 
-        # a reference to a library resource containing the formal logic used by
-        # the measure.
+        type: array
+        reference to RelatedArtifact
+        """
+
         self.library = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A reference to a Library resource containing the formal logic used by
+        the measure.
 
-        # notices and disclaimers regarding the use of the measure, or related to
-        # intellectual property (such as code systems) referenced by the measure.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.disclaimer = None
-        # type = string
+        """
+        Notices and disclaimers regarding the use of the measure, or related
+        to intellectual property (such as code systems) referenced by the
+        measure.
 
-        # indicates how the calculation is performed for the measure, including
-        # proportion, ratio, continuous variable, and cohort. the value set is
-        # extensible, allowing additional measure scoring types to be represented.
+        type: string
+        """
+
         self.scoring = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates how the calculation is performed for the measure, including
+        proportion, ratio, continuous variable, and cohort. The value set is
+        extensible, allowing additional measure scoring types to be
+        represented.
 
-        # if this is a composite measure, the scoring method used to combine the
-        # component measures to determine the composite score.
+        reference to CodeableConcept
+        """
+
         self.compositeScoring = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        If this is a composite measure, the scoring method used to combine the
+        component measures to determine the composite score.
 
-        # indicates whether the measure is used to examine a process, an outcome
-        # over time, a patient-reported outcome, or a structure measure such as
-        # utilization.
+        reference to CodeableConcept
+        """
+
         self.type = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates whether the measure is used to examine a process, an outcome
+        over time, a patient-reported outcome, or a structure measure such as
+        utilization.
 
-        # a description of the risk adjustment factors that may impact the
-        # resulting score for the measure and how they may be accounted for when
-        # computing and reporting measure results.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.riskAdjustment = None
-        # type = string
+        """
+        A description of the risk adjustment factors that may impact the
+        resulting score for the measure and how they may be accounted for when
+        computing and reporting measure results.
 
-        # describes how to combine the information calculated, based on logic in
-        # each of several populations, into one summarized result.
+        type: string
+        """
+
         self.rateAggregation = None
-        # type = string
+        """
+        Describes how to combine the information calculated, based on logic in
+        each of several populations, into one summarized result.
 
-        # provides a succint statement of the need for the measure. usually
-        # includes statements pertaining to importance criterion: impact, gap in
-        # care, and evidence.
+        type: string
+        """
+
         self.rationale = None
-        # type = string
+        """
+        Provides a succint statement of the need for the measure. Usually
+        includes statements pertaining to importance criterion: impact, gap in
+        care, and evidence.
 
-        # provides a summary of relevant clinical guidelines or other clinical
-        # recommendations supporting the measure.
+        type: string
+        """
+
         self.clinicalRecommendationStatement = None
-        # type = string
+        """
+        Provides a summary of relevant clinical guidelines or other clinical
+        recommendations supporting the measure.
 
-        # information on whether an increase or decrease in score is the preferred
-        # result (e.g., a higher score indicates better quality or a lower score
-        # indicates better quality or quality is whthin a range).
+        type: string
+        """
+
         self.improvementNotation = None
-        # type = string
+        """
+        Information on whether an increase or decrease in score is the
+        preferred result (e.g., a higher score indicates better quality OR a
+        lower score indicates better quality OR quality is whthin a range).
 
-        # provides a description of an individual term used within the measure.
+        type: string
+        """
+
         self.definition = None
-        # type = array
+        """
+        Provides a description of an individual term used within the measure.
 
-        # additional guidance for the measure including how it can be used in a
-        # clinical context, and the intent of the measure.
+        type: array
+        """
+
         self.guidance = None
-        # type = string
+        """
+        Additional guidance for the measure including how it can be used in a
+        clinical context, and the intent of the measure.
 
-        # the measure set, e.g. preventive care and screening.
+        type: string
+        """
+
         self.set = None
-        # type = string
+        """
+        The measure set, e.g. Preventive Care and Screening.
 
-        # a group of population criteria for the measure.
+        type: string
+        """
+
         self.group = None
-        # type = array
-        # reference to Measure_Group: identifier
+        """
+        A group of population criteria for the measure.
 
-        # the supplemental data criteria for the measure report, specified as
-        # either the name of a valid cql expression within a referenced library,
-        # or a valid fhir resource path.
+        type: array
+        reference to Measure_Group: identifier
+        """
+
         self.supplementalData = None
-        # type = array
-        # reference to Measure_SupplementalData: identifier
+        """
+        The supplemental data criteria for the measure report, specified as
+        either the name of a valid CQL expression within a referenced library,
+        or a valid FHIR Resource Path.
 
-        # a formal identifier that is used to identify this measure when it is
-        # represented in other formats, or referenced in a specification, model,
-        # design or an instance.
+        type: array
+        reference to Measure_SupplementalData: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        A formal identifier that is used to identify this measure when it is
+        represented in other formats, or referenced in a specification, model,
+        design or an instance.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -248,109 +366,125 @@ class Measure(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'ContactDetail',
              'parent_variable': 'object_id',
              'child_entity': 'Measure',
-             'child_variable': 'topic'},
-
-            {'parent_entity': 'Contributor',
-             'parent_variable': 'object_id',
-             'child_entity': 'Measure',
-             'child_variable': 'contributor'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Measure',
-             'child_variable': 'effectivePeriod'},
-
-            {'parent_entity': 'UsageContext',
-             'parent_variable': 'object_id',
-             'child_entity': 'Measure',
-             'child_variable': 'useContext'},
-
-            {'parent_entity': 'RelatedArtifact',
-             'parent_variable': 'object_id',
-             'child_entity': 'Measure',
-             'child_variable': 'relatedArtifact'},
+             'child_variable': 'contact'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Measure',
              'child_variable': 'scoring'},
 
-            {'parent_entity': 'Measure_Group',
-             'parent_variable': 'identifier',
-             'child_entity': 'Measure',
-             'child_variable': 'group'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Measure',
              'child_variable': 'type'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'contributor'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Measure',
              'child_variable': 'identifier'},
 
-            {'parent_entity': 'Measure_SupplementalData',
-             'parent_variable': 'identifier',
-             'child_entity': 'Measure',
-             'child_variable': 'supplementalData'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Measure',
              'child_variable': 'jurisdiction'},
 
-            {'parent_entity': 'ContactDetail',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Measure',
-             'child_variable': 'contact'},
+             'child_variable': 'compositeScoring'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'topic'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'relatedArtifact'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Measure',
              'child_variable': 'library'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Measure_SupplementalData',
+             'parent_variable': 'identifier',
+             'child_entity': 'Measure',
+             'child_variable': 'supplementalData'},
+
+            {'parent_entity': 'UsageContext',
              'parent_variable': 'object_id',
              'child_entity': 'Measure',
-             'child_variable': 'compositeScoring'},
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'Measure_Group',
+             'parent_variable': 'identifier',
+             'child_entity': 'Measure',
+             'child_variable': 'group'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure',
+             'child_variable': 'effectivePeriod'},
         ]
 
 
 class Measure_Group(fhirbase):
-    """The Measure resource provides the definition of a quality measure.
+    """
+    The Measure resource provides the definition of a quality measure.
     """
 
     __name__ = 'Measure_Group'
 
     def __init__(self, dict_values=None):
-        # optional name or short description of this group.
         self.name = None
-        # type = string
+        """
+        Optional name or short description of this group.
 
-        # the human readable description of this population group.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        The human readable description of this population group.
 
-        # a population criteria for the measure.
+        type: string
+        """
+
         self.population = None
-        # type = array
-        # reference to Measure_Population: identifier
+        """
+        A population criteria for the measure.
 
-        # the stratifier criteria for the measure report, specified as either the
-        # name of a valid cql expression defined within a referenced library, or a
-        # valid fhir resource path.
+        type: array
+        reference to Measure_Population: identifier
+        """
+
         self.stratifier = None
-        # type = array
-        # reference to Measure_Stratifier: identifier
+        """
+        The stratifier criteria for the measure report, specified as either
+        the name of a valid CQL expression defined within a referenced
+        library, or a valid FHIR Resource Path.
 
-        # a unique identifier for the group. this identifier will used to report
-        # data for the group in the measure report.
+        type: array
+        reference to Measure_Stratifier: identifier
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        A unique identifier for the group. This identifier will used to report
+        data for the group in the measure report.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -358,6 +492,11 @@ class Measure_Group(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure_Group',
+             'child_variable': 'identifier'},
+
             {'parent_entity': 'Measure_Stratifier',
              'parent_variable': 'identifier',
              'child_entity': 'Measure_Group',
@@ -367,42 +506,53 @@ class Measure_Group(fhirbase):
              'parent_variable': 'identifier',
              'child_entity': 'Measure_Group',
              'child_variable': 'population'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Measure_Group',
-             'child_variable': 'identifier'},
         ]
 
 
 class Measure_Population(fhirbase):
-    """The Measure resource provides the definition of a quality measure.
+    """
+    The Measure resource provides the definition of a quality measure.
     """
 
     __name__ = 'Measure_Population'
 
     def __init__(self, dict_values=None):
-        # the type of population criteria.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of population criteria.
 
-        # optional name or short description of this population.
+        reference to CodeableConcept
+        """
+
         self.name = None
-        # type = string
+        """
+        Optional name or short description of this population.
 
-        # the human readable description of this population criteria.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        The human readable description of this population criteria.
 
-        # the name of a valid referenced cql expression (may be namespaced) that
-        # defines this population criteria.
+        type: string
+        """
+
         self.criteria = None
-        # type = string
+        """
+        The name of a valid referenced CQL expression (may be namespaced) that
+        defines this population criteria.
 
-        # a unique identifier for the population criteria. this identifier is used
-        # to report data against this criteria within the measure report.
+        type: string
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        A unique identifier for the population criteria. This identifier is
+        used to report data against this criteria within the measure report.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -410,39 +560,49 @@ class Measure_Population(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Measure_Population',
-             'child_variable': 'code'},
-
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Measure_Population',
              'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Measure_Population',
+             'child_variable': 'code'},
         ]
 
 
 class Measure_Stratifier(fhirbase):
-    """The Measure resource provides the definition of a quality measure.
+    """
+    The Measure resource provides the definition of a quality measure.
     """
 
     __name__ = 'Measure_Stratifier'
 
     def __init__(self, dict_values=None):
-        # the criteria for the stratifier. this must be the name of an expression
-        # defined within a referenced library.
         self.criteria = None
-        # type = string
+        """
+        The criteria for the stratifier. This must be the name of an
+        expression defined within a referenced library.
 
-        # the path to an element that defines the stratifier, specified as a valid
-        # fhir resource path.
+        type: string
+        """
+
         self.path = None
-        # type = string
+        """
+        The path to an element that defines the stratifier, specified as a
+        valid FHIR resource path.
 
-        # the identifier for the stratifier used to coordinate the reported data
-        # back to this stratifier.
+        type: string
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        The identifier for the stratifier used to coordinate the reported data
+        back to this stratifier.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -458,35 +618,49 @@ class Measure_Stratifier(fhirbase):
 
 
 class Measure_SupplementalData(fhirbase):
-    """The Measure resource provides the definition of a quality measure.
+    """
+    The Measure resource provides the definition of a quality measure.
     """
 
     __name__ = 'Measure_SupplementalData'
 
     def __init__(self, dict_values=None):
-        # an indicator of the intended usage for the supplemental data element.
-        # supplemental data indicates the data is additional information requested
-        # to augment the measure information. risk adjustment factor indicates the
-        # data is additional information used to calculate risk adjustment factors
-        # when applying a risk model to the measure calculation.
         self.usage = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        An indicator of the intended usage for the supplemental data element.
+        Supplemental data indicates the data is additional information
+        requested to augment the measure information. Risk adjustment factor
+        indicates the data is additional information used to calculate risk
+        adjustment factors when applying a risk model to the measure
+        calculation.
 
-        # the criteria for the supplemental data. this must be the name of a valid
-        # expression defined within a referenced library, and defines the data to
-        # be returned for this element.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.criteria = None
-        # type = string
+        """
+        The criteria for the supplemental data. This must be the name of a
+        valid expression defined within a referenced library, and defines the
+        data to be returned for this element.
 
-        # the supplemental data to be supplied as part of the measure response,
-        # specified as a valid fhir resource path.
+        type: string
+        """
+
         self.path = None
-        # type = string
+        """
+        The supplemental data to be supplied as part of the measure response,
+        specified as a valid FHIR Resource Path.
 
-        # an identifier for the supplemental data.
+        type: string
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        An identifier for the supplemental data.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)

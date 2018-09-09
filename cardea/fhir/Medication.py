@@ -2,67 +2,98 @@ from .fhirbase import fhirbase
 
 
 class Medication(fhirbase):
-    """This resource is primarily used for the identification and definition of
-    a medication. It covers the ingredients and the packaging for a
+    """
+    This resource is primarily used for the identification and definition
+    of a medication. It covers the ingredients and the packaging for a
     medication.
     """
 
     __name__ = 'Medication'
 
     def __init__(self, dict_values=None):
-        # this is a medication resource
         self.resourceType = 'Medication'
-        # type = string
-        # possible values: Medication
+        """
+        This is a Medication resource
 
-        # a code (or set of codes) that specify this medication, or a textual
-        # description if no code is available. usage note: this could be a
-        # standard medication code such as a code from rxnorm, snomed ct, idmp
-        # etc. it could also be a national or local formulary code, optionally
-        # with translations to other code systems.
+        type: string
+        possible values: Medication
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code (or set of codes) that specify this medication, or a textual
+        description if no code is available. Usage note: This could be a
+        standard medication code such as a code from RxNorm, SNOMED CT, IDMP
+        etc. It could also be a national or local formulary code, optionally
+        with translations to other code systems.
 
-        # a code to indicate if the medication is in active use.
+        reference to CodeableConcept
+        """
+
         self.status = None
-        # type = string
-        # possible values: active, inactive, entered-in-error
+        """
+        A code to indicate if the medication is in active use.
 
-        # set to true if the item is attributable to a specific manufacturer.
+        type: string
+        possible values: active, inactive, entered-in-error
+        """
+
         self.isBrand = None
-        # type = boolean
+        """
+        Set to true if the item is attributable to a specific manufacturer.
 
-        # set to true if the medication can be obtained without an order from a
-        # prescriber.
+        type: boolean
+        """
+
         self.isOverTheCounter = None
-        # type = boolean
+        """
+        Set to true if the medication can be obtained without an order from a
+        prescriber.
 
-        # describes the details of the manufacturer of the medication product.
-        # this is not intended to represent the distributor of a medication
-        # product.
+        type: boolean
+        """
+
         self.manufacturer = None
-        # reference to Reference: identifier
+        """
+        Describes the details of the manufacturer of the medication product.
+        This is not intended to represent the distributor of a medication
+        product.
 
-        # describes the form of the item.  powder; tablets; capsule.
+        reference to Reference: identifier
+        """
+
         self.form = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Describes the form of the item.  Powder; tablets; capsule.
 
-        # identifies a particular constituent of interest in the product.
+        reference to CodeableConcept
+        """
+
         self.ingredient = None
-        # type = array
-        # reference to Medication_Ingredient: Medication_Ingredient
+        """
+        Identifies a particular constituent of interest in the product.
 
-        # information that only applies to packages (not products).
+        type: array
+        reference to Medication_Ingredient
+        """
+
         self.package = None
-        # reference to Medication_Package: Medication_Package
+        """
+        Information that only applies to packages (not products).
 
-        # photo(s) or graphic representation(s) of the medication.
+        reference to Medication_Package
+        """
+
         self.image = None
-        # type = array
-        # reference to Attachment: Attachment
+        """
+        Photo(s) or graphic representation(s) of the medication.
 
-        # unique identifier for object class
+        type: array
+        reference to Attachment
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -79,16 +110,6 @@ class Medication(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Medication',
-             'child_variable': 'manufacturer'},
-
-            {'parent_entity': 'Medication_Ingredient',
-             'parent_variable': 'object_id',
-             'child_entity': 'Medication',
-             'child_variable': 'ingredient'},
-
             {'parent_entity': 'Attachment',
              'parent_variable': 'object_id',
              'child_entity': 'Medication',
@@ -99,50 +120,73 @@ class Medication(fhirbase):
              'child_entity': 'Medication',
              'child_variable': 'package'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'Medication',
-             'child_variable': 'code'},
+             'child_variable': 'manufacturer'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Medication',
              'child_variable': 'form'},
+
+            {'parent_entity': 'Medication_Ingredient',
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication',
+             'child_variable': 'ingredient'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication',
+             'child_variable': 'code'},
         ]
 
 
 class Medication_Ingredient(fhirbase):
-    """This resource is primarily used for the identification and definition of
-    a medication. It covers the ingredients and the packaging for a
+    """
+    This resource is primarily used for the identification and definition
+    of a medication. It covers the ingredients and the packaging for a
     medication.
     """
 
     __name__ = 'Medication_Ingredient'
 
     def __init__(self, dict_values=None):
-        # the actual ingredient - either a substance (simple ingredient) or
-        # another medication.
         self.itemCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The actual ingredient - either a substance (simple ingredient) or
+        another medication.
 
-        # the actual ingredient - either a substance (simple ingredient) or
-        # another medication.
+        reference to CodeableConcept
+        """
+
         self.itemReference = None
-        # reference to Reference: identifier
+        """
+        The actual ingredient - either a substance (simple ingredient) or
+        another medication.
 
-        # indication of whether this ingredient affects the therapeutic action of
-        # the drug.
+        reference to Reference: identifier
+        """
+
         self.isActive = None
-        # type = boolean
+        """
+        Indication of whether this ingredient affects the therapeutic action
+        of the drug.
 
-        # specifies how many (or how much) of the items there are in this
-        # medication.  for example, 250 mg per tablet.  this is expressed as a
-        # ratio where the numerator is 250mg and the denominator is 1 tablet.
+        type: boolean
+        """
+
         self.amount = None
-        # reference to Ratio: Ratio
+        """
+        Specifies how many (or how much) of the items there are in this
+        Medication.  For example, 250 mg per tablet.  This is expressed as a
+        ratio where the numerator is 250mg and the denominator is 1 tablet.
 
-        # unique identifier for object class
+        reference to Ratio
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -150,49 +194,59 @@ class Medication_Ingredient(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'Medication_Ingredient',
-             'child_variable': 'itemCodeableConcept'},
+             'child_variable': 'itemReference'},
 
             {'parent_entity': 'Ratio',
              'parent_variable': 'object_id',
              'child_entity': 'Medication_Ingredient',
              'child_variable': 'amount'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
              'child_entity': 'Medication_Ingredient',
-             'child_variable': 'itemReference'},
+             'child_variable': 'itemCodeableConcept'},
         ]
 
 
 class Medication_Package(fhirbase):
-    """This resource is primarily used for the identification and definition of
-    a medication. It covers the ingredients and the packaging for a
+    """
+    This resource is primarily used for the identification and definition
+    of a medication. It covers the ingredients and the packaging for a
     medication.
     """
 
     __name__ = 'Medication_Package'
 
     def __init__(self, dict_values=None):
-        # the kind of container that this package comes as.
         self.container = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The kind of container that this package comes as.
 
-        # a set of components that go to make up the described item.
+        reference to CodeableConcept
+        """
+
         self.content = None
-        # type = array
-        # reference to Medication_Content: Medication_Content
+        """
+        A set of components that go to make up the described item.
 
-        # information about a group of medication produced or packaged from one
-        # production run.
+        type: array
+        reference to Medication_Content
+        """
+
         self.batch = None
-        # type = array
-        # reference to Medication_Batch: Medication_Batch
+        """
+        Information about a group of medication produced or packaged from one
+        production run.
 
-        # unique identifier for object class
+        type: array
+        reference to Medication_Batch
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -200,11 +254,6 @@ class Medication_Package(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Medication_Package',
-             'child_variable': 'container'},
-
             {'parent_entity': 'Medication_Batch',
              'parent_variable': 'object_id',
              'child_entity': 'Medication_Package',
@@ -214,32 +263,47 @@ class Medication_Package(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Medication_Package',
              'child_variable': 'content'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication_Package',
+             'child_variable': 'container'},
         ]
 
 
 class Medication_Content(fhirbase):
-    """This resource is primarily used for the identification and definition of
-    a medication. It covers the ingredients and the packaging for a
+    """
+    This resource is primarily used for the identification and definition
+    of a medication. It covers the ingredients and the packaging for a
     medication.
     """
 
     __name__ = 'Medication_Content'
 
     def __init__(self, dict_values=None):
-        # identifies one of the items in the package.
         self.itemCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Identifies one of the items in the package.
 
-        # identifies one of the items in the package.
+        reference to CodeableConcept
+        """
+
         self.itemReference = None
-        # reference to Reference: identifier
+        """
+        Identifies one of the items in the package.
 
-        # the amount of the product that is in the package.
+        reference to Reference: identifier
+        """
+
         self.amount = None
-        # reference to Quantity: Quantity
+        """
+        The amount of the product that is in the package.
 
-        # unique identifier for object class
+        reference to Quantity
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -252,37 +316,44 @@ class Medication_Content(fhirbase):
              'child_entity': 'Medication_Content',
              'child_variable': 'amount'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Medication_Content',
-             'child_variable': 'itemCodeableConcept'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Medication_Content',
              'child_variable': 'itemReference'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Medication_Content',
+             'child_variable': 'itemCodeableConcept'},
         ]
 
 
 class Medication_Batch(fhirbase):
-    """This resource is primarily used for the identification and definition of
-    a medication. It covers the ingredients and the packaging for a
+    """
+    This resource is primarily used for the identification and definition
+    of a medication. It covers the ingredients and the packaging for a
     medication.
     """
 
     __name__ = 'Medication_Batch'
 
     def __init__(self, dict_values=None):
-        # the assigned lot number of a batch of the specified product.
         self.lotNumber = None
-        # type = string
+        """
+        The assigned lot number of a batch of the specified product.
 
-        # when this specific batch of product will expire.
+        type: string
+        """
+
         self.expirationDate = None
-        # type = string
+        """
+        When this specific batch of product will expire.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

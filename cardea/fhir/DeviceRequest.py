@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class DeviceRequest(fhirbase):
-    """Represents a request for a patient to employ a medical device. The
+    """
+    Represents a request for a patient to employ a medical device. The
     device may be an implantable device, or an external assistive device,
     such as a walker.
     """
@@ -10,136 +11,211 @@ class DeviceRequest(fhirbase):
     __name__ = 'DeviceRequest'
 
     def __init__(self, dict_values=None):
-        # this is a devicerequest resource
         self.resourceType = 'DeviceRequest'
-        # type = string
-        # possible values: DeviceRequest
+        """
+        This is a DeviceRequest resource
 
-        # protocol or definition followed by this request. for example: the
-        # proposed act must be performed if the indicated conditions occur, e.g..,
-        # shortness of breath, spo2 less than x%.
+        type: string
+        possible values: DeviceRequest
+        """
+
         self.definition = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Protocol or definition followed by this request. For example: The
+        proposed act must be performed if the indicated conditions occur,
+        e.g.., shortness of breath, SpO2 less than x%.
 
-        # plan/proposal/order fulfilled by this request.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.basedOn = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Plan/proposal/order fulfilled by this request.
 
-        # the request takes the place of the referenced completed or terminated
-        # request(s).
+        type: array
+        reference to Reference: identifier
+        """
+
         self.priorRequest = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The request takes the place of the referenced completed or terminated
+        request(s).
 
-        # composite request this is part of.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.groupIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        Composite request this is part of.
 
-        # the status of the request.
+        reference to Identifier
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the request.
 
-        # whether the request is a proposal, plan, an original order or a reflex
-        # order.
+        type: string
+        """
+
         self.intent = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Whether the request is a proposal, plan, an original order or a reflex
+        order.
 
-        # indicates how quickly the {{title}} should be addressed with respect to
-        # other requests.
+        reference to CodeableConcept
+        """
+
         self.priority = None
-        # type = string
+        """
+        Indicates how quickly the {{title}} should be addressed with respect
+        to other requests.
 
-        # the details of the device to be used.
+        type: string
+        """
+
         self.codeReference = None
-        # reference to Reference: identifier
+        """
+        The details of the device to be used.
 
-        # the details of the device to be used.
+        reference to Reference: identifier
+        """
+
         self.codeCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The details of the device to be used.
 
-        # the patient who will use the device.
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        The patient who will use the device.
 
-        # an encounter that provides additional context in which this request is
-        # made.
+        reference to Reference: identifier
+        """
+
         self.context = None
-        # reference to Reference: identifier
+        """
+        An encounter that provides additional context in which this request is
+        made.
 
-        # the timing schedule for the use of the device. the schedule data type
-        # allows many different expressions, for example. "every 8 hours"; "three
-        # times a day"; "1/2 an hour before breakfast for 10 days from 23-dec
-        # 2011:"; "15 oct 2013, 17 oct 2013 and 1 nov 2013".
+        reference to Reference: identifier
+        """
+
         self.occurrenceDateTime = None
-        # type = string
+        """
+        The timing schedule for the use of the device. The Schedule data type
+        allows many different expressions, for example. "Every 8 hours";
+        "Three times a day"; "1/2 an hour before breakfast for 10 days from
+        23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
 
-        # the timing schedule for the use of the device. the schedule data type
-        # allows many different expressions, for example. "every 8 hours"; "three
-        # times a day"; "1/2 an hour before breakfast for 10 days from 23-dec
-        # 2011:"; "15 oct 2013, 17 oct 2013 and 1 nov 2013".
+        type: string
+        """
+
         self.occurrencePeriod = None
-        # reference to Period: Period
+        """
+        The timing schedule for the use of the device. The Schedule data type
+        allows many different expressions, for example. "Every 8 hours";
+        "Three times a day"; "1/2 an hour before breakfast for 10 days from
+        23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
 
-        # the timing schedule for the use of the device. the schedule data type
-        # allows many different expressions, for example. "every 8 hours"; "three
-        # times a day"; "1/2 an hour before breakfast for 10 days from 23-dec
-        # 2011:"; "15 oct 2013, 17 oct 2013 and 1 nov 2013".
+        reference to Period
+        """
+
         self.occurrenceTiming = None
-        # reference to Timing: Timing
+        """
+        The timing schedule for the use of the device. The Schedule data type
+        allows many different expressions, for example. "Every 8 hours";
+        "Three times a day"; "1/2 an hour before breakfast for 10 days from
+        23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
 
-        # when the request transitioned to being actionable.
+        reference to Timing
+        """
+
         self.authoredOn = None
-        # type = string
+        """
+        When the request transitioned to being actionable.
 
-        # the individual who initiated the request and has responsibility for its
-        # activation.
+        type: string
+        """
+
         self.requester = None
-        # reference to DeviceRequest_Requester: DeviceRequest_Requester
+        """
+        The individual who initiated the request and has responsibility for
+        its activation.
 
-        # desired type of performer for doing the diagnostic testing.
+        reference to DeviceRequest_Requester
+        """
+
         self.performerType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Desired type of performer for doing the diagnostic testing.
 
-        # the desired perfomer for doing the diagnostic testing.
+        reference to CodeableConcept
+        """
+
         self.performer = None
-        # reference to Reference: identifier
+        """
+        The desired perfomer for doing the diagnostic testing.
 
-        # reason or justification for the use of this device.
+        reference to Reference: identifier
+        """
+
         self.reasonCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Reason or justification for the use of this device.
 
-        # reason or justification for the use of this device.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.reasonReference = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Reason or justification for the use of this device.
 
-        # additional clinical information about the patient that may influence the
-        # request fulfilment.  for example, this may includes body where on the
-        # subject's the device will be used ( i.e. the target site).
+        type: array
+        reference to Reference: identifier
+        """
+
         self.supportingInfo = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Additional clinical information about the patient that may influence
+        the request fulfilment.  For example, this may includes body where on
+        the subject's the device will be used ( i.e. the target site).
 
-        # details about this request that were not represented at all or
-        # sufficiently in one of the attributes provided in a class. these may
-        # include for example a comment, an instruction, or a note associated with
-        # the statement.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        Details about this request that were not represented at all or
+        sufficiently in one of the attributes provided in a class. These may
+        include for example a comment, an instruction, or a note associated
+        with the statement.
 
-        # key events in the history of the request.
+        type: array
+        reference to Annotation
+        """
+
         self.relevantHistory = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Key events in the history of the request.
 
-        # identifiers assigned to this order by the orderer or by the receiver.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Identifiers assigned to this order by the orderer or by the receiver.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -150,82 +226,27 @@ class DeviceRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DeviceRequest',
-             'child_variable': 'supportingInfo'},
+             'child_variable': 'codeReference'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'DeviceRequest',
              'child_variable': 'identifier'},
 
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'DeviceRequest',
-             'child_variable': 'note'},
+             'child_variable': 'relevantHistory'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DeviceRequest',
-             'child_variable': 'codeReference'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'DeviceRequest',
-             'child_variable': 'intent'},
-
-            {'parent_entity': 'Timing',
-             'parent_variable': 'object_id',
-             'child_entity': 'DeviceRequest',
-             'child_variable': 'occurrenceTiming'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'DeviceRequest',
-             'child_variable': 'performerType'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DeviceRequest',
-             'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DeviceRequest',
-             'child_variable': 'subject'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'DeviceRequest',
-             'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DeviceRequest',
-             'child_variable': 'definition'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DeviceRequest',
-             'child_variable': 'context'},
-
-            {'parent_entity': 'DeviceRequest_Requester',
-             'parent_variable': 'object_id',
-             'child_entity': 'DeviceRequest',
-             'child_variable': 'requester'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'DeviceRequest',
-             'child_variable': 'groupIdentifier'},
+             'child_variable': 'performer'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DeviceRequest',
              'child_variable': 'priorRequest'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DeviceRequest',
-             'child_variable': 'relevantHistory'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
@@ -235,22 +256,78 @@ class DeviceRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DeviceRequest',
-             'child_variable': 'performer'},
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'intent'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'supportingInfo'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'performerType'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'DeviceRequest',
              'child_variable': 'codeCodeableConcept'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'reasonCode'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'occurrenceTiming'},
+
+            {'parent_entity': 'DeviceRequest_Requester',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'requester'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DeviceRequest',
-             'child_variable': 'reasonReference'},
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'note'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceRequest',
+             'child_variable': 'groupIdentifier'},
         ]
 
 
 class DeviceRequest_Requester(fhirbase):
-    """Represents a request for a patient to employ a medical device. The
+    """
+    Represents a request for a patient to employ a medical device. The
     device may be an implantable device, or an external assistive device,
     such as a walker.
     """
@@ -258,16 +335,22 @@ class DeviceRequest_Requester(fhirbase):
     __name__ = 'DeviceRequest_Requester'
 
     def __init__(self, dict_values=None):
-        # the device, practitioner, etc. who initiated the request.
         self.agent = None
-        # reference to Reference: identifier
+        """
+        The device, practitioner, etc. who initiated the request.
 
-        # the organization the device or practitioner was acting on behalf of.
+        reference to Reference: identifier
+        """
+
         self.onBehalfOf = None
-        # reference to Reference: identifier
+        """
+        The organization the device or practitioner was acting on behalf of.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -278,10 +361,10 @@ class DeviceRequest_Requester(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DeviceRequest_Requester',
-             'child_variable': 'agent'},
+             'child_variable': 'onBehalfOf'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DeviceRequest_Requester',
-             'child_variable': 'onBehalfOf'},
+             'child_variable': 'agent'},
         ]

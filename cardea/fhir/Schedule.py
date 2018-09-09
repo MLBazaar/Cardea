@@ -2,64 +2,92 @@ from .fhirbase import fhirbase
 
 
 class Schedule(fhirbase):
-    """A container for slots of time that may be available for booking
+    """
+    A container for slots of time that may be available for booking
     appointments.
     """
 
     __name__ = 'Schedule'
 
     def __init__(self, dict_values=None):
-        # this is a schedule resource
         self.resourceType = 'Schedule'
-        # type = string
-        # possible values: Schedule
+        """
+        This is a Schedule resource
 
-        # whether this schedule record is in active use, or should not be used
-        # (such as was entered in error).
+        type: string
+        possible values: Schedule
+        """
+
         self.active = None
-        # type = boolean
+        """
+        Whether this schedule record is in active use, or should not be used
+        (such as was entered in error).
 
-        # a broad categorisation of the service that is to be performed during
-        # this appointment.
+        type: boolean
+        """
+
         self.serviceCategory = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A broad categorisation of the service that is to be performed during
+        this appointment.
 
-        # the specific service that is to be performed during this appointment.
+        reference to CodeableConcept
+        """
+
         self.serviceType = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The specific service that is to be performed during this appointment.
 
-        # the specialty of a practitioner that would be required to perform the
-        # service requested in this appointment.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.specialty = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The specialty of a practitioner that would be required to perform the
+        service requested in this appointment.
 
-        # the resource this schedule resource is providing availability
-        # information for. these are expected to usually be one of
-        # healthcareservice, location, practitioner, practitionerrole, device,
-        # patient or relatedperson.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.actor = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The resource this Schedule resource is providing availability
+        information for. These are expected to usually be one of
+        HealthcareService, Location, Practitioner, PractitionerRole, Device,
+        Patient or RelatedPerson.
 
-        # the period of time that the slots that are attached to this schedule
-        # resource cover (even if none exist). these  cover the amount of time
-        # that an organization's planning horizon; the interval for which they are
-        # currently accepting appointments. this does not define a "template" for
-        # planning outside these dates.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.planningHorizon = None
-        # reference to Period: Period
+        """
+        The period of time that the slots that are attached to this Schedule
+        resource cover (even if none exist). These  cover the amount of time
+        that an organization's planning horizon; the interval for which they
+        are currently accepting appointments. This does not define a
+        "template" for planning outside these dates.
 
-        # comments on the availability to describe any extended information. such
-        # as custom constraints on the slots that may be associated.
+        reference to Period
+        """
+
         self.comment = None
-        # type = string
+        """
+        Comments on the availability to describe any extended information.
+        Such as custom constraints on the slots that may be associated.
 
-        # external ids for this item.
+        type: string
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        External Ids for this item.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -72,15 +100,10 @@ class Schedule(fhirbase):
              'child_entity': 'Schedule',
              'child_variable': 'identifier'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Schedule',
-             'child_variable': 'actor'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Schedule',
-             'child_variable': 'specialty'},
+             'child_variable': 'serviceType'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
@@ -92,8 +115,13 @@ class Schedule(fhirbase):
              'child_entity': 'Schedule',
              'child_variable': 'serviceCategory'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Schedule',
+             'child_variable': 'actor'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Schedule',
-             'child_variable': 'serviceType'},
+             'child_variable': 'specialty'},
         ]

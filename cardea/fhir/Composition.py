@@ -2,104 +2,153 @@ from .fhirbase import fhirbase
 
 
 class Composition(fhirbase):
-    """A set of healthcare-related information that is assembled together into
-    a single logical document that provides a single coherent statement of
-    meaning, establishes its own context and that has clinical attestation
-    with regard to who is making the statement. While a Composition defines
-    the structure, it does not actually contain the content: rather the full
-    content of a document is contained in a Bundle, of which the Composition
-    is the first resource contained.
+    """
+    A set of healthcare-related information that is assembled together
+    into a single logical document that provides a single coherent
+    statement of meaning, establishes its own context and that has
+    clinical attestation with regard to who is making the statement. While
+    a Composition defines the structure, it does not actually contain the
+    content: rather the full content of a document is contained in a
+    Bundle, of which the Composition is the first resource contained.
     """
 
     __name__ = 'Composition'
 
     def __init__(self, dict_values=None):
-        # this is a composition resource
         self.resourceType = 'Composition'
-        # type = string
-        # possible values: Composition
+        """
+        This is a Composition resource
 
-        # the workflow/clinical status of this composition. the status is a marker
-        # for the clinical standing of the document.
+        type: string
+        possible values: Composition
+        """
+
         self.status = None
-        # type = string
-        # possible values: preliminary, final, amended, entered-in-error
+        """
+        The workflow/clinical status of this composition. The status is a
+        marker for the clinical standing of the document.
 
-        # specifies the particular kind of composition (e.g. history and physical,
-        # discharge summary, progress note). this usually equates to the purpose
-        # of making the composition.
+        type: string
+        possible values: preliminary, final, amended, entered-in-error
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Specifies the particular kind of composition (e.g. History and
+        Physical, Discharge Summary, Progress Note). This usually equates to
+        the purpose of making the composition.
 
-        # a categorization for the type of the composition - helps for indexing
-        # and searching. this may be implied by or derived from the code specified
-        # in the composition type.
+        reference to CodeableConcept
+        """
+
         self._class = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A categorization for the type of the composition - helps for indexing
+        and searching. This may be implied by or derived from the code
+        specified in the Composition Type.
 
-        # who or what the composition is about. the composition can be about a
-        # person, (patient or healthcare practitioner), a device (e.g. a machine)
-        # or even a group of subjects (such as a document about a herd of
-        # livestock, or a set of patients that share a common exposure).
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        Who or what the composition is about. The composition can be about a
+        person, (patient or healthcare practitioner), a device (e.g. a
+        machine) or even a group of subjects (such as a document about a herd
+        of livestock, or a set of patients that share a common exposure).
 
-        # describes the clinical encounter or type of care this documentation is
-        # associated with.
+        reference to Reference: identifier
+        """
+
         self.encounter = None
-        # reference to Reference: identifier
+        """
+        Describes the clinical encounter or type of care this documentation is
+        associated with.
 
-        # the composition editing time, when the composition was last logically
-        # changed by the author.
+        reference to Reference: identifier
+        """
+
         self.date = None
-        # type = string
+        """
+        The composition editing time, when the composition was last logically
+        changed by the author.
 
-        # identifies who is responsible for the information in the composition,
-        # not necessarily who typed it in.
+        type: string
+        """
+
         self.author = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Identifies who is responsible for the information in the composition,
+        not necessarily who typed it in.
 
-        # official human-readable label for the composition.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.title = None
-        # type = string
+        """
+        Official human-readable label for the composition.
 
-        # the code specifying the level of confidentiality of the composition.
+        type: string
+        """
+
         self.confidentiality = None
-        # type = string
+        """
+        The code specifying the level of confidentiality of the Composition.
 
-        # a participant who has attested to the accuracy of the
-        # composition/document.
+        type: string
+        """
+
         self.attester = None
-        # type = array
-        # reference to Composition_Attester: Composition_Attester
+        """
+        A participant who has attested to the accuracy of the
+        composition/document.
 
-        # identifies the organization or group who is responsible for ongoing
-        # maintenance of and access to the composition/document information.
+        type: array
+        reference to Composition_Attester
+        """
+
         self.custodian = None
-        # reference to Reference: identifier
+        """
+        Identifies the organization or group who is responsible for ongoing
+        maintenance of and access to the composition/document information.
 
-        # relationships that this composition has with other compositions or
-        # documents that already exist.
+        reference to Reference: identifier
+        """
+
         self.relatesTo = None
-        # type = array
-        # reference to Composition_RelatesTo: Composition_RelatesTo
+        """
+        Relationships that this composition has with other compositions or
+        documents that already exist.
 
-        # the clinical service, such as a colonoscopy or an appendectomy, being
-        # documented.
+        type: array
+        reference to Composition_RelatesTo
+        """
+
         self.event = None
-        # type = array
-        # reference to Composition_Event: Composition_Event
+        """
+        The clinical service, such as a colonoscopy or an appendectomy, being
+        documented.
 
-        # the root of the sections that make up the composition.
+        type: array
+        reference to Composition_Event
+        """
+
         self.section = None
-        # type = array
-        # reference to Composition_Section: Composition_Section
+        """
+        The root of the sections that make up the composition.
 
-        # logical identifier for the composition, assigned when created. this
-        # identifier stays constant as the composition is changed over time.
+        type: array
+        reference to Composition_Section
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Logical identifier for the composition, assigned when created. This
+        identifier stays constant as the composition is changed over time.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -129,27 +178,22 @@ class Composition(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Composition',
-             'child_variable': 'custodian'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Composition',
-             'child_variable': 'author'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Composition',
-             'child_variable': 'identifier'},
+             'child_variable': 'subject'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Composition',
              'child_variable': 'type'},
 
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition',
+             'child_variable': 'identifier'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Composition',
-             'child_variable': 'subject'},
+             'child_variable': 'custodian'},
 
             {'parent_entity': 'Composition_Section',
              'parent_variable': 'object_id',
@@ -161,46 +205,61 @@ class Composition(fhirbase):
              'child_entity': 'Composition',
              'child_variable': '_class'},
 
-            {'parent_entity': 'Composition_Attester',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'Composition',
-             'child_variable': 'attester'},
+             'child_variable': 'author'},
 
             {'parent_entity': 'Composition_Event',
              'parent_variable': 'object_id',
              'child_entity': 'Composition',
              'child_variable': 'event'},
+
+            {'parent_entity': 'Composition_Attester',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition',
+             'child_variable': 'attester'},
         ]
 
 
 class Composition_Attester(fhirbase):
-    """A set of healthcare-related information that is assembled together into
-    a single logical document that provides a single coherent statement of
-    meaning, establishes its own context and that has clinical attestation
-    with regard to who is making the statement. While a Composition defines
-    the structure, it does not actually contain the content: rather the full
-    content of a document is contained in a Bundle, of which the Composition
-    is the first resource contained.
+    """
+    A set of healthcare-related information that is assembled together
+    into a single logical document that provides a single coherent
+    statement of meaning, establishes its own context and that has
+    clinical attestation with regard to who is making the statement. While
+    a Composition defines the structure, it does not actually contain the
+    content: rather the full content of a document is contained in a
+    Bundle, of which the Composition is the first resource contained.
     """
 
     __name__ = 'Composition_Attester'
 
     def __init__(self, dict_values=None):
-        # the type of attestation the authenticator offers.
         self.mode = None
-        # type = array
-        # possible values: personal, professional, legal, official
+        """
+        The type of attestation the authenticator offers.
 
-        # when the composition was attested by the party.
+        type: array
+        possible values: personal, professional, legal, official
+        """
+
         self.time = None
-        # type = string
+        """
+        When the composition was attested by the party.
 
-        # who attested the composition in the specified way.
+        type: string
+        """
+
         self.party = None
-        # reference to Reference: identifier
+        """
+        Who attested the composition in the specified way.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -225,33 +284,43 @@ class Composition_Attester(fhirbase):
 
 
 class Composition_RelatesTo(fhirbase):
-    """A set of healthcare-related information that is assembled together into
-    a single logical document that provides a single coherent statement of
-    meaning, establishes its own context and that has clinical attestation
-    with regard to who is making the statement. While a Composition defines
-    the structure, it does not actually contain the content: rather the full
-    content of a document is contained in a Bundle, of which the Composition
-    is the first resource contained.
+    """
+    A set of healthcare-related information that is assembled together
+    into a single logical document that provides a single coherent
+    statement of meaning, establishes its own context and that has
+    clinical attestation with regard to who is making the statement. While
+    a Composition defines the structure, it does not actually contain the
+    content: rather the full content of a document is contained in a
+    Bundle, of which the Composition is the first resource contained.
     """
 
     __name__ = 'Composition_RelatesTo'
 
     def __init__(self, dict_values=None):
-        # the type of relationship that this composition has with anther
-        # composition or document.
         self.code = None
-        # type = string
+        """
+        The type of relationship that this composition has with anther
+        composition or document.
 
-        # the target composition/document of this relationship.
+        type: string
+        """
+
         self.targetIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        The target composition/document of this relationship.
 
-        # the target composition/document of this relationship.
+        reference to Identifier
+        """
+
         self.targetReference = None
-        # reference to Reference: identifier
+        """
+        The target composition/document of this relationship.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -272,42 +341,52 @@ class Composition_RelatesTo(fhirbase):
 
 
 class Composition_Event(fhirbase):
-    """A set of healthcare-related information that is assembled together into
-    a single logical document that provides a single coherent statement of
-    meaning, establishes its own context and that has clinical attestation
-    with regard to who is making the statement. While a Composition defines
-    the structure, it does not actually contain the content: rather the full
-    content of a document is contained in a Bundle, of which the Composition
-    is the first resource contained.
+    """
+    A set of healthcare-related information that is assembled together
+    into a single logical document that provides a single coherent
+    statement of meaning, establishes its own context and that has
+    clinical attestation with regard to who is making the statement. While
+    a Composition defines the structure, it does not actually contain the
+    content: rather the full content of a document is contained in a
+    Bundle, of which the Composition is the first resource contained.
     """
 
     __name__ = 'Composition_Event'
 
     def __init__(self, dict_values=None):
-        # this list of codes represents the main clinical acts, such as a
-        # colonoscopy or an appendectomy, being documented. in some cases, the
-        # event is inherent in the typecode, such as a "history and physical
-        # report" in which the procedure being documented is necessarily a
-        # "history and physical" act.
         self.code = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        This list of codes represents the main clinical acts, such as a
+        colonoscopy or an appendectomy, being documented. In some cases, the
+        event is inherent in the typeCode, such as a "History and Physical
+        Report" in which the procedure being documented is necessarily a
+        "History and Physical" act.
 
-        # the period of time covered by the documentation. there is no assertion
-        # that the documentation is a complete representation for this period,
-        # only that it documents events during this time.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The period of time covered by the documentation. There is no assertion
+        that the documentation is a complete representation for this period,
+        only that it documents events during this time.
 
-        # the description and/or reference of the event(s) being documented. for
-        # example, this could be used to document such a colonoscopy or an
-        # appendectomy.
+        reference to Period
+        """
+
         self.detail = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The description and/or reference of the event(s) being documented. For
+        example, this could be used to document such a colonoscopy or an
+        appendectomy.
 
-        # unique identifier for object class
+        type: array
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -333,66 +412,91 @@ class Composition_Event(fhirbase):
 
 
 class Composition_Section(fhirbase):
-    """A set of healthcare-related information that is assembled together into
-    a single logical document that provides a single coherent statement of
-    meaning, establishes its own context and that has clinical attestation
-    with regard to who is making the statement. While a Composition defines
-    the structure, it does not actually contain the content: rather the full
-    content of a document is contained in a Bundle, of which the Composition
-    is the first resource contained.
+    """
+    A set of healthcare-related information that is assembled together
+    into a single logical document that provides a single coherent
+    statement of meaning, establishes its own context and that has
+    clinical attestation with regard to who is making the statement. While
+    a Composition defines the structure, it does not actually contain the
+    content: rather the full content of a document is contained in a
+    Bundle, of which the Composition is the first resource contained.
     """
 
     __name__ = 'Composition_Section'
 
     def __init__(self, dict_values=None):
-        # the label for this particular section.  this will be part of the
-        # rendered content for the document, and is often used to build a table of
-        # contents.
         self.title = None
-        # type = string
+        """
+        The label for this particular section.  This will be part of the
+        rendered content for the document, and is often used to build a table
+        of contents.
 
-        # a code identifying the kind of content contained within the section.
-        # this must be consistent with the section title.
+        type: string
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code identifying the kind of content contained within the section.
+        This must be consistent with the section title.
 
-        # a human-readable narrative that contains the attested content of the
-        # section, used to represent the content of the resource to a human. the
-        # narrative need not encode all the structured data, but is required to
-        # contain sufficient detail to make it "clinically safe" for a human to
-        # just read the narrative.
+        reference to CodeableConcept
+        """
+
         self.text = None
-        # reference to Narrative: Narrative
+        """
+        A human-readable narrative that contains the attested content of the
+        section, used to represent the content of the resource to a human. The
+        narrative need not encode all the structured data, but is required to
+        contain sufficient detail to make it "clinically safe" for a human to
+        just read the narrative.
 
-        # how the entry list was prepared - whether it is a working list that is
-        # suitable for being maintained on an ongoing basis, or if it represents a
-        # snapshot of a list of items from another source, or whether it is a
-        # prepared list where items may be marked as added, modified or deleted.
+        reference to Narrative
+        """
+
         self.mode = None
-        # type = string
+        """
+        How the entry list was prepared - whether it is a working list that is
+        suitable for being maintained on an ongoing basis, or if it represents
+        a snapshot of a list of items from another source, or whether it is a
+        prepared list where items may be marked as added, modified or deleted.
 
-        # specifies the order applied to the items in the section entries.
+        type: string
+        """
+
         self.orderedBy = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Specifies the order applied to the items in the section entries.
 
-        # a reference to the actual resource from which the narrative in the
-        # section is derived.
+        reference to CodeableConcept
+        """
+
         self.entry = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A reference to the actual resource from which the narrative in the
+        section is derived.
 
-        # if the section is empty, why the list is empty. an empty section
-        # typically has some text explaining the empty reason.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.emptyReason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        If the section is empty, why the list is empty. An empty section
+        typically has some text explaining the empty reason.
 
-        # a nested sub-section within this section.
+        reference to CodeableConcept
+        """
+
         self.section = None
-        # type = array
-        # reference to Composition_Section: Composition_Section
+        """
+        A nested sub-section within this section.
 
-        # unique identifier for object class
+        type: array
+        reference to Composition_Section
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -400,11 +504,6 @@ class Composition_Section(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Composition_Section',
-             'child_variable': 'code'},
-
             {'parent_entity': 'Narrative',
              'parent_variable': 'object_id',
              'child_entity': 'Composition_Section',
@@ -418,7 +517,7 @@ class Composition_Section(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Composition_Section',
-             'child_variable': 'orderedBy'},
+             'child_variable': 'emptyReason'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -428,5 +527,10 @@ class Composition_Section(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Composition_Section',
-             'child_variable': 'emptyReason'},
+             'child_variable': 'code'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Composition_Section',
+             'child_variable': 'orderedBy'},
         ]

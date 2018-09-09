@@ -2,42 +2,61 @@ from .fhirbase import fhirbase
 
 
 class Identifier(fhirbase):
-    """A technical identifier - identifies some entity uniquely and
+    """
+    A technical identifier - identifies some entity uniquely and
     unambiguously.
     """
 
     __name__ = 'Identifier'
 
     def __init__(self, dict_values=None):
-        # the purpose of this identifier.
         self.use = None
-        # type = string
-        # possible values: usual, official, temp, secondary
+        """
+        The purpose of this identifier.
 
-        # a coded type for the identifier that can be used to determine which
-        # identifier to use for a specific purpose.
+        type: string
+        possible values: usual, official, temp, secondary
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A coded type for the identifier that can be used to determine which
+        identifier to use for a specific purpose.
 
-        # establishes the namespace for the value - that is, a url that describes
-        # a set values that are unique.
+        reference to CodeableConcept
+        """
+
         self.system = None
-        # type = string
+        """
+        Establishes the namespace for the value - that is, a URL that
+        describes a set values that are unique.
 
-        # the portion of the identifier typically relevant to the user and which
-        # is unique within the context of the system.
+        type: string
+        """
+
         self.value = None
-        # type = string
+        """
+        The portion of the identifier typically relevant to the user and which
+        is unique within the context of the system.
 
-        # time period during which identifier is/was valid for use.
+        type: string
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        Time period during which identifier is/was valid for use.
 
-        # organization that issued/manages the identifier.
+        reference to Period
+        """
+
         self.assigner = None
+        """
+        Organization that issued/manages the identifier.
 
-        # unique identifier for object class
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

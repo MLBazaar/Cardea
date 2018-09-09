@@ -2,82 +2,117 @@ from .fhirbase import fhirbase
 
 
 class Provenance(fhirbase):
-    """Provenance of a resource is a record that describes entities and
-    processes involved in producing and delivering or otherwise influencing
-    that resource. Provenance provides a critical foundation for assessing
-    authenticity, enabling trust, and allowing reproducibility. Provenance
-    assertions are a form of contextual metadata and can themselves become
-    important records with their own provenance. Provenance statement
-    indicates clinical significance in terms of confidence in authenticity,
-    reliability, and trustworthiness, integrity, and stage in lifecycle
-    (e.g. Document Completion - has the artifact been legally
-    authenticated), all of which may impact security, privacy, and trust
-    policies.
+    """
+    Provenance of a resource is a record that describes entities and
+    processes involved in producing and delivering or otherwise
+    influencing that resource. Provenance provides a critical foundation
+    for assessing authenticity, enabling trust, and allowing
+    reproducibility. Provenance assertions are a form of contextual
+    metadata and can themselves become important records with their own
+    provenance. Provenance statement indicates clinical significance in
+    terms of confidence in authenticity, reliability, and trustworthiness,
+    integrity, and stage in lifecycle (e.g. Document Completion - has the
+    artifact been legally authenticated), all of which may impact
+    security, privacy, and trust policies.
     """
 
     __name__ = 'Provenance'
 
     def __init__(self, dict_values=None):
-        # this is a provenance resource
         self.resourceType = 'Provenance'
-        # type = string
-        # possible values: Provenance
+        """
+        This is a Provenance resource
 
-        # the reference(s) that were generated or updated by  the activity
-        # described in this resource. a provenance can point to more than one
-        # target if multiple resources were created/updated by the same activity.
+        type: string
+        possible values: Provenance
+        """
+
         self.target = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The Reference(s) that were generated or updated by  the activity
+        described in this resource. A provenance can point to more than one
+        target if multiple resources were created/updated by the same
+        activity.
 
-        # the period during which the activity occurred.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The period during which the activity occurred.
 
-        # the instant of time at which the activity was recorded.
+        reference to Period
+        """
+
         self.recorded = None
-        # type = string
+        """
+        The instant of time at which the activity was recorded.
 
-        # policy or plan the activity was defined by. typically, a single activity
-        # may have multiple applicable policy documents, such as patient consent,
-        # guarantor funding, etc.
+        type: string
+        """
+
         self.policy = None
-        # type = array
+        """
+        Policy or plan the activity was defined by. Typically, a single
+        activity may have multiple applicable policy documents, such as
+        patient consent, guarantor funding, etc.
 
-        # where the activity occurred, if relevant.
+        type: array
+        """
+
         self.location = None
-        # reference to Reference: identifier
+        """
+        Where the activity occurred, if relevant.
 
-        # the reason that the activity was taking place.
+        reference to Reference: identifier
+        """
+
         self.reason = None
-        # type = array
-        # reference to Coding: Coding
+        """
+        The reason that the activity was taking place.
 
-        # an activity is something that occurs over a period of time and acts upon
-        # or with entities; it may include consuming, processing, transforming,
-        # modifying, relocating, using, or generating entities.
+        type: array
+        reference to Coding
+        """
+
         self.activity = None
-        # reference to Coding: Coding
+        """
+        An activity is something that occurs over a period of time and acts
+        upon or with entities; it may include consuming, processing,
+        transforming, modifying, relocating, using, or generating entities.
 
-        # an actor taking a role in an activity  for which it can be assigned some
-        # degree of responsibility for the activity taking place.
+        reference to Coding
+        """
+
         self.agent = None
-        # type = array
-        # reference to Provenance_Agent: Provenance_Agent
+        """
+        An actor taking a role in an activity  for which it can be assigned
+        some degree of responsibility for the activity taking place.
 
-        # an entity used in this activity.
+        type: array
+        reference to Provenance_Agent
+        """
+
         self.entity = None
-        # type = array
-        # reference to Provenance_Entity: Provenance_Entity
+        """
+        An entity used in this activity.
 
-        # a digital signature on the target reference(s). the signer should match
-        # a provenance.agent. the purpose of the signature is indicated.
+        type: array
+        reference to Provenance_Entity
+        """
+
         self.signature = None
-        # type = array
-        # reference to Signature: Signature
+        """
+        A digital signature on the target Reference(s). The signer should
+        match a Provenance.agent. The purpose of the signature is indicated.
 
-        # unique identifier for object class
+        type: array
+        reference to Signature
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -85,10 +120,35 @@ class Provenance(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Signature',
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance',
+             'child_variable': 'signature'},
+
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Provenance',
              'child_variable': 'period'},
+
+            {'parent_entity': 'Provenance_Entity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance',
+             'child_variable': 'entity'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance',
+             'child_variable': 'activity'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Provenance',
+             'child_variable': 'location'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Provenance',
+             'child_variable': 'target'},
 
             {'parent_entity': 'Provenance_Agent',
              'parent_variable': 'object_id',
@@ -99,79 +159,73 @@ class Provenance(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Provenance',
              'child_variable': 'reason'},
-
-            {'parent_entity': 'Signature',
-             'parent_variable': 'object_id',
-             'child_entity': 'Provenance',
-             'child_variable': 'signature'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Provenance',
-             'child_variable': 'location'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'Provenance',
-             'child_variable': 'activity'},
-
-            {'parent_entity': 'Provenance_Entity',
-             'parent_variable': 'object_id',
-             'child_entity': 'Provenance',
-             'child_variable': 'entity'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Provenance',
-             'child_variable': 'target'},
         ]
 
 
 class Provenance_Agent(fhirbase):
-    """Provenance of a resource is a record that describes entities and
-    processes involved in producing and delivering or otherwise influencing
-    that resource. Provenance provides a critical foundation for assessing
-    authenticity, enabling trust, and allowing reproducibility. Provenance
-    assertions are a form of contextual metadata and can themselves become
-    important records with their own provenance. Provenance statement
-    indicates clinical significance in terms of confidence in authenticity,
-    reliability, and trustworthiness, integrity, and stage in lifecycle
-    (e.g. Document Completion - has the artifact been legally
-    authenticated), all of which may impact security, privacy, and trust
-    policies.
+    """
+    Provenance of a resource is a record that describes entities and
+    processes involved in producing and delivering or otherwise
+    influencing that resource. Provenance provides a critical foundation
+    for assessing authenticity, enabling trust, and allowing
+    reproducibility. Provenance assertions are a form of contextual
+    metadata and can themselves become important records with their own
+    provenance. Provenance statement indicates clinical significance in
+    terms of confidence in authenticity, reliability, and trustworthiness,
+    integrity, and stage in lifecycle (e.g. Document Completion - has the
+    artifact been legally authenticated), all of which may impact
+    security, privacy, and trust policies.
     """
 
     __name__ = 'Provenance_Agent'
 
     def __init__(self, dict_values=None):
-        # the function of the agent with respect to the activity. the security
-        # role enabling the agent with respect to the activity.
         self.role = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The function of the agent with respect to the activity. The security
+        role enabling the agent with respect to the activity.
 
-        # the individual, device or organization that participated in the event.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.whoUri = None
-        # type = string
+        """
+        The individual, device or organization that participated in the event.
 
-        # the individual, device or organization that participated in the event.
+        type: string
+        """
+
         self.whoReference = None
-        # reference to Reference: identifier
+        """
+        The individual, device or organization that participated in the event.
 
-        # the individual, device, or organization for whom the change was made.
+        reference to Reference: identifier
+        """
+
         self.onBehalfOfUri = None
-        # type = string
+        """
+        The individual, device, or organization for whom the change was made.
 
-        # the individual, device, or organization for whom the change was made.
+        type: string
+        """
+
         self.onBehalfOfReference = None
-        # reference to Reference: identifier
+        """
+        The individual, device, or organization for whom the change was made.
 
-        # the type of relationship between agents.
+        reference to Reference: identifier
+        """
+
         self.relatedAgentType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of relationship between agents.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -179,11 +233,6 @@ class Provenance_Agent(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Provenance_Agent',
-             'child_variable': 'role'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Provenance_Agent',
@@ -198,57 +247,78 @@ class Provenance_Agent(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Provenance_Agent',
              'child_variable': 'relatedAgentType'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Provenance_Agent',
+             'child_variable': 'role'},
         ]
 
 
 class Provenance_Entity(fhirbase):
-    """Provenance of a resource is a record that describes entities and
-    processes involved in producing and delivering or otherwise influencing
-    that resource. Provenance provides a critical foundation for assessing
-    authenticity, enabling trust, and allowing reproducibility. Provenance
-    assertions are a form of contextual metadata and can themselves become
-    important records with their own provenance. Provenance statement
-    indicates clinical significance in terms of confidence in authenticity,
-    reliability, and trustworthiness, integrity, and stage in lifecycle
-    (e.g. Document Completion - has the artifact been legally
-    authenticated), all of which may impact security, privacy, and trust
-    policies.
+    """
+    Provenance of a resource is a record that describes entities and
+    processes involved in producing and delivering or otherwise
+    influencing that resource. Provenance provides a critical foundation
+    for assessing authenticity, enabling trust, and allowing
+    reproducibility. Provenance assertions are a form of contextual
+    metadata and can themselves become important records with their own
+    provenance. Provenance statement indicates clinical significance in
+    terms of confidence in authenticity, reliability, and trustworthiness,
+    integrity, and stage in lifecycle (e.g. Document Completion - has the
+    artifact been legally authenticated), all of which may impact
+    security, privacy, and trust policies.
     """
 
     __name__ = 'Provenance_Entity'
 
     def __init__(self, dict_values=None):
-        # how the entity was used during the activity.
         self.role = None
-        # type = string
-        # possible values: derivation, revision, quotation, source,
-        # removal
+        """
+        How the entity was used during the activity.
 
-        # identity of the  entity used. may be a logical or physical uri and maybe
-        # absolute or relative.
+        type: string
+        possible values: derivation, revision, quotation, source,
+        removal
+        """
+
         self.whatUri = None
-        # type = string
+        """
+        Identity of the  Entity used. May be a logical or physical uri and
+        maybe absolute or relative.
 
-        # identity of the  entity used. may be a logical or physical uri and maybe
-        # absolute or relative.
+        type: string
+        """
+
         self.whatReference = None
-        # reference to Reference: identifier
+        """
+        Identity of the  Entity used. May be a logical or physical uri and
+        maybe absolute or relative.
 
-        # identity of the  entity used. may be a logical or physical uri and maybe
-        # absolute or relative.
+        reference to Reference: identifier
+        """
+
         self.whatIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        Identity of the  Entity used. May be a logical or physical uri and
+        maybe absolute or relative.
 
-        # the entity is attributed to an agent to express the agent's
-        # responsibility for that entity, possibly along with other agents. this
-        # description can be understood as shorthand for saying that the agent was
-        # responsible for the activity which generated the entity.
+        reference to Identifier
+        """
+
         self.agent = None
-        # type = array
-        # reference to Provenance_Agent: Provenance_Agent
+        """
+        The entity is attributed to an agent to express the agent's
+        responsibility for that entity, possibly along with other agents. This
+        description can be understood as shorthand for saying that the agent
+        was responsible for the activity which generated the entity.
 
-        # unique identifier for object class
+        type: array
+        reference to Provenance_Agent
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

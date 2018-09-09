@@ -2,71 +2,109 @@ from .fhirbase import fhirbase
 
 
 class RelatedPerson(fhirbase):
-    """Information about a person that is involved in the care for a patient,
-    but who is not the target of healthcare, nor has a formal responsibility
-    in the care process.
+    """
+    Information about a person that is involved in the care for a patient,
+    but who is not the target of healthcare, nor has a formal
+    responsibility in the care process.
     """
 
     __name__ = 'RelatedPerson'
 
     def __init__(self, dict_values=None):
-        # this is a relatedperson resource
         self.resourceType = 'RelatedPerson'
-        # type = string
-        # possible values: RelatedPerson
+        """
+        This is a RelatedPerson resource
 
-        # whether this related person record is in active use.
+        type: string
+        possible values: RelatedPerson
+        """
+
         self.active = None
-        # type = boolean
+        """
+        Whether this related person record is in active use.
 
-        # the patient this person is related to.
+        type: boolean
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        The patient this person is related to.
 
-        # the nature of the relationship between a patient and the related person.
+        reference to Reference: identifier
+        """
+
         self.relationship = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The nature of the relationship between a patient and the related
+        person.
 
-        # a name associated with the person.
+        reference to CodeableConcept
+        """
+
         self.name = None
-        # type = array
-        # reference to HumanName: HumanName
+        """
+        A name associated with the person.
 
-        # a contact detail for the person, e.g. a telephone number or an email
-        # address.
+        type: array
+        reference to HumanName
+        """
+
         self.telecom = None
-        # type = array
-        # reference to ContactPoint: ContactPoint
+        """
+        A contact detail for the person, e.g. a telephone number or an email
+        address.
 
-        # administrative gender - the gender that the person is considered to have
-        # for administration and record keeping purposes.
+        type: array
+        reference to ContactPoint
+        """
+
         self.gender = None
-        # type = string
-        # possible values: male, female, other, unknown
+        """
+        Administrative Gender - the gender that the person is considered to
+        have for administration and record keeping purposes.
 
-        # the date on which the related person was born.
+        type: string
+        possible values: male, female, other, unknown
+        """
+
         self.birthDate = None
-        # type = string
+        """
+        The date on which the related person was born.
 
-        # address where the related person can be contacted or visited.
+        type: string
+        """
+
         self.address = None
-        # type = array
-        # reference to Address: Address
+        """
+        Address where the related person can be contacted or visited.
 
-        # image of the person.
+        type: array
+        reference to Address
+        """
+
         self.photo = None
-        # type = array
-        # reference to Attachment: Attachment
+        """
+        Image of the person.
 
-        # the period of time that this relationship is considered to be valid. if
-        # there are no dates defined, then the interval is unknown.
+        type: array
+        reference to Attachment
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The period of time that this relationship is considered to be valid.
+        If there are no dates defined, then the interval is unknown.
 
-        # identifier for a person within a particular scope.
+        reference to Period
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Identifier for a person within a particular scope.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -83,10 +121,15 @@ class RelatedPerson(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Address',
+            {'parent_entity': 'ContactPoint',
              'parent_variable': 'object_id',
              'child_entity': 'RelatedPerson',
-             'child_variable': 'address'},
+             'child_variable': 'telecom'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'RelatedPerson',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Attachment',
              'parent_variable': 'object_id',
@@ -98,28 +141,23 @@ class RelatedPerson(fhirbase):
              'child_entity': 'RelatedPerson',
              'child_variable': 'identifier'},
 
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'RelatedPerson',
-             'child_variable': 'period'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'RelatedPerson',
-             'child_variable': 'relationship'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'RelatedPerson',
              'child_variable': 'patient'},
 
-            {'parent_entity': 'ContactPoint',
+            {'parent_entity': 'Address',
              'parent_variable': 'object_id',
              'child_entity': 'RelatedPerson',
-             'child_variable': 'telecom'},
+             'child_variable': 'address'},
 
             {'parent_entity': 'HumanName',
              'parent_variable': 'object_id',
              'child_entity': 'RelatedPerson',
              'child_variable': 'name'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'RelatedPerson',
+             'child_variable': 'relationship'},
         ]

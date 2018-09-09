@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class ImmunizationRecommendation(fhirbase):
-    """A patient's point-in-time immunization and recommendation (i.e.
+    """
+    A patient's point-in-time immunization and recommendation (i.e.
     forecasting a patient's immunization eligibility according to a
     published schedule) with optional supporting justification.
     """
@@ -10,25 +11,36 @@ class ImmunizationRecommendation(fhirbase):
     __name__ = 'ImmunizationRecommendation'
 
     def __init__(self, dict_values=None):
-        # this is a immunizationrecommendation resource
         self.resourceType = 'ImmunizationRecommendation'
-        # type = string
-        # possible values: ImmunizationRecommendation
+        """
+        This is a ImmunizationRecommendation resource
 
-        # the patient the recommendations are for.
+        type: string
+        possible values: ImmunizationRecommendation
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        The patient the recommendations are for.
 
-        # vaccine administration recommendations.
+        reference to Reference: identifier
+        """
+
         self.recommendation = None
-        # type = array
-        # reference to ImmunizationRecommendation_Recommendation:
-        # ImmunizationRecommendation_Recommendation
+        """
+        Vaccine administration recommendations.
 
-        # a unique identifier assigned to this particular recommendation record.
+        type: array
+        reference to ImmunizationRecommendation_Recommendation
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        A unique identifier assigned to this particular recommendation record.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -54,7 +66,8 @@ class ImmunizationRecommendation(fhirbase):
 
 
 class ImmunizationRecommendation_Recommendation(fhirbase):
-    """A patient's point-in-time immunization and recommendation (i.e.
+    """
+    A patient's point-in-time immunization and recommendation (i.e.
     forecasting a patient's immunization eligibility according to a
     published schedule) with optional supporting justification.
     """
@@ -62,53 +75,80 @@ class ImmunizationRecommendation_Recommendation(fhirbase):
     __name__ = 'ImmunizationRecommendation_Recommendation'
 
     def __init__(self, dict_values=None):
-        # the date the immunization recommendation was created.
         self.date = None
-        # type = string
+        """
+        The date the immunization recommendation was created.
 
-        # vaccine that pertains to the recommendation.
+        type: string
+        """
+
         self.vaccineCode = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Vaccine that pertains to the recommendation.
 
-        # the targeted disease for the recommendation.
+        reference to CodeableConcept
+        """
+
         self.targetDisease = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The targeted disease for the recommendation.
 
-        # the next recommended dose number (e.g. dose 2 is the next recommended
-        # dose).
+        reference to CodeableConcept
+        """
+
         self.doseNumber = None
-        # type = int
+        """
+        The next recommended dose number (e.g. dose 2 is the next recommended
+        dose).
 
-        # vaccine administration status.
+        type: int
+        """
+
         self.forecastStatus = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Vaccine administration status.
 
-        # vaccine date recommendations.  for example, earliest date to administer,
-        # latest date to administer, etc.
+        reference to CodeableConcept
+        """
+
         self.dateCriterion = None
-        # type = array
-        # reference to ImmunizationRecommendation_DateCriterion:
-        # ImmunizationRecommendation_DateCriterion
+        """
+        Vaccine date recommendations.  For example, earliest date to
+        administer, latest date to administer, etc.
 
-        # contains information about the protocol under which the vaccine was
-        # administered.
+        type: array
+        reference to ImmunizationRecommendation_DateCriterion
+        """
+
         self.protocol = None
-        # reference to ImmunizationRecommendation_Protocol: ImmunizationRecommendation_Protocol
+        """
+        Contains information about the protocol under which the vaccine was
+        administered.
 
-        # immunization event history that supports the status and recommendation.
+        reference to ImmunizationRecommendation_Protocol
+        """
+
         self.supportingImmunization = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Immunization event history that supports the status and
+        recommendation.
 
-        # patient information that supports the status and recommendation.  this
-        # includes patient observations, adverse reactions and allergy/intolerance
-        # information.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.supportingPatientInformation = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Patient Information that supports the status and recommendation.  This
+        includes patient observations, adverse reactions and
+        allergy/intolerance information.
 
-        # unique identifier for object class
+        type: array
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -116,6 +156,21 @@ class ImmunizationRecommendation_Recommendation(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImmunizationRecommendation_Recommendation',
+             'child_variable': 'vaccineCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImmunizationRecommendation_Recommendation',
+             'child_variable': 'supportingImmunization'},
+
+            {'parent_entity': 'ImmunizationRecommendation_Protocol',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImmunizationRecommendation_Recommendation',
+             'child_variable': 'protocol'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ImmunizationRecommendation_Recommendation',
@@ -135,26 +190,12 @@ class ImmunizationRecommendation_Recommendation(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'ImmunizationRecommendation_Recommendation',
              'child_variable': 'forecastStatus'},
-
-            {'parent_entity': 'ImmunizationRecommendation_Protocol',
-             'parent_variable': 'object_id',
-             'child_entity': 'ImmunizationRecommendation_Recommendation',
-             'child_variable': 'protocol'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ImmunizationRecommendation_Recommendation',
-             'child_variable': 'vaccineCode'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ImmunizationRecommendation_Recommendation',
-             'child_variable': 'supportingImmunization'},
         ]
 
 
 class ImmunizationRecommendation_DateCriterion(fhirbase):
-    """A patient's point-in-time immunization and recommendation (i.e.
+    """
+    A patient's point-in-time immunization and recommendation (i.e.
     forecasting a patient's immunization eligibility according to a
     published schedule) with optional supporting justification.
     """
@@ -162,17 +203,23 @@ class ImmunizationRecommendation_DateCriterion(fhirbase):
     __name__ = 'ImmunizationRecommendation_DateCriterion'
 
     def __init__(self, dict_values=None):
-        # date classification of recommendation.  for example, earliest date to
-        # give, latest date to give, etc.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Date classification of recommendation.  For example, earliest date to
+        give, latest date to give, etc.
 
-        # the date whose meaning is specified by datecriterion.code.
+        reference to CodeableConcept
+        """
+
         self.value = None
-        # type = string
+        """
+        The date whose meaning is specified by dateCriterion.code.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -188,7 +235,8 @@ class ImmunizationRecommendation_DateCriterion(fhirbase):
 
 
 class ImmunizationRecommendation_Protocol(fhirbase):
-    """A patient's point-in-time immunization and recommendation (i.e.
+    """
+    A patient's point-in-time immunization and recommendation (i.e.
     forecasting a patient's immunization eligibility according to a
     published schedule) with optional supporting justification.
     """
@@ -196,27 +244,40 @@ class ImmunizationRecommendation_Protocol(fhirbase):
     __name__ = 'ImmunizationRecommendation_Protocol'
 
     def __init__(self, dict_values=None):
-        # indicates the nominal position in a series of the next dose.  this is
-        # the recommended dose number as per a specified protocol.
         self.doseSequence = None
-        # type = int
+        """
+        Indicates the nominal position in a series of the next dose.  This is
+        the recommended dose number as per a specified protocol.
 
-        # contains the description about the protocol under which the vaccine was
-        # administered.
+        type: int
+        """
+
         self.description = None
-        # type = string
+        """
+        Contains the description about the protocol under which the vaccine
+        was administered.
 
-        # indicates the authority who published the protocol.  for example, acip.
+        type: string
+        """
+
         self.authority = None
-        # reference to Reference: identifier
+        """
+        Indicates the authority who published the protocol.  For example,
+        ACIP.
 
-        # one possible path to achieve presumed immunity against a disease -
-        # within the context of an authority.
+        reference to Reference: identifier
+        """
+
         self.series = None
-        # type = string
+        """
+        One possible path to achieve presumed immunity against a disease -
+        within the context of an authority.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

@@ -2,110 +2,166 @@ from .fhirbase import fhirbase
 
 
 class DocumentReference(fhirbase):
-    """A reference to a document.
+    """
+    A reference to a document.
     """
 
     __name__ = 'DocumentReference'
 
     def __init__(self, dict_values=None):
-        # this is a documentreference resource
         self.resourceType = 'DocumentReference'
-        # type = string
-        # possible values: DocumentReference
+        """
+        This is a DocumentReference resource
 
-        # document identifier as assigned by the source of the document. this
-        # identifier is specific to this version of the document. this unique
-        # identifier may be used elsewhere to identify this version of the
-        # document.
+        type: string
+        possible values: DocumentReference
+        """
+
         self.masterIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        Document identifier as assigned by the source of the document. This
+        identifier is specific to this version of the document. This unique
+        identifier may be used elsewhere to identify this version of the
+        document.
 
-        # the status of this document reference.
+        reference to Identifier
+        """
+
         self.status = None
-        # type = string
-        # possible values: current, superseded, entered-in-error
+        """
+        The status of this document reference.
 
-        # the status of the underlying document.
+        type: string
+        possible values: current, superseded, entered-in-error
+        """
+
         self.docStatus = None
-        # type = string
+        """
+        The status of the underlying document.
 
-        # specifies the particular kind of document referenced  (e.g. history and
-        # physical, discharge summary, progress note). this usually equates to the
-        # purpose of making the document referenced.
+        type: string
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Specifies the particular kind of document referenced  (e.g. History
+        and Physical, Discharge Summary, Progress Note). This usually equates
+        to the purpose of making the document referenced.
 
-        # a categorization for the type of document referenced - helps for
-        # indexing and searching. this may be implied by or derived from the code
-        # specified in the documentreference.type.
+        reference to CodeableConcept
+        """
+
         self._class = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A categorization for the type of document referenced - helps for
+        indexing and searching. This may be implied by or derived from the
+        code specified in the DocumentReference.type.
 
-        # who or what the document is about. the document can be about a person,
-        # (patient or healthcare practitioner), a device (e.g. a machine) or even
-        # a group of subjects (such as a document about a herd of farm animals, or
-        # a set of patients that share a common exposure).
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        Who or what the document is about. The document can be about a person,
+        (patient or healthcare practitioner), a device (e.g. a machine) or
+        even a group of subjects (such as a document about a herd of farm
+        animals, or a set of patients that share a common exposure).
 
-        # when the document was created.
+        reference to Reference: identifier
+        """
+
         self.created = None
-        # type = string
+        """
+        When the document was created.
 
-        # when the document reference was created.
+        type: string
+        """
+
         self.indexed = None
-        # type = string
+        """
+        When the document reference was created.
 
-        # identifies who is responsible for adding the information to the
-        # document.
+        type: string
+        """
+
         self.author = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Identifies who is responsible for adding the information to the
+        document.
 
-        # which person or organization authenticates that this document is valid.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.authenticator = None
-        # reference to Reference: identifier
+        """
+        Which person or organization authenticates that this document is
+        valid.
 
-        # identifies the organization or group who is responsible for ongoing
-        # maintenance of and access to the document.
+        reference to Reference: identifier
+        """
+
         self.custodian = None
-        # reference to Reference: identifier
+        """
+        Identifies the organization or group who is responsible for ongoing
+        maintenance of and access to the document.
 
-        # relationships that this document has with other document references that
-        # already exist.
+        reference to Reference: identifier
+        """
+
         self.relatesTo = None
-        # type = array
-        # reference to DocumentReference_RelatesTo: DocumentReference_RelatesTo
+        """
+        Relationships that this document has with other document references
+        that already exist.
 
-        # human-readable description of the source document. this is sometimes
-        # known as the "title".
+        type: array
+        reference to DocumentReference_RelatesTo
+        """
+
         self.description = None
-        # type = string
+        """
+        Human-readable description of the source document. This is sometimes
+        known as the "title".
 
-        # a set of security-tag codes specifying the level of privacy/security of
-        # the document. note that documentreference.meta.security contains the
-        # security labels of the "reference" to the document, while
-        # documentreference.securitylabel contains a snapshot of the security
-        # labels on the document the reference refers to.
+        type: string
+        """
+
         self.securityLabel = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A set of Security-Tag codes specifying the level of privacy/security
+        of the Document. Note that DocumentReference.meta.security contains
+        the security labels of the "reference" to the document, while
+        DocumentReference.securityLabel contains a snapshot of the security
+        labels on the document the reference refers to.
 
-        # the document and format referenced. there may be multiple content
-        # element repetitions, each with a different format.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.content = None
-        # type = array
-        # reference to DocumentReference_Content: DocumentReference_Content
+        """
+        The document and format referenced. There may be multiple content
+        element repetitions, each with a different format.
 
-        # the clinical context in which the document was prepared.
+        type: array
+        reference to DocumentReference_Content
+        """
+
         self.context = None
-        # reference to DocumentReference_Context: DocumentReference_Context
+        """
+        The clinical context in which the document was prepared.
 
-        # other identifiers associated with the document, including version
-        # independent identifiers.
+        reference to DocumentReference_Context
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Other identifiers associated with the document, including version
+        independent identifiers.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -122,30 +178,20 @@ class DocumentReference(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'DocumentReference',
-             'child_variable': 'securityLabel'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DocumentReference',
              'child_variable': 'custodian'},
 
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'identifier'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DocumentReference',
              'child_variable': 'authenticator'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DocumentReference',
-             'child_variable': 'author'},
-
-            {'parent_entity': 'DocumentReference_Context',
-             'parent_variable': 'object_id',
-             'child_entity': 'DocumentReference',
-             'child_variable': 'context'},
 
             {'parent_entity': 'DocumentReference_Content',
              'parent_variable': 'object_id',
@@ -155,53 +201,70 @@ class DocumentReference(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'DocumentReference',
-             'child_variable': '_class'},
+             'child_variable': 'securityLabel'},
 
             {'parent_entity': 'DocumentReference_RelatesTo',
              'parent_variable': 'object_id',
              'child_entity': 'DocumentReference',
              'child_variable': 'relatesTo'},
 
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'DocumentReference',
-             'child_variable': 'masterIdentifier'},
+             'child_variable': 'subject'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'DocumentReference',
              'child_variable': 'type'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
              'child_entity': 'DocumentReference',
-             'child_variable': 'subject'},
+             'child_variable': '_class'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'DocumentReference',
-             'child_variable': 'identifier'},
+             'child_variable': 'masterIdentifier'},
+
+            {'parent_entity': 'DocumentReference_Context',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentReference',
+             'child_variable': 'author'},
         ]
 
 
 class DocumentReference_RelatesTo(fhirbase):
-    """A reference to a document.
+    """
+    A reference to a document.
     """
 
     __name__ = 'DocumentReference_RelatesTo'
 
     def __init__(self, dict_values=None):
-        # the type of relationship that this document has with anther document.
         self.code = None
-        # type = string
-        # possible values: replaces, transforms, signs, appends
+        """
+        The type of relationship that this document has with anther document.
 
-        # the target document of this relationship.
+        type: string
+        possible values: replaces, transforms, signs, appends
+        """
+
         self.target = None
-        # reference to Reference: identifier
+        """
+        The target document of this relationship.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -226,24 +289,32 @@ class DocumentReference_RelatesTo(fhirbase):
 
 
 class DocumentReference_Content(fhirbase):
-    """A reference to a document.
+    """
+    A reference to a document.
     """
 
     __name__ = 'DocumentReference_Content'
 
     def __init__(self, dict_values=None):
-        # the document or url of the document along with critical metadata to
-        # prove content has integrity.
         self.attachment = None
-        # reference to Attachment: Attachment
+        """
+        The document or URL of the document along with critical metadata to
+        prove content has integrity.
 
-        # an identifier of the document encoding, structure, and template that the
-        # document conforms to beyond the base format indicated in the mimetype.
+        reference to Attachment
+        """
+
         self.format = None
-        # reference to Coding: Coding
+        """
+        An identifier of the document encoding, structure, and template that
+        the document conforms to beyond the base format indicated in the
+        mimeType.
 
-        # unique identifier for object class
+        reference to Coding
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -251,65 +322,88 @@ class DocumentReference_Content(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'DocumentReference_Content',
-             'child_variable': 'format'},
-
             {'parent_entity': 'Attachment',
              'parent_variable': 'object_id',
              'child_entity': 'DocumentReference_Content',
              'child_variable': 'attachment'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference_Content',
+             'child_variable': 'format'},
         ]
 
 
 class DocumentReference_Context(fhirbase):
-    """A reference to a document.
+    """
+    A reference to a document.
     """
 
     __name__ = 'DocumentReference_Context'
 
     def __init__(self, dict_values=None):
-        # describes the clinical encounter or type of care that the document
-        # content is associated with.
         self.encounter = None
-        # reference to Reference: identifier
+        """
+        Describes the clinical encounter or type of care that the document
+        content is associated with.
 
-        # this list of codes represents the main clinical acts, such as a
-        # colonoscopy or an appendectomy, being documented. in some cases, the
-        # event is inherent in the typecode, such as a "history and physical
-        # report" in which the procedure being documented is necessarily a
-        # "history and physical" act.
+        reference to Reference: identifier
+        """
+
         self.event = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        This list of codes represents the main clinical acts, such as a
+        colonoscopy or an appendectomy, being documented. In some cases, the
+        event is inherent in the typeCode, such as a "History and Physical
+        Report" in which the procedure being documented is necessarily a
+        "History and Physical" act.
 
-        # the time period over which the service that is described by the document
-        # was provided.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The time period over which the service that is described by the
+        document was provided.
 
-        # the kind of facility where the patient was seen.
+        reference to Period
+        """
+
         self.facilityType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The kind of facility where the patient was seen.
 
-        # this property may convey specifics about the practice setting where the
-        # content was created, often reflecting the clinical specialty.
+        reference to CodeableConcept
+        """
+
         self.practiceSetting = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        This property may convey specifics about the practice setting where
+        the content was created, often reflecting the clinical specialty.
 
-        # the patient information as known when the document was published. may be
-        # a reference to a version specific, or contained.
+        reference to CodeableConcept
+        """
+
         self.sourcePatientInfo = None
-        # reference to Reference: identifier
+        """
+        The Patient Information as known when the document was published. May
+        be a reference to a version specific, or contained.
 
-        # related identifiers or resources associated with the documentreference.
+        reference to Reference: identifier
+        """
+
         self.related = None
-        # type = array
-        # reference to DocumentReference_Related: identifier
+        """
+        Related identifiers or resources associated with the
+        DocumentReference.
 
-        # unique identifier for object class
+        type: array
+        reference to DocumentReference_Related: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -320,7 +414,7 @@ class DocumentReference_Context(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'DocumentReference_Context',
-             'child_variable': 'practiceSetting'},
+             'child_variable': 'event'},
 
             {'parent_entity': 'DocumentReference_Related',
              'parent_variable': 'identifier',
@@ -330,17 +424,7 @@ class DocumentReference_Context(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'DocumentReference_Context',
-             'child_variable': 'event'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'DocumentReference_Context',
              'child_variable': 'facilityType'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DocumentReference_Context',
-             'child_variable': 'sourcePatientInfo'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
@@ -351,25 +435,42 @@ class DocumentReference_Context(fhirbase):
              'parent_variable': 'identifier',
              'child_entity': 'DocumentReference_Context',
              'child_variable': 'encounter'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DocumentReference_Context',
+             'child_variable': 'sourcePatientInfo'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DocumentReference_Context',
+             'child_variable': 'practiceSetting'},
         ]
 
 
 class DocumentReference_Related(fhirbase):
-    """A reference to a document.
+    """
+    A reference to a document.
     """
 
     __name__ = 'DocumentReference_Related'
 
     def __init__(self, dict_values=None):
-        # related resource to this documentreference. if both id and ref are
-        # present they shall refer to the same thing.
         self.ref = None
-        # reference to Reference: identifier
+        """
+        Related Resource to this DocumentReference. If both id and ref are
+        present they shall refer to the same thing.
 
-        # related identifier to this documentreference. if both id and ref are
-        # present they shall refer to the same thing.
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Related identifier to this DocumentReference. If both id and ref are
+        present they shall refer to the same thing.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)

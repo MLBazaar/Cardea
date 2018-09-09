@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class Endpoint(fhirbase):
-    """The technical details of an endpoint that can be used for electronic
+    """
+    The technical details of an endpoint that can be used for electronic
     services, such as for web services providing XDS.b or a REST endpoint
     for another FHIR server. This may include any security context
     information.
@@ -11,69 +12,105 @@ class Endpoint(fhirbase):
     __name__ = 'Endpoint'
 
     def __init__(self, dict_values=None):
-        # this is a endpoint resource
         self.resourceType = 'Endpoint'
-        # type = string
-        # possible values: Endpoint
+        """
+        This is a Endpoint resource
 
-        # active | suspended | error | off | test.
+        type: string
+        possible values: Endpoint
+        """
+
         self.status = None
-        # type = string
-        # possible values: active, suspended, error, off, entered-in-
-        # error, test
+        """
+        active | suspended | error | off | test.
 
-        # a coded value that represents the technical details of the usage of this
-        # endpoint, such as what wsdls should be used in what way. (e.g.
-        # xds.b/dicom/cds-hook).
+        type: string
+        possible values: active, suspended, error, off,
+        entered-in-error, test
+        """
+
         self.connectionType = None
-        # reference to Coding: Coding
+        """
+        A coded value that represents the technical details of the usage of
+        this endpoint, such as what WSDLs should be used in what way. (e.g.
+        XDS.b/DICOM/cds-hook).
 
-        # a friendly name that this endpoint can be referred to with.
+        reference to Coding
+        """
+
         self.name = None
-        # type = string
+        """
+        A friendly name that this endpoint can be referred to with.
 
-        # the organization that manages this endpoint (even if technically another
-        # organisation is hosting this in the cloud, it is the organisation
-        # associated with the data).
+        type: string
+        """
+
         self.managingOrganization = None
-        # reference to Reference: identifier
+        """
+        The organization that manages this endpoint (even if technically
+        another organisation is hosting this in the cloud, it is the
+        organisation associated with the data).
 
-        # contact details for a human to contact about the subscription. the
-        # primary use of this for system administrator troubleshooting.
+        reference to Reference: identifier
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactPoint: ContactPoint
+        """
+        Contact details for a human to contact about the subscription. The
+        primary use of this for system administrator troubleshooting.
 
-        # the interval during which the endpoint is expected to be operational.
+        type: array
+        reference to ContactPoint
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The interval during which the endpoint is expected to be operational.
 
-        # the payload type describes the acceptable content that can be
-        # communicated on the endpoint.
+        reference to Period
+        """
+
         self.payloadType = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The payload type describes the acceptable content that can be
+        communicated on the endpoint.
 
-        # the mime type to send the payload in - e.g. application/fhir+xml,
-        # application/fhir+json. if the mime type is not specified, then the
-        # sender could send any content (including no content depending on the
-        # connectiontype).
+        type: array
+        reference to CodeableConcept
+        """
+
         self.payloadMimeType = None
-        # type = array
+        """
+        The mime type to send the payload in - e.g. application/fhir+xml,
+        application/fhir+json. If the mime type is not specified, then the
+        sender could send any content (including no content depending on the
+        connectionType).
 
-        # the uri that describes the actual end-point to connect to.
+        type: array
+        """
+
         self.address = None
-        # type = string
+        """
+        The uri that describes the actual end-point to connect to.
 
-        # additional headers / information to send as part of the notification.
+        type: string
+        """
+
         self.header = None
-        # type = array
+        """
+        Additional headers / information to send as part of the notification.
 
-        # identifier for the organization that is used to identify the endpoint
-        # across multiple disparate systems.
+        type: array
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Identifier for the organization that is used to identify the endpoint
+        across multiple disparate systems.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -90,33 +127,33 @@ class Endpoint(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Endpoint',
+             'child_variable': 'payloadType'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Endpoint',
              'child_variable': 'managingOrganization'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Endpoint',
-             'child_variable': 'identifier'},
 
             {'parent_entity': 'ContactPoint',
              'parent_variable': 'object_id',
              'child_entity': 'Endpoint',
              'child_variable': 'contact'},
 
-            {'parent_entity': 'Period',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Endpoint',
-             'child_variable': 'period'},
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'Endpoint',
              'child_variable': 'connectionType'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Endpoint',
-             'child_variable': 'payloadType'},
+             'child_variable': 'period'},
         ]

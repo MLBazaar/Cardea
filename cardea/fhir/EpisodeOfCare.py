@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class EpisodeOfCare(fhirbase):
-    """An association between a patient and an organization / healthcare
+    """
+    An association between a patient and an organization / healthcare
     provider(s) during which time encounters may occur. The managing
     organization assumes a level of responsibility for the patient during
     this time.
@@ -11,76 +12,116 @@ class EpisodeOfCare(fhirbase):
     __name__ = 'EpisodeOfCare'
 
     def __init__(self, dict_values=None):
-        # this is a episodeofcare resource
         self.resourceType = 'EpisodeOfCare'
-        # type = string
-        # possible values: EpisodeOfCare
+        """
+        This is a EpisodeOfCare resource
 
-        # planned | waitlist | active | onhold | finished | cancelled.
+        type: string
+        possible values: EpisodeOfCare
+        """
+
         self.status = None
-        # type = string
-        # possible values: planned, waitlist, active, onhold, finished,
-        # cancelled, entered-in-error
+        """
+        planned | waitlist | active | onhold | finished | cancelled.
 
-        # the history of statuses that the episodeofcare has been through (without
-        # requiring processing the history of the resource).
+        type: string
+        possible values: planned, waitlist, active, onhold, finished,
+        cancelled, entered-in-error
+        """
+
         self.statusHistory = None
-        # type = array
-        # reference to EpisodeOfCare_StatusHistory: EpisodeOfCare_StatusHistory
+        """
+        The history of statuses that the EpisodeOfCare has been through
+        (without requiring processing the history of the resource).
 
-        # a classification of the type of episode of care; e.g. specialist
-        # referral, disease management, type of funded care.
+        type: array
+        reference to EpisodeOfCare_StatusHistory
+        """
+
         self.type = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A classification of the type of episode of care; e.g. specialist
+        referral, disease management, type of funded care.
 
-        # the list of diagnosis relevant to this episode of care.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.diagnosis = None
-        # type = array
-        # reference to EpisodeOfCare_Diagnosis: EpisodeOfCare_Diagnosis
+        """
+        The list of diagnosis relevant to this episode of care.
 
-        # the patient who is the focus of this episode of care.
+        type: array
+        reference to EpisodeOfCare_Diagnosis
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        The patient who is the focus of this episode of care.
 
-        # the organization that has assumed the specific responsibilities for the
-        # specified duration.
+        reference to Reference: identifier
+        """
+
         self.managingOrganization = None
-        # reference to Reference: identifier
+        """
+        The organization that has assumed the specific responsibilities for
+        the specified duration.
 
-        # the interval during which the managing organization assumes the defined
-        # responsibility.
+        reference to Reference: identifier
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The interval during which the managing organization assumes the
+        defined responsibility.
 
-        # referral request(s) that are fulfilled by this episodeofcare, incoming
-        # referrals.
+        reference to Period
+        """
+
         self.referralRequest = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming
+        referrals.
 
-        # the practitioner that is the care manager/care co-ordinator for this
-        # patient.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.careManager = None
-        # reference to Reference: identifier
+        """
+        The practitioner that is the care manager/care co-ordinator for this
+        patient.
 
-        # the list of practitioners that may be facilitating this episode of care
-        # for specific purposes.
+        reference to Reference: identifier
+        """
+
         self.team = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The list of practitioners that may be facilitating this episode of
+        care for specific purposes.
 
-        # the set of accounts that may be used for billing for this episodeofcare.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.account = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The set of accounts that may be used for billing for this
+        EpisodeOfCare.
 
-        # the episodeofcare may be known by different identifiers for different
-        # contexts of use, such as when an external agency is tracking the episode
-        # for funding purposes.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The EpisodeOfCare may be known by different identifiers for different
+        contexts of use, such as when an external agency is tracking the
+        Episode for funding purposes.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -102,32 +143,27 @@ class EpisodeOfCare(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EpisodeOfCare',
-             'child_variable': 'referralRequest'},
+             'child_variable': 'account'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'EpisodeOfCare',
              'child_variable': 'period'},
 
-            {'parent_entity': 'EpisodeOfCare_Diagnosis',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'EpisodeOfCare',
-             'child_variable': 'diagnosis'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'EpisodeOfCare',
-             'child_variable': 'type'},
+             'child_variable': 'referralRequest'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EpisodeOfCare',
-             'child_variable': 'careManager'},
+             'child_variable': 'managingOrganization'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
              'child_entity': 'EpisodeOfCare',
-             'child_variable': 'account'},
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'EpisodeOfCare_StatusHistory',
              'parent_variable': 'object_id',
@@ -137,27 +173,33 @@ class EpisodeOfCare(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EpisodeOfCare',
-             'child_variable': 'team'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'EpisodeOfCare',
-             'child_variable': 'identifier'},
+             'child_variable': 'careManager'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EpisodeOfCare',
              'child_variable': 'patient'},
 
+            {'parent_entity': 'EpisodeOfCare_Diagnosis',
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'diagnosis'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EpisodeOfCare',
-             'child_variable': 'managingOrganization'},
+             'child_variable': 'team'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'type'},
         ]
 
 
 class EpisodeOfCare_StatusHistory(fhirbase):
-    """An association between a patient and an organization / healthcare
+    """
+    An association between a patient and an organization / healthcare
     provider(s) during which time encounters may occur. The managing
     organization assumes a level of responsibility for the patient during
     this time.
@@ -166,18 +208,24 @@ class EpisodeOfCare_StatusHistory(fhirbase):
     __name__ = 'EpisodeOfCare_StatusHistory'
 
     def __init__(self, dict_values=None):
-        # planned | waitlist | active | onhold | finished | cancelled.
         self.status = None
-        # type = string
-        # possible values: planned, waitlist, active, onhold, finished,
-        # cancelled, entered-in-error
+        """
+        planned | waitlist | active | onhold | finished | cancelled.
 
-        # the period during this episodeofcare that the specific status applied.
+        type: string
+        possible values: planned, waitlist, active, onhold, finished,
+        cancelled, entered-in-error
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The period during this EpisodeOfCare that the specific status applied.
 
-        # unique identifier for object class
+        reference to Period
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -204,7 +252,8 @@ class EpisodeOfCare_StatusHistory(fhirbase):
 
 
 class EpisodeOfCare_Diagnosis(fhirbase):
-    """An association between a patient and an organization / healthcare
+    """
+    An association between a patient and an organization / healthcare
     provider(s) during which time encounters may occur. The managing
     organization assumes a level of responsibility for the patient during
     this time.
@@ -213,22 +262,31 @@ class EpisodeOfCare_Diagnosis(fhirbase):
     __name__ = 'EpisodeOfCare_Diagnosis'
 
     def __init__(self, dict_values=None):
-        # a list of conditions/problems/diagnoses that this episode of care is
-        # intended to be providing care for.
         self.condition = None
-        # reference to Reference: identifier
+        """
+        A list of conditions/problems/diagnoses that this episode of care is
+        intended to be providing care for.
 
-        # role that this diagnosis has within the episode of care (e.g. admission,
-        # billing, discharge …).
+        reference to Reference: identifier
+        """
+
         self.role = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Role that this diagnosis has within the episode of care (e.g.
+        admission, billing, discharge …).
 
-        # ranking of the diagnosis (for each role type).
+        reference to CodeableConcept
+        """
+
         self.rank = None
-        # type = int
+        """
+        Ranking of the diagnosis (for each role type).
 
-        # unique identifier for object class
+        type: int
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

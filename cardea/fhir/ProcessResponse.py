@@ -2,78 +2,121 @@ from .fhirbase import fhirbase
 
 
 class ProcessResponse(fhirbase):
-    """This resource provides processing status, errors and notes from the
+    """
+    This resource provides processing status, errors and notes from the
     processing of a resource.
     """
 
     __name__ = 'ProcessResponse'
 
     def __init__(self, dict_values=None):
-        # this is a processresponse resource
         self.resourceType = 'ProcessResponse'
-        # type = string
-        # possible values: ProcessResponse
+        """
+        This is a ProcessResponse resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: ProcessResponse
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the resource instance.
 
-        # the date when the enclosed suite of services were performed or
-        # completed.
+        type: string
+        """
+
         self.created = None
-        # type = string
+        """
+        The date when the enclosed suite of services were performed or
+        completed.
 
-        # the organization who produced this adjudicated response.
+        type: string
+        """
+
         self.organization = None
-        # reference to Reference: identifier
+        """
+        The organization who produced this adjudicated response.
 
-        # original request resource reference.
+        reference to Reference: identifier
+        """
+
         self.request = None
-        # reference to Reference: identifier
+        """
+        Original request resource reference.
 
-        # transaction status: error, complete, held.
+        reference to Reference: identifier
+        """
+
         self.outcome = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Transaction status: error, complete, held.
 
-        # a description of the status of the adjudication or processing.
+        reference to CodeableConcept
+        """
+
         self.disposition = None
-        # type = string
+        """
+        A description of the status of the adjudication or processing.
 
-        # the practitioner who is responsible for the services rendered to the
-        # patient.
+        type: string
+        """
+
         self.requestProvider = None
-        # reference to Reference: identifier
+        """
+        The practitioner who is responsible for the services rendered to the
+        patient.
 
-        # the organization which is responsible for the services rendered to the
-        # patient.
+        reference to Reference: identifier
+        """
+
         self.requestOrganization = None
-        # reference to Reference: identifier
+        """
+        The organization which is responsible for the services rendered to the
+        patient.
 
-        # the form to be used for printing the content.
+        reference to Reference: identifier
+        """
+
         self.form = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The form to be used for printing the content.
 
-        # suite of processing notes or additional requirements if the processing
-        # has been held.
+        reference to CodeableConcept
+        """
+
         self.processNote = None
-        # type = array
-        # reference to ProcessResponse_ProcessNote: ProcessResponse_ProcessNote
+        """
+        Suite of processing notes or additional requirements if the processing
+        has been held.
 
-        # processing errors.
+        type: array
+        reference to ProcessResponse_ProcessNote
+        """
+
         self.error = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Processing errors.
 
-        # request for additional supporting or authorizing information, such as:
-        # documents, images or resources.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.communicationRequest = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Request for additional supporting or authorizing information, such as:
+        documents, images or resources.
 
-        # the response business identifier.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The Response business identifier.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -81,21 +124,6 @@ class ProcessResponse(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ProcessResponse',
-             'child_variable': 'outcome'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ProcessResponse',
-             'child_variable': 'error'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ProcessResponse',
-             'child_variable': 'organization'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ProcessResponse',
@@ -106,51 +134,73 @@ class ProcessResponse(fhirbase):
              'child_entity': 'ProcessResponse',
              'child_variable': 'communicationRequest'},
 
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'ProcessResponse',
-             'child_variable': 'identifier'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ProcessResponse',
              'child_variable': 'form'},
 
-            {'parent_entity': 'ProcessResponse_ProcessNote',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'requestProvider'},
+
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'ProcessResponse',
-             'child_variable': 'processNote'},
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ProcessResponse',
              'child_variable': 'request'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'outcome'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ProcessResponse',
-             'child_variable': 'requestProvider'},
+             'child_variable': 'organization'},
+
+            {'parent_entity': 'ProcessResponse_ProcessNote',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'processNote'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcessResponse',
+             'child_variable': 'error'},
         ]
 
 
 class ProcessResponse_ProcessNote(fhirbase):
-    """This resource provides processing status, errors and notes from the
+    """
+    This resource provides processing status, errors and notes from the
     processing of a resource.
     """
 
     __name__ = 'ProcessResponse_ProcessNote'
 
     def __init__(self, dict_values=None):
-        # the note purpose: print/display.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The note purpose: Print/Display.
 
-        # the note text.
+        reference to CodeableConcept
+        """
+
         self.text = None
-        # type = string
+        """
+        The note text.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

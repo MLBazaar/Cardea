@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class ParameterDefinition(fhirbase):
-    """The parameters to the module. This collection specifies both the input
+    """
+    The parameters to the module. This collection specifies both the input
     and output parameters. Input parameters are provided by the caller as
     part of the $evaluate operation. Output parameters are included in the
     GuidanceResponse.
@@ -11,41 +12,62 @@ class ParameterDefinition(fhirbase):
     __name__ = 'ParameterDefinition'
 
     def __init__(self, dict_values=None):
-        # the name of the parameter used to allow access to the value of the
-        # parameter in evaluation contexts.
         self.name = None
-        # type = string
+        """
+        The name of the parameter used to allow access to the value of the
+        parameter in evaluation contexts.
 
-        # whether the parameter is input or output for the module.
+        type: string
+        """
+
         self.use = None
-        # type = string
+        """
+        Whether the parameter is input or output for the module.
 
-        # the minimum number of times this parameter shall appear in the request
-        # or response.
+        type: string
+        """
+
         self.min = None
-        # type = int
+        """
+        The minimum number of times this parameter SHALL appear in the request
+        or response.
 
-        # the maximum number of times this element is permitted to appear in the
-        # request or response.
+        type: int
+        """
+
         self.max = None
-        # type = string
+        """
+        The maximum number of times this element is permitted to appear in the
+        request or response.
 
-        # a brief discussion of what the parameter is for and how it is used by
-        # the module.
+        type: string
+        """
+
         self.documentation = None
-        # type = string
+        """
+        A brief discussion of what the parameter is for and how it is used by
+        the module.
 
-        # the type of the parameter.
+        type: string
+        """
+
         self.type = None
-        # type = string
+        """
+        The type of the parameter.
 
-        # if specified, this indicates a profile that the input data must conform
-        # to, or that the output data will conform to.
+        type: string
+        """
+
         self.profile = None
-        # reference to Reference: identifier
+        """
+        If specified, this indicates a profile that the input data must
+        conform to, or that the output data will conform to.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

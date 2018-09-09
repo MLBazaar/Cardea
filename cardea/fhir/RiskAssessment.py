@@ -2,96 +2,154 @@ from .fhirbase import fhirbase
 
 
 class RiskAssessment(fhirbase):
-    """An assessment of the likely outcome(s) for a patient or other subject as
-    well as the likelihood of each outcome.
+    """
+    An assessment of the likely outcome(s) for a patient or other subject
+    as well as the likelihood of each outcome.
     """
 
     __name__ = 'RiskAssessment'
 
     def __init__(self, dict_values=None):
-        # this is a riskassessment resource
         self.resourceType = 'RiskAssessment'
-        # type = string
-        # possible values: RiskAssessment
+        """
+        This is a RiskAssessment resource
 
-        # a reference to the request that is fulfilled by this risk assessment.
+        type: string
+        possible values: RiskAssessment
+        """
+
         self.basedOn = None
-        # reference to Reference: identifier
+        """
+        A reference to the request that is fulfilled by this risk assessment.
 
-        # a reference to a resource that this risk assessment is part of, such as
-        # a procedure.
+        reference to Reference: identifier
+        """
+
         self.parent = None
-        # reference to Reference: identifier
+        """
+        A reference to a resource that this risk assessment is part of, such
+        as a Procedure.
 
-        # the status of the riskassessment, using the same statuses as an
-        # observation.
+        reference to Reference: identifier
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the RiskAssessment, using the same statuses as an
+        Observation.
 
-        # the algorithm, process or mechanism used to evaluate the risk.
+        type: string
+        """
+
         self.method = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The algorithm, process or mechanism used to evaluate the risk.
 
-        # the type of the risk assessment performed.
+        reference to CodeableConcept
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of the risk assessment performed.
 
-        # the patient or group the risk assessment applies to.
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        The patient or group the risk assessment applies to.
 
-        # the encounter where the assessment was performed.
+        reference to Reference: identifier
+        """
+
         self.context = None
-        # reference to Reference: identifier
+        """
+        The encounter where the assessment was performed.
 
-        # the date (and possibly time) the risk assessment was performed.
+        reference to Reference: identifier
+        """
+
         self.occurrenceDateTime = None
-        # type = string
+        """
+        The date (and possibly time) the risk assessment was performed.
 
-        # the date (and possibly time) the risk assessment was performed.
+        type: string
+        """
+
         self.occurrencePeriod = None
-        # reference to Period: Period
+        """
+        The date (and possibly time) the risk assessment was performed.
 
-        # for assessments or prognosis specific to a particular condition,
-        # indicates the condition being assessed.
+        reference to Period
+        """
+
         self.condition = None
-        # reference to Reference: identifier
+        """
+        For assessments or prognosis specific to a particular condition,
+        indicates the condition being assessed.
 
-        # the provider or software application that performed the assessment.
+        reference to Reference: identifier
+        """
+
         self.performer = None
-        # reference to Reference: identifier
+        """
+        The provider or software application that performed the assessment.
 
-        # the reason the risk assessment was performed.
+        reference to Reference: identifier
+        """
+
         self.reasonCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The reason the risk assessment was performed.
 
-        # the reason the risk assessment was performed.
+        reference to CodeableConcept
+        """
+
         self.reasonReference = None
-        # reference to Reference: identifier
+        """
+        The reason the risk assessment was performed.
 
-        # indicates the source data considered as part of the assessment
-        # (familyhistory, observations, procedures, conditions, etc.).
+        reference to Reference: identifier
+        """
+
         self.basis = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Indicates the source data considered as part of the assessment
+        (FamilyHistory, Observations, Procedures, Conditions, etc.).
 
-        # describes the expected outcome for the subject.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.prediction = None
-        # type = array
-        # reference to RiskAssessment_Prediction: RiskAssessment_Prediction
+        """
+        Describes the expected outcome for the subject.
 
-        # a description of the steps that might be taken to reduce the identified
-        # risk(s).
+        type: array
+        reference to RiskAssessment_Prediction
+        """
+
         self.mitigation = None
-        # type = string
+        """
+        A description of the steps that might be taken to reduce the
+        identified risk(s).
 
-        # additional comments about the risk assessment.
+        type: string
+        """
+
         self.comment = None
-        # type = string
+        """
+        Additional comments about the risk assessment.
 
-        # business identifier assigned to the risk assessment.
+        type: string
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Business identifier assigned to the risk assessment.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -99,6 +157,26 @@ class RiskAssessment(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'RiskAssessment_Prediction',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'prediction'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'performer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'method'},
+
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'RiskAssessment',
@@ -107,7 +185,22 @@ class RiskAssessment(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'RiskAssessment',
-             'child_variable': 'basedOn'},
+             'child_variable': 'parent'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'basis'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
@@ -117,17 +210,7 @@ class RiskAssessment(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'RiskAssessment',
-             'child_variable': 'reasonReference'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'RiskAssessment',
              'child_variable': 'subject'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'RiskAssessment',
-             'child_variable': 'context'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -139,87 +222,87 @@ class RiskAssessment(fhirbase):
              'child_entity': 'RiskAssessment',
              'child_variable': 'reasonCodeableConcept'},
 
-            {'parent_entity': 'RiskAssessment_Prediction',
-             'parent_variable': 'object_id',
-             'child_entity': 'RiskAssessment',
-             'child_variable': 'prediction'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'RiskAssessment',
-             'child_variable': 'code'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'RiskAssessment',
-             'child_variable': 'basis'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'RiskAssessment',
-             'child_variable': 'performer'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'RiskAssessment',
-             'child_variable': 'parent'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'RiskAssessment',
-             'child_variable': 'method'},
+             'child_variable': 'basedOn'},
         ]
 
 
 class RiskAssessment_Prediction(fhirbase):
-    """An assessment of the likely outcome(s) for a patient or other subject as
-    well as the likelihood of each outcome.
+    """
+    An assessment of the likely outcome(s) for a patient or other subject
+    as well as the likelihood of each outcome.
     """
 
     __name__ = 'RiskAssessment_Prediction'
 
     def __init__(self, dict_values=None):
-        # one of the potential outcomes for the patient (e.g. remission, death,  a
-        # particular condition).
         self.outcome = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        One of the potential outcomes for the patient (e.g. remission, death,
+        a particular condition).
 
-        # how likely is the outcome (in the specified timeframe).
+        reference to CodeableConcept
+        """
+
         self.probabilityDecimal = None
-        # type = int
+        """
+        How likely is the outcome (in the specified timeframe).
 
-        # how likely is the outcome (in the specified timeframe).
+        type: int
+        """
+
         self.probabilityRange = None
-        # reference to Range: Range
+        """
+        How likely is the outcome (in the specified timeframe).
 
-        # how likely is the outcome (in the specified timeframe), expressed as a
-        # qualitative value (e.g. low, medium, high).
+        reference to Range
+        """
+
         self.qualitativeRisk = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        How likely is the outcome (in the specified timeframe), expressed as a
+        qualitative value (e.g. low, medium, high).
 
-        # indicates the risk for this particular subject (with their specific
-        # characteristics) divided by the risk of the population in general.
-        # (numbers greater than 1 = higher risk than the population, numbers less
-        # than 1 = lower risk.).
+        reference to CodeableConcept
+        """
+
         self.relativeRisk = None
-        # type = int
+        """
+        Indicates the risk for this particular subject (with their specific
+        characteristics) divided by the risk of the population in general.
+        (Numbers greater than 1 = higher risk than the population, numbers
+        less than 1 = lower risk.).
 
-        # indicates the period of time or age range of the subject to which the
-        # specified probability applies.
+        type: int
+        """
+
         self.whenPeriod = None
-        # reference to Period: Period
+        """
+        Indicates the period of time or age range of the subject to which the
+        specified probability applies.
 
-        # indicates the period of time or age range of the subject to which the
-        # specified probability applies.
+        reference to Period
+        """
+
         self.whenRange = None
-        # reference to Range: Range
+        """
+        Indicates the period of time or age range of the subject to which the
+        specified probability applies.
 
-        # additional information explaining the basis for the prediction.
+        reference to Range
+        """
+
         self.rationale = None
-        # type = string
+        """
+        Additional information explaining the basis for the prediction.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -230,16 +313,6 @@ class RiskAssessment_Prediction(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'RiskAssessment_Prediction',
-             'child_variable': 'outcome'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'RiskAssessment_Prediction',
-             'child_variable': 'whenPeriod'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'RiskAssessment_Prediction',
              'child_variable': 'qualitativeRisk'},
 
             {'parent_entity': 'Range',
@@ -247,8 +320,18 @@ class RiskAssessment_Prediction(fhirbase):
              'child_entity': 'RiskAssessment_Prediction',
              'child_variable': 'probabilityRange'},
 
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'whenPeriod'},
+
             {'parent_entity': 'Range',
              'parent_variable': 'object_id',
              'child_entity': 'RiskAssessment_Prediction',
              'child_variable': 'whenRange'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'outcome'},
         ]

@@ -2,125 +2,186 @@ from .fhirbase import fhirbase
 
 
 class ImagingStudy(fhirbase):
-    """Representation of the content produced in a DICOM imaging study. A study
-    comprises a set of series, each of which includes a set of Service-
-    Object Pair Instances (SOP Instances - images or other data) acquired or
-    produced in a common context.  A series is of only one modality (e.g.
-    X-ray, CT, MR, ultrasound), but a study may have multiple series of
-    different modalities.
+    """
+    Representation of the content produced in a DICOM imaging study. A
+    study comprises a set of series, each of which includes a set of
+    Service-Object Pair Instances (SOP Instances - images or other data)
+    acquired or produced in a common context.  A series is of only one
+    modality (e.g. X-ray, CT, MR, ultrasound), but a study may have
+    multiple series of different modalities.
     """
 
     __name__ = 'ImagingStudy'
 
     def __init__(self, dict_values=None):
-        # this is a imagingstudy resource
         self.resourceType = 'ImagingStudy'
-        # type = string
-        # possible values: ImagingStudy
+        """
+        This is a ImagingStudy resource
 
-        # formal identifier for the study.
+        type: string
+        possible values: ImagingStudy
+        """
+
         self.uid = None
-        # type = string
+        """
+        Formal identifier for the study.
 
-        # accession number is an identifier related to some aspect of imaging
-        # workflow and data management. usage may vary across different
-        # institutions.  see for instance [ihe radiology technical framework
-        # volume 1 appendix
-        # a](http://www.ihe.net/uploadedfiles/documents/radiology/ihe_rad_tf_rev13.0_vol1_ft_2014-07-30.pdf).
+        type: string
+        """
+
         self.accession = None
-        # reference to Identifier: Identifier
+        """
+        Accession Number is an identifier related to some aspect of imaging
+        workflow and data management. Usage may vary across different
+        institutions.  See for instance [IHE Radiology Technical Framework
+        Volume 1 Appendix
+        A](http://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Rev13.0_Vol1_FT_2014-07-30.pdf).
 
-        # availability of study (online, offline, or nearline).
+        reference to Identifier
+        """
+
         self.availability = None
-        # type = string
-        # possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
+        """
+        Availability of study (online, offline, or nearline).
 
-        # a list of all the series.imagemodality values that are actual
-        # acquisition modalities, i.e. those in the dicom context group 29 (value
-        # set oid 1.2.840.10008.6.1.19).
+        type: string
+        possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
+        """
+
         self.modalityList = None
-        # type = array
-        # reference to Coding: Coding
+        """
+        A list of all the Series.ImageModality values that are actual
+        acquisition modalities, i.e. those in the DICOM Context Group 29
+        (value set OID 1.2.840.10008.6.1.19).
 
-        # the patient imaged in the study.
+        type: array
+        reference to Coding
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        The patient imaged in the study.
 
-        # the encounter or episode at which the request is initiated.
+        reference to Reference: identifier
+        """
+
         self.context = None
-        # reference to Reference: identifier
+        """
+        The encounter or episode at which the request is initiated.
 
-        # date and time the study started.
+        reference to Reference: identifier
+        """
+
         self.started = None
-        # type = string
+        """
+        Date and time the study started.
 
-        # a list of the diagnostic requests that resulted in this imaging study
-        # being performed.
+        type: string
+        """
+
         self.basedOn = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A list of the diagnostic requests that resulted in this imaging study
+        being performed.
 
-        # the requesting/referring physician.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.referrer = None
-        # reference to Reference: identifier
+        """
+        The requesting/referring physician.
 
-        # who read the study and interpreted the images or other content.
+        reference to Reference: identifier
+        """
+
         self.interpreter = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Who read the study and interpreted the images or other content.
 
-        # the network service providing access (e.g., query, view, or retrieval)
-        # for the study. see implementation notes for information about using
-        # dicom endpoints. a study-level endpoint applies to each series in the
-        # study, unless overridden by a series-level endpoint with the same
-        # endpoint.type.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.endpoint = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The network service providing access (e.g., query, view, or retrieval)
+        for the study. See implementation notes for information about using
+        DICOM endpoints. A study-level endpoint applies to each series in the
+        study, unless overridden by a series-level endpoint with the same
+        Endpoint.type.
 
-        # number of series in the study. this value given may be larger than the
-        # number of series elements this resource contains due to resource
-        # availability, security, or other factors. this element should be present
-        # if any series elements are present.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.numberOfSeries = None
-        # type = int
+        """
+        Number of Series in the Study. This value given may be larger than the
+        number of series elements this Resource contains due to resource
+        availability, security, or other factors. This element should be
+        present if any series elements are present.
 
-        # number of sop instances in study. this value given may be larger than
-        # the number of instance elements this resource contains due to resource
-        # availability, security, or other factors. this element should be present
-        # if any instance elements are present.
+        type: int
+        """
+
         self.numberOfInstances = None
-        # type = int
+        """
+        Number of SOP Instances in Study. This value given may be larger than
+        the number of instance elements this resource contains due to resource
+        availability, security, or other factors. This element should be
+        present if any instance elements are present.
 
-        # a reference to the performed procedure.
+        type: int
+        """
+
         self.procedureReference = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A reference to the performed Procedure.
 
-        # the code for the performed procedure type.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.procedureCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The code for the performed procedure type.
 
-        # description of clinical condition indicating why the imagingstudy was
-        # requested.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.reason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Description of clinical condition indicating why the ImagingStudy was
+        requested.
 
-        # institution-generated description or classification of the study
-        # performed.
+        reference to CodeableConcept
+        """
+
         self.description = None
-        # type = string
+        """
+        Institution-generated description or classification of the Study
+        performed.
 
-        # each study has one or more series of images or other content.
+        type: string
+        """
+
         self.series = None
-        # type = array
-        # reference to ImagingStudy_Series: ImagingStudy_Series
+        """
+        Each study has one or more series of images or other content.
 
-        # other identifiers for the study.
+        type: array
+        reference to ImagingStudy_Series
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Other identifiers for the study.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -140,17 +201,7 @@ class ImagingStudy(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ImagingStudy',
-             'child_variable': 'endpoint'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ImagingStudy',
-             'child_variable': 'patient'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ImagingStudy',
-             'child_variable': 'procedureReference'},
+             'child_variable': 'context'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -160,12 +211,12 @@ class ImagingStudy(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ImagingStudy',
-             'child_variable': 'reason'},
+             'child_variable': 'procedureCode'},
 
-            {'parent_entity': 'Identifier',
+            {'parent_entity': 'ImagingStudy_Series',
              'parent_variable': 'object_id',
              'child_entity': 'ImagingStudy',
-             'child_variable': 'accession'},
+             'child_variable': 'series'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
@@ -175,7 +226,7 @@ class ImagingStudy(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ImagingStudy',
-             'child_variable': 'procedureCode'},
+             'child_variable': 'reason'},
 
             {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
@@ -185,109 +236,156 @@ class ImagingStudy(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ImagingStudy',
-             'child_variable': 'context'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ImagingStudy',
-             'child_variable': 'referrer'},
+             'child_variable': 'procedureReference'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ImagingStudy',
              'child_variable': 'interpreter'},
 
-            {'parent_entity': 'ImagingStudy_Series',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'endpoint'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'referrer'},
+
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'ImagingStudy',
-             'child_variable': 'series'},
+             'child_variable': 'accession'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy',
+             'child_variable': 'patient'},
         ]
 
 
 class ImagingStudy_Series(fhirbase):
-    """Representation of the content produced in a DICOM imaging study. A study
-    comprises a set of series, each of which includes a set of Service-
-    Object Pair Instances (SOP Instances - images or other data) acquired or
-    produced in a common context.  A series is of only one modality (e.g.
-    X-ray, CT, MR, ultrasound), but a study may have multiple series of
-    different modalities.
+    """
+    Representation of the content produced in a DICOM imaging study. A
+    study comprises a set of series, each of which includes a set of
+    Service-Object Pair Instances (SOP Instances - images or other data)
+    acquired or produced in a common context.  A series is of only one
+    modality (e.g. X-ray, CT, MR, ultrasound), but a study may have
+    multiple series of different modalities.
     """
 
     __name__ = 'ImagingStudy_Series'
 
     def __init__(self, dict_values=None):
-        # formal identifier for this series.
         self.uid = None
-        # type = string
+        """
+        Formal identifier for this series.
 
-        # the numeric identifier of this series in the study.
+        type: string
+        """
+
         self.number = None
-        # type = int
+        """
+        The numeric identifier of this series in the study.
 
-        # the modality of this series sequence.
+        type: int
+        """
+
         self.modality = None
-        # reference to Coding: Coding
+        """
+        The modality of this series sequence.
 
-        # a description of the series.
+        reference to Coding
+        """
+
         self.description = None
-        # type = string
+        """
+        A description of the series.
 
-        # number of sop instances in the study. the value given may be larger than
-        # the number of instance elements this resource contains due to resource
-        # availability, security, or other factors. this element should be present
-        # if any instance elements are present.
+        type: string
+        """
+
         self.numberOfInstances = None
-        # type = int
+        """
+        Number of SOP Instances in the Study. The value given may be larger
+        than the number of instance elements this resource contains due to
+        resource availability, security, or other factors. This element should
+        be present if any instance elements are present.
 
-        # availability of series (online, offline or nearline).
+        type: int
+        """
+
         self.availability = None
-        # type = string
-        # possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
+        """
+        Availability of series (online, offline or nearline).
 
-        # the network service providing access (e.g., query, view, or retrieval)
-        # for this series. see implementation notes for information about using
-        # dicom endpoints. a series-level endpoint, if present, has precedence
-        # over a study-level endpoint with the same endpoint.type.
+        type: string
+        possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
+        """
+
         self.endpoint = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The network service providing access (e.g., query, view, or retrieval)
+        for this series. See implementation notes for information about using
+        DICOM endpoints. A series-level endpoint, if present, has precedence
+        over a study-level endpoint with the same Endpoint.type.
 
-        # the anatomic structures examined. see dicom part 16 annex l
-        # (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_l.html)
-        # for dicom to snomed-ct mappings. the bodysite may indicate the
-        # laterality of body part imaged; if so, it shall be consistent with any
-        # content of imagingstudy.series.laterality.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.bodySite = None
-        # reference to Coding: Coding
+        """
+        The anatomic structures examined. See DICOM Part 16 Annex L
+        (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html)
+        for DICOM to SNOMED-CT mappings. The bodySite may indicate the
+        laterality of body part imaged; if so, it shall be consistent with any
+        content of ImagingStudy.series.laterality.
 
-        # the laterality of the (possibly paired) anatomic structures examined.
-        # e.g., the left knee, both lungs, or unpaired abdomen. if present, shall
-        # be consistent with any laterality information indicated in
-        # imagingstudy.series.bodysite.
+        reference to Coding
+        """
+
         self.laterality = None
-        # reference to Coding: Coding
+        """
+        The laterality of the (possibly paired) anatomic structures examined.
+        E.g., the left knee, both lungs, or unpaired abdomen. If present,
+        shall be consistent with any laterality information indicated in
+        ImagingStudy.series.bodySite.
 
-        # the date and time the series was started.
+        reference to Coding
+        """
+
         self.started = None
-        # type = string
+        """
+        The date and time the series was started.
 
-        # the physician or operator (often the radiology technician)  who
-        # performed the series. the performer is recorded at the series level,
-        # since each series in a study may be performed by a different
-        # practitioner, at different times, and using different devices. a series
-        # may be performed by multiple practitioners.
+        type: string
+        """
+
         self.performer = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The physician or operator (often the radiology technician)  who
+        performed the series. The performer is recorded at the series level,
+        since each series in a study may be performed by a different
+        practitioner, at different times, and using different devices. A
+        series may be performed by multiple practitioners.
 
-        # a single sop instance within the series, e.g. an image, or presentation
-        # state.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.instance = None
-        # type = array
-        # reference to ImagingStudy_Instance: ImagingStudy_Instance
+        """
+        A single SOP instance within the series, e.g. an image, or
+        presentation state.
 
-        # unique identifier for object class
+        type: array
+        reference to ImagingStudy_Instance
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -307,65 +405,78 @@ class ImagingStudy_Series(fhirbase):
             {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'ImagingStudy_Series',
-             'child_variable': 'bodySite'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'ImagingStudy_Series',
-             'child_variable': 'laterality'},
+             'child_variable': 'modality'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ImagingStudy_Series',
              'child_variable': 'endpoint'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ImagingStudy_Series',
-             'child_variable': 'performer'},
-
             {'parent_entity': 'ImagingStudy_Instance',
              'parent_variable': 'object_id',
              'child_entity': 'ImagingStudy_Series',
              'child_variable': 'instance'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingStudy_Series',
+             'child_variable': 'performer'},
+
             {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'ImagingStudy_Series',
-             'child_variable': 'modality'},
+             'child_variable': 'bodySite'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingStudy_Series',
+             'child_variable': 'laterality'},
         ]
 
 
 class ImagingStudy_Instance(fhirbase):
-    """Representation of the content produced in a DICOM imaging study. A study
-    comprises a set of series, each of which includes a set of Service-
-    Object Pair Instances (SOP Instances - images or other data) acquired or
-    produced in a common context.  A series is of only one modality (e.g.
-    X-ray, CT, MR, ultrasound), but a study may have multiple series of
-    different modalities.
+    """
+    Representation of the content produced in a DICOM imaging study. A
+    study comprises a set of series, each of which includes a set of
+    Service-Object Pair Instances (SOP Instances - images or other data)
+    acquired or produced in a common context.  A series is of only one
+    modality (e.g. X-ray, CT, MR, ultrasound), but a study may have
+    multiple series of different modalities.
     """
 
     __name__ = 'ImagingStudy_Instance'
 
     def __init__(self, dict_values=None):
-        # formal identifier for this image or other content.
         self.uid = None
-        # type = string
+        """
+        Formal identifier for this image or other content.
 
-        # the number of instance in the series.
+        type: string
+        """
+
         self.number = None
-        # type = int
+        """
+        The number of instance in the series.
 
-        # dicom instance  type.
+        type: int
+        """
+
         self.sopClass = None
-        # type = string
+        """
+        DICOM instance  type.
 
-        # the description of the instance.
+        type: string
+        """
+
         self.title = None
-        # type = string
+        """
+        The description of the instance.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

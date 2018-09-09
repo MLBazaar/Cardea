@@ -2,80 +2,127 @@ from .fhirbase import fhirbase
 
 
 class PaymentReconciliation(fhirbase):
-    """This resource provides payment details and claim references supporting a
-    bulk payment.
+    """
+    This resource provides payment details and claim references supporting
+    a bulk payment.
     """
 
     __name__ = 'PaymentReconciliation'
 
     def __init__(self, dict_values=None):
-        # this is a paymentreconciliation resource
         self.resourceType = 'PaymentReconciliation'
-        # type = string
-        # possible values: PaymentReconciliation
+        """
+        This is a PaymentReconciliation resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: PaymentReconciliation
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the resource instance.
 
-        # the period of time for which payments have been gathered into this bulk
-        # payment for settlement.
+        type: string
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        The period of time for which payments have been gathered into this
+        bulk payment for settlement.
 
-        # the date when the enclosed suite of services were performed or
-        # completed.
+        reference to Period
+        """
+
         self.created = None
-        # type = string
+        """
+        The date when the enclosed suite of services were performed or
+        completed.
 
-        # the insurer who produced this adjudicated response.
+        type: string
+        """
+
         self.organization = None
-        # reference to Reference: identifier
+        """
+        The Insurer who produced this adjudicated response.
 
-        # original request resource reference.
+        reference to Reference: identifier
+        """
+
         self.request = None
-        # reference to Reference: identifier
+        """
+        Original request resource reference.
 
-        # transaction status: error, complete.
+        reference to Reference: identifier
+        """
+
         self.outcome = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Transaction status: error, complete.
 
-        # a description of the status of the adjudication.
+        reference to CodeableConcept
+        """
+
         self.disposition = None
-        # type = string
+        """
+        A description of the status of the adjudication.
 
-        # the practitioner who is responsible for the services rendered to the
-        # patient.
+        type: string
+        """
+
         self.requestProvider = None
-        # reference to Reference: identifier
+        """
+        The practitioner who is responsible for the services rendered to the
+        patient.
 
-        # the organization which is responsible for the services rendered to the
-        # patient.
+        reference to Reference: identifier
+        """
+
         self.requestOrganization = None
-        # reference to Reference: identifier
+        """
+        The organization which is responsible for the services rendered to the
+        patient.
 
-        # list of individual settlement amounts and the corresponding transaction.
+        reference to Reference: identifier
+        """
+
         self.detail = None
-        # type = array
-        # reference to PaymentReconciliation_Detail: PaymentReconciliation_Detail
+        """
+        List of individual settlement amounts and the corresponding
+        transaction.
 
-        # the form to be used for printing the content.
+        type: array
+        reference to PaymentReconciliation_Detail
+        """
+
         self.form = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The form to be used for printing the content.
 
-        # total payment amount.
+        reference to CodeableConcept
+        """
+
         self.total = None
-        # reference to Money: Money
+        """
+        Total payment amount.
 
-        # suite of notes.
+        reference to Money
+        """
+
         self.processNote = None
-        # type = array
-        # reference to PaymentReconciliation_ProcessNote: PaymentReconciliation_ProcessNote
+        """
+        Suite of notes.
 
-        # the response business identifier.
+        type: array
+        reference to PaymentReconciliation_ProcessNote
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The Response business identifier.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -83,50 +130,30 @@ class PaymentReconciliation(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Money',
+            {'parent_entity': 'PaymentReconciliation_Detail',
              'parent_variable': 'object_id',
              'child_entity': 'PaymentReconciliation',
-             'child_variable': 'total'},
+             'child_variable': 'detail'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'PaymentReconciliation',
-             'child_variable': 'request'},
+             'child_variable': 'requestProvider'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'PaymentReconciliation',
              'child_variable': 'identifier'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'PaymentReconciliation',
-             'child_variable': 'organization'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'PaymentReconciliation',
              'child_variable': 'form'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'PaymentReconciliation',
-             'child_variable': 'outcome'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'PaymentReconciliation',
-             'child_variable': 'period'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'PaymentReconciliation',
-             'child_variable': 'requestOrganization'},
-
-            {'parent_entity': 'PaymentReconciliation_Detail',
-             'parent_variable': 'object_id',
-             'child_entity': 'PaymentReconciliation',
-             'child_variable': 'detail'},
+             'child_variable': 'organization'},
 
             {'parent_entity': 'PaymentReconciliation_ProcessNote',
              'parent_variable': 'object_id',
@@ -136,49 +163,91 @@ class PaymentReconciliation(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'PaymentReconciliation',
-             'child_variable': 'requestProvider'},
+             'child_variable': 'request'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'outcome'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'total'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'requestOrganization'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentReconciliation',
+             'child_variable': 'period'},
         ]
 
 
 class PaymentReconciliation_Detail(fhirbase):
-    """This resource provides payment details and claim references supporting a
-    bulk payment.
+    """
+    This resource provides payment details and claim references supporting
+    a bulk payment.
     """
 
     __name__ = 'PaymentReconciliation_Detail'
 
     def __init__(self, dict_values=None):
-        # code to indicate the nature of the payment, adjustment, funds advance,
-        # etc.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Code to indicate the nature of the payment, adjustment, funds advance,
+        etc.
 
-        # the claim or financial resource.
+        reference to CodeableConcept
+        """
+
         self.request = None
-        # reference to Reference: identifier
+        """
+        The claim or financial resource.
 
-        # the claim response resource.
+        reference to Reference: identifier
+        """
+
         self.response = None
-        # reference to Reference: identifier
+        """
+        The claim response resource.
 
-        # the organization which submitted the claim or financial transaction.
+        reference to Reference: identifier
+        """
+
         self.submitter = None
-        # reference to Reference: identifier
+        """
+        The Organization which submitted the claim or financial transaction.
 
-        # the organization which is receiving the payment.
+        reference to Reference: identifier
+        """
+
         self.payee = None
-        # reference to Reference: identifier
+        """
+        The organization which is receiving the payment.
 
-        # the date of the invoice or financial resource.
+        reference to Reference: identifier
+        """
+
         self.date = None
-        # type = string
+        """
+        The date of the invoice or financial resource.
 
-        # amount paid for this detail.
+        type: string
+        """
+
         self.amount = None
-        # reference to Money: Money
+        """
+        Amount paid for this detail.
 
-        # unique identifier for object class
+        reference to Money
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -186,20 +255,15 @@ class PaymentReconciliation_Detail(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'PaymentReconciliation_Detail',
-             'child_variable': 'type'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'PaymentReconciliation_Detail',
              'child_variable': 'payee'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
              'child_entity': 'PaymentReconciliation_Detail',
-             'child_variable': 'request'},
+             'child_variable': 'type'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -214,28 +278,40 @@ class PaymentReconciliation_Detail(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'PaymentReconciliation_Detail',
+             'child_variable': 'request'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentReconciliation_Detail',
              'child_variable': 'submitter'},
         ]
 
 
 class PaymentReconciliation_ProcessNote(fhirbase):
-    """This resource provides payment details and claim references supporting a
-    bulk payment.
+    """
+    This resource provides payment details and claim references supporting
+    a bulk payment.
     """
 
     __name__ = 'PaymentReconciliation_ProcessNote'
 
     def __init__(self, dict_values=None):
-        # the note purpose: print/display.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The note purpose: Print/Display.
 
-        # the note text.
+        reference to CodeableConcept
+        """
+
         self.text = None
-        # type = string
+        """
+        The note text.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

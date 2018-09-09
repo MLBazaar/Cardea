@@ -2,96 +2,145 @@ from .fhirbase import fhirbase
 
 
 class Sequence(fhirbase):
-    """Raw data describing a biological sequence.
+    """
+    Raw data describing a biological sequence.
     """
 
     __name__ = 'Sequence'
 
     def __init__(self, dict_values=None):
-        # this is a sequence resource
         self.resourceType = 'Sequence'
-        # type = string
-        # possible values: Sequence
+        """
+        This is a Sequence resource
 
-        # amino acid sequence/ dna sequence / rna sequence.
+        type: string
+        possible values: Sequence
+        """
+
         self.type = None
-        # type = string
-        # possible values: aa, dna, rna
+        """
+        Amino Acid Sequence/ DNA Sequence / RNA Sequence.
 
-        # whether the sequence is numbered starting at 0 (0-based numbering or
-        # coordinates, inclusive start, exclusive end) or starting at 1 (1-based
-        # numbering, inclusive start and inclusive end).
+        type: string
+        possible values: aa, dna, rna
+        """
+
         self.coordinateSystem = None
-        # type = int
+        """
+        Whether the sequence is numbered starting at 0 (0-based numbering or
+        coordinates, inclusive start, exclusive end) or starting at 1 (1-based
+        numbering, inclusive start and inclusive end).
 
-        # the patient whose sequencing results are described by this resource.
+        type: int
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        The patient whose sequencing results are described by this resource.
 
-        # specimen used for sequencing.
+        reference to Reference: identifier
+        """
+
         self.specimen = None
-        # reference to Reference: identifier
+        """
+        Specimen used for sequencing.
 
-        # the method for sequencing, for example, chip information.
+        reference to Reference: identifier
+        """
+
         self.device = None
-        # reference to Reference: identifier
+        """
+        The method for sequencing, for example, chip information.
 
-        # the organization or lab that should be responsible for this result.
+        reference to Reference: identifier
+        """
+
         self.performer = None
-        # reference to Reference: identifier
+        """
+        The organization or lab that should be responsible for this result.
 
-        # the number of copies of the seqeunce of interest. (rnaseq).
+        reference to Reference: identifier
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        The number of copies of the seqeunce of interest. (RNASeq).
 
-        # a sequence that is used as a reference to describe variants that are
-        # present in a sequence analyzed.
+        reference to Quantity
+        """
+
         self.referenceSeq = None
-        # reference to Sequence_ReferenceSeq: Sequence_ReferenceSeq
+        """
+        A sequence that is used as a reference to describe variants that are
+        present in a sequence analyzed.
 
-        # the definition of variant here originates from sequence ontology
-        # ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)).
-        # this element can represent amino acid or nucleic sequence
-        # change(including insertion,deletion,snp,etc.)  it can represent some
-        # complex mutation or segment variation with the assist of cigar string.
+        reference to Sequence_ReferenceSeq
+        """
+
         self.variant = None
-        # type = array
-        # reference to Sequence_Variant: Sequence_Variant
+        """
+        The definition of variant here originates from Sequence ontology
+        ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)).
+        This element can represent amino acid or nucleic sequence
+        change(including insertion,deletion,SNP,etc.)  It can represent some
+        complex mutation or segment variation with the assist of CIGAR string.
 
-        # sequence that was observed. it is the result marked by referenceseq
-        # along with variant records on referenceseq. this shall starts from
-        # referenceseq.windowstart and end by referenceseq.windowend.
+        type: array
+        reference to Sequence_Variant
+        """
+
         self.observedSeq = None
-        # type = string
+        """
+        Sequence that was observed. It is the result marked by referenceSeq
+        along with variant records on referenceSeq. This shall starts from
+        referenceSeq.windowStart and end by referenceSeq.windowEnd.
 
-        # an experimental feature attribute that defines the quality of the
-        # feature in a quantitative way, such as a phred quality score
-        # ([so:0001686](http://www.sequenceontology.org/browser/current_svn/term/so:0001686)).
+        type: string
+        """
+
         self.quality = None
-        # type = array
-        # reference to Sequence_Quality: Sequence_Quality
+        """
+        An experimental feature attribute that defines the quality of the
+        feature in a quantitative way, such as a phred quality score
+        ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).
 
-        # coverage (read depth or depth) is the average number of reads
-        # representing a given nucleotide in the reconstructed sequence.
+        type: array
+        reference to Sequence_Quality
+        """
+
         self.readCoverage = None
-        # type = int
+        """
+        Coverage (read depth or depth) is the average number of reads
+        representing a given nucleotide in the reconstructed sequence.
 
-        # configurations of the external repository. the repository shall store
-        # target's observedseq or records related with target's observedseq.
+        type: int
+        """
+
         self.repository = None
-        # type = array
-        # reference to Sequence_Repository: Sequence_Repository
+        """
+        Configurations of the external repository. The repository shall store
+        target's observedSeq or records related with target's observedSeq.
 
-        # pointer to next atomic sequence which at most contains one variant.
+        type: array
+        reference to Sequence_Repository
+        """
+
         self.pointer = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Pointer to next atomic sequence which at most contains one variant.
 
-        # a unique identifier for this particular sequence instance. this is a
-        # fhir-defined id.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        A unique identifier for this particular sequence instance. This is a
+        FHIR-defined id.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -111,12 +160,47 @@ class Sequence(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Sequence',
-             'child_variable': 'pointer'},
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Sequence',
+             'child_variable': 'performer'},
 
             {'parent_entity': 'Sequence_ReferenceSeq',
              'parent_variable': 'object_id',
              'child_entity': 'Sequence',
              'child_variable': 'referenceSeq'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Sequence',
+             'child_variable': 'device'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Sequence',
+             'child_variable': 'specimen'},
+
+            {'parent_entity': 'Sequence_Quality',
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence',
+             'child_variable': 'quality'},
+
+            {'parent_entity': 'Sequence_Variant',
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence',
+             'child_variable': 'variant'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence',
+             'child_variable': 'quantity'},
+
+            {'parent_entity': 'Sequence_Repository',
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence',
+             'child_variable': 'repository'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
@@ -126,101 +210,91 @@ class Sequence(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Sequence',
-             'child_variable': 'device'},
-
-            {'parent_entity': 'Sequence_Quality',
-             'parent_variable': 'object_id',
-             'child_entity': 'Sequence',
-             'child_variable': 'quality'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'Sequence',
-             'child_variable': 'quantity'},
-
-            {'parent_entity': 'Sequence_Variant',
-             'parent_variable': 'object_id',
-             'child_entity': 'Sequence',
-             'child_variable': 'variant'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Sequence',
-             'child_variable': 'specimen'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Sequence',
-             'child_variable': 'performer'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Sequence',
-             'child_variable': 'patient'},
-
-            {'parent_entity': 'Sequence_Repository',
-             'parent_variable': 'object_id',
-             'child_entity': 'Sequence',
-             'child_variable': 'repository'},
+             'child_variable': 'pointer'},
         ]
 
 
 class Sequence_ReferenceSeq(fhirbase):
-    """Raw data describing a biological sequence.
+    """
+    Raw data describing a biological sequence.
     """
 
     __name__ = 'Sequence_ReferenceSeq'
 
     def __init__(self, dict_values=None):
-        # structural unit composed of a nucleic acid molecule which controls its
-        # own replication through the interaction of specific proteins at one or
-        # more origins of replication
-        # ([so:0000340](http://www.sequenceontology.org/browser/current_svn/term/so:0000340)).
         self.chromosome = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Structural unit composed of a nucleic acid molecule which controls its
+        own replication through the interaction of specific proteins at one or
+        more origins of replication
+        ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340)).
 
-        # the genome build used for reference, following grch build versions e.g.
-        # 'grch 37'.  version number must be included if a versioned release of a
-        # primary build was used.
+        reference to CodeableConcept
+        """
+
         self.genomeBuild = None
-        # type = string
+        """
+        The Genome Build used for reference, following GRCh build versions
+        e.g. 'GRCh 37'.  Version number must be included if a versioned
+        release of a primary build was used.
 
-        # reference identifier of reference sequence submitted to ncbi. it must
-        # match the type in the sequence.type field. for example, the prefix,
-        # “ng_” identifies reference sequence for genes, “nm_” for messenger rna
-        # transcripts, and “np_” for amino acid sequences.
+        type: string
+        """
+
         self.referenceSeqId = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Reference identifier of reference sequence submitted to NCBI. It must
+        match the type in the Sequence.type field. For example, the prefix,
+        “NG_” identifies reference sequence for genes, “NM_” for messenger RNA
+        transcripts, and “NP_” for amino acid sequences.
 
-        # a pointer to another sequence entity as reference sequence.
+        reference to CodeableConcept
+        """
+
         self.referenceSeqPointer = None
-        # reference to Reference: identifier
+        """
+        A Pointer to another Sequence entity as reference sequence.
 
-        # a string like "acgt".
+        reference to Reference: identifier
+        """
+
         self.referenceSeqString = None
-        # type = string
+        """
+        A string like "ACGT".
 
-        # directionality of dna sequence. available values are "1" for the plus
-        # strand (5' to 3')/watson/sense/positive  and "-1" for the minus
-        # strand(3' to 5')/crick/antisense/negative.
+        type: string
+        """
+
         self.strand = None
-        # type = int
+        """
+        Directionality of DNA sequence. Available values are "1" for the plus
+        strand (5' to 3')/Watson/Sense/positive  and "-1" for the minus
+        strand(3' to 5')/Crick/Antisense/negative.
 
-        # start position of the window on the reference sequence. if the
-        # coordinate system is either 0-based or 1-based, then start position is
-        # inclusive.
+        type: int
+        """
+
         self.windowStart = None
-        # type = int
+        """
+        Start position of the window on the reference sequence. If the
+        coordinate system is either 0-based or 1-based, then start position is
+        inclusive.
 
-        # end position of the window on the reference sequence. if the coordinate
-        # system is 0-based then end is is exclusive and does not include the last
-        # position. if the coordinate system is 1-base, then end is inclusive and
-        # includes the last position.
+        type: int
+        """
+
         self.windowEnd = None
-        # type = int
+        """
+        End position of the window on the reference sequence. If the
+        coordinate system is 0-based then end is is exclusive and does not
+        include the last position. If the coordinate system is 1-base, then
+        end is inclusive and includes the last position.
 
-        # unique identifier for object class
+        type: int
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -236,67 +310,86 @@ class Sequence_ReferenceSeq(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Sequence_ReferenceSeq',
-             'child_variable': 'chromosome'},
+             'child_variable': 'referenceSeqId'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Sequence_ReferenceSeq',
-             'child_variable': 'referenceSeqId'},
+             'child_variable': 'chromosome'},
         ]
 
 
 class Sequence_Variant(fhirbase):
-    """Raw data describing a biological sequence.
+    """
+    Raw data describing a biological sequence.
     """
 
     __name__ = 'Sequence_Variant'
 
     def __init__(self, dict_values=None):
-        # start position of the variant on the  reference sequence.if the
-        # coordinate system is either 0-based or 1-based, then start position is
-        # inclusive.
         self.start = None
-        # type = int
+        """
+        Start position of the variant on the  reference sequence.If the
+        coordinate system is either 0-based or 1-based, then start position is
+        inclusive.
 
-        # end position of the variant on the reference sequence.if the coordinate
-        # system is 0-based then end is is exclusive and does not include the last
-        # position. if the coordinate system is 1-base, then end is inclusive and
-        # includes the last position.
+        type: int
+        """
+
         self.end = None
-        # type = int
+        """
+        End position of the variant on the reference sequence.If the
+        coordinate system is 0-based then end is is exclusive and does not
+        include the last position. If the coordinate system is 1-base, then
+        end is inclusive and includes the last position.
 
-        # an allele is one of a set of coexisting sequence variants of a gene
-        # ([so:0001023](http://www.sequenceontology.org/browser/current_svn/term/so:0001023)).
-        # nucleotide(s)/amino acids from start position of sequence to stop
-        # position of sequence on the positive (+) strand of the observed
-        # sequence. when the sequence  type is dna, it should be the sequence on
-        # the positive (+) strand. this will lay in the range between
-        # variant.start and variant.end.
+        type: int
+        """
+
         self.observedAllele = None
-        # type = string
+        """
+        An allele is one of a set of coexisting sequence variants of a gene
+        ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)).
+        Nucleotide(s)/amino acids from start position of sequence to stop
+        position of sequence on the positive (+) strand of the observed
+        sequence. When the sequence  type is DNA, it should be the sequence on
+        the positive (+) strand. This will lay in the range between
+        variant.start and variant.end.
 
-        # an allele is one of a set of coexisting sequence variants of a gene
-        # ([so:0001023](http://www.sequenceontology.org/browser/current_svn/term/so:0001023)).
-        # nucleotide(s)/amino acids from start position of sequence to stop
-        # position of sequence on the positive (+) strand of the reference
-        # sequence. when the sequence  type is dna, it should be the sequence on
-        # the positive (+) strand. this will lay in the range between
-        # variant.start and variant.end.
+        type: string
+        """
+
         self.referenceAllele = None
-        # type = string
+        """
+        An allele is one of a set of coexisting sequence variants of a gene
+        ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)).
+        Nucleotide(s)/amino acids from start position of sequence to stop
+        position of sequence on the positive (+) strand of the reference
+        sequence. When the sequence  type is DNA, it should be the sequence on
+        the positive (+) strand. This will lay in the range between
+        variant.start and variant.end.
 
-        # extended cigar string for aligning the sequence with reference bases.
-        # see detailed documentation
-        # [here](http://support.illumina.com/help/sequencinganalysisworkflow/content/vault/informatics/sequencing_analysis/casava/swseq_mca_extendedcigarformat.htm).
+        type: string
+        """
+
         self.cigar = None
-        # type = string
+        """
+        Extended CIGAR string for aligning the sequence with reference bases.
+        See detailed documentation
+        [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).
 
-        # a pointer to an observation containing variant information.
+        type: string
+        """
+
         self.variantPointer = None
-        # reference to Reference: identifier
+        """
+        A pointer to an Observation containing variant information.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -312,92 +405,137 @@ class Sequence_Variant(fhirbase):
 
 
 class Sequence_Quality(fhirbase):
-    """Raw data describing a biological sequence.
+    """
+    Raw data describing a biological sequence.
     """
 
     __name__ = 'Sequence_Quality'
 
     def __init__(self, dict_values=None):
-        # indel / snp / undefined variant.
         self.type = None
-        # type = string
-        # possible values: indel, snp, unknown
+        """
+        INDEL / SNP / Undefined variant.
 
-        # gold standard sequence used for comparing against.
+        type: string
+        possible values: indel, snp, unknown
+        """
+
         self.standardSequence = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Gold standard sequence used for comparing against.
 
-        # start position of the sequence. if the coordinate system is either
-        # 0-based or 1-based, then start position is inclusive.
+        reference to CodeableConcept
+        """
+
         self.start = None
-        # type = int
+        """
+        Start position of the sequence. If the coordinate system is either
+        0-based or 1-based, then start position is inclusive.
 
-        # end position of the sequence.if the coordinate system is 0-based then
-        # end is is exclusive and does not include the last position. if the
-        # coordinate system is 1-base, then end is inclusive and includes the last
-        # position.
+        type: int
+        """
+
         self.end = None
-        # type = int
+        """
+        End position of the sequence.If the coordinate system is 0-based then
+        end is is exclusive and does not include the last position. If the
+        coordinate system is 1-base, then end is inclusive and includes the
+        last position.
 
-        # the score of an experimentally derived feature such as a p-value
-        # ([so:0001685](http://www.sequenceontology.org/browser/current_svn/term/so:0001685)).
+        type: int
+        """
+
         self.score = None
-        # reference to Quantity: Quantity
+        """
+        The score of an experimentally derived feature such as a p-value
+        ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).
 
-        # which method is used to get sequence quality.
+        reference to Quantity
+        """
+
         self.method = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Which method is used to get sequence quality.
 
-        # true positives, from the perspective of the truth data, i.e. the number
-        # of sites in the truth call set for which there are paths through the
-        # query call set that are consistent with all of the alleles at this site,
-        # and for which there is an accurate genotype call for the event.
+        reference to CodeableConcept
+        """
+
         self.truthTP = None
-        # type = int
+        """
+        True positives, from the perspective of the truth data, i.e. the
+        number of sites in the Truth Call Set for which there are paths
+        through the Query Call Set that are consistent with all of the alleles
+        at this site, and for which there is an accurate genotype call for the
+        event.
 
-        # true positives, from the perspective of the query data, i.e. the number
-        # of sites in the query call set for which there are paths through the
-        # truth call set that are consistent with all of the alleles at this site,
-        # and for which there is an accurate genotype call for the event.
+        type: int
+        """
+
         self.queryTP = None
-        # type = int
+        """
+        True positives, from the perspective of the query data, i.e. the
+        number of sites in the Query Call Set for which there are paths
+        through the Truth Call Set that are consistent with all of the alleles
+        at this site, and for which there is an accurate genotype call for the
+        event.
 
-        # false negatives, i.e. the number of sites in the truth call set for
-        # which there is no path through the query call set that is consistent
-        # with all of the alleles at this site, or sites for which there is an
-        # inaccurate genotype call for the event. sites with correct variant but
-        # incorrect genotype are counted here.
+        type: int
+        """
+
         self.truthFN = None
-        # type = int
+        """
+        False negatives, i.e. the number of sites in the Truth Call Set for
+        which there is no path through the Query Call Set that is consistent
+        with all of the alleles at this site, or sites for which there is an
+        inaccurate genotype call for the event. Sites with correct variant but
+        incorrect genotype are counted here.
 
-        # false positives, i.e. the number of sites in the query call set for
-        # which there is no path through the truth call set that is consistent
-        # with this site. sites with correct variant but incorrect genotype are
-        # counted here.
+        type: int
+        """
+
         self.queryFP = None
-        # type = int
+        """
+        False positives, i.e. the number of sites in the Query Call Set for
+        which there is no path through the Truth Call Set that is consistent
+        with this site. Sites with correct variant but incorrect genotype are
+        counted here.
 
-        # the number of false positives where the non-ref alleles in the truth and
-        # query call sets match (i.e. cases where the truth is 1/1 and the query
-        # is 0/1 or similar).
+        type: int
+        """
+
         self.gtFP = None
-        # type = int
+        """
+        The number of false positives where the non-REF alleles in the Truth
+        and Query Call Sets match (i.e. cases where the truth is 1/1 and the
+        query is 0/1 or similar).
 
-        # query.tp / (query.tp + query.fp).
+        type: int
+        """
+
         self.precision = None
-        # type = int
+        """
+        QUERY.TP / (QUERY.TP + QUERY.FP).
 
-        # truth.tp / (truth.tp + truth.fn).
+        type: int
+        """
+
         self.recall = None
-        # type = int
+        """
+        TRUTH.TP / (TRUTH.TP + TRUTH.FN).
 
-        # harmonic mean of recall and precision, computed as: 2 * precision *
-        # recall / (precision + recall).
+        type: int
+        """
+
         self.fScore = None
-        # type = int
+        """
+        Harmonic mean of Recall and Precision, computed as: 2 * precision *
+        recall / (precision + recall).
 
-        # unique identifier for object class
+        type: int
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -414,11 +552,6 @@ class Sequence_Quality(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'Sequence_Quality',
-             'child_variable': 'score'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Sequence_Quality',
@@ -428,50 +561,74 @@ class Sequence_Quality(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Sequence_Quality',
              'child_variable': 'standardSequence'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Sequence_Quality',
+             'child_variable': 'score'},
         ]
 
 
 class Sequence_Repository(fhirbase):
-    """Raw data describing a biological sequence.
+    """
+    Raw data describing a biological sequence.
     """
 
     __name__ = 'Sequence_Repository'
 
     def __init__(self, dict_values=None):
-        # click and see / restful api / need login to see / restful api with
-        # authentication / other ways to see resource.
         self.type = None
-        # type = string
-        # possible values: directlink, openapi, login, oauth, other
+        """
+        Click and see / RESTful API / Need login to see / RESTful API with
+        authentication / Other ways to see resource.
 
-        # uri of an external repository which contains further details about the
-        # genetics data.
+        type: string
+        possible values: directlink, openapi, login, oauth, other
+        """
+
         self.url = None
-        # type = string
+        """
+        URI of an external repository which contains further details about the
+        genetics data.
 
-        # uri of an external repository which contains further details about the
-        # genetics data.
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        URI of an external repository which contains further details about the
+        genetics data.
 
-        # id of the variant in this external repository. the server will
-        # understand how to use this id to call for more info about datasets in
-        # external repository.
+        type: string
+        """
+
         self.datasetId = None
-        # type = string
+        """
+        Id of the variant in this external repository. The server will
+        understand how to use this id to call for more info about datasets in
+        external repository.
 
-        # id of the variantset in this external repository. the server will
-        # understand how to use this id to call for more info about variantsets in
-        # external repository.
+        type: string
+        """
+
         self.variantsetId = None
-        # type = string
+        """
+        Id of the variantset in this external repository. The server will
+        understand how to use this id to call for more info about variantsets
+        in external repository.
 
-        # id of the read in this external repository.
+        type: string
+        """
+
         self.readsetId = None
-        # type = string
+        """
+        Id of the read in this external repository.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

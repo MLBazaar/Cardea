@@ -2,106 +2,158 @@ from .fhirbase import fhirbase
 
 
 class Coverage(fhirbase):
-    """Financial instrument which may be used to reimburse or pay for health
+    """
+    Financial instrument which may be used to reimburse or pay for health
     care products and services.
     """
 
     __name__ = 'Coverage'
 
     def __init__(self, dict_values=None):
-        # this is a coverage resource
         self.resourceType = 'Coverage'
-        # type = string
-        # possible values: Coverage
+        """
+        This is a Coverage resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: Coverage
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the resource instance.
 
-        # the type of coverage: social program, medical plan, accident coverage
-        # (workers compensation, auto), group health or payment by an individual
-        # or organization.
+        type: string
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of coverage: social program, medical plan, accident coverage
+        (workers compensation, auto), group health or payment by an individual
+        or organization.
 
-        # the party who 'owns' the insurance policy,  may be an individual,
-        # corporation or the subscriber's employer.
+        reference to CodeableConcept
+        """
+
         self.policyHolder = None
-        # reference to Reference: identifier
+        """
+        The party who 'owns' the insurance policy,  may be an individual,
+        corporation or the subscriber's employer.
 
-        # the party who has signed-up for or 'owns' the contractual relationship
-        # to the policy or to whom the benefit of the policy for services rendered
-        # to them or their family is due.
+        reference to Reference: identifier
+        """
+
         self.subscriber = None
-        # reference to Reference: identifier
+        """
+        The party who has signed-up for or 'owns' the contractual relationship
+        to the policy or to whom the benefit of the policy for services
+        rendered to them or their family is due.
 
-        # the insurer assigned id for the subscriber.
+        reference to Reference: identifier
+        """
+
         self.subscriberId = None
-        # type = string
+        """
+        The insurer assigned ID for the Subscriber.
 
-        # the party who benefits from the insurance coverage., the patient when
-        # services are provided.
+        type: string
+        """
+
         self.beneficiary = None
-        # reference to Reference: identifier
+        """
+        The party who benefits from the insurance coverage., the patient when
+        services are provided.
 
-        # the relationship of beneficiary (patient) to the subscriber.
+        reference to Reference: identifier
+        """
+
         self.relationship = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The relationship of beneficiary (patient) to the subscriber.
 
-        # time period during which the coverage is in force. a missing start date
-        # indicates the start date isn't known, a missing end date means the
-        # coverage is continuing to be in force.
+        reference to CodeableConcept
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        Time period during which the coverage is in force. A missing start
+        date indicates the start date isn't known, a missing end date means
+        the coverage is continuing to be in force.
 
-        # the program or plan underwriter or payor including both insurance and
-        # non-insurance agreements, such as patient-pay agreements. may provide
-        # multiple identifiers such as insurance company identifier or business
-        # identifier (bin number).
+        reference to Period
+        """
+
         self.payor = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The program or plan underwriter or payor including both insurance and
+        non-insurance agreements, such as patient-pay agreements. May provide
+        multiple identifiers such as insurance company identifier or business
+        identifier (BIN number).
 
-        # a suite of underwrite specific classifiers, for example may be used to
-        # identify a class of coverage or employer group, policy, plan.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.grouping = None
-        # reference to Coverage_Grouping: Coverage_Grouping
+        """
+        A suite of underwrite specific classifiers, for example may be used to
+        identify a class of coverage or employer group, Policy, Plan.
 
-        # a unique identifier for a dependent under the coverage.
+        reference to Coverage_Grouping
+        """
+
         self.dependent = None
-        # type = string
+        """
+        A unique identifier for a dependent under the coverage.
 
-        # an optional counter for a particular instance of the identified coverage
-        # which increments upon each renewal.
+        type: string
+        """
+
         self.sequence = None
-        # type = string
+        """
+        An optional counter for a particular instance of the identified
+        coverage which increments upon each renewal.
 
-        # the order of applicability of this coverage relative to other coverages
-        # which are currently inforce. note, there may be gaps in the numbering
-        # and this does not imply primary, secondard etc. as the specific
-        # positioning of coverages depends upon the episode of care.
+        type: string
+        """
+
         self.order = None
-        # type = int
+        """
+        The order of applicability of this coverage relative to other
+        coverages which are currently inforce. Note, there may be gaps in the
+        numbering and this does not imply primary, secondard etc. as the
+        specific positioning of coverages depends upon the episode of care.
 
-        # the insurer-specific identifier for the insurer-defined network of
-        # providers to which the beneficiary may seek treatment which will be
-        # covered at the 'in-network' rate, otherwise 'out of network' terms and
-        # conditions apply.
+        type: int
+        """
+
         self.network = None
-        # type = string
+        """
+        The insurer-specific identifier for the insurer-defined network of
+        providers to which the beneficiary may seek treatment which will be
+        covered at the 'in-network' rate, otherwise 'out of network' terms and
+        conditions apply.
 
-        # the policy(s) which constitute this insurance coverage.
+        type: string
+        """
+
         self.contract = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The policy(s) which constitute this insurance coverage.
 
-        # the main (and possibly only) identifier for the coverage - often
-        # referred to as a member id, certificate number, personal health number
-        # or case id. may be constructed as the concatination of the
-        # coverage.subscriberid and the coverage.dependant.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The main (and possibly only) identifier for the coverage - often
+        referred to as a Member Id, Certificate number, Personal Health Number
+        or Case ID. May be constructed as the concatination of the
+        Coverage.SubscriberID and the Coverage.dependant.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -109,30 +161,25 @@ class Coverage(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Coverage',
-             'child_variable': 'subscriber'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Coverage',
-             'child_variable': 'identifier'},
-
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Coverage',
              'child_variable': 'period'},
+
+            {'parent_entity': 'Coverage_Grouping',
+             'parent_variable': 'object_id',
+             'child_entity': 'Coverage',
+             'child_variable': 'grouping'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Coverage',
              'child_variable': 'contract'},
 
-            {'parent_entity': 'Coverage_Grouping',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'Coverage',
-             'child_variable': 'grouping'},
+             'child_variable': 'subscriber'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -142,12 +189,12 @@ class Coverage(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Coverage',
-             'child_variable': 'policyHolder'},
+             'child_variable': 'beneficiary'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Coverage',
-             'child_variable': 'payor'},
+             'child_variable': 'policyHolder'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -157,79 +204,123 @@ class Coverage(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Coverage',
-             'child_variable': 'beneficiary'},
+             'child_variable': 'payor'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Coverage',
+             'child_variable': 'identifier'},
         ]
 
 
 class Coverage_Grouping(fhirbase):
-    """Financial instrument which may be used to reimburse or pay for health
+    """
+    Financial instrument which may be used to reimburse or pay for health
     care products and services.
     """
 
     __name__ = 'Coverage_Grouping'
 
     def __init__(self, dict_values=None):
-        # identifies a style or collective of coverage issued by the underwriter,
-        # for example may be used to identify an employer group. may also be
-        # referred to as a policy or group id.
         self.group = None
-        # type = string
+        """
+        Identifies a style or collective of coverage issued by the
+        underwriter, for example may be used to identify an employer group.
+        May also be referred to as a Policy or Group ID.
 
-        # a short description for the group.
+        type: string
+        """
+
         self.groupDisplay = None
-        # type = string
+        """
+        A short description for the group.
 
-        # identifies a style or collective of coverage issued by the underwriter,
-        # for example may be used to identify a subset of an employer group.
+        type: string
+        """
+
         self.subGroup = None
-        # type = string
+        """
+        Identifies a style or collective of coverage issued by the
+        underwriter, for example may be used to identify a subset of an
+        employer group.
 
-        # a short description for the subgroup.
+        type: string
+        """
+
         self.subGroupDisplay = None
-        # type = string
+        """
+        A short description for the subgroup.
 
-        # identifies a style or collective of coverage issued by the underwriter,
-        # for example may be used to identify a collection of benefits provided to
-        # employees. may be referred to as a section or division id.
+        type: string
+        """
+
         self.plan = None
-        # type = string
+        """
+        Identifies a style or collective of coverage issued by the
+        underwriter, for example may be used to identify a collection of
+        benefits provided to employees. May be referred to as a Section or
+        Division ID.
 
-        # a short description for the plan.
+        type: string
+        """
+
         self.planDisplay = None
-        # type = string
+        """
+        A short description for the plan.
 
-        # identifies a sub-style or sub-collective of coverage issued by the
-        # underwriter, for example may be used to identify a subset of a
-        # collection of benefits provided to employees.
+        type: string
+        """
+
         self.subPlan = None
-        # type = string
+        """
+        Identifies a sub-style or sub-collective of coverage issued by the
+        underwriter, for example may be used to identify a subset of a
+        collection of benefits provided to employees.
 
-        # a short description for the subplan.
+        type: string
+        """
+
         self.subPlanDisplay = None
-        # type = string
+        """
+        A short description for the subplan.
 
-        # identifies a style or collective of coverage issues by the underwriter,
-        # for example may be used to identify a class of coverage such as a level
-        # of deductables or co-payment.
+        type: string
+        """
+
         self._class = None
-        # type = string
+        """
+        Identifies a style or collective of coverage issues by the
+        underwriter, for example may be used to identify a class of coverage
+        such as a level of deductables or co-payment.
 
-        # a short description for the class.
+        type: string
+        """
+
         self.classDisplay = None
-        # type = string
+        """
+        A short description for the class.
 
-        # identifies a sub-style or sub-collective of coverage issues by the
-        # underwriter, for example may be used to identify a subclass of coverage
-        # such as a sub-level of deductables or co-payment.
+        type: string
+        """
+
         self.subClass = None
-        # type = string
+        """
+        Identifies a sub-style or sub-collective of coverage issues by the
+        underwriter, for example may be used to identify a subclass of
+        coverage such as a sub-level of deductables or co-payment.
 
-        # a short description for the subclass.
+        type: string
+        """
+
         self.subClassDisplay = None
-        # type = string
+        """
+        A short description for the subclass.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

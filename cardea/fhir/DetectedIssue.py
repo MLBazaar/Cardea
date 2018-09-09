@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class DetectedIssue(fhirbase):
-    """Indicates an actual or potential clinical issue with or between one or
+    """
+    Indicates an actual or potential clinical issue with or between one or
     more active or proposed clinical actions for a patient; e.g. Drug-drug
     interaction, Ineffective treatment frequency, Procedure-condition
     conflict, etc.
@@ -11,66 +12,103 @@ class DetectedIssue(fhirbase):
     __name__ = 'DetectedIssue'
 
     def __init__(self, dict_values=None):
-        # this is a detectedissue resource
         self.resourceType = 'DetectedIssue'
-        # type = string
-        # possible values: DetectedIssue
+        """
+        This is a DetectedIssue resource
 
-        # indicates the status of the detected issue.
+        type: string
+        possible values: DetectedIssue
+        """
+
         self.status = None
-        # type = string
+        """
+        Indicates the status of the detected issue.
 
-        # identifies the general type of issue identified.
+        type: string
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Identifies the general type of issue identified.
 
-        # indicates the degree of importance associated with the identified issue
-        # based on the potential impact on the patient.
+        reference to CodeableConcept
+        """
+
         self.severity = None
-        # type = string
-        # possible values: high, moderate, low
+        """
+        Indicates the degree of importance associated with the identified
+        issue based on the potential impact on the patient.
 
-        # indicates the patient whose record the detected issue is associated
-        # with.
+        type: string
+        possible values: high, moderate, low
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        Indicates the patient whose record the detected issue is associated
+        with.
 
-        # the date or date-time when the detected issue was initially identified.
+        reference to Reference: identifier
+        """
+
         self.date = None
-        # type = string
+        """
+        The date or date-time when the detected issue was initially
+        identified.
 
-        # individual or device responsible for the issue being raised.  for
-        # example, a decision support application or a pharmacist conducting a
-        # medication review.
+        type: string
+        """
+
         self.author = None
-        # reference to Reference: identifier
+        """
+        Individual or device responsible for the issue being raised.  For
+        example, a decision support application or a pharmacist conducting a
+        medication review.
 
-        # indicates the resource representing the current activity or proposed
-        # activity that is potentially problematic.
+        reference to Reference: identifier
+        """
+
         self.implicated = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Indicates the resource representing the current activity or proposed
+        activity that is potentially problematic.
 
-        # a textual explanation of the detected issue.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.detail = None
-        # type = string
+        """
+        A textual explanation of the detected issue.
 
-        # the literature, knowledge-base or similar reference that describes the
-        # propensity for the detected issue identified.
+        type: string
+        """
+
         self.reference = None
-        # type = string
+        """
+        The literature, knowledge-base or similar reference that describes the
+        propensity for the detected issue identified.
 
-        # indicates an action that has been taken or is committed to to reduce or
-        # eliminate the likelihood of the risk identified by the detected issue
-        # from manifesting.  can also reflect an observation of known mitigating
-        # factors that may reduce/eliminate the need for any action.
+        type: string
+        """
+
         self.mitigation = None
-        # type = array
-        # reference to DetectedIssue_Mitigation: DetectedIssue_Mitigation
+        """
+        Indicates an action that has been taken or is committed to to reduce
+        or eliminate the likelihood of the risk identified by the detected
+        issue from manifesting.  Can also reflect an observation of known
+        mitigating factors that may reduce/eliminate the need for any action.
 
-        # business identifier associated with the detected issue record.
+        type: array
+        reference to DetectedIssue_Mitigation
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Business identifier associated with the detected issue record.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -87,10 +125,20 @@ class DetectedIssue(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
+            {'parent_entity': 'DetectedIssue_Mitigation',
              'parent_variable': 'object_id',
              'child_entity': 'DetectedIssue',
-             'child_variable': 'identifier'},
+             'child_variable': 'mitigation'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DetectedIssue',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DetectedIssue',
+             'child_variable': 'author'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -102,25 +150,16 @@ class DetectedIssue(fhirbase):
              'child_entity': 'DetectedIssue',
              'child_variable': 'category'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DetectedIssue',
-             'child_variable': 'author'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'DetectedIssue',
-             'child_variable': 'patient'},
-
-            {'parent_entity': 'DetectedIssue_Mitigation',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'DetectedIssue',
-             'child_variable': 'mitigation'},
+             'child_variable': 'identifier'},
         ]
 
 
 class DetectedIssue_Mitigation(fhirbase):
-    """Indicates an actual or potential clinical issue with or between one or
+    """
+    Indicates an actual or potential clinical issue with or between one or
     more active or proposed clinical actions for a patient; e.g. Drug-drug
     interaction, Ineffective treatment frequency, Procedure-condition
     conflict, etc.
@@ -129,22 +168,31 @@ class DetectedIssue_Mitigation(fhirbase):
     __name__ = 'DetectedIssue_Mitigation'
 
     def __init__(self, dict_values=None):
-        # describes the action that was taken or the observation that was made
-        # that reduces/eliminates the risk associated with the identified issue.
         self.action = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Describes the action that was taken or the observation that was made
+        that reduces/eliminates the risk associated with the identified issue.
 
-        # indicates when the mitigating action was documented.
+        reference to CodeableConcept
+        """
+
         self.date = None
-        # type = string
+        """
+        Indicates when the mitigating action was documented.
 
-        # identifies the practitioner who determined the mitigation and takes
-        # responsibility for the mitigation step occurring.
+        type: string
+        """
+
         self.author = None
-        # reference to Reference: identifier
+        """
+        Identifies the practitioner who determined the mitigation and takes
+        responsibility for the mitigation step occurring.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

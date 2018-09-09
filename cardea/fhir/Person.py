@@ -2,65 +2,99 @@ from .fhirbase import fhirbase
 
 
 class Person(fhirbase):
-    """Demographics and administrative information about a person independent
+    """
+    Demographics and administrative information about a person independent
     of a specific health-related context.
     """
 
     __name__ = 'Person'
 
     def __init__(self, dict_values=None):
-        # this is a person resource
         self.resourceType = 'Person'
-        # type = string
-        # possible values: Person
+        """
+        This is a Person resource
 
-        # a name associated with the person.
+        type: string
+        possible values: Person
+        """
+
         self.name = None
-        # type = array
-        # reference to HumanName: HumanName
+        """
+        A name associated with the person.
 
-        # a contact detail for the person, e.g. a telephone number or an email
-        # address.
+        type: array
+        reference to HumanName
+        """
+
         self.telecom = None
-        # type = array
-        # reference to ContactPoint: ContactPoint
+        """
+        A contact detail for the person, e.g. a telephone number or an email
+        address.
 
-        # administrative gender.
+        type: array
+        reference to ContactPoint
+        """
+
         self.gender = None
-        # type = string
-        # possible values: male, female, other, unknown
+        """
+        Administrative Gender.
 
-        # the birth date for the person.
+        type: string
+        possible values: male, female, other, unknown
+        """
+
         self.birthDate = None
-        # type = string
+        """
+        The birth date for the person.
 
-        # one or more addresses for the person.
+        type: string
+        """
+
         self.address = None
-        # type = array
-        # reference to Address: Address
+        """
+        One or more addresses for the person.
 
-        # an image that can be displayed as a thumbnail of the person to enhance
-        # the identification of the individual.
+        type: array
+        reference to Address
+        """
+
         self.photo = None
-        # reference to Attachment: Attachment
+        """
+        An image that can be displayed as a thumbnail of the person to enhance
+        the identification of the individual.
 
-        # the organization that is the custodian of the person record.
+        reference to Attachment
+        """
+
         self.managingOrganization = None
-        # reference to Reference: identifier
+        """
+        The organization that is the custodian of the person record.
 
-        # whether this person's record is in active use.
+        reference to Reference: identifier
+        """
+
         self.active = None
-        # type = boolean
+        """
+        Whether this person's record is in active use.
 
-        # link to a resource that concerns the same actual person.
+        type: boolean
+        """
+
         self.link = None
-        # type = array
-        # reference to Person_Link: Person_Link
+        """
+        Link to a resource that concerns the same actual person.
 
-        # identifier for a person within a particular scope.
+        type: array
+        reference to Person_Link
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Identifier for a person within a particular scope.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -77,63 +111,70 @@ class Person(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'Person',
-             'child_variable': 'photo'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Person',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Address',
-             'parent_variable': 'object_id',
-             'child_entity': 'Person',
-             'child_variable': 'address'},
-
-            {'parent_entity': 'HumanName',
-             'parent_variable': 'object_id',
-             'child_entity': 'Person',
-             'child_variable': 'name'},
+             'child_variable': 'managingOrganization'},
 
             {'parent_entity': 'ContactPoint',
              'parent_variable': 'object_id',
              'child_entity': 'Person',
              'child_variable': 'telecom'},
 
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'identifier'},
+
             {'parent_entity': 'Person_Link',
              'parent_variable': 'object_id',
              'child_entity': 'Person',
              'child_variable': 'link'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
              'child_entity': 'Person',
-             'child_variable': 'managingOrganization'},
+             'child_variable': 'photo'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'name'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'address'},
         ]
 
 
 class Person_Link(fhirbase):
-    """Demographics and administrative information about a person independent
+    """
+    Demographics and administrative information about a person independent
     of a specific health-related context.
     """
 
     __name__ = 'Person_Link'
 
     def __init__(self, dict_values=None):
-        # the resource to which this actual person is associated.
         self.target = None
-        # reference to Reference: identifier
+        """
+        The resource to which this actual person is associated.
 
-        # level of assurance that this link is actually associated with the target
-        # resource.
+        reference to Reference: identifier
+        """
+
         self.assurance = None
-        # type = string
-        # possible values: level1, level2, level3, level4
+        """
+        Level of assurance that this link is actually associated with the
+        target resource.
 
-        # unique identifier for object class
+        type: string
+        possible values: level1, level2, level3, level4
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

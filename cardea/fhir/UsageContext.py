@@ -2,37 +2,51 @@ from .fhirbase import fhirbase
 
 
 class UsageContext(fhirbase):
-    """Specifies clinical/business/etc metadata that can be used to retrieve,
+    """
+    Specifies clinical/business/etc metadata that can be used to retrieve,
     index and/or categorize an artifact. This metadata can either be
     specific to the applicable population (e.g., age category, DRG) or the
-    specific context of care (e.g., venue, care setting, provider of care).
+    specific context of care (e.g., venue, care setting, provider of
+    care).
     """
 
     __name__ = 'UsageContext'
 
     def __init__(self, dict_values=None):
-        # a code that identifies the type of context being specified by this usage
-        # context.
         self.code = None
-        # reference to Coding: Coding
+        """
+        A code that identifies the type of context being specified by this
+        usage context.
 
-        # a value that defines the context specified in this context of use. the
-        # interpretation of the value is defined by the code.
+        reference to Coding
+        """
+
         self.valueCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A value that defines the context specified in this context of use. The
+        interpretation of the value is defined by the code.
 
-        # a value that defines the context specified in this context of use. the
-        # interpretation of the value is defined by the code.
+        reference to CodeableConcept
+        """
+
         self.valueQuantity = None
-        # reference to Quantity: Quantity
+        """
+        A value that defines the context specified in this context of use. The
+        interpretation of the value is defined by the code.
 
-        # a value that defines the context specified in this context of use. the
-        # interpretation of the value is defined by the code.
+        reference to Quantity
+        """
+
         self.valueRange = None
-        # reference to Range: Range
+        """
+        A value that defines the context specified in this context of use. The
+        interpretation of the value is defined by the code.
 
-        # unique identifier for object class
+        reference to Range
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -50,13 +64,13 @@ class UsageContext(fhirbase):
              'child_entity': 'UsageContext',
              'child_variable': 'valueQuantity'},
 
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'UsageContext',
-             'child_variable': 'code'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'UsageContext',
              'child_variable': 'valueCodeableConcept'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'UsageContext',
+             'child_variable': 'code'},
         ]

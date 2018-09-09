@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class CommunicationRequest(fhirbase):
-    """A request to convey information; e.g. the CDS system proposes that an
+    """
+    A request to convey information; e.g. the CDS system proposes that an
     alert be sent to a responsible provider, the CDS system proposes that
     the public health agency be notified about a reportable condition.
     """
@@ -10,122 +11,189 @@ class CommunicationRequest(fhirbase):
     __name__ = 'CommunicationRequest'
 
     def __init__(self, dict_values=None):
-        # this is a communicationrequest resource
         self.resourceType = 'CommunicationRequest'
-        # type = string
-        # possible values: CommunicationRequest
+        """
+        This is a CommunicationRequest resource
 
-        # a plan or proposal that is fulfilled in whole or in part by this
-        # request.
+        type: string
+        possible values: CommunicationRequest
+        """
+
         self.basedOn = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A plan or proposal that is fulfilled in whole or in part by this
+        request.
 
-        # completed or terminated request(s) whose function is taken by this new
-        # request.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.replaces = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Completed or terminated request(s) whose function is taken by this new
+        request.
 
-        # a shared identifier common to all requests that were authorized more or
-        # less simultaneously by a single author, representing the identifier of
-        # the requisition, prescription or similar form.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.groupIdentifier = None
-        # reference to Identifier: Identifier
+        """
+        A shared identifier common to all requests that were authorized more
+        or less simultaneously by a single author, representing the identifier
+        of the requisition, prescription or similar form.
 
-        # the status of the proposal or order.
+        reference to Identifier
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the proposal or order.
 
-        # the type of message to be sent such as alert, notification, reminder,
-        # instruction, etc.
+        type: string
+        """
+
         self.category = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of message to be sent such as alert, notification, reminder,
+        instruction, etc.
 
-        # characterizes how quickly the proposed act must be initiated. includes
-        # concepts such as stat, urgent, routine.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.priority = None
-        # type = string
+        """
+        Characterizes how quickly the proposed act must be initiated. Includes
+        concepts such as stat, urgent, routine.
 
-        # a channel that was used for this communication (e.g. email, fax).
+        type: string
+        """
+
         self.medium = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A channel that was used for this communication (e.g. email, fax).
 
-        # the patient or group that is the focus of this communication request.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        The patient or group that is the focus of this communication request.
 
-        # the entity (e.g. person, organization, clinical information system,
-        # device, group, or care team) which is the intended target of the
-        # communication.
+        reference to Reference: identifier
+        """
+
         self.recipient = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The entity (e.g. person, organization, clinical information system,
+        device, group, or care team) which is the intended target of the
+        communication.
 
-        # the resources which were related to producing this communication
-        # request.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.topic = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The resources which were related to producing this communication
+        request.
 
-        # the encounter or episode of care within which the communication request
-        # was created.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.context = None
-        # reference to Reference: identifier
+        """
+        The encounter or episode of care within which the communication
+        request was created.
 
-        # text, attachment(s), or resource(s) to be communicated to the recipient.
+        reference to Reference: identifier
+        """
+
         self.payload = None
-        # type = array
-        # reference to CommunicationRequest_Payload: CommunicationRequest_Payload
+        """
+        Text, attachment(s), or resource(s) to be communicated to the
+        recipient.
 
-        # the time when this communication is to occur.
+        type: array
+        reference to CommunicationRequest_Payload
+        """
+
         self.occurrenceDateTime = None
-        # type = string
+        """
+        The time when this communication is to occur.
 
-        # the time when this communication is to occur.
+        type: string
+        """
+
         self.occurrencePeriod = None
-        # reference to Period: Period
+        """
+        The time when this communication is to occur.
 
-        # for draft requests, indicates the date of initial creation.  for
-        # requests with other statuses, indicates the date of activation.
+        reference to Period
+        """
+
         self.authoredOn = None
-        # type = string
+        """
+        For draft requests, indicates the date of initial creation.  For
+        requests with other statuses, indicates the date of activation.
 
-        # the entity (e.g. person, organization, clinical information system, or
-        # device) which is to be the source of the communication.
+        type: string
+        """
+
         self.sender = None
-        # reference to Reference: identifier
+        """
+        The entity (e.g. person, organization, clinical information system, or
+        device) which is to be the source of the communication.
 
-        # the individual who initiated the request and has responsibility for its
-        # activation.
+        reference to Reference: identifier
+        """
+
         self.requester = None
-        # reference to CommunicationRequest_Requester: CommunicationRequest_Requester
+        """
+        The individual who initiated the request and has responsibility for
+        its activation.
 
-        # describes why the request is being made in coded or textual form.
+        reference to CommunicationRequest_Requester
+        """
+
         self.reasonCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Describes why the request is being made in coded or textual form.
 
-        # indicates another resource whose existence justifies this request.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.reasonReference = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Indicates another resource whose existence justifies this request.
 
-        # comments made about the request by the requester, sender, recipient,
-        # subject or other participants.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        Comments made about the request by the requester, sender, recipient,
+        subject or other participants.
 
-        # a unique id of this request for reference purposes. it must be provided
-        # if user wants it returned as part of any output, otherwise it will be
-        # autogenerated, if needed, by cds system. does not need to be the actual
-        # id of the source system.
+        type: array
+        reference to Annotation
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        A unique ID of this request for reference purposes. It must be
+        provided if user wants it returned as part of any output, otherwise it
+        will be autogenerated, if needed, by CDS system. Does not need to be
+        the actual ID of the source system.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -133,10 +201,35 @@ class CommunicationRequest(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'CommunicationRequest',
-             'child_variable': 'identifier'},
+             'child_variable': 'medium'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'reasonCode'},
+
+            {'parent_entity': 'CommunicationRequest_Requester',
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'requester'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'CommunicationRequest_Payload',
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'payload'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'note'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -151,47 +244,12 @@ class CommunicationRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'CommunicationRequest',
-             'child_variable': 'subject'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'CommunicationRequest',
-             'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'CommunicationRequest_Payload',
-             'parent_variable': 'object_id',
-             'child_entity': 'CommunicationRequest',
-             'child_variable': 'payload'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'CommunicationRequest',
-             'child_variable': 'medium'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'CommunicationRequest',
-             'child_variable': 'topic'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'CommunicationRequest',
-             'child_variable': 'context'},
+             'child_variable': 'replaces'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'CommunicationRequest',
              'child_variable': 'category'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'CommunicationRequest',
-             'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
-             'child_entity': 'CommunicationRequest',
-             'child_variable': 'note'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
@@ -201,27 +259,38 @@ class CommunicationRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'CommunicationRequest',
-             'child_variable': 'replaces'},
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'CommunicationRequest',
              'child_variable': 'sender'},
 
-            {'parent_entity': 'CommunicationRequest_Requester',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'CommunicationRequest',
-             'child_variable': 'requester'},
+             'child_variable': 'topic'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'CommunicationRequest',
              'child_variable': 'groupIdentifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CommunicationRequest',
+             'child_variable': 'basedOn'},
         ]
 
 
 class CommunicationRequest_Payload(fhirbase):
-    """A request to convey information; e.g. the CDS system proposes that an
+    """
+    A request to convey information; e.g. the CDS system proposes that an
     alert be sent to a responsible provider, the CDS system proposes that
     the public health agency be notified about a reportable condition.
     """
@@ -229,23 +298,32 @@ class CommunicationRequest_Payload(fhirbase):
     __name__ = 'CommunicationRequest_Payload'
 
     def __init__(self, dict_values=None):
-        # the communicated content (or for multi-part communications, one portion
-        # of the communication).
         self.contentString = None
-        # type = string
+        """
+        The communicated content (or for multi-part communications, one
+        portion of the communication).
 
-        # the communicated content (or for multi-part communications, one portion
-        # of the communication).
+        type: string
+        """
+
         self.contentAttachment = None
-        # reference to Attachment: Attachment
+        """
+        The communicated content (or for multi-part communications, one
+        portion of the communication).
 
-        # the communicated content (or for multi-part communications, one portion
-        # of the communication).
+        reference to Attachment
+        """
+
         self.contentReference = None
-        # reference to Reference: identifier
+        """
+        The communicated content (or for multi-part communications, one
+        portion of the communication).
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -253,20 +331,21 @@ class CommunicationRequest_Payload(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
-             'child_entity': 'CommunicationRequest_Payload',
-             'child_variable': 'contentAttachment'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'CommunicationRequest_Payload',
              'child_variable': 'contentReference'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'CommunicationRequest_Payload',
+             'child_variable': 'contentAttachment'},
         ]
 
 
 class CommunicationRequest_Requester(fhirbase):
-    """A request to convey information; e.g. the CDS system proposes that an
+    """
+    A request to convey information; e.g. the CDS system proposes that an
     alert be sent to a responsible provider, the CDS system proposes that
     the public health agency be notified about a reportable condition.
     """
@@ -274,16 +353,22 @@ class CommunicationRequest_Requester(fhirbase):
     __name__ = 'CommunicationRequest_Requester'
 
     def __init__(self, dict_values=None):
-        # the device, practitioner, etc. who initiated the request.
         self.agent = None
-        # reference to Reference: identifier
+        """
+        The device, practitioner, etc. who initiated the request.
 
-        # the organization the device or practitioner was acting on behalf of.
+        reference to Reference: identifier
+        """
+
         self.onBehalfOf = None
-        # reference to Reference: identifier
+        """
+        The organization the device or practitioner was acting on behalf of.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -294,10 +379,10 @@ class CommunicationRequest_Requester(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'CommunicationRequest_Requester',
-             'child_variable': 'onBehalfOf'},
+             'child_variable': 'agent'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'CommunicationRequest_Requester',
-             'child_variable': 'agent'},
+             'child_variable': 'onBehalfOf'},
         ]

@@ -2,59 +2,90 @@ from .fhirbase import fhirbase
 
 
 class VisionPrescription(fhirbase):
-    """An authorization for the supply of glasses and/or contact lenses to a
+    """
+    An authorization for the supply of glasses and/or contact lenses to a
     patient.
     """
 
     __name__ = 'VisionPrescription'
 
     def __init__(self, dict_values=None):
-        # this is a visionprescription resource
         self.resourceType = 'VisionPrescription'
-        # type = string
-        # possible values: VisionPrescription
+        """
+        This is a VisionPrescription resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: VisionPrescription
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the resource instance.
 
-        # a link to a resource representing the person to whom the vision products
-        # will be supplied.
+        type: string
+        """
+
         self.patient = None
-        # reference to Reference: identifier
+        """
+        A link to a resource representing the person to whom the vision
+        products will be supplied.
 
-        # a link to a resource that identifies the particular occurrence of
-        # contact between patient and health care provider.
+        reference to Reference: identifier
+        """
+
         self.encounter = None
-        # reference to Reference: identifier
+        """
+        A link to a resource that identifies the particular occurrence of
+        contact between patient and health care provider.
 
-        # the date (and perhaps time) when the prescription was written.
+        reference to Reference: identifier
+        """
+
         self.dateWritten = None
-        # type = string
+        """
+        The date (and perhaps time) when the prescription was written.
 
-        # the healthcare professional responsible for authorizing the
-        # prescription.
+        type: string
+        """
+
         self.prescriber = None
-        # reference to Reference: identifier
+        """
+        The healthcare professional responsible for authorizing the
+        prescription.
 
-        # can be the reason or the indication for writing the prescription.
+        reference to Reference: identifier
+        """
+
         self.reasonCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Can be the reason or the indication for writing the prescription.
 
-        # can be the reason or the indication for writing the prescription.
+        reference to CodeableConcept
+        """
+
         self.reasonReference = None
-        # reference to Reference: identifier
+        """
+        Can be the reason or the indication for writing the prescription.
 
-        # deals with details of the dispense part of the supply specification.
+        reference to Reference: identifier
+        """
+
         self.dispense = None
-        # type = array
-        # reference to VisionPrescription_Dispense: VisionPrescription_Dispense
+        """
+        Deals with details of the dispense part of the supply specification.
 
-        # business identifier which may be used by other parties to reference or
-        # identify the prescription.
+        type: array
+        reference to VisionPrescription_Dispense
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Business identifier which may be used by other parties to reference or
+        identify the prescription.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -62,20 +93,15 @@ class VisionPrescription(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'VisionPrescription',
-             'child_variable': 'encounter'},
-
             {'parent_entity': 'VisionPrescription_Dispense',
              'parent_variable': 'object_id',
              'child_entity': 'VisionPrescription',
              'child_variable': 'dispense'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
              'child_entity': 'VisionPrescription',
-             'child_variable': 'prescriber'},
+             'child_variable': 'reasonCodeableConcept'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
@@ -85,12 +111,17 @@ class VisionPrescription(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'VisionPrescription',
+             'child_variable': 'prescriber'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'VisionPrescription',
              'child_variable': 'patient'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'VisionPrescription',
-             'child_variable': 'reasonCodeableConcept'},
+             'child_variable': 'encounter'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -100,80 +131,126 @@ class VisionPrescription(fhirbase):
 
 
 class VisionPrescription_Dispense(fhirbase):
-    """An authorization for the supply of glasses and/or contact lenses to a
+    """
+    An authorization for the supply of glasses and/or contact lenses to a
     patient.
     """
 
     __name__ = 'VisionPrescription_Dispense'
 
     def __init__(self, dict_values=None):
-        # identifies the type of vision correction product which is required for
-        # the patient.
         self.product = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Identifies the type of vision correction product which is required for
+        the patient.
 
-        # the eye for which the lens applies.
+        reference to CodeableConcept
+        """
+
         self.eye = None
-        # type = string
-        # possible values: right, left
+        """
+        The eye for which the lens applies.
 
-        # lens power measured in diopters (0.25 units).
+        type: string
+        possible values: right, left
+        """
+
         self.sphere = None
-        # type = int
+        """
+        Lens power measured in diopters (0.25 units).
 
-        # power adjustment for astigmatism measured in diopters (0.25 units).
+        type: int
+        """
+
         self.cylinder = None
-        # type = int
+        """
+        Power adjustment for astigmatism measured in diopters (0.25 units).
 
-        # adjustment for astigmatism measured in integer degrees.
+        type: int
+        """
+
         self.axis = None
-        # type = int
+        """
+        Adjustment for astigmatism measured in integer degrees.
 
-        # amount of prism to compensate for eye alignment in fractional units.
+        type: int
+        """
+
         self.prism = None
-        # type = int
+        """
+        Amount of prism to compensate for eye alignment in fractional units.
 
-        # the relative base, or reference lens edge, for the prism.
+        type: int
+        """
+
         self.base = None
-        # type = string
-        # possible values: up, down, in, out
+        """
+        The relative base, or reference lens edge, for the prism.
 
-        # power adjustment for multifocal lenses measured in diopters (0.25
-        # units).
+        type: string
+        possible values: up, down, in, out
+        """
+
         self.add = None
-        # type = int
+        """
+        Power adjustment for multifocal lenses measured in diopters (0.25
+        units).
 
-        # contact lens power measured in diopters (0.25 units).
+        type: int
+        """
+
         self.power = None
-        # type = int
+        """
+        Contact lens power measured in diopters (0.25 units).
 
-        # back curvature measured in millimeters.
+        type: int
+        """
+
         self.backCurve = None
-        # type = int
+        """
+        Back curvature measured in millimeters.
 
-        # contact lens diameter measured in millimeters.
+        type: int
+        """
+
         self.diameter = None
-        # type = int
+        """
+        Contact lens diameter measured in millimeters.
 
-        # the recommended maximum wear period for the lens.
+        type: int
+        """
+
         self.duration = None
-        # reference to Quantity: Quantity
+        """
+        The recommended maximum wear period for the lens.
 
-        # special color or pattern.
+        reference to Quantity
+        """
+
         self.color = None
-        # type = string
+        """
+        Special color or pattern.
 
-        # brand recommendations or restrictions.
+        type: string
+        """
+
         self.brand = None
-        # type = string
+        """
+        Brand recommendations or restrictions.
 
-        # notes for special requirements such as coatings and lens materials.
+        type: string
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        Notes for special requirements such as coatings and lens materials.
 
-        # unique identifier for object class
+        type: array
+        reference to Annotation
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -197,18 +274,18 @@ class VisionPrescription_Dispense(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Quantity',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'VisionPrescription_Dispense',
-             'child_variable': 'duration'},
+             'child_variable': 'product'},
 
             {'parent_entity': 'Annotation',
              'parent_variable': 'object_id',
              'child_entity': 'VisionPrescription_Dispense',
              'child_variable': 'note'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'VisionPrescription_Dispense',
-             'child_variable': 'product'},
+             'child_variable': 'duration'},
         ]

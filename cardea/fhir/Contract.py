@@ -2,161 +2,237 @@ from .fhirbase import fhirbase
 
 
 class Contract(fhirbase):
-    """A formal agreement between parties regarding the conduct of business,
+    """
+    A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
 
     __name__ = 'Contract'
 
     def __init__(self, dict_values=None):
-        # this is a contract resource
         self.resourceType = 'Contract'
-        # type = string
-        # possible values: Contract
+        """
+        This is a Contract resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: Contract
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the resource instance.
 
-        # when this  contract was issued.
+        type: string
+        """
+
         self.issued = None
-        # type = string
+        """
+        When this  Contract was issued.
 
-        # relevant time or time-period when this contract is applicable.
+        type: string
+        """
+
         self.applies = None
-        # reference to Period: Period
+        """
+        Relevant time or time-period when this Contract is applicable.
 
-        # the target entity impacted by or of interest to parties to the
-        # agreement.
+        reference to Period
+        """
+
         self.subject = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The target entity impacted by or of interest to parties to the
+        agreement.
 
-        # the matter of concern in the context of this agreement.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.topic = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The matter of concern in the context of this agreement.
 
-        # a formally or informally recognized grouping of people, principals,
-        # organizations, or jurisdictions formed for the purpose of achieving some
-        # form of collective action such as the promulgation, administration and
-        # enforcement of contracts and policies.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.authority = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A formally or informally recognized grouping of people, principals,
+        organizations, or jurisdictions formed for the purpose of achieving
+        some form of collective action such as the promulgation,
+        administration and enforcement of contracts and policies.
 
-        # recognized governance framework or system operating with a circumscribed
-        # scope in accordance with specified principles, policies, processes or
-        # procedures for managing rights, actions, or behaviors of parties or
-        # principals relative to resources.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.domain = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Recognized governance framework or system operating with a
+        circumscribed scope in accordance with specified principles, policies,
+        processes or procedures for managing rights, actions, or behaviors of
+        parties or principals relative to resources.
 
-        # type of contract such as an insurance policy, real estate contract, a
-        # will, power of attorny, privacy or security policy , trust framework
-        # agreement, etc.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Type of Contract such as an insurance policy, real estate contract, a
+        will, power of attorny, Privacy or Security policy , trust framework
+        agreement, etc.
 
-        # more specific type or specialization of an overarching or more general
-        # contract such as auto insurance, home owner  insurance, prenupial
-        # agreement, advanced-directive, or privacy consent.
+        reference to CodeableConcept
+        """
+
         self.subType = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        More specific type or specialization of an overarching or more general
+        contract such as auto insurance, home owner  insurance, prenupial
+        agreement, Advanced-Directive, or privacy consent.
 
-        # action stipulated by this contract.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.action = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Action stipulated by this Contract.
 
-        # reason for action stipulated by this contract.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.actionReason = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Reason for action stipulated by this Contract.
 
-        # the type of decision made by a grantor with respect to an offer made by
-        # a grantee.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.decisionType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The type of decision made by a grantor with respect to an offer made
+        by a grantee.
 
-        # the minimal content derived from the basal information source at a
-        # specific stage in its lifecycle.
+        reference to CodeableConcept
+        """
+
         self.contentDerivative = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The minimal content derived from the basal information source at a
+        specific stage in its lifecycle.
 
-        # a set of security labels that define which resources are controlled by
-        # this consent. if more than one label is specified, all resources must
-        # have all the specified labels.
+        reference to CodeableConcept
+        """
+
         self.securityLabel = None
-        # type = array
-        # reference to Coding: Coding
+        """
+        A set of security labels that define which resources are controlled by
+        this consent. If more than one label is specified, all resources must
+        have all the specified labels.
 
-        # an actor taking a role in an activity for which it can be assigned some
-        # degree of responsibility for the activity taking place.
+        type: array
+        reference to Coding
+        """
+
         self.agent = None
-        # type = array
-        # reference to Contract_Agent: Contract_Agent
+        """
+        An actor taking a role in an activity for which it can be assigned
+        some degree of responsibility for the activity taking place.
 
-        # parties with legal standing in the contract, including the principal
-        # parties, the grantor(s) and grantee(s), which are any person or
-        # organization bound by the contract, and any ancillary parties, which
-        # facilitate the execution of the contract such as a notary or witness.
+        type: array
+        reference to Contract_Agent
+        """
+
         self.signer = None
-        # type = array
-        # reference to Contract_Signer: Contract_Signer
+        """
+        Parties with legal standing in the Contract, including the principal
+        parties, the grantor(s) and grantee(s), which are any person or
+        organization bound by the contract, and any ancillary parties, which
+        facilitate the execution of the contract such as a notary or witness.
 
-        # contract valued item list.
+        type: array
+        reference to Contract_Signer
+        """
+
         self.valuedItem = None
-        # type = array
-        # reference to Contract_ValuedItem: identifier
+        """
+        Contract Valued Item List.
 
-        # one or more contract provisions, which may be related and conveyed as a
-        # group, and may contain nested groups.
+        type: array
+        reference to Contract_ValuedItem: identifier
+        """
+
         self.term = None
-        # type = array
-        # reference to Contract_Term: identifier
+        """
+        One or more Contract Provisions, which may be related and conveyed as
+        a group, and may contain nested groups.
 
-        # legally binding contract: this is the signed and legally recognized
-        # representation of the contract, which is considered the "source of
-        # truth" and which would be the basis for legal action related to
-        # enforcement of this contract.
+        type: array
+        reference to Contract_Term: identifier
+        """
+
         self.bindingAttachment = None
-        # reference to Attachment: Attachment
+        """
+        Legally binding Contract: This is the signed and legally recognized
+        representation of the Contract, which is considered the "source of
+        truth" and which would be the basis for legal action related to
+        enforcement of this Contract.
 
-        # legally binding contract: this is the signed and legally recognized
-        # representation of the contract, which is considered the "source of
-        # truth" and which would be the basis for legal action related to
-        # enforcement of this contract.
+        reference to Attachment
+        """
+
         self.bindingReference = None
-        # reference to Reference: identifier
+        """
+        Legally binding Contract: This is the signed and legally recognized
+        representation of the Contract, which is considered the "source of
+        truth" and which would be the basis for legal action related to
+        enforcement of this Contract.
 
-        # the "patient friendly language" versionof the contract in whole or in
-        # parts. "patient friendly language" means the representation of the
-        # contract and contract provisions in a manner that is readily accessible
-        # and understandable by a layperson in accordance with best practices for
-        # communication styles that ensure that those agreeing to or signing the
-        # contract understand the roles, actions, obligations, responsibilities,
-        # and implication of the agreement.
+        reference to Reference: identifier
+        """
+
         self.friendly = None
-        # type = array
-        # reference to Contract_Friendly: Contract_Friendly
+        """
+        The "patient friendly language" versionof the Contract in whole or in
+        parts. "Patient friendly language" means the representation of the
+        Contract and Contract Provisions in a manner that is readily
+        accessible and understandable by a layperson in accordance with best
+        practices for communication styles that ensure that those agreeing to
+        or signing the Contract understand the roles, actions, obligations,
+        responsibilities, and implication of the agreement.
 
-        # list of legal expressions or representations of this contract.
+        type: array
+        reference to Contract_Friendly
+        """
+
         self.legal = None
-        # type = array
-        # reference to Contract_Legal: Contract_Legal
+        """
+        List of Legal expressions or representations of this Contract.
 
-        # list of computable policy rule language representations of this
-        # contract.
+        type: array
+        reference to Contract_Legal
+        """
+
         self.rule = None
-        # type = array
-        # reference to Contract_Rule: Contract_Rule
+        """
+        List of Computable Policy Rule Language Representations of this
+        Contract.
 
-        # unique identifier for this contract.
+        type: array
+        reference to Contract_Rule
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Unique identifier for this Contract.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -167,134 +243,141 @@ class Contract(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Contract',
-             'child_variable': 'type'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Contract',
-             'child_variable': 'bindingReference'},
-
-            {'parent_entity': 'Contract_Agent',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract',
-             'child_variable': 'agent'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract',
-             'child_variable': 'subType'},
-
-            {'parent_entity': 'Contract_Term',
-             'parent_variable': 'identifier',
-             'child_entity': 'Contract',
-             'child_variable': 'term'},
-
-            {'parent_entity': 'Contract_ValuedItem',
-             'parent_variable': 'identifier',
-             'child_entity': 'Contract',
-             'child_variable': 'valuedItem'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Contract',
-             'child_variable': 'authority'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract',
-             'child_variable': 'decisionType'},
-
-            {'parent_entity': 'Contract_Legal',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract',
-             'child_variable': 'legal'},
-
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract',
-             'child_variable': 'bindingAttachment'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract',
-             'child_variable': 'securityLabel'},
-
-            {'parent_entity': 'Contract_Friendly',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract',
-             'child_variable': 'friendly'},
-
-            {'parent_entity': 'Contract_Rule',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract',
-             'child_variable': 'rule'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Contract',
-             'child_variable': 'domain'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract',
-             'child_variable': 'identifier'},
+             'child_variable': 'action'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Contract',
              'child_variable': 'topic'},
 
-            {'parent_entity': 'Contract_Signer',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Contract_Term',
+             'parent_variable': 'identifier',
              'child_entity': 'Contract',
-             'child_variable': 'signer'},
+             'child_variable': 'term'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Contract',
              'child_variable': 'subject'},
 
+            {'parent_entity': 'Contract_ValuedItem',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract',
+             'child_variable': 'valuedItem'},
+
+            {'parent_entity': 'Contract_Legal',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'legal'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'subType'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'bindingAttachment'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract',
+             'child_variable': 'bindingReference'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'decisionType'},
+
+            {'parent_entity': 'Contract_Friendly',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'friendly'},
+
+            {'parent_entity': 'Contract_Agent',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'agent'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'securityLabel'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Contract',
              'child_variable': 'contentDerivative'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract',
-             'child_variable': 'applies'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Contract',
              'child_variable': 'actionReason'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract',
+             'child_variable': 'authority'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract',
+             'child_variable': 'domain'},
+
+            {'parent_entity': 'Contract_Signer',
              'parent_variable': 'object_id',
              'child_entity': 'Contract',
-             'child_variable': 'action'},
+             'child_variable': 'signer'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'applies'},
+
+            {'parent_entity': 'Contract_Rule',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract',
+             'child_variable': 'rule'},
         ]
 
 
 class Contract_Agent(fhirbase):
-    """A formal agreement between parties regarding the conduct of business,
+    """
+    A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
 
     __name__ = 'Contract_Agent'
 
     def __init__(self, dict_values=None):
-        # who or what parties are assigned roles in this contract.
         self.actor = None
-        # reference to Reference: identifier
+        """
+        Who or what parties are assigned roles in this Contract.
 
-        # role type of agent assigned roles in this contract.
+        reference to Reference: identifier
+        """
+
         self.role = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Role type of agent assigned roles in this Contract.
 
-        # unique identifier for object class
+        type: array
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -315,28 +398,38 @@ class Contract_Agent(fhirbase):
 
 
 class Contract_Signer(fhirbase):
-    """A formal agreement between parties regarding the conduct of business,
+    """
+    A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
 
     __name__ = 'Contract_Signer'
 
     def __init__(self, dict_values=None):
-        # role of this contract signer, e.g. notary, grantee.
         self.type = None
-        # reference to Coding: Coding
+        """
+        Role of this Contract signer, e.g. notary, grantee.
 
-        # party which is a signator to this contract.
+        reference to Coding
+        """
+
         self.party = None
-        # reference to Reference: identifier
+        """
+        Party which is a signator to this Contract.
 
-        # legally binding contract dsig signature contents in base64.
+        reference to Reference: identifier
+        """
+
         self.signature = None
-        # type = array
-        # reference to Signature: Signature
+        """
+        Legally binding Contract DSIG signature contents in Base64.
 
-        # unique identifier for object class
+        type: array
+        reference to Signature
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -344,15 +437,15 @@ class Contract_Signer(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Contract_Signer',
-             'child_variable': 'party'},
-
             {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'Contract_Signer',
              'child_variable': 'type'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Signer',
+             'child_variable': 'party'},
 
             {'parent_entity': 'Signature',
              'parent_variable': 'object_id',
@@ -362,61 +455,89 @@ class Contract_Signer(fhirbase):
 
 
 class Contract_ValuedItem(fhirbase):
-    """A formal agreement between parties regarding the conduct of business,
+    """
+    A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
 
     __name__ = 'Contract_ValuedItem'
 
     def __init__(self, dict_values=None):
-        # specific type of contract valued item that may be priced.
         self.entityCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Specific type of Contract Valued Item that may be priced.
 
-        # specific type of contract valued item that may be priced.
+        reference to CodeableConcept
+        """
+
         self.entityReference = None
-        # reference to Reference: identifier
+        """
+        Specific type of Contract Valued Item that may be priced.
 
-        # indicates the time during which this contract valueditem information is
-        # effective.
+        reference to Reference: identifier
+        """
+
         self.effectiveTime = None
-        # type = string
+        """
+        Indicates the time during which this Contract ValuedItem information
+        is effective.
 
-        # specifies the units by which the contract valued item is measured or
-        # counted, and quantifies the countable or measurable contract valued item
-        # instances.
+        type: string
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        Specifies the units by which the Contract Valued Item is measured or
+        counted, and quantifies the countable or measurable Contract Valued
+        Item instances.
 
-        # a contract valued item unit valuation measure.
+        reference to Quantity
+        """
+
         self.unitPrice = None
-        # reference to Money: Money
+        """
+        A Contract Valued Item unit valuation measure.
 
-        # a real number that represents a multiplier used in determining the
-        # overall value of the contract valued item delivered. the concept of a
-        # factor allows for a discount or surcharge multiplier to be applied to a
-        # monetary amount.
+        reference to Money
+        """
+
         self.factor = None
-        # type = int
+        """
+        A real number that represents a multiplier used in determining the
+        overall value of the Contract Valued Item delivered. The concept of a
+        Factor allows for a discount or surcharge multiplier to be applied to
+        a monetary amount.
 
-        # an amount that expresses the weighting (based on difficulty, cost and/or
-        # resource intensiveness) associated with the contract valued item
-        # delivered. the concept of points allows for assignment of point values
-        # for a contract valued item, such that a monetary amount can be assigned
-        # to each point.
+        type: int
+        """
+
         self.points = None
-        # type = int
+        """
+        An amount that expresses the weighting (based on difficulty, cost
+        and/or resource intensiveness) associated with the Contract Valued
+        Item delivered. The concept of Points allows for assignment of point
+        values for a Contract Valued Item, such that a monetary amount can be
+        assigned to each point.
 
-        # expresses the product of the contract valued item unitquantity and the
-        # unitpriceamt. for example, the formula: unit quantity * unit price (cost
-        # per point) * factor number  * points = net amount. quantity, factor and
-        # points are assumed to be 1 if not supplied.
+        type: int
+        """
+
         self.net = None
-        # reference to Money: Money
+        """
+        Expresses the product of the Contract Valued Item unitQuantity and the
+        unitPriceAmt. For example, the formula: unit Quantity * unit Price
+        (Cost per Point) * factor Number  * points = net Amount. Quantity,
+        factor and points are assumed to be 1 if not supplied.
 
-        # identifies a contract valued item instance.
+        reference to Money
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Identifies a Contract Valued Item instance.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -424,108 +545,151 @@ class Contract_ValuedItem(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract_ValuedItem',
-             'child_variable': 'net'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract_ValuedItem',
-             'child_variable': 'quantity'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Contract_ValuedItem',
-             'child_variable': 'entityReference'},
-
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Contract_ValuedItem',
              'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem',
+             'child_variable': 'entityCodeableConcept'},
 
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'Contract_ValuedItem',
              'child_variable': 'unitPrice'},
 
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'Contract_ValuedItem',
-             'child_variable': 'entityCodeableConcept'},
+             'child_variable': 'net'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_ValuedItem',
+             'child_variable': 'entityReference'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem',
+             'child_variable': 'quantity'},
         ]
 
 
 class Contract_Term(fhirbase):
-    """A formal agreement between parties regarding the conduct of business,
+    """
+    A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
 
     __name__ = 'Contract_Term'
 
     def __init__(self, dict_values=None):
-        # when this contract provision was issued.
         self.issued = None
-        # type = string
+        """
+        When this Contract Provision was issued.
 
-        # relevant time or time-period when this contract provision is applicable.
+        type: string
+        """
+
         self.applies = None
-        # reference to Period: Period
+        """
+        Relevant time or time-period when this Contract Provision is
+        applicable.
 
-        # type of contract provision such as specific requirements, purposes for
-        # actions, obligations, prohibitions, e.g. life time maximum benefit.
+        reference to Period
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Type of Contract Provision such as specific requirements, purposes for
+        actions, obligations, prohibitions, e.g. life time maximum benefit.
 
-        # subtype of this contract provision, e.g. life time maximum payment for a
-        # contract term for specific valued item, e.g. disability payment.
+        reference to CodeableConcept
+        """
+
         self.subType = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Subtype of this Contract Provision, e.g. life time maximum payment for
+        a contract term for specific valued item, e.g. disability payment.
 
-        # the matter of concern in the context of this provision of the agrement.
+        reference to CodeableConcept
+        """
+
         self.topic = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The matter of concern in the context of this provision of the
+        agrement.
 
-        # action stipulated by this contract provision.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.action = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Action stipulated by this Contract Provision.
 
-        # reason or purpose for the action stipulated by this contract provision.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.actionReason = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Reason or purpose for the action stipulated by this Contract
+        Provision.
 
-        # a set of security labels that define which terms are controlled by this
-        # condition.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.securityLabel = None
-        # type = array
-        # reference to Coding: Coding
+        """
+        A set of security labels that define which terms are controlled by
+        this condition.
 
-        # an actor taking a role in an activity for which it can be assigned some
-        # degree of responsibility for the activity taking place.
+        type: array
+        reference to Coding
+        """
+
         self.agent = None
-        # type = array
-        # reference to Contract_Agent1: Contract_Agent1
+        """
+        An actor taking a role in an activity for which it can be assigned
+        some degree of responsibility for the activity taking place.
 
-        # human readable form of this contract provision.
+        type: array
+        reference to Contract_Agent1
+        """
+
         self.text = None
-        # type = string
+        """
+        Human readable form of this Contract Provision.
 
-        # contract provision valued item list.
+        type: string
+        """
+
         self.valuedItem = None
-        # type = array
-        # reference to Contract_ValuedItem1: identifier
+        """
+        Contract Provision Valued Item List.
 
-        # nested group of contract provisions.
+        type: array
+        reference to Contract_ValuedItem1: identifier
+        """
+
         self.group = None
-        # type = array
-        # reference to Contract_Term: identifier
+        """
+        Nested group of Contract Provisions.
 
-        # unique identifier for this particular contract provision.
+        type: array
+        reference to Contract_Term: identifier
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Unique identifier for this particular Contract Provision.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -541,42 +705,17 @@ class Contract_Term(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Contract_Term',
-             'child_variable': 'actionReason'},
-
-            {'parent_entity': 'Contract_Agent1',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract_Term',
-             'child_variable': 'agent'},
+             'child_variable': 'subType'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Contract_Term',
              'child_variable': 'applies'},
 
-            {'parent_entity': 'Contract_ValuedItem1',
-             'parent_variable': 'identifier',
-             'child_entity': 'Contract_Term',
-             'child_variable': 'valuedItem'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract_Term',
-             'child_variable': 'type'},
-
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Contract_Term',
              'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract_Term',
-             'child_variable': 'subType'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract_Term',
-             'child_variable': 'securityLabel'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -587,29 +726,61 @@ class Contract_Term(fhirbase):
              'parent_variable': 'identifier',
              'child_entity': 'Contract_Term',
              'child_variable': 'group'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'actionReason'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'securityLabel'},
+
+            {'parent_entity': 'Contract_ValuedItem1',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'valuedItem'},
+
+            {'parent_entity': 'Contract_Agent1',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Term',
+             'child_variable': 'agent'},
         ]
 
 
 class Contract_Agent1(fhirbase):
-    """A formal agreement between parties regarding the conduct of business,
+    """
+    A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
 
     __name__ = 'Contract_Agent1'
 
     def __init__(self, dict_values=None):
-        # the agent assigned a role in this contract provision.
         self.actor = None
-        # reference to Reference: identifier
+        """
+        The agent assigned a role in this Contract Provision.
 
-        # role played by the agent assigned this role in the execution of this
-        # contract provision.
+        reference to Reference: identifier
+        """
+
         self.role = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Role played by the agent assigned this role in the execution of this
+        Contract Provision.
 
-        # unique identifier for object class
+        type: array
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -617,74 +788,103 @@ class Contract_Agent1(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Contract_Agent1',
-             'child_variable': 'actor'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Contract_Agent1',
              'child_variable': 'role'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Contract_Agent1',
+             'child_variable': 'actor'},
         ]
 
 
 class Contract_ValuedItem1(fhirbase):
-    """A formal agreement between parties regarding the conduct of business,
+    """
+    A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
 
     __name__ = 'Contract_ValuedItem1'
 
     def __init__(self, dict_values=None):
-        # specific type of contract provision valued item that may be priced.
         self.entityCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Specific type of Contract Provision Valued Item that may be priced.
 
-        # specific type of contract provision valued item that may be priced.
+        reference to CodeableConcept
+        """
+
         self.entityReference = None
-        # reference to Reference: identifier
+        """
+        Specific type of Contract Provision Valued Item that may be priced.
 
-        # indicates the time during which this contract term valueditem
-        # information is effective.
+        reference to Reference: identifier
+        """
+
         self.effectiveTime = None
-        # type = string
+        """
+        Indicates the time during which this Contract Term ValuedItem
+        information is effective.
 
-        # specifies the units by which the contract provision valued item is
-        # measured or counted, and quantifies the countable or measurable contract
-        # term valued item instances.
+        type: string
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        Specifies the units by which the Contract Provision Valued Item is
+        measured or counted, and quantifies the countable or measurable
+        Contract Term Valued Item instances.
 
-        # a contract provision valued item unit valuation measure.
+        reference to Quantity
+        """
+
         self.unitPrice = None
-        # reference to Money: Money
+        """
+        A Contract Provision Valued Item unit valuation measure.
 
-        # a real number that represents a multiplier used in determining the
-        # overall value of the contract provision valued item delivered. the
-        # concept of a factor allows for a discount or surcharge multiplier to be
-        # applied to a monetary amount.
+        reference to Money
+        """
+
         self.factor = None
-        # type = int
+        """
+        A real number that represents a multiplier used in determining the
+        overall value of the Contract Provision Valued Item delivered. The
+        concept of a Factor allows for a discount or surcharge multiplier to
+        be applied to a monetary amount.
 
-        # an amount that expresses the weighting (based on difficulty, cost and/or
-        # resource intensiveness) associated with the contract provision valued
-        # item delivered. the concept of points allows for assignment of point
-        # values for a contract provisionvalued item, such that a monetary amount
-        # can be assigned to each point.
+        type: int
+        """
+
         self.points = None
-        # type = int
+        """
+        An amount that expresses the weighting (based on difficulty, cost
+        and/or resource intensiveness) associated with the Contract Provision
+        Valued Item delivered. The concept of Points allows for assignment of
+        point values for a Contract ProvisionValued Item, such that a monetary
+        amount can be assigned to each point.
 
-        # expresses the product of the contract provision valued item unitquantity
-        # and the unitpriceamt. for example, the formula: unit quantity * unit
-        # price (cost per point) * factor number  * points = net amount. quantity,
-        # factor and points are assumed to be 1 if not supplied.
+        type: int
+        """
+
         self.net = None
-        # reference to Money: Money
+        """
+        Expresses the product of the Contract Provision Valued Item
+        unitQuantity and the unitPriceAmt. For example, the formula: unit
+        Quantity * unit Price (Cost per Point) * factor Number  * points = net
+        Amount. Quantity, factor and points are assumed to be 1 if not
+        supplied.
 
-        # identifies a contract provision valued item instance.
+        reference to Money
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Identifies a Contract Provision Valued Item instance.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -692,58 +892,67 @@ class Contract_ValuedItem1(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'Contract_ValuedItem1',
-             'child_variable': 'entityCodeableConcept'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract_ValuedItem1',
-             'child_variable': 'net'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract_ValuedItem1',
-             'child_variable': 'identifier'},
+             'child_variable': 'entityReference'},
 
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'Contract_ValuedItem1',
              'child_variable': 'quantity'},
 
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem1',
+             'child_variable': 'identifier'},
+
             {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'Contract_ValuedItem1',
              'child_variable': 'unitPrice'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
              'child_entity': 'Contract_ValuedItem1',
-             'child_variable': 'entityReference'},
+             'child_variable': 'net'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_ValuedItem1',
+             'child_variable': 'entityCodeableConcept'},
         ]
 
 
 class Contract_Friendly(fhirbase):
-    """A formal agreement between parties regarding the conduct of business,
+    """
+    A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
 
     __name__ = 'Contract_Friendly'
 
     def __init__(self, dict_values=None):
-        # human readable rendering of this contract in a format and representation
-        # intended to enhance comprehension and ensure understandability.
         self.contentAttachment = None
-        # reference to Attachment: Attachment
+        """
+        Human readable rendering of this Contract in a format and
+        representation intended to enhance comprehension and ensure
+        understandability.
 
-        # human readable rendering of this contract in a format and representation
-        # intended to enhance comprehension and ensure understandability.
+        reference to Attachment
+        """
+
         self.contentReference = None
-        # reference to Reference: identifier
+        """
+        Human readable rendering of this Contract in a format and
+        representation intended to enhance comprehension and ensure
+        understandability.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -764,23 +973,30 @@ class Contract_Friendly(fhirbase):
 
 
 class Contract_Legal(fhirbase):
-    """A formal agreement between parties regarding the conduct of business,
+    """
+    A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
 
     __name__ = 'Contract_Legal'
 
     def __init__(self, dict_values=None):
-        # contract legal text in human renderable form.
         self.contentAttachment = None
-        # reference to Attachment: Attachment
+        """
+        Contract legal text in human renderable form.
 
-        # contract legal text in human renderable form.
+        reference to Attachment
+        """
+
         self.contentReference = None
-        # reference to Reference: identifier
+        """
+        Contract legal text in human renderable form.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -801,25 +1017,32 @@ class Contract_Legal(fhirbase):
 
 
 class Contract_Rule(fhirbase):
-    """A formal agreement between parties regarding the conduct of business,
+    """
+    A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
     """
 
     __name__ = 'Contract_Rule'
 
     def __init__(self, dict_values=None):
-        # computable contract conveyed using a policy rule language (e.g. xacml,
-        # dkal, secpal).
         self.contentAttachment = None
-        # reference to Attachment: Attachment
+        """
+        Computable Contract conveyed using a policy rule language (e.g. XACML,
+        DKAL, SecPal).
 
-        # computable contract conveyed using a policy rule language (e.g. xacml,
-        # dkal, secpal).
+        reference to Attachment
+        """
+
         self.contentReference = None
-        # reference to Reference: identifier
+        """
+        Computable Contract conveyed using a policy rule language (e.g. XACML,
+        DKAL, SecPal).
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -827,13 +1050,13 @@ class Contract_Rule(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
-             'child_entity': 'Contract_Rule',
-             'child_variable': 'contentAttachment'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Contract_Rule',
              'child_variable': 'contentReference'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Contract_Rule',
+             'child_variable': 'contentAttachment'},
         ]

@@ -2,47 +2,70 @@ from .fhirbase import fhirbase
 
 
 class Bundle(fhirbase):
-    """A container for a collection of resources.
+    """
+    A container for a collection of resources.
     """
 
     __name__ = 'Bundle'
 
     def __init__(self, dict_values=None):
-        # this is a bundle resource
         self.resourceType = 'Bundle'
-        # type = string
-        # possible values: Bundle
+        """
+        This is a Bundle resource
 
-        # indicates the purpose of this bundle - how it was intended to be used.
+        type: string
+        possible values: Bundle
+        """
+
         self.type = None
-        # type = string
-        # possible values: document, message, transaction, transaction-
-        # response, batch, batch-response, history, searchset, collection
+        """
+        Indicates the purpose of this bundle - how it was intended to be used.
 
-        # if a set of search matches, this is the total number of matches for the
-        # search (as opposed to the number of results in this bundle).
+        type: string
+        possible values: document, message, transaction,
+        transaction-response, batch, batch-response, history, searchset,
+        collection
+        """
+
         self.total = None
-        # type = int
+        """
+        If a set of search matches, this is the total number of matches for
+        the search (as opposed to the number of results in this bundle).
 
-        # a series of links that provide context to this bundle.
+        type: int
+        """
+
         self.link = None
-        # type = array
-        # reference to Bundle_Link: Bundle_Link
+        """
+        A series of links that provide context to this bundle.
 
-        # an entry in a bundle resource - will either contain a resource, or
-        # information about a resource (transactions and history only).
+        type: array
+        reference to Bundle_Link
+        """
+
         self.entry = None
-        # type = array
-        # reference to Bundle_Entry: Bundle_Entry
+        """
+        An entry in a bundle resource - will either contain a resource, or
+        information about a resource (transactions and history only).
 
-        # digital signature - base64 encoded. xml-dsig or a jwt.
+        type: array
+        reference to Bundle_Entry
+        """
+
         self.signature = None
-        # reference to Signature: Signature
+        """
+        Digital Signature - base64 encoded. XML-DSIg or a JWT.
 
-        # a persistent identifier for the batch that won't change as a batch is
-        # copied from server to server.
+        reference to Signature
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        A persistent identifier for the batch that won't change as a batch is
+        copied from server to server.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -55,8 +78,8 @@ class Bundle(fhirbase):
                     'document', 'message', 'transaction', 'transaction-response', 'batch',
                         'batch-response', 'history', 'searchset', 'collection']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'document, message, transaction, transaction-response,'
-                        'batch, batch-response, history, searchset, collection'))
+                        value, 'document, message, transaction, transaction-response, batch,'
+                        'batch-response, history, searchset, collection'))
 
     def get_relationships(self):
 
@@ -65,11 +88,6 @@ class Bundle(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Bundle',
              'child_variable': 'signature'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Bundle',
-             'child_variable': 'identifier'},
 
             {'parent_entity': 'Bundle_Entry',
              'parent_variable': 'object_id',
@@ -80,76 +98,106 @@ class Bundle(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Bundle',
              'child_variable': 'link'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle',
+             'child_variable': 'identifier'},
         ]
 
 
 class Bundle_Link(fhirbase):
-    """A container for a collection of resources.
+    """
+    A container for a collection of resources.
     """
 
     __name__ = 'Bundle_Link'
 
     def __init__(self, dict_values=None):
-        # a name which details the functional use for this link - see
-        # [http://www.iana.org/assignments/link-relations/link-
-        # relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-
-        # relations/link-relations.xhtml#link-relations-1).
         self.relation = None
-        # type = string
+        """
+        A name which details the functional use for this link - see
+        [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).
 
-        # the reference details for the link.
+        type: string
+        """
+
         self.url = None
-        # type = string
+        """
+        The reference details for the link.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
 
 
 class Bundle_Entry(fhirbase):
-    """A container for a collection of resources.
+    """
+    A container for a collection of resources.
     """
 
     __name__ = 'Bundle_Entry'
 
     def __init__(self, dict_values=None):
-        # a series of links that provide context to this entry.
         self.link = None
-        # type = array
-        # reference to Bundle_Link: Bundle_Link
+        """
+        A series of links that provide context to this entry.
 
-        # the absolute url for the resource.  the fullurl shall not disagree with
-        # the id in the resource. the fullurl is a version independent reference
-        # to the resource. the fullurl element shall have a value except that:  *
-        # fullurl can be empty on a post (although it does not need to when
-        # specifying a temporary id for reference in the bundle) * results from
-        # operations might involve resources that are not identified.
+        type: array
+        reference to Bundle_Link
+        """
+
         self.fullUrl = None
-        # type = string
+        """
+        The Absolute URL for the resource.  The fullUrl SHALL not disagree
+        with the id in the resource. The fullUrl is a version independent
+        reference to the resource. The fullUrl element SHALL have a value
+        except that:  * fullUrl can be empty on a POST (although it does not
+        need to when specifying a temporary id for reference in the bundle) *
+        Results from operations might involve resources that are not
+        identified.
 
-        # the resources for the entry.
+        type: string
+        """
+
         self.resource = None
-        # reference to ResourceList: ResourceList
+        """
+        The Resources for the entry.
 
-        # information about the search process that lead to the creation of this
-        # entry.
+        reference to ResourceList
+        """
+
         self.search = None
-        # reference to Bundle_Search: Bundle_Search
+        """
+        Information about the search process that lead to the creation of this
+        entry.
 
-        # additional information about how this entry should be processed as part
-        # of a transaction.
+        reference to Bundle_Search
+        """
+
         self.request = None
-        # reference to Bundle_Request: Bundle_Request
+        """
+        Additional information about how this entry should be processed as
+        part of a transaction.
 
-        # additional information about how this entry should be processed as part
-        # of a transaction.
+        reference to Bundle_Request
+        """
+
         self.response = None
-        # reference to Bundle_Response: Bundle_Response
+        """
+        Additional information about how this entry should be processed as
+        part of a transaction.
 
-        # unique identifier for object class
+        reference to Bundle_Response
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -157,6 +205,11 @@ class Bundle_Entry(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Bundle_Request',
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle_Entry',
+             'child_variable': 'request'},
+
             {'parent_entity': 'Bundle_Link',
              'parent_variable': 'object_id',
              'child_entity': 'Bundle_Entry',
@@ -167,42 +220,44 @@ class Bundle_Entry(fhirbase):
              'child_entity': 'Bundle_Entry',
              'child_variable': 'search'},
 
-            {'parent_entity': 'Bundle_Response',
-             'parent_variable': 'object_id',
-             'child_entity': 'Bundle_Entry',
-             'child_variable': 'response'},
-
-            {'parent_entity': 'Bundle_Request',
-             'parent_variable': 'object_id',
-             'child_entity': 'Bundle_Entry',
-             'child_variable': 'request'},
-
             {'parent_entity': 'ResourceList',
              'parent_variable': 'object_id',
              'child_entity': 'Bundle_Entry',
              'child_variable': 'resource'},
+
+            {'parent_entity': 'Bundle_Response',
+             'parent_variable': 'object_id',
+             'child_entity': 'Bundle_Entry',
+             'child_variable': 'response'},
         ]
 
 
 class Bundle_Search(fhirbase):
-    """A container for a collection of resources.
+    """
+    A container for a collection of resources.
     """
 
     __name__ = 'Bundle_Search'
 
     def __init__(self, dict_values=None):
-        # why this entry is in the result set - whether it's included as a match
-        # or because of an _include requirement.
         self.mode = None
-        # type = string
-        # possible values: match, include, outcome
+        """
+        Why this entry is in the result set - whether it's included as a match
+        or because of an _include requirement.
 
-        # when searching, the server's search ranking score for the entry.
+        type: string
+        possible values: match, include, outcome
+        """
+
         self.score = None
-        # type = int
+        """
+        When searching, the server's search ranking score for the entry.
 
-        # unique identifier for object class
+        type: int
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -218,48 +273,67 @@ class Bundle_Search(fhirbase):
 
 
 class Bundle_Request(fhirbase):
-    """A container for a collection of resources.
+    """
+    A container for a collection of resources.
     """
 
     __name__ = 'Bundle_Request'
 
     def __init__(self, dict_values=None):
-        # the http verb for this entry in either a change history, or a
-        # transaction/ transaction response.
         self.method = None
-        # type = string
-        # possible values: GET, POST, PUT, DELETE
+        """
+        The HTTP verb for this entry in either a change history, or a
+        transaction/ transaction response.
 
-        # the url for this entry, relative to the root (the address to which the
-        # request is posted).
+        type: string
+        possible values: GET, POST, PUT, DELETE
+        """
+
         self.url = None
-        # type = string
+        """
+        The URL for this entry, relative to the root (the address to which the
+        request is posted).
 
-        # if the etag values match, return a 304 not modified status. see the api
-        # documentation for ["conditional read"](http.html#cread).
+        type: string
+        """
+
         self.ifNoneMatch = None
-        # type = string
+        """
+        If the ETag values match, return a 304 Not Modified status. See the
+        API documentation for ["Conditional Read"](http.html#cread).
 
-        # only perform the operation if the last updated date matches. see the api
-        # documentation for ["conditional read"](http.html#cread).
+        type: string
+        """
+
         self.ifModifiedSince = None
-        # type = string
+        """
+        Only perform the operation if the last updated date matches. See the
+        API documentation for ["Conditional Read"](http.html#cread).
 
-        # only perform the operation if the etag value matches. for more
-        # information, see the api section ["managing resource
-        # contention"](http.html#concurrency).
+        type: string
+        """
+
         self.ifMatch = None
-        # type = string
+        """
+        Only perform the operation if the Etag value matches. For more
+        information, see the API section ["Managing Resource
+        Contention"](http.html#concurrency).
 
-        # instruct the server not to perform the create if a specified resource
-        # already exists. for further information, see the api documentation for
-        # ["conditional create"](http.html#ccreate). this is just the query
-        # portion of the url - what follows the "?" (not including the "?").
+        type: string
+        """
+
         self.ifNoneExist = None
-        # type = string
+        """
+        Instruct the server not to perform the create if a specified resource
+        already exists. For further information, see the API documentation for
+        ["Conditional Create"](http.html#ccreate). This is just the query
+        portion of the URL - what follows the "?" (not including the "?").
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -275,40 +349,56 @@ class Bundle_Request(fhirbase):
 
 
 class Bundle_Response(fhirbase):
-    """A container for a collection of resources.
+    """
+    A container for a collection of resources.
     """
 
     __name__ = 'Bundle_Response'
 
     def __init__(self, dict_values=None):
-        # the status code returned by processing this entry. the status shall
-        # start with a 3 digit http code (e.g. 404) and may contain the standard
-        # http description associated with the status code.
         self.status = None
-        # type = string
+        """
+        The status code returned by processing this entry. The status SHALL
+        start with a 3 digit HTTP code (e.g. 404) and may contain the standard
+        HTTP description associated with the status code.
 
-        # the location header created by processing this operation.
+        type: string
+        """
+
         self.location = None
-        # type = string
+        """
+        The location header created by processing this operation.
 
-        # the etag for the resource, it the operation for the entry produced a
-        # versioned resource (see [resource metadata and
-        # versioning](http.html#versioning) and [managing resource
-        # contention](http.html#concurrency)).
+        type: string
+        """
+
         self.etag = None
-        # type = string
+        """
+        The etag for the resource, it the operation for the entry produced a
+        versioned resource (see [Resource Metadata and
+        Versioning](http.html#versioning) and [Managing Resource
+        Contention](http.html#concurrency)).
 
-        # the date/time that the resource was modified on the server.
+        type: string
+        """
+
         self.lastModified = None
-        # type = string
+        """
+        The date/time that the resource was modified on the server.
 
-        # an operationoutcome containing hints and warnings produced as part of
-        # processing this entry in a batch or transaction.
+        type: string
+        """
+
         self.outcome = None
-        # reference to ResourceList: ResourceList
+        """
+        An OperationOutcome containing hints and warnings produced as part of
+        processing this entry in a batch or transaction.
 
-        # unique identifier for object class
+        reference to ResourceList
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

@@ -2,37 +2,47 @@ from .fhirbase import fhirbase
 
 
 class Timing(fhirbase):
-    """Specifies an event that may occur multiple times. Timing schedules are
-    used to record when things are planned, expected or requested to occur.
-    The most common usage is in dosage instructions for medications. They
-    are also used when planning care of various kinds, and may be used for
-    reporting the schedule to which past regular activities were carried
-    out.
+    """
+    Specifies an event that may occur multiple times. Timing schedules are
+    used to record when things are planned, expected or requested to
+    occur. The most common usage is in dosage instructions for
+    medications. They are also used when planning care of various kinds,
+    and may be used for reporting the schedule to which past regular
+    activities were carried out.
     """
 
     __name__ = 'Timing'
 
     def __init__(self, dict_values=None):
-        # identifies specific times when the event occurs.
         self.event = None
-        # type = array
+        """
+        Identifies specific times when the event occurs.
 
-        # a set of rules that describe when the event is scheduled.
+        type: array
+        """
+
         self.repeat = None
-        # reference to Timing_Repeat: Timing_Repeat
+        """
+        A set of rules that describe when the event is scheduled.
 
-        # a code for the timing schedule. some codes such as bid are ubiquitous,
-        # but many institutions define their own additional codes. if a code is
-        # provided, the code is understood to be a complete statement of whatever
-        # is specified in the structured timing data, and either the code or the
-        # data may be used to interpret the timing, with the exception that
-        # .repeat.bounds still applies over the code (and is not contained in the
-        # code).
+        reference to Timing_Repeat
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A code for the timing schedule. Some codes such as BID are ubiquitous,
+        but many institutions define their own additional codes. If a code is
+        provided, the code is understood to be a complete statement of
+        whatever is specified in the structured timing data, and either the
+        code or the data may be used to interpret the Timing, with the
+        exception that .repeat.bounds still applies over the code (and is not
+        contained in the code).
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -53,108 +63,160 @@ class Timing(fhirbase):
 
 
 class Timing_Repeat(fhirbase):
-    """Specifies an event that may occur multiple times. Timing schedules are
-    used to record when things are planned, expected or requested to occur.
-    The most common usage is in dosage instructions for medications. They
-    are also used when planning care of various kinds, and may be used for
-    reporting the schedule to which past regular activities were carried
-    out.
+    """
+    Specifies an event that may occur multiple times. Timing schedules are
+    used to record when things are planned, expected or requested to
+    occur. The most common usage is in dosage instructions for
+    medications. They are also used when planning care of various kinds,
+    and may be used for reporting the schedule to which past regular
+    activities were carried out.
     """
 
     __name__ = 'Timing_Repeat'
 
     def __init__(self, dict_values=None):
-        # either a duration for the length of the timing schedule, a range of
-        # possible length, or outer bounds for start and/or end limits of the
-        # timing schedule.
         self.boundsDuration = None
-        # reference to Duration: Duration
+        """
+        Either a duration for the length of the timing schedule, a range of
+        possible length, or outer bounds for start and/or end limits of the
+        timing schedule.
 
-        # either a duration for the length of the timing schedule, a range of
-        # possible length, or outer bounds for start and/or end limits of the
-        # timing schedule.
+        reference to Duration
+        """
+
         self.boundsRange = None
-        # reference to Range: Range
+        """
+        Either a duration for the length of the timing schedule, a range of
+        possible length, or outer bounds for start and/or end limits of the
+        timing schedule.
 
-        # either a duration for the length of the timing schedule, a range of
-        # possible length, or outer bounds for start and/or end limits of the
-        # timing schedule.
+        reference to Range
+        """
+
         self.boundsPeriod = None
-        # reference to Period: Period
+        """
+        Either a duration for the length of the timing schedule, a range of
+        possible length, or outer bounds for start and/or end limits of the
+        timing schedule.
 
-        # a total count of the desired number of repetitions.
+        reference to Period
+        """
+
         self.count = None
-        # type = int
+        """
+        A total count of the desired number of repetitions.
 
-        # a maximum value for the count of the desired repetitions (e.g. do
-        # something 6-8 times).
+        type: int
+        """
+
         self.countMax = None
-        # type = int
+        """
+        A maximum value for the count of the desired repetitions (e.g. do
+        something 6-8 times).
 
-        # how long this thing happens for when it happens.
+        type: int
+        """
+
         self.duration = None
-        # type = int
+        """
+        How long this thing happens for when it happens.
 
-        # the upper limit of how long this thing happens for when it happens.
+        type: int
+        """
+
         self.durationMax = None
-        # type = int
+        """
+        The upper limit of how long this thing happens for when it happens.
 
-        # the units of time for the duration, in ucum units.
+        type: int
+        """
+
         self.durationUnit = None
-        # type = string
-        # possible values: s, min, h, d, wk, mo, a
+        """
+        The units of time for the duration, in UCUM units.
 
-        # the number of times to repeat the action within the specified period /
-        # period range (i.e. both period and periodmax provided).
+        type: string
+        possible values: s, min, h, d, wk, mo, a
+        """
+
         self.frequency = None
-        # type = int
+        """
+        The number of times to repeat the action within the specified period /
+        period range (i.e. both period and periodMax provided).
 
-        # if present, indicates that the frequency is a range - so to repeat
-        # between [frequency] and [frequencymax] times within the period or period
-        # range.
+        type: int
+        """
+
         self.frequencyMax = None
-        # type = int
+        """
+        If present, indicates that the frequency is a range - so to repeat
+        between [frequency] and [frequencyMax] times within the period or
+        period range.
 
-        # indicates the duration of time over which repetitions are to occur; e.g.
-        # to express "3 times per day", 3 would be the frequency and "1 day" would
-        # be the period.
+        type: int
+        """
+
         self.period = None
-        # type = int
+        """
+        Indicates the duration of time over which repetitions are to occur;
+        e.g. to express "3 times per day", 3 would be the frequency and "1
+        day" would be the period.
 
-        # if present, indicates that the period is a range from [period] to
-        # [periodmax], allowing expressing concepts such as "do this once every
-        # 3-5 days.
+        type: int
+        """
+
         self.periodMax = None
-        # type = int
+        """
+        If present, indicates that the period is a range from [period] to
+        [periodMax], allowing expressing concepts such as "do this once every
+        3-5 days.
 
-        # the units of time for the period in ucum units.
+        type: int
+        """
+
         self.periodUnit = None
-        # type = string
-        # possible values: s, min, h, d, wk, mo, a
+        """
+        The units of time for the period in UCUM units.
 
-        # if one or more days of week is provided, then the action happens only on
-        # the specified day(s).
+        type: string
+        possible values: s, min, h, d, wk, mo, a
+        """
+
         self.dayOfWeek = None
-        # type = array
+        """
+        If one or more days of week is provided, then the action happens only
+        on the specified day(s).
 
-        # specified time of day for action to take place.
+        type: array
+        """
+
         self.timeOfDay = None
-        # type = array
+        """
+        Specified time of day for action to take place.
 
-        # real world events that the occurrence of the event should be tied to.
+        type: array
+        """
+
         self.when = None
-        # type = array
-        # possible values: MORN, AFT, EVE, NIGHT, PHS, HS, WAKE, C, CM,
-        # CD, CV, AC, ACM, ACD, ACV, PC, PCM, PCD, PCV
+        """
+        Real world events that the occurrence of the event should be tied to.
 
-        # the number of minutes from the event. if the event code does not
-        # indicate whether the minutes is before or after the event, then the
-        # offset is assumed to be after the event.
+        type: array
+        possible values: MORN, AFT, EVE, NIGHT, PHS, HS, WAKE, C, CM,
+        CD, CV, AC, ACM, ACD, ACV, PC, PCM, PCD, PCV
+        """
+
         self.offset = None
-        # type = int
+        """
+        The number of minutes from the event. If the event code does not
+        indicate whether the minutes is before or after the event, then the
+        offset is assumed to be after the event.
 
-        # unique identifier for object class
+        type: int
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -181,8 +243,8 @@ class Timing_Repeat(fhirbase):
                     'morn', 'aft', 'eve', 'night', 'phs', 'hs', 'wake', 'c', 'cm', 'cd',
                         'cv', 'ac', 'acm', 'acd', 'acv', 'pc', 'pcm', 'pcd', 'pcv']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'MORN, AFT, EVE, NIGHT, PHS, HS, WAKE, C, CM, CD, CV, AC,'
-                        'ACM, ACD, ACV, PC, PCM, PCD, PCV'))
+                        value, 'MORN, AFT, EVE, NIGHT, PHS, HS, WAKE, C, CM, CD, CV, AC, ACM, ACD,'
+                        'ACV, PC, PCM, PCD, PCV'))
 
     def get_relationships(self):
 
@@ -192,13 +254,13 @@ class Timing_Repeat(fhirbase):
              'child_entity': 'Timing_Repeat',
              'child_variable': 'boundsRange'},
 
-            {'parent_entity': 'Duration',
-             'parent_variable': 'object_id',
-             'child_entity': 'Timing_Repeat',
-             'child_variable': 'boundsDuration'},
-
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Timing_Repeat',
              'child_variable': 'boundsPeriod'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'Timing_Repeat',
+             'child_variable': 'boundsDuration'},
         ]

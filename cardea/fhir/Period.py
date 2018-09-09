@@ -2,25 +2,32 @@ from .fhirbase import fhirbase
 
 
 class Period(fhirbase):
-    """A time period defined by a start and end date and optionally time.
+    """
+    A time period defined by a start and end date and optionally time.
     """
 
     __name__ = 'Period'
 
     def __init__(self, dict_values=None):
-        # the start of the period. the boundary is inclusive.
         self.start = None
-        # type = string
+        """
+        The start of the period. The boundary is inclusive.
 
-        # the end of the period. if the end of the period is missing, it means
-        # that the period is ongoing. the start may be in the past, and the end
-        # date in the future, which means that period is expected/planned to end
-        # at that time.
+        type: string
+        """
+
         self.end = None
-        # type = string
+        """
+        The end of the period. If the end of the period is missing, it means
+        that the period is ongoing. The start may be in the past, and the end
+        date in the future, which means that period is expected/planned to end
+        at that time.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

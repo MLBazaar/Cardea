@@ -2,143 +2,219 @@ from .fhirbase import fhirbase
 
 
 class HealthcareService(fhirbase):
-    """The details of a healthcare service available at a location.
+    """
+    The details of a healthcare service available at a location.
     """
 
     __name__ = 'HealthcareService'
 
     def __init__(self, dict_values=None):
-        # this is a healthcareservice resource
         self.resourceType = 'HealthcareService'
-        # type = string
-        # possible values: HealthcareService
+        """
+        This is a HealthcareService resource
 
-        # whether this healthcareservice record is in active use.
+        type: string
+        possible values: HealthcareService
+        """
+
         self.active = None
-        # type = boolean
+        """
+        Whether this healthcareservice record is in active use.
 
-        # the organization that provides this healthcare service.
+        type: boolean
+        """
+
         self.providedBy = None
-        # reference to Reference: identifier
+        """
+        The organization that provides this healthcare service.
 
-        # identifies the broad category of service being performed or delivered.
+        reference to Reference: identifier
+        """
+
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Identifies the broad category of service being performed or delivered.
 
-        # the specific type of service that may be delivered or performed.
+        reference to CodeableConcept
+        """
+
         self.type = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The specific type of service that may be delivered or performed.
 
-        # collection of specialties handled by the service site. this is more of a
-        # medical term.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.specialty = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Collection of specialties handled by the service site. This is more of
+        a medical term.
 
-        # the location(s) where this healthcare service may be provided.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.location = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The location(s) where this healthcare service may be provided.
 
-        # further description of the service as it would be presented to a
-        # consumer while searching.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.name = None
-        # type = string
+        """
+        Further description of the service as it would be presented to a
+        consumer while searching.
 
-        # any additional description of the service and/or any specific issues not
-        # covered by the other attributes, which can be displayed as further
-        # detail under the servicename.
+        type: string
+        """
+
         self.comment = None
-        # type = string
+        """
+        Any additional description of the service and/or any specific issues
+        not covered by the other attributes, which can be displayed as further
+        detail under the serviceName.
 
-        # extra details about the service that can't be placed in the other
-        # fields.
+        type: string
+        """
+
         self.extraDetails = None
-        # type = string
+        """
+        Extra details about the service that can't be placed in the other
+        fields.
 
-        # if there is a photo/symbol associated with this healthcareservice, it
-        # may be included here to facilitate quick identification of the service
-        # in a list.
+        type: string
+        """
+
         self.photo = None
-        # reference to Attachment: Attachment
+        """
+        If there is a photo/symbol associated with this HealthcareService, it
+        may be included here to facilitate quick identification of the service
+        in a list.
 
-        # list of contacts related to this specific healthcare service.
+        reference to Attachment
+        """
+
         self.telecom = None
-        # type = array
-        # reference to ContactPoint: ContactPoint
+        """
+        List of contacts related to this specific healthcare service.
 
-        # the location(s) that this service is available to (not where the service
-        # is provided).
+        type: array
+        reference to ContactPoint
+        """
+
         self.coverageArea = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        The location(s) that this service is available to (not where the
+        service is provided).
 
-        # the code(s) that detail the conditions under which the healthcare
-        # service is available/offered.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.serviceProvisionCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The code(s) that detail the conditions under which the healthcare
+        service is available/offered.
 
-        # does this service have specific eligibility requirements that need to be
-        # met in order to use the service?
+        type: array
+        reference to CodeableConcept
+        """
+
         self.eligibility = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Does this service have specific eligibility requirements that need to
+        be met in order to use the service?
 
-        # describes the eligibility conditions for the service.
+        reference to CodeableConcept
+        """
+
         self.eligibilityNote = None
-        # type = string
+        """
+        Describes the eligibility conditions for the service.
 
-        # program names that can be used to categorize the service.
+        type: string
+        """
+
         self.programName = None
-        # type = array
+        """
+        Program Names that can be used to categorize the service.
 
-        # collection of characteristics (attributes).
+        type: array
+        """
+
         self.characteristic = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Collection of characteristics (attributes).
 
-        # ways that the service accepts referrals, if this is not provided then it
-        # is implied that no referral is required.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.referralMethod = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Ways that the service accepts referrals, if this is not provided then
+        it is implied that no referral is required.
 
-        # indicates whether or not a prospective consumer will require an
-        # appointment for a particular service at a site to be provided by the
-        # organization. indicates if an appointment is required for access to this
-        # service.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.appointmentRequired = None
-        # type = boolean
+        """
+        Indicates whether or not a prospective consumer will require an
+        appointment for a particular service at a site to be provided by the
+        Organization. Indicates if an appointment is required for access to
+        this service.
 
-        # a collection of times that the service site is available.
+        type: boolean
+        """
+
         self.availableTime = None
-        # type = array
-        # reference to HealthcareService_AvailableTime: HealthcareService_AvailableTime
+        """
+        A collection of times that the Service Site is available.
 
-        # the healthcareservice is not available during this period of time due to
-        # the provided reason.
+        type: array
+        reference to HealthcareService_AvailableTime
+        """
+
         self.notAvailable = None
-        # type = array
-        # reference to HealthcareService_NotAvailable: HealthcareService_NotAvailable
+        """
+        The HealthcareService is not available during this period of time due
+        to the provided reason.
 
-        # a description of site availability exceptions, e.g. public holiday
-        # availability. succinctly describing all possible exceptions to normal
-        # site availability as details in the available times and not available
-        # times.
+        type: array
+        reference to HealthcareService_NotAvailable
+        """
+
         self.availabilityExceptions = None
-        # type = string
+        """
+        A description of site availability exceptions, e.g. public holiday
+        availability. Succinctly describing all possible exceptions to normal
+        site availability as details in the available Times and not available
+        Times.
 
-        # technical endpoints providing access to services operated for the
-        # specific healthcare services defined at this resource.
+        type: string
+        """
+
         self.endpoint = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        Technical endpoints providing access to services operated for the
+        specific healthcare services defined at this resource.
 
-        # external identifiers for this item.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        External identifiers for this item.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -146,26 +222,6 @@ class HealthcareService(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'HealthcareService',
-             'child_variable': 'coverageArea'},
-
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
-             'child_entity': 'HealthcareService',
-             'child_variable': 'photo'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'HealthcareService',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'HealthcareService',
-             'child_variable': 'endpoint'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'HealthcareService',
@@ -176,25 +232,10 @@ class HealthcareService(fhirbase):
              'child_entity': 'HealthcareService',
              'child_variable': 'telecom'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'HealthcareService',
-             'child_variable': 'specialty'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'HealthcareService',
-             'child_variable': 'eligibility'},
-
-            {'parent_entity': 'HealthcareService_AvailableTime',
-             'parent_variable': 'object_id',
-             'child_entity': 'HealthcareService',
-             'child_variable': 'availableTime'},
-
-            {'parent_entity': 'HealthcareService_NotAvailable',
-             'parent_variable': 'object_id',
-             'child_entity': 'HealthcareService',
-             'child_variable': 'notAvailable'},
+             'child_variable': 'coverageArea'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -204,12 +245,7 @@ class HealthcareService(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'HealthcareService',
-             'child_variable': 'providedBy'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'HealthcareService',
-             'child_variable': 'category'},
+             'child_variable': 'endpoint'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -224,40 +260,93 @@ class HealthcareService(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'HealthcareService',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'providedBy'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'specialty'},
+
+            {'parent_entity': 'HealthcareService_NotAvailable',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'notAvailable'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'eligibility'},
+
+            {'parent_entity': 'HealthcareService_AvailableTime',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'availableTime'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
              'child_variable': 'characteristic'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'HealthcareService',
+             'child_variable': 'photo'},
         ]
 
 
 class HealthcareService_AvailableTime(fhirbase):
-    """The details of a healthcare service available at a location.
+    """
+    The details of a healthcare service available at a location.
     """
 
     __name__ = 'HealthcareService_AvailableTime'
 
     def __init__(self, dict_values=None):
-        # indicates which days of the week are available between the start and end
-        # times.
         self.daysOfWeek = None
-        # type = array
-        # possible values: mon, tue, wed, thu, fri, sat, sun
+        """
+        Indicates which days of the week are available between the start and
+        end Times.
 
-        # is this always available? (hence times are irrelevant) e.g. 24 hour
-        # service.
+        type: array
+        possible values: mon, tue, wed, thu, fri, sat, sun
+        """
+
         self.allDay = None
-        # type = boolean
+        """
+        Is this always available? (hence times are irrelevant) e.g. 24 hour
+        service.
 
-        # the opening time of day. note: if the allday flag is set, then this time
-        # is ignored.
+        type: boolean
+        """
+
         self.availableStartTime = None
-        # type = string
+        """
+        The opening time of day. Note: If the AllDay flag is set, then this
+        time is ignored.
 
-        # the closing time of day. note: if the allday flag is set, then this time
-        # is ignored.
+        type: string
+        """
+
         self.availableEndTime = None
-        # type = string
+        """
+        The closing time of day. Note: If the AllDay flag is set, then this
+        time is ignored.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -273,24 +362,31 @@ class HealthcareService_AvailableTime(fhirbase):
 
 
 class HealthcareService_NotAvailable(fhirbase):
-    """The details of a healthcare service available at a location.
+    """
+    The details of a healthcare service available at a location.
     """
 
     __name__ = 'HealthcareService_NotAvailable'
 
     def __init__(self, dict_values=None):
-        # the reason that can be presented to the user as to why this time is not
-        # available.
         self.description = None
-        # type = string
+        """
+        The reason that can be presented to the user as to why this time is
+        not available.
 
-        # service is not available (seasonally or for a public holiday) from this
-        # date.
+        type: string
+        """
+
         self.during = None
-        # reference to Period: Period
+        """
+        Service is not available (seasonally or for a public holiday) from
+        this date.
 
-        # unique identifier for object class
+        reference to Period
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

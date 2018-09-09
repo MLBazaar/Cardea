@@ -2,87 +2,136 @@ from .fhirbase import fhirbase
 
 
 class ProcessRequest(fhirbase):
-    """This resource provides the target, request and response, and action
-    details for an action to be performed by the target on or about existing
-    resources.
+    """
+    This resource provides the target, request and response, and action
+    details for an action to be performed by the target on or about
+    existing resources.
     """
 
     __name__ = 'ProcessRequest'
 
     def __init__(self, dict_values=None):
-        # this is a processrequest resource
         self.resourceType = 'ProcessRequest'
-        # type = string
-        # possible values: ProcessRequest
+        """
+        This is a ProcessRequest resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: ProcessRequest
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the resource instance.
 
-        # the type of processing action being requested, for example reversal,
-        # readjudication, statusrequest,pendedrequest.
+        type: string
+        """
+
         self.action = None
-        # type = string
-        # possible values: cancel, poll, reprocess, status
+        """
+        The type of processing action being requested, for example Reversal,
+        Readjudication, StatusRequest,PendedRequest.
 
-        # the organization which is the target of the request.
+        type: string
+        possible values: cancel, poll, reprocess, status
+        """
+
         self.target = None
-        # reference to Reference: identifier
+        """
+        The organization which is the target of the request.
 
-        # the date when this resource was created.
+        reference to Reference: identifier
+        """
+
         self.created = None
-        # type = string
+        """
+        The date when this resource was created.
 
-        # the practitioner who is responsible for the action specified in this
-        # request.
+        type: string
+        """
+
         self.provider = None
-        # reference to Reference: identifier
+        """
+        The practitioner who is responsible for the action specified in this
+        request.
 
-        # the organization which is responsible for the action speccified in this
-        # request.
+        reference to Reference: identifier
+        """
+
         self.organization = None
-        # reference to Reference: identifier
+        """
+        The organization which is responsible for the action speccified in
+        this request.
 
-        # reference of resource which is the target or subject of this action.
+        reference to Reference: identifier
+        """
+
         self.request = None
-        # reference to Reference: identifier
+        """
+        Reference of resource which is the target or subject of this action.
 
-        # reference of a prior response to resource which is the target or subject
-        # of this action.
+        reference to Reference: identifier
+        """
+
         self.response = None
-        # reference to Reference: identifier
+        """
+        Reference of a prior response to resource which is the target or
+        subject of this action.
 
-        # if true remove all history excluding audit.
+        reference to Reference: identifier
+        """
+
         self.nullify = None
-        # type = boolean
+        """
+        If true remove all history excluding audit.
 
-        # a reference to supply which authenticates the process.
+        type: boolean
+        """
+
         self.reference = None
-        # type = string
+        """
+        A reference to supply which authenticates the process.
 
-        # list of top level items to be re-adjudicated, if none specified then the
-        # entire submission is re-adjudicated.
+        type: string
+        """
+
         self.item = None
-        # type = array
-        # reference to ProcessRequest_Item: ProcessRequest_Item
+        """
+        List of top level items to be re-adjudicated, if none specified then
+        the entire submission is re-adjudicated.
 
-        # names of resource types to include.
+        type: array
+        reference to ProcessRequest_Item
+        """
+
         self.include = None
-        # type = array
+        """
+        Names of resource types to include.
 
-        # names of resource types to exclude.
+        type: array
+        """
+
         self.exclude = None
-        # type = array
+        """
+        Names of resource types to exclude.
 
-        # a period of time during which the fulfilling resources would have been
-        # created.
+        type: array
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        A period of time during which the fulfilling resources would have been
+        created.
 
-        # the processrequest business identifier.
+        reference to Period
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The ProcessRequest business identifier.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -99,20 +148,10 @@ class ProcessRequest(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ProcessRequest',
-             'child_variable': 'response'},
-
-            {'parent_entity': 'Identifier',
+            {'parent_entity': 'ProcessRequest_Item',
              'parent_variable': 'object_id',
              'child_entity': 'ProcessRequest',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'ProcessRequest',
-             'child_variable': 'organization'},
+             'child_variable': 'item'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -122,17 +161,27 @@ class ProcessRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ProcessRequest',
-             'child_variable': 'request'},
+             'child_variable': 'organization'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessRequest',
+             'child_variable': 'response'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'ProcessRequest',
              'child_variable': 'period'},
 
-            {'parent_entity': 'ProcessRequest_Item',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'ProcessRequest',
-             'child_variable': 'item'},
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcessRequest',
+             'child_variable': 'request'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -142,20 +191,24 @@ class ProcessRequest(fhirbase):
 
 
 class ProcessRequest_Item(fhirbase):
-    """This resource provides the target, request and response, and action
-    details for an action to be performed by the target on or about existing
-    resources.
+    """
+    This resource provides the target, request and response, and action
+    details for an action to be performed by the target on or about
+    existing resources.
     """
 
     __name__ = 'ProcessRequest_Item'
 
     def __init__(self, dict_values=None):
-        # a service line number.
         self.sequenceLinkId = None
-        # type = int
+        """
+        A service line number.
 
-        # unique identifier for object class
+        type: int
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

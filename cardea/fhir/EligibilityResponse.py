@@ -2,78 +2,121 @@ from .fhirbase import fhirbase
 
 
 class EligibilityResponse(fhirbase):
-    """This resource provides eligibility and plan details from the processing
-    of an Eligibility resource.
+    """
+    This resource provides eligibility and plan details from the
+    processing of an Eligibility resource.
     """
 
     __name__ = 'EligibilityResponse'
 
     def __init__(self, dict_values=None):
-        # this is a eligibilityresponse resource
         self.resourceType = 'EligibilityResponse'
-        # type = string
-        # possible values: EligibilityResponse
+        """
+        This is a EligibilityResponse resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: EligibilityResponse
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the resource instance.
 
-        # the date when the enclosed suite of services were performed or
-        # completed.
+        type: string
+        """
+
         self.created = None
-        # type = string
+        """
+        The date when the enclosed suite of services were performed or
+        completed.
 
-        # the practitioner who is responsible for the services rendered to the
-        # patient.
+        type: string
+        """
+
         self.requestProvider = None
-        # reference to Reference: identifier
+        """
+        The practitioner who is responsible for the services rendered to the
+        patient.
 
-        # the organization which is responsible for the services rendered to the
-        # patient.
+        reference to Reference: identifier
+        """
+
         self.requestOrganization = None
-        # reference to Reference: identifier
+        """
+        The organization which is responsible for the services rendered to the
+        patient.
 
-        # original request resource reference.
+        reference to Reference: identifier
+        """
+
         self.request = None
-        # reference to Reference: identifier
+        """
+        Original request resource reference.
 
-        # transaction status: error, complete.
+        reference to Reference: identifier
+        """
+
         self.outcome = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Transaction status: error, complete.
 
-        # a description of the status of the adjudication.
+        reference to CodeableConcept
+        """
+
         self.disposition = None
-        # type = string
+        """
+        A description of the status of the adjudication.
 
-        # the insurer who produced this adjudicated response.
+        type: string
+        """
+
         self.insurer = None
-        # reference to Reference: identifier
+        """
+        The Insurer who produced this adjudicated response.
 
-        # flag indicating if the coverage provided is inforce currently  if no
-        # service date(s) specified or for the whole duration of the service
-        # dates.
+        reference to Reference: identifier
+        """
+
         self.inforce = None
-        # type = boolean
+        """
+        Flag indicating if the coverage provided is inforce currently  if no
+        service date(s) specified or for the whole duration of the service
+        dates.
 
-        # the insurer may provide both the details for the requested coverage as
-        # well as details for additional coverages known to the insurer.
+        type: boolean
+        """
+
         self.insurance = None
-        # type = array
-        # reference to EligibilityResponse_Insurance: EligibilityResponse_Insurance
+        """
+        The insurer may provide both the details for the requested coverage as
+        well as details for additional coverages known to the insurer.
 
-        # the form to be used for printing the content.
+        type: array
+        reference to EligibilityResponse_Insurance
+        """
+
         self.form = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The form to be used for printing the content.
 
-        # mutually exclusive with services provided (item).
+        reference to CodeableConcept
+        """
+
         self.error = None
-        # type = array
-        # reference to EligibilityResponse_Error: EligibilityResponse_Error
+        """
+        Mutually exclusive with Services Provided (Item).
 
-        # the response business identifier.
+        type: array
+        reference to EligibilityResponse_Error
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The Response business identifier.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -86,36 +129,6 @@ class EligibilityResponse(fhirbase):
              'child_entity': 'EligibilityResponse',
              'child_variable': 'requestOrganization'},
 
-            {'parent_entity': 'EligibilityResponse_Error',
-             'parent_variable': 'object_id',
-             'child_entity': 'EligibilityResponse',
-             'child_variable': 'error'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'EligibilityResponse',
-             'child_variable': 'form'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'EligibilityResponse',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'EligibilityResponse',
-             'child_variable': 'requestProvider'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'EligibilityResponse',
-             'child_variable': 'insurer'},
-
-            {'parent_entity': 'EligibilityResponse_Insurance',
-             'parent_variable': 'object_id',
-             'child_entity': 'EligibilityResponse',
-             'child_variable': 'insurance'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EligibilityResponse',
@@ -124,33 +137,73 @@ class EligibilityResponse(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'EligibilityResponse',
+             'child_variable': 'form'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'insurer'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse',
              'child_variable': 'outcome'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'EligibilityResponse_Insurance',
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'insurance'},
+
+            {'parent_entity': 'EligibilityResponse_Error',
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'error'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'requestProvider'},
         ]
 
 
 class EligibilityResponse_Insurance(fhirbase):
-    """This resource provides eligibility and plan details from the processing
-    of an Eligibility resource.
+    """
+    This resource provides eligibility and plan details from the
+    processing of an Eligibility resource.
     """
 
     __name__ = 'EligibilityResponse_Insurance'
 
     def __init__(self, dict_values=None):
-        # a suite of updated or additional coverages from the insurer.
         self.coverage = None
-        # reference to Reference: identifier
+        """
+        A suite of updated or additional Coverages from the Insurer.
 
-        # the contract resource which may provide more detailed information.
+        reference to Reference: identifier
+        """
+
         self.contract = None
-        # reference to Reference: identifier
+        """
+        The contract resource which may provide more detailed information.
 
-        # benefits and optionally current balances by category.
+        reference to Reference: identifier
+        """
+
         self.benefitBalance = None
-        # type = array
-        # reference to EligibilityResponse_BenefitBalance: EligibilityResponse_BenefitBalance
+        """
+        Benefits and optionally current balances by Category.
 
-        # unique identifier for object class
+        type: array
+        reference to EligibilityResponse_BenefitBalance
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -158,74 +211,102 @@ class EligibilityResponse_Insurance(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'EligibilityResponse_BenefitBalance',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'EligibilityResponse_Insurance',
-             'child_variable': 'benefitBalance'},
+             'child_variable': 'contract'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EligibilityResponse_Insurance',
              'child_variable': 'coverage'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'EligibilityResponse_BenefitBalance',
+             'parent_variable': 'object_id',
              'child_entity': 'EligibilityResponse_Insurance',
-             'child_variable': 'contract'},
+             'child_variable': 'benefitBalance'},
         ]
 
 
 class EligibilityResponse_BenefitBalance(fhirbase):
-    """This resource provides eligibility and plan details from the processing
-    of an Eligibility resource.
+    """
+    This resource provides eligibility and plan details from the
+    processing of an Eligibility resource.
     """
 
     __name__ = 'EligibilityResponse_BenefitBalance'
 
     def __init__(self, dict_values=None):
-        # dental, vision, medical, pharmacy, rehab etc.
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Dental, Vision, Medical, Pharmacy, Rehab etc.
 
-        # dental: basic, major, ortho; vision exam, glasses, contacts; etc.
+        reference to CodeableConcept
+        """
+
         self.subCategory = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.
 
-        # true if the indicated class of service is excluded from the plan,
-        # missing or false indicated the service is included in the coverage.
+        reference to CodeableConcept
+        """
+
         self.excluded = None
-        # type = boolean
+        """
+        True if the indicated class of service is excluded from the plan,
+        missing or False indicated the service is included in the coverage.
 
-        # a short name or tag for the benefit, for example med01, or dent2.
+        type: boolean
+        """
+
         self.name = None
-        # type = string
+        """
+        A short name or tag for the benefit, for example MED01, or DENT2.
 
-        # a richer description of the benefit, for example 'dent2 covers 100% of
-        # basic, 50% of major but exclused ortho, implants and costmetic
-        # services'.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        A richer description of the benefit, for example 'DENT2 covers 100% of
+        basic, 50% of major but exclused Ortho, Implants and Costmetic
+        services'.
 
-        # network designation.
+        type: string
+        """
+
         self.network = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Network designation.
 
-        # unit designation: individual or family.
+        reference to CodeableConcept
+        """
+
         self.unit = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Unit designation: individual or family.
 
-        # the term or period of the values such as 'maximum lifetime benefit' or
-        # 'maximum annual vistis'.
+        reference to CodeableConcept
+        """
+
         self.term = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The term or period of the values such as 'maximum lifetime benefit' or
+        'maximum annual vistis'.
 
-        # benefits used to date.
+        reference to CodeableConcept
+        """
+
         self.financial = None
-        # type = array
-        # reference to EligibilityResponse_Financial: EligibilityResponse_Financial
+        """
+        Benefits Used to date.
 
-        # unique identifier for object class
+        type: array
+        reference to EligibilityResponse_Financial
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -241,7 +322,12 @@ class EligibilityResponse_BenefitBalance(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'EligibilityResponse_BenefitBalance',
-             'child_variable': 'category'},
+             'child_variable': 'unit'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_BenefitBalance',
+             'child_variable': 'network'},
 
             {'parent_entity': 'EligibilityResponse_Financial',
              'parent_variable': 'object_id',
@@ -251,54 +337,68 @@ class EligibilityResponse_BenefitBalance(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'EligibilityResponse_BenefitBalance',
-             'child_variable': 'network'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'EligibilityResponse_BenefitBalance',
              'child_variable': 'subCategory'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'EligibilityResponse_BenefitBalance',
-             'child_variable': 'unit'},
+             'child_variable': 'category'},
         ]
 
 
 class EligibilityResponse_Financial(fhirbase):
-    """This resource provides eligibility and plan details from the processing
-    of an Eligibility resource.
+    """
+    This resource provides eligibility and plan details from the
+    processing of an Eligibility resource.
     """
 
     __name__ = 'EligibilityResponse_Financial'
 
     def __init__(self, dict_values=None):
-        # deductable, visits, benefit amount.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Deductable, visits, benefit amount.
 
-        # benefits allowed.
+        reference to CodeableConcept
+        """
+
         self.allowedUnsignedInt = None
-        # type = int
+        """
+        Benefits allowed.
 
-        # benefits allowed.
+        type: int
+        """
+
         self.allowedString = None
-        # type = string
+        """
+        Benefits allowed.
 
-        # benefits allowed.
+        type: string
+        """
+
         self.allowedMoney = None
-        # reference to Money: Money
+        """
+        Benefits allowed.
 
-        # benefits used.
+        reference to Money
+        """
+
         self.usedUnsignedInt = None
-        # type = int
+        """
+        Benefits used.
 
-        # benefits used.
+        type: int
+        """
+
         self.usedMoney = None
-        # reference to Money: Money
+        """
+        Benefits used.
 
-        # unique identifier for object class
+        reference to Money
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -306,11 +406,6 @@ class EligibilityResponse_Financial(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'EligibilityResponse_Financial',
-             'child_variable': 'allowedMoney'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'EligibilityResponse_Financial',
@@ -320,24 +415,33 @@ class EligibilityResponse_Financial(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'EligibilityResponse_Financial',
              'child_variable': 'usedMoney'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_Financial',
+             'child_variable': 'allowedMoney'},
         ]
 
 
 class EligibilityResponse_Error(fhirbase):
-    """This resource provides eligibility and plan details from the processing
-    of an Eligibility resource.
+    """
+    This resource provides eligibility and plan details from the
+    processing of an Eligibility resource.
     """
 
     __name__ = 'EligibilityResponse_Error'
 
     def __init__(self, dict_values=None):
-        # an error code,from a specified code system, which details why the
-        # eligibility check could not be performed.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        An error code,from a specified code system, which details why the
+        eligibility check could not be performed.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

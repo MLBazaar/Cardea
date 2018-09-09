@@ -2,92 +2,127 @@ from .fhirbase import fhirbase
 
 
 class DeviceMetric(fhirbase):
-    """Describes a measurement, calculation or setting capability of a medical
-    device.
+    """
+    Describes a measurement, calculation or setting capability of a
+    medical device.
     """
 
     __name__ = 'DeviceMetric'
 
     def __init__(self, dict_values=None):
-        # this is a devicemetric resource
         self.resourceType = 'DeviceMetric'
-        # type = string
-        # possible values: DeviceMetric
+        """
+        This is a DeviceMetric resource
 
-        # describes the type of the metric. for example: heart rate, peep setting,
-        # etc.
+        type: string
+        possible values: DeviceMetric
+        """
+
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Describes the type of the metric. For example: Heart Rate, PEEP
+        Setting, etc.
 
-        # describes the unit that an observed value determined for this metric
-        # will have. for example: percent, seconds, etc.
+        reference to CodeableConcept
+        """
+
         self.unit = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Describes the unit that an observed value determined for this metric
+        will have. For example: Percent, Seconds, etc.
 
-        # describes the link to the  device that this devicemetric belongs to and
-        # that contains administrative device information such as manufacturer,
-        # serial number, etc.
+        reference to CodeableConcept
+        """
+
         self.source = None
-        # reference to Reference: identifier
+        """
+        Describes the link to the  Device that this DeviceMetric belongs to
+        and that contains administrative device information such as
+        manufacturer, serial number, etc.
 
-        # describes the link to the  devicecomponent that this devicemetric
-        # belongs to and that provide information about the location of this
-        # devicemetric in the containment structure of the parent device. an
-        # example would be a devicecomponent that represents a channel. this
-        # reference can be used by a client application to distinguish
-        # devicemetrics that have the same type, but should be interpreted based
-        # on their containment location.
+        reference to Reference: identifier
+        """
+
         self.parent = None
-        # reference to Reference: identifier
+        """
+        Describes the link to the  DeviceComponent that this DeviceMetric
+        belongs to and that provide information about the location of this
+        DeviceMetric in the containment structure of the parent Device. An
+        example would be a DeviceComponent that represents a Channel. This
+        reference can be used by a client application to distinguish
+        DeviceMetrics that have the same type, but should be interpreted based
+        on their containment location.
 
-        # indicates current operational state of the device. for example: on, off,
-        # standby, etc.
+        reference to Reference: identifier
+        """
+
         self.operationalStatus = None
-        # type = string
-        # possible values: on, off, standby, entered-in-error
+        """
+        Indicates current operational state of the device. For example: On,
+        Off, Standby, etc.
 
-        # describes the color representation for the metric. this is often used to
-        # aid clinicians to track and identify parameter types by color. in
-        # practice, consider a patient monitor that has ecg/hr and pleth for
-        # example; the parameters are displayed in different characteristic
-        # colors, such as hr-blue, bp-green, and pr and spo2- magenta.
+        type: string
+        possible values: on, off, standby, entered-in-error
+        """
+
         self.color = None
-        # type = string
-        # possible values: black, red, green, yellow, blue, magenta,
-        # cyan, white
+        """
+        Describes the color representation for the metric. This is often used
+        to aid clinicians to track and identify parameter types by color. In
+        practice, consider a Patient Monitor that has ECG/HR and Pleth for
+        example; the parameters are displayed in different characteristic
+        colors, such as HR-blue, BP-green, and PR and SpO2- magenta.
 
-        # indicates the category of the observation generation process. a
-        # devicemetric can be for example a setting, measurement, or calculation.
+        type: string
+        possible values: black, red, green, yellow, blue, magenta,
+        cyan, white
+        """
+
         self.category = None
-        # type = string
-        # possible values: measurement, setting, calculation,
-        # unspecified
+        """
+        Indicates the category of the observation generation process. A
+        DeviceMetric can be for example a setting, measurement, or
+        calculation.
 
-        # describes the measurement repetition time. this is not necessarily the
-        # same as the update period. the measurement repetition time can range
-        # from milliseconds up to hours. an example for a measurement repetition
-        # time in the range of milliseconds is the sampling rate of an ecg. an
-        # example for a measurement repetition time in the range of hours is a
-        # nibp that is triggered automatically every hour. the update period may
-        # be different than the measurement repetition time, if the device does
-        # not update the published observed value with the same frequency as it
-        # was measured.
+        type: string
+        possible values: measurement, setting, calculation,
+        unspecified
+        """
+
         self.measurementPeriod = None
-        # reference to Timing: Timing
+        """
+        Describes the measurement repetition time. This is not necessarily the
+        same as the update period. The measurement repetition time can range
+        from milliseconds up to hours. An example for a measurement repetition
+        time in the range of milliseconds is the sampling rate of an ECG. An
+        example for a measurement repetition time in the range of hours is a
+        NIBP that is triggered automatically every hour. The update period may
+        be different than the measurement repetition time, if the device does
+        not update the published observed value with the same frequency as it
+        was measured.
 
-        # describes the calibrations that have been performed or that are required
-        # to be performed.
+        reference to Timing
+        """
+
         self.calibration = None
-        # type = array
-        # reference to DeviceMetric_Calibration: DeviceMetric_Calibration
+        """
+        Describes the calibrations that have been performed or that are
+        required to be performed.
 
-        # describes the unique identification of this metric that has been
-        # assigned by the device or gateway software. for example: handle id.  it
-        # should be noted that in order to make the identifier unique, the system
-        # element of the identifier should be set to the unique identifier of the
-        # device.
+        type: array
+        reference to DeviceMetric_Calibration
+        """
+
         self.identifier = None
-        # reference to Identifier: Identifier
+        """
+        Describes the unique identification of this metric that has been
+        assigned by the device or gateway software. For example: handle ID.
+        It should be noted that in order to make the identifier unique, the
+        system element of the identifier should be set to the unique
+        identifier of the device.
+
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -118,15 +153,15 @@ class DeviceMetric(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'DeviceMetric',
-             'child_variable': 'identifier'},
-
             {'parent_entity': 'Timing',
              'parent_variable': 'object_id',
              'child_entity': 'DeviceMetric',
              'child_variable': 'measurementPeriod'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceMetric',
+             'child_variable': 'unit'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -138,11 +173,6 @@ class DeviceMetric(fhirbase):
              'child_entity': 'DeviceMetric',
              'child_variable': 'calibration'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'DeviceMetric',
-             'child_variable': 'unit'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'DeviceMetric',
@@ -152,34 +182,49 @@ class DeviceMetric(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'DeviceMetric',
              'child_variable': 'type'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DeviceMetric',
+             'child_variable': 'identifier'},
         ]
 
 
 class DeviceMetric_Calibration(fhirbase):
-    """Describes a measurement, calculation or setting capability of a medical
-    device.
+    """
+    Describes a measurement, calculation or setting capability of a
+    medical device.
     """
 
     __name__ = 'DeviceMetric_Calibration'
 
     def __init__(self, dict_values=None):
-        # describes the type of the calibration method.
         self.type = None
-        # type = string
-        # possible values: unspecified, offset, gain, two-point
+        """
+        Describes the type of the calibration method.
 
-        # describes the state of the calibration.
+        type: string
+        possible values: unspecified, offset, gain, two-point
+        """
+
         self.state = None
-        # type = string
-        # possible values: not-calibrated, calibration-required,
-        # calibrated, unspecified
+        """
+        Describes the state of the calibration.
 
-        # describes the time last calibration has been performed.
+        type: string
+        possible values: not-calibrated, calibration-required,
+        calibrated, unspecified
+        """
+
         self.time = None
-        # type = string
+        """
+        Describes the time last calibration has been performed.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

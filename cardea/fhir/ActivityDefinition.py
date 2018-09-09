@@ -2,7 +2,8 @@ from .fhirbase import fhirbase
 
 
 class ActivityDefinition(fhirbase):
-    """This resource allows for the definition of some activity to be
+    """
+    This resource allows for the definition of some activity to be
     performed, independent of a particular patient, practitioner, or other
     performance context.
     """
@@ -10,240 +11,359 @@ class ActivityDefinition(fhirbase):
     __name__ = 'ActivityDefinition'
 
     def __init__(self, dict_values=None):
-        # this is a activitydefinition resource
         self.resourceType = 'ActivityDefinition'
-        # type = string
-        # possible values: ActivityDefinition
+        """
+        This is a ActivityDefinition resource
 
-        # an absolute uri that is used to identify this activity definition when
-        # it is referenced in a specification, model, design or an instance. this
-        # shall be a url, should be globally unique, and should be an address at
-        # which this activity definition is (or will be) published. the url should
-        # include the major version of the activity definition. for more
-        # information see [technical and business
-        # versions](resource.html#versions).
+        type: string
+        possible values: ActivityDefinition
+        """
+
         self.url = None
-        # type = string
+        """
+        An absolute URI that is used to identify this activity definition when
+        it is referenced in a specification, model, design or an instance.
+        This SHALL be a URL, SHOULD be globally unique, and SHOULD be an
+        address at which this activity definition is (or will be) published.
+        The URL SHOULD include the major version of the activity definition.
+        For more information see [Technical and Business
+        Versions](resource.html#versions).
 
-        # the identifier that is used to identify this version of the activity
-        # definition when it is referenced in a specification, model, design or
-        # instance. this is an arbitrary value managed by the activity definition
-        # author and is not expected to be globally unique. for example, it might
-        # be a timestamp (e.g. yyyymmdd) if a managed version is not available.
-        # there is also no expectation that versions can be placed in a
-        # lexicographical sequence. to provide a version consistent with the
-        # decision support service specification, use the format
-        # major.minor.revision (e.g. 1.0.0). for more information on versioning
-        # knowledge assets, refer to the decision support service specification.
-        # note that a version is required for non-experimental active assets.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The identifier that is used to identify this version of the activity
+        definition when it is referenced in a specification, model, design or
+        instance. This is an arbitrary value managed by the activity
+        definition author and is not expected to be globally unique. For
+        example, it might be a timestamp (e.g. yyyymmdd) if a managed version
+        is not available. There is also no expectation that versions can be
+        placed in a lexicographical sequence. To provide a version consistent
+        with the Decision Support Service specification, use the format
+        Major.Minor.Revision (e.g. 1.0.0). For more information on versioning
+        knowledge assets, refer to the Decision Support Service specification.
+        Note that a version is required for non-experimental active assets.
 
-        # a natural language name identifying the activity definition. this name
-        # should be usable as an identifier for the module by machine processing
-        # applications such as code generation.
+        type: string
+        """
+
         self.name = None
-        # type = string
+        """
+        A natural language name identifying the activity definition. This name
+        should be usable as an identifier for the module by machine processing
+        applications such as code generation.
 
-        # a short, descriptive, user-friendly title for the activity definition.
+        type: string
+        """
+
         self.title = None
-        # type = string
+        """
+        A short, descriptive, user-friendly title for the activity definition.
 
-        # the status of this activity definition. enables tracking the life-cycle
-        # of the content.
+        type: string
+        """
+
         self.status = None
-        # type = string
-        # possible values: draft, active, retired, unknown
+        """
+        The status of this activity definition. Enables tracking the
+        life-cycle of the content.
 
-        # a boolean value to indicate that this activity definition is authored
-        # for testing purposes (or education/evaluation/marketing), and is not
-        # intended to be used for genuine usage.
+        type: string
+        possible values: draft, active, retired, unknown
+        """
+
         self.experimental = None
-        # type = boolean
+        """
+        A boolean value to indicate that this activity definition is authored
+        for testing purposes (or education/evaluation/marketing), and is not
+        intended to be used for genuine usage.
 
-        # the date  (and optionally time) when the activity definition was
-        # published. the date must change if and when the business version changes
-        # and it must change if the status code changes. in addition, it should
-        # change when the substantive content of the activity definition changes.
+        type: boolean
+        """
+
         self.date = None
-        # type = string
+        """
+        The date  (and optionally time) when the activity definition was
+        published. The date must change if and when the business version
+        changes and it must change if the status code changes. In addition, it
+        should change when the substantive content of the activity definition
+        changes.
 
-        # the name of the individual or organization that published the activity
-        # definition.
+        type: string
+        """
+
         self.publisher = None
-        # type = string
+        """
+        The name of the individual or organization that published the activity
+        definition.
 
-        # a free text natural language description of the activity definition from
-        # a consumer's perspective.
+        type: string
+        """
+
         self.description = None
-        # type = string
+        """
+        A free text natural language description of the activity definition
+        from a consumer's perspective.
 
-        # explaination of why this activity definition is needed and why it has
-        # been designed as it has.
+        type: string
+        """
+
         self.purpose = None
-        # type = string
+        """
+        Explaination of why this activity definition is needed and why it has
+        been designed as it has.
 
-        # a detailed description of how the asset is used from a clinical
-        # perspective.
+        type: string
+        """
+
         self.usage = None
-        # type = string
+        """
+        A detailed description of how the asset is used from a clinical
+        perspective.
 
-        # the date on which the resource content was approved by the publisher.
-        # approval happens once when the content is officially approved for usage.
+        type: string
+        """
+
         self.approvalDate = None
-        # type = string
+        """
+        The date on which the resource content was approved by the publisher.
+        Approval happens once when the content is officially approved for
+        usage.
 
-        # the date on which the resource content was last reviewed. review happens
-        # periodically after approval, but doesn't change the original approval
-        # date.
+        type: string
+        """
+
         self.lastReviewDate = None
-        # type = string
+        """
+        The date on which the resource content was last reviewed. Review
+        happens periodically after approval, but doesn't change the original
+        approval date.
 
-        # the period during which the activity definition content was or is
-        # planned to be in active use.
+        type: string
+        """
+
         self.effectivePeriod = None
-        # reference to Period: Period
+        """
+        The period during which the activity definition content was or is
+        planned to be in active use.
 
-        # the content was developed with a focus and intent of supporting the
-        # contexts that are listed. these terms may be used to assist with
-        # indexing and searching for appropriate activity definition instances.
+        reference to Period
+        """
+
         self.useContext = None
-        # type = array
-        # reference to UsageContext: UsageContext
+        """
+        The content was developed with a focus and intent of supporting the
+        contexts that are listed. These terms may be used to assist with
+        indexing and searching for appropriate activity definition instances.
 
-        # a legal or geographic region in which the activity definition is
-        # intended to be used.
+        type: array
+        reference to UsageContext
+        """
+
         self.jurisdiction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A legal or geographic region in which the activity definition is
+        intended to be used.
 
-        # descriptive topics related to the content of the activity. topics
-        # provide a high-level categorization of the activity that can be useful
-        # for filtering and searching.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.topic = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Descriptive topics related to the content of the activity. Topics
+        provide a high-level categorization of the activity that can be useful
+        for filtering and searching.
 
-        # a contributor to the content of the asset, including authors, editors,
-        # reviewers, and endorsers.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.contributor = None
-        # type = array
-        # reference to Contributor: Contributor
+        """
+        A contributor to the content of the asset, including authors, editors,
+        reviewers, and endorsers.
 
-        # contact details to assist a user in finding and communicating with the
-        # publisher.
+        type: array
+        reference to Contributor
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        """
+        Contact details to assist a user in finding and communicating with the
+        publisher.
 
-        # a copyright statement relating to the activity definition and/or its
-        # contents. copyright statements are generally legal restrictions on the
-        # use and publishing of the activity definition.
+        type: array
+        reference to ContactDetail
+        """
+
         self.copyright = None
-        # type = string
+        """
+        A copyright statement relating to the activity definition and/or its
+        contents. Copyright statements are generally legal restrictions on the
+        use and publishing of the activity definition.
 
-        # related artifacts such as additional documentation, justification, or
-        # bibliographic references.
+        type: string
+        """
+
         self.relatedArtifact = None
-        # type = array
-        # reference to RelatedArtifact: RelatedArtifact
+        """
+        Related artifacts such as additional documentation, justification, or
+        bibliographic references.
 
-        # a reference to a library resource containing any formal logic used by
-        # the asset.
+        type: array
+        reference to RelatedArtifact
+        """
+
         self.library = None
-        # type = array
-        # reference to Reference: identifier
+        """
+        A reference to a Library resource containing any formal logic used by
+        the asset.
 
-        # a description of the kind of resource the activity definition is
-        # representing. for example, a medicationrequest, a procedurerequest, or a
-        # communicationrequest. typically, but not always, this is a request
-        # resource.
+        type: array
+        reference to Reference: identifier
+        """
+
         self.kind = None
-        # type = string
+        """
+        A description of the kind of resource the activity definition is
+        representing. For example, a MedicationRequest, a ProcedureRequest, or
+        a CommunicationRequest. Typically, but not always, this is a Request
+        resource.
 
-        # detailed description of the type of activity; e.g. what lab test, what
-        # procedure, what kind of encounter.
+        type: string
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Detailed description of the type of activity; e.g. What lab test, what
+        procedure, what kind of encounter.
 
-        # the period, timing or frequency upon which the described activity is to
-        # occur.
+        reference to CodeableConcept
+        """
+
         self.timingTiming = None
-        # reference to Timing: Timing
+        """
+        The period, timing or frequency upon which the described activity is
+        to occur.
 
-        # the period, timing or frequency upon which the described activity is to
-        # occur.
+        reference to Timing
+        """
+
         self.timingDateTime = None
-        # type = string
+        """
+        The period, timing or frequency upon which the described activity is
+        to occur.
 
-        # the period, timing or frequency upon which the described activity is to
-        # occur.
+        type: string
+        """
+
         self.timingPeriod = None
-        # reference to Period: Period
+        """
+        The period, timing or frequency upon which the described activity is
+        to occur.
 
-        # the period, timing or frequency upon which the described activity is to
-        # occur.
+        reference to Period
+        """
+
         self.timingRange = None
-        # reference to Range: Range
+        """
+        The period, timing or frequency upon which the described activity is
+        to occur.
 
-        # identifies the facility where the activity will occur; e.g. home,
-        # hospital, specific clinic, etc.
+        reference to Range
+        """
+
         self.location = None
-        # reference to Reference: identifier
+        """
+        Identifies the facility where the activity will occur; e.g. home,
+        hospital, specific clinic, etc.
 
-        # indicates who should participate in performing the action described.
+        reference to Reference: identifier
+        """
+
         self.participant = None
-        # type = array
-        # reference to ActivityDefinition_Participant: ActivityDefinition_Participant
+        """
+        Indicates who should participate in performing the action described.
 
-        # identifies the food, drug or other product being consumed or supplied in
-        # the activity.
+        type: array
+        reference to ActivityDefinition_Participant
+        """
+
         self.productReference = None
-        # reference to Reference: identifier
+        """
+        Identifies the food, drug or other product being consumed or supplied
+        in the activity.
 
-        # identifies the food, drug or other product being consumed or supplied in
-        # the activity.
+        reference to Reference: identifier
+        """
+
         self.productCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Identifies the food, drug or other product being consumed or supplied
+        in the activity.
 
-        # identifies the quantity expected to be consumed at once (per dose, per
-        # meal, etc.).
+        reference to CodeableConcept
+        """
+
         self.quantity = None
-        # reference to Quantity: Quantity
+        """
+        Identifies the quantity expected to be consumed at once (per dose, per
+        meal, etc.).
 
-        # provides detailed dosage instructions in the same way that they are
-        # described for medicationrequest resources.
+        reference to Quantity
+        """
+
         self.dosage = None
-        # type = array
-        # reference to Dosage: Dosage
+        """
+        Provides detailed dosage instructions in the same way that they are
+        described for MedicationRequest resources.
 
-        # indicates the sites on the subject's body where the procedure should be
-        # performed (i.e. the target sites).
+        type: array
+        reference to Dosage
+        """
+
         self.bodySite = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Indicates the sites on the subject's body where the procedure should
+        be performed (I.e. the target sites).
 
-        # a reference to a structuremap resource that defines a transform that can
-        # be executed to produce the intent resource using the activitydefinition
-        # instance as the input.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.transform = None
-        # reference to Reference: identifier
+        """
+        A reference to a StructureMap resource that defines a transform that
+        can be executed to produce the intent resource using the
+        ActivityDefinition instance as the input.
 
-        # dynamic values that will be evaluated to produce values for elements of
-        # the resulting resource. for example, if the dosage of a medication must
-        # be computed based on the patient's weight, a dynamic value would be used
-        # to specify an expression that calculated the weight, and the path on the
-        # intent resource that would contain the result.
+        reference to Reference: identifier
+        """
+
         self.dynamicValue = None
-        # type = array
-        # reference to ActivityDefinition_DynamicValue: ActivityDefinition_DynamicValue
+        """
+        Dynamic values that will be evaluated to produce values for elements
+        of the resulting resource. For example, if the dosage of a medication
+        must be computed based on the patient's weight, a dynamic value would
+        be used to specify an expression that calculated the weight, and the
+        path on the intent resource that would contain the result.
 
-        # a formal identifier that is used to identify this activity definition
-        # when it is represented in other formats, or referenced in a
-        # specification, model, design or an instance.
+        type: array
+        reference to ActivityDefinition_DynamicValue
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        A formal identifier that is used to identify this activity definition
+        when it is represented in other formats, or referenced in a
+        specification, model, design or an instance.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -260,95 +380,25 @@ class ActivityDefinition(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
              'child_entity': 'ActivityDefinition',
-             'child_variable': 'location'},
+             'child_variable': 'quantity'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ActivityDefinition',
              'child_variable': 'bodySite'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'topic'},
-
-            {'parent_entity': 'UsageContext',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'useContext'},
-
-            {'parent_entity': 'ActivityDefinition_DynamicValue',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'dynamicValue'},
-
-            {'parent_entity': 'Timing',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'timingTiming'},
-
-            {'parent_entity': 'Dosage',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'dosage'},
-
-            {'parent_entity': 'ContactDetail',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'contact'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'effectivePeriod'},
-
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'ActivityDefinition',
              'child_variable': 'timingPeriod'},
 
-            {'parent_entity': 'Contributor',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'contributor'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ActivityDefinition',
-             'child_variable': 'transform'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'ActivityDefinition_Participant',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'participant'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'jurisdiction'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'code'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'quantity'},
-
-            {'parent_entity': 'RelatedArtifact',
-             'parent_variable': 'object_id',
-             'child_entity': 'ActivityDefinition',
-             'child_variable': 'relatedArtifact'},
+             'child_variable': 'library'},
 
             {'parent_entity': 'Range',
              'parent_variable': 'object_id',
@@ -360,20 +410,91 @@ class ActivityDefinition(fhirbase):
              'child_entity': 'ActivityDefinition',
              'child_variable': 'productReference'},
 
+            {'parent_entity': 'ContactDetail',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'contact'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'transform'},
+
+            {'parent_entity': 'Contributor',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'contributor'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'dosage'},
+
+            {'parent_entity': 'RelatedArtifact',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'relatedArtifact'},
+
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'ActivityDefinition',
              'child_variable': 'productCodeableConcept'},
 
+            {'parent_entity': 'ActivityDefinition_DynamicValue',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'dynamicValue'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'timingTiming'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ActivityDefinition',
-             'child_variable': 'library'},
+             'child_variable': 'location'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'jurisdiction'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'effectivePeriod'},
+
+            {'parent_entity': 'ActivityDefinition_Participant',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'participant'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ActivityDefinition',
+             'child_variable': 'topic'},
         ]
 
 
 class ActivityDefinition_Participant(fhirbase):
-    """This resource allows for the definition of some activity to be
+    """
+    This resource allows for the definition of some activity to be
     performed, independent of a particular patient, practitioner, or other
     performance context.
     """
@@ -381,16 +502,23 @@ class ActivityDefinition_Participant(fhirbase):
     __name__ = 'ActivityDefinition_Participant'
 
     def __init__(self, dict_values=None):
-        # the type of participant in the action.
         self.type = None
-        # type = string
+        """
+        The type of participant in the action.
 
-        # the role the participant should play in performing the described action.
+        type: string
+        """
+
         self.role = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The role the participant should play in performing the described
+        action.
 
-        # unique identifier for object class
+        reference to CodeableConcept
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -406,7 +534,8 @@ class ActivityDefinition_Participant(fhirbase):
 
 
 class ActivityDefinition_DynamicValue(fhirbase):
-    """This resource allows for the definition of some activity to be
+    """
+    This resource allows for the definition of some activity to be
     performed, independent of a particular patient, practitioner, or other
     performance context.
     """
@@ -414,27 +543,39 @@ class ActivityDefinition_DynamicValue(fhirbase):
     __name__ = 'ActivityDefinition_DynamicValue'
 
     def __init__(self, dict_values=None):
-        # a brief, natural language description of the intended semantics of the
-        # dynamic value.
         self.description = None
-        # type = string
+        """
+        A brief, natural language description of the intended semantics of the
+        dynamic value.
 
-        # the path to the element to be customized. this is the path on the
-        # resource that will hold the result of the calculation defined by the
-        # expression.
+        type: string
+        """
+
         self.path = None
-        # type = string
+        """
+        The path to the element to be customized. This is the path on the
+        resource that will hold the result of the calculation defined by the
+        expression.
 
-        # the media type of the language for the expression.
+        type: string
+        """
+
         self.language = None
-        # type = string
+        """
+        The media type of the language for the expression.
 
-        # an expression specifying the value of the customized element.
+        type: string
+        """
+
         self.expression = None
-        # type = string
+        """
+        An expression specifying the value of the customized element.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

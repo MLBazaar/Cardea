@@ -2,31 +2,44 @@ from .fhirbase import fhirbase
 
 
 class Annotation(fhirbase):
-    """A  text note which also  contains information about who made the
+    """
+    A  text note which also  contains information about who made the
     statement and when.
     """
 
     __name__ = 'Annotation'
 
     def __init__(self, dict_values=None):
-        # the individual responsible for making the annotation.
         self.authorReference = None
-        # reference to Reference: identifier
+        """
+        The individual responsible for making the annotation.
 
-        # the individual responsible for making the annotation.
+        reference to Reference: identifier
+        """
+
         self.authorString = None
-        # type = string
+        """
+        The individual responsible for making the annotation.
 
-        # indicates when this particular annotation was made.
+        type: string
+        """
+
         self.time = None
-        # type = string
+        """
+        Indicates when this particular annotation was made.
 
-        # the text of the annotation.
+        type: string
+        """
+
         self.text = None
-        # type = string
+        """
+        The text of the annotation.
 
-        # unique identifier for object class
+        type: string
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

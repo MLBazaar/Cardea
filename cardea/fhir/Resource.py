@@ -2,31 +2,44 @@ from .fhirbase import fhirbase
 
 
 class Resource(fhirbase):
-    """This is the base resource type for everything.
+    """
+    This is the base resource type for everything.
     """
 
     __name__ = 'Resource'
 
     def __init__(self, dict_values=None):
-        # the metadata about the resource. this is content that is maintained by
-        # the infrastructure. changes to the content may not always be associated
-        # with version changes to the resource.
         self.meta = None
-        # reference to Meta: Meta
+        """
+        The metadata about the resource. This is content that is maintained by
+        the infrastructure. Changes to the content may not always be
+        associated with version changes to the resource.
 
-        # a reference to a set of rules that were followed when the resource was
-        # constructed, and which must be understood when processing the content.
+        reference to Meta
+        """
+
         self.implicitRules = None
-        # type = string
+        """
+        A reference to a set of rules that were followed when the resource was
+        constructed, and which must be understood when processing the content.
 
-        # the base language in which the resource is written.
+        type: string
+        """
+
         self.language = None
-        # type = string
+        """
+        The base language in which the resource is written.
 
-        # the logical id of the resource, as used in the url for the resource.
-        # once assigned, this value never changes.
+        type: string
+        """
+
         self.id = None
-        # type = string
+        """
+        The logical id of the resource, as used in the URL for the resource.
+        Once assigned, this value never changes.
+
+        type: string
+        """
 
         if dict_values:
             self.set_attributes(dict_values)

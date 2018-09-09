@@ -2,61 +2,95 @@ from .fhirbase import fhirbase
 
 
 class PaymentNotice(fhirbase):
-    """This resource provides the status of the payment for goods and services
-    rendered, and the request and response resource references.
+    """
+    This resource provides the status of the payment for goods and
+    services rendered, and the request and response resource references.
     """
 
     __name__ = 'PaymentNotice'
 
     def __init__(self, dict_values=None):
-        # this is a paymentnotice resource
         self.resourceType = 'PaymentNotice'
-        # type = string
-        # possible values: PaymentNotice
+        """
+        This is a PaymentNotice resource
 
-        # the status of the resource instance.
+        type: string
+        possible values: PaymentNotice
+        """
+
         self.status = None
-        # type = string
+        """
+        The status of the resource instance.
 
-        # reference of resource for which payment is being made.
+        type: string
+        """
+
         self.request = None
-        # reference to Reference: identifier
+        """
+        Reference of resource for which payment is being made.
 
-        # reference of response to resource for which payment is being made.
+        reference to Reference: identifier
+        """
+
         self.response = None
-        # reference to Reference: identifier
+        """
+        Reference of response to resource for which payment is being made.
 
-        # the date when the above payment action occurrred.
+        reference to Reference: identifier
+        """
+
         self.statusDate = None
-        # type = string
+        """
+        The date when the above payment action occurrred.
 
-        # the date when this resource was created.
+        type: string
+        """
+
         self.created = None
-        # type = string
+        """
+        The date when this resource was created.
 
-        # the insurer who is target  of the request.
+        type: string
+        """
+
         self.target = None
-        # reference to Reference: identifier
+        """
+        The Insurer who is target  of the request.
 
-        # the practitioner who is responsible for the services rendered to the
-        # patient.
+        reference to Reference: identifier
+        """
+
         self.provider = None
-        # reference to Reference: identifier
+        """
+        The practitioner who is responsible for the services rendered to the
+        patient.
 
-        # the organization which is responsible for the services rendered to the
-        # patient.
+        reference to Reference: identifier
+        """
+
         self.organization = None
-        # reference to Reference: identifier
+        """
+        The organization which is responsible for the services rendered to the
+        patient.
 
-        # the payment status, typically paid: payment sent, cleared: payment
-        # received.
+        reference to Reference: identifier
+        """
+
         self.paymentStatus = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The payment status, typically paid: payment sent, cleared: payment
+        received.
 
-        # the notice business identifier.
+        reference to CodeableConcept
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        The notice business identifier.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -67,22 +101,17 @@ class PaymentNotice(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'PaymentNotice',
+             'child_variable': 'target'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PaymentNotice',
              'child_variable': 'request'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'PaymentNotice',
-             'child_variable': 'response'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'PaymentNotice',
-             'child_variable': 'target'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'PaymentNotice',
-             'child_variable': 'paymentStatus'},
+             'child_variable': 'provider'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
@@ -94,8 +123,13 @@ class PaymentNotice(fhirbase):
              'child_entity': 'PaymentNotice',
              'child_variable': 'organization'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PaymentNotice',
+             'child_variable': 'paymentStatus'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'PaymentNotice',
-             'child_variable': 'provider'},
+             'child_variable': 'response'},
         ]

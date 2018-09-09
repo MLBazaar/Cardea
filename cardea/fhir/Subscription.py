@@ -2,65 +2,93 @@ from .fhirbase import fhirbase
 
 
 class Subscription(fhirbase):
-    """The subscription resource is used to define a push based subscription
-    from a server to another system. Once a subscription is registered with
-    the server, the server checks every resource that is created or updated,
-    and if the resource matches the given criteria, it sends a message on
-    the defined "channel" so that another system is able to take an
-    appropriate action.
+    """
+    The subscription resource is used to define a push based subscription
+    from a server to another system. Once a subscription is registered
+    with the server, the server checks every resource that is created or
+    updated, and if the resource matches the given criteria, it sends a
+    message on the defined "channel" so that another system is able to
+    take an appropriate action.
     """
 
     __name__ = 'Subscription'
 
     def __init__(self, dict_values=None):
-        # this is a subscription resource
         self.resourceType = 'Subscription'
-        # type = string
-        # possible values: Subscription
+        """
+        This is a Subscription resource
 
-        # the status of the subscription, which marks the server state for
-        # managing the subscription.
+        type: string
+        possible values: Subscription
+        """
+
         self.status = None
-        # type = string
-        # possible values: requested, active, error, off
+        """
+        The status of the subscription, which marks the server state for
+        managing the subscription.
 
-        # contact details for a human to contact about the subscription. the
-        # primary use of this for system administrator troubleshooting.
+        type: string
+        possible values: requested, active, error, off
+        """
+
         self.contact = None
-        # type = array
-        # reference to ContactPoint: ContactPoint
+        """
+        Contact details for a human to contact about the subscription. The
+        primary use of this for system administrator troubleshooting.
 
-        # the time for the server to turn the subscription off.
+        type: array
+        reference to ContactPoint
+        """
+
         self.end = None
-        # type = string
+        """
+        The time for the server to turn the subscription off.
 
-        # a description of why this subscription is defined.
+        type: string
+        """
+
         self.reason = None
-        # type = string
+        """
+        A description of why this subscription is defined.
 
-        # the rules that the server should use to determine when to generate
-        # notifications for this subscription.
+        type: string
+        """
+
         self.criteria = None
-        # type = string
+        """
+        The rules that the server should use to determine when to generate
+        notifications for this subscription.
 
-        # a record of the last error that occurred when the server processed a
-        # notification.
+        type: string
+        """
+
         self.error = None
-        # type = string
+        """
+        A record of the last error that occurred when the server processed a
+        notification.
 
-        # details where to send notifications when resources are received that
-        # meet the criteria.
+        type: string
+        """
+
         self.channel = None
-        # reference to Subscription_Channel: Subscription_Channel
+        """
+        Details where to send notifications when resources are received that
+        meet the criteria.
 
-        # a tag to add to any resource that matches the criteria, after the
-        # subscription is processed.
+        reference to Subscription_Channel
+        """
+
         self.tag = None
-        # type = array
-        # reference to Coding: Coding
+        """
+        A tag to add to any resource that matches the criteria, after the
+        subscription is processed.
 
-        # unique identifier for object class
+        type: array
+        reference to Coding
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -95,38 +123,51 @@ class Subscription(fhirbase):
 
 
 class Subscription_Channel(fhirbase):
-    """The subscription resource is used to define a push based subscription
-    from a server to another system. Once a subscription is registered with
-    the server, the server checks every resource that is created or updated,
-    and if the resource matches the given criteria, it sends a message on
-    the defined "channel" so that another system is able to take an
-    appropriate action.
+    """
+    The subscription resource is used to define a push based subscription
+    from a server to another system. Once a subscription is registered
+    with the server, the server checks every resource that is created or
+    updated, and if the resource matches the given criteria, it sends a
+    message on the defined "channel" so that another system is able to
+    take an appropriate action.
     """
 
     __name__ = 'Subscription_Channel'
 
     def __init__(self, dict_values=None):
-        # the type of channel to send notifications on.
         self.type = None
-        # type = string
-        # possible values: rest-hook, websocket, email, sms, message
+        """
+        The type of channel to send notifications on.
 
-        # the uri that describes the actual end-point to send messages to.
+        type: string
+        possible values: rest-hook, websocket, email, sms, message
+        """
+
         self.endpoint = None
-        # type = string
+        """
+        The uri that describes the actual end-point to send messages to.
 
-        # the mime type to send the payload in - either application/fhir+xml, or
-        # application/fhir+json. if the payload is not present, then there is no
-        # payload in the notification, just a notification.
+        type: string
+        """
+
         self.payload = None
-        # type = string
+        """
+        The mime type to send the payload in - either application/fhir+xml, or
+        application/fhir+json. If the payload is not present, then there is no
+        payload in the notification, just a notification.
 
-        # additional headers / information to send as part of the notification.
+        type: string
+        """
+
         self.header = None
-        # type = array
+        """
+        Additional headers / information to send as part of the notification.
 
-        # unique identifier for object class
+        type: array
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

@@ -2,43 +2,59 @@ from .fhirbase import fhirbase
 
 
 class Coding(fhirbase):
-    """A reference to a code defined by a terminology system.
+    """
+    A reference to a code defined by a terminology system.
     """
 
     __name__ = 'Coding'
 
     def __init__(self, dict_values=None):
-        # the identification of the code system that defines the meaning of the
-        # symbol in the code.
         self.system = None
-        # type = string
+        """
+        The identification of the code system that defines the meaning of the
+        symbol in the code.
 
-        # the version of the code system which was used when choosing this code.
-        # note that a well-maintained code system does not need the version
-        # reported, because the meaning of codes is consistent across versions.
-        # however this cannot consistently be assured. and when the meaning is not
-        # guaranteed to be consistent, the version should be exchanged.
+        type: string
+        """
+
         self.version = None
-        # type = string
+        """
+        The version of the code system which was used when choosing this code.
+        Note that a well-maintained code system does not need the version
+        reported, because the meaning of codes is consistent across versions.
+        However this cannot consistently be assured. and when the meaning is
+        not guaranteed to be consistent, the version SHOULD be exchanged.
 
-        # a symbol in syntax defined by the system. the symbol may be a predefined
-        # code or an expression in a syntax defined by the coding system (e.g.
-        # post-coordination).
+        type: string
+        """
+
         self.code = None
-        # type = string
+        """
+        A symbol in syntax defined by the system. The symbol may be a
+        predefined code or an expression in a syntax defined by the coding
+        system (e.g. post-coordination).
 
-        # a representation of the meaning of the code in the system, following the
-        # rules of the system.
+        type: string
+        """
+
         self.display = None
-        # type = string
+        """
+        A representation of the meaning of the code in the system, following
+        the rules of the system.
 
-        # indicates that this coding was chosen by a user directly - i.e. off a
-        # pick list of available items (codes or displays).
+        type: string
+        """
+
         self.userSelected = None
-        # type = boolean
+        """
+        Indicates that this coding was chosen by a user directly - i.e. off a
+        pick list of available items (codes or displays).
 
-        # unique identifier for object class
+        type: boolean
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)

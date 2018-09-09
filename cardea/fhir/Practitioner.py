@@ -2,69 +2,103 @@ from .fhirbase import fhirbase
 
 
 class Practitioner(fhirbase):
-    """A person who is directly or indirectly involved in the provisioning of
+    """
+    A person who is directly or indirectly involved in the provisioning of
     healthcare.
     """
 
     __name__ = 'Practitioner'
 
     def __init__(self, dict_values=None):
-        # this is a practitioner resource
         self.resourceType = 'Practitioner'
-        # type = string
-        # possible values: Practitioner
+        """
+        This is a Practitioner resource
 
-        # whether this practitioner's record is in active use.
+        type: string
+        possible values: Practitioner
+        """
+
         self.active = None
-        # type = boolean
+        """
+        Whether this practitioner's record is in active use.
 
-        # the name(s) associated with the practitioner.
+        type: boolean
+        """
+
         self.name = None
-        # type = array
-        # reference to HumanName: HumanName
+        """
+        The name(s) associated with the practitioner.
 
-        # a contact detail for the practitioner, e.g. a telephone number or an
-        # email address.
+        type: array
+        reference to HumanName
+        """
+
         self.telecom = None
-        # type = array
-        # reference to ContactPoint: ContactPoint
+        """
+        A contact detail for the practitioner, e.g. a telephone number or an
+        email address.
 
-        # address(es) of the practitioner that are not role specific (typically
-        # home address).  work addresses are not typically entered in this
-        # property as they are usually role dependent.
+        type: array
+        reference to ContactPoint
+        """
+
         self.address = None
-        # type = array
-        # reference to Address: Address
+        """
+        Address(es) of the practitioner that are not role specific (typically
+        home address).  Work addresses are not typically entered in this
+        property as they are usually role dependent.
 
-        # administrative gender - the gender that the person is considered to have
-        # for administration and record keeping purposes.
+        type: array
+        reference to Address
+        """
+
         self.gender = None
-        # type = string
-        # possible values: male, female, other, unknown
+        """
+        Administrative Gender - the gender that the person is considered to
+        have for administration and record keeping purposes.
 
-        # the date of birth for the practitioner.
+        type: string
+        possible values: male, female, other, unknown
+        """
+
         self.birthDate = None
-        # type = string
+        """
+        The date of birth for the practitioner.
 
-        # image of the person.
+        type: string
+        """
+
         self.photo = None
-        # type = array
-        # reference to Attachment: Attachment
+        """
+        Image of the person.
 
-        # qualifications obtained by training and certification.
+        type: array
+        reference to Attachment
+        """
+
         self.qualification = None
-        # type = array
-        # reference to Practitioner_Qualification: identifier
+        """
+        Qualifications obtained by training and certification.
 
-        # a language the practitioner is able to use in patient communication.
+        type: array
+        reference to Practitioner_Qualification: identifier
+        """
+
         self.communication = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        """
+        A language the practitioner is able to use in patient communication.
 
-        # an identifier that applies to this person in this role.
+        type: array
+        reference to CodeableConcept
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        An identifier that applies to this person in this role.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -81,25 +115,15 @@ class Practitioner(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Attachment',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Practitioner',
-             'child_variable': 'photo'},
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'HumanName',
              'parent_variable': 'object_id',
              'child_entity': 'Practitioner',
              'child_variable': 'name'},
-
-            {'parent_entity': 'Address',
-             'parent_variable': 'object_id',
-             'child_entity': 'Practitioner',
-             'child_variable': 'address'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Practitioner',
-             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -115,33 +139,57 @@ class Practitioner(fhirbase):
              'parent_variable': 'identifier',
              'child_entity': 'Practitioner',
              'child_variable': 'qualification'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner',
+             'child_variable': 'photo'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner',
+             'child_variable': 'address'},
         ]
 
 
 class Practitioner_Qualification(fhirbase):
-    """A person who is directly or indirectly involved in the provisioning of
+    """
+    A person who is directly or indirectly involved in the provisioning of
     healthcare.
     """
 
     __name__ = 'Practitioner_Qualification'
 
     def __init__(self, dict_values=None):
-        # coded representation of the qualification.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        Coded representation of the qualification.
 
-        # period during which the qualification is valid.
+        reference to CodeableConcept
+        """
+
         self.period = None
-        # reference to Period: Period
+        """
+        Period during which the qualification is valid.
 
-        # organization that regulates and issues the qualification.
+        reference to Period
+        """
+
         self.issuer = None
-        # reference to Reference: identifier
+        """
+        Organization that regulates and issues the qualification.
 
-        # an identifier that applies to this person's qualification in this role.
+        reference to Reference: identifier
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        An identifier that applies to this person's qualification in this
+        role.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -149,6 +197,11 @@ class Practitioner_Qualification(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner_Qualification',
+             'child_variable': 'period'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Practitioner_Qualification',
@@ -158,11 +211,6 @@ class Practitioner_Qualification(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Practitioner_Qualification',
              'child_variable': 'identifier'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Practitioner_Qualification',
-             'child_variable': 'period'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',

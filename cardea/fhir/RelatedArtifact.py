@@ -2,46 +2,65 @@ from .fhirbase import fhirbase
 
 
 class RelatedArtifact(fhirbase):
-    """Related artifacts such as additional documentation, justification, or
+    """
+    Related artifacts such as additional documentation, justification, or
     bibliographic references.
     """
 
     __name__ = 'RelatedArtifact'
 
     def __init__(self, dict_values=None):
-        # the type of relationship to the related artifact.
         self.type = None
-        # type = string
-        # possible values: documentation, justification, citation,
-        # predecessor, successor, derived-from, depends-on, composed-of
+        """
+        The type of relationship to the related artifact.
 
-        # a brief description of the document or knowledge resource being
-        # referenced, suitable for display to a consumer.
+        type: string
+        possible values: documentation, justification, citation,
+        predecessor, successor, derived-from, depends-on, composed-of
+        """
+
         self.display = None
-        # type = string
+        """
+        A brief description of the document or knowledge resource being
+        referenced, suitable for display to a consumer.
 
-        # a bibliographic citation for the related artifact. this text should be
-        # formatted according to an accepted citation format.
+        type: string
+        """
+
         self.citation = None
-        # type = string
+        """
+        A bibliographic citation for the related artifact. This text SHOULD be
+        formatted according to an accepted citation format.
 
-        # a url for the artifact that can be followed to access the actual
-        # content.
+        type: string
+        """
+
         self.url = None
-        # type = string
+        """
+        A url for the artifact that can be followed to access the actual
+        content.
 
-        # the document being referenced, represented as an attachment. this is
-        # exclusive with the resource element.
+        type: string
+        """
+
         self.document = None
-        # reference to Attachment: Attachment
+        """
+        The document being referenced, represented as an attachment. This is
+        exclusive with the resource element.
 
-        # the related resource, such as a library, value set, profile, or other
-        # knowledge resource.
+        reference to Attachment
+        """
+
         self.resource = None
-        # reference to Reference: identifier
+        """
+        The related resource, such as a library, value set, profile, or other
+        knowledge resource.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -54,8 +73,8 @@ class RelatedArtifact(fhirbase):
                     'documentation', 'justification', 'citation', 'predecessor',
                         'successor', 'derived-from', 'depends-on', 'composed-of']:
                     raise ValueError('"{}" does not match possible values: {}'.format(
-                        value, 'documentation, justification, citation, predecessor,'
-                        'successor, derived-from, depends-on, composed-of'))
+                        value, 'documentation, justification, citation, predecessor, successor,'
+                        'derived-from, depends-on, composed-of'))
 
     def get_relationships(self):
 

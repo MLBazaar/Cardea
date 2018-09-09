@@ -2,80 +2,123 @@ from .fhirbase import fhirbase
 
 
 class List(fhirbase):
-    """A set of information summarized from a list of other resources.
+    """
+    A set of information summarized from a list of other resources.
     """
 
     __name__ = 'List'
 
     def __init__(self, dict_values=None):
-        # this is a list resource
         self.resourceType = 'List'
-        # type = string
-        # possible values: List
+        """
+        This is a List resource
 
-        # indicates the current state of this list.
+        type: string
+        possible values: List
+        """
+
         self.status = None
-        # type = string
-        # possible values: current, retired, entered-in-error
+        """
+        Indicates the current state of this list.
 
-        # how this list was prepared - whether it is a working list that is
-        # suitable for being maintained on an ongoing basis, or if it represents a
-        # snapshot of a list of items from another source, or whether it is a
-        # prepared list where items may be marked as added, modified or deleted.
+        type: string
+        possible values: current, retired, entered-in-error
+        """
+
         self.mode = None
-        # type = string
-        # possible values: working, snapshot, changes
+        """
+        How this list was prepared - whether it is a working list that is
+        suitable for being maintained on an ongoing basis, or if it represents
+        a snapshot of a list of items from another source, or whether it is a
+        prepared list where items may be marked as added, modified or deleted.
 
-        # a label for the list assigned by the author.
+        type: string
+        possible values: working, snapshot, changes
+        """
+
         self.title = None
-        # type = string
+        """
+        A label for the list assigned by the author.
 
-        # this code defines the purpose of the list - why it was created.
+        type: string
+        """
+
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        This code defines the purpose of the list - why it was created.
 
-        # the common subject (or patient) of the resources that are in the list,
-        # if there is one.
+        reference to CodeableConcept
+        """
+
         self.subject = None
-        # reference to Reference: identifier
+        """
+        The common subject (or patient) of the resources that are in the list,
+        if there is one.
 
-        # the encounter that is the context in which this list was created.
+        reference to Reference: identifier
+        """
+
         self.encounter = None
-        # reference to Reference: identifier
+        """
+        The encounter that is the context in which this list was created.
 
-        # the date that the list was prepared.
+        reference to Reference: identifier
+        """
+
         self.date = None
-        # type = string
+        """
+        The date that the list was prepared.
 
-        # the entity responsible for deciding what the contents of the list were.
-        # where the list was created by a human, this is the same as the author of
-        # the list.
+        type: string
+        """
+
         self.source = None
-        # reference to Reference: identifier
+        """
+        The entity responsible for deciding what the contents of the list
+        were. Where the list was created by a human, this is the same as the
+        author of the list.
 
-        # what order applies to the items in the list.
+        reference to Reference: identifier
+        """
+
         self.orderedBy = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        What order applies to the items in the list.
 
-        # comments that apply to the overall list.
+        reference to CodeableConcept
+        """
+
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        """
+        Comments that apply to the overall list.
 
-        # entries in this list.
+        type: array
+        reference to Annotation
+        """
+
         self.entry = None
-        # type = array
-        # reference to List_Entry: List_Entry
+        """
+        Entries in this list.
 
-        # if the list is empty, why the list is empty.
+        type: array
+        reference to List_Entry
+        """
+
         self.emptyReason = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        If the list is empty, why the list is empty.
 
-        # identifier for the list assigned for business purposes outside the
-        # context of fhir.
+        reference to CodeableConcept
+        """
+
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
+        """
+        Identifier for the List assigned for business purposes outside the
+        context of FHIR.
+
+        type: array
+        reference to Identifier
+        """
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -99,10 +142,30 @@ class List(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'List',
+             'child_variable': 'source'},
+
+            {'parent_entity': 'Annotation',
              'parent_variable': 'object_id',
              'child_entity': 'List',
-             'child_variable': 'identifier'},
+             'child_variable': 'note'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'List',
+             'child_variable': 'emptyReason'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'List',
+             'child_variable': 'orderedBy'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'List',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'List_Entry',
              'parent_variable': 'object_id',
@@ -117,61 +180,54 @@ class List(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'List',
-             'child_variable': 'emptyReason'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'List',
              'child_variable': 'code'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'List',
-             'child_variable': 'source'},
-
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'List',
-             'child_variable': 'orderedBy'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'List',
-             'child_variable': 'subject'},
-
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
-             'child_entity': 'List',
-             'child_variable': 'note'},
+             'child_variable': 'identifier'},
         ]
 
 
 class List_Entry(fhirbase):
-    """A set of information summarized from a list of other resources.
+    """
+    A set of information summarized from a list of other resources.
     """
 
     __name__ = 'List_Entry'
 
     def __init__(self, dict_values=None):
-        # the flag allows the system constructing the list to indicate the role
-        # and significance of the item in the list.
         self.flag = None
-        # reference to CodeableConcept: CodeableConcept
+        """
+        The flag allows the system constructing the list to indicate the role
+        and significance of the item in the list.
 
-        # true if this item is marked as deleted in the list.
+        reference to CodeableConcept
+        """
+
         self.deleted = None
-        # type = boolean
+        """
+        True if this item is marked as deleted in the list.
 
-        # when this item was added to the list.
+        type: boolean
+        """
+
         self.date = None
-        # type = string
+        """
+        When this item was added to the list.
 
-        # a reference to the actual resource from which data was derived.
+        type: string
+        """
+
         self.item = None
-        # reference to Reference: identifier
+        """
+        A reference to the actual resource from which data was derived.
 
-        # unique identifier for object class
+        reference to Reference: identifier
+        """
+
         self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -179,13 +235,13 @@ class List_Entry(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'List_Entry',
-             'child_variable': 'item'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'List_Entry',
              'child_variable': 'flag'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'List_Entry',
+             'child_variable': 'item'},
         ]
