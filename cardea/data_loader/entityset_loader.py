@@ -14,17 +14,8 @@ class EntitySetLoader(DataLoader):
         """Create an entity from FHIR object and add it to entityset."""
 
         df = object.get_dataframe()
-        object_name = object.__class__.__name__
-
-        # get ID if exists
-        if 'identifier' in df.columns:
-            id = 'identifier'
-        elif 'id' in df.columns:
-            id = 'id'
-        elif 'object_id' in df.columns:
-            id = 'object_id'
-        else:
-            raise LookupError('{} is missing an identifier column', object_name)
+        object_name = object.__name__
+        id = object.get_id()
 
         if object_name == 'Period':
             entity_set.entity_from_dataframe(entity_id=str(object_name),
