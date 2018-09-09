@@ -20,6 +20,17 @@ class fhirbase(object):
 
         return pd.DataFrame(dataframe)
 
+    def get_id(self):
+        # get ID if exists
+        if hasattr(self, 'identifier') and getattr(self, 'identifier') is not None:
+            return 'identifier'
+        elif hasattr(self, 'id') and getattr(self, 'id') is not None:
+            return 'id'
+        elif hasattr(self, 'object_id') and getattr(self, 'object_id') is not None:
+            return 'object_id'
+        else:
+            raise LookupError('{} is missing an identifier column'.format(self.__name__))
+
     def assert_type(self):
         pass
 
