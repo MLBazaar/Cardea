@@ -1,12 +1,14 @@
 from glob import glob
 
+import featuretools as ft
 import pandas as pd
 
-import featuretools as ft
 from cardea.data_loader import DataLoader
 
 
 class EntitySetLoader(DataLoader):
+
+    __name__ = 'EntitySetLoader'
 
     def create_entity(self, object, entity_set):
         """Create an entity from FHIR object and add it to entityset."""
@@ -37,11 +39,13 @@ class EntitySetLoader(DataLoader):
     def create_relationships(self, object, entity_set):
         """Bind entities in the entityset."""
 
+        entity_names = [e.id for e in entity_set.entities]
+
         for relation in object.get_relationships():
             # parent table: 0, field: 1
             # child table: 2, field: 3
 
-            if relation['parent_entity'] in entity_set.entity_names and getattr(
+            if relation['parent_entity'] in entity_names and getattr(
                     object, relation['child_variable']) is not None:
                 new_relationship = ft.Relationship(
                     entity_set[relation['parent_entity']][relation['parent_variable']],

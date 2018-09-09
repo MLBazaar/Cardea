@@ -5,6 +5,8 @@ from cardea import fhir
 
 class DataLoader():
 
+    __name__ = 'DataLoader'
+
     def create_object(self, df, file_name):
         """Return FHIR representation of pandas dataframe."""
 
