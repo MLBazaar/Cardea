@@ -58,5 +58,6 @@ def test_get_eligible_relationships(patient_object):
 
 def test_assert_type_enum():
     df = pd.DataFrame({"identifier": [0, 1], "gender": ['female', 'F']})  # F should be female
+    object_values = df.to_dict('list')
     with pytest.raises(ValueError):
-        Patient(df)
+        Patient(object_values)
