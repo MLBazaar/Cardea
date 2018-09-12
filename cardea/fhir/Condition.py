@@ -5,237 +5,167 @@ class Condition(fhirbase):
     """
     A clinical condition, problem, diagnosis, or other event, situation,
     issue, or clinical concept that has risen to a level of concern.
+
+    Attributes:
+        resourceType: This is a Condition resource
+        identifier: This records identifiers associated with this condition
+            that are defined by business processes and/or used to refer to it when
+            a direct URL reference to the resource itself is not appropriate (e.g.
+            in CDA documents, or in written / printed documentation).
+        clinicalStatus: The clinical status of the condition.
+        verificationStatus: The verification status to support the clinical
+            status of the condition.
+        category: A category assigned to the condition.
+        severity: A subjective assessment of the severity of the condition as
+            evaluated by the clinician.
+        code: Identification of the condition, problem or diagnosis.
+        bodySite: The anatomical location where this condition manifests
+            itself.
+        subject: Indicates the patient or group who the condition record is
+            associated with.
+        context: Encounter during which the condition was first asserted.
+        onsetDateTime: Estimated or actual date or date-time  the condition
+            began, in the opinion of the clinician.
+        onsetAge: Estimated or actual date or date-time  the condition began,
+            in the opinion of the clinician.
+        onsetPeriod: Estimated or actual date or date-time  the condition
+            began, in the opinion of the clinician.
+        onsetRange: Estimated or actual date or date-time  the condition
+            began, in the opinion of the clinician.
+        onsetString: Estimated or actual date or date-time  the condition
+            began, in the opinion of the clinician.
+        abatementDateTime: The date or estimated date that the condition
+            resolved or went into remission. This is called "abatement" because of
+            the many overloaded connotations associated with "remission" or
+            "resolution" - Conditions are never really resolved, but they can
+            abate.
+        abatementAge: The date or estimated date that the condition resolved
+            or went into remission. This is called "abatement" because of the many
+            overloaded connotations associated with "remission" or "resolution" -
+            Conditions are never really resolved, but they can abate.
+        abatementBoolean: The date or estimated date that the condition
+            resolved or went into remission. This is called "abatement" because of
+            the many overloaded connotations associated with "remission" or
+            "resolution" - Conditions are never really resolved, but they can
+            abate.
+        abatementPeriod: The date or estimated date that the condition
+            resolved or went into remission. This is called "abatement" because of
+            the many overloaded connotations associated with "remission" or
+            "resolution" - Conditions are never really resolved, but they can
+            abate.
+        abatementRange: The date or estimated date that the condition resolved
+            or went into remission. This is called "abatement" because of the many
+            overloaded connotations associated with "remission" or "resolution" -
+            Conditions are never really resolved, but they can abate.
+        abatementString: The date or estimated date that the condition
+            resolved or went into remission. This is called "abatement" because of
+            the many overloaded connotations associated with "remission" or
+            "resolution" - Conditions are never really resolved, but they can
+            abate.
+        assertedDate: The date on which the existance of the Condition was
+            first asserted or acknowledged.
+        asserter: Individual who is making the condition statement.
+        stage: Clinical stage or grade of a condition. May include formal
+            severity assessments.
+        evidence: Supporting Evidence / manifestations that are the basis on
+            which this condition is suspected or confirmed.
+        note: Additional information about the Condition. This is a general
+            notes/comments entry  for description of the Condition, its diagnosis
+            and prognosis.
     """
 
     __name__ = 'Condition'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Condition'
-        """
-        This is a Condition resource
-
-        type: string
-        possible values: Condition
-        """
+        # type: string
+        # possible values: Condition
 
         self.clinicalStatus = None
-        """
-        The clinical status of the condition.
-
-        type: string
-        """
+        # type: string
 
         self.verificationStatus = None
-        """
-        The verification status to support the clinical status of the
-        condition.
-
-        type: string
-        possible values: provisional, differential, confirmed,
-        refuted, entered-in-error, unknown
-        """
+        # type: string
+        # possible values: provisional, differential, confirmed,
+        # refuted, entered-in-error, unknown
 
         self.category = None
-        """
-        A category assigned to the condition.
-
-        type: array
-        reference to CodeableConcept
-        """
+        # type: array
+        # reference to CodeableConcept
 
         self.severity = None
-        """
-        A subjective assessment of the severity of the condition as evaluated
-        by the clinician.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.code = None
-        """
-        Identification of the condition, problem or diagnosis.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.bodySite = None
-        """
-        The anatomical location where this condition manifests itself.
-
-        type: array
-        reference to CodeableConcept
-        """
+        # type: array
+        # reference to CodeableConcept
 
         self.subject = None
-        """
-        Indicates the patient or group who the condition record is associated
-        with.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.context = None
-        """
-        Encounter during which the condition was first asserted.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.onsetDateTime = None
-        """
-        Estimated or actual date or date-time  the condition began, in the
-        opinion of the clinician.
-
-        type: string
-        """
+        # type: string
 
         self.onsetAge = None
-        """
-        Estimated or actual date or date-time  the condition began, in the
-        opinion of the clinician.
-
-        reference to Age
-        """
+        # reference to Age
 
         self.onsetPeriod = None
-        """
-        Estimated or actual date or date-time  the condition began, in the
-        opinion of the clinician.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.onsetRange = None
-        """
-        Estimated or actual date or date-time  the condition began, in the
-        opinion of the clinician.
-
-        reference to Range
-        """
+        # reference to Range
 
         self.onsetString = None
-        """
-        Estimated or actual date or date-time  the condition began, in the
-        opinion of the clinician.
-
-        type: string
-        """
+        # type: string
 
         self.abatementDateTime = None
-        """
-        The date or estimated date that the condition resolved or went into
-        remission. This is called "abatement" because of the many overloaded
-        connotations associated with "remission" or "resolution" - Conditions
-        are never really resolved, but they can abate.
-
-        type: string
-        """
+        # type: string
 
         self.abatementAge = None
-        """
-        The date or estimated date that the condition resolved or went into
-        remission. This is called "abatement" because of the many overloaded
-        connotations associated with "remission" or "resolution" - Conditions
-        are never really resolved, but they can abate.
-
-        reference to Age
-        """
+        # reference to Age
 
         self.abatementBoolean = None
-        """
-        The date or estimated date that the condition resolved or went into
-        remission. This is called "abatement" because of the many overloaded
-        connotations associated with "remission" or "resolution" - Conditions
-        are never really resolved, but they can abate.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.abatementPeriod = None
-        """
-        The date or estimated date that the condition resolved or went into
-        remission. This is called "abatement" because of the many overloaded
-        connotations associated with "remission" or "resolution" - Conditions
-        are never really resolved, but they can abate.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.abatementRange = None
-        """
-        The date or estimated date that the condition resolved or went into
-        remission. This is called "abatement" because of the many overloaded
-        connotations associated with "remission" or "resolution" - Conditions
-        are never really resolved, but they can abate.
-
-        reference to Range
-        """
+        # reference to Range
 
         self.abatementString = None
-        """
-        The date or estimated date that the condition resolved or went into
-        remission. This is called "abatement" because of the many overloaded
-        connotations associated with "remission" or "resolution" - Conditions
-        are never really resolved, but they can abate.
-
-        type: string
-        """
+        # type: string
 
         self.assertedDate = None
-        """
-        The date on which the existance of the Condition was first asserted or
-        acknowledged.
-
-        type: string
-        """
+        # type: string
 
         self.asserter = None
-        """
-        Individual who is making the condition statement.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.stage = None
-        """
-        Clinical stage or grade of a condition. May include formal severity
-        assessments.
-
-        reference to Condition_Stage
-        """
+        # reference to Condition_Stage
 
         self.evidence = None
-        """
-        Supporting Evidence / manifestations that are the basis on which this
-        condition is suspected or confirmed.
-
-        type: array
-        reference to Condition_Evidence
-        """
+        # type: array
+        # reference to Condition_Evidence
 
         self.note = None
-        """
-        Additional information about the Condition. This is a general
-        notes/comments entry  for description of the Condition, its diagnosis
-        and prognosis.
-
-        type: array
-        reference to Annotation
-        """
+        # type: array
+        # reference to Annotation
 
         self.identifier = None
-        """
-        This records identifiers associated with this condition that are
-        defined by business processes and/or used to refer to it when a direct
-        URL reference to the resource itself is not appropriate (e.g. in CDA
-        documents, or in written / printed documentation).
-
-        type: array
-        reference to Identifier
-        """
+        # type: array
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -251,40 +181,80 @@ class Condition(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Range',
              'parent_variable': 'object_id',
              'child_entity': 'Condition',
-             'child_variable': 'severity'},
-
-            {'parent_entity': 'Age',
-             'parent_variable': 'object_id',
-             'child_entity': 'Condition',
-             'child_variable': 'onsetAge'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Condition',
-             'child_variable': 'asserter'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Condition',
-             'child_variable': 'abatementPeriod'},
+             'child_variable': 'onsetRange'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Condition',
              'child_variable': 'category'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Condition',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Condition_Evidence',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'evidence'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'onsetPeriod'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'bodySite'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Condition',
+             'child_variable': 'asserter'},
+
             {'parent_entity': 'Condition_Stage',
              'parent_variable': 'object_id',
              'child_entity': 'Condition',
              'child_variable': 'stage'},
 
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'onsetAge'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'abatementPeriod'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'abatementRange'},
+
             {'parent_entity': 'Annotation',
              'parent_variable': 'object_id',
              'child_entity': 'Condition',
              'child_variable': 'note'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'Condition',
+             'child_variable': 'abatementAge'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -294,47 +264,7 @@ class Condition(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Condition',
-             'child_variable': 'bodySite'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Condition',
-             'child_variable': 'onsetPeriod'},
-
-            {'parent_entity': 'Range',
-             'parent_variable': 'object_id',
-             'child_entity': 'Condition',
-             'child_variable': 'onsetRange'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'Condition',
-             'child_variable': 'code'},
-
-            {'parent_entity': 'Age',
-             'parent_variable': 'object_id',
-             'child_entity': 'Condition',
-             'child_variable': 'abatementAge'},
-
-            {'parent_entity': 'Condition_Evidence',
-             'parent_variable': 'object_id',
-             'child_entity': 'Condition',
-             'child_variable': 'evidence'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Condition',
-             'child_variable': 'subject'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Condition',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Range',
-             'parent_variable': 'object_id',
-             'child_entity': 'Condition',
-             'child_variable': 'abatementRange'},
+             'child_variable': 'severity'},
         ]
 
 
@@ -342,27 +272,23 @@ class Condition_Stage(fhirbase):
     """
     A clinical condition, problem, diagnosis, or other event, situation,
     issue, or clinical concept that has risen to a level of concern.
+
+    Attributes:
+        summary: A simple summary of the stage such as "Stage 3". The
+            determination of the stage is disease-specific.
+        assessment: Reference to a formal record of the evidence on which the
+            staging assessment is based.
     """
 
     __name__ = 'Condition_Stage'
 
     def __init__(self, dict_values=None):
         self.summary = None
-        """
-        A simple summary of the stage such as "Stage 3". The determination of
-        the stage is disease-specific.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.assessment = None
-        """
-        Reference to a formal record of the evidence on which the staging
-        assessment is based.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.object_id = None
         # unique identifier for object class
@@ -389,27 +315,24 @@ class Condition_Evidence(fhirbase):
     """
     A clinical condition, problem, diagnosis, or other event, situation,
     issue, or clinical concept that has risen to a level of concern.
+
+    Attributes:
+        code: A manifestation or symptom that led to the recording of this
+            condition.
+        detail: Links to other relevant information, including pathology
+            reports.
     """
 
     __name__ = 'Condition_Evidence'
 
     def __init__(self, dict_values=None):
         self.code = None
-        """
-        A manifestation or symptom that led to the recording of this
-        condition.
-
-        type: array
-        reference to CodeableConcept
-        """
+        # type: array
+        # reference to CodeableConcept
 
         self.detail = None
-        """
-        Links to other relevant information, including pathology reports.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.object_id = None
         # unique identifier for object class

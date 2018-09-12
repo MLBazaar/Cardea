@@ -7,58 +7,46 @@ class Quantity(fhirbase):
     Note that measured amounts include amounts that are not precisely
     quantified, including amounts involving arbitrary units and floating
     currencies.
+
+    Attributes:
+        value: The value of the measured amount. The value includes an
+            implicit precision in the presentation of the value.
+        comparator: How the value should be understood and represented -
+            whether the actual value is greater or less than the stated value due
+            to measurement issues; e.g. if the comparator is "<" , then the real
+            value is < stated value.
+        unit: A human-readable form of the unit.
+        system: The identification of the system that provides the coded form
+            of the unit.
+        code: A computer processable form of the unit in some unit
+            representation system.
     """
 
     __name__ = 'Quantity'
 
     def __init__(self, dict_values=None):
         self.value = None
-        """
-        The value of the measured amount. The value includes an implicit
-        precision in the presentation of the value.
-
-        type: int
-        """
+        # type: int
 
         self.comparator = None
-        """
-        How the value should be understood and represented - whether the
-        actual value is greater or less than the stated value due to
-        measurement issues; e.g. if the comparator is "<" , then the real
-        value is < stated value.
-
-        type: string
-        possible values: <, <=, >=, >
-        """
+        # type: string
+        # possible values: <, <=, >=, >
 
         self.unit = None
-        """
-        A human-readable form of the unit.
-
-        type: string
-        """
+        # type: string
 
         self.system = None
-        """
-        The identification of the system that provides the coded form of the
-        unit.
-
-        type: string
-        """
+        # type: string
 
         self.code = None
-        """
-        A computer processable form of the unit in some unit representation
-        system.
-
-        type: string
-        """
+        # type: string
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 

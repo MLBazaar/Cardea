@@ -5,24 +5,20 @@ class Ratio(fhirbase):
     """
     A relationship of two Quantity values - expressed as a numerator and a
     denominator.
+
+    Attributes:
+        numerator: The value of the numerator.
+        denominator: The value of the denominator.
     """
 
     __name__ = 'Ratio'
 
     def __init__(self, dict_values=None):
         self.numerator = None
-        """
-        The value of the numerator.
-
-        reference to Quantity
-        """
+        # reference to Quantity
 
         self.denominator = None
-        """
-        The value of the denominator.
-
-        reference to Quantity
-        """
+        # reference to Quantity
 
         self.object_id = None
         # unique identifier for object class

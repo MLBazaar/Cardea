@@ -27,204 +27,146 @@ class MedicationStatement(fhirbase):
     medications the patient, clinician or other party maintains.
     Medication administration is more formal and is not missing detailed
     information.
+
+    Attributes:
+        resourceType: This is a MedicationStatement resource
+        identifier: External identifier - FHIR will generate its own internal
+            identifiers (probably URLs) which do not need to be explicitly managed
+            by the resource.  The identifier here is one that would be used by
+            another non-FHIR system - for example an automated medication pump
+            would provide a record each time it operated; an administration while
+            the patient was off the ward might be made with a different system and
+            entered after the event.  Particularly important if these records have
+            to be updated.
+        basedOn: A plan, proposal or order that is fulfilled in whole or in
+            part by this event.
+        partOf: A larger event of which this particular event is a component
+            or step.
+        context: The encounter or episode of care that establishes the context
+            for this MedicationStatement.
+        status: A code representing the patient or other source's judgment
+            about the state of the medication used that this statement is about.
+            Generally this will be active or completed.
+        category: Indicates where type of medication statement and where the
+            medication is expected to be consumed or administered.
+        medicationCodeableConcept: Identifies the medication being
+            administered. This is either a link to a resource representing the
+            details of the medication or a simple attribute carrying a code that
+            identifies the medication from a known list of medications.
+        medicationReference: Identifies the medication being administered.
+            This is either a link to a resource representing the details of the
+            medication or a simple attribute carrying a code that identifies the
+            medication from a known list of medications.
+        effectiveDateTime: The interval of time during which it is being
+            asserted that the patient was taking the medication (or was not
+            taking, when the wasNotGiven element is true).
+        effectivePeriod: The interval of time during which it is being
+            asserted that the patient was taking the medication (or was not
+            taking, when the wasNotGiven element is true).
+        dateAsserted: The date when the medication statement was asserted by
+            the information source.
+        informationSource: The person or organization that provided the
+            information about the taking of this medication. Note: Use derivedFrom
+            when a MedicationStatement is derived from other resources, e.g Claim
+            or MedicationRequest.
+        subject: The person, animal or group who is/was taking the medication.
+        derivedFrom: Allows linking the MedicationStatement to the underlying
+            MedicationRequest, or to other information that supports or is used to
+            derive the MedicationStatement.
+        taken: Indicator of the certainty of whether the medication was taken
+            by the patient.
+        reasonNotTaken: A code indicating why the medication was not taken.
+        reasonCode: A reason for why the medication is being/was taken.
+        reasonReference: Condition or observation that supports why the
+            medication is being/was taken.
+        note: Provides extra information about the medication statement that
+            is not conveyed by the other attributes.
+        dosage: Indicates how the medication is/was or should be taken by the
+            patient.
     """
 
     __name__ = 'MedicationStatement'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'MedicationStatement'
-        """
-        This is a MedicationStatement resource
-
-        type: string
-        possible values: MedicationStatement
-        """
+        # type: string
+        # possible values: MedicationStatement
 
         self.basedOn = None
-        """
-        A plan, proposal or order that is fulfilled in whole or in part by
-        this event.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.partOf = None
-        """
-        A larger event of which this particular event is a component or step.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.context = None
-        """
-        The encounter or episode of care that establishes the context for this
-        MedicationStatement.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.status = None
-        """
-        A code representing the patient or other source's judgment about the
-        state of the medication used that this statement is about.  Generally
-        this will be active or completed.
-
-        type: string
-        possible values: active, completed, entered-in-error,
-        intended, stopped, on-hold
-        """
+        # type: string
+        # possible values: active, completed, entered-in-error,
+        # intended, stopped, on-hold
 
         self.category = None
-        """
-        Indicates where type of medication statement and where the medication
-        is expected to be consumed or administered.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.medicationCodeableConcept = None
-        """
-        Identifies the medication being administered. This is either a link to
-        a resource representing the details of the medication or a simple
-        attribute carrying a code that identifies the medication from a known
-        list of medications.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.medicationReference = None
-        """
-        Identifies the medication being administered. This is either a link to
-        a resource representing the details of the medication or a simple
-        attribute carrying a code that identifies the medication from a known
-        list of medications.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.effectiveDateTime = None
-        """
-        The interval of time during which it is being asserted that the
-        patient was taking the medication (or was not taking, when the
-        wasNotGiven element is true).
-
-        type: string
-        """
+        # type: string
 
         self.effectivePeriod = None
-        """
-        The interval of time during which it is being asserted that the
-        patient was taking the medication (or was not taking, when the
-        wasNotGiven element is true).
-
-        reference to Period
-        """
+        # reference to Period
 
         self.dateAsserted = None
-        """
-        The date when the medication statement was asserted by the information
-        source.
-
-        type: string
-        """
+        # type: string
 
         self.informationSource = None
-        """
-        The person or organization that provided the information about the
-        taking of this medication. Note: Use derivedFrom when a
-        MedicationStatement is derived from other resources, e.g Claim or
-        MedicationRequest.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.subject = None
-        """
-        The person, animal or group who is/was taking the medication.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.derivedFrom = None
-        """
-        Allows linking the MedicationStatement to the underlying
-        MedicationRequest, or to other information that supports or is used to
-        derive the MedicationStatement.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.taken = None
-        """
-        Indicator of the certainty of whether the medication was taken by the
-        patient.
-
-        type: string
-        possible values: y, n, unk, na
-        """
+        # type: string
+        # possible values: y, n, unk, na
 
         self.reasonNotTaken = None
-        """
-        A code indicating why the medication was not taken.
-
-        type: array
-        reference to CodeableConcept
-        """
+        # type: array
+        # reference to CodeableConcept
 
         self.reasonCode = None
-        """
-        A reason for why the medication is being/was taken.
-
-        type: array
-        reference to CodeableConcept
-        """
+        # type: array
+        # reference to CodeableConcept
 
         self.reasonReference = None
-        """
-        Condition or observation that supports why the medication is being/was
-        taken.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.note = None
-        """
-        Provides extra information about the medication statement that is not
-        conveyed by the other attributes.
-
-        type: array
-        reference to Annotation
-        """
+        # type: array
+        # reference to Annotation
 
         self.dosage = None
-        """
-        Indicates how the medication is/was or should be taken by the patient.
-
-        type: array
-        reference to Dosage
-        """
+        # type: array
+        # reference to Dosage
 
         self.identifier = None
-        """
-        External identifier - FHIR will generate its own internal identifiers
-        (probably URLs) which do not need to be explicitly managed by the
-        resource.  The identifier here is one that would be used by another
-        non-FHIR system - for example an automated medication pump would
-        provide a record each time it operated; an administration while the
-        patient was off the ward might be made with a different system and
-        entered after the event.  Particularly important if these records have
-        to be updated.
-
-        type: array
-        reference to Identifier
-        """
+        # type: array
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -246,20 +188,20 @@ class MedicationStatement(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'MedicationStatement',
-             'child_variable': 'effectivePeriod'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'MedicationStatement',
-             'child_variable': 'category'},
+             'child_variable': 'basedOn'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'MedicationStatement',
-             'child_variable': 'medicationReference'},
+             'child_variable': 'derivedFrom'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -269,22 +211,42 @@ class MedicationStatement(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'MedicationStatement',
+             'child_variable': 'medicationReference'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationStatement',
              'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'effectivePeriod'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationStatement',
+             'child_variable': 'dosage'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationStatement',
              'child_variable': 'reasonNotTaken'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationStatement',
-             'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Dosage',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationStatement',
-             'child_variable': 'dosage'},
+             'child_variable': 'medicationCodeableConcept'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -294,35 +256,15 @@ class MedicationStatement(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'MedicationStatement',
-             'child_variable': 'derivedFrom'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationStatement',
-             'child_variable': 'partOf'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'MedicationStatement',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationStatement',
              'child_variable': 'subject'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationStatement',
-             'child_variable': 'context'},
 
             {'parent_entity': 'Annotation',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationStatement',
              'child_variable': 'note'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'MedicationStatement',
-             'child_variable': 'medicationCodeableConcept'},
+             'child_variable': 'partOf'},
         ]

@@ -7,96 +7,70 @@ class Group(fhirbase):
     acted upon collectively but which are not expected to act collectively
     and are not formally or legally recognized; i.e. a collection of
     entities that isn't an Organization.
+
+    Attributes:
+        resourceType: This is a Group resource
+        identifier: A unique business identifier for this group.
+        active: Indicates whether the record for the group is available for
+            use or is merely being retained for historical purposes.
+        type: Identifies the broad classification of the kind of resources the
+            group includes.
+        actual: If true, indicates that the resource refers to a specific
+            group of real individuals.  If false, the group defines a set of
+            intended individuals.
+        code: Provides a specific type of resource the group includes; e.g.
+            "cow", "syringe", etc.
+        name: A label assigned to the group for human identification and
+            communication.
+        quantity: A count of the number of resource instances that are part of
+            the group.
+        characteristic: Identifies the traits shared by members of the group.
+        member: Identifies the resource instances that are members of the
+            group.
     """
 
     __name__ = 'Group'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Group'
-        """
-        This is a Group resource
-
-        type: string
-        possible values: Group
-        """
+        # type: string
+        # possible values: Group
 
         self.active = None
-        """
-        Indicates whether the record for the group is available for use or is
-        merely being retained for historical purposes.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.type = None
-        """
-        Identifies the broad classification of the kind of resources the group
-        includes.
-
-        type: string
-        possible values: person, animal, practitioner, device,
-        medication, substance
-        """
+        # type: string
+        # possible values: person, animal, practitioner, device,
+        # medication, substance
 
         self.actual = None
-        """
-        If true, indicates that the resource refers to a specific group of
-        real individuals.  If false, the group defines a set of intended
-        individuals.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.code = None
-        """
-        Provides a specific type of resource the group includes; e.g. "cow",
-        "syringe", etc.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.name = None
-        """
-        A label assigned to the group for human identification and
-        communication.
-
-        type: string
-        """
+        # type: string
 
         self.quantity = None
-        """
-        A count of the number of resource instances that are part of the
-        group.
-
-        type: int
-        """
+        # type: int
 
         self.characteristic = None
-        """
-        Identifies the traits shared by members of the group.
-
-        type: array
-        reference to Group_Characteristic
-        """
+        # type: array
+        # reference to Group_Characteristic
 
         self.member = None
-        """
-        Identifies the resource instances that are members of the group.
-
-        type: array
-        reference to Group_Member
-        """
+        # type: array
+        # reference to Group_Member
 
         self.identifier = None
-        """
-        A unique business identifier for this group.
-
-        type: array
-        reference to Identifier
-        """
+        # type: array
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -111,11 +85,6 @@ class Group(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Group',
-             'child_variable': 'identifier'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Group',
@@ -130,6 +99,11 @@ class Group(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'Group',
              'child_variable': 'member'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Group',
+             'child_variable': 'identifier'},
         ]
 
 
@@ -139,65 +113,46 @@ class Group_Characteristic(fhirbase):
     acted upon collectively but which are not expected to act collectively
     and are not formally or legally recognized; i.e. a collection of
     entities that isn't an Organization.
+
+    Attributes:
+        code: A code that identifies the kind of trait being asserted.
+        valueCodeableConcept: The value of the trait that holds (or does not
+            hold - see 'exclude') for members of the group.
+        valueBoolean: The value of the trait that holds (or does not hold -
+            see 'exclude') for members of the group.
+        valueQuantity: The value of the trait that holds (or does not hold -
+            see 'exclude') for members of the group.
+        valueRange: The value of the trait that holds (or does not hold - see
+            'exclude') for members of the group.
+        exclude: If true, indicates the characteristic is one that is NOT held
+            by members of the group.
+        period: The period over which the characteristic is tested; e.g. the
+            patient had an operation during the month of June.
     """
 
     __name__ = 'Group_Characteristic'
 
     def __init__(self, dict_values=None):
         self.code = None
-        """
-        A code that identifies the kind of trait being asserted.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.valueCodeableConcept = None
-        """
-        The value of the trait that holds (or does not hold - see 'exclude')
-        for members of the group.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.valueBoolean = None
-        """
-        The value of the trait that holds (or does not hold - see 'exclude')
-        for members of the group.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.valueQuantity = None
-        """
-        The value of the trait that holds (or does not hold - see 'exclude')
-        for members of the group.
-
-        reference to Quantity
-        """
+        # reference to Quantity
 
         self.valueRange = None
-        """
-        The value of the trait that holds (or does not hold - see 'exclude')
-        for members of the group.
-
-        reference to Range
-        """
+        # reference to Range
 
         self.exclude = None
-        """
-        If true, indicates the characteristic is one that is NOT held by
-        members of the group.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.period = None
-        """
-        The period over which the characteristic is tested; e.g. the patient
-        had an operation during the month of June.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.object_id = None
         # unique identifier for object class
@@ -208,25 +163,25 @@ class Group_Characteristic(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Range',
-             'parent_variable': 'object_id',
-             'child_entity': 'Group_Characteristic',
-             'child_variable': 'valueRange'},
-
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'Group_Characteristic',
              'child_variable': 'valueQuantity'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Characteristic',
+             'child_variable': 'period'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Group_Characteristic',
              'child_variable': 'valueCodeableConcept'},
 
-            {'parent_entity': 'Period',
+            {'parent_entity': 'Range',
              'parent_variable': 'object_id',
              'child_entity': 'Group_Characteristic',
-             'child_variable': 'period'},
+             'child_variable': 'valueRange'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -241,33 +196,26 @@ class Group_Member(fhirbase):
     acted upon collectively but which are not expected to act collectively
     and are not formally or legally recognized; i.e. a collection of
     entities that isn't an Organization.
+
+    Attributes:
+        entity: A reference to the entity that is a member of the group. Must
+            be consistent with Group.type.
+        period: The period that the member was in the group, if known.
+        inactive: A flag to indicate that the member is no longer in the
+            group, but previously may have been a member.
     """
 
     __name__ = 'Group_Member'
 
     def __init__(self, dict_values=None):
         self.entity = None
-        """
-        A reference to the entity that is a member of the group. Must be
-        consistent with Group.type.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.period = None
-        """
-        The period that the member was in the group, if known.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.inactive = None
-        """
-        A flag to indicate that the member is no longer in the group, but
-        previously may have been a member.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.object_id = None
         # unique identifier for object class

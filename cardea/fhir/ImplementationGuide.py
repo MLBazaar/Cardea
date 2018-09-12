@@ -7,195 +7,143 @@ class ImplementationGuide(fhirbase):
     resource is used to gather all the parts of an implementation guide
     into a logical whole and to publish a computable definition of all the
     parts.
+
+    Attributes:
+        resourceType: This is a ImplementationGuide resource
+        url: An absolute URI that is used to identify this implementation
+            guide when it is referenced in a specification, model, design or an
+            instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD
+            be an address at which this implementation guide is (or will be)
+            published. The URL SHOULD include the major version of the
+            implementation guide. For more information see [Technical and Business
+            Versions](resource.html#versions).
+        version: The identifier that is used to identify this version of the
+            implementation guide when it is referenced in a specification, model,
+            design or instance. This is an arbitrary value managed by the
+            implementation guide author and is not expected to be globally unique.
+            For example, it might be a timestamp (e.g. yyyymmdd) if a managed
+            version is not available. There is also no expectation that versions
+            can be placed in a lexicographical sequence.
+        name: A natural language name identifying the implementation guide.
+            This name should be usable as an identifier for the module by machine
+            processing applications such as code generation.
+        status: The status of this implementation guide. Enables tracking the
+            life-cycle of the content.
+        experimental: A boolean value to indicate that this implementation
+            guide is authored for testing purposes (or
+            education/evaluation/marketing), and is not intended to be used for
+            genuine usage.
+        date: The date  (and optionally time) when the implementation guide
+            was published. The date must change if and when the business version
+            changes and it must change if the status code changes. In addition, it
+            should change when the substantive content of the implementation guide
+            changes.
+        publisher: The name of the individual or organization that published
+            the implementation guide.
+        contact: Contact details to assist a user in finding and communicating
+            with the publisher.
+        description: A free text natural language description of the
+            implementation guide from a consumer's perspective.
+        useContext: The content was developed with a focus and intent of
+            supporting the contexts that are listed. These terms may be used to
+            assist with indexing and searching for appropriate implementation
+            guide instances.
+        jurisdiction: A legal or geographic region in which the implementation
+            guide is intended to be used.
+        copyright: A copyright statement relating to the implementation guide
+            and/or its contents. Copyright statements are generally legal
+            restrictions on the use and publishing of the implementation guide.
+        fhirVersion: The version of the FHIR specification on which this
+            ImplementationGuide is based - this is the formal version of the
+            specification, without the revision number, e.g.
+            [publication].[major].[minor], which is 3.0.1 for this version.
+        dependency: Another implementation guide that this implementation
+            depends on. Typically, an implementation guide uses value sets,
+            profiles etc.defined in other implementation guides.
+        package: A logical group of resources. Logical groups can be used when
+            building pages.
+        global: A set of profiles that all resources covered by this
+            implementation guide must conform to.
+        binary: A binary file that is included in the  implementation guide
+            when it is published.
+        page: A page / section in the implementation guide. The root page is
+            the implementation guide home page.
     """
 
     __name__ = 'ImplementationGuide'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ImplementationGuide'
-        """
-        This is a ImplementationGuide resource
-
-        type: string
-        possible values: ImplementationGuide
-        """
+        # type: string
+        # possible values: ImplementationGuide
 
         self.url = None
-        """
-        An absolute URI that is used to identify this implementation guide
-        when it is referenced in a specification, model, design or an
-        instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD
-        be an address at which this implementation guide is (or will be)
-        published. The URL SHOULD include the major version of the
-        implementation guide. For more information see [Technical and Business
-        Versions](resource.html#versions).
-
-        type: string
-        """
+        # type: string
 
         self.version = None
-        """
-        The identifier that is used to identify this version of the
-        implementation guide when it is referenced in a specification, model,
-        design or instance. This is an arbitrary value managed by the
-        implementation guide author and is not expected to be globally unique.
-        For example, it might be a timestamp (e.g. yyyymmdd) if a managed
-        version is not available. There is also no expectation that versions
-        can be placed in a lexicographical sequence.
-
-        type: string
-        """
+        # type: string
 
         self.name = None
-        """
-        A natural language name identifying the implementation guide. This
-        name should be usable as an identifier for the module by machine
-        processing applications such as code generation.
-
-        type: string
-        """
+        # type: string
 
         self.status = None
-        """
-        The status of this implementation guide. Enables tracking the
-        life-cycle of the content.
-
-        type: string
-        possible values: draft, active, retired, unknown
-        """
+        # type: string
+        # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        """
-        A boolean value to indicate that this implementation guide is authored
-        for testing purposes (or education/evaluation/marketing), and is not
-        intended to be used for genuine usage.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.date = None
-        """
-        The date  (and optionally time) when the implementation guide was
-        published. The date must change if and when the business version
-        changes and it must change if the status code changes. In addition, it
-        should change when the substantive content of the implementation guide
-        changes.
-
-        type: string
-        """
+        # type: string
 
         self.publisher = None
-        """
-        The name of the individual or organization that published the
-        implementation guide.
-
-        type: string
-        """
+        # type: string
 
         self.contact = None
-        """
-        Contact details to assist a user in finding and communicating with the
-        publisher.
-
-        type: array
-        reference to ContactDetail
-        """
+        # type: array
+        # reference to ContactDetail
 
         self.description = None
-        """
-        A free text natural language description of the implementation guide
-        from a consumer's perspective.
-
-        type: string
-        """
+        # type: string
 
         self.useContext = None
-        """
-        The content was developed with a focus and intent of supporting the
-        contexts that are listed. These terms may be used to assist with
-        indexing and searching for appropriate implementation guide instances.
-
-        type: array
-        reference to UsageContext
-        """
+        # type: array
+        # reference to UsageContext
 
         self.jurisdiction = None
-        """
-        A legal or geographic region in which the implementation guide is
-        intended to be used.
-
-        type: array
-        reference to CodeableConcept
-        """
+        # type: array
+        # reference to CodeableConcept
 
         self.copyright = None
-        """
-        A copyright statement relating to the implementation guide and/or its
-        contents. Copyright statements are generally legal restrictions on the
-        use and publishing of the implementation guide.
-
-        type: string
-        """
+        # type: string
 
         self.fhirVersion = None
-        """
-        The version of the FHIR specification on which this
-        ImplementationGuide is based - this is the formal version of the
-        specification, without the revision number, e.g.
-        [publication].[major].[minor], which is 3.0.1 for this version.
-
-        type: string
-        """
+        # type: string
 
         self.dependency = None
-        """
-        Another implementation guide that this implementation depends on.
-        Typically, an implementation guide uses value sets, profiles
-        etc.defined in other implementation guides.
-
-        type: array
-        reference to ImplementationGuide_Dependency
-        """
+        # type: array
+        # reference to ImplementationGuide_Dependency
 
         self.package = None
-        """
-        A logical group of resources. Logical groups can be used when building
-        pages.
-
-        type: array
-        reference to ImplementationGuide_Package
-        """
+        # type: array
+        # reference to ImplementationGuide_Package
 
         self._global = None
-        """
-        A set of profiles that all resources covered by this implementation
-        guide must conform to.
-
-        type: array
-        reference to ImplementationGuide_Global
-        """
+        # type: array
+        # reference to ImplementationGuide_Global
 
         self.binary = None
-        """
-        A binary file that is included in the  implementation guide when it is
-        published.
-
-        type: array
-        """
+        # type: array
 
         self.page = None
-        """
-        A page / section in the implementation guide. The root page is the
-        implementation guide home page.
-
-        reference to ImplementationGuide_Page
-        """
+        # reference to ImplementationGuide_Page
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -219,6 +167,21 @@ class ImplementationGuide(fhirbase):
              'child_entity': 'ImplementationGuide',
              'child_variable': 'contact'},
 
+            {'parent_entity': 'ImplementationGuide_Global',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide',
+             'child_variable': '_global'},
+
+            {'parent_entity': 'ImplementationGuide_Dependency',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide',
+             'child_variable': 'dependency'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ImplementationGuide',
+             'child_variable': 'jurisdiction'},
+
             {'parent_entity': 'UsageContext',
              'parent_variable': 'object_id',
              'child_entity': 'ImplementationGuide',
@@ -228,21 +191,6 @@ class ImplementationGuide(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'ImplementationGuide',
              'child_variable': 'page'},
-
-            {'parent_entity': 'ImplementationGuide_Dependency',
-             'parent_variable': 'object_id',
-             'child_entity': 'ImplementationGuide',
-             'child_variable': 'dependency'},
-
-            {'parent_entity': 'ImplementationGuide_Global',
-             'parent_variable': 'object_id',
-             'child_entity': 'ImplementationGuide',
-             'child_variable': '_global'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'ImplementationGuide',
-             'child_variable': 'jurisdiction'},
         ]
 
 
@@ -252,31 +200,28 @@ class ImplementationGuide_Dependency(fhirbase):
     resource is used to gather all the parts of an implementation guide
     into a logical whole and to publish a computable definition of all the
     parts.
+
+    Attributes:
+        type: How the dependency is represented when the guide is published.
+        uri: Where the dependency is located.
     """
 
     __name__ = 'ImplementationGuide_Dependency'
 
     def __init__(self, dict_values=None):
         self.type = None
-        """
-        How the dependency is represented when the guide is published.
-
-        type: string
-        possible values: reference, inclusion
-        """
+        # type: string
+        # possible values: reference, inclusion
 
         self.uri = None
-        """
-        Where the dependency is located.
-
-        type: string
-        """
+        # type: string
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -294,35 +239,28 @@ class ImplementationGuide_Package(fhirbase):
     resource is used to gather all the parts of an implementation guide
     into a logical whole and to publish a computable definition of all the
     parts.
+
+    Attributes:
+        name: The name for the group, as used in page.package.
+        description: Human readable text describing the package.
+        resource: A resource that is part of the implementation guide.
+            Conformance resources (value set, structure definition, capability
+            statements etc.) are obvious candidates for inclusion, but any kind of
+            resource can be included as an example resource.
     """
 
     __name__ = 'ImplementationGuide_Package'
 
     def __init__(self, dict_values=None):
         self.name = None
-        """
-        The name for the group, as used in page.package.
-
-        type: string
-        """
+        # type: string
 
         self.description = None
-        """
-        Human readable text describing the package.
-
-        type: string
-        """
+        # type: string
 
         self.resource = None
-        """
-        A resource that is part of the implementation guide. Conformance
-        resources (value set, structure definition, capability statements
-        etc.) are obvious candidates for inclusion, but any kind of resource
-        can be included as an example resource.
-
-        type: array
-        reference to ImplementationGuide_Resource
-        """
+        # type: array
+        # reference to ImplementationGuide_Resource
 
         self.object_id = None
         # unique identifier for object class
@@ -346,68 +284,49 @@ class ImplementationGuide_Resource(fhirbase):
     resource is used to gather all the parts of an implementation guide
     into a logical whole and to publish a computable definition of all the
     parts.
+
+    Attributes:
+        example: Whether a resource is included in the guide as part of the
+            rules defined by the guide, or just as an example of a resource that
+            conforms to the rules and/or help implementers understand the intent
+            of the guide.
+        name: A human assigned name for the resource. All resources SHOULD
+            have a name, but the name may be extracted from the resource (e.g.
+            ValueSet.name).
+        description: A description of the reason that a resource has been
+            included in the implementation guide.
+        acronym: A short code that may be used to identify the resource
+            throughout the implementation guide.
+        sourceUri: Where this resource is found.
+        sourceReference: Where this resource is found.
+        exampleFor: Another resource that this resource is an example for.
+            This is mostly used for resources that are included as examples of
+            StructureDefinitions.
     """
 
     __name__ = 'ImplementationGuide_Resource'
 
     def __init__(self, dict_values=None):
         self.example = None
-        """
-        Whether a resource is included in the guide as part of the rules
-        defined by the guide, or just as an example of a resource that
-        conforms to the rules and/or help implementers understand the intent
-        of the guide.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.name = None
-        """
-        A human assigned name for the resource. All resources SHOULD have a
-        name, but the name may be extracted from the resource (e.g.
-        ValueSet.name).
-
-        type: string
-        """
+        # type: string
 
         self.description = None
-        """
-        A description of the reason that a resource has been included in the
-        implementation guide.
-
-        type: string
-        """
+        # type: string
 
         self.acronym = None
-        """
-        A short code that may be used to identify the resource throughout the
-        implementation guide.
-
-        type: string
-        """
+        # type: string
 
         self.sourceUri = None
-        """
-        Where this resource is found.
-
-        type: string
-        """
+        # type: string
 
         self.sourceReference = None
-        """
-        Where this resource is found.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.exampleFor = None
-        """
-        Another resource that this resource is an example for. This is mostly
-        used for resources that are included as examples of
-        StructureDefinitions.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.object_id = None
         # unique identifier for object class
@@ -421,12 +340,12 @@ class ImplementationGuide_Resource(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ImplementationGuide_Resource',
-             'child_variable': 'exampleFor'},
+             'child_variable': 'sourceReference'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ImplementationGuide_Resource',
-             'child_variable': 'sourceReference'},
+             'child_variable': 'exampleFor'},
         ]
 
 
@@ -436,24 +355,21 @@ class ImplementationGuide_Global(fhirbase):
     resource is used to gather all the parts of an implementation guide
     into a logical whole and to publish a computable definition of all the
     parts.
+
+    Attributes:
+        type: The type of resource that all instances must conform to.
+        profile: A reference to the profile that all instances must conform
+            to.
     """
 
     __name__ = 'ImplementationGuide_Global'
 
     def __init__(self, dict_values=None):
         self.type = None
-        """
-        The type of resource that all instances must conform to.
-
-        type: string
-        """
+        # type: string
 
         self.profile = None
-        """
-        A reference to the profile that all instances must conform to.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.object_id = None
         # unique identifier for object class
@@ -477,72 +393,55 @@ class ImplementationGuide_Page(fhirbase):
     resource is used to gather all the parts of an implementation guide
     into a logical whole and to publish a computable definition of all the
     parts.
+
+    Attributes:
+        source: The source address for the page.
+        title: A short title used to represent this page in navigational
+            structures such as table of contents, bread crumbs, etc.
+        kind: The kind of page that this is. Some pages are autogenerated
+            (list, example), and other kinds are of interest so that tools can
+            navigate the user to the page of interest.
+        type: For constructed pages, what kind of resources to include in the
+            list.
+        package: For constructed pages, a list of packages to include in the
+            page (or else empty for everything).
+        format: The format of the page.
+        page: Nested Pages/Sections under this page.
     """
 
     __name__ = 'ImplementationGuide_Page'
 
     def __init__(self, dict_values=None):
         self.source = None
-        """
-        The source address for the page.
-
-        type: string
-        """
+        # type: string
 
         self.title = None
-        """
-        A short title used to represent this page in navigational structures
-        such as table of contents, bread crumbs, etc.
-
-        type: string
-        """
+        # type: string
 
         self.kind = None
-        """
-        The kind of page that this is. Some pages are autogenerated (list,
-        example), and other kinds are of interest so that tools can navigate
-        the user to the page of interest.
-
-        type: string
-        possible values: page, example, list, include, directory,
-        dictionary, toc, resource
-        """
+        # type: string
+        # possible values: page, example, list, include, directory,
+        # dictionary, toc, resource
 
         self.type = None
-        """
-        For constructed pages, what kind of resources to include in the list.
-
-        type: array
-        """
+        # type: array
 
         self.package = None
-        """
-        For constructed pages, a list of packages to include in the page (or
-        else empty for everything).
-
-        type: array
-        """
+        # type: array
 
         self.format = None
-        """
-        The format of the page.
-
-        type: string
-        """
+        # type: string
 
         self.page = None
-        """
-        Nested Pages/Sections under this page.
-
-        type: array
-        reference to ImplementationGuide_Page
-        """
+        # type: array
+        # reference to ImplementationGuide_Page
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 

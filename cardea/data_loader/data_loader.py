@@ -5,11 +5,23 @@ from cardea import fhir
 
 
 class DataLoader():
+    """A class that loads data into fhir class objects."""
 
     __name__ = 'DataLoader'
 
     def create_object(self, df, file_name):
-        """Return FHIR representation of pandas dataframe."""
+        """Returns fhir representation of pandas dataframe.
+
+        Args:
+            df: A dataframe with fhir class data.
+            file_name: A string that determines the resource type of fhir class.
+
+        Returns:
+            An object with the corresponding fhir class.
+
+        Raises:
+            LookupError: An error occurs if df doesn't have an id.
+        """
 
         fhir_classes = [c[0] for c in inspect.getmembers(fhir)]
         if file_name not in fhir_classes:

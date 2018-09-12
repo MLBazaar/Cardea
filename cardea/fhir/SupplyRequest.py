@@ -5,132 +5,87 @@ class SupplyRequest(fhirbase):
     """
     A record of a request for a medication, substance or device used in
     the healthcare setting.
+
+    Attributes:
+        resourceType: This is a SupplyRequest resource
+        identifier: Unique identifier for this supply request.
+        status: Status of the supply request.
+        category: Category of supply, e.g.  central, non-stock, etc. This is
+            used to support work flows associated with the supply process.
+        priority: Indicates how quickly this SupplyRequest should be addressed
+            with respect to other requests.
+        orderedItem: The item being requested.
+        occurrenceDateTime: When the request should be fulfilled.
+        occurrencePeriod: When the request should be fulfilled.
+        occurrenceTiming: When the request should be fulfilled.
+        authoredOn: When the request was made.
+        requester: The individual who initiated the request and has
+            responsibility for its activation.
+        supplier: Who is intended to fulfill the request.
+        reasonCodeableConcept: Why the supply item was requested.
+        reasonReference: Why the supply item was requested.
+        deliverFrom: Where the supply is expected to come from.
+        deliverTo: Where the supply is destined to go.
     """
 
     __name__ = 'SupplyRequest'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'SupplyRequest'
-        """
-        This is a SupplyRequest resource
-
-        type: string
-        possible values: SupplyRequest
-        """
+        # type: string
+        # possible values: SupplyRequest
 
         self.status = None
-        """
-        Status of the supply request.
-
-        type: string
-        possible values: draft, active, suspended, cancelled,
-        completed, entered-in-error, unknown
-        """
+        # type: string
+        # possible values: draft, active, suspended, cancelled,
+        # completed, entered-in-error, unknown
 
         self.category = None
-        """
-        Category of supply, e.g.  central, non-stock, etc. This is used to
-        support work flows associated with the supply process.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.priority = None
-        """
-        Indicates how quickly this SupplyRequest should be addressed with
-        respect to other requests.
-
-        type: string
-        """
+        # type: string
 
         self.orderedItem = None
-        """
-        The item being requested.
-
-        reference to SupplyRequest_OrderedItem
-        """
+        # reference to SupplyRequest_OrderedItem
 
         self.occurrenceDateTime = None
-        """
-        When the request should be fulfilled.
-
-        type: string
-        """
+        # type: string
 
         self.occurrencePeriod = None
-        """
-        When the request should be fulfilled.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.occurrenceTiming = None
-        """
-        When the request should be fulfilled.
-
-        reference to Timing
-        """
+        # reference to Timing
 
         self.authoredOn = None
-        """
-        When the request was made.
-
-        type: string
-        """
+        # type: string
 
         self.requester = None
-        """
-        The individual who initiated the request and has responsibility for
-        its activation.
-
-        reference to SupplyRequest_Requester
-        """
+        # reference to SupplyRequest_Requester
 
         self.supplier = None
-        """
-        Who is intended to fulfill the request.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.reasonCodeableConcept = None
-        """
-        Why the supply item was requested.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.reasonReference = None
-        """
-        Why the supply item was requested.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.deliverFrom = None
-        """
-        Where the supply is expected to come from.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.deliverTo = None
-        """
-        Where the supply is destined to go.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.identifier = None
-        """
-        Unique identifier for this supply request.
-
-        reference to Identifier
-        """
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -146,25 +101,50 @@ class SupplyRequest(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'SupplyRequest',
-             'child_variable': 'reasonReference'},
-
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'SupplyRequest',
              'child_variable': 'occurrencePeriod'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyRequest',
+             'child_variable': 'occurrenceTiming'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyRequest',
+             'child_variable': 'reasonCodeableConcept'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'SupplyRequest',
              'child_variable': 'deliverFrom'},
 
-            {'parent_entity': 'Timing',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'SupplyRequest',
-             'child_variable': 'occurrenceTiming'},
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyRequest',
+             'child_variable': 'deliverTo'},
+
+            {'parent_entity': 'SupplyRequest_Requester',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyRequest',
+             'child_variable': 'requester'},
+
+            {'parent_entity': 'SupplyRequest_OrderedItem',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyRequest',
+             'child_variable': 'orderedItem'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'SupplyRequest',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -174,32 +154,7 @@ class SupplyRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'SupplyRequest',
-             'child_variable': 'deliverTo'},
-
-            {'parent_entity': 'SupplyRequest_OrderedItem',
-             'parent_variable': 'object_id',
-             'child_entity': 'SupplyRequest',
-             'child_variable': 'orderedItem'},
-
-            {'parent_entity': 'SupplyRequest_Requester',
-             'parent_variable': 'object_id',
-             'child_entity': 'SupplyRequest',
-             'child_variable': 'requester'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'SupplyRequest',
-             'child_variable': 'reasonCodeableConcept'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'SupplyRequest',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'SupplyRequest',
-             'child_variable': 'category'},
+             'child_variable': 'reasonReference'},
         ]
 
 
@@ -207,35 +162,28 @@ class SupplyRequest_OrderedItem(fhirbase):
     """
     A record of a request for a medication, substance or device used in
     the healthcare setting.
+
+    Attributes:
+        quantity: The amount that is being ordered of the indicated item.
+        itemCodeableConcept: The item that is requested to be supplied. This
+            is either a link to a resource representing the details of the item or
+            a code that identifies the item from a known list.
+        itemReference: The item that is requested to be supplied. This is
+            either a link to a resource representing the details of the item or a
+            code that identifies the item from a known list.
     """
 
     __name__ = 'SupplyRequest_OrderedItem'
 
     def __init__(self, dict_values=None):
         self.quantity = None
-        """
-        The amount that is being ordered of the indicated item.
-
-        reference to Quantity
-        """
+        # reference to Quantity
 
         self.itemCodeableConcept = None
-        """
-        The item that is requested to be supplied. This is either a link to a
-        resource representing the details of the item or a code that
-        identifies the item from a known list.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.itemReference = None
-        """
-        The item that is requested to be supplied. This is either a link to a
-        resource representing the details of the item or a code that
-        identifies the item from a known list.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.object_id = None
         # unique identifier for object class
@@ -251,15 +199,15 @@ class SupplyRequest_OrderedItem(fhirbase):
              'child_entity': 'SupplyRequest_OrderedItem',
              'child_variable': 'quantity'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'SupplyRequest_OrderedItem',
-             'child_variable': 'itemReference'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'SupplyRequest_OrderedItem',
              'child_variable': 'itemCodeableConcept'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'SupplyRequest_OrderedItem',
+             'child_variable': 'itemReference'},
         ]
 
 
@@ -267,24 +215,21 @@ class SupplyRequest_Requester(fhirbase):
     """
     A record of a request for a medication, substance or device used in
     the healthcare setting.
+
+    Attributes:
+        agent: The device, practitioner, etc. who initiated the request.
+        onBehalfOf: The organization the device or practitioner was acting on
+            behalf of.
     """
 
     __name__ = 'SupplyRequest_Requester'
 
     def __init__(self, dict_values=None):
         self.agent = None
-        """
-        The device, practitioner, etc. who initiated the request.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.onBehalfOf = None
-        """
-        The organization the device or practitioner was acting on behalf of.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.object_id = None
         # unique identifier for object class

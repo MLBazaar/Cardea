@@ -5,33 +5,30 @@ class OperationOutcome(fhirbase):
     """
     A collection of error, warning or information messages that result
     from a system action.
+
+    Attributes:
+        resourceType: This is a OperationOutcome resource
+        issue: An error, warning or information message that results from a
+            system action.
     """
 
     __name__ = 'OperationOutcome'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'OperationOutcome'
-        """
-        This is a OperationOutcome resource
-
-        type: string
-        possible values: OperationOutcome
-        """
+        # type: string
+        # possible values: OperationOutcome
 
         self.issue = None
-        """
-        An error, warning or information message that results from a system
-        action.
-
-        type: array
-        reference to OperationOutcome_Issue
-        """
+        # type: array
+        # reference to OperationOutcome_Issue
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def get_relationships(self):
 
@@ -47,77 +44,62 @@ class OperationOutcome_Issue(fhirbase):
     """
     A collection of error, warning or information messages that result
     from a system action.
+
+    Attributes:
+        severity: Indicates whether the issue indicates a variation from
+            successful processing.
+        code: Describes the type of the issue. The system that creates an
+            OperationOutcome SHALL choose the most applicable code from the
+            IssueType value set, and may additional provide its own code for the
+            error in the details element.
+        details: Additional details about the error. This may be a text
+            description of the error, or a system code that identifies the error.
+        diagnostics: Additional diagnostic information about the issue.
+            Typically, this may be a description of how a value is erroneous, or a
+            stack dump to help trace the issue.
+        location: For resource issues, this will be a simple XPath limited to
+            element names, repetition indicators and the default child access that
+            identifies one of the elements in the resource that caused this issue
+            to be raised.  For HTTP errors, will be "http." + the parameter name.
+        expression: A simple FHIRPath limited to element names, repetition
+            indicators and the default child access that identifies one of the
+            elements in the resource that caused this issue to be raised.
     """
 
     __name__ = 'OperationOutcome_Issue'
 
     def __init__(self, dict_values=None):
         self.severity = None
-        """
-        Indicates whether the issue indicates a variation from successful
-        processing.
-
-        type: string
-        possible values: fatal, error, warning, information
-        """
+        # type: string
+        # possible values: fatal, error, warning, information
 
         self.code = None
-        """
-        Describes the type of the issue. The system that creates an
-        OperationOutcome SHALL choose the most applicable code from the
-        IssueType value set, and may additional provide its own code for the
-        error in the details element.
-
-        type: string
-        possible values: invalid, structure, required, value,
-        invariant, security, login, unknown, expired, forbidden, suppressed,
-        processing, not-supported, duplicate, not-found, too-long,
-        code-invalid, extension, too-costly, business-rule, conflict,
-        incomplete, transient, lock-error, no-store, exception, timeout,
-        throttled, informational
-        """
+        # type: string
+        # possible values: invalid, structure, required, value,
+        # invariant, security, login, unknown, expired, forbidden, suppressed,
+        # processing, not-supported, duplicate, not-found, too-long,
+        # code-invalid, extension, too-costly, business-rule, conflict,
+        # incomplete, transient, lock-error, no-store, exception, timeout,
+        # throttled, informational
 
         self.details = None
-        """
-        Additional details about the error. This may be a text description of
-        the error, or a system code that identifies the error.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.diagnostics = None
-        """
-        Additional diagnostic information about the issue.  Typically, this
-        may be a description of how a value is erroneous, or a stack dump to
-        help trace the issue.
-
-        type: string
-        """
+        # type: string
 
         self.location = None
-        """
-        For resource issues, this will be a simple XPath limited to element
-        names, repetition indicators and the default child access that
-        identifies one of the elements in the resource that caused this issue
-        to be raised.  For HTTP errors, will be "http." + the parameter name.
-
-        type: array
-        """
+        # type: array
 
         self.expression = None
-        """
-        A simple FHIRPath limited to element names, repetition indicators and
-        the default child access that identifies one of the elements in the
-        resource that caused this issue to be raised.
-
-        type: array
-        """
+        # type: array
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 

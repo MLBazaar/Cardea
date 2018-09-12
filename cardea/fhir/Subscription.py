@@ -9,89 +9,66 @@ class Subscription(fhirbase):
     updated, and if the resource matches the given criteria, it sends a
     message on the defined "channel" so that another system is able to
     take an appropriate action.
+
+    Attributes:
+        resourceType: This is a Subscription resource
+        status: The status of the subscription, which marks the server state
+            for managing the subscription.
+        contact: Contact details for a human to contact about the
+            subscription. The primary use of this for system administrator
+            troubleshooting.
+        end: The time for the server to turn the subscription off.
+        reason: A description of why this subscription is defined.
+        criteria: The rules that the server should use to determine when to
+            generate notifications for this subscription.
+        error: A record of the last error that occurred when the server
+            processed a notification.
+        channel: Details where to send notifications when resources are
+            received that meet the criteria.
+        tag: A tag to add to any resource that matches the criteria, after the
+            subscription is processed.
     """
 
     __name__ = 'Subscription'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Subscription'
-        """
-        This is a Subscription resource
-
-        type: string
-        possible values: Subscription
-        """
+        # type: string
+        # possible values: Subscription
 
         self.status = None
-        """
-        The status of the subscription, which marks the server state for
-        managing the subscription.
-
-        type: string
-        possible values: requested, active, error, off
-        """
+        # type: string
+        # possible values: requested, active, error, off
 
         self.contact = None
-        """
-        Contact details for a human to contact about the subscription. The
-        primary use of this for system administrator troubleshooting.
-
-        type: array
-        reference to ContactPoint
-        """
+        # type: array
+        # reference to ContactPoint
 
         self.end = None
-        """
-        The time for the server to turn the subscription off.
-
-        type: string
-        """
+        # type: string
 
         self.reason = None
-        """
-        A description of why this subscription is defined.
-
-        type: string
-        """
+        # type: string
 
         self.criteria = None
-        """
-        The rules that the server should use to determine when to generate
-        notifications for this subscription.
-
-        type: string
-        """
+        # type: string
 
         self.error = None
-        """
-        A record of the last error that occurred when the server processed a
-        notification.
-
-        type: string
-        """
+        # type: string
 
         self.channel = None
-        """
-        Details where to send notifications when resources are received that
-        meet the criteria.
-
-        reference to Subscription_Channel
-        """
+        # reference to Subscription_Channel
 
         self.tag = None
-        """
-        A tag to add to any resource that matches the criteria, after the
-        subscription is processed.
-
-        type: array
-        reference to Coding
-        """
+        # type: array
+        # reference to Coding
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -130,47 +107,41 @@ class Subscription_Channel(fhirbase):
     updated, and if the resource matches the given criteria, it sends a
     message on the defined "channel" so that another system is able to
     take an appropriate action.
+
+    Attributes:
+        type: The type of channel to send notifications on.
+        endpoint: The uri that describes the actual end-point to send messages
+            to.
+        payload: The mime type to send the payload in - either
+            application/fhir+xml, or application/fhir+json. If the payload is not
+            present, then there is no payload in the notification, just a
+            notification.
+        header: Additional headers / information to send as part of the
+            notification.
     """
 
     __name__ = 'Subscription_Channel'
 
     def __init__(self, dict_values=None):
         self.type = None
-        """
-        The type of channel to send notifications on.
-
-        type: string
-        possible values: rest-hook, websocket, email, sms, message
-        """
+        # type: string
+        # possible values: rest-hook, websocket, email, sms, message
 
         self.endpoint = None
-        """
-        The uri that describes the actual end-point to send messages to.
-
-        type: string
-        """
+        # type: string
 
         self.payload = None
-        """
-        The mime type to send the payload in - either application/fhir+xml, or
-        application/fhir+json. If the payload is not present, then there is no
-        payload in the notification, just a notification.
-
-        type: string
-        """
+        # type: string
 
         self.header = None
-        """
-        Additional headers / information to send as part of the notification.
-
-        type: array
-        """
+        # type: array
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 

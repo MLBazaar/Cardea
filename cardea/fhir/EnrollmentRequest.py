@@ -5,80 +5,57 @@ class EnrollmentRequest(fhirbase):
     """
     This resource provides the insurance enrollment details to the insurer
     regarding a specified coverage.
+
+    Attributes:
+        resourceType: This is a EnrollmentRequest resource
+        identifier: The Response business identifier.
+        status: The status of the resource instance.
+        created: The date when this resource was created.
+        insurer: The Insurer who is target  of the request.
+        provider: The practitioner who is responsible for the services
+            rendered to the patient.
+        organization: The organization which is responsible for the services
+            rendered to the patient.
+        subject: Patient Resource.
+        coverage: Reference to the program or plan identification, underwriter
+            or payor.
     """
 
     __name__ = 'EnrollmentRequest'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'EnrollmentRequest'
-        """
-        This is a EnrollmentRequest resource
-
-        type: string
-        possible values: EnrollmentRequest
-        """
+        # type: string
+        # possible values: EnrollmentRequest
 
         self.status = None
-        """
-        The status of the resource instance.
-
-        type: string
-        """
+        # type: string
 
         self.created = None
-        """
-        The date when this resource was created.
-
-        type: string
-        """
+        # type: string
 
         self.insurer = None
-        """
-        The Insurer who is target  of the request.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.provider = None
-        """
-        The practitioner who is responsible for the services rendered to the
-        patient.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.organization = None
-        """
-        The organization which is responsible for the services rendered to the
-        patient.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.subject = None
-        """
-        Patient Resource.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.coverage = None
-        """
-        Reference to the program or plan identification, underwriter or payor.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.identifier = None
-        """
-        The Response business identifier.
-
-        type: array
-        reference to Identifier
-        """
+        # type: array
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def get_relationships(self):
 
@@ -86,7 +63,7 @@ class EnrollmentRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EnrollmentRequest',
-             'child_variable': 'insurer'},
+             'child_variable': 'subject'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -96,7 +73,7 @@ class EnrollmentRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EnrollmentRequest',
-             'child_variable': 'provider'},
+             'child_variable': 'insurer'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
@@ -106,10 +83,10 @@ class EnrollmentRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EnrollmentRequest',
-             'child_variable': 'subject'},
+             'child_variable': 'organization'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EnrollmentRequest',
-             'child_variable': 'organization'},
+             'child_variable': 'provider'},
         ]

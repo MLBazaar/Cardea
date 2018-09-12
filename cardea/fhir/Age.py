@@ -5,6 +5,7 @@ class Age(fhirbase):
     """
     A duration of time during which an organism (or a process) has
     existed.
+
     """
 
     __name__ = 'Age'

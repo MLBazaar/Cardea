@@ -4,73 +4,56 @@ from .fhirbase import fhirbase
 class HumanName(fhirbase):
     """
     A human's name with the ability to identify parts and usage.
+
+    Attributes:
+        use: Identifies the purpose for this name.
+        text: A full text representation of the name.
+        family: The part of a name that links to the genealogy. In some
+            cultures (e.g. Eritrea) the family name of a son is the first name of
+            his father.
+        given: Given name.
+        prefix: Part of the name that is acquired as a title due to academic,
+            legal, employment or nobility status, etc. and that appears at the
+            start of the name.
+        suffix: Part of the name that is acquired as a title due to academic,
+            legal, employment or nobility status, etc. and that appears at the end
+            of the name.
+        period: Indicates the period of time when this name was valid for the
+            named person.
     """
 
     __name__ = 'HumanName'
 
     def __init__(self, dict_values=None):
         self.use = None
-        """
-        Identifies the purpose for this name.
-
-        type: string
-        possible values: usual, official, temp, nickname, anonymous,
-        old, maiden
-        """
+        # type: string
+        # possible values: usual, official, temp, nickname, anonymous,
+        # old, maiden
 
         self.text = None
-        """
-        A full text representation of the name.
-
-        type: string
-        """
+        # type: string
 
         self.family = None
-        """
-        The part of a name that links to the genealogy. In some cultures (e.g.
-        Eritrea) the family name of a son is the first name of his father.
-
-        type: string
-        """
+        # type: string
 
         self.given = None
-        """
-        Given name.
-
-        type: array
-        """
+        # type: array
 
         self.prefix = None
-        """
-        Part of the name that is acquired as a title due to academic, legal,
-        employment or nobility status, etc. and that appears at the start of
-        the name.
-
-        type: array
-        """
+        # type: array
 
         self.suffix = None
-        """
-        Part of the name that is acquired as a title due to academic, legal,
-        employment or nobility status, etc. and that appears at the end of the
-        name.
-
-        type: array
-        """
+        # type: array
 
         self.period = None
-        """
-        Indicates the period of time when this name was valid for the named
-        person.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 

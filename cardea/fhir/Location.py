@@ -6,144 +6,104 @@ class Location(fhirbase):
     Details and position information for a physical place where services
     are provided  and resources and participants may be stored, found,
     contained or accommodated.
+
+    Attributes:
+        resourceType: This is a Location resource
+        identifier: Unique code or number identifying the location to its
+            users.
+        status: The status property covers the general availability of the
+            resource, not the current value which may be covered by the
+            operationStatus, or by a schedule/slots if they are configured for the
+            location.
+        operationalStatus: The Operational status covers operation values most
+            relevant to beds (but can also apply to rooms/units/chair/etc such as
+            an isolation unit/dialisys chair). This typically covers concepts such
+            as contamination, housekeeping and other activities like maintenance.
+        name: Name of the location as used by humans. Does not need to be
+            unique.
+        alias: A list of alternate names that the location is known as, or was
+            known as in the past.
+        description: Description of the Location, which helps in finding or
+            referencing the place.
+        mode: Indicates whether a resource instance represents a specific
+            location or a class of locations.
+        type: Indicates the type of function performed at the location.
+        telecom: The contact details of communication devices available at the
+            location. This can include phone numbers, fax numbers, mobile numbers,
+            email addresses and web sites.
+        address: Physical location.
+        physicalType: Physical form of the location, e.g. building, room,
+            vehicle, road.
+        position: The absolute geographic location of the Location, expressed
+            using the WGS84 datum (This is the same co-ordinate system used in
+            KML).
+        managingOrganization: The organization responsible for the
+            provisioning and upkeep of the location.
+        partOf: Another Location which this Location is physically part of.
+        endpoint: Technical endpoints providing access to services operated
+            for the location.
     """
 
     __name__ = 'Location'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Location'
-        """
-        This is a Location resource
-
-        type: string
-        possible values: Location
-        """
+        # type: string
+        # possible values: Location
 
         self.status = None
-        """
-        The status property covers the general availability of the resource,
-        not the current value which may be covered by the operationStatus, or
-        by a schedule/slots if they are configured for the location.
-
-        type: string
-        possible values: active, suspended, inactive
-        """
+        # type: string
+        # possible values: active, suspended, inactive
 
         self.operationalStatus = None
-        """
-        The Operational status covers operation values most relevant to beds
-        (but can also apply to rooms/units/chair/etc such as an isolation
-        unit/dialisys chair). This typically covers concepts such as
-        contamination, housekeeping and other activities like maintenance.
-
-        reference to Coding
-        """
+        # reference to Coding
 
         self.name = None
-        """
-        Name of the location as used by humans. Does not need to be unique.
-
-        type: string
-        """
+        # type: string
 
         self.alias = None
-        """
-        A list of alternate names that the location is known as, or was known
-        as in the past.
-
-        type: array
-        """
+        # type: array
 
         self.description = None
-        """
-        Description of the Location, which helps in finding or referencing the
-        place.
-
-        type: string
-        """
+        # type: string
 
         self.mode = None
-        """
-        Indicates whether a resource instance represents a specific location
-        or a class of locations.
-
-        type: string
-        possible values: instance, kind
-        """
+        # type: string
+        # possible values: instance, kind
 
         self.type = None
-        """
-        Indicates the type of function performed at the location.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.telecom = None
-        """
-        The contact details of communication devices available at the
-        location. This can include phone numbers, fax numbers, mobile numbers,
-        email addresses and web sites.
-
-        type: array
-        reference to ContactPoint
-        """
+        # type: array
+        # reference to ContactPoint
 
         self.address = None
-        """
-        Physical location.
-
-        reference to Address
-        """
+        # reference to Address
 
         self.physicalType = None
-        """
-        Physical form of the location, e.g. building, room, vehicle, road.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.position = None
-        """
-        The absolute geographic location of the Location, expressed using the
-        WGS84 datum (This is the same co-ordinate system used in KML).
-
-        reference to Location_Position
-        """
+        # reference to Location_Position
 
         self.managingOrganization = None
-        """
-        The organization responsible for the provisioning and upkeep of the
-        location.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.partOf = None
-        """
-        Another Location which this Location is physically part of.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.endpoint = None
-        """
-        Technical endpoints providing access to services operated for the
-        location.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.identifier = None
-        """
-        Unique code or number identifying the location to its users.
-
-        type: array
-        reference to Identifier
-        """
+        # type: array
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -164,6 +124,16 @@ class Location(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Location_Position',
+             'parent_variable': 'object_id',
+             'child_entity': 'Location',
+             'child_variable': 'position'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Location',
+             'child_variable': 'endpoint'},
+
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Location',
@@ -174,26 +144,6 @@ class Location(fhirbase):
              'child_entity': 'Location',
              'child_variable': 'identifier'},
 
-            {'parent_entity': 'Address',
-             'parent_variable': 'object_id',
-             'child_entity': 'Location',
-             'child_variable': 'address'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Location',
-             'child_variable': 'managingOrganization'},
-
-            {'parent_entity': 'ContactPoint',
-             'parent_variable': 'object_id',
-             'child_entity': 'Location',
-             'child_variable': 'telecom'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Location',
-             'child_variable': 'endpoint'},
-
             {'parent_entity': 'Coding',
              'parent_variable': 'object_id',
              'child_entity': 'Location',
@@ -202,17 +152,27 @@ class Location(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Location',
-             'child_variable': 'type'},
+             'child_variable': 'physicalType'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Location',
-             'child_variable': 'physicalType'},
+             'child_variable': 'type'},
 
-            {'parent_entity': 'Location_Position',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Location',
+             'child_variable': 'managingOrganization'},
+
+            {'parent_entity': 'Address',
              'parent_variable': 'object_id',
              'child_entity': 'Location',
-             'child_variable': 'position'},
+             'child_variable': 'address'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Location',
+             'child_variable': 'telecom'},
         ]
 
 
@@ -221,34 +181,28 @@ class Location_Position(fhirbase):
     Details and position information for a physical place where services
     are provided  and resources and participants may be stored, found,
     contained or accommodated.
+
+    Attributes:
+        longitude: Longitude. The value domain and the interpretation are the
+            same as for the text of the longitude element in KML (see notes
+            below).
+        latitude: Latitude. The value domain and the interpretation are the
+            same as for the text of the latitude element in KML (see notes below).
+        altitude: Altitude. The value domain and the interpretation are the
+            same as for the text of the altitude element in KML (see notes below).
     """
 
     __name__ = 'Location_Position'
 
     def __init__(self, dict_values=None):
         self.longitude = None
-        """
-        Longitude. The value domain and the interpretation are the same as for
-        the text of the longitude element in KML (see notes below).
-
-        type: int
-        """
+        # type: int
 
         self.latitude = None
-        """
-        Latitude. The value domain and the interpretation are the same as for
-        the text of the latitude element in KML (see notes below).
-
-        type: int
-        """
+        # type: int
 
         self.altitude = None
-        """
-        Altitude. The value domain and the interpretation are the same as for
-        the text of the altitude element in KML (see notes below).
-
-        type: int
-        """
+        # type: int
 
         self.object_id = None
         # unique identifier for object class

@@ -4,6 +4,7 @@ from .fhirbase import fhirbase
 class Duration(fhirbase):
     """
     A length of time.
+
     """
 
     __name__ = 'Duration'

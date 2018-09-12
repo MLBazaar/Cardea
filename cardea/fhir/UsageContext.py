@@ -8,42 +8,34 @@ class UsageContext(fhirbase):
     specific to the applicable population (e.g., age category, DRG) or the
     specific context of care (e.g., venue, care setting, provider of
     care).
+
+    Attributes:
+        code: A code that identifies the type of context being specified by
+            this usage context.
+        valueCodeableConcept: A value that defines the context specified in
+            this context of use. The interpretation of the value is defined by the
+            code.
+        valueQuantity: A value that defines the context specified in this
+            context of use. The interpretation of the value is defined by the
+            code.
+        valueRange: A value that defines the context specified in this context
+            of use. The interpretation of the value is defined by the code.
     """
 
     __name__ = 'UsageContext'
 
     def __init__(self, dict_values=None):
         self.code = None
-        """
-        A code that identifies the type of context being specified by this
-        usage context.
-
-        reference to Coding
-        """
+        # reference to Coding
 
         self.valueCodeableConcept = None
-        """
-        A value that defines the context specified in this context of use. The
-        interpretation of the value is defined by the code.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.valueQuantity = None
-        """
-        A value that defines the context specified in this context of use. The
-        interpretation of the value is defined by the code.
-
-        reference to Quantity
-        """
+        # reference to Quantity
 
         self.valueRange = None
-        """
-        A value that defines the context specified in this context of use. The
-        interpretation of the value is defined by the code.
-
-        reference to Range
-        """
+        # reference to Range
 
         self.object_id = None
         # unique identifier for object class
@@ -54,16 +46,6 @@ class UsageContext(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Range',
-             'parent_variable': 'object_id',
-             'child_entity': 'UsageContext',
-             'child_variable': 'valueRange'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'UsageContext',
-             'child_variable': 'valueQuantity'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'UsageContext',
@@ -73,4 +55,14 @@ class UsageContext(fhirbase):
              'parent_variable': 'object_id',
              'child_entity': 'UsageContext',
              'child_variable': 'code'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'UsageContext',
+             'child_variable': 'valueQuantity'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'UsageContext',
+             'child_variable': 'valueRange'},
         ]

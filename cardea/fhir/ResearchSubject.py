@@ -10,84 +10,61 @@ class ResearchSubject(fhirbase):
     therapies and other interventional and investigative techniques.  A
     ResearchStudy involves the gathering of information about human or
     animal subjects.
+
+    Attributes:
+        resourceType: This is a ResearchSubject resource
+        identifier: Identifiers assigned to this research study by the sponsor
+            or other systems.
+        status: The current state of the subject.
+        period: The dates the subject began and ended their participation in
+            the study.
+        study: Reference to the study the subject is participating in.
+        individual: The record of the person or animal who is involved in the
+            study.
+        assignedArm: The name of the arm in the study the subject is expected
+            to follow as part of this study.
+        actualArm: The name of the arm in the study the subject actually
+            followed as part of this study.
+        consent: A record of the patient's informed agreement to participate
+            in the study.
     """
 
     __name__ = 'ResearchSubject'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ResearchSubject'
-        """
-        This is a ResearchSubject resource
-
-        type: string
-        possible values: ResearchSubject
-        """
+        # type: string
+        # possible values: ResearchSubject
 
         self.status = None
-        """
-        The current state of the subject.
-
-        type: string
-        possible values: candidate, enrolled, active, suspended,
-        withdrawn, completed
-        """
+        # type: string
+        # possible values: candidate, enrolled, active, suspended,
+        # withdrawn, completed
 
         self.period = None
-        """
-        The dates the subject began and ended their participation in the
-        study.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.study = None
-        """
-        Reference to the study the subject is participating in.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.individual = None
-        """
-        The record of the person or animal who is involved in the study.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.assignedArm = None
-        """
-        The name of the arm in the study the subject is expected to follow as
-        part of this study.
-
-        type: string
-        """
+        # type: string
 
         self.actualArm = None
-        """
-        The name of the arm in the study the subject actually followed as part
-        of this study.
-
-        type: string
-        """
+        # type: string
 
         self.consent = None
-        """
-        A record of the patient's informed agreement to participate in the
-        study.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.identifier = None
-        """
-        Identifiers assigned to this research study by the sponsor or other
-        systems.
-
-        reference to Identifier
-        """
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -110,7 +87,7 @@ class ResearchSubject(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ResearchSubject',
-             'child_variable': 'consent'},
+             'child_variable': 'study'},
 
             {'parent_entity': 'Period',
              'parent_variable': 'object_id',
@@ -125,5 +102,5 @@ class ResearchSubject(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'ResearchSubject',
-             'child_variable': 'study'},
+             'child_variable': 'consent'},
         ]

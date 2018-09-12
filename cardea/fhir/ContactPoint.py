@@ -5,56 +5,45 @@ class ContactPoint(fhirbase):
     """
     Details for all kinds of technology mediated contact points for a
     person or organization, including telephone, email, etc.
+
+    Attributes:
+        system: Telecommunications form for contact point - what
+            communications system is required to make use of the contact.
+        value: The actual contact point details, in a form that is meaningful
+            to the designated communication system (i.e. phone number or email
+            address).
+        use: Identifies the purpose for the contact point.
+        rank: Specifies a preferred order in which to use a set of contacts.
+            Contacts are ranked with lower values coming before higher values.
+        period: Time period when the contact point was/is in use.
     """
 
     __name__ = 'ContactPoint'
 
     def __init__(self, dict_values=None):
         self.system = None
-        """
-        Telecommunications form for contact point - what communications system
-        is required to make use of the contact.
-
-        type: string
-        possible values: phone, fax, email, pager, url, sms, other
-        """
+        # type: string
+        # possible values: phone, fax, email, pager, url, sms, other
 
         self.value = None
-        """
-        The actual contact point details, in a form that is meaningful to the
-        designated communication system (i.e. phone number or email address).
-
-        type: string
-        """
+        # type: string
 
         self.use = None
-        """
-        Identifies the purpose for the contact point.
-
-        type: string
-        possible values: home, work, temp, old, mobile
-        """
+        # type: string
+        # possible values: home, work, temp, old, mobile
 
         self.rank = None
-        """
-        Specifies a preferred order in which to use a set of contacts.
-        Contacts are ranked with lower values coming before higher values.
-
-        type: int
-        """
+        # type: int
 
         self.period = None
-        """
-        Time period when the contact point was/is in use.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 

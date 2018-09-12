@@ -4,26 +4,22 @@ from .fhirbase import fhirbase
 class ContactDetail(fhirbase):
     """
     Specifies contact information for a person or organization.
+
+    Attributes:
+        name: The name of an individual to contact.
+        telecom: The contact details for the individual (if a name was
+            provided) or the organization.
     """
 
     __name__ = 'ContactDetail'
 
     def __init__(self, dict_values=None):
         self.name = None
-        """
-        The name of an individual to contact.
-
-        type: string
-        """
+        # type: string
 
         self.telecom = None
-        """
-        The contact details for the individual (if a name was provided) or the
-        organization.
-
-        type: array
-        reference to ContactPoint
-        """
+        # type: array
+        # reference to ContactPoint
 
         self.object_id = None
         # unique identifier for object class

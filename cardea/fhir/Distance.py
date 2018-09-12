@@ -4,6 +4,7 @@ from .fhirbase import fhirbase
 class Distance(fhirbase):
     """
     A length - a value with a unit that is a physical distance.
+
     """
 
     __name__ = 'Distance'

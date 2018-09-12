@@ -4,6 +4,7 @@ from .fhirbase import fhirbase
 class Money(fhirbase):
     """
     An amount of economic utility in some recognized currency.
+
     """
 
     __name__ = 'Money'

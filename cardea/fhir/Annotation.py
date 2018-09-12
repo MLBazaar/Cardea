@@ -5,38 +5,28 @@ class Annotation(fhirbase):
     """
     A  text note which also  contains information about who made the
     statement and when.
+
+    Attributes:
+        authorReference: The individual responsible for making the annotation.
+        authorString: The individual responsible for making the annotation.
+        time: Indicates when this particular annotation was made.
+        text: The text of the annotation.
     """
 
     __name__ = 'Annotation'
 
     def __init__(self, dict_values=None):
         self.authorReference = None
-        """
-        The individual responsible for making the annotation.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.authorString = None
-        """
-        The individual responsible for making the annotation.
-
-        type: string
-        """
+        # type: string
 
         self.time = None
-        """
-        Indicates when this particular annotation was made.
-
-        type: string
-        """
+        # type: string
 
         self.text = None
-        """
-        The text of the annotation.
-
-        type: string
-        """
+        # type: string
 
         self.object_id = None
         # unique identifier for object class

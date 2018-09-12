@@ -7,64 +7,45 @@ class ParameterDefinition(fhirbase):
     and output parameters. Input parameters are provided by the caller as
     part of the $evaluate operation. Output parameters are included in the
     GuidanceResponse.
+
+    Attributes:
+        name: The name of the parameter used to allow access to the value of
+            the parameter in evaluation contexts.
+        use: Whether the parameter is input or output for the module.
+        min: The minimum number of times this parameter SHALL appear in the
+            request or response.
+        max: The maximum number of times this element is permitted to appear
+            in the request or response.
+        documentation: A brief discussion of what the parameter is for and how
+            it is used by the module.
+        type: The type of the parameter.
+        profile: If specified, this indicates a profile that the input data
+            must conform to, or that the output data will conform to.
     """
 
     __name__ = 'ParameterDefinition'
 
     def __init__(self, dict_values=None):
         self.name = None
-        """
-        The name of the parameter used to allow access to the value of the
-        parameter in evaluation contexts.
-
-        type: string
-        """
+        # type: string
 
         self.use = None
-        """
-        Whether the parameter is input or output for the module.
-
-        type: string
-        """
+        # type: string
 
         self.min = None
-        """
-        The minimum number of times this parameter SHALL appear in the request
-        or response.
-
-        type: int
-        """
+        # type: int
 
         self.max = None
-        """
-        The maximum number of times this element is permitted to appear in the
-        request or response.
-
-        type: string
-        """
+        # type: string
 
         self.documentation = None
-        """
-        A brief discussion of what the parameter is for and how it is used by
-        the module.
-
-        type: string
-        """
+        # type: string
 
         self.type = None
-        """
-        The type of the parameter.
-
-        type: string
-        """
+        # type: string
 
         self.profile = None
-        """
-        If specified, this indicates a profile that the input data must
-        conform to, or that the output data will conform to.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.object_id = None
         # unique identifier for object class

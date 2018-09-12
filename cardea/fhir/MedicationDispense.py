@@ -8,241 +8,169 @@ class MedicationDispense(fhirbase):
     product (supply) provided and the instructions for administering the
     medication.  The medication dispense is the result of a pharmacy
     system responding to a medication order.
+
+    Attributes:
+        resourceType: This is a MedicationDispense resource
+        identifier: Identifier assigned by the dispensing facility - this is
+            an identifier assigned outside FHIR.
+        partOf: The procedure that the dispense is done because of.
+        status: A code specifying the state of the set of dispense events.
+        category: Indicates type of medication dispense and where the
+            medication is expected to be consumed or administered.
+        medicationCodeableConcept: Identifies the medication being
+            administered. This is either a link to a resource representing the
+            details of the medication or a simple attribute carrying a code that
+            identifies the medication from a known list of medications.
+        medicationReference: Identifies the medication being administered.
+            This is either a link to a resource representing the details of the
+            medication or a simple attribute carrying a code that identifies the
+            medication from a known list of medications.
+        subject: A link to a resource representing the person or the group to
+            whom the medication will be given.
+        context: The encounter or episode of care that establishes the context
+            for this event.
+        supportingInformation: Additional information that supports the
+            medication being dispensed.
+        performer: Indicates who or what performed the event.  It should be
+            assumed that the performer is the dispenser of the medication.
+        authorizingPrescription: Indicates the medication order that is being
+            dispensed against.
+        type: Indicates the type of dispensing event that is performed. For
+            example, Trial Fill, Completion of Trial, Partial Fill, Emergency
+            Fill, Samples, etc.
+        quantity: The amount of medication that has been dispensed. Includes
+            unit of measure.
+        daysSupply: The amount of medication expressed as a timing amount.
+        whenPrepared: The time when the dispensed product was packaged and
+            reviewed.
+        whenHandedOver: The time the dispensed product was provided to the
+            patient or their representative.
+        destination: Identification of the facility/location where the
+            medication was shipped to, as part of the dispense event.
+        receiver: Identifies the person who picked up the medication.  This
+            will usually be a patient or their caregiver, but some cases exist
+            where it can be a healthcare professional.
+        note: Extra information about the dispense that could not be conveyed
+            in the other attributes.
+        dosageInstruction: Indicates how the medication is to be used by the
+            patient.
+        substitution: Indicates whether or not substitution was made as part
+            of the dispense.  In some cases substitution will be expected but does
+            not happen, in other cases substitution is not expected but does
+            happen.  This block explains what substitution did or did not happen
+            and why.  If nothing is specified, substitution was not done.
+        detectedIssue: Indicates an actual or potential clinical issue with or
+            between one or more active or proposed clinical actions for a patient;
+            e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
+        notDone: True if the dispense was not performed for some reason.
+        notDoneReasonCodeableConcept: Indicates the reason why a dispense was
+            not performed.
+        notDoneReasonReference: Indicates the reason why a dispense was not
+            performed.
+        eventHistory: A summary of the events of interest that have occurred,
+            such as when the dispense was verified.
     """
 
     __name__ = 'MedicationDispense'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'MedicationDispense'
-        """
-        This is a MedicationDispense resource
-
-        type: string
-        possible values: MedicationDispense
-        """
+        # type: string
+        # possible values: MedicationDispense
 
         self.partOf = None
-        """
-        The procedure that the dispense is done because of.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.status = None
-        """
-        A code specifying the state of the set of dispense events.
-
-        type: string
-        possible values: preparation, in-progress, on-hold, completed,
-        entered-in-error, stopped
-        """
+        # type: string
+        # possible values: preparation, in-progress, on-hold,
+        # completed, entered-in-error, stopped
 
         self.category = None
-        """
-        Indicates type of medication dispense and where the medication is
-        expected to be consumed or administered.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.medicationCodeableConcept = None
-        """
-        Identifies the medication being administered. This is either a link to
-        a resource representing the details of the medication or a simple
-        attribute carrying a code that identifies the medication from a known
-        list of medications.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.medicationReference = None
-        """
-        Identifies the medication being administered. This is either a link to
-        a resource representing the details of the medication or a simple
-        attribute carrying a code that identifies the medication from a known
-        list of medications.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.subject = None
-        """
-        A link to a resource representing the person or the group to whom the
-        medication will be given.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.context = None
-        """
-        The encounter or episode of care that establishes the context for this
-        event.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.supportingInformation = None
-        """
-        Additional information that supports the medication being dispensed.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.performer = None
-        """
-        Indicates who or what performed the event.  It should be assumed that
-        the performer is the dispenser of the medication.
-
-        type: array
-        reference to MedicationDispense_Performer
-        """
+        # type: array
+        # reference to MedicationDispense_Performer
 
         self.authorizingPrescription = None
-        """
-        Indicates the medication order that is being dispensed against.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.type = None
-        """
-        Indicates the type of dispensing event that is performed. For example,
-        Trial Fill, Completion of Trial, Partial Fill, Emergency Fill,
-        Samples, etc.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.quantity = None
-        """
-        The amount of medication that has been dispensed. Includes unit of
-        measure.
-
-        reference to Quantity
-        """
+        # reference to Quantity
 
         self.daysSupply = None
-        """
-        The amount of medication expressed as a timing amount.
-
-        reference to Quantity
-        """
+        # reference to Quantity
 
         self.whenPrepared = None
-        """
-        The time when the dispensed product was packaged and reviewed.
-
-        type: string
-        """
+        # type: string
 
         self.whenHandedOver = None
-        """
-        The time the dispensed product was provided to the patient or their
-        representative.
-
-        type: string
-        """
+        # type: string
 
         self.destination = None
-        """
-        Identification of the facility/location where the medication was
-        shipped to, as part of the dispense event.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.receiver = None
-        """
-        Identifies the person who picked up the medication.  This will usually
-        be a patient or their caregiver, but some cases exist where it can be
-        a healthcare professional.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.note = None
-        """
-        Extra information about the dispense that could not be conveyed in the
-        other attributes.
-
-        type: array
-        reference to Annotation
-        """
+        # type: array
+        # reference to Annotation
 
         self.dosageInstruction = None
-        """
-        Indicates how the medication is to be used by the patient.
-
-        type: array
-        reference to Dosage
-        """
+        # type: array
+        # reference to Dosage
 
         self.substitution = None
-        """
-        Indicates whether or not substitution was made as part of the
-        dispense.  In some cases substitution will be expected but does not
-        happen, in other cases substitution is not expected but does happen.
-        This block explains what substitution did or did not happen and why.
-        If nothing is specified, substitution was not done.
-
-        reference to MedicationDispense_Substitution
-        """
+        # reference to MedicationDispense_Substitution
 
         self.detectedIssue = None
-        """
-        Indicates an actual or potential clinical issue with or between one or
-        more active or proposed clinical actions for a patient; e.g. Drug-drug
-        interaction, duplicate therapy, dosage alert etc.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.notDone = None
-        """
-        True if the dispense was not performed for some reason.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.notDoneReasonCodeableConcept = None
-        """
-        Indicates the reason why a dispense was not performed.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.notDoneReasonReference = None
-        """
-        Indicates the reason why a dispense was not performed.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.eventHistory = None
-        """
-        A summary of the events of interest that have occurred, such as when
-        the dispense was verified.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.identifier = None
-        """
-        Identifier assigned by the dispensing facility - this is an identifier
-        assigned outside FHIR.
-
-        type: array
-        reference to Identifier
-        """
+        # type: array
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -258,40 +186,30 @@ class MedicationDispense(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationDispense',
-             'child_variable': 'context'},
-
-            {'parent_entity': 'CodeableConcept',
+            {'parent_entity': 'Dosage',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationDispense',
-             'child_variable': 'medicationCodeableConcept'},
-
-            {'parent_entity': 'Quantity',
-             'parent_variable': 'object_id',
-             'child_entity': 'MedicationDispense',
-             'child_variable': 'daysSupply'},
+             'child_variable': 'dosageInstruction'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'MedicationDispense',
              'child_variable': 'partOf'},
 
-            {'parent_entity': 'MedicationDispense_Substitution',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'receiver'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'detectedIssue'},
+
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationDispense',
-             'child_variable': 'substitution'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationDispense',
-             'child_variable': 'notDoneReasonReference'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationDispense',
-             'child_variable': 'authorizingPrescription'},
+             'child_variable': 'medicationCodeableConcept'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
@@ -306,22 +224,27 @@ class MedicationDispense(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'MedicationDispense',
-             'child_variable': 'medicationReference'},
+             'child_variable': 'subject'},
 
-            {'parent_entity': 'Dosage',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationDispense',
-             'child_variable': 'dosageInstruction'},
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'daysSupply'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'MedicationDispense',
-             'child_variable': 'detectedIssue'},
+             'child_variable': 'medicationReference'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'MedicationDispense',
-             'child_variable': 'receiver'},
+             'child_variable': 'destination'},
 
             {'parent_entity': 'MedicationDispense_Performer',
              'parent_variable': 'object_id',
@@ -331,42 +254,47 @@ class MedicationDispense(fhirbase):
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationDispense',
-             'child_variable': 'category'},
+             'child_variable': 'notDoneReasonCodeableConcept'},
+
+            {'parent_entity': 'MedicationDispense_Substitution',
+             'parent_variable': 'object_id',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'substitution'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'eventHistory'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationDispense',
              'child_variable': 'type'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'MedicationDispense',
-             'child_variable': 'notDoneReasonCodeableConcept'},
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'authorizingPrescription'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'MedicationDispense',
+             'child_variable': 'notDoneReasonReference'},
 
             {'parent_entity': 'Annotation',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationDispense',
              'child_variable': 'note'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationDispense',
-             'child_variable': 'destination'},
-
-            {'parent_entity': 'Identifier',
+            {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'MedicationDispense',
-             'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationDispense',
-             'child_variable': 'subject'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'MedicationDispense',
-             'child_variable': 'eventHistory'},
+             'child_variable': 'category'},
         ]
 
 
@@ -377,25 +305,22 @@ class MedicationDispense_Performer(fhirbase):
     product (supply) provided and the instructions for administering the
     medication.  The medication dispense is the result of a pharmacy
     system responding to a medication order.
+
+    Attributes:
+        actor: The device, practitioner, etc. who performed the action.  It
+            should be assumed that the actor is the dispenser of the medication.
+        onBehalfOf: The organization the device or practitioner was acting on
+            behalf of.
     """
 
     __name__ = 'MedicationDispense_Performer'
 
     def __init__(self, dict_values=None):
         self.actor = None
-        """
-        The device, practitioner, etc. who performed the action.  It should be
-        assumed that the actor is the dispenser of the medication.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.onBehalfOf = None
-        """
-        The organization the device or practitioner was acting on behalf of.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.object_id = None
         # unique identifier for object class
@@ -425,44 +350,34 @@ class MedicationDispense_Substitution(fhirbase):
     product (supply) provided and the instructions for administering the
     medication.  The medication dispense is the result of a pharmacy
     system responding to a medication order.
+
+    Attributes:
+        wasSubstituted: True if the dispenser dispensed a different drug or
+            product from what was prescribed.
+        type: A code signifying whether a different drug was dispensed from
+            what was prescribed.
+        reason: Indicates the reason for the substitution of (or lack of
+            substitution) from what was prescribed.
+        responsibleParty: The person or organization that has primary
+            responsibility for the substitution.
     """
 
     __name__ = 'MedicationDispense_Substitution'
 
     def __init__(self, dict_values=None):
         self.wasSubstituted = None
-        """
-        True if the dispenser dispensed a different drug or product from what
-        was prescribed.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.type = None
-        """
-        A code signifying whether a different drug was dispensed from what was
-        prescribed.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.reason = None
-        """
-        Indicates the reason for the substitution of (or lack of substitution)
-        from what was prescribed.
-
-        type: array
-        reference to CodeableConcept
-        """
+        # type: array
+        # reference to CodeableConcept
 
         self.responsibleParty = None
-        """
-        The person or organization that has primary responsibility for the
-        substitution.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.object_id = None
         # unique identifier for object class

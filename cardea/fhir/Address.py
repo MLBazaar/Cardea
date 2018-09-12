@@ -8,95 +8,70 @@ class Address(fhirbase):
     convey addresses for use in delivering mail as well as for visiting
     locations which might not be valid for mail delivery.  There are a
     variety of postal address formats defined around the world.
+
+    Attributes:
+        use: The purpose of this address.
+        type: Distinguishes between physical addresses (those you can visit)
+            and mailing addresses (e.g. PO Boxes and care-of addresses). Most
+            addresses are both.
+        text: A full text representation of the address.
+        line: This component contains the house number, apartment number,
+            street name, street direction,  P.O. Box number, delivery hints, and
+            similar address information.
+        city: The name of the city, town, village or other community or
+            delivery center.
+        district: The name of the administrative area (county).
+        state: Sub-unit of a country with limited sovereignty in a federally
+            organized country. A code may be used if codes are in common use (i.e.
+            US 2 letter state codes).
+        postalCode: A postal code designating a region defined by the postal
+            service.
+        country: Country - a nation as commonly understood or generally
+            accepted.
+        period: Time period when address was/is in use.
     """
 
     __name__ = 'Address'
 
     def __init__(self, dict_values=None):
         self.use = None
-        """
-        The purpose of this address.
-
-        type: string
-        possible values: home, work, temp, old
-        """
+        # type: string
+        # possible values: home, work, temp, old
 
         self.type = None
-        """
-        Distinguishes between physical addresses (those you can visit) and
-        mailing addresses (e.g. PO Boxes and care-of addresses). Most
-        addresses are both.
-
-        type: string
-        possible values: postal, physical, both
-        """
+        # type: string
+        # possible values: postal, physical, both
 
         self.text = None
-        """
-        A full text representation of the address.
-
-        type: string
-        """
+        # type: string
 
         self.line = None
-        """
-        This component contains the house number, apartment number, street
-        name, street direction,  P.O. Box number, delivery hints, and similar
-        address information.
-
-        type: array
-        """
+        # type: array
 
         self.city = None
-        """
-        The name of the city, town, village or other community or delivery
-        center.
-
-        type: string
-        """
+        # type: string
 
         self.district = None
-        """
-        The name of the administrative area (county).
-
-        type: string
-        """
+        # type: string
 
         self.state = None
-        """
-        Sub-unit of a country with limited sovereignty in a federally
-        organized country. A code may be used if codes are in common use (i.e.
-        US 2 letter state codes).
-
-        type: string
-        """
+        # type: string
 
         self.postalCode = None
-        """
-        A postal code designating a region defined by the postal service.
-
-        type: string
-        """
+        # type: string
 
         self.country = None
-        """
-        Country - a nation as commonly understood or generally accepted.
-
-        type: string
-        """
+        # type: string
 
         self.period = None
-        """
-        Time period when address was/is in use.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 

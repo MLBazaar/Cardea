@@ -4,439 +4,332 @@ from .fhirbase import fhirbase
 class Extension(fhirbase):
     """
     Optional Extension Element - found in all resources.
+
+    Attributes:
+        url: Source of the definition for the extension code - a logical name
+            or a URL.
+        valueBoolean: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueInteger: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueDecimal: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueBase64Binary: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueInstant: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueString: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueUri: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueDate: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueDateTime: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueTime: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueCode: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueOid: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueUuid: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueId: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueUnsignedInt: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valuePositiveInt: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueMarkdown: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueElement: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueExtension: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueBackboneElement: Value of extension - may be a resource or one of
+            a constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueNarrative: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueAnnotation: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueAttachment: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueIdentifier: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueCodeableConcept: Value of extension - may be a resource or one of
+            a constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueCoding: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueQuantity: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueDuration: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueSimpleQuantity: Value of extension - may be a resource or one of
+            a constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueDistance: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueCount: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueMoney: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueAge: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueRange: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valuePeriod: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueRatio: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueReference: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueSampledData: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueSignature: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueHumanName: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueAddress: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueContactPoint: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueTiming: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueMeta: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueElementDefinition: Value of extension - may be a resource or one
+            of a constrained set of the data types (see Extensibility in the spec
+            for list).
+        valueContactDetail: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueContributor: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueDosage: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueRelatedArtifact: Value of extension - may be a resource or one of
+            a constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueUsageContext: Value of extension - may be a resource or one of a
+            constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueDataRequirement: Value of extension - may be a resource or one of
+            a constrained set of the data types (see Extensibility in the spec for
+            list).
+        valueParameterDefinition: Value of extension - may be a resource or
+            one of a constrained set of the data types (see Extensibility in the
+            spec for list).
+        valueTriggerDefinition: Value of extension - may be a resource or one
+            of a constrained set of the data types (see Extensibility in the spec
+            for list).
     """
 
     __name__ = 'Extension'
 
     def __init__(self, dict_values=None):
         self.url = None
-        """
-        Source of the definition for the extension code - a logical name or a
-        URL.
-
-        type: string
-        """
+        # type: string
 
         self.valueBoolean = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: boolean
-        """
+        # type: boolean
 
         self.valueInteger = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: int
-        """
+        # type: int
 
         self.valueDecimal = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: int
-        """
+        # type: int
 
         self.valueBase64Binary = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueInstant = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueString = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueUri = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueDate = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueDateTime = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueTime = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueCode = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueOid = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueUuid = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueId = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueUnsignedInt = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: int
-        """
+        # type: int
 
         self.valuePositiveInt = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: int
-        """
+        # type: int
 
         self.valueMarkdown = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        type: string
-        """
+        # type: string
 
         self.valueElement = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        """
 
         self.valueExtension = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Extension
-        """
+        # reference to Extension
 
         self.valueBackboneElement = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        """
 
         self.valueNarrative = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Narrative
-        """
+        # reference to Narrative
 
         self.valueAnnotation = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Annotation
-        """
+        # reference to Annotation
 
         self.valueAttachment = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Attachment
-        """
+        # reference to Attachment
 
         self.valueIdentifier = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Identifier
-        """
+        # reference to Identifier
 
         self.valueCodeableConcept = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.valueCoding = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Coding
-        """
+        # reference to Coding
 
         self.valueQuantity = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Quantity
-        """
+        # reference to Quantity
 
         self.valueDuration = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Duration
-        """
+        # reference to Duration
 
         self.valueSimpleQuantity = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Quantity
-        """
+        # reference to Quantity
 
         self.valueDistance = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Distance
-        """
+        # reference to Distance
 
         self.valueCount = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Count
-        """
+        # reference to Count
 
         self.valueMoney = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Money
-        """
+        # reference to Money
 
         self.valueAge = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Age
-        """
+        # reference to Age
 
         self.valueRange = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Range
-        """
+        # reference to Range
 
         self.valuePeriod = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Period
-        """
+        # reference to Period
 
         self.valueRatio = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Ratio
-        """
+        # reference to Ratio
 
         self.valueReference = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.valueSampledData = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to SampledData
-        """
+        # reference to SampledData
 
         self.valueSignature = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Signature
-        """
+        # reference to Signature
 
         self.valueHumanName = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to HumanName
-        """
+        # reference to HumanName
 
         self.valueAddress = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Address
-        """
+        # reference to Address
 
         self.valueContactPoint = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to ContactPoint
-        """
+        # reference to ContactPoint
 
         self.valueTiming = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Timing
-        """
+        # reference to Timing
 
         self.valueMeta = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Meta
-        """
+        # reference to Meta
 
         self.valueElementDefinition = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        """
 
         self.valueContactDetail = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to ContactDetail
-        """
+        # reference to ContactDetail
 
         self.valueContributor = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Contributor
-        """
+        # reference to Contributor
 
         self.valueDosage = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to Dosage
-        """
+        # reference to Dosage
 
         self.valueRelatedArtifact = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to RelatedArtifact
-        """
+        # reference to RelatedArtifact
 
         self.valueUsageContext = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to UsageContext
-        """
+        # reference to UsageContext
 
         self.valueDataRequirement = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to DataRequirement
-        """
+        # reference to DataRequirement
 
         self.valueParameterDefinition = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to ParameterDefinition
-        """
+        # reference to ParameterDefinition
 
         self.valueTriggerDefinition = None
-        """
-        Value of extension - may be a resource or one of a constrained set of
-        the data types (see Extensibility in the spec for list).
-
-        reference to TriggerDefinition
-        """
+        # reference to TriggerDefinition
 
         self.object_id = None
         # unique identifier for object class
@@ -447,150 +340,75 @@ class Extension(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Age',
+            {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'Extension',
-             'child_variable': 'valueAge'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueIdentifier'},
-
-            {'parent_entity': 'ContactPoint',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueContactPoint'},
-
-            {'parent_entity': 'Range',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueRange'},
-
-            {'parent_entity': 'Extension',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueExtension'},
-
-            {'parent_entity': 'Dosage',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueDosage'},
-
-            {'parent_entity': 'Money',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueMoney'},
-
-            {'parent_entity': 'SampledData',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueSampledData'},
-
-            {'parent_entity': 'DataRequirement',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueDataRequirement'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'Extension',
-             'child_variable': 'valueReference'},
-
-            {'parent_entity': 'ContactDetail',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueContactDetail'},
-
-            {'parent_entity': 'Annotation',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueAnnotation'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valuePeriod'},
-
-            {'parent_entity': 'Attachment',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'Ratio',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueRatio'},
-
-            {'parent_entity': 'HumanName',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueHumanName'},
-
-            {'parent_entity': 'Count',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueCount'},
-
-            {'parent_entity': 'Address',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueAddress'},
-
-            {'parent_entity': 'ParameterDefinition',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueParameterDefinition'},
-
-            {'parent_entity': 'Timing',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueTiming'},
+             'child_variable': 'valueQuantity'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Extension',
              'child_variable': 'valueCodeableConcept'},
 
-            {'parent_entity': 'UsageContext',
+            {'parent_entity': 'Money',
              'parent_variable': 'object_id',
              'child_entity': 'Extension',
-             'child_variable': 'valueUsageContext'},
-
-            {'parent_entity': 'Coding',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueCoding'},
-
-            {'parent_entity': 'Meta',
-             'parent_variable': 'object_id',
-             'child_entity': 'Extension',
-             'child_variable': 'valueMeta'},
+             'child_variable': 'valueMoney'},
 
             {'parent_entity': 'Quantity',
              'parent_variable': 'object_id',
              'child_entity': 'Extension',
-             'child_variable': 'valueQuantity'},
+             'child_variable': 'valueSimpleQuantity'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Extension',
+             'child_variable': 'valueReference'},
+
+            {'parent_entity': 'Age',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueAge'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueSampledData'},
 
             {'parent_entity': 'RelatedArtifact',
              'parent_variable': 'object_id',
              'child_entity': 'Extension',
              'child_variable': 'valueRelatedArtifact'},
 
-            {'parent_entity': 'Narrative',
+            {'parent_entity': 'Period',
              'parent_variable': 'object_id',
              'child_entity': 'Extension',
-             'child_variable': 'valueNarrative'},
+             'child_variable': 'valuePeriod'},
 
-            {'parent_entity': 'Distance',
+            {'parent_entity': 'Range',
              'parent_variable': 'object_id',
              'child_entity': 'Extension',
-             'child_variable': 'valueDistance'},
+             'child_variable': 'valueRange'},
 
-            {'parent_entity': 'Quantity',
+            {'parent_entity': 'ContactDetail',
              'parent_variable': 'object_id',
              'child_entity': 'Extension',
-             'child_variable': 'valueSimpleQuantity'},
+             'child_variable': 'valueContactDetail'},
+
+            {'parent_entity': 'Ratio',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueRatio'},
+
+            {'parent_entity': 'Meta',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueMeta'},
+
+            {'parent_entity': 'Duration',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueDuration'},
 
             {'parent_entity': 'Contributor',
              'parent_variable': 'object_id',
@@ -602,13 +420,88 @@ class Extension(fhirbase):
              'child_entity': 'Extension',
              'child_variable': 'valueSignature'},
 
+            {'parent_entity': 'DataRequirement',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueDataRequirement'},
+
+            {'parent_entity': 'ParameterDefinition',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueParameterDefinition'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueUsageContext'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueAddress'},
+
+            {'parent_entity': 'Distance',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueDistance'},
+
+            {'parent_entity': 'Timing',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueTiming'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueAnnotation'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueContactPoint'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueCoding'},
+
+            {'parent_entity': 'HumanName',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueHumanName'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueIdentifier'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueAttachment'},
+
             {'parent_entity': 'TriggerDefinition',
              'parent_variable': 'object_id',
              'child_entity': 'Extension',
              'child_variable': 'valueTriggerDefinition'},
 
-            {'parent_entity': 'Duration',
+            {'parent_entity': 'Narrative',
              'parent_variable': 'object_id',
              'child_entity': 'Extension',
-             'child_variable': 'valueDuration'},
+             'child_variable': 'valueNarrative'},
+
+            {'parent_entity': 'Extension',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueExtension'},
+
+            {'parent_entity': 'Dosage',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueDosage'},
+
+            {'parent_entity': 'Count',
+             'parent_variable': 'object_id',
+             'child_entity': 'Extension',
+             'child_variable': 'valueCount'},
         ]

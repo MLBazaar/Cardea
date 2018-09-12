@@ -8,140 +8,94 @@ class EligibilityRequest(fhirbase):
     EligibilityResponse, with information regarding whether the stated
     coverage is valid and in-force and optionally to provide the insurance
     details of the policy.
+
+    Attributes:
+        resourceType: This is a EligibilityRequest resource
+        identifier: The Response business identifier.
+        status: The status of the resource instance.
+        priority: Immediate (STAT), best effort (NORMAL), deferred (DEFER).
+        patient: Patient Resource.
+        servicedDate: The date or dates when the enclosed suite of services
+            were performed or completed.
+        servicedPeriod: The date or dates when the enclosed suite of services
+            were performed or completed.
+        created: The date when this resource was created.
+        enterer: Person who created the invoice/claim/pre-determination or
+            pre-authorization.
+        provider: The practitioner who is responsible for the services
+            rendered to the patient.
+        organization: The organization which is responsible for the services
+            rendered to the patient.
+        insurer: The Insurer who is target  of the request.
+        facility: Facility where the services were provided.
+        coverage: Financial instrument by which payment information for health
+            care.
+        businessArrangement: The contract number of a business agreement which
+            describes the terms and conditions.
+        benefitCategory: Dental, Vision, Medical, Pharmacy, Rehab etc.
+        benefitSubCategory: Dental: basic, major, ortho; Vision exam, glasses,
+            contacts; etc.
     """
 
     __name__ = 'EligibilityRequest'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'EligibilityRequest'
-        """
-        This is a EligibilityRequest resource
-
-        type: string
-        possible values: EligibilityRequest
-        """
+        # type: string
+        # possible values: EligibilityRequest
 
         self.status = None
-        """
-        The status of the resource instance.
-
-        type: string
-        """
+        # type: string
 
         self.priority = None
-        """
-        Immediate (STAT), best effort (NORMAL), deferred (DEFER).
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.patient = None
-        """
-        Patient Resource.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.servicedDate = None
-        """
-        The date or dates when the enclosed suite of services were performed
-        or completed.
-
-        type: string
-        """
+        # type: string
 
         self.servicedPeriod = None
-        """
-        The date or dates when the enclosed suite of services were performed
-        or completed.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.created = None
-        """
-        The date when this resource was created.
-
-        type: string
-        """
+        # type: string
 
         self.enterer = None
-        """
-        Person who created the invoice/claim/pre-determination or
-        pre-authorization.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.provider = None
-        """
-        The practitioner who is responsible for the services rendered to the
-        patient.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.organization = None
-        """
-        The organization which is responsible for the services rendered to the
-        patient.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.insurer = None
-        """
-        The Insurer who is target  of the request.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.facility = None
-        """
-        Facility where the services were provided.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.coverage = None
-        """
-        Financial instrument by which payment information for health care.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.businessArrangement = None
-        """
-        The contract number of a business agreement which describes the terms
-        and conditions.
-
-        type: string
-        """
+        # type: string
 
         self.benefitCategory = None
-        """
-        Dental, Vision, Medical, Pharmacy, Rehab etc.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.benefitSubCategory = None
-        """
-        Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.identifier = None
-        """
-        The Response business identifier.
-
-        type: array
-        reference to Identifier
-        """
+        # type: array
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def get_relationships(self):
 
@@ -149,17 +103,7 @@ class EligibilityRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EligibilityRequest',
-             'child_variable': 'coverage'},
-
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'EligibilityRequest',
-             'child_variable': 'priority'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'EligibilityRequest',
-             'child_variable': 'enterer'},
+             'child_variable': 'provider'},
 
             {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
@@ -169,7 +113,32 @@ class EligibilityRequest(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EligibilityRequest',
-             'child_variable': 'provider'},
+             'child_variable': 'enterer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EligibilityRequest',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EligibilityRequest',
+             'child_variable': 'coverage'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityRequest',
+             'child_variable': 'benefitCategory'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityRequest',
+             'child_variable': 'servicedPeriod'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EligibilityRequest',
+             'child_variable': 'insurer'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -181,28 +150,13 @@ class EligibilityRequest(fhirbase):
              'child_entity': 'EligibilityRequest',
              'child_variable': 'facility'},
 
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'EligibilityRequest',
-             'child_variable': 'servicedPeriod'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'EligibilityRequest',
-             'child_variable': 'benefitCategory'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'EligibilityRequest',
-             'child_variable': 'insurer'},
+             'child_variable': 'priority'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EligibilityRequest',
              'child_variable': 'organization'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'EligibilityRequest',
-             'child_variable': 'patient'},
         ]

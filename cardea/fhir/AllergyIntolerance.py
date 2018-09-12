@@ -5,188 +5,132 @@ class AllergyIntolerance(fhirbase):
     """
     Risk of harmful or undesirable, physiological response which is unique
     to an individual and associated with exposure to a substance.
+
+    Attributes:
+        resourceType: This is a AllergyIntolerance resource
+        identifier: This records identifiers associated with this
+            allergy/intolerance concern that are defined by business processes
+            and/or used to refer to it when a direct URL reference to the resource
+            itself is not appropriate (e.g. in CDA documents, or in written /
+            printed documentation).
+        clinicalStatus: The clinical status of the allergy or intolerance.
+        verificationStatus: Assertion about certainty associated with the
+            propensity, or potential risk, of a reaction to the identified
+            substance (including pharmaceutical product).
+        type: Identification of the underlying physiological mechanism for the
+            reaction risk.
+        category: Category of the identified substance.
+        criticality: Estimate of the potential clinical harm, or seriousness,
+            of the reaction to the identified substance.
+        code: Code for an allergy or intolerance statement (either a positive
+            or a negated/excluded statement).  This may be a code for a substance
+            or pharmaceutical product that is considered to be responsible for the
+            adverse reaction risk (e.g., "Latex"), an allergy or intolerance
+            condition (e.g., "Latex allergy"), or a negated/excluded code for a
+            specific substance or class (e.g., "No latex allergy") or a general or
+            categorical negated statement (e.g.,  "No known allergy", "No known
+            drug allergies").
+        patient: The patient who has the allergy or intolerance.
+        onsetDateTime: Estimated or actual date,  date-time, or age when
+            allergy or intolerance was identified.
+        onsetAge: Estimated or actual date,  date-time, or age when allergy or
+            intolerance was identified.
+        onsetPeriod: Estimated or actual date,  date-time, or age when allergy
+            or intolerance was identified.
+        onsetRange: Estimated or actual date,  date-time, or age when allergy
+            or intolerance was identified.
+        onsetString: Estimated or actual date,  date-time, or age when allergy
+            or intolerance was identified.
+        assertedDate: The date on which the existance of the
+            AllergyIntolerance was first asserted or acknowledged.
+        recorder: Individual who recorded the record and takes responsibility
+            for its content.
+        asserter: The source of the information about the allergy that is
+            recorded.
+        lastOccurrence: Represents the date and/or time of the last known
+            occurrence of a reaction event.
+        note: Additional narrative about the propensity for the Adverse
+            Reaction, not captured in other fields.
+        reaction: Details about each adverse reaction event linked to exposure
+            to the identified substance.
     """
 
     __name__ = 'AllergyIntolerance'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'AllergyIntolerance'
-        """
-        This is a AllergyIntolerance resource
-
-        type: string
-        possible values: AllergyIntolerance
-        """
+        # type: string
+        # possible values: AllergyIntolerance
 
         self.clinicalStatus = None
-        """
-        The clinical status of the allergy or intolerance.
-
-        type: string
-        possible values: active, inactive, resolved
-        """
+        # type: string
+        # possible values: active, inactive, resolved
 
         self.verificationStatus = None
-        """
-        Assertion about certainty associated with the propensity, or potential
-        risk, of a reaction to the identified substance (including
-        pharmaceutical product).
-
-        type: string
-        possible values: unconfirmed, confirmed, refuted,
-        entered-in-error
-        """
+        # type: string
+        # possible values: unconfirmed, confirmed, refuted,
+        # entered-in-error
 
         self.type = None
-        """
-        Identification of the underlying physiological mechanism for the
-        reaction risk.
-
-        type: string
-        possible values: allergy, intolerance
-        """
+        # type: string
+        # possible values: allergy, intolerance
 
         self.category = None
-        """
-        Category of the identified substance.
-
-        type: array
-        possible values: food, medication, environment, biologic
-        """
+        # type: array
+        # possible values: food, medication, environment, biologic
 
         self.criticality = None
-        """
-        Estimate of the potential clinical harm, or seriousness, of the
-        reaction to the identified substance.
-
-        type: string
-        possible values: low, high, unable-to-assess
-        """
+        # type: string
+        # possible values: low, high, unable-to-assess
 
         self.code = None
-        """
-        Code for an allergy or intolerance statement (either a positive or a
-        negated/excluded statement).  This may be a code for a substance or
-        pharmaceutical product that is considered to be responsible for the
-        adverse reaction risk (e.g., "Latex"), an allergy or intolerance
-        condition (e.g., "Latex allergy"), or a negated/excluded code for a
-        specific substance or class (e.g., "No latex allergy") or a general or
-        categorical negated statement (e.g.,  "No known allergy", "No known
-        drug allergies").
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.patient = None
-        """
-        The patient who has the allergy or intolerance.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.onsetDateTime = None
-        """
-        Estimated or actual date,  date-time, or age when allergy or
-        intolerance was identified.
-
-        type: string
-        """
+        # type: string
 
         self.onsetAge = None
-        """
-        Estimated or actual date,  date-time, or age when allergy or
-        intolerance was identified.
-
-        reference to Age
-        """
+        # reference to Age
 
         self.onsetPeriod = None
-        """
-        Estimated or actual date,  date-time, or age when allergy or
-        intolerance was identified.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.onsetRange = None
-        """
-        Estimated or actual date,  date-time, or age when allergy or
-        intolerance was identified.
-
-        reference to Range
-        """
+        # reference to Range
 
         self.onsetString = None
-        """
-        Estimated or actual date,  date-time, or age when allergy or
-        intolerance was identified.
-
-        type: string
-        """
+        # type: string
 
         self.assertedDate = None
-        """
-        The date on which the existance of the AllergyIntolerance was first
-        asserted or acknowledged.
-
-        type: string
-        """
+        # type: string
 
         self.recorder = None
-        """
-        Individual who recorded the record and takes responsibility for its
-        content.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.asserter = None
-        """
-        The source of the information about the allergy that is recorded.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.lastOccurrence = None
-        """
-        Represents the date and/or time of the last known occurrence of a
-        reaction event.
-
-        type: string
-        """
+        # type: string
 
         self.note = None
-        """
-        Additional narrative about the propensity for the Adverse Reaction,
-        not captured in other fields.
-
-        type: array
-        reference to Annotation
-        """
+        # type: array
+        # reference to Annotation
 
         self.reaction = None
-        """
-        Details about each adverse reaction event linked to exposure to the
-        identified substance.
-
-        type: array
-        reference to AllergyIntolerance_Reaction
-        """
+        # type: array
+        # reference to AllergyIntolerance_Reaction
 
         self.identifier = None
-        """
-        This records identifiers associated with this allergy/intolerance
-        concern that are defined by business processes and/or used to refer to
-        it when a direct URL reference to the resource itself is not
-        appropriate (e.g. in CDA documents, or in written / printed
-        documentation).
-
-        type: array
-        reference to Identifier
-        """
+        # type: array
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -228,15 +172,10 @@ class AllergyIntolerance(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'AllergyIntolerance',
-             'child_variable': 'patient'},
-
-            {'parent_entity': 'Period',
+            {'parent_entity': 'Age',
              'parent_variable': 'object_id',
              'child_entity': 'AllergyIntolerance',
-             'child_variable': 'onsetPeriod'},
+             'child_variable': 'onsetAge'},
 
             {'parent_entity': 'Annotation',
              'parent_variable': 'object_id',
@@ -246,7 +185,12 @@ class AllergyIntolerance(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'AllergyIntolerance',
-             'child_variable': 'asserter'},
+             'child_variable': 'recorder'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'patient'},
 
             {'parent_entity': 'Range',
              'parent_variable': 'object_id',
@@ -258,25 +202,25 @@ class AllergyIntolerance(fhirbase):
              'child_entity': 'AllergyIntolerance',
              'child_variable': 'reaction'},
 
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
              'child_entity': 'AllergyIntolerance',
-             'child_variable': 'identifier'},
+             'child_variable': 'asserter'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'AllergyIntolerance',
              'child_variable': 'code'},
 
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'AllergyIntolerance',
-             'child_variable': 'recorder'},
-
-            {'parent_entity': 'Age',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'AllergyIntolerance',
-             'child_variable': 'onsetAge'},
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance',
+             'child_variable': 'onsetPeriod'},
         ]
 
 
@@ -284,80 +228,62 @@ class AllergyIntolerance_Reaction(fhirbase):
     """
     Risk of harmful or undesirable, physiological response which is unique
     to an individual and associated with exposure to a substance.
+
+    Attributes:
+        substance: Identification of the specific substance (or pharmaceutical
+            product) considered to be responsible for the Adverse Reaction event.
+            Note: the substance for a specific reaction may be different from the
+            substance identified as the cause of the risk, but it must be
+            consistent with it. For instance, it may be a more specific substance
+            (e.g. a brand medication) or a composite product that includes the
+            identified substance. It must be clinically safe to only process the
+            'code' and ignore the 'reaction.substance'.
+        manifestation: Clinical symptoms and/or signs that are observed or
+            associated with the adverse reaction event.
+        description: Text description about the reaction as a whole, including
+            details of the manifestation if required.
+        onset: Record of the date and/or time of the onset of the Reaction.
+        severity: Clinical assessment of the severity of the reaction event as
+            a whole, potentially considering multiple different manifestations.
+        exposureRoute: Identification of the route by which the subject was
+            exposed to the substance.
+        note: Additional text about the adverse reaction event not captured in
+            other fields.
     """
 
     __name__ = 'AllergyIntolerance_Reaction'
 
     def __init__(self, dict_values=None):
         self.substance = None
-        """
-        Identification of the specific substance (or pharmaceutical product)
-        considered to be responsible for the Adverse Reaction event. Note: the
-        substance for a specific reaction may be different from the substance
-        identified as the cause of the risk, but it must be consistent with
-        it. For instance, it may be a more specific substance (e.g. a brand
-        medication) or a composite product that includes the identified
-        substance. It must be clinically safe to only process the 'code' and
-        ignore the 'reaction.substance'.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.manifestation = None
-        """
-        Clinical symptoms and/or signs that are observed or associated with
-        the adverse reaction event.
-
-        type: array
-        reference to CodeableConcept
-        """
+        # type: array
+        # reference to CodeableConcept
 
         self.description = None
-        """
-        Text description about the reaction as a whole, including details of
-        the manifestation if required.
-
-        type: string
-        """
+        # type: string
 
         self.onset = None
-        """
-        Record of the date and/or time of the onset of the Reaction.
-
-        type: string
-        """
+        # type: string
 
         self.severity = None
-        """
-        Clinical assessment of the severity of the reaction event as a whole,
-        potentially considering multiple different manifestations.
-
-        type: string
-        possible values: mild, moderate, severe
-        """
+        # type: string
+        # possible values: mild, moderate, severe
 
         self.exposureRoute = None
-        """
-        Identification of the route by which the subject was exposed to the
-        substance.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.note = None
-        """
-        Additional text about the adverse reaction event not captured in other
-        fields.
-
-        type: array
-        reference to Annotation
-        """
+        # type: array
+        # reference to Annotation
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -371,15 +297,15 @@ class AllergyIntolerance_Reaction(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'AllergyIntolerance_Reaction',
-             'child_variable': 'substance'},
-
             {'parent_entity': 'Annotation',
              'parent_variable': 'object_id',
              'child_entity': 'AllergyIntolerance_Reaction',
              'child_variable': 'note'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'AllergyIntolerance_Reaction',
+             'child_variable': 'substance'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',

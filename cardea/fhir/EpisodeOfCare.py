@@ -7,124 +7,88 @@ class EpisodeOfCare(fhirbase):
     provider(s) during which time encounters may occur. The managing
     organization assumes a level of responsibility for the patient during
     this time.
+
+    Attributes:
+        resourceType: This is a EpisodeOfCare resource
+        identifier: The EpisodeOfCare may be known by different identifiers
+            for different contexts of use, such as when an external agency is
+            tracking the Episode for funding purposes.
+        status: planned | waitlist | active | onhold | finished | cancelled.
+        statusHistory: The history of statuses that the EpisodeOfCare has been
+            through (without requiring processing the history of the resource).
+        type: A classification of the type of episode of care; e.g. specialist
+            referral, disease management, type of funded care.
+        diagnosis: The list of diagnosis relevant to this episode of care.
+        patient: The patient who is the focus of this episode of care.
+        managingOrganization: The organization that has assumed the specific
+            responsibilities for the specified duration.
+        period: The interval during which the managing organization assumes
+            the defined responsibility.
+        referralRequest: Referral Request(s) that are fulfilled by this
+            EpisodeOfCare, incoming referrals.
+        careManager: The practitioner that is the care manager/care
+            co-ordinator for this patient.
+        team: The list of practitioners that may be facilitating this episode
+            of care for specific purposes.
+        account: The set of accounts that may be used for billing for this
+            EpisodeOfCare.
     """
 
     __name__ = 'EpisodeOfCare'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'EpisodeOfCare'
-        """
-        This is a EpisodeOfCare resource
-
-        type: string
-        possible values: EpisodeOfCare
-        """
+        # type: string
+        # possible values: EpisodeOfCare
 
         self.status = None
-        """
-        planned | waitlist | active | onhold | finished | cancelled.
-
-        type: string
-        possible values: planned, waitlist, active, onhold, finished,
-        cancelled, entered-in-error
-        """
+        # type: string
+        # possible values: planned, waitlist, active, onhold,
+        # finished, cancelled, entered-in-error
 
         self.statusHistory = None
-        """
-        The history of statuses that the EpisodeOfCare has been through
-        (without requiring processing the history of the resource).
-
-        type: array
-        reference to EpisodeOfCare_StatusHistory
-        """
+        # type: array
+        # reference to EpisodeOfCare_StatusHistory
 
         self.type = None
-        """
-        A classification of the type of episode of care; e.g. specialist
-        referral, disease management, type of funded care.
-
-        type: array
-        reference to CodeableConcept
-        """
+        # type: array
+        # reference to CodeableConcept
 
         self.diagnosis = None
-        """
-        The list of diagnosis relevant to this episode of care.
-
-        type: array
-        reference to EpisodeOfCare_Diagnosis
-        """
+        # type: array
+        # reference to EpisodeOfCare_Diagnosis
 
         self.patient = None
-        """
-        The patient who is the focus of this episode of care.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.managingOrganization = None
-        """
-        The organization that has assumed the specific responsibilities for
-        the specified duration.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.period = None
-        """
-        The interval during which the managing organization assumes the
-        defined responsibility.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.referralRequest = None
-        """
-        Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming
-        referrals.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.careManager = None
-        """
-        The practitioner that is the care manager/care co-ordinator for this
-        patient.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.team = None
-        """
-        The list of practitioners that may be facilitating this episode of
-        care for specific purposes.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.account = None
-        """
-        The set of accounts that may be used for billing for this
-        EpisodeOfCare.
-
-        type: array
-        reference to Reference: identifier
-        """
+        # type: array
+        # reference to Reference: identifier
 
         self.identifier = None
-        """
-        The EpisodeOfCare may be known by different identifiers for different
-        contexts of use, such as when an external agency is tracking the
-        Episode for funding purposes.
-
-        type: array
-        reference to Identifier
-        """
+        # type: array
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -140,31 +104,6 @@ class EpisodeOfCare(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'EpisodeOfCare',
-             'child_variable': 'account'},
-
-            {'parent_entity': 'Period',
-             'parent_variable': 'object_id',
-             'child_entity': 'EpisodeOfCare',
-             'child_variable': 'period'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'EpisodeOfCare',
-             'child_variable': 'referralRequest'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'EpisodeOfCare',
-             'child_variable': 'managingOrganization'},
-
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'EpisodeOfCare',
-             'child_variable': 'identifier'},
-
             {'parent_entity': 'EpisodeOfCare_StatusHistory',
              'parent_variable': 'object_id',
              'child_entity': 'EpisodeOfCare',
@@ -173,12 +112,32 @@ class EpisodeOfCare(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EpisodeOfCare',
-             'child_variable': 'careManager'},
+             'child_variable': 'managingOrganization'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'account'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EpisodeOfCare',
              'child_variable': 'patient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'team'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'referralRequest'},
 
             {'parent_entity': 'EpisodeOfCare_Diagnosis',
              'parent_variable': 'object_id',
@@ -188,7 +147,12 @@ class EpisodeOfCare(fhirbase):
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EpisodeOfCare',
-             'child_variable': 'team'},
+             'child_variable': 'careManager'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare',
+             'child_variable': 'period'},
 
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
@@ -203,32 +167,30 @@ class EpisodeOfCare_StatusHistory(fhirbase):
     provider(s) during which time encounters may occur. The managing
     organization assumes a level of responsibility for the patient during
     this time.
+
+    Attributes:
+        status: planned | waitlist | active | onhold | finished | cancelled.
+        period: The period during this EpisodeOfCare that the specific status
+            applied.
     """
 
     __name__ = 'EpisodeOfCare_StatusHistory'
 
     def __init__(self, dict_values=None):
         self.status = None
-        """
-        planned | waitlist | active | onhold | finished | cancelled.
-
-        type: string
-        possible values: planned, waitlist, active, onhold, finished,
-        cancelled, entered-in-error
-        """
+        # type: string
+        # possible values: planned, waitlist, active, onhold,
+        # finished, cancelled, entered-in-error
 
         self.period = None
-        """
-        The period during this EpisodeOfCare that the specific status applied.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -257,33 +219,26 @@ class EpisodeOfCare_Diagnosis(fhirbase):
     provider(s) during which time encounters may occur. The managing
     organization assumes a level of responsibility for the patient during
     this time.
+
+    Attributes:
+        condition: A list of conditions/problems/diagnoses that this episode
+            of care is intended to be providing care for.
+        role: Role that this diagnosis has within the episode of care (e.g.
+            admission, billing, discharge …).
+        rank: Ranking of the diagnosis (for each role type).
     """
 
     __name__ = 'EpisodeOfCare_Diagnosis'
 
     def __init__(self, dict_values=None):
         self.condition = None
-        """
-        A list of conditions/problems/diagnoses that this episode of care is
-        intended to be providing care for.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.role = None
-        """
-        Role that this diagnosis has within the episode of care (e.g.
-        admission, billing, discharge …).
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.rank = None
-        """
-        Ranking of the diagnosis (for each role type).
-
-        type: int
-        """
+        # type: int
 
         self.object_id = None
         # unique identifier for object class
@@ -294,13 +249,13 @@ class EpisodeOfCare_Diagnosis(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'EpisodeOfCare_Diagnosis',
-             'child_variable': 'role'},
-
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'EpisodeOfCare_Diagnosis',
              'child_variable': 'condition'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'EpisodeOfCare_Diagnosis',
+             'child_variable': 'role'},
         ]

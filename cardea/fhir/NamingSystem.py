@@ -6,148 +6,108 @@ class NamingSystem(fhirbase):
     A curated namespace that issues unique symbols within that namespace
     for the identification of concepts, people, devices, etc.  Represents
     a "System" used within the Identifier and Coding data types.
+
+    Attributes:
+        resourceType: This is a NamingSystem resource
+        name: A natural language name identifying the naming system. This name
+            should be usable as an identifier for the module by machine processing
+            applications such as code generation.
+        status: The status of this naming system. Enables tracking the
+            life-cycle of the content.
+        kind: Indicates the purpose for the naming system - what kinds of
+            things does it make unique?
+        date: The date  (and optionally time) when the naming system was
+            published. The date must change if and when the business version
+            changes and it must change if the status code changes. In addition, it
+            should change when the substantive content of the naming system
+            changes.
+        publisher: The name of the individual or organization that published
+            the naming system.
+        contact: Contact details to assist a user in finding and communicating
+            with the publisher.
+        responsible: The name of the organization that is responsible for
+            issuing identifiers or codes for this namespace and ensuring their
+            non-collision.
+        type: Categorizes a naming system for easier search by grouping
+            related naming systems.
+        description: A free text natural language description of the naming
+            system from a consumer's perspective. Details about what the namespace
+            identifies including scope, granularity, version labeling, etc.
+        useContext: The content was developed with a focus and intent of
+            supporting the contexts that are listed. These terms may be used to
+            assist with indexing and searching for appropriate naming system
+            instances.
+        jurisdiction: A legal or geographic region in which the naming system
+            is intended to be used.
+        usage: Provides guidance on the use of the namespace, including the
+            handling of formatting characters, use of upper vs. lower case, etc.
+        uniqueId: Indicates how the system may be identified when referenced
+            in electronic exchange.
+        replacedBy: For naming systems that are retired, indicates the naming
+            system that should be used in their place (if any).
     """
 
     __name__ = 'NamingSystem'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'NamingSystem'
-        """
-        This is a NamingSystem resource
-
-        type: string
-        possible values: NamingSystem
-        """
+        # type: string
+        # possible values: NamingSystem
 
         self.name = None
-        """
-        A natural language name identifying the naming system. This name
-        should be usable as an identifier for the module by machine processing
-        applications such as code generation.
-
-        type: string
-        """
+        # type: string
 
         self.status = None
-        """
-        The status of this naming system. Enables tracking the life-cycle of
-        the content.
-
-        type: string
-        possible values: draft, active, retired, unknown
-        """
+        # type: string
+        # possible values: draft, active, retired, unknown
 
         self.kind = None
-        """
-        Indicates the purpose for the naming system - what kinds of things
-        does it make unique?
-
-        type: string
-        possible values: codesystem, identifier, root
-        """
+        # type: string
+        # possible values: codesystem, identifier, root
 
         self.date = None
-        """
-        The date  (and optionally time) when the naming system was published.
-        The date must change if and when the business version changes and it
-        must change if the status code changes. In addition, it should change
-        when the substantive content of the naming system changes.
-
-        type: string
-        """
+        # type: string
 
         self.publisher = None
-        """
-        The name of the individual or organization that published the naming
-        system.
-
-        type: string
-        """
+        # type: string
 
         self.contact = None
-        """
-        Contact details to assist a user in finding and communicating with the
-        publisher.
-
-        type: array
-        reference to ContactDetail
-        """
+        # type: array
+        # reference to ContactDetail
 
         self.responsible = None
-        """
-        The name of the organization that is responsible for issuing
-        identifiers or codes for this namespace and ensuring their
-        non-collision.
-
-        type: string
-        """
+        # type: string
 
         self.type = None
-        """
-        Categorizes a naming system for easier search by grouping related
-        naming systems.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.description = None
-        """
-        A free text natural language description of the naming system from a
-        consumer's perspective. Details about what the namespace identifies
-        including scope, granularity, version labeling, etc.
-
-        type: string
-        """
+        # type: string
 
         self.useContext = None
-        """
-        The content was developed with a focus and intent of supporting the
-        contexts that are listed. These terms may be used to assist with
-        indexing and searching for appropriate naming system instances.
-
-        type: array
-        reference to UsageContext
-        """
+        # type: array
+        # reference to UsageContext
 
         self.jurisdiction = None
-        """
-        A legal or geographic region in which the naming system is intended to
-        be used.
-
-        type: array
-        reference to CodeableConcept
-        """
+        # type: array
+        # reference to CodeableConcept
 
         self.usage = None
-        """
-        Provides guidance on the use of the namespace, including the handling
-        of formatting characters, use of upper vs. lower case, etc.
-
-        type: string
-        """
+        # type: string
 
         self.uniqueId = None
-        """
-        Indicates how the system may be identified when referenced in
-        electronic exchange.
-
-        type: array
-        reference to NamingSystem_UniqueId
-        """
+        # type: array
+        # reference to NamingSystem_UniqueId
 
         self.replacedBy = None
-        """
-        For naming systems that are retired, indicates the naming system that
-        should be used in their place (if any).
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -168,6 +128,11 @@ class NamingSystem(fhirbase):
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'NamingSystem',
+             'child_variable': 'replacedBy'},
+
             {'parent_entity': 'ContactDetail',
              'parent_variable': 'object_id',
              'child_entity': 'NamingSystem',
@@ -178,25 +143,20 @@ class NamingSystem(fhirbase):
              'child_entity': 'NamingSystem',
              'child_variable': 'jurisdiction'},
 
-            {'parent_entity': 'CodeableConcept',
-             'parent_variable': 'object_id',
-             'child_entity': 'NamingSystem',
-             'child_variable': 'type'},
-
             {'parent_entity': 'NamingSystem_UniqueId',
              'parent_variable': 'object_id',
              'child_entity': 'NamingSystem',
              'child_variable': 'uniqueId'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'NamingSystem',
+             'child_variable': 'type'},
+
             {'parent_entity': 'UsageContext',
              'parent_variable': 'object_id',
              'child_entity': 'NamingSystem',
              'child_variable': 'useContext'},
-
-            {'parent_entity': 'Reference',
-             'parent_variable': 'identifier',
-             'child_entity': 'NamingSystem',
-             'child_variable': 'replacedBy'},
         ]
 
 
@@ -205,57 +165,45 @@ class NamingSystem_UniqueId(fhirbase):
     A curated namespace that issues unique symbols within that namespace
     for the identification of concepts, people, devices, etc.  Represents
     a "System" used within the Identifier and Coding data types.
+
+    Attributes:
+        type: Identifies the unique identifier scheme used for this particular
+            identifier.
+        value: The string that should be sent over the wire to identify the
+            code system or identifier system.
+        preferred: Indicates whether this identifier is the "preferred"
+            identifier of this type.
+        comment: Notes about the past or intended usage of this identifier.
+        period: Identifies the period of time over which this identifier is
+            considered appropriate to refer to the naming system.  Outside of this
+            window, the identifier might be non-deterministic.
     """
 
     __name__ = 'NamingSystem_UniqueId'
 
     def __init__(self, dict_values=None):
         self.type = None
-        """
-        Identifies the unique identifier scheme used for this particular
-        identifier.
-
-        type: string
-        possible values: oid, uuid, uri, other
-        """
+        # type: string
+        # possible values: oid, uuid, uri, other
 
         self.value = None
-        """
-        The string that should be sent over the wire to identify the code
-        system or identifier system.
-
-        type: string
-        """
+        # type: string
 
         self.preferred = None
-        """
-        Indicates whether this identifier is the "preferred" identifier of
-        this type.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.comment = None
-        """
-        Notes about the past or intended usage of this identifier.
-
-        type: string
-        """
+        # type: string
 
         self.period = None
-        """
-        Identifies the period of time over which this identifier is considered
-        appropriate to refer to the naming system.  Outside of this window,
-        the identifier might be non-deterministic.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 

@@ -5,41 +5,35 @@ class Contributor(fhirbase):
     """
     A contributor to the content of a knowledge asset, including authors,
     editors, reviewers, and endorsers.
+
+    Attributes:
+        type: The type of contributor.
+        name: The name of the individual or organization responsible for the
+            contribution.
+        contact: Contact details to assist a user in finding and communicating
+            with the contributor.
     """
 
     __name__ = 'Contributor'
 
     def __init__(self, dict_values=None):
         self.type = None
-        """
-        The type of contributor.
-
-        type: string
-        possible values: author, editor, reviewer, endorser
-        """
+        # type: string
+        # possible values: author, editor, reviewer, endorser
 
         self.name = None
-        """
-        The name of the individual or organization responsible for the
-        contribution.
-
-        type: string
-        """
+        # type: string
 
         self.contact = None
-        """
-        Contact details to assist a user in finding and communicating with the
-        contributor.
-
-        type: array
-        reference to ContactDetail
-        """
+        # type: array
+        # reference to ContactDetail
 
         self.object_id = None
         # unique identifier for object class
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 

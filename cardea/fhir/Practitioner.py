@@ -5,103 +5,74 @@ class Practitioner(fhirbase):
     """
     A person who is directly or indirectly involved in the provisioning of
     healthcare.
+
+    Attributes:
+        resourceType: This is a Practitioner resource
+        identifier: An identifier that applies to this person in this role.
+        active: Whether this practitioner's record is in active use.
+        name: The name(s) associated with the practitioner.
+        telecom: A contact detail for the practitioner, e.g. a telephone
+            number or an email address.
+        address: Address(es) of the practitioner that are not role specific
+            (typically home address).  Work addresses are not typically entered in
+            this property as they are usually role dependent.
+        gender: Administrative Gender - the gender that the person is
+            considered to have for administration and record keeping purposes.
+        birthDate: The date of birth for the practitioner.
+        photo: Image of the person.
+        qualification: Qualifications obtained by training and certification.
+        communication: A language the practitioner is able to use in patient
+            communication.
     """
 
     __name__ = 'Practitioner'
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Practitioner'
-        """
-        This is a Practitioner resource
-
-        type: string
-        possible values: Practitioner
-        """
+        # type: string
+        # possible values: Practitioner
 
         self.active = None
-        """
-        Whether this practitioner's record is in active use.
-
-        type: boolean
-        """
+        # type: boolean
 
         self.name = None
-        """
-        The name(s) associated with the practitioner.
-
-        type: array
-        reference to HumanName
-        """
+        # type: array
+        # reference to HumanName
 
         self.telecom = None
-        """
-        A contact detail for the practitioner, e.g. a telephone number or an
-        email address.
-
-        type: array
-        reference to ContactPoint
-        """
+        # type: array
+        # reference to ContactPoint
 
         self.address = None
-        """
-        Address(es) of the practitioner that are not role specific (typically
-        home address).  Work addresses are not typically entered in this
-        property as they are usually role dependent.
-
-        type: array
-        reference to Address
-        """
+        # type: array
+        # reference to Address
 
         self.gender = None
-        """
-        Administrative Gender - the gender that the person is considered to
-        have for administration and record keeping purposes.
-
-        type: string
-        possible values: male, female, other, unknown
-        """
+        # type: string
+        # possible values: male, female, other, unknown
 
         self.birthDate = None
-        """
-        The date of birth for the practitioner.
-
-        type: string
-        """
+        # type: string
 
         self.photo = None
-        """
-        Image of the person.
-
-        type: array
-        reference to Attachment
-        """
+        # type: array
+        # reference to Attachment
 
         self.qualification = None
-        """
-        Qualifications obtained by training and certification.
-
-        type: array
-        reference to Practitioner_Qualification: identifier
-        """
+        # type: array
+        # reference to Practitioner_Qualification: identifier
 
         self.communication = None
-        """
-        A language the practitioner is able to use in patient communication.
-
-        type: array
-        reference to CodeableConcept
-        """
+        # type: array
+        # reference to CodeableConcept
 
         self.identifier = None
-        """
-        An identifier that applies to this person in this role.
-
-        type: array
-        reference to Identifier
-        """
+        # type: array
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
@@ -115,10 +86,10 @@ class Practitioner(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
+            {'parent_entity': 'Practitioner_Qualification',
+             'parent_variable': 'identifier',
              'child_entity': 'Practitioner',
-             'child_variable': 'identifier'},
+             'child_variable': 'qualification'},
 
             {'parent_entity': 'HumanName',
              'parent_variable': 'object_id',
@@ -130,25 +101,25 @@ class Practitioner(fhirbase):
              'child_entity': 'Practitioner',
              'child_variable': 'communication'},
 
-            {'parent_entity': 'ContactPoint',
+            {'parent_entity': 'Address',
              'parent_variable': 'object_id',
              'child_entity': 'Practitioner',
-             'child_variable': 'telecom'},
-
-            {'parent_entity': 'Practitioner_Qualification',
-             'parent_variable': 'identifier',
-             'child_entity': 'Practitioner',
-             'child_variable': 'qualification'},
+             'child_variable': 'address'},
 
             {'parent_entity': 'Attachment',
              'parent_variable': 'object_id',
              'child_entity': 'Practitioner',
              'child_variable': 'photo'},
 
-            {'parent_entity': 'Address',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Practitioner',
-             'child_variable': 'address'},
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner',
+             'child_variable': 'telecom'},
         ]
 
 
@@ -156,40 +127,30 @@ class Practitioner_Qualification(fhirbase):
     """
     A person who is directly or indirectly involved in the provisioning of
     healthcare.
+
+    Attributes:
+        identifier: An identifier that applies to this person's qualification
+            in this role.
+        code: Coded representation of the qualification.
+        period: Period during which the qualification is valid.
+        issuer: Organization that regulates and issues the qualification.
     """
 
     __name__ = 'Practitioner_Qualification'
 
     def __init__(self, dict_values=None):
         self.code = None
-        """
-        Coded representation of the qualification.
-
-        reference to CodeableConcept
-        """
+        # reference to CodeableConcept
 
         self.period = None
-        """
-        Period during which the qualification is valid.
-
-        reference to Period
-        """
+        # reference to Period
 
         self.issuer = None
-        """
-        Organization that regulates and issues the qualification.
-
-        reference to Reference: identifier
-        """
+        # reference to Reference: identifier
 
         self.identifier = None
-        """
-        An identifier that applies to this person's qualification in this
-        role.
-
-        type: array
-        reference to Identifier
-        """
+        # type: array
+        # reference to Identifier
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -197,23 +158,23 @@ class Practitioner_Qualification(fhirbase):
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Period',
+            {'parent_entity': 'Identifier',
              'parent_variable': 'object_id',
              'child_entity': 'Practitioner_Qualification',
-             'child_variable': 'period'},
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
              'parent_variable': 'identifier',
              'child_entity': 'Practitioner_Qualification',
              'child_variable': 'issuer'},
 
-            {'parent_entity': 'Identifier',
-             'parent_variable': 'object_id',
-             'child_entity': 'Practitioner_Qualification',
-             'child_variable': 'identifier'},
-
             {'parent_entity': 'CodeableConcept',
              'parent_variable': 'object_id',
              'child_entity': 'Practitioner_Qualification',
              'child_variable': 'code'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Practitioner_Qualification',
+             'child_variable': 'period'},
         ]

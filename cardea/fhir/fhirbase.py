@@ -6,14 +6,26 @@ import pandas as pd
 class fhirbase(object):
 
     def set_attributes(self, dict_values):
-        """Set values to class attributes."""
+        """Sets values to class attributes.
+
+        Args:
+            dict_values: A dictionary representation of inserted data.
+
+        Returns:
+            An object of the associate fhir class filled with data.
+        """
 
         for attr, _ in self.__dict__.items():
             if attr in dict_values.keys():
                 self.__dict__[str(attr)] = dict_values[str(attr)]
 
     def get_dataframe(self):
-        """Return dataframe from class attribute values."""
+        """Returns dataframe from class attribute values.
+
+        Returns:
+            A dataframe representation of the class.
+        """
+
         dataframe = {}
         for attr, value in self.__dict__.items():
             if value is not None and attr != 'resourceType':
@@ -22,7 +34,15 @@ class fhirbase(object):
         return pd.DataFrame(dataframe)
 
     def get_id(self):
-        """Return class identifier."""
+        """Returns fhir class identifier.
+
+        Returns:
+            The name of identifier of the fhir class.
+
+        Raises:
+            LookupError: An error occurs if fhir class doesn't have an id.
+        """
+
         if hasattr(self, 'identifier') and getattr(self, 'identifier') is not None:
             return 'identifier'
         elif hasattr(self, 'id') and getattr(self, 'id') is not None:
@@ -30,17 +50,31 @@ class fhirbase(object):
         elif hasattr(self, 'object_id') and getattr(self, 'object_id') is not None:
             return 'object_id'
         else:
-            raise LookupError('{} is missing an identifier column'.format(self.__name__))
+            raise LookupError('{} is missing an identifier'.format(self.__name__))
 
     def assert_type(self):
-        """Return class values follow set possible enumerations."""
+        """Checks class values follow set possible enumerations.
+
+        Raises:
+            ValueError: An error occurs if an attribute of the fhir class
+                does not match its possible enumerations.
+        """
 
     def get_relationships(self):
-        """Return class relationships."""
+        """Returns class relationships.
+
+        Returns:
+            A list of the class's associated relationships.
+        """
         return []
 
     def get_eligible_relationships(self):
-        """Return class relationships for attributes that are used."""
+        """Returns class relationships for attributes that are used.
+
+        Returns:
+            A list of the class's associated relationships after filtering out
+            attributes that are not used.
+        """
 
         all_relationships = self.get_relationships()
         eligible = [
