@@ -1,8 +1,6 @@
-import logging
+# import logging
 
-from .data_loader import DataLoader
-from .entityset_loader import EntitySetLoader
+from cardea.data_loader.data_loader import DataLoader
+from cardea.data_loader.entityset_loader import EntitySetLoader
 
-logger = logging.getLogger(__name__)
-logger.info(DataLoader.__name__)
-logger.info(EntitySetLoader.__name__)
+__all__ = ('DataLoader', 'EntitySetLoader')
