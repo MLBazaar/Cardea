@@ -1,615 +1,630 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Ratio import Ratio
-from .SampledData import SampledData
-from .Range import Range
-from .Period import Period
-from .Attachment import Attachment
-from .Quantity import Quantity
+from .fhirbase import fhirbase
+
 
 class Observation(fhirbase):
-    """Measurements and simple assertions made about a patient, device or other
-    subject.
+    """
+    Measurements and simple assertions made about a patient, device or
+    other subject.
+
+    Attributes:
+        resourceType: This is a Observation resource
+        identifier: A unique identifier assigned to this observation.
+        basedOn: A plan, proposal or order that is fulfilled in whole or in
+            part by this event.
+        status: The status of the result value.
+        category: A code that classifies the general type of observation being
+            made.
+        code: Describes what was observed. Sometimes this is called the
+            observation "name".
+        subject: The patient, or group of patients, location, or device whose
+            characteristics (direct or indirect) are described by the observation
+            and into whose record the observation is placed.  Comments: Indirect
+            characteristics may be those of a specimen, fetus, donor,  other
+            observer (for example a relative or EMT), or any observation made
+            about the subject.
+        context: The healthcare event  (e.g. a patient and healthcare provider
+            interaction) during which this observation is made.
+        effectiveDateTime: The time or time-period the observed value is
+            asserted as being true. For biological subjects - e.g. human patients
+            - this is usually called the "physiologically relevant time". This is
+            usually either the time of the procedure or of specimen collection,
+            but very often the source of the date/time is not known, only the
+            date/time itself.
+        effectivePeriod: The time or time-period the observed value is
+            asserted as being true. For biological subjects - e.g. human patients
+            - this is usually called the "physiologically relevant time". This is
+            usually either the time of the procedure or of specimen collection,
+            but very often the source of the date/time is not known, only the
+            date/time itself.
+        issued: The date and time this observation was made available to
+            providers, typically after the results have been reviewed and
+            verified.
+        performer: Who was responsible for asserting the observed value as
+            "true".
+        valueQuantity: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueCodeableConcept: The information determined as a result of making
+            the observation, if the information has a simple value.
+        valueString: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueBoolean: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueRange: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueRatio: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueSampledData: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueAttachment: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueTime: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueDateTime: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valuePeriod: The information determined as a result of making the
+            observation, if the information has a simple value.
+        dataAbsentReason: Provides a reason why the expected value in the
+            element Observation.value[x] is missing.
+        interpretation: The assessment made based on the result of the
+            observation.  Intended as a simple compact code often placed adjacent
+            to the result value in reports and flow sheets to signal the
+            meaning/normalcy status of the result. Otherwise known as abnormal
+            flag.
+        comment: May include statements about significant, unexpected or
+            unreliable values, or information about the source of the value where
+            this may be relevant to the interpretation of the result.
+        bodySite: Indicates the site on the subject's body where the
+            observation was made (i.e. the target site).
+        method: Indicates the mechanism used to perform the observation.
+        specimen: The specimen that was used when this observation was made.
+        device: The device used to generate the observation data.
+        referenceRange: Guidance on how to interpret the value by comparison
+            to a normal or recommended range.
+        related: A  reference to another resource (usually another
+            Observation) whose relationship is defined by the relationship type
+            code.
+        component: Some observations have multiple component observations.
+            These component observations are expressed as separate code value
+            pairs that share the same attributes.  Examples include systolic and
+            diastolic component observations for blood pressure measurement and
+            multiple component observations for genetics observations.
     """
 
-    def __init__(self, dict_values=None):
-        # this is a observation resource
-        self.resourceType = 'Observation'
-        # type = string
-        # possible values = Observation
+    __name__ = 'Observation'
 
-        # a plan, proposal or order that is fulfilled in whole or in part by this
-        # event.
+    def __init__(self, dict_values=None):
+        self.resourceType = 'Observation'
+        # type: string
+        # possible values: Observation
+
         self.basedOn = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # the status of the result value.
         self.status = None
-        # type = string
-        # possible values = registered, preliminary, final, amended, corrected, cancelled, entered-in-error, unknown
+        # type: string
+        # possible values: registered, preliminary, final, amended,
+        # corrected, cancelled, entered-in-error, unknown
 
-        # a code that classifies the general type of observation being made.
         self.category = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # describes what was observed. sometimes this is called the observation
-        # "name".
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the patient, or group of patients, location, or device whose
-        # characteristics (direct or indirect) are described by the observation
-        # and into whose record the observation is placed.  comments: indirect
-        # characteristics may be those of a specimen, fetus, donor,  other
-        # observer (for example a relative or emt), or any observation made about
-        # the subject.
         self.subject = None
         # reference to Reference: identifier
 
-        # the healthcare event  (e.g. a patient and healthcare provider
-        # interaction) during which this observation is made.
         self.context = None
         # reference to Reference: identifier
 
-        # the time or time-period the observed value is asserted as being true.
-        # for biological subjects - e.g. human patients - this is usually called
-        # the "physiologically relevant time". this is usually either the time of
-        # the procedure or of specimen collection, but very often the source of
-        # the date/time is not known, only the date/time itself.
         self.effectiveDateTime = None
-        # type = string
+        # type: string
 
-        # the time or time-period the observed value is asserted as being true.
-        # for biological subjects - e.g. human patients - this is usually called
-        # the "physiologically relevant time". this is usually either the time of
-        # the procedure or of specimen collection, but very often the source of
-        # the date/time is not known, only the date/time itself.
         self.effectivePeriod = None
-        # reference to Period: Period
+        # reference to Period
 
-        # the date and time this observation was made available to providers,
-        # typically after the results have been reviewed and verified.
         self.issued = None
-        # type = string
+        # type: string
 
-        # who was responsible for asserting the observed value as "true".
         self.performer = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueQuantity = None
-        # reference to Quantity: Quantity
+        # reference to Quantity
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueString = None
-        # type = string
+        # type: string
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueBoolean = None
-        # type = boolean
+        # type: boolean
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueRange = None
-        # reference to Range: Range
+        # reference to Range
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueRatio = None
-        # reference to Ratio: Ratio
+        # reference to Ratio
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueSampledData = None
-        # reference to SampledData: SampledData
+        # reference to SampledData
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueAttachment = None
-        # reference to Attachment: Attachment
+        # reference to Attachment
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueTime = None
-        # type = string
+        # type: string
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueDateTime = None
-        # type = string
+        # type: string
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valuePeriod = None
-        # reference to Period: Period
+        # reference to Period
 
-        # provides a reason why the expected value in the element
-        # observation.value[x] is missing.
         self.dataAbsentReason = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the assessment made based on the result of the observation.  intended as
-        # a simple compact code often placed adjacent to the result value in
-        # reports and flow sheets to signal the meaning/normalcy status of the
-        # result. otherwise known as abnormal flag.
         self.interpretation = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # may include statements about significant, unexpected or unreliable
-        # values, or information about the source of the value where this may be
-        # relevant to the interpretation of the result.
         self.comment = None
-        # type = string
+        # type: string
 
-        # indicates the site on the subject's body where the observation was made
-        # (i.e. the target site).
         self.bodySite = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # indicates the mechanism used to perform the observation.
         self.method = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the specimen that was used when this observation was made.
         self.specimen = None
         # reference to Reference: identifier
 
-        # the device used to generate the observation data.
         self.device = None
         # reference to Reference: identifier
 
-        # guidance on how to interpret the value by comparison to a normal or
-        # recommended range.
         self.referenceRange = None
-        # type = array
-        # reference to Observation_ReferenceRange: Observation_ReferenceRange
+        # type: array
+        # reference to Observation_ReferenceRange
 
-        # a  reference to another resource (usually another observation) whose
-        # relationship is defined by the relationship type code.
         self.related = None
-        # type = array
-        # reference to Observation_Related: Observation_Related
+        # type: array
+        # reference to Observation_Related
 
-        # some observations have multiple component observations.  these component
-        # observations are expressed as separate code value pairs that share the
-        # same attributes.  examples include systolic and diastolic component
-        # observations for blood pressure measurement and multiple component
-        # observations for genetics observations.
         self.component = None
-        # type = array
-        # reference to Observation_Component: Observation_Component
+        # type: array
+        # reference to Observation_Component
 
-        # a unique identifier assigned to this observation.
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['registered', 'preliminary', 'final', 'amended', 'corrected', 'cancelled', 'entered-in-error', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'registered, preliminary, final, amended, corrected, cancelled, entered-in-error, unknown'))
+                if value is not None and value.lower() not in [
+                    'registered', 'preliminary', 'final', 'amended', 'corrected',
+                        'cancelled', 'entered-in-error', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'registered, preliminary, final, amended, corrected, cancelled,'
+                        'entered-in-error, unknown'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'context'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'context'},
 
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'effectivePeriod'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueCodeableConcept'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Observation_Related',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'related'},
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueQuantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'bodySite'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'category'},
 
-            {'parent_entity': 'Observation_Component',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'component'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueCodeableConcept'},
 
             {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueRatio'},
-
-            {'parent_entity': 'SampledData',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueSampledData'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueRatio'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'specimen'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'method'},
-
-            {'parent_entity': 'Observation_ReferenceRange',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'referenceRange'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'device'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valuePeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valuePeriod'},
 
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'interpretation'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'dataAbsentReason'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'code'},
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'effectivePeriod'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueRange'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueRange'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'performer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'specimen'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'performer'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'method'},
 
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation',
-            'child_variable': 'valueQuantity'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'interpretation'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation',
-            'child_variable': 'device'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'basedOn'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueSampledData'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'bodySite'},
+
+            {'parent_entity': 'Observation_Related',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'related'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'dataAbsentReason'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'valueAttachment'},
+
+            {'parent_entity': 'Observation_Component',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'component'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Observation_ReferenceRange',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation',
+             'child_variable': 'referenceRange'},
         ]
 
+
 class Observation_ReferenceRange(fhirbase):
-    """Measurements and simple assertions made about a patient, device or other
-    subject.
+    """
+    Measurements and simple assertions made about a patient, device or
+    other subject.
+
+    Attributes:
+        low: The value of the low bound of the reference range.  The low bound
+            of the reference range endpoint is inclusive of the value (e.g.
+            reference range is >=5 - <=9).   If the low bound is omitted,  it is
+            assumed to be meaningless (e.g. reference range is <=2.3).
+        high: The value of the high bound of the reference range.  The high
+            bound of the reference range endpoint is inclusive of the value (e.g.
+            reference range is >=5 - <=9).   If the high bound is omitted,  it is
+            assumed to be meaningless (e.g. reference range is >= 2.3).
+        type: Codes to indicate the what part of the targeted reference
+            population it applies to. For example, the normal or therapeutic
+            range.
+        appliesTo: Codes to indicate the target population this reference
+            range applies to.  For example, a reference range may be based on the
+            normal population or a particular sex or race.
+        age: The age at which this reference range is applicable. This is a
+            neonatal age (e.g. number of weeks at term) if the meaning says so.
+        text: Text based reference range in an observation which may be used
+            when a quantitative range is not appropriate for an observation.  An
+            example would be a reference value of "Negative" or a list or table of
+            'normals'.
     """
 
+    __name__ = 'Observation_ReferenceRange'
+
     def __init__(self, dict_values=None):
-        # the value of the low bound of the reference range.  the low bound of the
-        # reference range endpoint is inclusive of the value (e.g.  reference
-        # range is >=5 - <=9).   if the low bound is omitted,  it is assumed to be
-        # meaningless (e.g. reference range is <=2.3).
-        # the value of the low bound of the reference range.  the low bound of the
-        # reference range endpoint is inclusive of the value (e.g.  reference
-        # range is >=5 - <=9).   if the low bound is omitted,  it is assumed to be
-        # meaningless (e.g. reference range is <=2.3).
         self.low = None
-        # reference to Quantity: Quantity
+        # reference to Quantity
 
-        # the value of the high bound of the reference range.  the high bound of
-        # the reference range endpoint is inclusive of the value (e.g.  reference
-        # range is >=5 - <=9).   if the high bound is omitted,  it is assumed to
-        # be meaningless (e.g. reference range is >= 2.3).
-        # the value of the high bound of the reference range.  the high bound of
-        # the reference range endpoint is inclusive of the value (e.g.  reference
-        # range is >=5 - <=9).   if the high bound is omitted,  it is assumed to
-        # be meaningless (e.g. reference range is >= 2.3).
         self.high = None
-        # reference to Quantity: Quantity
+        # reference to Quantity
 
-        # codes to indicate the what part of the targeted reference population it
-        # applies to. for example, the normal or therapeutic range.
-        # codes to indicate the what part of the targeted reference population it
-        # applies to. for example, the normal or therapeutic range.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # codes to indicate the target population this reference range applies to.
-        # for example, a reference range may be based on the normal population or
-        # a particular sex or race.
-        # codes to indicate the target population this reference range applies to.
-        # for example, a reference range may be based on the normal population or
-        # a particular sex or race.
         self.appliesTo = None
-        # type = array
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # the age at which this reference range is applicable. this is a neonatal
-        # age (e.g. number of weeks at term) if the meaning says so.
-        # the age at which this reference range is applicable. this is a neonatal
-        # age (e.g. number of weeks at term) if the meaning says so.
         self.age = None
-        # reference to Range: Range
+        # reference to Range
 
-        # text based reference range in an observation which may be used when a
-        # quantitative range is not appropriate for an observation.  an example
-        # would be a reference value of "negative" or a list or table of
-        # 'normals'.
-        # text based reference range in an observation which may be used when a
-        # quantitative range is not appropriate for an observation.  an example
-        # would be a reference value of "negative" or a list or table of
-        # 'normals'.
         self.text = None
-        # type = string
-        # type = string
+        # type: string
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_ReferenceRange',
+             'child_variable': 'low'},
+
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_ReferenceRange',
-            'child_variable': 'appliesTo'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_ReferenceRange',
+             'child_variable': 'appliesTo'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_ReferenceRange',
+             'child_variable': 'high'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_ReferenceRange',
+             'child_variable': 'type'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_ReferenceRange',
-            'child_variable': 'age'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_ReferenceRange',
-            'child_variable': 'high'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_ReferenceRange',
-            'child_variable': 'low'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_ReferenceRange',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_ReferenceRange',
+             'child_variable': 'age'},
         ]
 
+
 class Observation_Related(fhirbase):
-    """Measurements and simple assertions made about a patient, device or other
-    subject.
+    """
+    Measurements and simple assertions made about a patient, device or
+    other subject.
+
+    Attributes:
+        type: A code specifying the kind of relationship that exists with the
+            target resource.
+        target: A reference to the observation or [[[QuestionnaireResponse]]]
+            resource that is related to this observation.
     """
 
-    def __init__(self, dict_values=None):
-        # a code specifying the kind of relationship that exists with the target
-        # resource.
-        self.type = None
-        # type = string
-        # possible values = has-member, derived-from, sequel-to, replaces, qualified-by, interfered-by
+    __name__ = 'Observation_Related'
 
-        # a reference to the observation or [[[questionnaireresponse]]] resource
-        # that is related to this observation.
+    def __init__(self, dict_values=None):
+        self.type = None
+        # type: string
+        # possible values: has-member, derived-from, sequel-to,
+        # replaces, qualified-by, interfered-by
+
         self.target = None
         # reference to Reference: identifier
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['has-member', 'derived-from', 'sequel-to', 'replaces', 'qualified-by', 'interfered-by']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'has-member, derived-from, sequel-to, replaces, qualified-by, interfered-by'))
+                if value is not None and value.lower() not in [
+                    'has-member', 'derived-from', 'sequel-to', 'replaces', 'qualified-by',
+                        'interfered-by']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'has-member, derived-from, sequel-to, replaces, qualified-by,'
+                        'interfered-by'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Observation_Related',
-            'child_variable': 'target'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Observation_Related',
+             'child_variable': 'target'},
         ]
 
+
 class Observation_Component(fhirbase):
-    """Measurements and simple assertions made about a patient, device or other
-    subject.
+    """
+    Measurements and simple assertions made about a patient, device or
+    other subject.
+
+    Attributes:
+        code: Describes what was observed. Sometimes this is called the
+            observation "code".
+        valueQuantity: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueCodeableConcept: The information determined as a result of making
+            the observation, if the information has a simple value.
+        valueString: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueRange: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueRatio: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueSampledData: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueAttachment: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueTime: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valueDateTime: The information determined as a result of making the
+            observation, if the information has a simple value.
+        valuePeriod: The information determined as a result of making the
+            observation, if the information has a simple value.
+        dataAbsentReason: Provides a reason why the expected value in the
+            element Observation.value[x] is missing.
+        interpretation: The assessment made based on the result of the
+            observation.  Intended as a simple compact code often placed adjacent
+            to the result value in reports and flow sheets to signal the
+            meaning/normalcy status of the result. Otherwise known as abnormal
+            flag.
+        referenceRange: Guidance on how to interpret the value by comparison
+            to a normal or recommended range.
     """
 
+    __name__ = 'Observation_Component'
+
     def __init__(self, dict_values=None):
-        # describes what was observed. sometimes this is called the observation
-        # "code".
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueQuantity = None
-        # reference to Quantity: Quantity
+        # reference to Quantity
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueString = None
-        # type = string
+        # type: string
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueRange = None
-        # reference to Range: Range
+        # reference to Range
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueRatio = None
-        # reference to Ratio: Ratio
+        # reference to Ratio
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueSampledData = None
-        # reference to SampledData: SampledData
+        # reference to SampledData
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueAttachment = None
-        # reference to Attachment: Attachment
+        # reference to Attachment
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueTime = None
-        # type = string
+        # type: string
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valueDateTime = None
-        # type = string
+        # type: string
 
-        # the information determined as a result of making the observation, if the
-        # information has a simple value.
         self.valuePeriod = None
-        # reference to Period: Period
+        # reference to Period
 
-        # provides a reason why the expected value in the element
-        # observation.value[x] is missing.
         self.dataAbsentReason = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the assessment made based on the result of the observation.  intended as
-        # a simple compact code often placed adjacent to the result value in
-        # reports and flow sheets to signal the meaning/normalcy status of the
-        # result. otherwise known as abnormal flag.
         self.interpretation = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # guidance on how to interpret the value by comparison to a normal or
-        # recommended range.
         self.referenceRange = None
-        # type = array
-        # reference to Observation_ReferenceRange: Observation_ReferenceRange
+        # type: array
+        # reference to Observation_ReferenceRange
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueAttachment'},
-
-            {'parent_entity': 'Observation_ReferenceRange',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'referenceRange'},
-
-            {'parent_entity': 'SampledData',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueSampledData'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'interpretation'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'dataAbsentReason'},
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valuePeriod'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueQuantity'},
-
-            {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueRatio'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valuePeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueQuantity'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'dataAbsentReason'},
+
+            {'parent_entity': 'Ratio',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueRatio'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueAttachment'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'interpretation'},
+
+            {'parent_entity': 'Observation_ReferenceRange',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'referenceRange'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Observation_Component',
-            'child_variable': 'valueRange'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueRange'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueCodeableConcept'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'SampledData',
+             'parent_variable': 'object_id',
+             'child_entity': 'Observation_Component',
+             'child_variable': 'valueSampledData'},
+        ]

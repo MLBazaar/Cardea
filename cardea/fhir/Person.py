@@ -1,155 +1,166 @@
-from .fhirbase import * 
-from .HumanName import HumanName
-from .Identifier import Identifier
-from .Address import Address
-from .Reference import Reference
-from .ContactPoint import ContactPoint
-from .Attachment import Attachment
+from .fhirbase import fhirbase
+
 
 class Person(fhirbase):
-    """Demographics and administrative information about a person independent
+    """
+    Demographics and administrative information about a person independent
     of a specific health-related context.
+
+    Attributes:
+        resourceType: This is a Person resource
+        identifier: Identifier for a person within a particular scope.
+        name: A name associated with the person.
+        telecom: A contact detail for the person, e.g. a telephone number or
+            an email address.
+        gender: Administrative Gender.
+        birthDate: The birth date for the person.
+        address: One or more addresses for the person.
+        photo: An image that can be displayed as a thumbnail of the person to
+            enhance the identification of the individual.
+        managingOrganization: The organization that is the custodian of the
+            person record.
+        active: Whether this person's record is in active use.
+        link: Link to a resource that concerns the same actual person.
     """
 
+    __name__ = 'Person'
+
     def __init__(self, dict_values=None):
-        # this is a person resource
         self.resourceType = 'Person'
-        # type = string
-        # possible values = Person
+        # type: string
+        # possible values: Person
 
-        # a name associated with the person.
         self.name = None
-        # type = array
-        # reference to HumanName: HumanName
+        # type: array
+        # reference to HumanName
 
-        # a contact detail for the person, e.g. a telephone number or an email
-        # address.
         self.telecom = None
-        # type = array
-        # reference to ContactPoint: ContactPoint
+        # type: array
+        # reference to ContactPoint
 
-        # administrative gender.
         self.gender = None
-        # type = string
-        # possible values = male, female, other, unknown
+        # type: string
+        # possible values: male, female, other, unknown
 
-        # the birth date for the person.
         self.birthDate = None
-        # type = string
+        # type: string
 
-        # one or more addresses for the person.
         self.address = None
-        # type = array
-        # reference to Address: Address
+        # type: array
+        # reference to Address
 
-        # an image that can be displayed as a thumbnail of the person to enhance
-        # the identification of the individual.
         self.photo = None
-        # reference to Attachment: Attachment
+        # reference to Attachment
 
-        # the organization that is the custodian of the person record.
         self.managingOrganization = None
         # reference to Reference: identifier
 
-        # whether this person's record is in active use.
         self.active = None
-        # type = boolean
+        # type: boolean
 
-        # link to a resource that concerns the same actual person.
         self.link = None
-        # type = array
-        # reference to Person_Link: Person_Link
+        # type: array
+        # reference to Person_Link
 
-        # identifier for a person within a particular scope.
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.gender is not None:
             for value in self.gender:
-                if value != None and value.lower() not in ['male', 'female', 'other', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'male, female, other, unknown'))
+                if value is not None and value.lower() not in [
+                        'male', 'female', 'other', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'male, female, other, unknown'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'HumanName',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'name'},
-
-            {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'photo'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'telecom'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Person',
-            'child_variable': 'managingOrganization'},
-
-            {'parent_entity': 'Address',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'address'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'name'},
 
             {'parent_entity': 'Person_Link',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'link'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'link'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'telecom'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Person',
+             'child_variable': 'managingOrganization'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Person',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Address',
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'address'},
+
+            {'parent_entity': 'Attachment',
+             'parent_variable': 'object_id',
+             'child_entity': 'Person',
+             'child_variable': 'photo'},
         ]
 
+
 class Person_Link(fhirbase):
-    """Demographics and administrative information about a person independent
+    """
+    Demographics and administrative information about a person independent
     of a specific health-related context.
+
+    Attributes:
+        target: The resource to which this actual person is associated.
+        assurance: Level of assurance that this link is actually associated
+            with the target resource.
     """
 
+    __name__ = 'Person_Link'
+
     def __init__(self, dict_values=None):
-        # the resource to which this actual person is associated.
         self.target = None
         # reference to Reference: identifier
 
-        # level of assurance that this link is actually associated with the target
-        # resource.
         self.assurance = None
-        # type = string
-        # possible values = level1, level2, level3, level4
+        # type: string
+        # possible values: level1, level2, level3, level4
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.assurance is not None:
             for value in self.assurance:
-                if value != None and value.lower() not in ['level1', 'level2', 'level3', 'level4']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'level1, level2, level3, level4'))
+                if value is not None and value.lower() not in [
+                        'level1', 'level2', 'level3', 'level4']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'level1, level2, level3, level4'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Person_Link',
-            'child_variable': 'target'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Person_Link',
+             'child_variable': 'target'},
         ]
-

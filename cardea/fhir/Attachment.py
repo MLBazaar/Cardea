@@ -1,49 +1,56 @@
-from .fhirbase import * 
+from .fhirbase import fhirbase
+
 
 class Attachment(fhirbase):
-    """For referring to data content defined in other formats.
+    """
+    For referring to data content defined in other formats.
+
+    Attributes:
+        contentType: Identifies the type of the data in the attachment and
+            allows a method to be chosen to interpret or render the data. Includes
+            mime type parameters such as charset where appropriate.
+        language: The human language of the content. The value can be any
+            valid value according to BCP 47.
+        data: The actual data of the attachment - a sequence of bytes. In XML,
+            represented using base64.
+        url: An alternative location where the data can be accessed.
+        size: The number of bytes of data that make up this attachment (before
+            base64 encoding, if that is done).
+        hash: The calculated hash of the data using SHA-1. Represented using
+            base64.
+        title: A label or set of text to display in place of the data.
+        creation: The date that the attachment was first created.
     """
 
+    __name__ = 'Attachment'
+
     def __init__(self, dict_values=None):
-        # identifies the type of the data in the attachment and allows a method to
-        # be chosen to interpret or render the data. includes mime type parameters
-        # such as charset where appropriate.
         self.contentType = None
-        # type = string
+        # type: string
 
-        # the human language of the content. the value can be any valid value
-        # according to bcp 47.
         self.language = None
-        # type = string
+        # type: string
 
-        # the actual data of the attachment - a sequence of bytes. in xml,
-        # represented using base64.
         self.data = None
-        # type = string
+        # type: string
 
-        # an alternative location where the data can be accessed.
         self.url = None
-        # type = string
+        # type: string
 
-        # the number of bytes of data that make up this attachment (before base64
-        # encoding, if that is done).
         self.size = None
-        # type = int
+        # type: int
 
-        # the calculated hash of the data using sha-1. represented using base64.
         self.hash = None
-        # type = string
+        # type: string
 
-        # a label or set of text to display in place of the data.
         self.title = None
-        # type = string
+        # type: string
 
-        # the date that the attachment was first created.
         self.creation = None
-        # type = string
+        # type: string
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

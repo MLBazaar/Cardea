@@ -1,199 +1,225 @@
-from .fhirbase import * 
-from .Reference import Reference
-from .Identifier import Identifier
+from .fhirbase import fhirbase
+
 
 class ImagingManifest(fhirbase):
-    """A text description of the DICOM SOP instances selected in the
+    """
+    A text description of the DICOM SOP instances selected in the
     ImagingManifest; or the reason for, or significance of, the selection.
+
+    Attributes:
+        resourceType: This is a ImagingManifest resource
+        identifier: Unique identifier of the DICOM Key Object Selection (KOS)
+            that this resource represents.
+        patient: A patient resource reference which is the patient subject of
+            all DICOM SOP Instances in this ImagingManifest.
+        authoringTime: Date and time when the selection of the referenced
+            instances were made. It is (typically) different from the creation
+            date of the selection resource, and from dates associated with the
+            referenced instances (e.g. capture time of the referenced image).
+        author: Author of ImagingManifest. It can be a human author or a
+            device which made the decision of the SOP instances selected. For
+            example, a radiologist selected a set of imaging SOP instances to
+            attach in a diagnostic report, and a CAD application may author a
+            selection to describe SOP instances it used to generate a detection
+            conclusion.
+        description: Free text narrative description of the ImagingManifest.
+            The value may be derived from the DICOM Standard Part 16, CID-7010
+            descriptions (e.g. Best in Set, Complete Study Content). Note that
+            those values cover the wide range of uses of the DICOM Key Object
+            Selection object, several of which are not supported by
+            ImagingManifest. Specifically, there is no expected behavior
+            associated with descriptions that suggest referenced images be removed
+            or not used.
+        study: Study identity and locating information of the DICOM SOP
+            instances in the selection.
     """
 
-    def __init__(self, dict_values=None):
-        # this is a imagingmanifest resource
-        self.resourceType = 'ImagingManifest'
-        # type = string
-        # possible values = ImagingManifest
+    __name__ = 'ImagingManifest'
 
-        # a patient resource reference which is the patient subject of all dicom
-        # sop instances in this imagingmanifest.
+    def __init__(self, dict_values=None):
+        self.resourceType = 'ImagingManifest'
+        # type: string
+        # possible values: ImagingManifest
+
         self.patient = None
         # reference to Reference: identifier
 
-        # date and time when the selection of the referenced instances were made.
-        # it is (typically) different from the creation date of the selection
-        # resource, and from dates associated with the referenced instances (e.g.
-        # capture time of the referenced image).
         self.authoringTime = None
-        # type = string
+        # type: string
 
-        # author of imagingmanifest. it can be a human author or a device which
-        # made the decision of the sop instances selected. for example, a
-        # radiologist selected a set of imaging sop instances to attach in a
-        # diagnostic report, and a cad application may author a selection to
-        # describe sop instances it used to generate a detection conclusion.
         self.author = None
         # reference to Reference: identifier
 
-        # free text narrative description of the imagingmanifest.   the value may
-        # be derived from the dicom standard part 16, cid-7010 descriptions (e.g.
-        # best in set, complete study content). note that those values cover the
-        # wide range of uses of the dicom key object selection object, several of
-        # which are not supported by imagingmanifest. specifically, there is no
-        # expected behavior associated with descriptions that suggest referenced
-        # images be removed or not used.
         self.description = None
-        # type = string
+        # type: string
 
-        # study identity and locating information of the dicom sop instances in
-        # the selection.
         self.study = None
-        # type = array
-        # reference to ImagingManifest_Study: ImagingManifest_Study
+        # type: array
+        # reference to ImagingManifest_Study
 
-        # unique identifier of the dicom key object selection (kos) that this
-        # resource represents.
         self.identifier = None
-        # reference to Identifier: Identifier
-
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingManifest',
-            'child_variable': 'patient'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingManifest',
+             'child_variable': 'author'},
 
             {'parent_entity': 'ImagingManifest_Study',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingManifest',
-            'child_variable': 'study'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingManifest',
+             'child_variable': 'study'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingManifest',
-            'child_variable': 'author'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingManifest',
+             'child_variable': 'patient'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingManifest',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingManifest',
+             'child_variable': 'identifier'},
         ]
 
+
 class ImagingManifest_Study(fhirbase):
-    """A text description of the DICOM SOP instances selected in the
+    """
+    A text description of the DICOM SOP instances selected in the
     ImagingManifest; or the reason for, or significance of, the selection.
+
+    Attributes:
+        uid: Study instance UID of the SOP instances in the selection.
+        imagingStudy: Reference to the Imaging Study in FHIR form.
+        endpoint: The network service providing access (e.g., query, view, or
+            retrieval) for the study. See implementation notes for information
+            about using DICOM endpoints. A study-level endpoint applies to each
+            series in the study, unless overridden by a series-level endpoint with
+            the same Endpoint.type.
+        series: Series identity and locating information of the DICOM SOP
+            instances in the selection.
     """
 
-    def __init__(self, dict_values=None):
-        # study instance uid of the sop instances in the selection.
-        self.uid = None
-        # type = string
+    __name__ = 'ImagingManifest_Study'
 
-        # reference to the imaging study in fhir form.
+    def __init__(self, dict_values=None):
+        self.uid = None
+        # type: string
+
         self.imagingStudy = None
         # reference to Reference: identifier
 
-        # the network service providing access (e.g., query, view, or retrieval)
-        # for the study. see implementation notes for information about using
-        # dicom endpoints. a study-level endpoint applies to each series in the
-        # study, unless overridden by a series-level endpoint with the same
-        # endpoint.type.
         self.endpoint = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # series identity and locating information of the dicom sop instances in
-        # the selection.
         self.series = None
-        # type = array
-        # reference to ImagingManifest_Series: ImagingManifest_Series
+        # type: array
+        # reference to ImagingManifest_Series
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingManifest_Study',
+             'child_variable': 'endpoint'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingManifest_Study',
+             'child_variable': 'imagingStudy'},
+
             {'parent_entity': 'ImagingManifest_Series',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingManifest_Study',
-            'child_variable': 'series'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingManifest_Study',
-            'child_variable': 'endpoint'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingManifest_Study',
-            'child_variable': 'imagingStudy'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingManifest_Study',
+             'child_variable': 'series'},
         ]
+
 
 class ImagingManifest_Series(fhirbase):
-    """A text description of the DICOM SOP instances selected in the
+    """
+    A text description of the DICOM SOP instances selected in the
     ImagingManifest; or the reason for, or significance of, the selection.
+
+    Attributes:
+        uid: Series instance UID of the SOP instances in the selection.
+        endpoint: The network service providing access (e.g., query, view, or
+            retrieval) for this series. See implementation notes for information
+            about using DICOM endpoints. A series-level endpoint, if present, has
+            precedence over a study-level endpoint with the same Endpoint.type.
+        instance: Identity and locating information of the selected DICOM SOP
+            instances.
     """
 
-    def __init__(self, dict_values=None):
-        # series instance uid of the sop instances in the selection.
-        self.uid = None
-        # type = string
+    __name__ = 'ImagingManifest_Series'
 
-        # the network service providing access (e.g., query, view, or retrieval)
-        # for this series. see implementation notes for information about using
-        # dicom endpoints. a series-level endpoint, if present, has precedence
-        # over a study-level endpoint with the same endpoint.type.
+    def __init__(self, dict_values=None):
+        self.uid = None
+        # type: string
+
         self.endpoint = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # identity and locating information of the selected dicom sop instances.
         self.instance = None
-        # type = array
-        # reference to ImagingManifest_Instance: ImagingManifest_Instance
+        # type: array
+        # reference to ImagingManifest_Instance
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ImagingManifest_Series',
-            'child_variable': 'endpoint'},
-
             {'parent_entity': 'ImagingManifest_Instance',
-            'parent_variable': 'object_id',
-            'child_entity': 'ImagingManifest_Series',
-            'child_variable': 'instance'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ImagingManifest_Series',
+             'child_variable': 'instance'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ImagingManifest_Series',
+             'child_variable': 'endpoint'},
         ]
 
+
 class ImagingManifest_Instance(fhirbase):
-    """A text description of the DICOM SOP instances selected in the
+    """
+    A text description of the DICOM SOP instances selected in the
     ImagingManifest; or the reason for, or significance of, the selection.
+
+    Attributes:
+        sopClass: SOP class UID of the selected instance.
+        uid: SOP Instance UID of the selected instance.
     """
 
+    __name__ = 'ImagingManifest_Instance'
+
     def __init__(self, dict_values=None):
-        # sop class uid of the selected instance.
         self.sopClass = None
-        # type = string
+        # type: string
 
-        # sop instance uid of the selected instance.
         self.uid = None
-        # type = string
+        # type: string
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

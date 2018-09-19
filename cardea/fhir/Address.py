@@ -1,87 +1,99 @@
-from .fhirbase import * 
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class Address(fhirbase):
-    """An address expressed using postal conventions (as opposed to GPS or
+    """
+    An address expressed using postal conventions (as opposed to GPS or
     other location definition formats).  This data type may be used to
     convey addresses for use in delivering mail as well as for visiting
     locations which might not be valid for mail delivery.  There are a
     variety of postal address formats defined around the world.
+
+    Attributes:
+        use: The purpose of this address.
+        type: Distinguishes between physical addresses (those you can visit)
+            and mailing addresses (e.g. PO Boxes and care-of addresses). Most
+            addresses are both.
+        text: A full text representation of the address.
+        line: This component contains the house number, apartment number,
+            street name, street direction,  P.O. Box number, delivery hints, and
+            similar address information.
+        city: The name of the city, town, village or other community or
+            delivery center.
+        district: The name of the administrative area (county).
+        state: Sub-unit of a country with limited sovereignty in a federally
+            organized country. A code may be used if codes are in common use (i.e.
+            US 2 letter state codes).
+        postalCode: A postal code designating a region defined by the postal
+            service.
+        country: Country - a nation as commonly understood or generally
+            accepted.
+        period: Time period when address was/is in use.
     """
 
+    __name__ = 'Address'
+
     def __init__(self, dict_values=None):
-        # the purpose of this address.
         self.use = None
-        # type = string
-        # possible values = home, work, temp, old
+        # type: string
+        # possible values: home, work, temp, old
 
-        # distinguishes between physical addresses (those you can visit) and
-        # mailing addresses (e.g. po boxes and care-of addresses). most addresses
-        # are both.
         self.type = None
-        # type = string
-        # possible values = postal, physical, both
+        # type: string
+        # possible values: postal, physical, both
 
-        # a full text representation of the address.
         self.text = None
-        # type = string
+        # type: string
 
-        # this component contains the house number, apartment number, street name,
-        # street direction,  p.o. box number, delivery hints, and similar address
-        # information.
         self.line = None
-        # type = array
+        # type: array
 
-        # the name of the city, town, village or other community or delivery
-        # center.
         self.city = None
-        # type = string
+        # type: string
 
-        # the name of the administrative area (county).
         self.district = None
-        # type = string
+        # type: string
 
-        # sub-unit of a country with limited sovereignty in a federally organized
-        # country. a code may be used if codes are in common use (i.e. us 2 letter
-        # state codes).
         self.state = None
-        # type = string
+        # type: string
 
-        # a postal code designating a region defined by the postal service.
         self.postalCode = None
-        # type = string
+        # type: string
 
-        # country - a nation as commonly understood or generally accepted.
         self.country = None
-        # type = string
+        # type: string
 
-        # time period when address was/is in use.
         self.period = None
-        # reference to Period: Period
+        # reference to Period
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.use is not None:
             for value in self.use:
-                if value != None and value.lower() not in ['home', 'work', 'temp', 'old']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'home, work, temp, old'))
+                if value is not None and value.lower() not in [
+                        'home', 'work', 'temp', 'old']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'home, work, temp, old'))
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['postal', 'physical', 'both']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'postal, physical, both'))
+                if value is not None and value.lower() not in [
+                        'postal', 'physical', 'both']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'postal, physical, both'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Address',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Address',
+             'child_variable': 'period'},
         ]
-

@@ -1,215 +1,238 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
+from .fhirbase import fhirbase
+
 
 class Group(fhirbase):
-    """Represents a defined collection of entities that may be discussed or
+    """
+    Represents a defined collection of entities that may be discussed or
     acted upon collectively but which are not expected to act collectively
     and are not formally or legally recognized; i.e. a collection of
     entities that isn't an Organization.
+
+    Attributes:
+        resourceType: This is a Group resource
+        identifier: A unique business identifier for this group.
+        active: Indicates whether the record for the group is available for
+            use or is merely being retained for historical purposes.
+        type: Identifies the broad classification of the kind of resources the
+            group includes.
+        actual: If true, indicates that the resource refers to a specific
+            group of real individuals.  If false, the group defines a set of
+            intended individuals.
+        code: Provides a specific type of resource the group includes; e.g.
+            "cow", "syringe", etc.
+        name: A label assigned to the group for human identification and
+            communication.
+        quantity: A count of the number of resource instances that are part of
+            the group.
+        characteristic: Identifies the traits shared by members of the group.
+        member: Identifies the resource instances that are members of the
+            group.
     """
 
+    __name__ = 'Group'
+
     def __init__(self, dict_values=None):
-        # this is a group resource
         self.resourceType = 'Group'
-        # type = string
-        # possible values = Group
+        # type: string
+        # possible values: Group
 
-        # indicates whether the record for the group is available for use or is
-        # merely being retained for historical purposes.
         self.active = None
-        # type = boolean
+        # type: boolean
 
-        # identifies the broad classification of the kind of resources the group
-        # includes.
         self.type = None
-        # type = string
-        # possible values = person, animal, practitioner, device, medication, substance
+        # type: string
+        # possible values: person, animal, practitioner, device,
+        # medication, substance
 
-        # if true, indicates that the resource refers to a specific group of real
-        # individuals.  if false, the group defines a set of intended individuals.
         self.actual = None
-        # type = boolean
+        # type: boolean
 
-        # provides a specific type of resource the group includes; e.g. "cow",
-        # "syringe", etc.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # a label assigned to the group for human identification and
-        # communication.
         self.name = None
-        # type = string
+        # type: string
 
-        # a count of the number of resource instances that are part of the group.
         self.quantity = None
-        # type = int
+        # type: int
 
-        # identifies the traits shared by members of the group.
         self.characteristic = None
-        # type = array
-        # reference to Group_Characteristic: Group_Characteristic
+        # type: array
+        # reference to Group_Characteristic
 
-        # identifies the resource instances that are members of the group.
         self.member = None
-        # type = array
-        # reference to Group_Member: Group_Member
+        # type: array
+        # reference to Group_Member
 
-        # a unique business identifier for this group.
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['person', 'animal', 'practitioner', 'device', 'medication', 'substance']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'person, animal, practitioner, device, medication, substance'))
+                if value is not None and value.lower() not in [
+                    'person', 'animal', 'practitioner', 'device', 'medication',
+                        'substance']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'person, animal, practitioner, device, medication, substance'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group',
-            'child_variable': 'identifier'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Group',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Group_Characteristic',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group',
-            'child_variable': 'characteristic'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Group',
+             'child_variable': 'characteristic'},
 
             {'parent_entity': 'Group_Member',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group',
-            'child_variable': 'member'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Group',
+             'child_variable': 'member'},
 
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group',
-            'child_variable': 'code'},
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Group',
+             'child_variable': 'identifier'},
         ]
 
+
 class Group_Characteristic(fhirbase):
-    """Represents a defined collection of entities that may be discussed or
+    """
+    Represents a defined collection of entities that may be discussed or
     acted upon collectively but which are not expected to act collectively
     and are not formally or legally recognized; i.e. a collection of
     entities that isn't an Organization.
+
+    Attributes:
+        code: A code that identifies the kind of trait being asserted.
+        valueCodeableConcept: The value of the trait that holds (or does not
+            hold - see 'exclude') for members of the group.
+        valueBoolean: The value of the trait that holds (or does not hold -
+            see 'exclude') for members of the group.
+        valueQuantity: The value of the trait that holds (or does not hold -
+            see 'exclude') for members of the group.
+        valueRange: The value of the trait that holds (or does not hold - see
+            'exclude') for members of the group.
+        exclude: If true, indicates the characteristic is one that is NOT held
+            by members of the group.
+        period: The period over which the characteristic is tested; e.g. the
+            patient had an operation during the month of June.
     """
 
+    __name__ = 'Group_Characteristic'
+
     def __init__(self, dict_values=None):
-        # a code that identifies the kind of trait being asserted.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the value of the trait that holds (or does not hold - see 'exclude') for
-        # members of the group.
         self.valueCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the value of the trait that holds (or does not hold - see 'exclude') for
-        # members of the group.
         self.valueBoolean = None
-        # type = boolean
+        # type: boolean
 
-        # the value of the trait that holds (or does not hold - see 'exclude') for
-        # members of the group.
         self.valueQuantity = None
-        # reference to Quantity: Quantity
+        # reference to Quantity
 
-        # the value of the trait that holds (or does not hold - see 'exclude') for
-        # members of the group.
         self.valueRange = None
-        # reference to Range: Range
+        # reference to Range
 
-        # if true, indicates the characteristic is one that is not held by members
-        # of the group.
         self.exclude = None
-        # type = boolean
+        # type: boolean
 
-        # the period over which the characteristic is tested; e.g. the patient had
-        # an operation during the month of june.
         self.period = None
-        # reference to Period: Period
+        # reference to Period
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Characteristic',
+             'child_variable': 'valueQuantity'},
+
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Characteristic',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Characteristic',
+             'child_variable': 'period'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Characteristic',
-            'child_variable': 'valueCodeableConcept'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Characteristic',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Characteristic',
+             'child_variable': 'valueCodeableConcept'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Characteristic',
-            'child_variable': 'valueRange'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Characteristic',
+             'child_variable': 'valueRange'},
 
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Characteristic',
-            'child_variable': 'valueQuantity'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Characteristic',
+             'child_variable': 'code'},
         ]
 
+
 class Group_Member(fhirbase):
-    """Represents a defined collection of entities that may be discussed or
+    """
+    Represents a defined collection of entities that may be discussed or
     acted upon collectively but which are not expected to act collectively
     and are not formally or legally recognized; i.e. a collection of
     entities that isn't an Organization.
+
+    Attributes:
+        entity: A reference to the entity that is a member of the group. Must
+            be consistent with Group.type.
+        period: The period that the member was in the group, if known.
+        inactive: A flag to indicate that the member is no longer in the
+            group, but previously may have been a member.
     """
 
+    __name__ = 'Group_Member'
+
     def __init__(self, dict_values=None):
-        # a reference to the entity that is a member of the group. must be
-        # consistent with group.type.
         self.entity = None
         # reference to Reference: identifier
 
-        # the period that the member was in the group, if known.
         self.period = None
-        # reference to Period: Period
+        # reference to Period
 
-        # a flag to indicate that the member is no longer in the group, but
-        # previously may have been a member.
         self.inactive = None
-        # type = boolean
+        # type: boolean
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Group_Member',
-            'child_variable': 'entity'},
-
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Group_Member',
-            'child_variable': 'period'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Group_Member',
+             'child_variable': 'period'},
 
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Group_Member',
+             'child_variable': 'entity'},
+        ]

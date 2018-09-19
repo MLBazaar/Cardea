@@ -1,200 +1,219 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .ElementDefinition import ElementDefinition
-from .UsageContext import UsageContext
-from .ContactDetail import ContactDetail
+from .fhirbase import fhirbase
+
 
 class DataElement(fhirbase):
-    """The formal description of a single piece of information that can be
+    """
+    The formal description of a single piece of information that can be
     gathered and reported.
+
+    Attributes:
+        resourceType: This is a DataElement resource
+        url: An absolute URI that is used to identify this data element when
+            it is referenced in a specification, model, design or an instance.
+            This SHALL be a URL, SHOULD be globally unique, and SHOULD be an
+            address at which this data element is (or will be) published. The URL
+            SHOULD include the major version of the data element. For more
+            information see [Technical and Business
+            Versions](resource.html#versions).
+        identifier: A formal identifier that is used to identify this data
+            element when it is represented in other formats, or referenced in a
+            specification, model, design or an instance.
+        version: The identifier that is used to identify this version of the
+            data element when it is referenced in a specification, model, design
+            or instance. This is an arbitrary value managed by the data element
+            author and is not expected to be globally unique. For example, it
+            might be a timestamp (e.g. yyyymmdd) if a managed version is not
+            available. There is also no expectation that versions can be placed in
+            a lexicographical sequence.
+        status: The status of this data element. Enables tracking the
+            life-cycle of the content.
+        experimental: A boolean value to indicate that this data element is
+            authored for testing purposes (or education/evaluation/marketing), and
+            is not intended to be used for genuine usage.
+        date: The date  (and optionally time) when the data element was
+            published. The date must change if and when the business version
+            changes and it must change if the status code changes. In addition, it
+            should change when the substantive content of the data element
+            changes.
+        publisher: The name of the individual or organization that published
+            the data element.
+        name: A natural language name identifying the data element. This name
+            should be usable as an identifier for the module by machine processing
+            applications such as code generation.
+        title: A short, descriptive, user-friendly title for the data element.
+        contact: Contact details to assist a user in finding and communicating
+            with the publisher.
+        useContext: The content was developed with a focus and intent of
+            supporting the contexts that are listed. These terms may be used to
+            assist with indexing and searching for appropriate data element
+            instances.
+        jurisdiction: A legal or geographic region in which the data element
+            is intended to be used.
+        copyright: A copyright statement relating to the data element and/or
+            its contents. Copyright statements are generally legal restrictions on
+            the use and publishing of the data element.
+        stringency: Identifies how precise the data element is in its
+            definition.
+        mapping: Identifies a specification (other than a terminology) that
+            the elements which make up the DataElement have some correspondence
+            with.
+        element: Defines the structure, type, allowed values and other
+            constraining characteristics of the data element.
     """
 
+    __name__ = 'DataElement'
+
     def __init__(self, dict_values=None):
-        # this is a dataelement resource
         self.resourceType = 'DataElement'
-        # type = string
-        # possible values = DataElement
+        # type: string
+        # possible values: DataElement
 
-        # an absolute uri that is used to identify this data element when it is
-        # referenced in a specification, model, design or an instance. this shall
-        # be a url, should be globally unique, and should be an address at which
-        # this data element is (or will be) published. the url should include the
-        # major version of the data element. for more information see [technical
-        # and business versions](resource.html#versions).
         self.url = None
-        # type = string
+        # type: string
 
-        # the identifier that is used to identify this version of the data element
-        # when it is referenced in a specification, model, design or instance.
-        # this is an arbitrary value managed by the data element author and is not
-        # expected to be globally unique. for example, it might be a timestamp
-        # (e.g. yyyymmdd) if a managed version is not available. there is also no
-        # expectation that versions can be placed in a lexicographical sequence.
         self.version = None
-        # type = string
+        # type: string
 
-        # the status of this data element. enables tracking the life-cycle of the
-        # content.
         self.status = None
-        # type = string
-        # possible values = draft, active, retired, unknown
+        # type: string
+        # possible values: draft, active, retired, unknown
 
-        # a boolean value to indicate that this data element is authored for
-        # testing purposes (or education/evaluation/marketing), and is not
-        # intended to be used for genuine usage.
         self.experimental = None
-        # type = boolean
+        # type: boolean
 
-        # the date  (and optionally time) when the data element was published. the
-        # date must change if and when the business version changes and it must
-        # change if the status code changes. in addition, it should change when
-        # the substantive content of the data element changes.
         self.date = None
-        # type = string
+        # type: string
 
-        # the name of the individual or organization that published the data
-        # element.
         self.publisher = None
-        # type = string
+        # type: string
 
-        # a natural language name identifying the data element. this name should
-        # be usable as an identifier for the module by machine processing
-        # applications such as code generation.
         self.name = None
-        # type = string
+        # type: string
 
-        # a short, descriptive, user-friendly title for the data element.
         self.title = None
-        # type = string
+        # type: string
 
-        # contact details to assist a user in finding and communicating with the
-        # publisher.
         self.contact = None
-        # type = array
-        # reference to ContactDetail: ContactDetail
+        # type: array
+        # reference to ContactDetail
 
-        # the content was developed with a focus and intent of supporting the
-        # contexts that are listed. these terms may be used to assist with
-        # indexing and searching for appropriate data element instances.
         self.useContext = None
-        # type = array
-        # reference to UsageContext: UsageContext
+        # type: array
+        # reference to UsageContext
 
-        # a legal or geographic region in which the data element is intended to be
-        # used.
         self.jurisdiction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # a copyright statement relating to the data element and/or its contents.
-        # copyright statements are generally legal restrictions on the use and
-        # publishing of the data element.
         self.copyright = None
-        # type = string
+        # type: string
 
-        # identifies how precise the data element is in its definition.
         self.stringency = None
-        # type = string
-        # possible values = comparable, fully-specified, equivalent, convertable, scaleable, flexible
+        # type: string
+        # possible values: comparable, fully-specified, equivalent,
+        # convertable, scaleable, flexible
 
-        # identifies a specification (other than a terminology) that the elements
-        # which make up the dataelement have some correspondence with.
         self.mapping = None
-        # type = array
-        # reference to DataElement_Mapping: DataElement_Mapping
+        # type: array
+        # reference to DataElement_Mapping
 
-        # defines the structure, type, allowed values and other constraining
-        # characteristics of the data element.
         self.element = None
-        # type = array
-        # reference to ElementDefinition: ElementDefinition
+        # type: array
+        # reference to ElementDefinition
 
-        # a formal identifier that is used to identify this data element when it
-        # is represented in other formats, or referenced in a specification,
-        # model, design or an instance.
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'active', 'retired', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, active, retired, unknown'))
+                if value is not None and value.lower() not in [
+                        'draft', 'active', 'retired', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, active, retired, unknown'))
 
         if self.stringency is not None:
             for value in self.stringency:
-                if value != None and value.lower() not in ['comparable', 'fully-specified', 'equivalent', 'convertable', 'scaleable', 'flexible']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'comparable, fully-specified, equivalent, convertable, scaleable, flexible'))
+                if value is not None and value.lower() not in [
+                    'comparable', 'fully-specified', 'equivalent', 'convertable',
+                        'scaleable', 'flexible']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'comparable, fully-specified, equivalent, convertable, scaleable,'
+                        'flexible'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'jurisdiction'},
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'ContactDetail',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'contact'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'contact'},
 
-            {'parent_entity': 'DataElement_Mapping',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'mapping'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'UsageContext',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'useContext'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'jurisdiction'},
 
             {'parent_entity': 'ElementDefinition',
-            'parent_variable': 'object_id',
-            'child_entity': 'DataElement',
-            'child_variable': 'element'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'element'},
+
+            {'parent_entity': 'UsageContext',
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'useContext'},
+
+            {'parent_entity': 'DataElement_Mapping',
+             'parent_variable': 'object_id',
+             'child_entity': 'DataElement',
+             'child_variable': 'mapping'},
         ]
 
+
 class DataElement_Mapping(fhirbase):
-    """The formal description of a single piece of information that can be
+    """
+    The formal description of a single piece of information that can be
     gathered and reported.
+
+    Attributes:
+        identity: An internal id that is used to identify this mapping set
+            when specific mappings are made on a per-element basis.
+        uri: An absolute URI that identifies the specification that this
+            mapping is expressed to.
+        name: A name for the specification that is being mapped to.
+        comment: Comments about this mapping, including version notes, issues,
+            scope limitations, and other important notes for usage.
     """
 
+    __name__ = 'DataElement_Mapping'
+
     def __init__(self, dict_values=None):
-        # an internal id that is used to identify this mapping set when specific
-        # mappings are made on a per-element basis.
         self.identity = None
-        # type = string
+        # type: string
 
-        # an absolute uri that identifies the specification that this mapping is
-        # expressed to.
         self.uri = None
-        # type = string
+        # type: string
 
-        # a name for the specification that is being mapped to.
         self.name = None
-        # type = string
+        # type: string
 
-        # comments about this mapping, including version notes, issues, scope
-        # limitations, and other important notes for usage.
         self.comment = None
-        # type = string
+        # type: string
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
-
+            self.set_attributes(dict_values)

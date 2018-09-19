@@ -1,204 +1,213 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class CareTeam(fhirbase):
-    """The Care Team includes all the people and organizations who plan to
+    """
+    The Care Team includes all the people and organizations who plan to
     participate in the coordination and delivery of care for a patient.
+
+    Attributes:
+        resourceType: This is a CareTeam resource
+        identifier: This records identifiers associated with this care team
+            that are defined by business processes and/or used to refer to it when
+            a direct URL reference to the resource itself is not appropriate.
+        status: Indicates the current state of the care team.
+        category: Identifies what kind of team.  This is to support
+            differentiation between multiple co-existing teams, such as care plan
+            team, episode of care team, longitudinal care team.
+        name: A label for human use intended to distinguish like teams.  E.g.
+            the "red" vs. "green" trauma teams.
+        subject: Identifies the patient or group whose intended care is
+            handled by the team.
+        context: The encounter or episode of care that establishes the context
+            for this care team.
+        period: Indicates when the team did (or is intended to) come into
+            effect and end.
+        participant: Identifies all people and organizations who are expected
+            to be involved in the care team.
+        reasonCode: Describes why the care team exists.
+        reasonReference: Condition(s) that this care team addresses.
+        managingOrganization: The organization responsible for the care team.
+        note: Comments made about the CareTeam.
     """
 
+    __name__ = 'CareTeam'
+
     def __init__(self, dict_values=None):
-        # this is a careteam resource
         self.resourceType = 'CareTeam'
-        # type = string
-        # possible values = CareTeam
+        # type: string
+        # possible values: CareTeam
 
-        # indicates the current state of the care team.
         self.status = None
-        # type = string
-        # possible values = proposed, active, suspended, inactive, entered-in-error
+        # type: string
+        # possible values: proposed, active, suspended, inactive,
+        # entered-in-error
 
-        # identifies what kind of team.  this is to support differentiation
-        # between multiple co-existing teams, such as care plan team, episode of
-        # care team, longitudinal care team.
         self.category = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # a label for human use intended to distinguish like teams.  e.g. the
-        # "red" vs. "green" trauma teams.
         self.name = None
-        # type = string
+        # type: string
 
-        # identifies the patient or group whose intended care is handled by the
-        # team.
         self.subject = None
         # reference to Reference: identifier
 
-        # the encounter or episode of care that establishes the context for this
-        # care team.
         self.context = None
         # reference to Reference: identifier
 
-        # indicates when the team did (or is intended to) come into effect and
-        # end.
         self.period = None
-        # reference to Period: Period
+        # reference to Period
 
-        # identifies all people and organizations who are expected to be involved
-        # in the care team.
         self.participant = None
-        # type = array
-        # reference to CareTeam_Participant: CareTeam_Participant
+        # type: array
+        # reference to CareTeam_Participant
 
-        # describes why the care team exists.
         self.reasonCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # condition(s) that this care team addresses.
         self.reasonReference = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # the organization responsible for the care team.
         self.managingOrganization = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # comments made about the careteam.
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        # type: array
+        # reference to Annotation
 
-        # this records identifiers associated with this care team that are defined
-        # by business processes and/or used to refer to it when a direct url
-        # reference to the resource itself is not appropriate.
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['proposed', 'active', 'suspended', 'inactive', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'proposed, active, suspended, inactive, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'proposed', 'active', 'suspended', 'inactive', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'proposed, active, suspended, inactive, entered-in-error'))
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'note'},
+
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam',
-            'child_variable': 'reasonReference'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'period'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam',
+             'child_variable': 'reasonReference'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam',
-            'child_variable': 'managingOrganization'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'reasonCode'},
 
             {'parent_entity': 'CareTeam_Participant',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'participant'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'participant'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam',
-            'child_variable': 'context'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam',
+             'child_variable': 'managingOrganization'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam',
-            'child_variable': 'reasonCode'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'category'},
 
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam',
-            'child_variable': 'subject'},
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam',
+             'child_variable': 'period'},
         ]
 
+
 class CareTeam_Participant(fhirbase):
-    """The Care Team includes all the people and organizations who plan to
+    """
+    The Care Team includes all the people and organizations who plan to
     participate in the coordination and delivery of care for a patient.
+
+    Attributes:
+        role: Indicates specific responsibility of an individual within the
+            care team, such as "Primary care physician", "Trained social worker
+            counselor", "Caregiver", etc.
+        member: The specific person or organization who is
+            participating/expected to participate in the care team.
+        onBehalfOf: The organization of the practitioner.
+        period: Indicates when the specific member or organization did (or is
+            intended to) come into effect and end.
     """
 
-    def __init__(self, dict_values=None):
-        # indicates specific responsibility of an individual within the care team,
-        # such as "primary care physician", "trained social worker counselor",
-        # "caregiver", etc.
-        self.role = None
-        # reference to CodeableConcept: CodeableConcept
+    __name__ = 'CareTeam_Participant'
 
-        # the specific person or organization who is participating/expected to
-        # participate in the care team.
+    def __init__(self, dict_values=None):
+        self.role = None
+        # reference to CodeableConcept
+
         self.member = None
         # reference to Reference: identifier
 
-        # the organization of the practitioner.
         self.onBehalfOf = None
         # reference to Reference: identifier
 
-        # indicates when the specific member or organization did (or is intended
-        # to) come into effect and end.
         self.period = None
-        # reference to Period: Period
+        # reference to Period
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam_Participant',
-            'child_variable': 'onBehalfOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam_Participant',
+             'child_variable': 'onBehalfOf'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam_Participant',
-            'child_variable': 'role'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'CareTeam_Participant',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam_Participant',
+             'child_variable': 'role'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'CareTeam_Participant',
-            'child_variable': 'member'},
-        ]
+             'parent_variable': 'identifier',
+             'child_entity': 'CareTeam_Participant',
+             'child_variable': 'member'},
 
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'CareTeam_Participant',
+             'child_variable': 'period'},
+        ]

@@ -1,213 +1,230 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Money import Money
+from .fhirbase import fhirbase
+
 
 class Account(fhirbase):
-    """A financial tool for tracking value accrued for a particular purpose.
+    """
+    A financial tool for tracking value accrued for a particular purpose.
     In the healthcare field, used to track charges for a patient, cost
     centers, etc.
+
+    Attributes:
+        resourceType: This is a Account resource
+        identifier: Unique identifier used to reference the account.  May or
+            may not be intended for human use (e.g. credit card number).
+        status: Indicates whether the account is presently used/usable or not.
+        type: Categorizes the account for reporting and searching purposes.
+        name: Name used for the account when displaying it to humans in
+            reports, etc.
+        subject: Identifies the patient, device, practitioner, location or
+            other object the account is associated with.
+        period: Identifies the period of time the account applies to; e.g.
+            accounts created per fiscal year, quarter, etc.
+        active: Indicates the period of time over which the account is allowed
+            to have transactions posted to it. This period may be different to the
+            coveragePeriod which is the duration of time that services may occur.
+        balance: Represents the sum of all credits less all debits associated
+            with the account.  Might be positive, zero or negative.
+        coverage: The party(s) that are responsible for covering the payment
+            of this account, and what order should they be applied to the account.
+        owner: Indicates the organization, department, etc. with
+            responsibility for the account.
+        description: Provides additional information about what the account
+            tracks and how it is used.
+        guarantor: Parties financially responsible for the account.
     """
 
+    __name__ = 'Account'
+
     def __init__(self, dict_values=None):
-        # this is a account resource
         self.resourceType = 'Account'
-        # type = string
-        # possible values = Account
+        # type: string
+        # possible values: Account
 
-        # indicates whether the account is presently used/usable or not.
         self.status = None
-        # type = string
-        # possible values = active, inactive, entered-in-error
+        # type: string
+        # possible values: active, inactive, entered-in-error
 
-        # categorizes the account for reporting and searching purposes.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # name used for the account when displaying it to humans in reports, etc.
         self.name = None
-        # type = string
+        # type: string
 
-        # identifies the patient, device, practitioner, location or other object
-        # the account is associated with.
         self.subject = None
         # reference to Reference: identifier
 
-        # identifies the period of time the account applies to; e.g. accounts
-        # created per fiscal year, quarter, etc.
         self.period = None
-        # reference to Period: Period
+        # reference to Period
 
-        # indicates the period of time over which the account is allowed to have
-        # transactions posted to it. this period may be different to the
-        # coverageperiod which is the duration of time that services may occur.
         self.active = None
-        # reference to Period: Period
+        # reference to Period
 
-        # represents the sum of all credits less all debits associated with the
-        # account.  might be positive, zero or negative.
         self.balance = None
-        # reference to Money: Money
+        # reference to Money
 
-        # the party(s) that are responsible for covering the payment of this
-        # account, and what order should they be applied to the account.
         self.coverage = None
-        # type = array
-        # reference to Account_Coverage: Account_Coverage
+        # type: array
+        # reference to Account_Coverage
 
-        # indicates the organization, department, etc. with responsibility for the
-        # account.
         self.owner = None
         # reference to Reference: identifier
 
-        # provides additional information about what the account tracks and how it
-        # is used.
         self.description = None
-        # type = string
+        # type: string
 
-        # parties financially responsible for the account.
         self.guarantor = None
-        # type = array
-        # reference to Account_Guarantor: Account_Guarantor
+        # type: array
+        # reference to Account_Guarantor
 
-        # unique identifier used to reference the account.  may or may not be
-        # intended for human use (e.g. credit card number).
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'inactive', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, inactive, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'active', 'inactive', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, inactive, entered-in-error'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Account',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Account',
+             'child_variable': 'subject'},
 
             {'parent_entity': 'Account_Coverage',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'coverage'},
-
-            {'parent_entity': 'Account_Guarantor',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'guarantor'},
-
-            {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'balance'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'coverage'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'active'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Account',
-            'child_variable': 'owner'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Account',
+             'child_variable': 'owner'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'active'},
+
+            {'parent_entity': 'Account_Guarantor',
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'guarantor'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'type'},
+
+            {'parent_entity': 'Money',
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'balance'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Account',
+             'child_variable': 'identifier'},
         ]
 
+
 class Account_Coverage(fhirbase):
-    """A financial tool for tracking value accrued for a particular purpose.
+    """
+    A financial tool for tracking value accrued for a particular purpose.
     In the healthcare field, used to track charges for a patient, cost
     centers, etc.
+
+    Attributes:
+        coverage: The party(s) that are responsible for payment (or part of)
+            of charges applied to this account (including self-pay).  A coverage
+            may only be resposible for specific types of charges, and the sequence
+            of the coverages in the account could be important when processing
+            billing.
+        priority: The priority of the coverage in the context of this account.
     """
 
+    __name__ = 'Account_Coverage'
+
     def __init__(self, dict_values=None):
-        # the party(s) that are responsible for payment (or part of) of charges
-        # applied to this account (including self-pay).  a coverage may only be
-        # resposible for specific types of charges, and the sequence of the
-        # coverages in the account could be important when processing billing.
         self.coverage = None
         # reference to Reference: identifier
 
-        # the priority of the coverage in the context of this account.
         self.priority = None
-        # type = int
+        # type: int
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Account_Coverage',
-            'child_variable': 'coverage'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Account_Coverage',
+             'child_variable': 'coverage'},
         ]
 
+
 class Account_Guarantor(fhirbase):
-    """A financial tool for tracking value accrued for a particular purpose.
+    """
+    A financial tool for tracking value accrued for a particular purpose.
     In the healthcare field, used to track charges for a patient, cost
     centers, etc.
+
+    Attributes:
+        party: The entity who is responsible.
+        onHold: A guarantor may be placed on credit hold or otherwise have
+            their role temporarily suspended.
+        period: The timeframe during which the guarantor accepts
+            responsibility for the account.
     """
 
+    __name__ = 'Account_Guarantor'
+
     def __init__(self, dict_values=None):
-        # the entity who is responsible.
         self.party = None
         # reference to Reference: identifier
 
-        # a guarantor may be placed on credit hold or otherwise have their role
-        # temporarily suspended.
         self.onHold = None
-        # type = boolean
+        # type: boolean
 
-        # the timeframe during which the guarantor accepts responsibility for the
-        # account.
         self.period = None
-        # reference to Period: Period
+        # reference to Period
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Account_Guarantor',
-            'child_variable': 'party'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Account_Guarantor',
+             'child_variable': 'party'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Account_Guarantor',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Account_Guarantor',
+             'child_variable': 'period'},
         ]
-

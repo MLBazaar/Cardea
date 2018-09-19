@@ -1,222 +1,238 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .ContactPoint import ContactPoint
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class PractitionerRole(fhirbase):
-    """A specific set of Roles/Locations/specialties/services that a
+    """
+    A specific set of Roles/Locations/specialties/services that a
     practitioner may perform at an organization for a period of time.
+
+    Attributes:
+        resourceType: This is a PractitionerRole resource
+        identifier: Business Identifiers that are specific to a role/location.
+        active: Whether this practitioner's record is in active use.
+        period: The period during which the person is authorized to act as a
+            practitioner in these role(s) for the organization.
+        practitioner: Practitioner that is able to provide the defined
+            services for the organation.
+        organization: The organization where the Practitioner performs the
+            roles associated.
+        code: Roles which this practitioner is authorized to perform for the
+            organization.
+        specialty: Specific specialty of the practitioner.
+        location: The location(s) at which this practitioner provides care.
+        healthcareService: The list of healthcare services that this worker
+            provides for this role's Organization/Location(s).
+        telecom: Contact details that are specific to the
+            role/location/service.
+        availableTime: A collection of times that the Service Site is
+            available.
+        notAvailable: The HealthcareService is not available during this
+            period of time due to the provided reason.
+        availabilityExceptions: A description of site availability exceptions,
+            e.g. public holiday availability. Succinctly describing all possible
+            exceptions to normal site availability as details in the available
+            Times and not available Times.
+        endpoint: Technical endpoints providing access to services operated
+            for the practitioner with this role.
     """
 
+    __name__ = 'PractitionerRole'
+
     def __init__(self, dict_values=None):
-        # this is a practitionerrole resource
         self.resourceType = 'PractitionerRole'
-        # type = string
-        # possible values = PractitionerRole
+        # type: string
+        # possible values: PractitionerRole
 
-        # whether this practitioner's record is in active use.
         self.active = None
-        # type = boolean
+        # type: boolean
 
-        # the period during which the person is authorized to act as a
-        # practitioner in these role(s) for the organization.
         self.period = None
-        # reference to Period: Period
+        # reference to Period
 
-        # practitioner that is able to provide the defined services for the
-        # organation.
         self.practitioner = None
         # reference to Reference: identifier
 
-        # the organization where the practitioner performs the roles associated.
         self.organization = None
         # reference to Reference: identifier
 
-        # roles which this practitioner is authorized to perform for the
-        # organization.
         self.code = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # specific specialty of the practitioner.
         self.specialty = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # the location(s) at which this practitioner provides care.
         self.location = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # the list of healthcare services that this worker provides for this
-        # role's organization/location(s).
         self.healthcareService = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # contact details that are specific to the role/location/service.
         self.telecom = None
-        # type = array
-        # reference to ContactPoint: ContactPoint
+        # type: array
+        # reference to ContactPoint
 
-        # a collection of times that the service site is available.
         self.availableTime = None
-        # type = array
-        # reference to PractitionerRole_AvailableTime: PractitionerRole_AvailableTime
+        # type: array
+        # reference to PractitionerRole_AvailableTime
 
-        # the healthcareservice is not available during this period of time due to
-        # the provided reason.
         self.notAvailable = None
-        # type = array
-        # reference to PractitionerRole_NotAvailable: PractitionerRole_NotAvailable
+        # type: array
+        # reference to PractitionerRole_NotAvailable
 
-        # a description of site availability exceptions, e.g. public holiday
-        # availability. succinctly describing all possible exceptions to normal
-        # site availability as details in the available times and not available
-        # times.
         self.availabilityExceptions = None
-        # type = string
+        # type: string
 
-        # technical endpoints providing access to services operated for the
-        # practitioner with this role.
         self.endpoint = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # business identifiers that are specific to a role/location.
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'healthcareService'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'organization'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'endpoint'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'specialty'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'PractitionerRole_AvailableTime',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'availableTime'},
-
-            {'parent_entity': 'PractitionerRole_NotAvailable',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'notAvailable'},
-
-            {'parent_entity': 'ContactPoint',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'telecom'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'location'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'healthcareService'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'period'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'PractitionerRole',
-            'child_variable': 'practitioner'},
+             'parent_variable': 'identifier',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'practitioner'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'specialty'},
+
+            {'parent_entity': 'PractitionerRole_NotAvailable',
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'notAvailable'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'endpoint'},
+
+            {'parent_entity': 'ContactPoint',
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'telecom'},
+
+            {'parent_entity': 'PractitionerRole_AvailableTime',
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'availableTime'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'organization'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'PractitionerRole',
+             'child_variable': 'location'},
         ]
 
+
 class PractitionerRole_AvailableTime(fhirbase):
-    """A specific set of Roles/Locations/specialties/services that a
+    """
+    A specific set of Roles/Locations/specialties/services that a
     practitioner may perform at an organization for a period of time.
+
+    Attributes:
+        daysOfWeek: Indicates which days of the week are available between the
+            start and end Times.
+        allDay: Is this always available? (hence times are irrelevant) e.g. 24
+            hour service.
+        availableStartTime: The opening time of day. Note: If the AllDay flag
+            is set, then this time is ignored.
+        availableEndTime: The closing time of day. Note: If the AllDay flag is
+            set, then this time is ignored.
     """
 
+    __name__ = 'PractitionerRole_AvailableTime'
+
     def __init__(self, dict_values=None):
-        # indicates which days of the week are available between the start and end
-        # times.
         self.daysOfWeek = None
-        # type = array
+        # type: array
 
-        # is this always available? (hence times are irrelevant) e.g. 24 hour
-        # service.
         self.allDay = None
-        # type = boolean
+        # type: boolean
 
-        # the opening time of day. note: if the allday flag is set, then this time
-        # is ignored.
         self.availableStartTime = None
-        # type = string
+        # type: string
 
-        # the closing time of day. note: if the allday flag is set, then this time
-        # is ignored.
         self.availableEndTime = None
-        # type = string
+        # type: string
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class PractitionerRole_NotAvailable(fhirbase):
-    """A specific set of Roles/Locations/specialties/services that a
+    """
+    A specific set of Roles/Locations/specialties/services that a
     practitioner may perform at an organization for a period of time.
+
+    Attributes:
+        description: The reason that can be presented to the user as to why
+            this time is not available.
+        during: Service is not available (seasonally or for a public holiday)
+            from this date.
     """
 
+    __name__ = 'PractitionerRole_NotAvailable'
+
     def __init__(self, dict_values=None):
-        # the reason that can be presented to the user as to why this time is not
-        # available.
         self.description = None
-        # type = string
+        # type: string
 
-        # service is not available (seasonally or for a public holiday) from this
-        # date.
         self.during = None
-        # reference to Period: Period
+        # reference to Period
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'PractitionerRole_NotAvailable',
-            'child_variable': 'during'},
+             'parent_variable': 'object_id',
+             'child_entity': 'PractitionerRole_NotAvailable',
+             'child_variable': 'during'},
         ]
-

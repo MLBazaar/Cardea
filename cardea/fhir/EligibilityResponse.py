@@ -1,339 +1,373 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class EligibilityResponse(fhirbase):
-    """This resource provides eligibility and plan details from the processing
-    of an Eligibility resource.
+    """
+    This resource provides eligibility and plan details from the
+    processing of an Eligibility resource.
+
+    Attributes:
+        resourceType: This is a EligibilityResponse resource
+        identifier: The Response business identifier.
+        status: The status of the resource instance.
+        created: The date when the enclosed suite of services were performed
+            or completed.
+        requestProvider: The practitioner who is responsible for the services
+            rendered to the patient.
+        requestOrganization: The organization which is responsible for the
+            services rendered to the patient.
+        request: Original request resource reference.
+        outcome: Transaction status: error, complete.
+        disposition: A description of the status of the adjudication.
+        insurer: The Insurer who produced this adjudicated response.
+        inforce: Flag indicating if the coverage provided is inforce currently
+            if no service date(s) specified or for the whole duration of the
+            service dates.
+        insurance: The insurer may provide both the details for the requested
+            coverage as well as details for additional coverages known to the
+            insurer.
+        form: The form to be used for printing the content.
+        error: Mutually exclusive with Services Provided (Item).
     """
 
+    __name__ = 'EligibilityResponse'
+
     def __init__(self, dict_values=None):
-        # this is a eligibilityresponse resource
         self.resourceType = 'EligibilityResponse'
-        # type = string
-        # possible values = EligibilityResponse
+        # type: string
+        # possible values: EligibilityResponse
 
-        # the status of the resource instance.
         self.status = None
-        # type = string
+        # type: string
 
-        # the date when the enclosed suite of services were performed or
-        # completed.
         self.created = None
-        # type = string
+        # type: string
 
-        # the practitioner who is responsible for the services rendered to the
-        # patient.
         self.requestProvider = None
         # reference to Reference: identifier
 
-        # the organization which is responsible for the services rendered to the
-        # patient.
         self.requestOrganization = None
         # reference to Reference: identifier
 
-        # original request resource reference.
         self.request = None
         # reference to Reference: identifier
 
-        # transaction status: error, complete.
         self.outcome = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # a description of the status of the adjudication.
         self.disposition = None
-        # type = string
+        # type: string
 
-        # the insurer who produced this adjudicated response.
         self.insurer = None
         # reference to Reference: identifier
 
-        # flag indicating if the coverage provided is inforce currently  if no
-        # service date(s) specified or for the whole duration of the service
-        # dates.
         self.inforce = None
-        # type = boolean
+        # type: boolean
 
-        # the insurer may provide both the details for the requested coverage as
-        # well as details for additional coverages known to the insurer.
         self.insurance = None
-        # type = array
-        # reference to EligibilityResponse_Insurance: EligibilityResponse_Insurance
+        # type: array
+        # reference to EligibilityResponse_Insurance
 
-        # the form to be used for printing the content.
         self.form = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # mutually exclusive with services provided (item).
         self.error = None
-        # type = array
-        # reference to EligibilityResponse_Error: EligibilityResponse_Error
+        # type: array
+        # reference to EligibilityResponse_Error
 
-        # the response business identifier.
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse',
-            'child_variable': 'form'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'requestOrganization'},
 
             {'parent_entity': 'EligibilityResponse_Insurance',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse',
-            'child_variable': 'insurance'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'insurance'},
 
             {'parent_entity': 'EligibilityResponse_Error',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse',
-            'child_variable': 'error'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'error'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'insurer'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'requestProvider'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse',
-            'child_variable': 'outcome'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'outcome'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'form'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EligibilityResponse',
-            'child_variable': 'requestProvider'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EligibilityResponse',
-            'child_variable': 'requestOrganization'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EligibilityResponse',
-            'child_variable': 'request'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EligibilityResponse',
-            'child_variable': 'insurer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'EligibilityResponse',
+             'child_variable': 'request'},
         ]
 
+
 class EligibilityResponse_Insurance(fhirbase):
-    """This resource provides eligibility and plan details from the processing
-    of an Eligibility resource.
+    """
+    This resource provides eligibility and plan details from the
+    processing of an Eligibility resource.
+
+    Attributes:
+        coverage: A suite of updated or additional Coverages from the Insurer.
+        contract: The contract resource which may provide more detailed
+            information.
+        benefitBalance: Benefits and optionally current balances by Category.
     """
 
+    __name__ = 'EligibilityResponse_Insurance'
+
     def __init__(self, dict_values=None):
-        # a suite of updated or additional coverages from the insurer.
         self.coverage = None
         # reference to Reference: identifier
 
-        # the contract resource which may provide more detailed information.
         self.contract = None
         # reference to Reference: identifier
 
-        # benefits and optionally current balances by category.
         self.benefitBalance = None
-        # type = array
-        # reference to EligibilityResponse_BenefitBalance: EligibilityResponse_BenefitBalance
+        # type: array
+        # reference to EligibilityResponse_BenefitBalance
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EligibilityResponse_Insurance',
+             'child_variable': 'coverage'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'EligibilityResponse_Insurance',
+             'child_variable': 'contract'},
+
             {'parent_entity': 'EligibilityResponse_BenefitBalance',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse_Insurance',
-            'child_variable': 'benefitBalance'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EligibilityResponse_Insurance',
-            'child_variable': 'contract'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'EligibilityResponse_Insurance',
-            'child_variable': 'coverage'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_Insurance',
+             'child_variable': 'benefitBalance'},
         ]
+
 
 class EligibilityResponse_BenefitBalance(fhirbase):
-    """This resource provides eligibility and plan details from the processing
-    of an Eligibility resource.
+    """
+    This resource provides eligibility and plan details from the
+    processing of an Eligibility resource.
+
+    Attributes:
+        category: Dental, Vision, Medical, Pharmacy, Rehab etc.
+        subCategory: Dental: basic, major, ortho; Vision exam, glasses,
+            contacts; etc.
+        excluded: True if the indicated class of service is excluded from the
+            plan, missing or False indicated the service is included in the
+            coverage.
+        name: A short name or tag for the benefit, for example MED01, or
+            DENT2.
+        description: A richer description of the benefit, for example 'DENT2
+            covers 100% of basic, 50% of major but exclused Ortho, Implants and
+            Costmetic services'.
+        network: Network designation.
+        unit: Unit designation: individual or family.
+        term: The term or period of the values such as 'maximum lifetime
+            benefit' or 'maximum annual vistis'.
+        financial: Benefits Used to date.
     """
 
+    __name__ = 'EligibilityResponse_BenefitBalance'
+
     def __init__(self, dict_values=None):
-        # dental, vision, medical, pharmacy, rehab etc.
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # dental: basic, major, ortho; vision exam, glasses, contacts; etc.
         self.subCategory = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # true if the indicated class of service is excluded from the plan,
-        # missing or false indicated the service is included in the coverage.
         self.excluded = None
-        # type = boolean
+        # type: boolean
 
-        # a short name or tag for the benefit, for example med01, or dent2.
         self.name = None
-        # type = string
+        # type: string
 
-        # a richer description of the benefit, for example 'dent2 covers 100% of
-        # basic, 50% of major but exclused ortho, implants and costmetic
-        # services'.
         self.description = None
-        # type = string
+        # type: string
 
-        # network designation.
         self.network = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # unit designation: individual or family.
         self.unit = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the term or period of the values such as 'maximum lifetime benefit' or
-        # 'maximum annual vistis'.
         self.term = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # benefits used to date.
         self.financial = None
-        # type = array
-        # reference to EligibilityResponse_Financial: EligibilityResponse_Financial
+        # type: array
+        # reference to EligibilityResponse_Financial
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_BenefitBalance',
+             'child_variable': 'unit'},
+
             {'parent_entity': 'EligibilityResponse_Financial',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse_BenefitBalance',
-            'child_variable': 'financial'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_BenefitBalance',
+             'child_variable': 'financial'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse_BenefitBalance',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_BenefitBalance',
+             'child_variable': 'network'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse_BenefitBalance',
-            'child_variable': 'unit'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_BenefitBalance',
+             'child_variable': 'subCategory'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse_BenefitBalance',
-            'child_variable': 'term'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_BenefitBalance',
+             'child_variable': 'category'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse_BenefitBalance',
-            'child_variable': 'network'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse_BenefitBalance',
-            'child_variable': 'subCategory'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_BenefitBalance',
+             'child_variable': 'term'},
         ]
+
 
 class EligibilityResponse_Financial(fhirbase):
-    """This resource provides eligibility and plan details from the processing
-    of an Eligibility resource.
+    """
+    This resource provides eligibility and plan details from the
+    processing of an Eligibility resource.
+
+    Attributes:
+        type: Deductable, visits, benefit amount.
+        allowedUnsignedInt: Benefits allowed.
+        allowedString: Benefits allowed.
+        allowedMoney: Benefits allowed.
+        usedUnsignedInt: Benefits used.
+        usedMoney: Benefits used.
     """
 
+    __name__ = 'EligibilityResponse_Financial'
+
     def __init__(self, dict_values=None):
-        # deductable, visits, benefit amount.
         self.type = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # benefits allowed.
         self.allowedUnsignedInt = None
-        # type = int
+        # type: int
 
-        # benefits allowed.
         self.allowedString = None
-        # type = string
+        # type: string
 
-        # benefits allowed.
         self.allowedMoney = None
-        # reference to Money: Money
+        # reference to Money
 
-        # benefits used.
         self.usedUnsignedInt = None
-        # type = int
+        # type: int
 
-        # benefits used.
         self.usedMoney = None
-        # reference to Money: Money
+        # reference to Money
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse_Financial',
-            'child_variable': 'allowedMoney'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_Financial',
+             'child_variable': 'usedMoney'},
 
             {'parent_entity': 'Money',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse_Financial',
-            'child_variable': 'usedMoney'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_Financial',
+             'child_variable': 'allowedMoney'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse_Financial',
-            'child_variable': 'type'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_Financial',
+             'child_variable': 'type'},
         ]
+
 
 class EligibilityResponse_Error(fhirbase):
-    """This resource provides eligibility and plan details from the processing
-    of an Eligibility resource.
+    """
+    This resource provides eligibility and plan details from the
+    processing of an Eligibility resource.
+
+    Attributes:
+        code: An error code,from a specified code system, which details why
+            the eligibility check could not be performed.
     """
 
-    def __init__(self, dict_values=None):
-        # an error code,from a specified code system, which details why the
-        # eligibility check could not be performed.
-        self.code = None
-        # reference to CodeableConcept: CodeableConcept
+    __name__ = 'EligibilityResponse_Error'
 
+    def __init__(self, dict_values=None):
+        self.code = None
+        # reference to CodeableConcept
+
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'EligibilityResponse_Error',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'EligibilityResponse_Error',
+             'child_variable': 'code'},
         ]
-

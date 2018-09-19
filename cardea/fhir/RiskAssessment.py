@@ -1,254 +1,268 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class RiskAssessment(fhirbase):
-    """An assessment of the likely outcome(s) for a patient or other subject as
-    well as the likelihood of each outcome.
+    """
+    An assessment of the likely outcome(s) for a patient or other subject
+    as well as the likelihood of each outcome.
+
+    Attributes:
+        resourceType: This is a RiskAssessment resource
+        identifier: Business identifier assigned to the risk assessment.
+        basedOn: A reference to the request that is fulfilled by this risk
+            assessment.
+        parent: A reference to a resource that this risk assessment is part
+            of, such as a Procedure.
+        status: The status of the RiskAssessment, using the same statuses as
+            an Observation.
+        method: The algorithm, process or mechanism used to evaluate the risk.
+        code: The type of the risk assessment performed.
+        subject: The patient or group the risk assessment applies to.
+        context: The encounter where the assessment was performed.
+        occurrenceDateTime: The date (and possibly time) the risk assessment
+            was performed.
+        occurrencePeriod: The date (and possibly time) the risk assessment was
+            performed.
+        condition: For assessments or prognosis specific to a particular
+            condition, indicates the condition being assessed.
+        performer: The provider or software application that performed the
+            assessment.
+        reasonCodeableConcept: The reason the risk assessment was performed.
+        reasonReference: The reason the risk assessment was performed.
+        basis: Indicates the source data considered as part of the assessment
+            (FamilyHistory, Observations, Procedures, Conditions, etc.).
+        prediction: Describes the expected outcome for the subject.
+        mitigation: A description of the steps that might be taken to reduce
+            the identified risk(s).
+        comment: Additional comments about the risk assessment.
     """
 
-    def __init__(self, dict_values=None):
-        # this is a riskassessment resource
-        self.resourceType = 'RiskAssessment'
-        # type = string
-        # possible values = RiskAssessment
+    __name__ = 'RiskAssessment'
 
-        # a reference to the request that is fulfilled by this risk assessment.
+    def __init__(self, dict_values=None):
+        self.resourceType = 'RiskAssessment'
+        # type: string
+        # possible values: RiskAssessment
+
         self.basedOn = None
         # reference to Reference: identifier
 
-        # a reference to a resource that this risk assessment is part of, such as
-        # a procedure.
         self.parent = None
         # reference to Reference: identifier
 
-        # the status of the riskassessment, using the same statuses as an
-        # observation.
         self.status = None
-        # type = string
+        # type: string
 
-        # the algorithm, process or mechanism used to evaluate the risk.
         self.method = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the type of the risk assessment performed.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the patient or group the risk assessment applies to.
         self.subject = None
         # reference to Reference: identifier
 
-        # the encounter where the assessment was performed.
         self.context = None
         # reference to Reference: identifier
 
-        # the date (and possibly time) the risk assessment was performed.
         self.occurrenceDateTime = None
-        # type = string
+        # type: string
 
-        # the date (and possibly time) the risk assessment was performed.
         self.occurrencePeriod = None
-        # reference to Period: Period
+        # reference to Period
 
-        # for assessments or prognosis specific to a particular condition,
-        # indicates the condition being assessed.
         self.condition = None
         # reference to Reference: identifier
 
-        # the provider or software application that performed the assessment.
         self.performer = None
         # reference to Reference: identifier
 
-        # the reason the risk assessment was performed.
         self.reasonCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the reason the risk assessment was performed.
         self.reasonReference = None
         # reference to Reference: identifier
 
-        # indicates the source data considered as part of the assessment
-        # (familyhistory, observations, procedures, conditions, etc.).
         self.basis = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # describes the expected outcome for the subject.
         self.prediction = None
-        # type = array
-        # reference to RiskAssessment_Prediction: RiskAssessment_Prediction
+        # type: array
+        # reference to RiskAssessment_Prediction
 
-        # a description of the steps that might be taken to reduce the identified
-        # risk(s).
         self.mitigation = None
-        # type = string
+        # type: string
 
-        # additional comments about the risk assessment.
         self.comment = None
-        # type = string
+        # type: string
 
-        # business identifier assigned to the risk assessment.
         self.identifier = None
-        # reference to Identifier: Identifier
-
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'occurrencePeriod'},
-
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'context'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'method'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'code'},
 
             {'parent_entity': 'RiskAssessment_Prediction',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'prediction'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'prediction'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'parent'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'condition'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'reasonReference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'parent'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'basedOn'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'performer'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'condition'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'occurrencePeriod'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'basis'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'reasonReference'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'performer'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'identifier'},
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'basedOn'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment',
-            'child_variable': 'reasonCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'method'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'basis'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'reasonCodeableConcept'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment',
+             'child_variable': 'identifier'},
         ]
 
+
 class RiskAssessment_Prediction(fhirbase):
-    """An assessment of the likely outcome(s) for a patient or other subject as
-    well as the likelihood of each outcome.
+    """
+    An assessment of the likely outcome(s) for a patient or other subject
+    as well as the likelihood of each outcome.
+
+    Attributes:
+        outcome: One of the potential outcomes for the patient (e.g.
+            remission, death,  a particular condition).
+        probabilityDecimal: How likely is the outcome (in the specified
+            timeframe).
+        probabilityRange: How likely is the outcome (in the specified
+            timeframe).
+        qualitativeRisk: How likely is the outcome (in the specified
+            timeframe), expressed as a qualitative value (e.g. low, medium, high).
+        relativeRisk: Indicates the risk for this particular subject (with
+            their specific characteristics) divided by the risk of the population
+            in general.  (Numbers greater than 1 = higher risk than the
+            population, numbers less than 1 = lower risk.).
+        whenPeriod: Indicates the period of time or age range of the subject
+            to which the specified probability applies.
+        whenRange: Indicates the period of time or age range of the subject to
+            which the specified probability applies.
+        rationale: Additional information explaining the basis for the
+            prediction.
     """
 
+    __name__ = 'RiskAssessment_Prediction'
+
     def __init__(self, dict_values=None):
-        # one of the potential outcomes for the patient (e.g. remission, death,  a
-        # particular condition).
         self.outcome = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # how likely is the outcome (in the specified timeframe).
         self.probabilityDecimal = None
-        # type = int
+        # type: int
 
-        # how likely is the outcome (in the specified timeframe).
         self.probabilityRange = None
-        # reference to Range: Range
+        # reference to Range
 
-        # how likely is the outcome (in the specified timeframe), expressed as a
-        # qualitative value (e.g. low, medium, high).
         self.qualitativeRisk = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # indicates the risk for this particular subject (with their specific
-        # characteristics) divided by the risk of the population in general.
-        # (numbers greater than 1 = higher risk than the population, numbers less
-        # than 1 = lower risk.).
         self.relativeRisk = None
-        # type = int
+        # type: int
 
-        # indicates the period of time or age range of the subject to which the
-        # specified probability applies.
         self.whenPeriod = None
-        # reference to Period: Period
+        # reference to Period
 
-        # indicates the period of time or age range of the subject to which the
-        # specified probability applies.
         self.whenRange = None
-        # reference to Range: Range
+        # reference to Range
 
-        # additional information explaining the basis for the prediction.
         self.rationale = None
-        # type = string
+        # type: string
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment_Prediction',
-            'child_variable': 'outcome'},
-
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment_Prediction',
-            'child_variable': 'whenPeriod'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment_Prediction',
-            'child_variable': 'probabilityRange'},
-
-            {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment_Prediction',
-            'child_variable': 'whenRange'},
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'whenPeriod'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'RiskAssessment_Prediction',
-            'child_variable': 'qualitativeRisk'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'qualitativeRisk'},
 
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'whenRange'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'outcome'},
+
+            {'parent_entity': 'Range',
+             'parent_variable': 'object_id',
+             'child_entity': 'RiskAssessment_Prediction',
+             'child_variable': 'probabilityRange'},
+        ]

@@ -1,331 +1,348 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Annotation import Annotation
-from .Timing import Timing
-from .Reference import Reference
-from .Period import Period
+from .fhirbase import fhirbase
+
 
 class ProcedureRequest(fhirbase):
-    """A record of a request for diagnostic investigations, treatments, or
+    """
+    A record of a request for diagnostic investigations, treatments, or
     operations to be performed.
+
+    Attributes:
+        resourceType: This is a ProcedureRequest resource
+        identifier: Identifiers assigned to this order instance by the orderer
+            and/or the receiver and/or order fulfiller.
+        definition: Protocol or definition followed by this request.
+        basedOn: Plan/proposal/order fulfilled by this request.
+        replaces: The request takes the place of the referenced completed or
+            terminated request(s).
+        requisition: A shared identifier common to all procedure or diagnostic
+            requests that were authorized more or less simultaneously by a single
+            author, representing the composite or group identifier.
+        status: The status of the order.
+        intent: Whether the request is a proposal, plan, an original order or
+            a reflex order.
+        priority: Indicates how quickly the ProcedureRequest should be
+            addressed with respect to other requests.
+        doNotPerform: Set this to true if the record is saying that the
+            procedure should NOT be performed.
+        category: A code that classifies the procedure for searching, sorting
+            and display purposes (e.g. "Surgical Procedure").
+        code: A code that identifies a particular procedure, diagnostic
+            investigation, or panel of investigations, that have been requested.
+        subject: On whom or what the procedure or diagnostic is to be
+            performed. This is usually a human patient, but can also be requested
+            on animals, groups of humans or animals, devices such as dialysis
+            machines, or even locations (typically for environmental scans).
+        context: An encounter or episode of care that provides additional
+            information about the healthcare context in which this request is
+            made.
+        occurrenceDateTime: The date/time at which the diagnostic testing
+            should occur.
+        occurrencePeriod: The date/time at which the diagnostic testing should
+            occur.
+        occurrenceTiming: The date/time at which the diagnostic testing should
+            occur.
+        asNeededBoolean: If a CodeableConcept is present, it indicates the
+            pre-condition for performing the procedure.  For example "pain", "on
+            flare-up", etc.
+        asNeededCodeableConcept: If a CodeableConcept is present, it indicates
+            the pre-condition for performing the procedure.  For example "pain",
+            "on flare-up", etc.
+        authoredOn: When the request transitioned to being actionable.
+        requester: The individual who initiated the request and has
+            responsibility for its activation.
+        performerType: Desired type of performer for doing the diagnostic
+            testing.
+        performer: The desired perfomer for doing the diagnostic testing.  For
+            example, the surgeon, dermatopathologist, endoscopist, etc.
+        reasonCode: An explanation or justification for why this diagnostic
+            investigation is being requested in coded or textual form.   This is
+            often for billing purposes.  May relate to the resources referred to
+            in supportingInformation.
+        reasonReference: Indicates another resource that provides a
+            justification for why this diagnostic investigation is being
+            requested.   May relate to the resources referred to in
+            supportingInformation.
+        supportingInfo: Additional clinical information about the patient or
+            specimen that may influence the procedure or diagnostics or their
+            interpretations.     This information includes diagnosis, clinical
+            findings and other observations.  In laboratory ordering these are
+            typically referred to as "ask at order entry questions (AOEs)".  This
+            includes observations explicitly requested by the producer (filler) to
+            provide context or supporting information needed to complete the
+            order. For example,  reporting the amount of inspired oxygen for blood
+            gas measurements.
+        specimen: One or more specimens that the laboratory procedure will
+            use.
+        bodySite: Anatomic location where the procedure should be performed.
+            This is the target site.
+        note: Any other notes and comments made about the service request. For
+            example, letting provider know that "patient hates needles" or other
+            provider instructions.
+        relevantHistory: Key events in the history of the request.
     """
 
+    __name__ = 'ProcedureRequest'
+
     def __init__(self, dict_values=None):
-        # this is a procedurerequest resource
         self.resourceType = 'ProcedureRequest'
-        # type = string
-        # possible values = ProcedureRequest
+        # type: string
+        # possible values: ProcedureRequest
 
-        # protocol or definition followed by this request.
         self.definition = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # plan/proposal/order fulfilled by this request.
         self.basedOn = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # the request takes the place of the referenced completed or terminated
-        # request(s).
         self.replaces = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # a shared identifier common to all procedure or diagnostic requests that
-        # were authorized more or less simultaneously by a single author,
-        # representing the composite or group identifier.
         self.requisition = None
-        # reference to Identifier: Identifier
+        # reference to Identifier
 
-        # the status of the order.
         self.status = None
-        # type = string
+        # type: string
 
-        # whether the request is a proposal, plan, an original order or a reflex
-        # order.
         self.intent = None
-        # type = string
+        # type: string
 
-        # indicates how quickly the procedurerequest should be addressed with
-        # respect to other requests.
         self.priority = None
-        # type = string
+        # type: string
 
-        # set this to true if the record is saying that the procedure should not
-        # be performed.
         self.doNotPerform = None
-        # type = boolean
+        # type: boolean
 
-        # a code that classifies the procedure for searching, sorting and display
-        # purposes (e.g. "surgical procedure").
         self.category = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # a code that identifies a particular procedure, diagnostic investigation,
-        # or panel of investigations, that have been requested.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # on whom or what the procedure or diagnostic is to be performed. this is
-        # usually a human patient, but can also be requested on animals, groups of
-        # humans or animals, devices such as dialysis machines, or even locations
-        # (typically for environmental scans).
         self.subject = None
         # reference to Reference: identifier
 
-        # an encounter or episode of care that provides additional information
-        # about the healthcare context in which this request is made.
         self.context = None
         # reference to Reference: identifier
 
-        # the date/time at which the diagnostic testing should occur.
         self.occurrenceDateTime = None
-        # type = string
+        # type: string
 
-        # the date/time at which the diagnostic testing should occur.
         self.occurrencePeriod = None
-        # reference to Period: Period
+        # reference to Period
 
-        # the date/time at which the diagnostic testing should occur.
         self.occurrenceTiming = None
-        # reference to Timing: Timing
+        # reference to Timing
 
-        # if a codeableconcept is present, it indicates the pre-condition for
-        # performing the procedure.  for example "pain", "on flare-up", etc.
         self.asNeededBoolean = None
-        # type = boolean
+        # type: boolean
 
-        # if a codeableconcept is present, it indicates the pre-condition for
-        # performing the procedure.  for example "pain", "on flare-up", etc.
         self.asNeededCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # when the request transitioned to being actionable.
         self.authoredOn = None
-        # type = string
+        # type: string
 
-        # the individual who initiated the request and has responsibility for its
-        # activation.
         self.requester = None
-        # reference to ProcedureRequest_Requester: ProcedureRequest_Requester
+        # reference to ProcedureRequest_Requester
 
-        # desired type of performer for doing the diagnostic testing.
         self.performerType = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the desired perfomer for doing the diagnostic testing.  for example, the
-        # surgeon, dermatopathologist, endoscopist, etc.
         self.performer = None
         # reference to Reference: identifier
 
-        # an explanation or justification for why this diagnostic investigation is
-        # being requested in coded or textual form.   this is often for billing
-        # purposes.  may relate to the resources referred to in
-        # supportinginformation.
         self.reasonCode = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # indicates another resource that provides a justification for why this
-        # diagnostic investigation is being requested.   may relate to the
-        # resources referred to in supportinginformation.
         self.reasonReference = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # additional clinical information about the patient or specimen that may
-        # influence the procedure or diagnostics or their interpretations.
-        # this information includes diagnosis, clinical findings and other
-        # observations.  in laboratory ordering these are typically referred to as
-        # "ask at order entry questions (aoes)".  this includes observations
-        # explicitly requested by the producer (filler) to provide context or
-        # supporting information needed to complete the order. for example,
-        # reporting the amount of inspired oxygen for blood gas measurements.
         self.supportingInfo = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # one or more specimens that the laboratory procedure will use.
         self.specimen = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # anatomic location where the procedure should be performed. this is the
-        # target site.
         self.bodySite = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # any other notes and comments made about the service request. for
-        # example, letting provider know that "patient hates needles" or other
-        # provider instructions.
         self.note = None
-        # type = array
-        # reference to Annotation: Annotation
+        # type: array
+        # reference to Annotation
 
-        # key events in the history of the request.
         self.relevantHistory = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # identifiers assigned to this order instance by the orderer and/or the
-        # receiver and/or order fulfiller.
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'performer'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'replaces'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'performer'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'reasonReference'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'identifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'asNeededCodeableConcept'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'asNeededCodeableConcept'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'relevantHistory'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'supportingInfo'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'reasonCode'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'performerType'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'replaces'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'specimen'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'requisition'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'bodySite'},
-
-            {'parent_entity': 'Annotation',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'note'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'basedOn'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'definition'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'ProcedureRequest_Requester',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'requester'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'performerType'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'occurrencePeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'occurrencePeriod'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'basedOn'},
 
             {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'ProcedureRequest',
-            'child_variable': 'occurrenceTiming'},
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'occurrenceTiming'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'bodySite'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'specimen'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'requisition'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'subject'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'definition'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'relevantHistory'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'reasonCode'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'context'},
+
+            {'parent_entity': 'ProcedureRequest_Requester',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'requester'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'supportingInfo'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'reasonReference'},
+
+            {'parent_entity': 'Annotation',
+             'parent_variable': 'object_id',
+             'child_entity': 'ProcedureRequest',
+             'child_variable': 'note'},
         ]
 
+
 class ProcedureRequest_Requester(fhirbase):
-    """A record of a request for diagnostic investigations, treatments, or
+    """
+    A record of a request for diagnostic investigations, treatments, or
     operations to be performed.
+
+    Attributes:
+        agent: The device, practitioner or organization who initiated the
+            request.
+        onBehalfOf: The organization the device or practitioner was acting on
+            behalf of.
     """
 
+    __name__ = 'ProcedureRequest_Requester'
+
     def __init__(self, dict_values=None):
-        # the device, practitioner or organization who initiated the request.
         self.agent = None
         # reference to Reference: identifier
 
-        # the organization the device or practitioner was acting on behalf of.
         self.onBehalfOf = None
         # reference to Reference: identifier
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest_Requester',
-            'child_variable': 'onBehalfOf'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest_Requester',
+             'child_variable': 'agent'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'ProcedureRequest_Requester',
-            'child_variable': 'agent'},
+             'parent_variable': 'identifier',
+             'child_entity': 'ProcedureRequest_Requester',
+             'child_variable': 'onBehalfOf'},
         ]
-

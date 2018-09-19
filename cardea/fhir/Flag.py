@@ -1,108 +1,112 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Period import Period
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class Flag(fhirbase):
-    """Prospective warnings of potential issues when providing care to the
+    """
+    Prospective warnings of potential issues when providing care to the
     patient.
+
+    Attributes:
+        resourceType: This is a Flag resource
+        identifier: Identifier assigned to the flag for external use (outside
+            the FHIR environment).
+        status: Supports basic workflow.
+        category: Allows an flag to be divided into different categories like
+            clinical, administrative etc. Intended to be used as a means of
+            filtering which flags are displayed to particular user or in a given
+            context.
+        code: The coded value or textual component of the flag to display to
+            the user.
+        subject: The patient, location, group , organization , or
+            practitioner, etc. this is about record this flag is associated with.
+        period: The period of time from the activation of the flag to
+            inactivation of the flag. If the flag is active, the end of the period
+            should be unspecified.
+        encounter: This alert is only relevant during the encounter.
+        author: The person, organization or device that created the flag.
     """
 
+    __name__ = 'Flag'
+
     def __init__(self, dict_values=None):
-        # this is a flag resource
         self.resourceType = 'Flag'
-        # type = string
-        # possible values = Flag
+        # type: string
+        # possible values: Flag
 
-        # supports basic workflow.
         self.status = None
-        # type = string
-        # possible values = active, inactive, entered-in-error
+        # type: string
+        # possible values: active, inactive, entered-in-error
 
-        # allows an flag to be divided into different categories like clinical,
-        # administrative etc. intended to be used as a means of filtering which
-        # flags are displayed to particular user or in a given context.
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the coded value or textual component of the flag to display to the user.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the patient, location, group , organization , or practitioner, etc. this
-        # is about record this flag is associated with.
         self.subject = None
         # reference to Reference: identifier
 
-        # the period of time from the activation of the flag to inactivation of
-        # the flag. if the flag is active, the end of the period should be
-        # unspecified.
         self.period = None
-        # reference to Period: Period
+        # reference to Period
 
-        # this alert is only relevant during the encounter.
         self.encounter = None
         # reference to Reference: identifier
 
-        # the person, organization or device that created the flag.
         self.author = None
         # reference to Reference: identifier
 
-        # identifier assigned to the flag for external use (outside the fhir
-        # environment).
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['active', 'inactive', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'active, inactive, entered-in-error'))
+                if value is not None and value.lower() not in [
+                        'active', 'inactive', 'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'active, inactive, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Flag',
-            'child_variable': 'identifier'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Flag',
-            'child_variable': 'category'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Flag',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Flag',
-            'child_variable': 'subject'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Flag',
+             'child_variable': 'author'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Flag',
-            'child_variable': 'encounter'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Flag',
-            'child_variable': 'author'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Flag',
-            'child_variable': 'code'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Flag',
+             'child_variable': 'encounter'},
 
             {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Flag',
-            'child_variable': 'period'},
-        ]
+             'parent_variable': 'object_id',
+             'child_entity': 'Flag',
+             'child_variable': 'period'},
 
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Flag',
+             'child_variable': 'category'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Flag',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Flag',
+             'child_variable': 'subject'},
+        ]

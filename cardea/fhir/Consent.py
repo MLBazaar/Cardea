@@ -1,544 +1,602 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Attachment import Attachment
-from .Coding import Coding
+from .fhirbase import fhirbase
+
 
 class Consent(fhirbase):
-    """A record of a healthcare consumer’s policy choices, which permits or
+    """
+    A record of a healthcare consumer’s policy choices, which permits or
     denies identified recipient(s) or recipient role(s) to perform one or
     more actions within a given policy context, for specific purposes and
     periods of time.
+
+    Attributes:
+        resourceType: This is a Consent resource
+        identifier: Unique identifier for this copy of the Consent Statement.
+        status: Indicates the current state of this consent.
+        category: A classification of the type of consents found in the
+            statement. This element supports indexing and retrieval of consent
+            statements.
+        patient: The patient/healthcare consumer to whom this consent applies.
+        period: Relevant time or time-period when this Consent is applicable.
+        dateTime: When this  Consent was issued / created / indexed.
+        consentingParty: Either the Grantor, which is the entity responsible
+            for granting the rights listed in a Consent Directive or the Grantee,
+            which is the entity responsible for complying with the Consent
+            Directive, including any obligations or limitations on authorizations
+            and enforcement of prohibitions.
+        actor: Who or what is controlled by this consent. Use group to
+            identify a set of actors by some property they share (e.g. 'admitting
+            officers').
+        action: Actions controlled by this consent.
+        organization: The organization that manages the consent, and the
+            framework within which it is executed.
+        sourceAttachment: The source on which this consent statement is based.
+            The source might be a scanned original paper form, or a reference to a
+            consent that links back to such a source, a reference to a document
+            repository (e.g. XDS) that stores the original consent document.
+        sourceIdentifier: The source on which this consent statement is based.
+            The source might be a scanned original paper form, or a reference to a
+            consent that links back to such a source, a reference to a document
+            repository (e.g. XDS) that stores the original consent document.
+        sourceReference: The source on which this consent statement is based.
+            The source might be a scanned original paper form, or a reference to a
+            consent that links back to such a source, a reference to a document
+            repository (e.g. XDS) that stores the original consent document.
+        policy: The references to the policies that are included in this
+            consent scope. Policies may be organizational, but are often defined
+            jurisdictionally, or in law.
+        policyRule: A referece to the specific computable policy.
+        securityLabel: A set of security labels that define which resources
+            are controlled by this consent. If more than one label is specified,
+            all resources must have all the specified labels.
+        purpose: The context of the activities a user is taking - why the user
+            is accessing the data - that are controlled by this consent.
+        dataPeriod: Clinical or Operational Relevant period of time that
+            bounds the data controlled by this consent.
+        data: The resources controlled by this consent, if specific resources
+            are referenced.
+        except: An exception to the base policy of this consent. An exception
+            can be an addition or removal of access permissions.
     """
 
+    __name__ = 'Consent'
+
     def __init__(self, dict_values=None):
-        # this is a consent resource
         self.resourceType = 'Consent'
-        # type = string
-        # possible values = Consent
+        # type: string
+        # possible values: Consent
 
-        # indicates the current state of this consent.
         self.status = None
-        # type = string
-        # possible values = draft, proposed, active, rejected, inactive, entered-in-error
+        # type: string
+        # possible values: draft, proposed, active, rejected,
+        # inactive, entered-in-error
 
-        # a classification of the type of consents found in the statement. this
-        # element supports indexing and retrieval of consent statements.
         self.category = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # the patient/healthcare consumer to whom this consent applies.
         self.patient = None
         # reference to Reference: identifier
 
-        # relevant time or time-period when this consent is applicable.
         self.period = None
-        # reference to Period: Period
+        # reference to Period
 
-        # when this  consent was issued / created / indexed.
         self.dateTime = None
-        # type = string
+        # type: string
 
-        # either the grantor, which is the entity responsible for granting the
-        # rights listed in a consent directive or the grantee, which is the entity
-        # responsible for complying with the consent directive, including any
-        # obligations or limitations on authorizations and enforcement of
-        # prohibitions.
         self.consentingParty = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # who or what is controlled by this consent. use group to identify a set
-        # of actors by some property they share (e.g. 'admitting officers').
         self.actor = None
-        # type = array
-        # reference to Consent_Actor: Consent_Actor
+        # type: array
+        # reference to Consent_Actor
 
-        # actions controlled by this consent.
         self.action = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # the organization that manages the consent, and the framework within
-        # which it is executed.
         self.organization = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # the source on which this consent statement is based. the source might be
-        # a scanned original paper form, or a reference to a consent that links
-        # back to such a source, a reference to a document repository (e.g. xds)
-        # that stores the original consent document.
         self.sourceAttachment = None
-        # reference to Attachment: Attachment
+        # reference to Attachment
 
-        # the source on which this consent statement is based. the source might be
-        # a scanned original paper form, or a reference to a consent that links
-        # back to such a source, a reference to a document repository (e.g. xds)
-        # that stores the original consent document.
         self.sourceIdentifier = None
-        # reference to Identifier: Identifier
+        # reference to Identifier
 
-        # the source on which this consent statement is based. the source might be
-        # a scanned original paper form, or a reference to a consent that links
-        # back to such a source, a reference to a document repository (e.g. xds)
-        # that stores the original consent document.
         self.sourceReference = None
         # reference to Reference: identifier
 
-        # the references to the policies that are included in this consent scope.
-        # policies may be organizational, but are often defined jurisdictionally,
-        # or in law.
         self.policy = None
-        # type = array
-        # reference to Consent_Policy: Consent_Policy
+        # type: array
+        # reference to Consent_Policy
 
-        # a referece to the specific computable policy.
         self.policyRule = None
-        # type = string
+        # type: string
 
-        # a set of security labels that define which resources are controlled by
-        # this consent. if more than one label is specified, all resources must
-        # have all the specified labels.
         self.securityLabel = None
-        # type = array
-        # reference to Coding: Coding
+        # type: array
+        # reference to Coding
 
-        # the context of the activities a user is taking - why the user is
-        # accessing the data - that are controlled by this consent.
         self.purpose = None
-        # type = array
-        # reference to Coding: Coding
+        # type: array
+        # reference to Coding
 
-        # clinical or operational relevant period of time that bounds the data
-        # controlled by this consent.
         self.dataPeriod = None
-        # reference to Period: Period
+        # reference to Period
 
-        # the resources controlled by this consent, if specific resources are
-        # referenced.
         self.data = None
-        # type = array
-        # reference to Consent_Data: Consent_Data
+        # type: array
+        # reference to Consent_Data
 
-        # an exception to the base policy of this consent. an exception can be an
-        # addition or removal of access permissions.
         self._except = None
-        # type = array
-        # reference to Consent_Except: Consent_Except
+        # type: array
+        # reference to Consent_Except
 
-        # unique identifier for this copy of the consent statement.
         self.identifier = None
-        # reference to Identifier: Identifier
-
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['draft', 'proposed', 'active', 'rejected', 'inactive', 'entered-in-error']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'draft, proposed, active, rejected, inactive, entered-in-error'))
+                if value is not None and value.lower() not in [
+                    'draft', 'proposed', 'active', 'rejected', 'inactive',
+                        'entered-in-error']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'draft, proposed, active, rejected, inactive, entered-in-error'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent',
-            'child_variable': 'consentingParty'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'securityLabel'},
-
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'action'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent',
-            'child_variable': 'organization'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent',
-            'child_variable': 'sourceReference'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'period'},
-
-            {'parent_entity': 'Consent_Except',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'except'},
-
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'sourceIdentifier'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'dataPeriod'},
-
-            {'parent_entity': 'Consent_Actor',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'actor'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'category'},
-
-            {'parent_entity': 'Consent_Data',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'data'},
-
-            {'parent_entity': 'Consent_Policy',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'policy'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent',
-            'child_variable': 'patient'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'purpose'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'category'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent',
-            'child_variable': 'sourceAttachment'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'sourceAttachment'},
+
+            {'parent_entity': 'Consent_Policy',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'policy'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'securityLabel'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent',
+             'child_variable': 'patient'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent',
+             'child_variable': 'sourceReference'},
+
+            {'parent_entity': 'Consent_Data',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'data'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'period'},
+
+            {'parent_entity': 'Consent_Actor',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'actor'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent',
+             'child_variable': 'organization'},
+
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent',
+             'child_variable': 'consentingParty'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'dataPeriod'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'sourceIdentifier'},
+
+            {'parent_entity': 'Consent_Except',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': '_except'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'action'},
+
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent',
+             'child_variable': 'purpose'},
         ]
 
+
 class Consent_Actor(fhirbase):
-    """A record of a healthcare consumer’s policy choices, which permits or
+    """
+    A record of a healthcare consumer’s policy choices, which permits or
     denies identified recipient(s) or recipient role(s) to perform one or
     more actions within a given policy context, for specific purposes and
     periods of time.
+
+    Attributes:
+        role: How the individual is involved in the resources content that is
+            described in the consent.
+        reference: The resource that identifies the actor. To identify a
+            actors by type, use group to identify a set of actors by some property
+            they share (e.g. 'admitting officers').
     """
 
-    def __init__(self, dict_values=None):
-        # how the individual is involved in the resources content that is
-        # described in the consent.
-        self.role = None
-        # reference to CodeableConcept: CodeableConcept
+    __name__ = 'Consent_Actor'
 
-        # the resource that identifies the actor. to identify a actors by type,
-        # use group to identify a set of actors by some property they share (e.g.
-        # 'admitting officers').
+    def __init__(self, dict_values=None):
+        self.role = None
+        # reference to CodeableConcept
+
         self.reference = None
         # reference to Reference: identifier
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Actor',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Actor',
+             'child_variable': 'role'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent_Actor',
-            'child_variable': 'reference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent_Actor',
+             'child_variable': 'reference'},
         ]
 
+
 class Consent_Policy(fhirbase):
-    """A record of a healthcare consumer’s policy choices, which permits or
+    """
+    A record of a healthcare consumer’s policy choices, which permits or
     denies identified recipient(s) or recipient role(s) to perform one or
     more actions within a given policy context, for specific purposes and
     periods of time.
+
+    Attributes:
+        authority: Entity or Organization having regulatory jurisdiction or
+            accountability for  enforcing policies pertaining to Consent
+            Directives.
+        uri: The references to the policies that are included in this consent
+            scope. Policies may be organizational, but are often defined
+            jurisdictionally, or in law.
     """
 
+    __name__ = 'Consent_Policy'
+
     def __init__(self, dict_values=None):
-        # entity or organization having regulatory jurisdiction or accountability
-        # for  enforcing policies pertaining to consent directives.
         self.authority = None
-        # type = string
+        # type: string
 
-        # the references to the policies that are included in this consent scope.
-        # policies may be organizational, but are often defined jurisdictionally,
-        # or in law.
         self.uri = None
-        # type = string
+        # type: string
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
+            self.set_attributes(dict_values)
 
 
 class Consent_Data(fhirbase):
-    """A record of a healthcare consumer’s policy choices, which permits or
+    """
+    A record of a healthcare consumer’s policy choices, which permits or
     denies identified recipient(s) or recipient role(s) to perform one or
     more actions within a given policy context, for specific purposes and
     periods of time.
+
+    Attributes:
+        meaning: How the resource reference is interpreted when testing
+            consent restrictions.
+        reference: A reference to a specific resource that defines which
+            resources are covered by this consent.
     """
 
-    def __init__(self, dict_values=None):
-        # how the resource reference is interpreted when testing consent
-        # restrictions.
-        self.meaning = None
-        # type = string
-        # possible values = instance, related, dependents, authoredby
+    __name__ = 'Consent_Data'
 
-        # a reference to a specific resource that defines which resources are
-        # covered by this consent.
+    def __init__(self, dict_values=None):
+        self.meaning = None
+        # type: string
+        # possible values: instance, related, dependents, authoredby
+
         self.reference = None
         # reference to Reference: identifier
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.meaning is not None:
             for value in self.meaning:
-                if value != None and value.lower() not in ['instance', 'related', 'dependents', 'authoredby']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'instance, related, dependents, authoredby'))
+                if value is not None and value.lower() not in [
+                        'instance', 'related', 'dependents', 'authoredby']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'instance, related, dependents, authoredby'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent_Data',
-            'child_variable': 'reference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent_Data',
+             'child_variable': 'reference'},
         ]
 
+
 class Consent_Except(fhirbase):
-    """A record of a healthcare consumer’s policy choices, which permits or
+    """
+    A record of a healthcare consumer’s policy choices, which permits or
     denies identified recipient(s) or recipient role(s) to perform one or
     more actions within a given policy context, for specific purposes and
     periods of time.
+
+    Attributes:
+        type: Action  to take - permit or deny - when the exception conditions
+            are met.
+        period: The timeframe in this exception is valid.
+        actor: Who or what is controlled by this Exception. Use group to
+            identify a set of actors by some property they share (e.g. 'admitting
+            officers').
+        action: Actions controlled by this Exception.
+        securityLabel: A set of security labels that define which resources
+            are controlled by this exception. If more than one label is specified,
+            all resources must have all the specified labels.
+        purpose: The context of the activities a user is taking - why the user
+            is accessing the data - that are controlled by this exception.
+        class: The class of information covered by this exception. The type
+            can be a FHIR resource type, a profile on a type, or a CDA document,
+            or some other type that indicates what sort of information the consent
+            relates to.
+        code: If this code is found in an instance, then the exception
+            applies.
+        dataPeriod: Clinical or Operational Relevant period of time that
+            bounds the data controlled by this exception.
+        data: The resources controlled by this exception, if specific
+            resources are referenced.
     """
 
+    __name__ = 'Consent_Except'
+
     def __init__(self, dict_values=None):
-        # action  to take - permit or deny - when the exception conditions are
-        # met.
         self.type = None
-        # type = string
-        # possible values = deny, permit
+        # type: string
+        # possible values: deny, permit
 
-        # the timeframe in this exception is valid.
         self.period = None
-        # reference to Period: Period
+        # reference to Period
 
-        # who or what is controlled by this exception. use group to identify a set
-        # of actors by some property they share (e.g. 'admitting officers').
         self.actor = None
-        # type = array
-        # reference to Consent_Actor1: Consent_Actor1
+        # type: array
+        # reference to Consent_Actor1
 
-        # actions controlled by this exception.
         self.action = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # a set of security labels that define which resources are controlled by
-        # this exception. if more than one label is specified, all resources must
-        # have all the specified labels.
         self.securityLabel = None
-        # type = array
-        # reference to Coding: Coding
+        # type: array
+        # reference to Coding
 
-        # the context of the activities a user is taking - why the user is
-        # accessing the data - that are controlled by this exception.
         self.purpose = None
-        # type = array
-        # reference to Coding: Coding
+        # type: array
+        # reference to Coding
 
-        # the class of information covered by this exception. the type can be a
-        # fhir resource type, a profile on a type, or a cda document, or some
-        # other type that indicates what sort of information the consent relates
-        # to.
         self._class = None
-        # type = array
-        # reference to Coding: Coding
+        # type: array
+        # reference to Coding
 
-        # if this code is found in an instance, then the exception applies.
         self.code = None
-        # type = array
-        # reference to Coding: Coding
+        # type: array
+        # reference to Coding
 
-        # clinical or operational relevant period of time that bounds the data
-        # controlled by this exception.
         self.dataPeriod = None
-        # reference to Period: Period
+        # reference to Period
 
-        # the resources controlled by this exception, if specific resources are
-        # referenced.
         self.data = None
-        # type = array
-        # reference to Consent_Data1: Consent_Data1
+        # type: array
+        # reference to Consent_Data1
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.type is not None:
             for value in self.type:
-                if value != None and value.lower() not in ['deny', 'permit']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'deny, permit'))
+                if value is not None and value.lower() not in [
+                        'deny', 'permit']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'deny, permit'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'class'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'purpose'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'securityLabel'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'securityLabel'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'dataPeriod'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'period'},
 
             {'parent_entity': 'Consent_Data1',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'data'},
-
-            {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'action'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'data'},
 
             {'parent_entity': 'Consent_Actor1',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'actor'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'actor'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'action'},
 
             {'parent_entity': 'Coding',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'purpose'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': 'code'},
 
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'dataPeriod'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Except',
-            'child_variable': 'period'},
+            {'parent_entity': 'Coding',
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Except',
+             'child_variable': '_class'},
         ]
 
+
 class Consent_Actor1(fhirbase):
-    """A record of a healthcare consumer’s policy choices, which permits or
+    """
+    A record of a healthcare consumer’s policy choices, which permits or
     denies identified recipient(s) or recipient role(s) to perform one or
     more actions within a given policy context, for specific purposes and
     periods of time.
+
+    Attributes:
+        role: How the individual is involved in the resources content that is
+            described in the exception.
+        reference: The resource that identifies the actor. To identify a
+            actors by type, use group to identify a set of actors by some property
+            they share (e.g. 'admitting officers').
     """
 
-    def __init__(self, dict_values=None):
-        # how the individual is involved in the resources content that is
-        # described in the exception.
-        self.role = None
-        # reference to CodeableConcept: CodeableConcept
+    __name__ = 'Consent_Actor1'
 
-        # the resource that identifies the actor. to identify a actors by type,
-        # use group to identify a set of actors by some property they share (e.g.
-        # 'admitting officers').
+    def __init__(self, dict_values=None):
+        self.role = None
+        # reference to CodeableConcept
+
         self.reference = None
         # reference to Reference: identifier
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent_Actor1',
-            'child_variable': 'reference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent_Actor1',
+             'child_variable': 'reference'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Consent_Actor1',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Consent_Actor1',
+             'child_variable': 'role'},
         ]
 
+
 class Consent_Data1(fhirbase):
-    """A record of a healthcare consumer’s policy choices, which permits or
+    """
+    A record of a healthcare consumer’s policy choices, which permits or
     denies identified recipient(s) or recipient role(s) to perform one or
     more actions within a given policy context, for specific purposes and
     periods of time.
+
+    Attributes:
+        meaning: How the resource reference is interpreted when testing
+            consent restrictions.
+        reference: A reference to a specific resource that defines which
+            resources are covered by this consent.
     """
 
-    def __init__(self, dict_values=None):
-        # how the resource reference is interpreted when testing consent
-        # restrictions.
-        self.meaning = None
-        # type = string
-        # possible values = instance, related, dependents, authoredby
+    __name__ = 'Consent_Data1'
 
-        # a reference to a specific resource that defines which resources are
-        # covered by this consent.
+    def __init__(self, dict_values=None):
+        self.meaning = None
+        # type: string
+        # possible values: instance, related, dependents, authoredby
+
         self.reference = None
         # reference to Reference: identifier
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.meaning is not None:
             for value in self.meaning:
-                if value != None and value.lower() not in ['instance', 'related', 'dependents', 'authoredby']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'instance, related, dependents, authoredby'))
+                if value is not None and value.lower() not in [
+                        'instance', 'related', 'dependents', 'authoredby']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'instance, related, dependents, authoredby'))
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'Consent_Data1',
-            'child_variable': 'reference'},
+             'parent_variable': 'identifier',
+             'child_entity': 'Consent_Data1',
+             'child_variable': 'reference'},
         ]
-

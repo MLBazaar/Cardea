@@ -1,288 +1,312 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Reference import Reference
-from .Period import Period
-from .Attachment import Attachment
+from .fhirbase import fhirbase
+
 
 class DiagnosticReport(fhirbase):
-    """The findings and interpretation of diagnostic  tests performed on
+    """
+    The findings and interpretation of diagnostic  tests performed on
     patients, groups of patients, devices, and locations, and/or specimens
     derived from these. The report includes clinical context such as
     requesting and provider information, and some mix of atomic results,
-    images, textual and coded interpretations, and formatted representation
-    of diagnostic reports.
+    images, textual and coded interpretations, and formatted
+    representation of diagnostic reports.
+
+    Attributes:
+        resourceType: This is a DiagnosticReport resource
+        identifier: Identifiers assigned to this report by the performer or
+            other systems.
+        basedOn: Details concerning a test or procedure requested.
+        status: The status of the diagnostic report as a whole.
+        category: A code that classifies the clinical discipline, department
+            or diagnostic service that created the report (e.g. cardiology,
+            biochemistry, hematology, MRI). This is used for searching, sorting
+            and display purposes.
+        code: A code or name that describes this diagnostic report.
+        subject: The subject of the report. Usually, but not always, this is a
+            patient. However diagnostic services also perform analyses on
+            specimens collected from a variety of other sources.
+        context: The healthcare event  (e.g. a patient and healthcare provider
+            interaction) which this DiagnosticReport per is about.
+        effectiveDateTime: The time or time-period the observed values are
+            related to. When the subject of the report is a patient, this is
+            usually either the time of the procedure or of specimen collection(s),
+            but very often the source of the date/time is not known, only the
+            date/time itself.
+        effectivePeriod: The time or time-period the observed values are
+            related to. When the subject of the report is a patient, this is
+            usually either the time of the procedure or of specimen collection(s),
+            but very often the source of the date/time is not known, only the
+            date/time itself.
+        issued: The date and time that this version of the report was released
+            from the source diagnostic service.
+        performer: Indicates who or what participated in producing the report.
+        specimen: Details about the specimens on which this diagnostic report
+            is based.
+        result: Observations that are part of this diagnostic report.
+            Observations can be simple name/value pairs (e.g. "atomic" results),
+            or they can be grouping observations that include references to other
+            members of the group (e.g. "panels").
+        imagingStudy: One or more links to full details of any imaging
+            performed during the diagnostic investigation. Typically, this is
+            imaging performed by DICOM enabled modalities, but this is not
+            required. A fully enabled PACS viewer can use this information to
+            provide views of the source images.
+        image: A list of key images associated with this report. The images
+            are generally created during the diagnostic process, and may be
+            directly of the patient, or of treated specimens (i.e. slides of
+            interest).
+        conclusion: Concise and clinically contextualized impression / summary
+            of the diagnostic report.
+        codedDiagnosis: Codes for the conclusion.
+        presentedForm: Rich text representation of the entire result as issued
+            by the diagnostic service. Multiple formats are allowed but they SHALL
+            be semantically equivalent.
     """
 
-    def __init__(self, dict_values=None):
-        # this is a diagnosticreport resource
-        self.resourceType = 'DiagnosticReport'
-        # type = string
-        # possible values = DiagnosticReport
+    __name__ = 'DiagnosticReport'
 
-        # details concerning a test or procedure requested.
+    def __init__(self, dict_values=None):
+        self.resourceType = 'DiagnosticReport'
+        # type: string
+        # possible values: DiagnosticReport
+
         self.basedOn = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # the status of the diagnostic report as a whole.
         self.status = None
-        # type = string
-        # possible values = registered, partial, preliminary, final, amended, corrected, appended, cancelled, entered-in-error, unknown
+        # type: string
+        # possible values: registered, partial, preliminary, final,
+        # amended, corrected, appended, cancelled, entered-in-error, unknown
 
-        # a code that classifies the clinical discipline, department or diagnostic
-        # service that created the report (e.g. cardiology, biochemistry,
-        # hematology, mri). this is used for searching, sorting and display
-        # purposes.
         self.category = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # a code or name that describes this diagnostic report.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # the subject of the report. usually, but not always, this is a patient.
-        # however diagnostic services also perform analyses on specimens collected
-        # from a variety of other sources.
         self.subject = None
         # reference to Reference: identifier
 
-        # the healthcare event  (e.g. a patient and healthcare provider
-        # interaction) which this diagnosticreport per is about.
         self.context = None
         # reference to Reference: identifier
 
-        # the time or time-period the observed values are related to. when the
-        # subject of the report is a patient, this is usually either the time of
-        # the procedure or of specimen collection(s), but very often the source of
-        # the date/time is not known, only the date/time itself.
         self.effectiveDateTime = None
-        # type = string
+        # type: string
 
-        # the time or time-period the observed values are related to. when the
-        # subject of the report is a patient, this is usually either the time of
-        # the procedure or of specimen collection(s), but very often the source of
-        # the date/time is not known, only the date/time itself.
         self.effectivePeriod = None
-        # reference to Period: Period
+        # reference to Period
 
-        # the date and time that this version of the report was released from the
-        # source diagnostic service.
         self.issued = None
-        # type = string
+        # type: string
 
-        # indicates who or what participated in producing the report.
         self.performer = None
-        # type = array
-        # reference to DiagnosticReport_Performer: DiagnosticReport_Performer
+        # type: array
+        # reference to DiagnosticReport_Performer
 
-        # details about the specimens on which this diagnostic report is based.
         self.specimen = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # observations that are part of this diagnostic report. observations can
-        # be simple name/value pairs (e.g. "atomic" results), or they can be
-        # grouping observations that include references to other members of the
-        # group (e.g. "panels").
         self.result = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # one or more links to full details of any imaging performed during the
-        # diagnostic investigation. typically, this is imaging performed by dicom
-        # enabled modalities, but this is not required. a fully enabled pacs
-        # viewer can use this information to provide views of the source images.
         self.imagingStudy = None
-        # type = array
+        # type: array
         # reference to Reference: identifier
 
-        # a list of key images associated with this report. the images are
-        # generally created during the diagnostic process, and may be directly of
-        # the patient, or of treated specimens (i.e. slides of interest).
         self.image = None
-        # type = array
-        # reference to DiagnosticReport_Image: DiagnosticReport_Image
+        # type: array
+        # reference to DiagnosticReport_Image
 
-        # concise and clinically contextualized impression / summary of the
-        # diagnostic report.
         self.conclusion = None
-        # type = string
+        # type: string
 
-        # codes for the conclusion.
         self.codedDiagnosis = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # rich text representation of the entire result as issued by the
-        # diagnostic service. multiple formats are allowed but they shall be
-        # semantically equivalent.
         self.presentedForm = None
-        # type = array
-        # reference to Attachment: Attachment
+        # type: array
+        # reference to Attachment
 
-        # identifiers assigned to this report by the performer or other systems.
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def assert_type(self):
 
         if self.status is not None:
             for value in self.status:
-                if value != None and value.lower() not in ['registered', 'partial', 'preliminary', 'final', 'amended', 'corrected', 'appended', 'cancelled', 'entered-in-error', 'unknown']:
-                    raise ValueError('"{}" does not match possible values: {}'.format(value, 'registered, partial, preliminary, final, amended, corrected, appended, cancelled, entered-in-error, unknown'))
+                if value is not None and value.lower() not in [
+                    'registered', 'partial', 'preliminary', 'final', 'amended',
+                        'corrected', 'appended', 'cancelled', 'entered-in-error', 'unknown']:
+                    raise ValueError('"{}" does not match possible values: {}'.format(
+                        value, 'registered, partial, preliminary, final, amended, corrected, '
+                        'appended, cancelled, entered-in-error, unknown'))
 
     def get_relationships(self):
 
         return [
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'category'},
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'imagingStudy'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'context'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'codedDiagnosis'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'basedOn'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'code'},
-
-            {'parent_entity': 'Period',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'effectivePeriod'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'code'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'basedOn'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'subject'},
 
-            {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'DiagnosticReport_Image',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'image'},
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'codedDiagnosis'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'imagingStudy'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'context'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'subject'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'specimen'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'result'},
 
             {'parent_entity': 'DiagnosticReport_Performer',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'performer'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'performer'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'presentedForm'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'presentedForm'},
+
+            {'parent_entity': 'Identifier',
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'identifier'},
+
+            {'parent_entity': 'DiagnosticReport_Image',
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'image'},
+
+            {'parent_entity': 'Period',
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'effectivePeriod'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'category'},
 
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport',
-            'child_variable': 'result'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport',
+             'child_variable': 'specimen'},
         ]
 
+
 class DiagnosticReport_Performer(fhirbase):
-    """The findings and interpretation of diagnostic  tests performed on
+    """
+    The findings and interpretation of diagnostic  tests performed on
     patients, groups of patients, devices, and locations, and/or specimens
     derived from these. The report includes clinical context such as
     requesting and provider information, and some mix of atomic results,
-    images, textual and coded interpretations, and formatted representation
-    of diagnostic reports.
+    images, textual and coded interpretations, and formatted
+    representation of diagnostic reports.
+
+    Attributes:
+        role: Describes the type of participation (e.g.  a responsible party,
+            author, or verifier).
+        actor: The reference to the  practitioner or organization involved in
+            producing the report. For example, the diagnostic service that is
+            responsible for issuing the report.
     """
 
-    def __init__(self, dict_values=None):
-        # describes the type of participation (e.g.  a responsible party, author,
-        # or verifier).
-        self.role = None
-        # reference to CodeableConcept: CodeableConcept
+    __name__ = 'DiagnosticReport_Performer'
 
-        # the reference to the  practitioner or organization involved in producing
-        # the report. for example, the diagnostic service that is responsible for
-        # issuing the report.
+    def __init__(self, dict_values=None):
+        self.role = None
+        # reference to CodeableConcept
+
         self.actor = None
         # reference to Reference: identifier
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport_Performer',
-            'child_variable': 'actor'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport_Performer',
+             'child_variable': 'actor'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'DiagnosticReport_Performer',
-            'child_variable': 'role'},
+             'parent_variable': 'object_id',
+             'child_entity': 'DiagnosticReport_Performer',
+             'child_variable': 'role'},
         ]
 
+
 class DiagnosticReport_Image(fhirbase):
-    """The findings and interpretation of diagnostic  tests performed on
+    """
+    The findings and interpretation of diagnostic  tests performed on
     patients, groups of patients, devices, and locations, and/or specimens
     derived from these. The report includes clinical context such as
     requesting and provider information, and some mix of atomic results,
-    images, textual and coded interpretations, and formatted representation
-    of diagnostic reports.
+    images, textual and coded interpretations, and formatted
+    representation of diagnostic reports.
+
+    Attributes:
+        comment: A comment about the image. Typically, this is used to provide
+            an explanation for why the image is included, or to draw the viewer's
+            attention to important features.
+        link: Reference to the image source.
     """
 
-    def __init__(self, dict_values=None):
-        # a comment about the image. typically, this is used to provide an
-        # explanation for why the image is included, or to draw the viewer's
-        # attention to important features.
-        self.comment = None
-        # type = string
+    __name__ = 'DiagnosticReport_Image'
 
-        # reference to the image source.
+    def __init__(self, dict_values=None):
+        self.comment = None
+        # type: string
+
         self.link = None
         # reference to Reference: identifier
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'DiagnosticReport_Image',
-            'child_variable': 'link'},
+             'parent_variable': 'identifier',
+             'child_entity': 'DiagnosticReport_Image',
+             'child_variable': 'link'},
         ]
-

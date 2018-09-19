@@ -1,84 +1,86 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Identifier import Identifier
-from .Attachment import Attachment
-from .Reference import Reference
+from .fhirbase import fhirbase
+
 
 class BodySite(fhirbase):
-    """Record details about the anatomical location of a specimen or body part.
-    This resource may be used when a coded concept does not provide the
-    necessary detail needed for the use case.
+    """
+    Record details about the anatomical location of a specimen or body
+    part.  This resource may be used when a coded concept does not provide
+    the necessary detail needed for the use case.
+
+    Attributes:
+        resourceType: This is a BodySite resource
+        identifier: Identifier for this instance of the anatomical location.
+        active: Whether this body site is in active use.
+        code: Named anatomical location - ideally coded where possible.
+        qualifier: Qualifier to refine the anatomical location.  These include
+            qualifiers for laterality, relative location, directionality, number,
+            and plane.
+        description: A summary, charactarization or explanation of the
+            anatomic location.
+        image: Image or images used to identify a location.
+        patient: The person to which the body site belongs.
     """
 
+    __name__ = 'BodySite'
+
     def __init__(self, dict_values=None):
-        # this is a bodysite resource
         self.resourceType = 'BodySite'
-        # type = string
-        # possible values = BodySite
+        # type: string
+        # possible values: BodySite
 
-        # whether this body site is in active use.
         self.active = None
-        # type = boolean
+        # type: boolean
 
-        # named anatomical location - ideally coded where possible.
         self.code = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # qualifier to refine the anatomical location.  these include qualifiers
-        # for laterality, relative location, directionality, number, and plane.
         self.qualifier = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # a summary, charactarization or explanation of the anatomic location.
         self.description = None
-        # type = string
+        # type: string
 
-        # image or images used to identify a location.
         self.image = None
-        # type = array
-        # reference to Attachment: Attachment
+        # type: array
+        # reference to Attachment
 
-        # the person to which the body site belongs.
         self.patient = None
         # reference to Reference: identifier
 
-        # identifier for this instance of the anatomical location.
         self.identifier = None
-        # type = array
-        # reference to Identifier: Identifier
-
+        # type: array
+        # reference to Identifier
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
+            self.assert_type()
 
     def get_relationships(self):
 
         return [
+            {'parent_entity': 'Reference',
+             'parent_variable': 'identifier',
+             'child_entity': 'BodySite',
+             'child_variable': 'patient'},
+
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'BodySite',
-            'child_variable': 'code'},
+             'parent_variable': 'object_id',
+             'child_entity': 'BodySite',
+             'child_variable': 'code'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'BodySite',
+             'child_variable': 'qualifier'},
 
             {'parent_entity': 'Identifier',
-            'parent_variable': 'object_id',
-            'child_entity': 'BodySite',
-            'child_variable': 'identifier'},
-
-            {'parent_entity': 'Reference',
-            'parent_variable': 'identifier',
-            'child_entity': 'BodySite',
-            'child_variable': 'patient'},
+             'parent_variable': 'object_id',
+             'child_entity': 'BodySite',
+             'child_variable': 'identifier'},
 
             {'parent_entity': 'Attachment',
-            'parent_variable': 'object_id',
-            'child_entity': 'BodySite',
-            'child_variable': 'image'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'BodySite',
-            'child_variable': 'qualifier'},
+             'parent_variable': 'object_id',
+             'child_entity': 'BodySite',
+             'child_variable': 'image'},
         ]
-

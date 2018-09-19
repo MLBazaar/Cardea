@@ -1,170 +1,176 @@
-from .fhirbase import * 
-from .CodeableConcept import CodeableConcept
-from .Timing import Timing
-from .Ratio import Ratio
-from .Range import Range
-from .Quantity import Quantity
+from .fhirbase import fhirbase
+
 
 class Dosage(fhirbase):
-    """Indicates how the medication is/was taken or should be taken by the
+    """
+    Indicates how the medication is/was taken or should be taken by the
     patient.
+
+    Attributes:
+        sequence: Indicates the order in which the dosage instructions should
+            be applied or interpreted.
+        text: Free text dosage instructions e.g. SIG.
+        additionalInstruction: Supplemental instruction - e.g. "with meals".
+        patientInstruction: Instructions in terms that are understood by the
+            patient or consumer.
+        timing: When medication should be administered.
+        asNeededBoolean: Indicates whether the Medication is only taken when
+            needed within a specific dosing schedule (Boolean option), or it
+            indicates the precondition for taking the Medication
+            (CodeableConcept).
+        asNeededCodeableConcept: Indicates whether the Medication is only
+            taken when needed within a specific dosing schedule (Boolean option),
+            or it indicates the precondition for taking the Medication
+            (CodeableConcept).
+        site: Body site to administer to.
+        route: How drug should enter body.
+        method: Technique for administering medication.
+        doseRange: Amount of medication per dose.
+        doseSimpleQuantity: Amount of medication per dose.
+        maxDosePerPeriod: Upper limit on medication per unit of time.
+        maxDosePerAdministration: Upper limit on medication per
+            administration.
+        maxDosePerLifetime: Upper limit on medication per lifetime of the
+            patient.
+        rateRatio: Amount of medication per unit of time.
+        rateRange: Amount of medication per unit of time.
+        rateSimpleQuantity: Amount of medication per unit of time.
     """
 
+    __name__ = 'Dosage'
+
     def __init__(self, dict_values=None):
-        # indicates the order in which the dosage instructions should be applied
-        # or interpreted.
         self.sequence = None
-        # type = int
+        # type: int
 
-        # free text dosage instructions e.g. sig.
         self.text = None
-        # type = string
+        # type: string
 
-        # supplemental instruction - e.g. "with meals".
         self.additionalInstruction = None
-        # type = array
-        # reference to CodeableConcept: CodeableConcept
+        # type: array
+        # reference to CodeableConcept
 
-        # instructions in terms that are understood by the patient or consumer.
         self.patientInstruction = None
-        # type = string
+        # type: string
 
-        # when medication should be administered.
         self.timing = None
-        # reference to Timing: Timing
+        # reference to Timing
 
-        # indicates whether the medication is only taken when needed within a
-        # specific dosing schedule (boolean option), or it indicates the
-        # precondition for taking the medication (codeableconcept).
         self.asNeededBoolean = None
-        # type = boolean
+        # type: boolean
 
-        # indicates whether the medication is only taken when needed within a
-        # specific dosing schedule (boolean option), or it indicates the
-        # precondition for taking the medication (codeableconcept).
         self.asNeededCodeableConcept = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # body site to administer to.
         self.site = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # how drug should enter body.
         self.route = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # technique for administering medication.
         self.method = None
-        # reference to CodeableConcept: CodeableConcept
+        # reference to CodeableConcept
 
-        # amount of medication per dose.
         self.doseRange = None
-        # reference to Range: Range
+        # reference to Range
 
-        # amount of medication per dose.
         self.doseSimpleQuantity = None
-        # reference to Quantity: Quantity
+        # reference to Quantity
 
-        # upper limit on medication per unit of time.
         self.maxDosePerPeriod = None
-        # reference to Ratio: Ratio
+        # reference to Ratio
 
-        # upper limit on medication per administration.
         self.maxDosePerAdministration = None
-        # reference to Quantity: Quantity
+        # reference to Quantity
 
-        # upper limit on medication per lifetime of the patient.
         self.maxDosePerLifetime = None
-        # reference to Quantity: Quantity
+        # reference to Quantity
 
-        # amount of medication per unit of time.
         self.rateRatio = None
-        # reference to Ratio: Ratio
+        # reference to Ratio
 
-        # amount of medication per unit of time.
         self.rateRange = None
-        # reference to Range: Range
+        # reference to Range
 
-        # amount of medication per unit of time.
         self.rateSimpleQuantity = None
-        # reference to Quantity: Quantity
+        # reference to Quantity
 
+        self.object_id = None
+        # unique identifier for object class
 
         if dict_values:
-              self.set_attributes(dict_values)
-
+            self.set_attributes(dict_values)
 
     def get_relationships(self):
 
         return [
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'doseRange'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'doseRange'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'asNeededCodeableConcept'},
+
+            {'parent_entity': 'Ratio',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'maxDosePerPeriod'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'site'},
+
+            {'parent_entity': 'Quantity',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'rateSimpleQuantity'},
+
+            {'parent_entity': 'Ratio',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'rateRatio'},
 
             {'parent_entity': 'Timing',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'timing'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'timing'},
 
             {'parent_entity': 'Range',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'rateRange'},
-
-            {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'rateRatio'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'route'},
-
-            {'parent_entity': 'Ratio',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'maxDosePerPeriod'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'asNeededCodeableConcept'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'rateRange'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'rateSimpleQuantity'},
-
-            {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'method'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'doseSimpleQuantity'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'maxDosePerLifetime'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'maxDosePerLifetime'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'site'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'method'},
 
             {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'maxDosePerAdministration'},
-
-            {'parent_entity': 'Quantity',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'doseSimpleQuantity'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'maxDosePerAdministration'},
 
             {'parent_entity': 'CodeableConcept',
-            'parent_variable': 'object_id',
-            'child_entity': 'Dosage',
-            'child_variable': 'additionalInstruction'},
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'route'},
+
+            {'parent_entity': 'CodeableConcept',
+             'parent_variable': 'object_id',
+             'child_entity': 'Dosage',
+             'child_variable': 'additionalInstruction'},
         ]
-
