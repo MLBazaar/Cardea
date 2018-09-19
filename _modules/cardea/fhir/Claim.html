@@ -1,0 +1,1584 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.Claim &mdash; Cardea 0.1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#from-sources">From sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cardea</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cardea.html">cardea package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.data_loader.html">cardea.data_loader package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.fhir.html">cardea.fhir package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#module-cardea">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#release-workflow">Release Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cardea.fhir.Claim</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cardea.fhir.Claim</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="k">import</span> <span class="n">fhirbase</span>
+
+
+<div class="viewcode-block" id="Claim"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim">[docs]</a><span class="k">class</span> <span class="nc">Claim</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        resourceType: This is a Claim resource</span>
+<span class="sd">        identifier: The business identifier for the instance: claim number,</span>
+<span class="sd">            pre-determination or pre-authorization number.</span>
+<span class="sd">        status: The status of the resource instance.</span>
+<span class="sd">        type: The category of claim, eg, oral, pharmacy, vision, insitutional,</span>
+<span class="sd">            professional.</span>
+<span class="sd">        subType: A finer grained suite of claim subtype codes which may convey</span>
+<span class="sd">            Inpatient vs Outpatient and/or a specialty service. In the US the</span>
+<span class="sd">            BillType.</span>
+<span class="sd">        use: Complete (Bill or Claim), Proposed (Pre-Authorization),</span>
+<span class="sd">            Exploratory (Pre-determination).</span>
+<span class="sd">        patient: Patient Resource.</span>
+<span class="sd">        billablePeriod: The billable period for which charges are being</span>
+<span class="sd">            submitted.</span>
+<span class="sd">        created: The date when the enclosed suite of services were performed</span>
+<span class="sd">            or completed.</span>
+<span class="sd">        enterer: Person who created the invoice/claim/pre-determination or</span>
+<span class="sd">            pre-authorization.</span>
+<span class="sd">        insurer: The Insurer who is target of the request.</span>
+<span class="sd">        provider: The provider which is responsible for the bill, claim</span>
+<span class="sd">            pre-determination, pre-authorization.</span>
+<span class="sd">        organization: The organization which is responsible for the bill,</span>
+<span class="sd">            claim pre-determination, pre-authorization.</span>
+<span class="sd">        priority: Immediate (STAT), best effort (NORMAL), deferred (DEFER).</span>
+<span class="sd">        fundsReserve: In the case of a Pre-Determination/Pre-Authorization the</span>
+<span class="sd">            provider may request that funds in the amount of the expected Benefit</span>
+<span class="sd">            be reserved (&#39;Patient&#39; or &#39;Provider&#39;) to pay for the Benefits</span>
+<span class="sd">            determined on the subsequent claim(s). &#39;None&#39; explicitly indicates no</span>
+<span class="sd">            funds reserving is requested.</span>
+<span class="sd">        related: Other claims which are related to this claim such as prior</span>
+<span class="sd">            claim versions or for related services.</span>
+<span class="sd">        prescription: Prescription to support the dispensing of Pharmacy or</span>
+<span class="sd">            Vision products.</span>
+<span class="sd">        originalPrescription: Original prescription which has been superceded</span>
+<span class="sd">            by this prescription to support the dispensing of pharmacy services,</span>
+<span class="sd">            medications or products. For example, a physician may prescribe a</span>
+<span class="sd">            medication which the pharmacy determines is contraindicated, or for</span>
+<span class="sd">            which the patient has an intolerance, and therefor issues a new</span>
+<span class="sd">            precription for an alternate medication which has the same theraputic</span>
+<span class="sd">            intent. The prescription from the pharmacy becomes the &#39;prescription&#39;</span>
+<span class="sd">            and that from the physician becomes the &#39;original prescription&#39;.</span>
+<span class="sd">        payee: The party to be reimbursed for the services.</span>
+<span class="sd">        referral: The referral resource which lists the date, practitioner,</span>
+<span class="sd">            reason and other supporting information.</span>
+<span class="sd">        facility: Facility where the services were provided.</span>
+<span class="sd">        careTeam: The members of the team who provided the overall service as</span>
+<span class="sd">            well as their role and whether responsible and qualifications.</span>
+<span class="sd">        information: Additional information codes regarding exceptions,</span>
+<span class="sd">            special considerations, the condition, situation, prior or concurrent</span>
+<span class="sd">            issues. Often there are mutiple jurisdiction specific valuesets which</span>
+<span class="sd">            are required.</span>
+<span class="sd">        diagnosis: List of patient diagnosis for which care is sought.</span>
+<span class="sd">        procedure: Ordered list of patient procedures performed to support the</span>
+<span class="sd">            adjudication.</span>
+<span class="sd">        insurance: Financial instrument by which payment information for</span>
+<span class="sd">            health care.</span>
+<span class="sd">        accident: An accident which resulted in the need for healthcare</span>
+<span class="sd">            services.</span>
+<span class="sd">        employmentImpacted: The start and optional end dates of when the</span>
+<span class="sd">            patient was precluded from working due to the treatable condition(s).</span>
+<span class="sd">        hospitalization: The start and optional end dates of when the patient</span>
+<span class="sd">            was confined to a treatment center.</span>
+<span class="sd">        item: First tier of goods and services.</span>
+<span class="sd">        total: The total value of the claim.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;Claim&#39;</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: Claim</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">subType</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">use</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: complete, proposed, exploratory, other</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">patient</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">billablePeriod</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Period</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">created</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">enterer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">insurer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">organization</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fundsReserve</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">related</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Claim_Related</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">prescription</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">originalPrescription</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">payee</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Claim_Payee</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">referral</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">facility</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">careTeam</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Claim_CareTeam</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">information</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Claim_Information</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">diagnosis</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Claim_Diagnosis</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">procedure</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Claim_Procedure</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">insurance</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Claim_Insurance</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">accident</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Claim_Accident</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">employmentImpacted</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Period</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">hospitalization</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Period</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">item</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Claim_Item</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">total</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Money</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Identifier</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Claim.assert_type"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">use</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;complete&#39;</span><span class="p">,</span> <span class="s1">&#39;proposed&#39;</span><span class="p">,</span> <span class="s1">&#39;exploratory&#39;</span><span class="p">,</span> <span class="s1">&#39;other&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;complete, proposed, exploratory, other&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Claim.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;type&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Period&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;billablePeriod&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Accident&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;accident&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_CareTeam&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;careTeam&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;organization&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;subType&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;prescription&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;facility&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;originalPrescription&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Related&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;related&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;fundsReserve&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;patient&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Procedure&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;procedure&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;insurer&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Insurance&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;insurance&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Period&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;hospitalization&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Information&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;information&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;enterer&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;provider&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;priority&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Money&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;total&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;item&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Payee&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;payee&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Diagnosis&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;diagnosis&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Period&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;employmentImpacted&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;referral&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Claim_Related"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Related">[docs]</a><span class="k">class</span> <span class="nc">Claim_Related</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        claim: Other claims which are related to this claim such as prior</span>
+<span class="sd">            claim versions or for related services.</span>
+<span class="sd">        relationship: For example prior or umbrella.</span>
+<span class="sd">        reference: An alternate organizational reference to the case or file</span>
+<span class="sd">            to which this particular claim pertains - eg Property/Casualy insurer</span>
+<span class="sd">            claim # or Workers Compensation case # .</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim_Related&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">claim</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">relationship</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reference</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Claim_Related.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Related.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Related&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;reference&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Related&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;claim&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Related&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;relationship&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Claim_Payee"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Payee">[docs]</a><span class="k">class</span> <span class="nc">Claim_Payee</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        type: Type of Party to be reimbursed: Subscriber, provider, other.</span>
+<span class="sd">        resourceType: organization | patient | practitioner | relatedperson.</span>
+<span class="sd">        party: Party to be reimbursed: Subscriber, provider, other.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim_Payee&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Coding</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">party</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Claim_Payee.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Payee.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Payee&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;party&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Coding&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Payee&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;resourceType&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Payee&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;type&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Claim_CareTeam"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_CareTeam">[docs]</a><span class="k">class</span> <span class="nc">Claim_CareTeam</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        sequence: Sequence of the careTeam which serves to order and provide a</span>
+<span class="sd">            link.</span>
+<span class="sd">        provider: Member of the team who provided the overall service.</span>
+<span class="sd">        responsible: The party who is billing and responsible for the claimed</span>
+<span class="sd">            good or service rendered to the patient.</span>
+<span class="sd">        role: The lead, assisting or supervising practitioner and their</span>
+<span class="sd">            discipline if a multidisiplinary team.</span>
+<span class="sd">        qualification: The qualification which is applicable for this service.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim_CareTeam&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">responsible</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: boolean</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">role</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">qualification</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Claim_CareTeam.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_CareTeam.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_CareTeam&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;role&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_CareTeam&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;qualification&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_CareTeam&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;provider&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Claim_Information"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Information">[docs]</a><span class="k">class</span> <span class="nc">Claim_Information</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        sequence: Sequence of the information element which serves to provide</span>
+<span class="sd">            a link.</span>
+<span class="sd">        category: The general class of the information supplied: information;</span>
+<span class="sd">            exception; accident, employment; onset, etc.</span>
+<span class="sd">        code: System and code pertaining to the specific information regarding</span>
+<span class="sd">            special conditions relating to the setting, treatment or patient  for</span>
+<span class="sd">            which care is sought which may influence the adjudication.</span>
+<span class="sd">        timingDate: The date when or period to which this information refers.</span>
+<span class="sd">        timingPeriod: The date when or period to which this information</span>
+<span class="sd">            refers.</span>
+<span class="sd">        valueString: Additional data or information such as resources,</span>
+<span class="sd">            documents, images etc. including references to the data or the actual</span>
+<span class="sd">            inclusion of the data.</span>
+<span class="sd">        valueQuantity: Additional data or information such as resources,</span>
+<span class="sd">            documents, images etc. including references to the data or the actual</span>
+<span class="sd">            inclusion of the data.</span>
+<span class="sd">        valueAttachment: Additional data or information such as resources,</span>
+<span class="sd">            documents, images etc. including references to the data or the actual</span>
+<span class="sd">            inclusion of the data.</span>
+<span class="sd">        valueReference: Additional data or information such as resources,</span>
+<span class="sd">            documents, images etc. including references to the data or the actual</span>
+<span class="sd">            inclusion of the data.</span>
+<span class="sd">        reason: For example, provides the reason for: the additional stay, or</span>
+<span class="sd">            missing tooth or any other situation where a reason code is required</span>
+<span class="sd">            in addition to the content.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim_Information&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">timingDate</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">timingPeriod</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Period</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">valueString</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">valueQuantity</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Quantity</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">valueAttachment</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Attachment</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">valueReference</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reason</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Claim_Information.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Information.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Information&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;code&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Information&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;valueQuantity&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Information&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;category&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Attachment&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Information&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;valueAttachment&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Period&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Information&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;timingPeriod&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Information&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;valueReference&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Information&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;reason&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Claim_Diagnosis"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Diagnosis">[docs]</a><span class="k">class</span> <span class="nc">Claim_Diagnosis</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        sequence: Sequence of diagnosis which serves to provide a link.</span>
+<span class="sd">        diagnosisCodeableConcept: The diagnosis.</span>
+<span class="sd">        diagnosisReference: The diagnosis.</span>
+<span class="sd">        type: The type of the Diagnosis, for example: admitting, primary,</span>
+<span class="sd">            secondary, discharge.</span>
+<span class="sd">        packageCode: The package billing code, for example DRG, based on the</span>
+<span class="sd">            assigned grouping code system.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim_Diagnosis&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">diagnosisCodeableConcept</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">diagnosisReference</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">packageCode</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Claim_Diagnosis.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Diagnosis.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Diagnosis&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;packageCode&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Diagnosis&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;diagnosisReference&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Diagnosis&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;type&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Diagnosis&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;diagnosisCodeableConcept&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Claim_Procedure"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Procedure">[docs]</a><span class="k">class</span> <span class="nc">Claim_Procedure</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        sequence: Sequence of procedures which serves to order and provide a</span>
+<span class="sd">            link.</span>
+<span class="sd">        date: Date and optionally time the procedure was performed .</span>
+<span class="sd">        procedureCodeableConcept: The procedure code.</span>
+<span class="sd">        procedureReference: The procedure code.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim_Procedure&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">procedureCodeableConcept</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">procedureReference</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Claim_Procedure.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Procedure.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Procedure&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;procedureReference&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Procedure&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;procedureCodeableConcept&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Claim_Insurance"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Insurance">[docs]</a><span class="k">class</span> <span class="nc">Claim_Insurance</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        sequence: Sequence of coverage which serves to provide a link and</span>
+<span class="sd">            convey coordination of benefit order.</span>
+<span class="sd">        focal: A flag to indicate that this Coverage is the focus for</span>
+<span class="sd">            adjudication. The Coverage against which the claim is to be</span>
+<span class="sd">            adjudicated.</span>
+<span class="sd">        coverage: Reference to the program or plan identification, underwriter</span>
+<span class="sd">            or payor.</span>
+<span class="sd">        businessArrangement: The contract number of a business agreement which</span>
+<span class="sd">            describes the terms and conditions.</span>
+<span class="sd">        preAuthRef: A list of references from the Insurer to which these</span>
+<span class="sd">            services pertain.</span>
+<span class="sd">        claimResponse: The Coverages adjudication details.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim_Insurance&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">focal</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: boolean</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">coverage</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">businessArrangement</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">preAuthRef</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">claimResponse</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Claim_Insurance.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Insurance.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Insurance&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;claimResponse&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Insurance&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;coverage&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Claim_Accident"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Accident">[docs]</a><span class="k">class</span> <span class="nc">Claim_Accident</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        date: Date of an accident which these services are addressing.</span>
+<span class="sd">        type: Type of accident: work, auto, etc.</span>
+<span class="sd">        locationAddress: Accident Place.</span>
+<span class="sd">        locationReference: Accident Place.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim_Accident&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">locationAddress</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Address</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">locationReference</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Claim_Accident.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Accident.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Accident&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;locationReference&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Address&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Accident&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;locationAddress&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Accident&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;type&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Claim_Item"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Item">[docs]</a><span class="k">class</span> <span class="nc">Claim_Item</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        sequence: A service line number.</span>
+<span class="sd">        careTeamLinkId: CareTeam applicable for this service or product line.</span>
+<span class="sd">        diagnosisLinkId: Diagnosis applicable for this service or product</span>
+<span class="sd">            line.</span>
+<span class="sd">        procedureLinkId: Procedures applicable for this service or product</span>
+<span class="sd">            line.</span>
+<span class="sd">        informationLinkId: Exceptions, special conditions and supporting</span>
+<span class="sd">            information pplicable for this service or product line.</span>
+<span class="sd">        revenue: The type of reveneu or cost center providing the product</span>
+<span class="sd">            and/or service.</span>
+<span class="sd">        category: Health Care Service Type Codes  to identify the</span>
+<span class="sd">            classification of service or benefits.</span>
+<span class="sd">        service: If this is an actual service or product line, ie. not a</span>
+<span class="sd">            Group, then use code to indicate the Professional Service or Product</span>
+<span class="sd">            supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,RXNorm,ACHI,CCI). If a</span>
+<span class="sd">            grouping item then use a group code to indicate the type of thing</span>
+<span class="sd">            being grouped eg. &#39;glasses&#39; or &#39;compound&#39;.</span>
+<span class="sd">        modifier: Item typification or modifiers codes, eg for Oral whether</span>
+<span class="sd">            the treatment is cosmetic or associated with TMJ, or for medical</span>
+<span class="sd">            whether the treatment was outside the clinic or out of office hours.</span>
+<span class="sd">        programCode: For programs which require reason codes for the inclusion</span>
+<span class="sd">            or covering of this billed item under the program or sub-program.</span>
+<span class="sd">        servicedDate: The date or dates when the enclosed suite of services</span>
+<span class="sd">            were performed or completed.</span>
+<span class="sd">        servicedPeriod: The date or dates when the enclosed suite of services</span>
+<span class="sd">            were performed or completed.</span>
+<span class="sd">        locationCodeableConcept: Where the service was provided.</span>
+<span class="sd">        locationAddress: Where the service was provided.</span>
+<span class="sd">        locationReference: Where the service was provided.</span>
+<span class="sd">        quantity: The number of repetitions of a service or product.</span>
+<span class="sd">        unitPrice: If the item is a node then this is the fee for the product</span>
+<span class="sd">            or service, otherwise this is the total of the fees for the children</span>
+<span class="sd">            of the group.</span>
+<span class="sd">        factor: A real number that represents a multiplier used in determining</span>
+<span class="sd">            the overall value of services delivered and/or goods received. The</span>
+<span class="sd">            concept of a Factor allows for a discount or surcharge multiplier to</span>
+<span class="sd">            be applied to a monetary amount.</span>
+<span class="sd">        net: The quantity times the unit price for an addittional service or</span>
+<span class="sd">            product or charge. For example, the formula: unit Quantity * unit</span>
+<span class="sd">            Price (Cost per Point) * factor Number  * points = net Amount.</span>
+<span class="sd">            Quantity, factor and points are assumed to be 1 if not supplied.</span>
+<span class="sd">        udi: List of Unique Device Identifiers associated with this line item.</span>
+<span class="sd">        bodySite: Physical service site on the patient (limb, tooth, etc).</span>
+<span class="sd">        subSite: A region or surface of the site, eg. limb region or tooth</span>
+<span class="sd">            surface(s).</span>
+<span class="sd">        encounter: A billed item may include goods or services provided in</span>
+<span class="sd">            multiple encounters.</span>
+<span class="sd">        detail: Second tier of goods and services.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim_Item&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">careTeamLinkId</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">diagnosisLinkId</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">procedureLinkId</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">informationLinkId</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">revenue</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">service</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">modifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">programCode</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">servicedDate</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">servicedPeriod</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Period</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">locationCodeableConcept</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">locationAddress</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Address</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">locationReference</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Quantity</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">unitPrice</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Money</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">factor</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Money</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">udi</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">bodySite</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">subSite</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">encounter</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">detail</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Claim_Detail</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Claim_Item.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Item.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;programCode&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Detail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;detail&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Money&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;unitPrice&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;encounter&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Money&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;net&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;category&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;service&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;udi&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;locationCodeableConcept&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;revenue&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;quantity&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Address&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;locationAddress&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;bodySite&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;locationReference&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Period&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;servicedPeriod&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;modifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Item&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;subSite&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Claim_Detail"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Detail">[docs]</a><span class="k">class</span> <span class="nc">Claim_Detail</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        sequence: A service line number.</span>
+<span class="sd">        revenue: The type of reveneu or cost center providing the product</span>
+<span class="sd">            and/or service.</span>
+<span class="sd">        category: Health Care Service Type Codes  to identify the</span>
+<span class="sd">            classification of service or benefits.</span>
+<span class="sd">        service: If this is an actual service or product line, ie. not a</span>
+<span class="sd">            Group, then use code to indicate the Professional Service or Product</span>
+<span class="sd">            supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a</span>
+<span class="sd">            grouping item then use a group code to indicate the type of thing</span>
+<span class="sd">            being grouped eg. &#39;glasses&#39; or &#39;compound&#39;.</span>
+<span class="sd">        modifier: Item typification or modifiers codes, eg for Oral whether</span>
+<span class="sd">            the treatment is cosmetic or associated with TMJ, or for medical</span>
+<span class="sd">            whether the treatment was outside the clinic or out of office hours.</span>
+<span class="sd">        programCode: For programs which require reson codes for the inclusion,</span>
+<span class="sd">            covering, of this billed item under the program or sub-program.</span>
+<span class="sd">        quantity: The number of repetitions of a service or product.</span>
+<span class="sd">        unitPrice: If the item is a node then this is the fee for the product</span>
+<span class="sd">            or service, otherwise this is the total of the fees for the children</span>
+<span class="sd">            of the group.</span>
+<span class="sd">        factor: A real number that represents a multiplier used in determining</span>
+<span class="sd">            the overall value of services delivered and/or goods received. The</span>
+<span class="sd">            concept of a Factor allows for a discount or surcharge multiplier to</span>
+<span class="sd">            be applied to a monetary amount.</span>
+<span class="sd">        net: The quantity times the unit price for an addittional service or</span>
+<span class="sd">            product or charge. For example, the formula: unit Quantity * unit</span>
+<span class="sd">            Price (Cost per Point) * factor Number  * points = net Amount.</span>
+<span class="sd">            Quantity, factor and points are assumed to be 1 if not supplied.</span>
+<span class="sd">        udi: List of Unique Device Identifiers associated with this line item.</span>
+<span class="sd">        subDetail: Third tier of goods and services.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim_Detail&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">revenue</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">service</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">modifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">programCode</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Quantity</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">unitPrice</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Money</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">factor</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Money</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">udi</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">subDetail</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Claim_SubDetail</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Claim_Detail.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_Detail.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Money&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Detail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;net&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Detail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;udi&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Detail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;revenue&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_SubDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Detail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;subDetail&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Detail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;programCode&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Detail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;category&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Detail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;quantity&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Money&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Detail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;unitPrice&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Detail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;modifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_Detail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;service&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Claim_SubDetail"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_SubDetail">[docs]</a><span class="k">class</span> <span class="nc">Claim_SubDetail</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A provider issued list of services and products provided, or to be</span>
+<span class="sd">    provided, to a patient which is provided to an insurer for payment</span>
+<span class="sd">    recovery.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        sequence: A service line number.</span>
+<span class="sd">        revenue: The type of reveneu or cost center providing the product</span>
+<span class="sd">            and/or service.</span>
+<span class="sd">        category: Health Care Service Type Codes  to identify the</span>
+<span class="sd">            classification of service or benefits.</span>
+<span class="sd">        service: A code to indicate the Professional Service or Product</span>
+<span class="sd">            supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).</span>
+<span class="sd">        modifier: Item typification or modifiers codes, eg for Oral whether</span>
+<span class="sd">            the treatment is cosmetic or associated with TMJ, or for medical</span>
+<span class="sd">            whether the treatment was outside the clinic or out of office hours.</span>
+<span class="sd">        programCode: For programs which require reson codes for the inclusion,</span>
+<span class="sd">            covering, of this billed item under the program or sub-program.</span>
+<span class="sd">        quantity: The number of repetitions of a service or product.</span>
+<span class="sd">        unitPrice: The fee for an addittional service or product or charge.</span>
+<span class="sd">        factor: A real number that represents a multiplier used in determining</span>
+<span class="sd">            the overall value of services delivered and/or goods received. The</span>
+<span class="sd">            concept of a Factor allows for a discount or surcharge multiplier to</span>
+<span class="sd">            be applied to a monetary amount.</span>
+<span class="sd">        net: The quantity times the unit price for an addittional service or</span>
+<span class="sd">            product or charge. For example, the formula: unit Quantity * unit</span>
+<span class="sd">            Price (Cost per Point) * factor Number  * points = net Amount.</span>
+<span class="sd">            Quantity, factor and points are assumed to be 1 if not supplied.</span>
+<span class="sd">        udi: List of Unique Device Identifiers associated with this line item.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Claim_SubDetail&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">revenue</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">service</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">modifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">programCode</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Quantity</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">unitPrice</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Money</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">factor</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Money</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">udi</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Claim_SubDetail.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Claim.Claim_SubDetail.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_SubDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;programCode&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_SubDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;modifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_SubDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;quantity&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_SubDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;revenue&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_SubDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;service&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_SubDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;category&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Money&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_SubDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;net&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_SubDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;udi&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Money&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Claim_SubDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;unitPrice&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1.0-dev',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

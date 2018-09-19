@@ -1,0 +1,560 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.ClinicalImpression &mdash; Cardea 0.1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#from-sources">From sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cardea</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cardea.html">cardea package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.data_loader.html">cardea.data_loader package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.fhir.html">cardea.fhir package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#module-cardea">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#release-workflow">Release Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cardea.fhir.ClinicalImpression</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cardea.fhir.ClinicalImpression</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="k">import</span> <span class="n">fhirbase</span>
+
+
+<div class="viewcode-block" id="ClinicalImpression"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.ClinicalImpression.ClinicalImpression">[docs]</a><span class="k">class</span> <span class="nc">ClinicalImpression</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A record of a clinical assessment performed to determine what</span>
+<span class="sd">    problem(s) may affect the patient and before planning the treatments</span>
+<span class="sd">    or management strategies that are best to manage a patient&#39;s</span>
+<span class="sd">    condition. Assessments are often 1:1 with a clinical consultation /</span>
+<span class="sd">    encounter,  but this varies greatly depending on the clinical</span>
+<span class="sd">    workflow. This resource is called &quot;ClinicalImpression&quot; rather than</span>
+<span class="sd">    &quot;ClinicalAssessment&quot; to avoid confusion with the recording of</span>
+<span class="sd">    assessment tools such as Apgar score.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        resourceType: This is a ClinicalImpression resource</span>
+<span class="sd">        identifier: A unique identifier assigned to the clinical impression</span>
+<span class="sd">            that remains consistent regardless of what server the impression is</span>
+<span class="sd">            stored on.</span>
+<span class="sd">        status: Identifies the workflow status of the assessment.</span>
+<span class="sd">        code: Categorizes the type of clinical assessment performed.</span>
+<span class="sd">        description: A summary of the context and/or cause of the assessment -</span>
+<span class="sd">            why / where was it performed, and what patient events/status prompted</span>
+<span class="sd">            it.</span>
+<span class="sd">        subject: The patient or group of individuals assessed as part of this</span>
+<span class="sd">            record.</span>
+<span class="sd">        context: The encounter or episode of care this impression was created</span>
+<span class="sd">            as part of.</span>
+<span class="sd">        effectiveDateTime: The point in time or period over which the subject</span>
+<span class="sd">            was assessed.</span>
+<span class="sd">        effectivePeriod: The point in time or period over which the subject</span>
+<span class="sd">            was assessed.</span>
+<span class="sd">        date: Indicates when the documentation of the assessment was complete.</span>
+<span class="sd">        assessor: The clinician performing the assessment.</span>
+<span class="sd">        previous: A reference to the last assesment that was conducted bon</span>
+<span class="sd">            this patient. Assessments are often/usually ongoing in nature; a care</span>
+<span class="sd">            provider (practitioner or team) will make new assessments on an</span>
+<span class="sd">            ongoing basis as new data arises or the patient&#39;s conditions changes.</span>
+<span class="sd">        problem: This a list of the relevant problems/conditions for a</span>
+<span class="sd">            patient.</span>
+<span class="sd">        investigation: One or more sets of investigations (signs, symptions,</span>
+<span class="sd">            etc.). The actual grouping of investigations vary greatly depending on</span>
+<span class="sd">            the type and context of the assessment. These investigations may</span>
+<span class="sd">            include data generated during the assessment process, or data</span>
+<span class="sd">            previously generated and recorded that is pertinent to the outcomes.</span>
+<span class="sd">        protocol: Reference to a specific published clinical protocol that was</span>
+<span class="sd">            followed during this assessment, and/or that provides evidence in</span>
+<span class="sd">            support of the diagnosis.</span>
+<span class="sd">        summary: A text summary of the investigations and the diagnosis.</span>
+<span class="sd">        finding: Specific findings or diagnoses that was considered likely or</span>
+<span class="sd">            relevant to ongoing treatment.</span>
+<span class="sd">        prognosisCodeableConcept: Estimate of likely outcome.</span>
+<span class="sd">        prognosisReference: RiskAssessment expressing likely outcome.</span>
+<span class="sd">        action: Action taken as part of assessment procedure.</span>
+<span class="sd">        note: Commentary about the impression, typically recorded after the</span>
+<span class="sd">            impression itself was made, though supplemental notes by the original</span>
+<span class="sd">            author could also appear.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClinicalImpression&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;ClinicalImpression&#39;</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: ClinicalImpression</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: draft, completed, entered-in-error</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">effectiveDateTime</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">effectivePeriod</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Period</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assessor</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">problem</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">investigation</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to ClinicalImpression_Investigation</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">finding</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to ClinicalImpression_Finding</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">prognosisCodeableConcept</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">prognosisReference</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">note</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Annotation</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Identifier</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ClinicalImpression.assert_type"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.ClinicalImpression.ClinicalImpression.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;draft&#39;</span><span class="p">,</span> <span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="s1">&#39;entered-in-error&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;draft, completed, entered-in-error&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="ClinicalImpression.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.ClinicalImpression.ClinicalImpression.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Period&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;effectivePeriod&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression_Finding&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;finding&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;subject&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;assessor&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Annotation&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;note&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;action&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;prognosisReference&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression_Investigation&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;investigation&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;prognosisCodeableConcept&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;problem&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;context&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;code&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;previous&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="ClinicalImpression_Investigation"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation">[docs]</a><span class="k">class</span> <span class="nc">ClinicalImpression_Investigation</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A record of a clinical assessment performed to determine what</span>
+<span class="sd">    problem(s) may affect the patient and before planning the treatments</span>
+<span class="sd">    or management strategies that are best to manage a patient&#39;s</span>
+<span class="sd">    condition. Assessments are often 1:1 with a clinical consultation /</span>
+<span class="sd">    encounter,  but this varies greatly depending on the clinical</span>
+<span class="sd">    workflow. This resource is called &quot;ClinicalImpression&quot; rather than</span>
+<span class="sd">    &quot;ClinicalAssessment&quot; to avoid confusion with the recording of</span>
+<span class="sd">    assessment tools such as Apgar score.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        code: A name/code for the group (&quot;set&quot;) of investigations. Typically,</span>
+<span class="sd">            this will be something like &quot;signs&quot;, &quot;symptoms&quot;, &quot;clinical&quot;,</span>
+<span class="sd">            &quot;diagnostic&quot;, but the list is not constrained, and others such groups</span>
+<span class="sd">            such as (exposure|family|travel|nutitirional) history may be used.</span>
+<span class="sd">        item: A record of a specific investigation that was undertaken.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClinicalImpression_Investigation&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">item</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ClinicalImpression_Investigation.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression_Investigation&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;item&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression_Investigation&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;code&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="ClinicalImpression_Finding"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding">[docs]</a><span class="k">class</span> <span class="nc">ClinicalImpression_Finding</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A record of a clinical assessment performed to determine what</span>
+<span class="sd">    problem(s) may affect the patient and before planning the treatments</span>
+<span class="sd">    or management strategies that are best to manage a patient&#39;s</span>
+<span class="sd">    condition. Assessments are often 1:1 with a clinical consultation /</span>
+<span class="sd">    encounter,  but this varies greatly depending on the clinical</span>
+<span class="sd">    workflow. This resource is called &quot;ClinicalImpression&quot; rather than</span>
+<span class="sd">    &quot;ClinicalAssessment&quot; to avoid confusion with the recording of</span>
+<span class="sd">    assessment tools such as Apgar score.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        itemCodeableConcept: Specific text, code or reference for finding or</span>
+<span class="sd">            diagnosis, which may include ruled-out or resolved conditions.</span>
+<span class="sd">        itemReference: Specific text, code or reference for finding or</span>
+<span class="sd">            diagnosis, which may include ruled-out or resolved conditions.</span>
+<span class="sd">        basis: Which investigations support finding or diagnosis.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClinicalImpression_Finding&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">itemCodeableConcept</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">itemReference</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">basis</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ClinicalImpression_Finding.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression_Finding&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;itemCodeableConcept&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClinicalImpression_Finding&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;itemReference&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1.0-dev',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

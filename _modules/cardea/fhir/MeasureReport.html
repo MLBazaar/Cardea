@@ -1,0 +1,615 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.MeasureReport &mdash; Cardea 0.1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#from-sources">From sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cardea</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cardea.html">cardea package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.data_loader.html">cardea.data_loader package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.fhir.html">cardea.fhir package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#module-cardea">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#release-workflow">Release Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cardea.fhir.MeasureReport</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cardea.fhir.MeasureReport</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="k">import</span> <span class="n">fhirbase</span>
+
+
+<div class="viewcode-block" id="MeasureReport"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport">[docs]</a><span class="k">class</span> <span class="nc">MeasureReport</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The MeasureReport resource contains the results of evaluating a</span>
+<span class="sd">    measure.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        resourceType: This is a MeasureReport resource</span>
+<span class="sd">        identifier: A formal identifier that is used to identify this report</span>
+<span class="sd">            when it is represented in other formats, or referenced in a</span>
+<span class="sd">            specification, model, design or an instance.</span>
+<span class="sd">        status: The report status. No data will be available until the report</span>
+<span class="sd">            status is complete.</span>
+<span class="sd">        type: The type of measure report. This may be an individual report,</span>
+<span class="sd">            which provides a single patient&#39;s score for the measure; a patient</span>
+<span class="sd">            listing, which returns the list of patients that meet the various</span>
+<span class="sd">            criteria in the measure; or a summary report, which returns a</span>
+<span class="sd">            population count for each of the criteria in the measure.</span>
+<span class="sd">        measure: A reference to the Measure that was evaluated to produce this</span>
+<span class="sd">            report.</span>
+<span class="sd">        patient: Optional Patient if the report was requested for a single</span>
+<span class="sd">            patient.</span>
+<span class="sd">        date: The date this measure report was generated.</span>
+<span class="sd">        reportingOrganization: Reporting Organization.</span>
+<span class="sd">        period: The reporting period for which the report was calculated.</span>
+<span class="sd">        group: The results of the calculation, one for each population group</span>
+<span class="sd">            in the measure.</span>
+<span class="sd">        evaluatedResources: A reference to a Bundle containing the Resources</span>
+<span class="sd">            that were used in the evaluation of this report.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;MeasureReport&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;MeasureReport&#39;</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: MeasureReport</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: complete, pending, error</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: individual, patient-list, summary</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">measure</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">patient</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reportingOrganization</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">period</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Period</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to MeasureReport_Group: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">evaluatedResources</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Identifier</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
+
+<div class="viewcode-block" id="MeasureReport.assert_type"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;complete&#39;</span><span class="p">,</span> <span class="s1">&#39;pending&#39;</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;complete, pending, error&#39;</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;individual&#39;</span><span class="p">,</span> <span class="s1">&#39;patient-list&#39;</span><span class="p">,</span> <span class="s1">&#39;summary&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;individual, patient-list, summary&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="MeasureReport.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;reportingOrganization&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;measure&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Period&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;period&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;patient&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Group&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;group&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;evaluatedResources&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="MeasureReport_Group"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport_Group">[docs]</a><span class="k">class</span> <span class="nc">MeasureReport_Group</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The MeasureReport resource contains the results of evaluating a</span>
+<span class="sd">    measure.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        identifier: The identifier of the population group as defined in the</span>
+<span class="sd">            measure definition.</span>
+<span class="sd">        population: The populations that make up the population group, one for</span>
+<span class="sd">            each type of population appropriate for the measure.</span>
+<span class="sd">        measureScore: The measure score for this population group, calculated</span>
+<span class="sd">            as appropriate for the measure type and scoring method, and based on</span>
+<span class="sd">            the contents of the populations defined in the group.</span>
+<span class="sd">        stratifier: When a measure includes multiple stratifiers, there will</span>
+<span class="sd">            be a stratifier group for each stratifier defined by the measure.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;MeasureReport_Group&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to MeasureReport_Population: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">measureScore</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">stratifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to MeasureReport_Stratifier: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Identifier</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MeasureReport_Group.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport_Group.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Stratifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Group&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;stratifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Population&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Group&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;population&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Group&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="MeasureReport_Population"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport_Population">[docs]</a><span class="k">class</span> <span class="nc">MeasureReport_Population</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The MeasureReport resource contains the results of evaluating a</span>
+<span class="sd">    measure.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        identifier: The identifier of the population being reported, as</span>
+<span class="sd">            defined by the population element of the measure.</span>
+<span class="sd">        code: The type of the population.</span>
+<span class="sd">        count: The number of members of the population.</span>
+<span class="sd">        patients: This element refers to a List of patient level MeasureReport</span>
+<span class="sd">            resources, one for each patient in this population.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;MeasureReport_Population&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">patients</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Identifier</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MeasureReport_Population.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport_Population.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Population&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;patients&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Population&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Population&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;code&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="MeasureReport_Stratifier"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport_Stratifier">[docs]</a><span class="k">class</span> <span class="nc">MeasureReport_Stratifier</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The MeasureReport resource contains the results of evaluating a</span>
+<span class="sd">    measure.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        identifier: The identifier of this stratifier, as defined in the</span>
+<span class="sd">            measure definition.</span>
+<span class="sd">        stratum: This element contains the results for a single stratum within</span>
+<span class="sd">            the stratifier. For example, when stratifying on administrative</span>
+<span class="sd">            gender, there will be four strata, one for each possible gender value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;MeasureReport_Stratifier&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stratum</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to MeasureReport_Stratum</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Identifier</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MeasureReport_Stratifier.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport_Stratifier.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Stratifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Stratum&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Stratifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;stratum&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="MeasureReport_Stratum"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport_Stratum">[docs]</a><span class="k">class</span> <span class="nc">MeasureReport_Stratum</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The MeasureReport resource contains the results of evaluating a</span>
+<span class="sd">    measure.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        value: The value for this stratum, expressed as a string. When</span>
+<span class="sd">            defining stratifiers on complex values, the value must be rendered</span>
+<span class="sd">            such that the value for each stratum within the stratifier is unique.</span>
+<span class="sd">        population: The populations that make up the stratum, one for each</span>
+<span class="sd">            type of population appropriate to the measure.</span>
+<span class="sd">        measureScore: The measure score for this stratum, calculated as</span>
+<span class="sd">            appropriate for the measure type and scoring method, and based on only</span>
+<span class="sd">            the members of this stratum.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;MeasureReport_Stratum&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to MeasureReport_Population1: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">measureScore</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MeasureReport_Stratum.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport_Stratum.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Population1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Stratum&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;population&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="MeasureReport_Population1"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport_Population1">[docs]</a><span class="k">class</span> <span class="nc">MeasureReport_Population1</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The MeasureReport resource contains the results of evaluating a</span>
+<span class="sd">    measure.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        identifier: The identifier of the population being reported, as</span>
+<span class="sd">            defined by the population element of the measure.</span>
+<span class="sd">        code: The type of the population.</span>
+<span class="sd">        count: The number of members of the population in this stratum.</span>
+<span class="sd">        patients: This element refers to a List of patient level MeasureReport</span>
+<span class="sd">            resources, one for each patient in this population in this stratum.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;MeasureReport_Population1&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">patients</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Identifier</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MeasureReport_Population1.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.MeasureReport.MeasureReport_Population1.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Population1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;patients&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Population1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;MeasureReport_Population1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;code&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1.0-dev',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

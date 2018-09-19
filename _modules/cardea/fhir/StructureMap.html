@@ -1,0 +1,1354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.StructureMap &mdash; Cardea 0.1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#from-sources">From sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cardea</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cardea.html">cardea package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.data_loader.html">cardea.data_loader package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.fhir.html">cardea.fhir package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#module-cardea">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#release-workflow">Release Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cardea.fhir.StructureMap</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cardea.fhir.StructureMap</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="k">import</span> <span class="n">fhirbase</span>
+
+
+<div class="viewcode-block" id="StructureMap"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap">[docs]</a><span class="k">class</span> <span class="nc">StructureMap</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A Map of relationships between 2 structures that can be used to</span>
+<span class="sd">    transform data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        resourceType: This is a StructureMap resource</span>
+<span class="sd">        url: An absolute URI that is used to identify this structure map when</span>
+<span class="sd">            it is referenced in a specification, model, design or an instance.</span>
+<span class="sd">            This SHALL be a URL, SHOULD be globally unique, and SHOULD be an</span>
+<span class="sd">            address at which this structure map is (or will be) published. The URL</span>
+<span class="sd">            SHOULD include the major version of the structure map. For more</span>
+<span class="sd">            information see [Technical and Business</span>
+<span class="sd">            Versions](resource.html#versions).</span>
+<span class="sd">        identifier: A formal identifier that is used to identify this</span>
+<span class="sd">            structure map when it is represented in other formats, or referenced</span>
+<span class="sd">            in a specification, model, design or an instance.</span>
+<span class="sd">        version: The identifier that is used to identify this version of the</span>
+<span class="sd">            structure map when it is referenced in a specification, model, design</span>
+<span class="sd">            or instance. This is an arbitrary value managed by the structure map</span>
+<span class="sd">            author and is not expected to be globally unique. For example, it</span>
+<span class="sd">            might be a timestamp (e.g. yyyymmdd) if a managed version is not</span>
+<span class="sd">            available. There is also no expectation that versions can be placed in</span>
+<span class="sd">            a lexicographical sequence.</span>
+<span class="sd">        name: A natural language name identifying the structure map. This name</span>
+<span class="sd">            should be usable as an identifier for the module by machine processing</span>
+<span class="sd">            applications such as code generation.</span>
+<span class="sd">        title: A short, descriptive, user-friendly title for the structure</span>
+<span class="sd">            map.</span>
+<span class="sd">        status: The status of this structure map. Enables tracking the</span>
+<span class="sd">            life-cycle of the content.</span>
+<span class="sd">        experimental: A boolean value to indicate that this structure map is</span>
+<span class="sd">            authored for testing purposes (or education/evaluation/marketing), and</span>
+<span class="sd">            is not intended to be used for genuine usage.</span>
+<span class="sd">        date: The date  (and optionally time) when the structure map was</span>
+<span class="sd">            published. The date must change if and when the business version</span>
+<span class="sd">            changes and it must change if the status code changes. In addition, it</span>
+<span class="sd">            should change when the substantive content of the structure map</span>
+<span class="sd">            changes.</span>
+<span class="sd">        publisher: The name of the individual or organization that published</span>
+<span class="sd">            the structure map.</span>
+<span class="sd">        contact: Contact details to assist a user in finding and communicating</span>
+<span class="sd">            with the publisher.</span>
+<span class="sd">        description: A free text natural language description of the structure</span>
+<span class="sd">            map from a consumer&#39;s perspective.</span>
+<span class="sd">        useContext: The content was developed with a focus and intent of</span>
+<span class="sd">            supporting the contexts that are listed. These terms may be used to</span>
+<span class="sd">            assist with indexing and searching for appropriate structure map</span>
+<span class="sd">            instances.</span>
+<span class="sd">        jurisdiction: A legal or geographic region in which the structure map</span>
+<span class="sd">            is intended to be used.</span>
+<span class="sd">        purpose: Explaination of why this structure map is needed and why it</span>
+<span class="sd">            has been designed as it has.</span>
+<span class="sd">        copyright: A copyright statement relating to the structure map and/or</span>
+<span class="sd">            its contents. Copyright statements are generally legal restrictions on</span>
+<span class="sd">            the use and publishing of the structure map.</span>
+<span class="sd">        structure: A structure definition used by this map. The structure</span>
+<span class="sd">            definition may describe instances that are converted, or the instances</span>
+<span class="sd">            that are produced.</span>
+<span class="sd">        import: Other maps used by this map (canonical URLs).</span>
+<span class="sd">        group: Organizes the mapping into managable chunks for human</span>
+<span class="sd">            review/ease of maintenance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;StructureMap&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;StructureMap&#39;</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: StructureMap</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: draft, active, retired, unknown</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">experimental</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: boolean</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">contact</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to ContactDetail</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">useContext</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to UsageContext</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">jurisdiction</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">purpose</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">copyright</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">structure</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to StructureMap_Structure</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_import</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to StructureMap_Group</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Identifier</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
+
+<div class="viewcode-block" id="StructureMap.assert_type"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;draft&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;retired&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;draft, active, retired, unknown&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="StructureMap.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;jurisdiction&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;UsageContext&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;useContext&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ContactDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;contact&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Group&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;group&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Structure&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;structure&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="StructureMap_Structure"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Structure">[docs]</a><span class="k">class</span> <span class="nc">StructureMap_Structure</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A Map of relationships between 2 structures that can be used to</span>
+<span class="sd">    transform data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        url: The canonical URL that identifies the structure.</span>
+<span class="sd">        mode: How the referenced structure is used in this mapping.</span>
+<span class="sd">        alias: The name used for this type in the map.</span>
+<span class="sd">        documentation: Documentation that describes how the structure is used</span>
+<span class="sd">            in the mapping.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;StructureMap_Structure&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: source, queried, target, produced</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">alias</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
+
+<div class="viewcode-block" id="StructureMap_Structure.assert_type"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Structure.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;queried&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="s1">&#39;produced&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;source, queried, target, produced&#39;</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="StructureMap_Group"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Group">[docs]</a><span class="k">class</span> <span class="nc">StructureMap_Group</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A Map of relationships between 2 structures that can be used to</span>
+<span class="sd">    transform data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name: A unique name for the group for the convenience of human</span>
+<span class="sd">            readers.</span>
+<span class="sd">        extends: Another group that this group adds rules to.</span>
+<span class="sd">        typeMode: If this is the default rule set to apply for thie source</span>
+<span class="sd">            type, or this combination of types.</span>
+<span class="sd">        documentation: Additional supporting documentation that explains the</span>
+<span class="sd">            purpose of the group and the types of mappings within it.</span>
+<span class="sd">        input: A name assigned to an instance of data. The instance must be</span>
+<span class="sd">            provided when the mapping is invoked.</span>
+<span class="sd">        rule: Transform Rule from source to target.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;StructureMap_Group&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">extends</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">typeMode</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: none, types, type-and-types</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">input</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to StructureMap_Input</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rule</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to StructureMap_Rule</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
+
+<div class="viewcode-block" id="StructureMap_Group.assert_type"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Group.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">typeMode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">typeMode</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">,</span> <span class="s1">&#39;type-and-types&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;none, types, type-and-types&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="StructureMap_Group.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Group.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Input&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Group&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;input&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Rule&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Group&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;rule&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="StructureMap_Input"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Input">[docs]</a><span class="k">class</span> <span class="nc">StructureMap_Input</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A Map of relationships between 2 structures that can be used to</span>
+<span class="sd">    transform data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name: Name for this instance of data.</span>
+<span class="sd">        type: Type for this instance of data.</span>
+<span class="sd">        mode: Mode for this instance of data.</span>
+<span class="sd">        documentation: Documentation for this instance of data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;StructureMap_Input&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: source, target</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
+
+<div class="viewcode-block" id="StructureMap_Input.assert_type"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Input.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;source, target&#39;</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="StructureMap_Rule"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Rule">[docs]</a><span class="k">class</span> <span class="nc">StructureMap_Rule</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A Map of relationships between 2 structures that can be used to</span>
+<span class="sd">    transform data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name: Name of the rule for internal references.</span>
+<span class="sd">        source: Source inputs to the mapping.</span>
+<span class="sd">        target: Content to create because of this mapping rule.</span>
+<span class="sd">        rule: Rules contained in this rule.</span>
+<span class="sd">        dependent: Which other rules to apply in the context of this rule.</span>
+<span class="sd">        documentation: Documentation for this instance of data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;StructureMap_Rule&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to StructureMap_Source</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to StructureMap_Target</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rule</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to StructureMap_Rule</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dependent</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to StructureMap_Dependent</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="StructureMap_Rule.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Rule.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Rule&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;source&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Dependent&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Rule&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;dependent&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Target&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Rule&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;target&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Rule&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Rule&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;rule&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="StructureMap_Source"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Source">[docs]</a><span class="k">class</span> <span class="nc">StructureMap_Source</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A Map of relationships between 2 structures that can be used to</span>
+<span class="sd">    transform data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        context: Type or variable this rule applies to.</span>
+<span class="sd">        min: Specified minimum cardinality for the element. This is optional;</span>
+<span class="sd">            if present, it acts an implicit check on the input content.</span>
+<span class="sd">        max: Specified maximum cardinality for the element - a number or a</span>
+<span class="sd">            &quot;*&quot;. This is optional; if present, it acts an implicit check on the</span>
+<span class="sd">            input content (* just serves as documentation; it&#39;s the default</span>
+<span class="sd">            value).</span>
+<span class="sd">        type: Specified type for the element. This works as a condition on the</span>
+<span class="sd">            mapping - use for polymorphic elements.</span>
+<span class="sd">        defaultValueBoolean: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueInteger: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueDecimal: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueBase64Binary: A value to use if there is no existing value</span>
+<span class="sd">            in the source object.</span>
+<span class="sd">        defaultValueInstant: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueString: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueUri: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueDate: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueDateTime: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueTime: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueCode: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueOid: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueUuid: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueId: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueUnsignedInt: A value to use if there is no existing value</span>
+<span class="sd">            in the source object.</span>
+<span class="sd">        defaultValuePositiveInt: A value to use if there is no existing value</span>
+<span class="sd">            in the source object.</span>
+<span class="sd">        defaultValueMarkdown: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueElement: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueExtension: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueBackboneElement: A value to use if there is no existing</span>
+<span class="sd">            value in the source object.</span>
+<span class="sd">        defaultValueNarrative: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueAnnotation: A value to use if there is no existing value</span>
+<span class="sd">            in the source object.</span>
+<span class="sd">        defaultValueAttachment: A value to use if there is no existing value</span>
+<span class="sd">            in the source object.</span>
+<span class="sd">        defaultValueIdentifier: A value to use if there is no existing value</span>
+<span class="sd">            in the source object.</span>
+<span class="sd">        defaultValueCodeableConcept: A value to use if there is no existing</span>
+<span class="sd">            value in the source object.</span>
+<span class="sd">        defaultValueCoding: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueQuantity: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueDuration: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueSimpleQuantity: A value to use if there is no existing</span>
+<span class="sd">            value in the source object.</span>
+<span class="sd">        defaultValueDistance: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueCount: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueMoney: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueAge: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueRange: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValuePeriod: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueRatio: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueReference: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueSampledData: A value to use if there is no existing value</span>
+<span class="sd">            in the source object.</span>
+<span class="sd">        defaultValueSignature: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueHumanName: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueAddress: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueContactPoint: A value to use if there is no existing value</span>
+<span class="sd">            in the source object.</span>
+<span class="sd">        defaultValueTiming: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueMeta: A value to use if there is no existing value in the</span>
+<span class="sd">            source object.</span>
+<span class="sd">        defaultValueElementDefinition: A value to use if there is no existing</span>
+<span class="sd">            value in the source object.</span>
+<span class="sd">        defaultValueContactDetail: A value to use if there is no existing</span>
+<span class="sd">            value in the source object.</span>
+<span class="sd">        defaultValueContributor: A value to use if there is no existing value</span>
+<span class="sd">            in the source object.</span>
+<span class="sd">        defaultValueDosage: A value to use if there is no existing value in</span>
+<span class="sd">            the source object.</span>
+<span class="sd">        defaultValueRelatedArtifact: A value to use if there is no existing</span>
+<span class="sd">            value in the source object.</span>
+<span class="sd">        defaultValueUsageContext: A value to use if there is no existing value</span>
+<span class="sd">            in the source object.</span>
+<span class="sd">        defaultValueDataRequirement: A value to use if there is no existing</span>
+<span class="sd">            value in the source object.</span>
+<span class="sd">        defaultValueParameterDefinition: A value to use if there is no</span>
+<span class="sd">            existing value in the source object.</span>
+<span class="sd">        defaultValueTriggerDefinition: A value to use if there is no existing</span>
+<span class="sd">            value in the source object.</span>
+<span class="sd">        element: Optional field for this source.</span>
+<span class="sd">        listMode: How to handle the list mode for this element.</span>
+<span class="sd">        variable: Named context for field, if a field is specified.</span>
+<span class="sd">        condition: FHIRPath expression  - must be true or the rule does not</span>
+<span class="sd">            apply.</span>
+<span class="sd">        check: FHIRPath expression  - must be true or the mapping engine</span>
+<span class="sd">            throws an error instead of completing.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;StructureMap_Source&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueBoolean</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: boolean</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueInteger</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueDecimal</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueBase64Binary</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueInstant</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueString</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueUri</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueDate</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueDateTime</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueTime</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueCode</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueOid</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueUuid</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueId</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueUnsignedInt</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValuePositiveInt</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueMarkdown</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueElement</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Element: id</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueExtension</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Extension</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueBackboneElement</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to BackboneElement</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueNarrative</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Narrative</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueAnnotation</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Annotation</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueAttachment</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Attachment</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueIdentifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueCodeableConcept</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueCoding</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Coding</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueQuantity</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Quantity</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueDuration</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Duration</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueSimpleQuantity</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Quantity</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueDistance</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Distance</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueCount</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Count</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueMoney</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Money</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueAge</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Age</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueRange</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Range</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValuePeriod</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Period</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueRatio</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Ratio</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueReference</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueSampledData</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to SampledData</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueSignature</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Signature</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueHumanName</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to HumanName</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueAddress</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Address</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueContactPoint</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to ContactPoint</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueTiming</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Timing</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueMeta</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Meta</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueElementDefinition</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to ElementDefinition</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueContactDetail</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to ContactDetail</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueContributor</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Contributor</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueDosage</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Dosage</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueRelatedArtifact</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to RelatedArtifact</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueUsageContext</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to UsageContext</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueDataRequirement</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to DataRequirement</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueParameterDefinition</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to ParameterDefinition</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueTriggerDefinition</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to TriggerDefinition</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">element</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">listMode</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: first, not_first, last, not_last, only_one</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">variable</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">check</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
+
+<div class="viewcode-block" id="StructureMap_Source.assert_type"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Source.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">listMode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">listMode</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;not_first&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">,</span> <span class="s1">&#39;not_last&#39;</span><span class="p">,</span> <span class="s1">&#39;only_one&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;first, not_first, last, not_last, only_one&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="StructureMap_Source.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Source.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Money&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueMoney&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Duration&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueDuration&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ContactPoint&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueContactPoint&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueIdentifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Contributor&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueContributor&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;HumanName&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueHumanName&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;BackboneElement&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueBackboneElement&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;TriggerDefinition&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueTriggerDefinition&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Timing&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueTiming&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Dosage&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueDosage&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;SampledData&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueSampledData&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Extension&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueExtension&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueSimpleQuantity&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueAge&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Attachment&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueAttachment&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Address&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueAddress&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Ratio&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueRatio&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Period&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValuePeriod&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Meta&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueMeta&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Count&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueCount&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;RelatedArtifact&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueRelatedArtifact&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;UsageContext&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueUsageContext&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ParameterDefinition&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueParameterDefinition&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ElementDefinition&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueElementDefinition&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Element&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueElement&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueCodeableConcept&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ContactDetail&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueContactDetail&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Annotation&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueAnnotation&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Coding&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueCoding&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Signature&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueSignature&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueReference&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Distance&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueDistance&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;DataRequirement&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueDataRequirement&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Range&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueRange&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Narrative&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueNarrative&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Source&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;defaultValueQuantity&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="StructureMap_Target"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Target">[docs]</a><span class="k">class</span> <span class="nc">StructureMap_Target</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A Map of relationships between 2 structures that can be used to</span>
+<span class="sd">    transform data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        context: Type or variable this rule applies to.</span>
+<span class="sd">        contextType: How to interpret the context.</span>
+<span class="sd">        element: Field to create in the context.</span>
+<span class="sd">        variable: Named context for field, if desired, and a field is</span>
+<span class="sd">            specified.</span>
+<span class="sd">        listMode: If field is a list, how to manage the list.</span>
+<span class="sd">        listRuleId: Internal rule reference for shared list items.</span>
+<span class="sd">        transform: How the data is copied / created.</span>
+<span class="sd">        parameter: Parameters to the transform.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;StructureMap_Target&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">contextType</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: type, variable</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">element</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">variable</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">listMode</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># possible values: first, share, last, collate</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">listRuleId</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: create, copy, truncate, escape, cast,</span>
+        <span class="c1"># append, translate, reference, dateOp, uuid, pointer, evaluate, cc, c,</span>
+        <span class="c1"># qty, id, cp</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameter</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to StructureMap_Parameter</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
+
+<div class="viewcode-block" id="StructureMap_Target.assert_type"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Target.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">contextType</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">contextType</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;variable&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;type, variable&#39;</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">listMode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">listMode</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;share&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">,</span> <span class="s1">&#39;collate&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;first, share, last, collate&#39;</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                    <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="s1">&#39;copy&#39;</span><span class="p">,</span> <span class="s1">&#39;truncate&#39;</span><span class="p">,</span> <span class="s1">&#39;escape&#39;</span><span class="p">,</span> <span class="s1">&#39;cast&#39;</span><span class="p">,</span> <span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="s1">&#39;translate&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;reference&#39;</span><span class="p">,</span> <span class="s1">&#39;dateop&#39;</span><span class="p">,</span> <span class="s1">&#39;uuid&#39;</span><span class="p">,</span> <span class="s1">&#39;pointer&#39;</span><span class="p">,</span> <span class="s1">&#39;evaluate&#39;</span><span class="p">,</span> <span class="s1">&#39;cc&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;qty&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cp&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;create, copy, truncate, escape, cast, append, translate, &#39;</span>
+                        <span class="s1">&#39;reference, dateOp, uuid, pointer, evaluate, cc, c, qty, id, cp&#39;</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">contextType</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">contextType</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;variable&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;type, variable&#39;</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">listMode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">listMode</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                        <span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;share&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">,</span> <span class="s1">&#39;collate&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;first, share, last, collate&#39;</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                    <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="s1">&#39;copy&#39;</span><span class="p">,</span> <span class="s1">&#39;truncate&#39;</span><span class="p">,</span> <span class="s1">&#39;escape&#39;</span><span class="p">,</span> <span class="s1">&#39;cast&#39;</span><span class="p">,</span> <span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="s1">&#39;translate&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;reference&#39;</span><span class="p">,</span> <span class="s1">&#39;dateop&#39;</span><span class="p">,</span> <span class="s1">&#39;uuid&#39;</span><span class="p">,</span> <span class="s1">&#39;pointer&#39;</span><span class="p">,</span> <span class="s1">&#39;evaluate&#39;</span><span class="p">,</span> <span class="s1">&#39;cc&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;qty&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cp&#39;</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;create, copy, truncate, escape, cast, append, translate, &#39;</span>
+                        <span class="s1">&#39;reference, dateOp, uuid, pointer, evaluate, cc, c, qty, id, cp&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="StructureMap_Target.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Target.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Parameter&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;StructureMap_Target&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;parameter&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="StructureMap_Parameter"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Parameter">[docs]</a><span class="k">class</span> <span class="nc">StructureMap_Parameter</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A Map of relationships between 2 structures that can be used to</span>
+<span class="sd">    transform data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        valueId: Parameter value - variable or literal.</span>
+<span class="sd">        valueString: Parameter value - variable or literal.</span>
+<span class="sd">        valueBoolean: Parameter value - variable or literal.</span>
+<span class="sd">        valueInteger: Parameter value - variable or literal.</span>
+<span class="sd">        valueDecimal: Parameter value - variable or literal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;StructureMap_Parameter&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valueId</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">valueString</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">valueBoolean</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: boolean</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">valueInteger</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">valueDecimal</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="StructureMap_Dependent"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Dependent">[docs]</a><span class="k">class</span> <span class="nc">StructureMap_Dependent</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A Map of relationships between 2 structures that can be used to</span>
+<span class="sd">    transform data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name: Name of a rule or group to apply.</span>
+<span class="sd">        variable: Variable to pass to the rule or group.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;StructureMap_Dependent&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">variable</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1.0-dev',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

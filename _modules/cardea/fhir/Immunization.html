@@ -1,0 +1,649 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.Immunization &mdash; Cardea 0.1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#from-sources">From sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cardea</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cardea.html">cardea package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.data_loader.html">cardea.data_loader package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.fhir.html">cardea.fhir package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#module-cardea">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#release-workflow">Release Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cardea.fhir.Immunization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cardea.fhir.Immunization</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="k">import</span> <span class="n">fhirbase</span>
+
+
+<div class="viewcode-block" id="Immunization"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Immunization.Immunization">[docs]</a><span class="k">class</span> <span class="nc">Immunization</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Describes the event of a patient being administered a vaccination or a</span>
+<span class="sd">    record of a vaccination as reported by a patient, a clinician or</span>
+<span class="sd">    another party and may include vaccine reaction information and what</span>
+<span class="sd">    vaccination protocol was followed.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        resourceType: This is a Immunization resource</span>
+<span class="sd">        identifier: A unique identifier assigned to this immunization record.</span>
+<span class="sd">        status: Indicates the current status of the vaccination event.</span>
+<span class="sd">        notGiven: Indicates if the vaccination was or was not given.</span>
+<span class="sd">        vaccineCode: Vaccine that was administered or was to be administered.</span>
+<span class="sd">        patient: The patient who either received or did not receive the</span>
+<span class="sd">            immunization.</span>
+<span class="sd">        encounter: The visit or admission or other contact between patient and</span>
+<span class="sd">            health care provider the immunization was performed as part of.</span>
+<span class="sd">        date: Date vaccine administered or was to be administered.</span>
+<span class="sd">        primarySource: An indication that the content of the record is based</span>
+<span class="sd">            on information from the person who administered the vaccine. This</span>
+<span class="sd">            reflects the context under which the data was originally recorded.</span>
+<span class="sd">        reportOrigin: The source of the data when the report of the</span>
+<span class="sd">            immunization event is not based on information from the person who</span>
+<span class="sd">            administered the vaccine.</span>
+<span class="sd">        location: The service delivery location where the vaccine</span>
+<span class="sd">            administration occurred.</span>
+<span class="sd">        manufacturer: Name of vaccine manufacturer.</span>
+<span class="sd">        lotNumber: Lot number of the  vaccine product.</span>
+<span class="sd">        expirationDate: Date vaccine batch expires.</span>
+<span class="sd">        site: Body site where vaccine was administered.</span>
+<span class="sd">        route: The path by which the vaccine product is taken into the body.</span>
+<span class="sd">        doseQuantity: The quantity of vaccine product that was administered.</span>
+<span class="sd">        practitioner: Indicates who or what performed the event.</span>
+<span class="sd">        note: Extra information about the immunization that is not conveyed by</span>
+<span class="sd">            the other attributes.</span>
+<span class="sd">        explanation: Reasons why a vaccine was or was not administered.</span>
+<span class="sd">        reaction: Categorical data indicating that an adverse event is</span>
+<span class="sd">            associated in time to an immunization.</span>
+<span class="sd">        vaccinationProtocol: Contains information about the protocol(s) under</span>
+<span class="sd">            which the vaccine was administered.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Immunization&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;Immunization&#39;</span>
+        <span class="c1"># type: string</span>
+        <span class="c1"># possible values: Immunization</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notGiven</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: boolean</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vaccineCode</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">patient</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">encounter</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">primarySource</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: boolean</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reportOrigin</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">manufacturer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">lotNumber</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">expirationDate</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">site</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">route</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">doseQuantity</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Quantity</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">practitioner</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Immunization_Practitioner</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">note</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Annotation</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">explanation</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Immunization_Explanation</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reaction</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Immunization_Reaction</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vaccinationProtocol</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Immunization_VaccinationProtocol</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to Identifier</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Immunization.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Immunization.Immunization.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;patient&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_Explanation&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;explanation&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;encounter&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_Reaction&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;reaction&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;doseQuantity&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;location&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_Practitioner&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;practitioner&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_VaccinationProtocol&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;vaccinationProtocol&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Annotation&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;note&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;manufacturer&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;vaccineCode&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;reportOrigin&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;route&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;site&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Immunization_Practitioner"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Immunization.Immunization_Practitioner">[docs]</a><span class="k">class</span> <span class="nc">Immunization_Practitioner</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Describes the event of a patient being administered a vaccination or a</span>
+<span class="sd">    record of a vaccination as reported by a patient, a clinician or</span>
+<span class="sd">    another party and may include vaccine reaction information and what</span>
+<span class="sd">    vaccination protocol was followed.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        role: Describes the type of performance (e.g. ordering provider,</span>
+<span class="sd">            administering provider, etc.).</span>
+<span class="sd">        actor: The device, practitioner, etc. who performed the action.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Immunization_Practitioner&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">role</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">actor</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Immunization_Practitioner.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Immunization.Immunization_Practitioner.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_Practitioner&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;actor&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_Practitioner&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;role&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Immunization_Explanation"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Immunization.Immunization_Explanation">[docs]</a><span class="k">class</span> <span class="nc">Immunization_Explanation</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Describes the event of a patient being administered a vaccination or a</span>
+<span class="sd">    record of a vaccination as reported by a patient, a clinician or</span>
+<span class="sd">    another party and may include vaccine reaction information and what</span>
+<span class="sd">    vaccination protocol was followed.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        reason: Reasons why a vaccine was administered.</span>
+<span class="sd">        reasonNotGiven: Reason why a vaccine was not administered.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Immunization_Explanation&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reason</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reasonNotGiven</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Immunization_Explanation.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Immunization.Immunization_Explanation.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_Explanation&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;reasonNotGiven&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_Explanation&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;reason&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Immunization_Reaction"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Immunization.Immunization_Reaction">[docs]</a><span class="k">class</span> <span class="nc">Immunization_Reaction</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Describes the event of a patient being administered a vaccination or a</span>
+<span class="sd">    record of a vaccination as reported by a patient, a clinician or</span>
+<span class="sd">    another party and may include vaccine reaction information and what</span>
+<span class="sd">    vaccination protocol was followed.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        date: Date of reaction to the immunization.</span>
+<span class="sd">        detail: Details of the reaction.</span>
+<span class="sd">        reported: Self-reported indicator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Immunization_Reaction&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">detail</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reported</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: boolean</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Immunization_Reaction.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Immunization.Immunization_Reaction.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_Reaction&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;detail&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Immunization_VaccinationProtocol"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Immunization.Immunization_VaccinationProtocol">[docs]</a><span class="k">class</span> <span class="nc">Immunization_VaccinationProtocol</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Describes the event of a patient being administered a vaccination or a</span>
+<span class="sd">    record of a vaccination as reported by a patient, a clinician or</span>
+<span class="sd">    another party and may include vaccine reaction information and what</span>
+<span class="sd">    vaccination protocol was followed.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        doseSequence: Nominal position in a series.</span>
+<span class="sd">        description: Contains the description about the protocol under which</span>
+<span class="sd">            the vaccine was administered.</span>
+<span class="sd">        authority: Indicates the authority who published the protocol.  E.g.</span>
+<span class="sd">            ACIP.</span>
+<span class="sd">        series: One possible path to achieve presumed immunity against a</span>
+<span class="sd">            disease - within the context of an authority.</span>
+<span class="sd">        seriesDoses: The recommended number of doses to achieve immunity.</span>
+<span class="sd">        targetDisease: The targeted disease.</span>
+<span class="sd">        doseStatus: Indicates if the immunization event should &quot;count&quot; against</span>
+<span class="sd">            the protocol.</span>
+<span class="sd">        doseStatusReason: Provides an explanation as to why an immunization</span>
+<span class="sd">            event should or should not count against the protocol.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Immunization_VaccinationProtocol&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doseSequence</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">authority</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to Reference: identifier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">series</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">seriesDoses</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: int</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">targetDisease</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># type: array</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">doseStatus</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">doseStatusReason</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># reference to CodeableConcept</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># unique identifier for object class</span>
+
+        <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Immunization_VaccinationProtocol.get_relationships"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.Immunization.Immunization_VaccinationProtocol.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_VaccinationProtocol&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;doseStatusReason&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_VaccinationProtocol&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;doseStatus&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_VaccinationProtocol&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;targetDisease&#39;</span><span class="p">},</span>
+
+            <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Immunization_VaccinationProtocol&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;authority&#39;</span><span class="p">},</span>
+        <span class="p">]</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1.0-dev',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
