@@ -26,8 +26,11 @@ deploy:
     on:
       branch: master
       python: 3.6
-  # Automatically build and deploy to Python Package Index after every commit
+  # Automatically build and deploy to Python Package Index after every tagged commit
   - provider: pypi
     user: "BFar"
     password:
       secure: Nk0baG5FfypHQVwVrE0X9c1gs4sbjP76EVUhEw9unXHLkYjUC2LIvTRrWWwEXl96rHNw2nUzEuiNWSz8eobiDRvw4ere1je5HZvzGm72J0H5xmY3212GsE6GLK5CC1Lnmu6aMVCVSWhxj1aGMcH7CaytMviOui/mMToz0D4jtk8roD1+GUJ8JMa99mNxEgrHh9EKhiY6rhM5sGCj5suJ7/dXr4a7/8aj9nPczrbXSpd3ohoiz3Vb3P1T6Y3NAXWzNICtU25YsuEsZ5gIT70R6Ip8D3mlWVUHjPI9ouYomrNqS7EcpyZVG2eeY05RBkoUDKn/RAMPsIKcpG08phJzqhOPyaCxDHdMgDhr/2ddRYEYl+wQ8uwTheKyUuIk48lCffq4uaaTnfcvWg4IXBK1yCj0soaWEPYhWgZ08Xz0WzmHiRAPFLavdzUEMKr8AmJmihcC+1ub3Pw2FXDglNApIGY3mMF7CPrvHtINQWXdabaxnsPC/Wqv/JzHyYzCBtTxVOLVAaGUiwopGuUOoIJU7ueOHRplGbUP+bpXgCzW7DvHOdjdP60be6sVXT4Oz415BvtYMoTavMAujERH+DlPdDPHKMAD+b4GfFfieEwqIA6kGbIv94eVgztNYg0Q24bt6zo/8sSCBWCWzBzw+j2HvPX04BEW0rY8zGbuiqXN5I0=
+    on:
+      tags: true
+      python: 3.6
