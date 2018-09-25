@@ -29,8 +29,7 @@ def problem_definition():
 def cutoff_times():
     return pd.DataFrame({"identifier": [10, 11, 12],
                          "cutoff_time": [7 / 22 / 2018, 8 / 21 / 2018, 9 / 16 / 2018],
-                         "label": ['noshow', 'noshow', 'fulfilled']},
-                        index=[10, 11, 12])
+                         "label": ['noshow', 'noshow', 'fulfilled']})
 
 
 @pytest.fixture()
@@ -104,8 +103,11 @@ def entityset_error_missing_label(objects, objects_error_missing_label, es_loade
 
 
 def test_generate_cutoff_times_success(entityset_success):
-    assert PredictingMissedAppointmet.generate_cutoff_times(
-        PredictingMissedAppointmet, entityset_success).equals(cutoff_times())
+    generated_df = PredictingMissedAppointmet.generate_cutoff_times(
+        PredictingMissedAppointmet, entityset_success)
+    generated_df.index = cutoff_times().index  # both should have the same index
+    generated_df = generated_df[cutoff_times().columns]  # both should have the same columns order
+    assert generated_df.equals(cutoff_times())
 
 
 def test_generate_cutoff_times_error(entityset_error_missing_label):
@@ -117,7 +119,6 @@ def test_generate_cutoff_times_error(entityset_error_missing_label):
 def test_generate_cutoff_times_error_value(entityset_success):
     entityset_success['Appointment'].df.loc[len(entityset_success['Appointment'].df)] = [
         nan, nan, nan, nan, nan]
-    print(entityset_success['Appointment'])
     with pytest.raises(ValueError):
         PredictingMissedAppointmet.generate_cutoff_times(
             PredictingMissedAppointmet, entityset_success)
