@@ -62,22 +62,22 @@ def entityset(objects, es_loader):
 
 def test_check_target_label_true(entityset):
     assert ProblemDefinition.check_target_label(
-        ProblemDefinition, entityset, 'Patient', 'gender') == True
+        ProblemDefinition, entityset, 'Patient', 'gender') is True
 
 
 def test_check_target_label_false(entityset):
     assert ProblemDefinition.check_target_label(
-        ProblemDefinition, entityset, 'Encounter', 'class') == False
+        ProblemDefinition, entityset, 'Encounter', 'class') is False
 
 
 def test_check_target_label_values_true(entityset):
     assert ProblemDefinition.check_target_label_values(
-        ProblemDefinition, entityset, 'Patient', 'active') == True
+        ProblemDefinition, entityset, 'Patient', 'active') is True
 
 
 def test_check_target_label_values_false(entityset):
     assert ProblemDefinition.check_target_label_values(
-        ProblemDefinition, entityset, 'Patient', 'gender') == False
+        ProblemDefinition, entityset, 'Patient', 'gender') is False
 
 
 def test_check_target_label_values_error(entityset):
