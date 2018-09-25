@@ -32,16 +32,16 @@ class PredictingMissedAppointmet (ProblemDefinition):
 
         """
 
-        if super(PredictingMissedAppointmet, self).check_target_label(
+        if self.check_target_label(
                 ProblemDefinition,
                 entity_set,
                 target_entity,
                 target_label):
-            if super(PredictingMissedAppointmet, self).check_target_label_values(
+            if self.check_target_label_values(
                     ProblemDefinition, entity_set, target_entity, target_label):
                 raise ValueError('Please remove missing values in the target label')
 
-            elif super(PredictingMissedAppointmet, self).check_target_label(
+            elif self.check_target_label(
                     ProblemDefinition,
                     entity_set,
                     target_entity,
