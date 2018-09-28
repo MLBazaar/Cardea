@@ -66,13 +66,15 @@ def test_check_target_label_true(entityset):
 
 
 def test_check_target_label_false(entityset):
-    assert ProblemDefinition.check_target_label(
-        ProblemDefinition, entityset, 'Encounter', 'class') is False
+    with pytest.raises(ValueError):
+        ProblemDefinition.check_target_label(
+            ProblemDefinition, entityset, 'Encounter', 'class')
 
 
 def test_check_target_label_values_true(entityset):
-    assert ProblemDefinition.check_target_label_values(
-        ProblemDefinition, entityset, 'Patient', 'active') is True
+    with pytest.raises(ValueError):
+        ProblemDefinition.check_target_label_values(
+            ProblemDefinition, entityset, 'Patient', 'active')
 
 
 def test_check_target_label_values_false(entityset):

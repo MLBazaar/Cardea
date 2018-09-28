@@ -7,12 +7,12 @@ import pytest
 from numpy import nan
 
 from cardea.data_loader import EntitySetLoader
-from cardea.problem_definition import PredictingMissedAppointmet, ProblemDefinition
+from cardea.problem_definition import MissedAppointmentProblemDefinition, ProblemDefinition
 
 
 @pytest.fixture()
-def predicting_missed_appointmet():
-    return PredictingMissedAppointmet()
+def missed_appointment_droblem_definition():
+    return MissedAppointmentProblemDefinition()
 
 
 @pytest.fixture()
@@ -27,9 +27,7 @@ def problem_definition():
 
 @pytest.fixture()
 def cutoff_times():
-    return pd.DataFrame({"identifier": [10, 11, 12],
-                         "cutoff_time": [7 / 22 / 2018, 8 / 21 / 2018, 9 / 16 / 2018],
-                         "label": ['noshow', 'noshow', 'fulfilled']})
+    return pd.DataFrame({"cutoff_time": [7 / 22 / 2018, 8 / 21 / 2018, 9 / 16 / 2018]})
 
 
 @pytest.fixture()
@@ -103,29 +101,28 @@ def entityset_error_missing_label(objects, objects_error_missing_label, es_loade
 
 
 def test_generate_cutoff_times_success(entityset_success):
-    generated_df = PredictingMissedAppointmet.generate_cutoff_times(
-        PredictingMissedAppointmet, entityset_success)
+    _, _, _, generated_df = MissedAppointmentProblemDefinition.generate_cutoff_times(
+        MissedAppointmentProblemDefinition, entityset_success)
     generated_df.index = cutoff_times().index  # both should have the same index
-    generated_df = generated_df[cutoff_times().columns]  # both should have the same columns order
     assert generated_df.equals(cutoff_times())
 
 
 def test_generate_cutoff_times_error(entityset_error_missing_label):
     with pytest.raises(ValueError):
-        PredictingMissedAppointmet.generate_cutoff_times(
-            PredictingMissedAppointmet, entityset_error_missing_label)
+        MissedAppointmentProblemDefinition.generate_cutoff_times(
+            MissedAppointmentProblemDefinition, entityset_error_missing_label)
 
 
 def test_generate_cutoff_times_error_value(entityset_success):
     entityset_success['Appointment'].df.loc[len(entityset_success['Appointment'].df)] = [
         nan, nan, nan, nan, nan]
     with pytest.raises(ValueError):
-        PredictingMissedAppointmet.generate_cutoff_times(
-            PredictingMissedAppointmet, entityset_success)
+        MissedAppointmentProblemDefinition.generate_cutoff_times(
+            MissedAppointmentProblemDefinition, entityset_success)
 
 
 def test_generate_cutoff_times_missing_cutoff_time(entityset_success):
     entityset_success['Appointment'].delete_variable('created')
     with pytest.raises(ValueError):
-        PredictingMissedAppointmet.generate_cutoff_times(
-            PredictingMissedAppointmet, entityset_success)
+        MissedAppointmentProblemDefinition.generate_cutoff_times(
+            MissedAppointmentProblemDefinition, entityset_success)
