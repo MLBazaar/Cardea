@@ -4,7 +4,7 @@ from numpy import nan
 
 class ProblemDefinition:
     """A class that defines the prediction problem
-        by generating the target label if it does not exist and specify cutoff times."""
+        by specifying cutoff times and generating the target label if it does not exist"""
 
     def check_target_label(self, entity_set, target_entity, target_label):
         """Checks if target label exists in the entity set.
@@ -12,21 +12,26 @@ class ProblemDefinition:
         Args:
             entity_set: FHIR entityset.
             target_label: The target label of the prediction problem.
-            target_entity: The entity name, in which it contains the target label.
+            target_entity: The entity name which contains the target label.
 
         Returns:
-            True if the target label exists, false otherwise.
+            True if the target label exists.
+        Raises:
+            ValueError: An error occurs if the target label does not exist.
+
         """
 
         columns_list = []
         does_exist = True
 
-        for variable in (entity_set.__getitem__(target_entity).variables):
+        for variable in entity_set.__getitem__(target_entity).variables:
             columns_list.append(variable.name)
 
         does_exist = target_label in columns_list
-
-        return does_exist
+        if does_exist:
+            return does_exist
+        else:
+            raise ValueError('Target label: {} does not exist'.format(target_label))
 
     def check_target_label_values(self, entity_set, target_entity, target_label):
         """Checks if there is a missing value in the target label.
@@ -34,12 +39,12 @@ class ProblemDefinition:
         Args:
             entity_set: FHIR entityset.
             target_label: The target label of the prediction problem.
-            target_entity: The entity name in which it contains the target label.
+            target_entity: The entity name which contains the target label.
 
         Returns:
-            True if there is a missing value, false otherwise.
+            False is the target label does not contain a missing value.
         Raises:
-            ValueError: An error occurs if the target label does not exist.
+            ValueError: An error occurs if the target label contains a missing value.
         """
 
         if self.check_target_label(self, entity_set, target_entity, target_label):
@@ -54,6 +59,7 @@ class ProblemDefinition:
                 'Nan',
                 'NaN',
                 'undefined',
+                None,
                 'unknown']
             contains_nan = False
 
@@ -63,17 +69,21 @@ class ProblemDefinition:
                 if missing_value in list(target_label_values):
                     contains_nan = True
 
-            return contains_nan
-        else:
-            raise ValueError('Target value does not exist')
+            if contains_nan:
+                raise ValueError(
+                    'Please remove missing values in the {} {} column'.format(
+                        target_entity, target_label))
+
+            else:
+                return False
 
     def generate_target_label(self, entity_set, target_entity, target_label):
-        """Generates target labels in the case of having missing label in the entityset.
+        """Generates target labels if the entityset is missing labels.
 
         Args:
             entity_set: FHIR entityset.
             target_label: The target label of the prediction problem.
-            target_entity: The entity name in which it contains the target label.
+            target_entity: The entity name which contains the target label.
 
         Returns:
             Target entity with the generated label.
@@ -86,9 +96,8 @@ class ProblemDefinition:
             entity_set: FHIR entityset.
 
         Returns:
-            DataFrame with entity id, cutoff times and target labels.
+            entity_set, target_entity, target_label and a dataframe of cutoff_times
 
         Raises:
-            ValueError: An error occurs if the target label contains a missing value.
-            ValueError: An error occurs if the target label does not exist.
-        """
+            ValueError: An error occurs if the cutoff variable does not exist.
+            """
