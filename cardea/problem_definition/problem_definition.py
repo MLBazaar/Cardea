@@ -31,7 +31,7 @@ class ProblemDefinition:
         if does_exist:
             return does_exist
         else:
-            raise ValueError('Target label: {} does not exist'.format(target_label))
+            raise ValueError('Target label: {} does not exist.'.format(target_label))
 
     def check_target_label_values(self, entity_set, target_entity, target_label):
         """Checks if there is a missing value in the target label.
@@ -71,7 +71,7 @@ class ProblemDefinition:
 
             if contains_nan:
                 raise ValueError(
-                    'Please remove missing values in the {} {} column'.format(
+                    'Please remove missing values in table \'{}\' column \'{}\'.'.format(
                         target_entity, target_label))
 
             else:
