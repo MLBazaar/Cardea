@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.problem_definition.problem_definition &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#from-sources">From sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cardea</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cardea.html">cardea package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.data_loader.html">cardea.data_loader package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.fhir.html">cardea.fhir package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.problem_definition.html">cardea.problem_definition package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cardea.html#module-cardea">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#release-workflow">Release Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cardea.problem_definition.problem_definition</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cardea.problem_definition.problem_definition</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">nan</span>
+
+
+<div class="viewcode-block" id="ProblemDefinition"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.problem_definition.ProblemDefinition">[docs]</a><span class="k">class</span> <span class="nc">ProblemDefinition</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A class that defines the prediction problem</span>
+<span class="sd">        by specifying cutoff times and generating the target label if it does not exist&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ProblemDefinition.check_target_label"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.problem_definition.ProblemDefinition.check_target_label">[docs]</a>    <span class="k">def</span> <span class="nf">check_target_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_set</span><span class="p">,</span> <span class="n">target_entity</span><span class="p">,</span> <span class="n">target_label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks if target label exists in the entity set.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            entity_set: FHIR entityset.</span>
+<span class="sd">            target_label: The target label of the prediction problem.</span>
+<span class="sd">            target_entity: The entity name which contains the target label.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if the target label exists.</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: An error occurs if the target label does not exist.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">columns_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">does_exist</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">entity_set</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">target_entity</span><span class="p">)</span><span class="o">.</span><span class="n">variables</span><span class="p">:</span>
+            <span class="n">columns_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="n">does_exist</span> <span class="o">=</span> <span class="n">target_label</span> <span class="ow">in</span> <span class="n">columns_list</span>
+        <span class="k">if</span> <span class="n">does_exist</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">does_exist</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Target label: </span><span class="si">{}</span><span class="s1"> does not exist.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_label</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="ProblemDefinition.check_target_label_values"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.problem_definition.ProblemDefinition.check_target_label_values">[docs]</a>    <span class="k">def</span> <span class="nf">check_target_label_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_set</span><span class="p">,</span> <span class="n">target_entity</span><span class="p">,</span> <span class="n">target_label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks if there is a missing value in the target label.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            entity_set: FHIR entityset.</span>
+<span class="sd">            target_label: The target label of the prediction problem.</span>
+<span class="sd">            target_entity: The entity name which contains the target label.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            False is the target label does not contain a missing value.</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: An error occurs if the target label contains a missing value.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_target_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_set</span><span class="p">,</span> <span class="n">target_entity</span><span class="p">,</span> <span class="n">target_label</span><span class="p">):</span>
+
+            <span class="n">nat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;NaT&#39;</span><span class="p">)</span>
+            <span class="n">missings</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">nat</span><span class="p">,</span>
+                <span class="n">nan</span><span class="p">,</span>
+                <span class="s1">&#39;null&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;nan&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;NAN&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Nan&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;NaN&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;undefined&#39;</span><span class="p">,</span>
+                <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">&#39;unknown&#39;</span><span class="p">]</span>
+            <span class="n">contains_nan</span> <span class="o">=</span> <span class="kc">False</span>
+
+            <span class="n">target_label_values</span> <span class="o">=</span> <span class="n">entity_set</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">target_entity</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">target_label</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">missing_value</span> <span class="ow">in</span> <span class="n">missings</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">missing_value</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">target_label_values</span><span class="p">):</span>
+                    <span class="n">contains_nan</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="k">if</span> <span class="n">contains_nan</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Please remove missing values in table </span><span class="se">\&#39;</span><span class="si">{}</span><span class="se">\&#39;</span><span class="s1"> column </span><span class="se">\&#39;</span><span class="si">{}</span><span class="se">\&#39;</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">target_entity</span><span class="p">,</span> <span class="n">target_label</span><span class="p">))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ProblemDefinition.generate_target_label"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.problem_definition.ProblemDefinition.generate_target_label">[docs]</a>    <span class="k">def</span> <span class="nf">generate_target_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_set</span><span class="p">,</span> <span class="n">target_entity</span><span class="p">,</span> <span class="n">target_label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generates target labels if the entityset is missing labels.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            entity_set: FHIR entityset.</span>
+<span class="sd">            target_label: The target label of the prediction problem.</span>
+<span class="sd">            target_entity: The entity name which contains the target label.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Target entity with the generated label.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="ProblemDefinition.generate_cutoff_times"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.problem_definition.ProblemDefinition.generate_cutoff_times">[docs]</a>    <span class="k">def</span> <span class="nf">generate_cutoff_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_set</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generates cutoff times for the predection problem.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            entity_set: FHIR entityset.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            entity_set, target_entity, target_label and a dataframe of cutoff_times</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: An error occurs if the cutoff variable does not exist.</span>
+<span class="sd">            &quot;&quot;&quot;</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

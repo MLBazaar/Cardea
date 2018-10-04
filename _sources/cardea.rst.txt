@@ -8,6 +8,7 @@ Subpackages
 
     cardea.data_loader
     cardea.fhir
+    cardea.problem_definition
 
 Module contents
 ---------------

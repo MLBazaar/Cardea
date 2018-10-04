@@ -87,6 +87,7 @@
 <li class="toctree-l3"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cardea.html#module-cardea">Module contents</a></li>
@@ -3083,6 +3084,12 @@
 </li>
       <li><a href="cardea.fhir.html#module-cardea.fhir.VisionPrescription">cardea.fhir.VisionPrescription (module)</a>
 </li>
+      <li><a href="cardea.problem_definition.html#module-cardea.problem_definition">cardea.problem_definition (module)</a>
+</li>
+      <li><a href="cardea.problem_definition.html#module-cardea.problem_definition.problem_definition">cardea.problem_definition.problem_definition (module)</a>
+</li>
+      <li><a href="cardea.problem_definition.html#module-cardea.problem_definition.show_noshow_appointment">cardea.problem_definition.show_noshow_appointment (module)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.PlanDefinition.PlanDefinition_Action.cardinalityBehavior">cardinalityBehavior (cardea.fhir.PlanDefinition.PlanDefinition_Action attribute)</a>
 
       <ul>
@@ -3429,6 +3436,18 @@
 
       <ul>
         <li><a href="cardea.fhir.html#cardea.fhir.StructureMap_Source.check">(cardea.fhir.StructureMap_Source attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="cardea.problem_definition.html#cardea.problem_definition.problem_definition.ProblemDefinition.check_target_label">check_target_label() (cardea.problem_definition.problem_definition.ProblemDefinition method)</a>
+
+      <ul>
+        <li><a href="cardea.problem_definition.html#cardea.problem_definition.ProblemDefinition.check_target_label">(cardea.problem_definition.ProblemDefinition method)</a>
+</li>
+      </ul></li>
+      <li><a href="cardea.problem_definition.html#cardea.problem_definition.problem_definition.ProblemDefinition.check_target_label_values">check_target_label_values() (cardea.problem_definition.problem_definition.ProblemDefinition method)</a>
+
+      <ul>
+        <li><a href="cardea.problem_definition.html#cardea.problem_definition.ProblemDefinition.check_target_label_values">(cardea.problem_definition.ProblemDefinition method)</a>
 </li>
       </ul></li>
       <li><a href="cardea.fhir.html#cardea.fhir.Sequence.Sequence_ReferenceSeq.chromosome">chromosome (cardea.fhir.Sequence.Sequence_ReferenceSeq attribute)</a>
@@ -9379,6 +9398,22 @@
         <li><a href="cardea.fhir.html#cardea.fhir.Patient.Patient.generalPractitioner">(cardea.fhir.Patient.Patient attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.problem_definition.html#cardea.problem_definition.MissedAppointmentProblemDefinition.generate_cutoff_times">generate_cutoff_times() (cardea.problem_definition.MissedAppointmentProblemDefinition method)</a>
+
+      <ul>
+        <li><a href="cardea.problem_definition.html#cardea.problem_definition.ProblemDefinition.generate_cutoff_times">(cardea.problem_definition.ProblemDefinition method)</a>
+</li>
+        <li><a href="cardea.problem_definition.html#cardea.problem_definition.problem_definition.ProblemDefinition.generate_cutoff_times">(cardea.problem_definition.problem_definition.ProblemDefinition method)</a>
+</li>
+        <li><a href="cardea.problem_definition.html#cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.generate_cutoff_times">(cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition method)</a>
+</li>
+      </ul></li>
+      <li><a href="cardea.problem_definition.html#cardea.problem_definition.problem_definition.ProblemDefinition.generate_target_label">generate_target_label() (cardea.problem_definition.problem_definition.ProblemDefinition method)</a>
+
+      <ul>
+        <li><a href="cardea.problem_definition.html#cardea.problem_definition.ProblemDefinition.generate_target_label">(cardea.problem_definition.ProblemDefinition method)</a>
+</li>
+      </ul></li>
       <li><a href="cardea.fhir.html#cardea.fhir.Sequence.Sequence_ReferenceSeq.genomeBuild">genomeBuild (cardea.fhir.Sequence.Sequence_ReferenceSeq attribute)</a>
 
       <ul>
@@ -13753,14 +13788,14 @@
         <li><a href="cardea.fhir.html#cardea.fhir.MedicationRequest.MedicationRequest_DispenseRequest">(class in cardea.fhir.MedicationRequest)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cardea.fhir.html#cardea.fhir.MedicationRequest_Requester">MedicationRequest_Requester (class in cardea.fhir)</a>
 
       <ul>
         <li><a href="cardea.fhir.html#cardea.fhir.MedicationRequest.MedicationRequest_Requester">(class in cardea.fhir.MedicationRequest)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cardea.fhir.html#cardea.fhir.MedicationRequest_Substitution">MedicationRequest_Substitution (class in cardea.fhir)</a>
 
       <ul>
@@ -13997,6 +14032,12 @@
 
       <ul>
         <li><a href="cardea.fhir.html#cardea.fhir.ElementDefinition.ElementDefinition.minValueUnsignedInt">(cardea.fhir.ElementDefinition.ElementDefinition attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="cardea.problem_definition.html#cardea.problem_definition.MissedAppointmentProblemDefinition">MissedAppointmentProblemDefinition (class in cardea.problem_definition)</a>
+
+      <ul>
+        <li><a href="cardea.problem_definition.html#cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition">(class in cardea.problem_definition.show_noshow_appointment)</a>
 </li>
       </ul></li>
       <li><a href="cardea.fhir.html#cardea.fhir.DetectedIssue.mitigation">mitigation (cardea.fhir.DetectedIssue attribute)</a>
@@ -17015,6 +17056,12 @@
         <li><a href="cardea.fhir.html#cardea.fhir.RiskAssessment.RiskAssessment.prediction">(cardea.fhir.RiskAssessment.RiskAssessment attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.problem_definition.html#cardea.problem_definition.MissedAppointmentProblemDefinition.prediction_type">prediction_type (cardea.problem_definition.MissedAppointmentProblemDefinition attribute)</a>, <a href="cardea.problem_definition.html#cardea.problem_definition.MissedAppointmentProblemDefinition.prediction_type">[1]</a>
+
+      <ul>
+        <li><a href="cardea.problem_definition.html#cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.prediction_type">(cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition attribute)</a>, <a href="cardea.problem_definition.html#cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.prediction_type">[1]</a>
+</li>
+      </ul></li>
       <li><a href="cardea.fhir.html#cardea.fhir.DocumentManifest.DocumentManifest_Content.pReference">pReference (cardea.fhir.DocumentManifest.DocumentManifest_Content attribute)</a>
 
       <ul>
@@ -17187,6 +17234,12 @@
 
       <ul>
         <li><a href="cardea.fhir.html#cardea.fhir.ClinicalImpression.ClinicalImpression.problem">(cardea.fhir.ClinicalImpression.ClinicalImpression attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="cardea.problem_definition.html#cardea.problem_definition.ProblemDefinition">ProblemDefinition (class in cardea.problem_definition)</a>
+
+      <ul>
+        <li><a href="cardea.problem_definition.html#cardea.problem_definition.problem_definition.ProblemDefinition">(class in cardea.problem_definition.problem_definition)</a>
 </li>
       </ul></li>
       <li><a href="cardea.fhir.html#cardea.fhir.Claim.procedure">procedure (cardea.fhir.Claim attribute)</a>
@@ -22089,6 +22142,18 @@
         <li><a href="cardea.fhir.html#cardea.fhir.StructureMap.StructureMap_Rule.target">(cardea.fhir.StructureMap.StructureMap_Rule attribute)</a>
 </li>
         <li><a href="cardea.fhir.html#cardea.fhir.StructureMap_Rule.target">(cardea.fhir.StructureMap_Rule attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="cardea.problem_definition.html#cardea.problem_definition.MissedAppointmentProblemDefinition.target_entity">target_entity (cardea.problem_definition.MissedAppointmentProblemDefinition attribute)</a>
+
+      <ul>
+        <li><a href="cardea.problem_definition.html#cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.target_entity">(cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="cardea.problem_definition.html#cardea.problem_definition.MissedAppointmentProblemDefinition.target_label">target_label (cardea.problem_definition.MissedAppointmentProblemDefinition attribute)</a>
+
+      <ul>
+        <li><a href="cardea.problem_definition.html#cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.target_label">(cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition attribute)</a>
 </li>
       </ul></li>
       <li><a href="cardea.fhir.html#cardea.fhir.Immunization.Immunization_VaccinationProtocol.targetDisease">targetDisease (cardea.fhir.Immunization.Immunization_VaccinationProtocol attribute)</a>
