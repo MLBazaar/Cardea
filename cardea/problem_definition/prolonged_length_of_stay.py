@@ -71,7 +71,7 @@ class LengthOfStay (ProblemDefinition):
                         return es, target_entity, target_label, cutoff_times
                     except ValueError:
                         raise ValueError('Cutoff time label {} in table {} does not exist'
-                                         .format('created', target_entity))
+                                         .format(cutoff_time_label, target_entity))
 
         except ValueError:
             updated_es = self.generate_target_label(es)
