@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 from numpy import nan
 
 
@@ -10,7 +11,7 @@ class ProblemDefinition:
         """Checks if target label exists in the entity set.
 
         Args:
-            entity_set: FHIR entityset.
+            entity_set: fhir entityset.
             target_label: The target label of the prediction problem.
             target_entity: The entity name which contains the target label.
 
@@ -20,7 +21,6 @@ class ProblemDefinition:
             ValueError: An error occurs if the target label does not exist.
 
         """
-
         columns_list = []
         does_exist = True
 
@@ -37,7 +37,7 @@ class ProblemDefinition:
         """Checks if there is a missing value in the target label.
 
         Args:
-            entity_set: FHIR entityset.
+            entity_set: fhir entityset.
             target_label: The target label of the prediction problem.
             target_entity: The entity name which contains the target label.
 
@@ -47,7 +47,7 @@ class ProblemDefinition:
             ValueError: An error occurs if the target label contains a missing value.
         """
 
-        if self.check_target_label(self, entity_set, target_entity, target_label):
+        if self.check_target_label(entity_set, target_entity, target_label):
 
             nat = np.datetime64('NaT')
             missings = [
@@ -69,6 +69,11 @@ class ProblemDefinition:
                 if missing_value in list(target_label_values):
                     contains_nan = True
 
+            for missing_value in missings:
+                for target_value in (target_label_values):
+                    if pd.isnull(target_value):
+                        contains_nan = True
+
             if contains_nan:
                 raise ValueError(
                     'Please remove missing values in the {} {} column'.format(
@@ -81,7 +86,7 @@ class ProblemDefinition:
         """Generates target labels if the entityset is missing labels.
 
         Args:
-            entity_set: FHIR entityset.
+            entity_set: fhir entityset.
             target_label: The target label of the prediction problem.
             target_entity: The entity name which contains the target label.
 
@@ -93,7 +98,7 @@ class ProblemDefinition:
         """Generates cutoff times for the predection problem.
 
         Args:
-            entity_set: FHIR entityset.
+            entity_set: fhir entityset.
 
         Returns:
             entity_set, target_entity, target_label and a dataframe of cutoff_times
