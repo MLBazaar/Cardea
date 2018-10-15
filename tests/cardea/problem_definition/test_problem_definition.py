@@ -61,28 +61,27 @@ def entityset(objects, es_loader):
 
 
 def test_check_target_label_true(entityset):
-    assert ProblemDefinition.check_target_label(
-        ProblemDefinition, entityset, 'Patient', 'gender') is True
+    assert problem_definition().check_target_label(entityset, 'Patient', 'gender') is True
 
 
 def test_check_target_label_false(entityset):
     with pytest.raises(ValueError):
-        ProblemDefinition.check_target_label(
-            ProblemDefinition, entityset, 'Encounter', 'class')
+        problem_definition().check_target_label(
+            entityset, 'Encounter', 'class')
 
 
 def test_check_target_label_values_true(entityset):
     with pytest.raises(ValueError):
-        ProblemDefinition.check_target_label_values(
-            ProblemDefinition, entityset, 'Patient', 'active')
+        problem_definition().check_target_label_values(
+            entityset, 'Patient', 'active')
 
 
 def test_check_target_label_values_false(entityset):
-    assert ProblemDefinition.check_target_label_values(
-        ProblemDefinition, entityset, 'Patient', 'gender') is False
+    assert problem_definition().check_target_label_values(
+        entityset, 'Patient', 'gender') is False
 
 
 def test_check_target_label_values_error(entityset):
     with pytest.raises(ValueError):
-        ProblemDefinition.check_target_label_values(
-            ProblemDefinition, entityset, 'Encounter', 'class')
+        problem_definition().check_target_label_values(
+            entityset, 'Encounter', 'class')
