@@ -10,7 +10,9 @@ with open('HISTORY.md') as history_file:
     history = history_file.read()
 
 install_requires = [
-    'networkx'
+    'networkx',
+    'pandas',
+    'featuretools'
 ]
 
 setup_requires = [
