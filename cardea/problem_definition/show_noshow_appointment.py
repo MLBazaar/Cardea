@@ -14,12 +14,6 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
         prediction_type: The type of the machine learning prediction.
     """
 
-    global target_label
-    global target_entity
-    global prediction_type
-    global cutoff_time_label
-    global cutoff_entity
-
     target_label = 'status'
     target_entity = 'Appointment'
     prediction_type = 'classification'
@@ -33,7 +27,7 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
             entity_set: fhir entityset.
 
         Returns:
-            entity_set, target_entity, target_label and a dataframe of cutoff_times
+            entity_set, target_entity, Series of target_label and a dataframe of cutoff_times
 
         Raises:
             ValueError: An error occurs if the cutoff variable does not exist.
@@ -41,24 +35,25 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
 
         if (self.check_target_label(
                 entity_set,
-                target_entity,
-                target_label)) and not (self.check_target_label_values(
-                    entity_set,
-                    target_entity,
-                    target_label)):
+                self.target_entity,
+            self.target_label)) and not (self.check_target_label_values(
+                entity_set,
+                self.target_entity,
+                self.target_label)):
 
             try:
                 self.check_target_label(
                     entity_set,
-                    target_entity,
-                    cutoff_time_label)  # check the existance of the cutoff time in the entity.
+                    self.target_entity,
+                    self.cutoff_time_label)
 
-                cutoff_times = entity_set[cutoff_entity].df[cutoff_time_label]
+                cutoff_times = entity_set[self.cutoff_entity].df[self.cutoff_time_label]
                 cutoff_times = cutoff_times.to_frame()
-                cutoff_times.index = entity_set[cutoff_entity].df.index
-                cutoff_times = cutoff_times.rename(columns={cutoff_time_label: 'cutoff_time'})
-                return entity_set, target_entity, target_label, cutoff_times
+                cutoff_times.index = entity_set[self.cutoff_entity].df.index
+                cutoff_times = cutoff_times.rename(columns={self.cutoff_time_label: 'cutoff_time'})
+                return (entity_set, self.target_entity,
+                        entity_set[self.target_entity].df[self.target_label], cutoff_times)
             except ValueError:
                 raise ValueError(
                     'Cutoff time label {} in table {} does not exist'.format(
-                        'created', target_entity))
+                        'created', self.target_entity))
