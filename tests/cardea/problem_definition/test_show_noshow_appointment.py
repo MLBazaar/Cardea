@@ -55,26 +55,22 @@ def objects(es_loader):
 
 
 @pytest.fixture()
-def relationships():
-    return [('Appointment', 'participant', 'Appointment_Participant', 'object_id'),
-            ('Patient', 'identifier', 'Appointment_Participant', 'actor')]
-
-
-@pytest.fixture()
 def entityset_success(objects, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects)
 
-    for object in objects:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
+
+    relationships = es_loader.get_relationships(objects, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
 
     return es
 
 
 @pytest.fixture()
-def objects_error_missing_label(es_loader):
+def object_error_missing_label(es_loader):
 
     appointment_df = pd.DataFrame({"identifier": [10, 11, 12],
                                    "start": [7 / 22 / 2018, 8 / 21 / 2018, 9 / 16 / 2018],
@@ -82,21 +78,24 @@ def objects_error_missing_label(es_loader):
                                    "created": [7 / 22 / 2018, 8 / 21 / 2018, 9 / 16 / 2018]})
 
     appointment = es_loader.create_object(appointment_df, 'Appointment')
+
     return appointment
 
 
 @pytest.fixture()
-def entityset_error_missing_label(objects, objects_error_missing_label, es_loader):
+def entityset_error_missing_label(objects, object_error_missing_label, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects:
-        es_loader.create_entity(object, entity_set=es)
+    objects.extend([object_error_missing_label])
 
-    for object in objects:
-        es_loader.create_relationships(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects)
 
-    es_loader.create_entity(objects_error_missing_label, entity_set=es)
-    es_loader.create_relationships(objects_error_missing_label, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
+
+    relationships = es_loader.get_relationships(objects, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
+
     return es
 
 
