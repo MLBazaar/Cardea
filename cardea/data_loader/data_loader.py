@@ -4,7 +4,7 @@ import sys
 import networkx as nx
 import pandas as pd
 
-from cardea import fhir
+from cardea import fhir as fh
 
 
 class DataLoader():
@@ -26,7 +26,7 @@ class DataLoader():
             LookupError: An error occurs if df doesn't have an id.
         """
 
-        fhir_classes = [c[0] for c in inspect.getmembers(fhir)]
+        fhir_classes = [c[0] for c in inspect.getmembers(fh)]
         if file_name not in fhir_classes:
             raise LookupError('{} file is not part of FHIR schema'.format(file_name))
 
@@ -38,7 +38,7 @@ class DataLoader():
         if not id_exist:
             raise LookupError('{} is missing an identifier column'.format(file_name))
 
-        object = getattr(sys.modules[fhir.__name__], file_name)(object_values)
+        object = getattr(sys.modules[fh.__name__], file_name)(object_values)
         object.assert_type()
         return object
 
@@ -204,6 +204,9 @@ class Diamond(DataLoader):
     def resolve_reference(self):
         """ Consolidates relationships that have a connection to References.
         """
+
+        if 'Identifier' not in list(self.fhir.keys()):
+            raise LookupError('\'Identifier\' file is not loaded.')
 
         identifier_df = self.fhir['Identifier']  # always subset from id
         identifier_df['object_id'] = identifier_df['object_id'].astype('str')
