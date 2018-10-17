@@ -158,6 +158,13 @@ def test_resolve_reference(diamond):
     assert len(relationships) == 5
 
 
+def test_resolve_reference_lookuperror(objects):
+    objects = objects[:-1]
+    diamond = Diamond(objects)
+    with pytest.raises(LookupError):
+        diamond.resolve_reference()
+
+
 def test_merge_entities(diamond_witout_ref, edge):
     fhir = diamond_witout_ref.get_fhir_dataframes()
     previous = len(fhir['Condition'].columns)
