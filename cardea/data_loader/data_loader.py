@@ -126,7 +126,7 @@ class Diamond(DataLoader):
         """Resolve relationships that have a diamond graphs.
 
         This method is a pipline to solve diamond graphs by depending on MST to
-        resolve the present cyclesand maintains information by copying data from
+        resolve the present cycles and maintains information by copying data from
         the cut ties.
         """
 
