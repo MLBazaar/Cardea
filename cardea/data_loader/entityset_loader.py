@@ -85,10 +85,3 @@ class EntitySetLoader(DataLoader):
         self.create_relationships(relationships, entity_set=entity_set)
 
         return entity_set
-
-
-es_loader = EntitySetLoader()
-es = es_loader.load_data_entityset('/Users/sarah/Dropbox (MIT)/fhir/Kaggle_Data_FHIR')
-
-feature_matrix, feature_defs = ft.dfs(entityset=es,
-                                      target_entity="Appointment")
