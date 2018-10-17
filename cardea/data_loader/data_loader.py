@@ -131,7 +131,6 @@ class Diamond(DataLoader):
         """
 
         self.relationships['weight'] = self.merge_cost()
-        self.resolve_reference()
 
         G = nx.from_pandas_edgelist(
             self.relationships,
@@ -139,11 +138,20 @@ class Diamond(DataLoader):
             target='child_entity',
             edge_attr=['weight'])
 
-        X = nx.maximum_spanning_tree(G)
-        edges = [x for x in G.edges() if x not in X.edges()]
+        if len(list(nx.cycle_basis(G))) > 0:
 
-        for edge in edges:
-            self.merge(edge, remove=True)
+            self.resolve_reference()
+            G = nx.from_pandas_edgelist(
+                self.relationships,
+                source='parent_entity',
+                target='child_entity',
+                edge_attr=['weight'])
+
+            X = nx.maximum_spanning_tree(G)
+            edges = [x for x in G.edges() if x not in X.edges()]
+
+            for edge in edges:
+                self.merge(edge, remove=True)
 
     def merge(self, edge, remove=False):
         """Merges dataframes that are in edge then removes it from relationships and updates the fhir.

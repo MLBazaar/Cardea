@@ -52,7 +52,20 @@ class EntitySetLoader(DataLoader):
 
             entity_set.add_relationship(new_relationship)
 
-    def load_data_entityset(self, folder_path):
+    def read_csv_files(self, folder_path):
+
+        fhir = {}
+
+        csv_files = glob(folder_path + "/*.csv")
+        for file_path in csv_files:
+            df = pd.read_csv(file_path)
+            file_name = file_path.split("/")[-1].split(".")[0]
+
+            fhir[file_name] = df
+
+        return fhir
+
+    def load_data_entityset(self, fhir):
         """Returns an entityset loaded with .csv files in folder_path.
 
         Loads the data into pandas dataframes then loads them into featuretools' entityset.
@@ -65,14 +78,11 @@ class EntitySetLoader(DataLoader):
         """
 
         all_objects = []
-        csv_files = glob(folder_path + "/*.csv")
         entity_set = ft.EntitySet(id="fhir")
 
-        for file_path in csv_files:
-            df = pd.read_csv(file_path)
-            file_name = file_path.split("/")[-1].split(".")[0]
+        for name, df in fhir.items():
 
-            object = self.create_object(df, file_name)
+            object = self.create_object(df, name)
             all_objects.append(object)
 
         diamond = Diamond(all_objects)
