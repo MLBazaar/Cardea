@@ -158,6 +158,7 @@ class Diamond(DataLoader):
 
         Args:
             edge: A tuple that has the relationship to be broken.
+            remove: A boolean to determine whether the edge should be removed from relationships.
         """
 
         relation = self.relationships[(self.relationships['parent_entity'] == edge[0]) &
