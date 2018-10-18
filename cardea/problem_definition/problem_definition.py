@@ -47,40 +47,40 @@ class ProblemDefinition:
             ValueError: An error occurs if the target label contains a missing value.
         """
 
-        if self.check_target_label(entity_set, target_entity, target_label):
+        self.check_target_label(entity_set, target_entity, target_label)
 
-            nat = np.datetime64('NaT')
-            missings = [
-                nat,
-                nan,
-                'null',
-                'nan',
-                'NAN',
-                'Nan',
-                'NaN',
-                'undefined',
-                None,
-                'unknown']
-            contains_nan = False
+        nat = np.datetime64('NaT')
+        missings = [
+            nat,
+            nan,
+            'null',
+            'nan',
+            'NAN',
+            'Nan',
+            'NaN',
+            'undefined',
+            None,
+            'unknown']
+        contains_nan = False
 
-            target_label_values = entity_set.__getitem__(target_entity).df[target_label]
+        target_label_values = entity_set.__getitem__(target_entity).df[target_label]
 
-            for missing_value in missings:
-                if missing_value in list(target_label_values):
+        for missing_value in missings:
+            if missing_value in list(target_label_values):
+                contains_nan = True
+
+        for missing_value in missings:
+            for target_value in (target_label_values):
+                if pd.isnull(target_value):
                     contains_nan = True
 
-            for missing_value in missings:
-                for target_value in (target_label_values):
-                    if pd.isnull(target_value):
-                        contains_nan = True
+        if contains_nan:
+            raise ValueError(
+                'Please remove missing values in the {} {} column'.format(
+                    target_entity, target_label))
 
-            if contains_nan:
-                raise ValueError(
-                    'Please remove missing values in the {} {} column'.format(
-                        target_entity, target_label))
-
-            else:
-                return False
+        else:
+            return False
 
     def generate_target_label(self, entity_set, target_entity, target_label):
         """Generates target labels if the entityset is missing labels.
