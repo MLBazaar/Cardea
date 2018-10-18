@@ -39,35 +39,34 @@ class LengthOfStay (ProblemDefinition):
             ValueError: An error occurs if the cutoff variable does not exist.
             """
         try:
-            if (self.check_target_label(es, self.target_entity, self.target_label)):
-                if not (self.check_target_label_values(es, self.target_entity, self.target_label)):
-                    try:
-                        self.check_target_label(
-                            es,
-                            self.cutoff_entity,
-                            self.cutoff_time_label)
+            self.check_target_label(es, self.target_entity, self.target_label)
+            self.check_target_label_values(es, self.target_entity, self.target_label)
+            try:
+                self.check_target_label(
+                    es,
+                    self.cutoff_entity,
+                    self.cutoff_time_label)
 
-                        cutoff_times = es[self.cutoff_entity].df[self.cutoff_time_label]
-                        cutoff_times = cutoff_times.to_frame()
-                        cutoff_times.index = es[self.cutoff_entity].df.index
-                        cutoff_times = cutoff_times.rename(columns={self.cutoff_time_label:
-                                                                    'cutoff_time'})
-                        update_es = es[self.target_entity].df
+                instance_id = list(es[self.target_entity].df.index)
+                cutoff_times = es[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
+                cutoff_times['instance_id'] = instance_id
+                cutoff_times.columns = ['cutoff_time', 'instance_id']
+                update_es = es[self.target_entity].df
 
-                        # threshold
-                        update_es['length'] = (update_es['length'] >= self.threshold)
-                        update_es['length'] = update_es['length'].astype(int)
+                # threshold
+                update_es['length'] = (update_es['length'] >= self.threshold)
+                update_es['length'] = update_es['length'].astype(int)
 
-                        es = es.entity_from_dataframe(entity_id=self.target_entity,
-                                                      dataframe=update_es,
-                                                      index='identifier')
+                es = es.entity_from_dataframe(entity_id=self.target_entity,
+                                              dataframe=update_es,
+                                              index='identifier')
 
-                        return(es, self.target_entity,
-                               es[self.target_entity].df[self.target_label],
-                               cutoff_times)
-                    except ValueError:
-                        raise ValueError('Cutoff time label {} in table {} does not exist'
-                                         .format(self.cutoff_time_label, self.target_entity))
+                return(es, self.target_entity,
+                       es[self.target_entity].df[self.target_label],
+                       cutoff_times)
+            except ValueError:
+                raise ValueError('Cutoff time label {} in table {} does not exist'
+                                 .format(self.cutoff_time_label, self.target_entity))
 
         except ValueError:
             updated_es = self.generate_target_label(es)
@@ -92,56 +91,56 @@ class LengthOfStay (ProblemDefinition):
         end = 'end'
 
         try:
-            if(self.check_target_label(
+            self.check_target_label(
                 es,
                 generate_from,
-                start) and
-               self.check_target_label(
+                start)
+            self.check_target_label(
+                es,
+                generate_from,
+                end)
+            try:
+                self.check_target_label_values(
                     es,
                     generate_from,
-                    end)):
-                try:
-                    self.check_target_label_values(
-                        es,
-                        generate_from,
-                        start)
-                    self.check_target_label_values(
-                        es,
-                        generate_from,
-                        end)
-                    es[generate_from].df[start] = pd.to_datetime(
-                        es[generate_from]
-                        .df[start])
-                    es[generate_from].df[end] = pd.to_datetime(
-                        es[generate_from].df[end])
-                    duration = (es[generate_from].df[end] -
-                                es[generate_from].df[start]).dt.days
-                    duration = duration.tolist()
-                    es['Encounter'].df['length'] = duration
-                    updated_target_entity = es['Encounter'].df
-                    duration_df = pd.DataFrame({'object_id': duration})
+                    start)
+                self.check_target_label_values(
+                    es,
+                    generate_from,
+                    end)
+                es[generate_from].df[start] = pd.to_datetime(
+                    es[generate_from]
+                    .df[start])
+                es[generate_from].df[end] = pd.to_datetime(
+                    es[generate_from].df[end])
+                duration = (es[generate_from].df[end] -
+                            es[generate_from].df[start]).dt.days
+                duration = duration.tolist()
+                es[self.target_entity].df[self.target_label] = duration
+                updated_target_entity = es[self.target_entity].df
+                duration_df = pd.DataFrame({'object_id': duration})
 
-                    es = es.entity_from_dataframe(
-                        entity_id='Duration',
-                        dataframe=duration_df,
-                        index='object_id')
+                es = es.entity_from_dataframe(
+                    entity_id='Duration',
+                    dataframe=duration_df,
+                    index='object_id')
 
-                    es = es.entity_from_dataframe(entity_id='Encounter',
-                                                  dataframe=updated_target_entity,
-                                                  index='identifier')
-                    new_relationship = ft.Relationship(es['Duration']['object_id'],
-                                                       es[self.target_entity][self.target_label])
-                    es = es.add_relationship(new_relationship)
+                es = es.entity_from_dataframe(entity_id=self.target_entity,
+                                              dataframe=updated_target_entity,
+                                              index='identifier')
+                new_relationship = ft.Relationship(es['Duration']['object_id'],
+                                                   es[self.target_entity][self.target_label])
+                es = es.add_relationship(new_relationship)
 
-                    return es
+                return es
 
-                except ValueError:
-                    raise ValueError(
-                        'Can not generate target label {} in table {}' +
-                        'beacuse start or end labels in table {} contain missing value.'
-                        .format(self.target_label,
-                                self.target_entity,
-                                generate_from))
+            except ValueError:
+                raise ValueError(
+                    'Can not generate target label {} in table {}' +
+                    'beacuse start or end labels in table {} contain missing value.'
+                    .format(self.target_label,
+                            self.target_entity,
+                            generate_from))
 
         except ValueError:
             raise ValueError(
