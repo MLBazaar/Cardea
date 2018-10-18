@@ -7,7 +7,7 @@ import pytest
 from numpy import nan
 
 from cardea.data_loader import EntitySetLoader
-from cardea.problem_definition import MissedAppointmentProblemDefinition, ProblemDefinition
+from cardea.problem_definition import MissedAppointmentProblemDefinition
 
 
 @pytest.fixture()
@@ -21,13 +21,10 @@ def es_loader():
 
 
 @pytest.fixture()
-def problem_definition():
-    return ProblemDefinition()
-
-
-@pytest.fixture()
 def cutoff_times():
-    return pd.DataFrame({"cutoff_time": [7 / 22 / 2018, 8 / 21 / 2018, 9 / 16 / 2018]})
+    return pd.DataFrame(
+        {"cutoff_time": [7 / 22 / 2018, 8 / 21 / 2018, 9 / 16 / 2018],
+         "instance_id": [10, 11, 12]})
 
 
 @pytest.fixture()
@@ -131,6 +128,7 @@ def test_generate_cutoff_times_success(entityset_success):
     _, _, _, generated_df = missed_appointment_problem_definition().generate_cutoff_times(
         entityset_success)
     generated_df.index = cutoff_times().index  # both should have the same index
+    generated_df = generated_df[cutoff_times().columns]  # same columns order
     assert generated_df.equals(cutoff_times())
 
 

@@ -7,7 +7,7 @@ import pytest
 from numpy import nan
 
 from cardea.data_loader import EntitySetLoader
-from cardea.problem_definition import LengthOfStay, ProblemDefinition
+from cardea.problem_definition import LengthOfStay
 
 
 @pytest.fixture()
@@ -21,13 +21,10 @@ def es_loader():
 
 
 @pytest.fixture()
-def problem_definition():
-    return ProblemDefinition()
-
-
-@pytest.fixture()
 def cutoff_times():
-    temp = pd.DataFrame({"cutoff_time": ['9/18/2018', '9/19/2018', '9/20/2018']})
+    temp = pd.DataFrame({"cutoff_time": ['9/18/2018', '9/19/2018', '9/20/2018'],
+                         "instance_id": [10, 11, 12]
+                         })
     temp['cutoff_time'] = pd.to_datetime(temp['cutoff_time'])
     return temp
 
@@ -261,6 +258,7 @@ def test_generate_cutoff_times_success(entityset_success):
     _, _, _, generated_df = length_of_stay().generate_cutoff_times(
         entityset_success)
     generated_df.index = cutoff_times().index  # both should have the same index
+    generated_df = generated_df[cutoff_times().columns]  # same columns order
 
     assert generated_df.equals(cutoff_times())
 
@@ -269,6 +267,7 @@ def test_generate_cutoff_times_missing_target_label(entityset_fail):
     _, _, _, generated_df = length_of_stay().generate_cutoff_times(
         entityset_fail)
     generated_df.index = cutoff_times().index  # both should have the same index
+    generated_df = generated_df[cutoff_times().columns]  # same columns order
     assert generated_df.equals(cutoff_times())
 
 

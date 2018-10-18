@@ -7,7 +7,7 @@ import pytest
 from numpy import nan
 
 from cardea.data_loader import EntitySetLoader
-from cardea.problem_definition import ProblemDefinition, Readmission
+from cardea.problem_definition import Readmission
 
 
 @pytest.fixture()
@@ -21,14 +21,10 @@ def es_loader():
 
 
 @pytest.fixture()
-def problem_definition():
-    return ProblemDefinition()
-
-
-@pytest.fixture()
 def cutoff_times():
     temp = pd.DataFrame({"cutoff_time": ['9/22/2018', '9/21/2018', '10/4/2018',
-                                         '9/28/2018', '10/30/2018', '11/18/2018']
+                                         '9/28/2018', '10/30/2018', '11/18/2018'],
+                         "instance_id": [10, 11, 12, 13, 14, 15]
 
                          })
     temp['cutoff_time'] = pd.to_datetime(temp['cutoff_time'])
@@ -195,6 +191,7 @@ def test_generate_cutoff_times_success(entityset_success):
     _, _, _, generated_df = readmission().generate_cutoff_times(
         entityset_success)
     generated_df.index = cutoff_times().index  # both should have the same index
+    generated_df = generated_df[cutoff_times().columns]  # same columns order
     assert generated_df.equals(cutoff_times())
 
 
@@ -206,6 +203,17 @@ def test_generate_labels_success(entityset_success):
     labels = list(es['Encounter'].df['readmitted'])
 
     assert labels == [False, False, False, True, False, True]
+
+
+def test_generate_labels_success_threshold(entityset_success):
+
+    es, _, _, generated_df = Readmission(6).generate_cutoff_times(
+        entityset_success)
+    generated_df.index = cutoff_times().index  # both should have the same index
+
+    labels = list(es['Encounter'].df['readmitted'])
+
+    assert labels == [False, False, False, True, False, False]
 
 
 def test_generate_cutoff_times_missing_generation_label(entityset_success):
