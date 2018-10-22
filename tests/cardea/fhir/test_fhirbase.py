@@ -38,14 +38,6 @@ def test_get_id(patient_object):
     assert patient_object.get_id() == 'identifier'
 
 
-def test_get_id_lookup_error(patient_df):
-    df = patient_df[['gender', 'birthDate']]
-    object_values = df.to_dict('list')
-    object = Patient(object_values)
-    with pytest.raises(LookupError):
-        object.get_id()
-
-
 def test_get_relationships(patient_object):
     relationships = patient_object.get_relationships()
     assert len(relationships) == 12
@@ -54,6 +46,14 @@ def test_get_relationships(patient_object):
 def test_get_eligible_relationships(patient_object):
     elig_relationships = patient_object.get_eligible_relationships()
     assert len(elig_relationships) == 1
+
+
+def test_get_id_lookup_error(patient_df):
+    df = patient_df[['gender', 'birthDate']]
+    object_values = df.to_dict('list')
+    object = Patient(object_values)
+    with pytest.raises(LookupError):
+        object.get_id()
 
 
 def test_assert_type_enum():
