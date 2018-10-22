@@ -222,6 +222,149 @@
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="cardea.data_loader.data_loader.DataLoader.get_dataframes">
+<code class="descname">get_dataframes</code><span class="sig-paren">(</span><em>objects</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#DataLoader.get_dataframes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.get_dataframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns pandas dataframe of fhir objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>objects</strong> – A list of fhir class objects.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A dictionary with the dataframes of the loaded fhir classes.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.data_loader.DataLoader.get_object_ids">
+<code class="descname">get_object_ids</code><span class="sig-paren">(</span><em>objects</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#DataLoader.get_object_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.get_object_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of fhir object identifiers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>objects</strong> – A list of fhir class objects.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of the corresponding identifiers.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.data_loader.DataLoader.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><em>objects</em>, <em>names</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#DataLoader.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns relationships of fhir objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>objects</strong> – A list of fhir class objects.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A pandas dataframe of the corresponding relationships.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.data_loader.data_loader.Diamond">
+<em class="property">class </em><code class="descclassname">cardea.data_loader.data_loader.</code><code class="descname">Diamond</code><span class="sig-paren">(</span><em>objects</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.data_loader.data_loader.DataLoader" title="cardea.data_loader.data_loader.DataLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.data_loader.data_loader.DataLoader</span></code></a></p>
+<p>This class serves as a post processing step to reading the data.</p>
+<dl class="attribute">
+<dt id="cardea.data_loader.data_loader.Diamond.fhir">
+<code class="descname">fhir</code><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.fhir" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary with the correspondig fhir dataframes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.data_loader.data_loader.Diamond.relationships">
+<code class="descname">relationships</code><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dataframe of present fhir Relationships.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.data_loader.Diamond.get_fhir_dataframes">
+<code class="descname">get_fhir_dataframes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.get_fhir_dataframes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.get_fhir_dataframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns fhir dataframes with their associated names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary with the correspondig fhir dataframes.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.data_loader.Diamond.get_fhir_relationships">
+<code class="descname">get_fhir_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.get_fhir_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.get_fhir_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns fhir relationships.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dataframe of present fhir Relationships.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.data_loader.Diamond.merge">
+<code class="descname">merge</code><span class="sig-paren">(</span><em>edge</em>, <em>remove=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges dataframes that are in edge then removes it from relationships and updates the fhir.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>edge</strong> – A tuple that has the relationship to be broken.</li>
+<li><strong>remove</strong> – A boolean to determine whether the edge should be removed from relationships.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.data_loader.Diamond.merge_cost">
+<code class="descname">merge_cost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.merge_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.merge_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the merge cost of two dataframes.</p>
+<p>The equation is defined as the sum of the dataframe sizes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of the cost of merging for each relationship</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.data_loader.Diamond.resolve_diamond">
+<code class="descname">resolve_diamond</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.resolve_diamond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.resolve_diamond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve relationships that have a diamond graphs.</p>
+<p>This method is a pipline to solve diamond graphs by depending on MST to
+resolve the present cycles and maintains information by copying data from
+the cut ties.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.data_loader.Diamond.resolve_reference">
+<code class="descname">resolve_reference</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.resolve_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.resolve_reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Consolidates relationships that have a connection to References.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -234,14 +377,14 @@
 <p>A class that loads fhir class objects to featuretools entityset.</p>
 <dl class="method">
 <dt id="cardea.data_loader.entityset_loader.EntitySetLoader.create_entity">
-<code class="descname">create_entity</code><span class="sig-paren">(</span><em>object</em>, <em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.create_entity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates an entity from fhir object and add it to entityset.</p>
+<code class="descname">create_entity</code><span class="sig-paren">(</span><em>fhir</em>, <em>identifiers</em>, <em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.create_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an entity from fhir dataframes and add it to entityset.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>object</strong> – A fhir class object.</li>
+<li><strong>fhir</strong> – A dictionary of fhir class dataframes.</li>
 <li><strong>entity_set</strong> – The global entityset that the entity will be added to.</li>
 </ul>
 </td>
@@ -252,14 +395,14 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.entityset_loader.EntitySetLoader.create_relationships">
-<code class="descname">create_relationships</code><span class="sig-paren">(</span><em>object</em>, <em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.create_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_relationships</code><span class="sig-paren">(</span><em>relationships</em>, <em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.create_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Binds entities in the entityset.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>object</strong> – A fhir class object.</li>
+<li><strong>relationships</strong> – A dataframe of the relationships in fhir.</li>
 <li><strong>entity_set</strong> – The global entityset that the entity will be added to.</li>
 </ul>
 </td>
@@ -270,7 +413,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset">
-<code class="descname">load_data_entityset</code><span class="sig-paren">(</span><em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_data_entityset</code><span class="sig-paren">(</span><em>fhir</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an entityset loaded with .csv files in folder_path.</p>
 <p>Loads the data into pandas dataframes then loads them into featuretools’ entityset.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -284,6 +427,11 @@
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.entityset_loader.EntitySetLoader.read_csv_files">
+<code class="descname">read_csv_files</code><span class="sig-paren">(</span><em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.read_csv_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.read_csv_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -319,6 +467,149 @@
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="cardea.data_loader.DataLoader.get_dataframes">
+<code class="descname">get_dataframes</code><span class="sig-paren">(</span><em>objects</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#DataLoader.get_dataframes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.DataLoader.get_dataframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns pandas dataframe of fhir objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>objects</strong> – A list of fhir class objects.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A dictionary with the dataframes of the loaded fhir classes.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.DataLoader.get_object_ids">
+<code class="descname">get_object_ids</code><span class="sig-paren">(</span><em>objects</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#DataLoader.get_object_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.DataLoader.get_object_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of fhir object identifiers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>objects</strong> – A list of fhir class objects.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of the corresponding identifiers.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.DataLoader.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><em>objects</em>, <em>names</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#DataLoader.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.DataLoader.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns relationships of fhir objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>objects</strong> – A list of fhir class objects.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A pandas dataframe of the corresponding relationships.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.data_loader.Diamond">
+<em class="property">class </em><code class="descclassname">cardea.data_loader.</code><code class="descname">Diamond</code><span class="sig-paren">(</span><em>objects</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.Diamond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.data_loader.data_loader.DataLoader" title="cardea.data_loader.data_loader.DataLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.data_loader.data_loader.DataLoader</span></code></a></p>
+<p>This class serves as a post processing step to reading the data.</p>
+<dl class="attribute">
+<dt id="cardea.data_loader.Diamond.fhir">
+<code class="descname">fhir</code><a class="headerlink" href="#cardea.data_loader.Diamond.fhir" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary with the correspondig fhir dataframes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.data_loader.Diamond.relationships">
+<code class="descname">relationships</code><a class="headerlink" href="#cardea.data_loader.Diamond.relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dataframe of present fhir Relationships.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.Diamond.get_fhir_dataframes">
+<code class="descname">get_fhir_dataframes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.get_fhir_dataframes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.Diamond.get_fhir_dataframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns fhir dataframes with their associated names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary with the correspondig fhir dataframes.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.Diamond.get_fhir_relationships">
+<code class="descname">get_fhir_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.get_fhir_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.Diamond.get_fhir_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns fhir relationships.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dataframe of present fhir Relationships.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.Diamond.merge">
+<code class="descname">merge</code><span class="sig-paren">(</span><em>edge</em>, <em>remove=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.Diamond.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges dataframes that are in edge then removes it from relationships and updates the fhir.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>edge</strong> – A tuple that has the relationship to be broken.</li>
+<li><strong>remove</strong> – A boolean to determine whether the edge should be removed from relationships.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.Diamond.merge_cost">
+<code class="descname">merge_cost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.merge_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.Diamond.merge_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the merge cost of two dataframes.</p>
+<p>The equation is defined as the sum of the dataframe sizes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of the cost of merging for each relationship</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.Diamond.resolve_diamond">
+<code class="descname">resolve_diamond</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.resolve_diamond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.Diamond.resolve_diamond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve relationships that have a diamond graphs.</p>
+<p>This method is a pipline to solve diamond graphs by depending on MST to
+resolve the present cycles and maintains information by copying data from
+the cut ties.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.Diamond.resolve_reference">
+<code class="descname">resolve_reference</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#Diamond.resolve_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.Diamond.resolve_reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Consolidates relationships that have a connection to References.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -328,14 +619,14 @@
 <p>A class that loads fhir class objects to featuretools entityset.</p>
 <dl class="method">
 <dt id="cardea.data_loader.EntitySetLoader.create_entity">
-<code class="descname">create_entity</code><span class="sig-paren">(</span><em>object</em>, <em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.create_entity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates an entity from fhir object and add it to entityset.</p>
+<code class="descname">create_entity</code><span class="sig-paren">(</span><em>fhir</em>, <em>identifiers</em>, <em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.create_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an entity from fhir dataframes and add it to entityset.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>object</strong> – A fhir class object.</li>
+<li><strong>fhir</strong> – A dictionary of fhir class dataframes.</li>
 <li><strong>entity_set</strong> – The global entityset that the entity will be added to.</li>
 </ul>
 </td>
@@ -346,14 +637,14 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.EntitySetLoader.create_relationships">
-<code class="descname">create_relationships</code><span class="sig-paren">(</span><em>object</em>, <em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.create_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_relationships</code><span class="sig-paren">(</span><em>relationships</em>, <em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.create_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Binds entities in the entityset.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>object</strong> – A fhir class object.</li>
+<li><strong>relationships</strong> – A dataframe of the relationships in fhir.</li>
 <li><strong>entity_set</strong> – The global entityset that the entity will be added to.</li>
 </ul>
 </td>
@@ -364,7 +655,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.EntitySetLoader.load_data_entityset">
-<code class="descname">load_data_entityset</code><span class="sig-paren">(</span><em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.load_data_entityset" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_data_entityset</code><span class="sig-paren">(</span><em>fhir</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.load_data_entityset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an entityset loaded with .csv files in folder_path.</p>
 <p>Loads the data into pandas dataframes then loads them into featuretools’ entityset.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -378,6 +669,11 @@
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="cardea.data_loader.EntitySetLoader.read_csv_files">
+<code class="descname">read_csv_files</code><span class="sig-paren">(</span><em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.read_csv_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.read_csv_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -404,7 +700,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab.
+        &copy; Copyright 2018, MIT Data To AI Lab
 
     </p>
   </div>
@@ -423,21 +719,14 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 

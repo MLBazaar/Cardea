@@ -180,7 +180,10 @@
 <span></span><span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="kn">from</span> <span class="nn">cardea</span> <span class="k">import</span> <span class="n">fhir</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">cardea</span> <span class="k">import</span> <span class="n">fhir</span> <span class="k">as</span> <span class="n">fh</span>
 
 
 <div class="viewcode-block" id="DataLoader"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.data_loader.DataLoader">[docs]</a><span class="k">class</span> <span class="nc">DataLoader</span><span class="p">():</span>
@@ -202,7 +205,7 @@
 <span class="sd">            LookupError: An error occurs if df doesn&#39;t have an id.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">fhir_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmembers</span><span class="p">(</span><span class="n">fhir</span><span class="p">)]</span>
+        <span class="n">fhir_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmembers</span><span class="p">(</span><span class="n">fh</span><span class="p">)]</span>
         <span class="k">if</span> <span class="n">file_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">fhir_classes</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">LookupError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> file is not part of FHIR schema&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file_name</span><span class="p">))</span>
 
@@ -214,9 +217,207 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">id_exist</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">LookupError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is missing an identifier column&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file_name</span><span class="p">))</span>
 
-        <span class="nb">object</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">fhir</span><span class="o">.</span><span class="vm">__name__</span><span class="p">],</span> <span class="n">file_name</span><span class="p">)(</span><span class="n">object_values</span><span class="p">)</span>
+        <span class="nb">object</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">fh</span><span class="o">.</span><span class="vm">__name__</span><span class="p">],</span> <span class="n">file_name</span><span class="p">)(</span><span class="n">object_values</span><span class="p">)</span>
         <span class="nb">object</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
-        <span class="k">return</span> <span class="nb">object</span></div></div>
+        <span class="k">return</span> <span class="nb">object</span></div>
+
+<div class="viewcode-block" id="DataLoader.get_object_ids"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.data_loader.DataLoader.get_object_ids">[docs]</a>    <span class="k">def</span> <span class="nf">get_object_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">objects</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns list of fhir object identifiers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            objects: A list of fhir class objects.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A list of the corresponding identifiers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">identifiers</span> <span class="o">=</span> <span class="p">[(</span><span class="nb">object</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">object</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="k">for</span> <span class="nb">object</span> <span class="ow">in</span> <span class="n">objects</span><span class="p">]</span>
+        <span class="n">identifiers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">identifiers</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">identifiers</span></div>
+
+<div class="viewcode-block" id="DataLoader.get_relationships"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.data_loader.DataLoader.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">objects</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns relationships of fhir objects.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            objects: A list of fhir class objects.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A pandas dataframe of the corresponding relationships.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">relationships</span> <span class="o">=</span> <span class="p">[</span><span class="n">relation</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">objects</span> <span class="k">for</span> <span class="n">relation</span> <span class="ow">in</span> <span class="n">o</span><span class="o">.</span><span class="n">get_eligible_relationships</span><span class="p">()</span>
+                         <span class="k">if</span> <span class="n">relation</span><span class="p">[</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+        <span class="n">relationships</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">relationships</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">relationships</span></div>
+
+<div class="viewcode-block" id="DataLoader.get_dataframes"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.data_loader.DataLoader.get_dataframes">[docs]</a>    <span class="k">def</span> <span class="nf">get_dataframes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">objects</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns pandas dataframe of fhir objects.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            objects: A list of fhir class objects.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A dictionary with the dataframes of the loaded fhir classes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">fhir</span> <span class="o">=</span> <span class="p">[(</span><span class="nb">object</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">object</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">())</span> <span class="k">for</span> <span class="nb">object</span> <span class="ow">in</span> <span class="n">objects</span><span class="p">]</span>
+        <span class="n">fhir</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">fhir</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">fhir</span></div></div>
+
+
+<div class="viewcode-block" id="Diamond"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.data_loader.Diamond">[docs]</a><span class="k">class</span> <span class="nc">Diamond</span><span class="p">(</span><span class="n">DataLoader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This class serves as a post processing step to reading the data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        fhir: A dictionary with the correspondig fhir dataframes.</span>
+<span class="sd">        relationships: A dataframe of present fhir Relationships.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Diamond&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">objects</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fhir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dataframes</span><span class="p">(</span><span class="n">objects</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_relationships</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fhir</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+<div class="viewcode-block" id="Diamond.get_fhir_dataframes"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.data_loader.Diamond.get_fhir_dataframes">[docs]</a>    <span class="k">def</span> <span class="nf">get_fhir_dataframes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns fhir dataframes with their associated names.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A dictionary with the correspondig fhir dataframes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fhir</span></div>
+
+<div class="viewcode-block" id="Diamond.get_fhir_relationships"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.data_loader.Diamond.get_fhir_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_fhir_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns fhir relationships.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A dataframe of present fhir Relationships.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span></div>
+
+<div class="viewcode-block" id="Diamond.resolve_diamond"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.data_loader.Diamond.resolve_diamond">[docs]</a>    <span class="k">def</span> <span class="nf">resolve_diamond</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Resolve relationships that have a diamond graphs.</span>
+
+<span class="sd">        This method is a pipline to solve diamond graphs by depending on MST to</span>
+<span class="sd">        resolve the present cycles and maintains information by copying data from</span>
+<span class="sd">        the cut ties.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">merge_cost</span><span class="p">()</span>
+
+        <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">,</span>
+            <span class="n">target</span><span class="o">=</span><span class="s1">&#39;child_entity&#39;</span><span class="p">,</span>
+            <span class="n">edge_attr</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">cycle_basis</span><span class="p">(</span><span class="n">G</span><span class="p">)))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">resolve_reference</span><span class="p">()</span>
+            <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="p">,</span>
+                <span class="n">source</span><span class="o">=</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">,</span>
+                <span class="n">target</span><span class="o">=</span><span class="s1">&#39;child_entity&#39;</span><span class="p">,</span>
+                <span class="n">edge_attr</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">])</span>
+
+            <span class="n">X</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">maximum_spanning_tree</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+            <span class="n">edges</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
+
+            <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Diamond.merge"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.data_loader.Diamond.merge">[docs]</a>    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edge</span><span class="p">,</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Merges dataframes that are in edge then removes it from relationships and updates the fhir.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            edge: A tuple that has the relationship to be broken.</span>
+<span class="sd">            remove: A boolean to determine whether the edge should be removed from relationships.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">relation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="p">[</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span>
+                                      <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="p">[</span><span class="s1">&#39;child_entity&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">relation</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># undirected</span>
+            <span class="n">relation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="p">[</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;</span>
+                                          <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="p">[</span><span class="s1">&#39;child_entity&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+
+        <span class="n">source_entity</span> <span class="o">=</span> <span class="n">relation</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">]</span>
+        <span class="n">source_column</span> <span class="o">=</span> <span class="n">relation</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;parent_variable&#39;</span><span class="p">]</span>
+        <span class="n">target_entity</span> <span class="o">=</span> <span class="n">relation</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;child_entity&#39;</span><span class="p">]</span>
+        <span class="n">target_column</span> <span class="o">=</span> <span class="n">relation</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;child_variable&#39;</span><span class="p">]</span>
+
+        <span class="n">source_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fhir</span><span class="p">[</span><span class="n">source_entity</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">target_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fhir</span><span class="p">[</span><span class="n">target_entity</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">source_df</span><span class="p">[</span><span class="n">source_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">source_df</span><span class="p">[</span><span class="n">source_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+        <span class="n">target_df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">target_df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+
+        <span class="n">source_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">source_entity</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">source_df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+        <span class="n">target_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">target_entity</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">target_df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+
+        <span class="n">source_merge_col</span> <span class="o">=</span> <span class="n">source_entity</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">source_column</span>
+        <span class="n">target_merge_col</span> <span class="o">=</span> <span class="n">target_entity</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">target_column</span>
+
+        <span class="n">target_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">source_df</span><span class="p">,</span> <span class="n">target_df</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="n">source_merge_col</span><span class="p">],</span>
+                             <span class="n">right_on</span><span class="o">=</span><span class="p">[</span><span class="n">target_merge_col</span><span class="p">])</span>
+
+        <span class="n">target_df</span> <span class="o">=</span> <span class="n">target_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="n">source_entity</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">source_column</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">target_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">target_df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fhir</span><span class="p">[</span><span class="n">target_entity</span><span class="p">]</span> <span class="o">=</span> <span class="n">target_df</span>
+
+        <span class="k">if</span> <span class="n">remove</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">relation</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Diamond.merge_cost"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.data_loader.Diamond.merge_cost">[docs]</a>    <span class="k">def</span> <span class="nf">merge_cost</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Calculates the merge cost of two dataframes.</span>
+
+<span class="sd">        The equation is defined as the sum of the dataframe sizes.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A list of the cost of merging for each relationship</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">cost</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">fhir</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">fhir</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;child_entity&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span>
+                <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
+
+        <span class="k">return</span> <span class="n">cost</span></div>
+
+<div class="viewcode-block" id="Diamond.resolve_reference"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.data_loader.Diamond.resolve_reference">[docs]</a>    <span class="k">def</span> <span class="nf">resolve_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Consolidates relationships that have a connection to References.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="s1">&#39;Identifier&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fhir</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="k">raise</span> <span class="ne">LookupError</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">Identifier</span><span class="se">\&#39;</span><span class="s1"> file is not loaded.&#39;</span><span class="p">)</span>
+
+        <span class="n">identifier_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fhir</span><span class="p">[</span><span class="s1">&#39;Identifier&#39;</span><span class="p">]</span>  <span class="c1"># always subset from id</span>
+        <span class="n">identifier_df</span><span class="p">[</span><span class="s1">&#39;object_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">identifier_df</span><span class="p">[</span><span class="s1">&#39;object_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">relation</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+
+            <span class="k">if</span> <span class="n">relation</span><span class="p">[</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Reference&#39;</span><span class="p">:</span>
+
+                <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fhir</span><span class="p">[</span><span class="n">relation</span><span class="p">[</span><span class="s1">&#39;child_entity&#39;</span><span class="p">]]</span>
+                <span class="n">subset_values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">relation</span><span class="p">[</span><span class="s1">&#39;child_variable&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+                <span class="n">sub_df</span> <span class="o">=</span> <span class="n">identifier_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">identifier_df</span><span class="p">[</span><span class="s1">&#39;object_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">subset_values</span><span class="p">)]</span>
+
+                <span class="k">for</span> <span class="n">second_name</span><span class="p">,</span> <span class="n">second_df</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fhir</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="s1">&#39;identifier&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">second_df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="n">second_name</span> <span class="o">==</span> <span class="s1">&#39;Reference&#39;</span><span class="p">:</span>
+                        <span class="k">continue</span>
+
+                    <span class="n">second_df</span><span class="p">[</span><span class="s1">&#39;identifier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">second_df</span><span class="p">[</span><span class="s1">&#39;identifier&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">second_df</span><span class="p">[</span><span class="s1">&#39;identifier&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">sub_df</span><span class="p">[</span><span class="s1">&#39;object_id&#39;</span><span class="p">]))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;parent_entity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">second_name</span>
+                        <span class="k">break</span>
+
+            <span class="k">if</span> <span class="n">relation</span><span class="p">[</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>
@@ -229,7 +430,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab.
+        &copy; Copyright 2018, MIT Data To AI Lab
 
     </p>
   </div>
@@ -248,21 +449,14 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 

@@ -182,7 +182,7 @@
 <span class="kn">import</span> <span class="nn">featuretools</span> <span class="k">as</span> <span class="nn">ft</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">cardea.data_loader</span> <span class="k">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span> <span class="nn">cardea.data_loader</span> <span class="k">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">Diamond</span>
 
 
 <div class="viewcode-block" id="EntitySetLoader"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.entityset_loader.EntitySetLoader">[docs]</a><span class="k">class</span> <span class="nc">EntitySetLoader</span><span class="p">(</span><span class="n">DataLoader</span><span class="p">):</span>
@@ -190,51 +190,61 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;EntitySetLoader&#39;</span>
 
-<div class="viewcode-block" id="EntitySetLoader.create_entity"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.entityset_loader.EntitySetLoader.create_entity">[docs]</a>    <span class="k">def</span> <span class="nf">create_entity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">,</span> <span class="n">entity_set</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates an entity from fhir object and add it to entityset.</span>
+<div class="viewcode-block" id="EntitySetLoader.create_entity"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.entityset_loader.EntitySetLoader.create_entity">[docs]</a>    <span class="k">def</span> <span class="nf">create_entity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fhir</span><span class="p">,</span> <span class="n">identifiers</span><span class="p">,</span> <span class="n">entity_set</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates an entity from fhir dataframes and add it to entityset.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            object: A fhir class object.</span>
+<span class="sd">            fhir: A dictionary of fhir class dataframes.</span>
 <span class="sd">            entity_set: The global entityset that the entity will be added to.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">df</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">()</span>
-        <span class="n">object_name</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="vm">__name__</span>
-        <span class="nb">id</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="n">get_id</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">object_name</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">fhir</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
-        <span class="k">if</span> <span class="n">object_name</span> <span class="o">==</span> <span class="s1">&#39;Period&#39;</span><span class="p">:</span>
-            <span class="n">entity_set</span><span class="o">.</span><span class="n">entity_from_dataframe</span><span class="p">(</span><span class="n">entity_id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">object_name</span><span class="p">),</span>
-                                             <span class="n">dataframe</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-                                             <span class="n">index</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span>
-                                             <span class="n">time_index</span><span class="o">=</span><span class="s2">&quot;start&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">entity_set</span><span class="o">.</span><span class="n">entity_from_dataframe</span><span class="p">(</span><span class="n">entity_id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">object_name</span><span class="p">),</span>
-                                             <span class="n">dataframe</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-                                             <span class="n">index</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span></div>
+            <span class="nb">id</span> <span class="o">=</span> <span class="n">identifiers</span><span class="p">[</span><span class="n">object_name</span><span class="p">]</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="EntitySetLoader.create_relationships"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.entityset_loader.EntitySetLoader.create_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">create_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">,</span> <span class="n">entity_set</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">object_name</span> <span class="o">==</span> <span class="s1">&#39;Period&#39;</span><span class="p">:</span>
+                <span class="n">entity_set</span><span class="o">.</span><span class="n">entity_from_dataframe</span><span class="p">(</span><span class="n">entity_id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">object_name</span><span class="p">),</span>
+                                                 <span class="n">dataframe</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+                                                 <span class="n">index</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span>
+                                                 <span class="n">time_index</span><span class="o">=</span><span class="s2">&quot;start&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">entity_set</span><span class="o">.</span><span class="n">entity_from_dataframe</span><span class="p">(</span><span class="n">entity_id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">object_name</span><span class="p">),</span>
+                                                 <span class="n">dataframe</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+                                                 <span class="n">index</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="EntitySetLoader.create_relationships"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.entityset_loader.EntitySetLoader.create_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">create_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relationships</span><span class="p">,</span> <span class="n">entity_set</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Binds entities in the entityset.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            object: A fhir class object.</span>
+<span class="sd">            relationships: A dataframe of the relationships in fhir.</span>
 <span class="sd">            entity_set: The global entityset that the entity will be added to.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">entity_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">entity_set</span><span class="o">.</span><span class="n">entities</span><span class="p">]</span>
-
-        <span class="k">for</span> <span class="n">relation</span> <span class="ow">in</span> <span class="nb">object</span><span class="o">.</span><span class="n">get_relationships</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">relation</span> <span class="ow">in</span> <span class="n">relationships</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
             <span class="c1"># parent table: 0, field: 1</span>
             <span class="c1"># child table: 2, field: 3</span>
 
-            <span class="k">if</span> <span class="n">relation</span><span class="p">[</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">entity_names</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span>
-                    <span class="nb">object</span><span class="p">,</span> <span class="n">relation</span><span class="p">[</span><span class="s1">&#39;child_variable&#39;</span><span class="p">])</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">new_relationship</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">Relationship</span><span class="p">(</span>
-                    <span class="n">entity_set</span><span class="p">[</span><span class="n">relation</span><span class="p">[</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">]][</span><span class="n">relation</span><span class="p">[</span><span class="s1">&#39;parent_variable&#39;</span><span class="p">]],</span>
-                    <span class="n">entity_set</span><span class="p">[</span><span class="n">relation</span><span class="p">[</span><span class="s1">&#39;child_entity&#39;</span><span class="p">]][</span><span class="n">relation</span><span class="p">[</span><span class="s1">&#39;child_variable&#39;</span><span class="p">]])</span>
+            <span class="n">new_relationship</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">Relationship</span><span class="p">(</span>
+                <span class="n">entity_set</span><span class="p">[</span><span class="n">relation</span><span class="p">[</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">]][</span><span class="n">relation</span><span class="p">[</span><span class="s1">&#39;parent_variable&#39;</span><span class="p">]],</span>
+                <span class="n">entity_set</span><span class="p">[</span><span class="n">relation</span><span class="p">[</span><span class="s1">&#39;child_entity&#39;</span><span class="p">]][</span><span class="n">relation</span><span class="p">[</span><span class="s1">&#39;child_variable&#39;</span><span class="p">]])</span>
 
-                <span class="n">entity_set</span><span class="o">.</span><span class="n">add_relationship</span><span class="p">(</span><span class="n">new_relationship</span><span class="p">)</span></div>
+            <span class="n">entity_set</span><span class="o">.</span><span class="n">add_relationship</span><span class="p">(</span><span class="n">new_relationship</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="EntitySetLoader.load_data_entityset"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset">[docs]</a>    <span class="k">def</span> <span class="nf">load_data_entityset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_path</span><span class="p">):</span>
+<div class="viewcode-block" id="EntitySetLoader.read_csv_files"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.entityset_loader.EntitySetLoader.read_csv_files">[docs]</a>    <span class="k">def</span> <span class="nf">read_csv_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_path</span><span class="p">):</span>
+
+        <span class="n">fhir</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">csv_files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">folder_path</span> <span class="o">+</span> <span class="s2">&quot;/*.csv&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">csv_files</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+            <span class="n">file_name</span> <span class="o">=</span> <span class="n">file_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="n">fhir</span><span class="p">[</span><span class="n">file_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span>
+
+        <span class="k">return</span> <span class="n">fhir</span></div>
+
+<div class="viewcode-block" id="EntitySetLoader.load_data_entityset"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset">[docs]</a>    <span class="k">def</span> <span class="nf">load_data_entityset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fhir</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns an entityset loaded with .csv files in folder_path.</span>
 
 <span class="sd">        Loads the data into pandas dataframes then loads them into featuretools&#39; entityset.</span>
@@ -247,19 +257,21 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">all_objects</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">csv_files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">folder_path</span> <span class="o">+</span> <span class="s2">&quot;/*.csv&quot;</span><span class="p">)</span>
         <span class="n">entity_set</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">EntitySet</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;fhir&quot;</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">csv_files</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-            <span class="n">file_name</span> <span class="o">=</span> <span class="n">file_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">fhir</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
-            <span class="nb">object</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_object</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+            <span class="nb">object</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_object</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
             <span class="n">all_objects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">create_entity</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">entity_set</span><span class="o">=</span><span class="n">entity_set</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="nb">object</span> <span class="ow">in</span> <span class="n">all_objects</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">create_relationships</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">entity_set</span><span class="o">=</span><span class="n">entity_set</span><span class="p">)</span>
+        <span class="n">diamond</span> <span class="o">=</span> <span class="n">Diamond</span><span class="p">(</span><span class="n">all_objects</span><span class="p">)</span>
+        <span class="n">diamond</span><span class="o">.</span><span class="n">resolve_diamond</span><span class="p">()</span>
+        <span class="n">fhir</span> <span class="o">=</span> <span class="n">diamond</span><span class="o">.</span><span class="n">get_fhir_dataframes</span><span class="p">()</span>
+        <span class="n">relationships</span> <span class="o">=</span> <span class="n">diamond</span><span class="o">.</span><span class="n">get_fhir_relationships</span><span class="p">()</span>
+        <span class="n">identifiers</span> <span class="o">=</span> <span class="n">diamond</span><span class="o">.</span><span class="n">get_object_ids</span><span class="p">(</span><span class="n">all_objects</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_entity</span><span class="p">(</span><span class="n">fhir</span><span class="p">,</span> <span class="n">identifiers</span><span class="p">,</span> <span class="n">entity_set</span><span class="o">=</span><span class="n">entity_set</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_relationships</span><span class="p">(</span><span class="n">relationships</span><span class="p">,</span> <span class="n">entity_set</span><span class="o">=</span><span class="n">entity_set</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">entity_set</span></div></div>
 </pre></div>
@@ -274,7 +286,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab.
+        &copy; Copyright 2018, MIT Data To AI Lab
 
     </p>
   </div>
@@ -293,21 +305,14 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
