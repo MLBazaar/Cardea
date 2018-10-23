@@ -21,7 +21,7 @@ class Featurization():
         """Calculates a feature matrix and features given in Featurization object.
 
         Args:
-            verbose: A boolean indicator of verbose option
+            verbose: A boolean indicator of verbose option.
         Returns:
             A pandas dataframe of the calculated matrix
         """
