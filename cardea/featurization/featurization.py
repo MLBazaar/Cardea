@@ -18,7 +18,7 @@ class Featurization():
         self.cutoff = cutoff
 
     def generate_feature_matrix(self, verbose=True):
-        """Calculates a feature matrix and features given in Featurization object
+        """Calculates a feature matrix and features given in Featurization object.
 
         Args:
             verbose: A boolean indicator of verbose option
