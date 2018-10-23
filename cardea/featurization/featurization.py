@@ -23,7 +23,7 @@ class Featurization():
         Args:
             verbose: A boolean indicator of verbose option.
         Returns:
-            A pandas dataframe of the calculated matrix
+            A pandas dataframe of the calculated matrix.
         """
 
         feature_matrix, features_defs = ft.dfs(entityset=self.es,
