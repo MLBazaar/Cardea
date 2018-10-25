@@ -9,7 +9,7 @@ class Readmission (ProblemDefinition):
 
         Attributes:
         target_label: The target label of the prediction problem.
-        target_entity: The entity name in which it contains the target label.
+        target_entity: Name of the entity containing the target label.
         cutoff_time_label: The cutoff time label of the prediction problem.
         cutoff_entity: The entity name in which it contains the cutoff time label.
         prediction_type: The type of the machine learning prediction.
