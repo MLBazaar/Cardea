@@ -42,20 +42,16 @@ def objects(es_loader):
 
 
 @pytest.fixture()
-def relationships():
-    return [('Encounter', 'period', 'Period', 'object_id'),
-            ('Encounter', 'subject', 'Patient', 'identifier')]
-
-
-@pytest.fixture()
 def entityset(objects, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects)
 
-    for object in objects:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
+
+    relationships = es_loader.get_relationships(objects, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
 
     return es
 
