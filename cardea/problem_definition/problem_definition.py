@@ -101,7 +101,7 @@ class ProblemDefinition:
             entity_set: fhir entityset.
 
         Returns:
-            entity_set, target_entity, Series of target_label and a dataframe of cutoff_times
+            entity_set, target_entity, series of target_labels and a dataframe of cutoff_times.
 
         Raises:
             ValueError: An error occurs if the cutoff variable does not exist.
