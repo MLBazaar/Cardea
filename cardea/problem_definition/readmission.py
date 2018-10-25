@@ -71,7 +71,7 @@ class Readmission (ProblemDefinition):
             Args:
             es: fhir entityset.
             target_label: The target label of the prediction problem.
-            target_entity: The entity name in which it contains the target label.
+            target_entity: Name of the entity containing the target label.
 
             Returns:
             Updated entityset with the generated label.
