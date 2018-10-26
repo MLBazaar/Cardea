@@ -22,10 +22,10 @@ def es_loader():
 
 @pytest.fixture()
 def cutoff_times():
-    temp = pd.DataFrame({"cutoff_time": ['9/22/2018', '9/21/2018', '10/4/2018',
+    temp = pd.DataFrame({"instance_id": [10, 11, 12, 13, 14, 15],
+                         "cutoff_time": ['9/22/2018', '9/21/2018', '10/4/2018',
                                          '9/28/2018', '10/30/2018', '11/18/2018'],
-                         "instance_id": [10, 11, 12, 13, 14, 15]
-
+                         "label": [False, False, False, True, False, True]
                          })
     temp['cutoff_time'] = pd.to_datetime(temp['cutoff_time'])
     return temp
@@ -139,11 +139,13 @@ def relationships():
 def entityset_success(objects, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects)
 
-    for object in objects:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
+
+    relationships = es_loader.get_relationships(objects, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
 
     return es
 
@@ -152,11 +154,14 @@ def entityset_success(objects, es_loader):
 def entityset_fail_missing_generation_value(objects_missing_generation_value, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects_missing_generation_value:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects_missing_generation_value)
 
-    for object in objects_missing_generation_value:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects_missing_generation_value)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
+
+    relationships = es_loader.get_relationships(
+        objects_missing_generation_value, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
 
     return es
 
@@ -165,12 +170,14 @@ def entityset_fail_missing_generation_value(objects_missing_generation_value, es
 def entityset_fail_missing_generation_table(objects_missing_generation_table, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects_missing_generation_table:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects_missing_generation_table)
 
-    for object in objects_missing_generation_table:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects_missing_generation_table)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
 
+    relationships = es_loader.get_relationships(
+        objects_missing_generation_table, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
     return es
 
 
@@ -178,17 +185,18 @@ def entityset_fail_missing_generation_table(objects_missing_generation_table, es
 def entityset_fail(objects_fail, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects_fail:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects_fail)
 
-    for object in objects_fail:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects_fail)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
 
+    relationships = es_loader.get_relationships(objects_fail, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
     return es
 
 
 def test_generate_cutoff_times_success(entityset_success):
-    _, _, _, generated_df = readmission().generate_cutoff_times(
+    _, _, generated_df = readmission().generate_cutoff_times(
         entityset_success)
     generated_df.index = cutoff_times().index  # both should have the same index
     generated_df = generated_df[cutoff_times().columns]  # same columns order
@@ -196,7 +204,7 @@ def test_generate_cutoff_times_success(entityset_success):
 
 
 def test_generate_labels_success(entityset_success):
-    es, _, _, generated_df = readmission().generate_cutoff_times(
+    es, _, generated_df = readmission().generate_cutoff_times(
         entityset_success)
     generated_df.index = cutoff_times().index  # both should have the same index
 
@@ -207,7 +215,7 @@ def test_generate_labels_success(entityset_success):
 
 def test_generate_labels_success_threshold(entityset_success):
 
-    es, _, _, generated_df = Readmission(6).generate_cutoff_times(
+    es, _, generated_df = Readmission(6).generate_cutoff_times(
         entityset_success)
     generated_df.index = cutoff_times().index  # both should have the same index
 

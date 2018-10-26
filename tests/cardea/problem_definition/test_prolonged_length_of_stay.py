@@ -7,12 +7,12 @@ import pytest
 from numpy import nan
 
 from cardea.data_loader import EntitySetLoader
-from cardea.problem_definition import LengthOfStay
+from cardea.problem_definition import ProlongedLengthOfStay
 
 
 @pytest.fixture()
 def length_of_stay():
-    return LengthOfStay()
+    return ProlongedLengthOfStay()
 
 
 @pytest.fixture()
@@ -22,8 +22,9 @@ def es_loader():
 
 @pytest.fixture()
 def cutoff_times():
-    temp = pd.DataFrame({"cutoff_time": ['9/18/2018', '9/19/2018', '9/20/2018'],
-                         "instance_id": [10, 11, 12]
+    temp = pd.DataFrame({"instance_id": [10, 11, 12],
+                         "cutoff_time": ['9/18/2018', '9/19/2018', '9/20/2018'],
+                         "label": [0, 0, 1]
                          })
     temp['cutoff_time'] = pd.to_datetime(temp['cutoff_time'])
     return temp
@@ -180,12 +181,13 @@ def relationships():
 def entityset_success(objects, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects)
 
-    for object in objects:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
 
+    relationships = es_loader.get_relationships(objects, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
     return es
 
 
@@ -193,11 +195,14 @@ def entityset_success(objects, es_loader):
 def entityset_fail_missing_generation_value(objects_missing_generation_value, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects_missing_generation_value:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects_missing_generation_value)
 
-    for object in objects_missing_generation_value:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects_missing_generation_value)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
+
+    relationships = es_loader.get_relationships(
+        objects_missing_generation_value, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
 
     return es
 
@@ -206,11 +211,14 @@ def entityset_fail_missing_generation_value(objects_missing_generation_value, es
 def entityset_fail_missing_generation_table(objects_missing_generation_table, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects_missing_generation_table:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects_missing_generation_table)
 
-    for object in objects_missing_generation_table:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects_missing_generation_table)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
+
+    relationships = es_loader.get_relationships(
+        objects_missing_generation_table, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
 
     return es
 
@@ -219,11 +227,13 @@ def entityset_fail_missing_generation_table(objects_missing_generation_table, es
 def entityset_fail(objects_fail, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects_fail:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects_fail)
 
-    for object in objects_fail:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects_fail)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
+
+    relationships = es_loader.get_relationships(objects_fail, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
 
     return es
 
@@ -232,12 +242,14 @@ def entityset_fail(objects_fail, es_loader):
 def entityset_fail_missing_generation_label(objects_missing_generation_label, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects_missing_generation_label:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects_missing_generation_label)
 
-    for object in objects_missing_generation_label:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects_missing_generation_label)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
 
+    relationships = es_loader.get_relationships(
+        objects_missing_generation_label, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
     return es
 
 
@@ -245,26 +257,27 @@ def entityset_fail_missing_generation_label(objects_missing_generation_label, es
 def entityset_error_missing_cutoff_label(objects_missing_cutoff_label, es_loader):
     es = ft.EntitySet(id="test")
 
-    for object in objects_missing_cutoff_label:
-        es_loader.create_entity(object, entity_set=es)
+    identifiers = es_loader.get_object_ids(objects_missing_cutoff_label)
 
-    for object in objects_missing_cutoff_label:
-        es_loader.create_relationships(object, entity_set=es)
+    fhir_dict = es_loader.get_dataframes(objects_missing_cutoff_label)
+    es_loader.create_entity(fhir_dict, identifiers, entity_set=es)
 
+    relationships = es_loader.get_relationships(
+        objects_missing_cutoff_label, list(fhir_dict.keys()))
+    es_loader.create_relationships(relationships, entity_set=es)
     return es
 
 
 def test_generate_cutoff_times_success(entityset_success):
-    _, _, _, generated_df = length_of_stay().generate_cutoff_times(
+    _, _, generated_df = length_of_stay().generate_cutoff_times(
         entityset_success)
     generated_df.index = cutoff_times().index  # both should have the same index
     generated_df = generated_df[cutoff_times().columns]  # same columns order
-
     assert generated_df.equals(cutoff_times())
 
 
 def test_generate_cutoff_times_missing_target_label(entityset_fail):
-    _, _, _, generated_df = length_of_stay().generate_cutoff_times(
+    _, _, generated_df = length_of_stay().generate_cutoff_times(
         entityset_fail)
     generated_df.index = cutoff_times().index  # both should have the same index
     generated_df = generated_df[cutoff_times().columns]  # same columns order
@@ -290,9 +303,9 @@ def test_generate_label_with_missing_values(entityset_fail_missing_generation_va
 
 
 def test_generate_cutoff_times_with_threshold(entityset_success):
-    los = LengthOfStay(t=2)
+    los = ProlongedLengthOfStay(t=2)
     values_should_be = [1, 0, 1]
-    es, _, _, generated_df = los.generate_cutoff_times(
+    es, _, generated_df = los.generate_cutoff_times(
         entityset_success)
     generated_labels = es['Encounter'].df['length'].tolist()
 
