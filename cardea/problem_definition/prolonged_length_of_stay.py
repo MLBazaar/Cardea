@@ -4,9 +4,9 @@ import pandas as pd
 from cardea.problem_definition import ProblemDefinition
 
 
-class LengthOfStay (ProblemDefinition):
-    """Defines the problem of length of stay, finding how many days
-        the patient will be in the hospital.
+class ProlongedLengthOfStay (ProblemDefinition):
+    """Defines the problem of length of stay, finding whether
+        a patient stayed in the hospital more or less than a week (Default).
 
         Attributes:
         target_label: The target label of the prediction problem.
@@ -38,14 +38,17 @@ class LengthOfStay (ProblemDefinition):
             Raises:
             ValueError: An error occurs if the cutoff variable does not exist.
             """
-        try:
-            self.check_target_label(es, self.target_entity, self.target_label)
-            self.check_target_label_values(es, self.target_entity, self.target_label)
-            try:
-                self.check_target_label(
+
+        if (self.check_target_label(es,
+                                    self.target_entity,
+                                    self.target_label) and not
+            self.check_target_label_values(es,
+                                           self.target_entity,
+                                           self.target_label)):
+            if self.check_target_label(
                     es,
                     self.cutoff_entity,
-                    self.cutoff_time_label)
+                    self.cutoff_time_label):
 
                 instance_id = list(es[self.target_entity].df.index)
                 cutoff_times = es[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
@@ -60,15 +63,13 @@ class LengthOfStay (ProblemDefinition):
                 es = es.entity_from_dataframe(entity_id=self.target_entity,
                                               dataframe=update_es,
                                               index='identifier')
-
-                return(es, self.target_entity,
-                       es[self.target_entity].df[self.target_label],
-                       cutoff_times)
-            except ValueError:
+                cutoff_times['label'] = list(es[self.target_entity].df[self.target_label])
+                return(es, self.target_entity, cutoff_times)
+            else:
                 raise ValueError('Cutoff time label {} in table {} does not exist'
                                  .format(self.cutoff_time_label, self.target_entity))
 
-        except ValueError:
+        else:
             updated_es = self.generate_target_label(es)
             return self.generate_cutoff_times(updated_es)
 
@@ -90,24 +91,20 @@ class LengthOfStay (ProblemDefinition):
         start = 'start'
         end = 'end'
 
-        try:
-            self.check_target_label(
-                es,
-                generate_from,
-                start)
-            self.check_target_label(
-                es,
-                generate_from,
-                end)
-            try:
-                self.check_target_label_values(
+        if (self.check_target_label(
+            es,
+            generate_from,
+            start) and self.check_target_label(es,
+                                               generate_from,
+                                               end)):
+
+            if (not self.check_target_label_values(
                     es,
                     generate_from,
-                    start)
-                self.check_target_label_values(
-                    es,
-                    generate_from,
-                    end)
+                    start) and not self.check_target_label_values(es,
+                                                                  generate_from,
+                                                                  end)):
+
                 es[generate_from].df[start] = pd.to_datetime(
                     es[generate_from]
                     .df[start])
@@ -134,7 +131,7 @@ class LengthOfStay (ProblemDefinition):
 
                 return es
 
-            except ValueError:
+            else:
                 raise ValueError(
                     'Can not generate target label {} in table {}' +
                     'beacuse start or end labels in table {} contain missing value.'
@@ -142,7 +139,7 @@ class LengthOfStay (ProblemDefinition):
                             self.target_entity,
                             generate_from))
 
-        except ValueError:
+        else:
             raise ValueError(
                 'Can not generate target label {} in table {}.'.format(
                     self.target_label,

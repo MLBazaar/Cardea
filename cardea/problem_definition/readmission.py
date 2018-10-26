@@ -45,23 +45,22 @@ class Readmission (ProblemDefinition):
             Raises:
             ValueError: An error occurs if the cutoff variable does not exist.
         """
-        try:
-            updated_es = self.generate_target_label(es)
 
-            self.check_target_label(
-                es,
-                self.cutoff_entity,
-                self.cutoff_time_label)  # check the existance of the cutoff label
+        self.generate_target_label(es)
+
+        if self.check_target_label(
+            es,
+            self.cutoff_entity,
+                self.cutoff_time_label):  # check the existance of the cutoff label
 
             instance_id = list(es[self.target_entity].df.index)
             cutoff_times = es[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
             cutoff_times['instance_id'] = instance_id
             cutoff_times.columns = ['cutoff_time', 'instance_id']
+            cutoff_times['label'] = list(es[self.target_entity].df[self.target_label])
 
-            return (es, self.target_entity,
-                    updated_es[self.target_entity].df[self.target_label],
-                    cutoff_times)
-        except ValueError:
+            return(es, self.target_entity, cutoff_times)
+        else:
             raise ValueError('Cutoff time label {} in table {} does not exist'
                              .format(self.cutoff_time_label, self.target_entity))
 
@@ -81,21 +80,16 @@ class Readmission (ProblemDefinition):
             """
         generate_from = 'Period'
         end = 'end'
+        if (self.check_target_label(
+            es,
+            generate_from,
+            end)) and (self.check_target_label(es,
+                                               self.target_entity,
+                                               'period')):
 
-        try:
-            self.check_target_label(
-                es,
-                generate_from,
-                end)
-            self.check_target_label(es,
-                                    self.target_entity,
-                                    'period')
-
-            try:
-                self.check_target_label_values(
+            if not self.check_target_label_values(
                     es,
-                    generate_from,
-                    end)
+                    generate_from, end):
 
                 entity_set_df = es[self.target_entity].df
                 generated_df = es[generate_from].df
@@ -140,15 +134,15 @@ class Readmission (ProblemDefinition):
 
                 return es
 
-            except ValueError:
+            else:
                 raise ValueError(
                     'Can not generate target label {} in table {}' +
-                    'beacuse end label in table {} contains missing value.'
+                    ' beacuse end label in table {} contains missing value.'
                     .format(self.target_label,
                             self. target_entity,
                             generate_from))
 
-        except ValueError:
+        else:
             raise ValueError(
                 'Can not generate target label {} in table {}.'.format(
                     self.target_label,

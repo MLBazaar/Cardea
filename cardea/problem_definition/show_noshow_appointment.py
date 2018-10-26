@@ -33,29 +33,29 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
             ValueError: An error occurs if the cutoff variable does not exist.
         """
 
-        self.check_target_label(
+        if (self.check_target_label(
             entity_set,
             self.target_entity,
-            self.target_label)
-        self.check_target_label_values(
-            entity_set,
-            self.target_entity,
-            self.target_label)
+            self.target_label)) and not (self.check_target_label_values(entity_set,
+                                                                        self.target_entity,
+                                                                        self.target_label)):
 
-        try:
-            self.check_target_label(
-                entity_set,
-                self.target_entity,
-                self.cutoff_time_label)
+            if self.check_target_label(entity_set,
+                                       self.target_entity,
+                                       self.cutoff_time_label):
 
-            instance_id = list(entity_set[self.target_entity].df.index)
-            cutoff_times = entity_set[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
-            cutoff_times['instance_id'] = instance_id
-            cutoff_times.columns = ['cutoff_time', 'instance_id']
-
-            return (entity_set, self.target_entity,
-                    entity_set[self.target_entity].df[self.target_label], cutoff_times)
-        except ValueError:
+                instance_id = list(entity_set[self.target_entity].df.index)
+                cutoff_times = entity_set[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
+                cutoff_times['instance_id'] = instance_id
+                cutoff_times.columns = ['cutoff_time', 'instance_id']
+                cutoff_times['label'] = list(entity_set[self.target_entity].df[self.target_label])
+                return (entity_set, self.target_entity, cutoff_times)
+            else:
+                raise ValueError(
+                    'Cutoff time label {} in table {} does not exist'.format(
+                        'created', self.target_entity))
+        else:
             raise ValueError(
-                'Cutoff time label {} in table {} does not exist'.format(
-                    'created', self.target_entity))
+                'Can not generate target label {} in table {}.'.format(
+                    self.target_label,
+                    self.target_entity))
