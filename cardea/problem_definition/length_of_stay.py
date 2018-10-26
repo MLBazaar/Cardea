@@ -5,7 +5,7 @@ from cardea.problem_definition import ProblemDefinition
 
 
 class LengthOfStay (ProblemDefinition):
-    """Defines the problem of length of stay, finding how many days
+    """Defines the problem of length of stay, predicting how many days
         the patient will be in the hospital.
 
         Attributes:

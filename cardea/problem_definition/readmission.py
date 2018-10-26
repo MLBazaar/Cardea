@@ -4,7 +4,7 @@ from cardea.problem_definition import ProblemDefinition
 
 
 class Readmission (ProblemDefinition):
-    """Defines the problem of readmission, finding whether
+    """Defines the problem of readmission, predicting whether
         a patient will revisit the hospital within certain period of time.
 
         Attributes:
