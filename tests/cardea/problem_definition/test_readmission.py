@@ -208,7 +208,7 @@ def test_generate_labels_success(entityset_success):
         entityset_success)
     generated_df.index = cutoff_times().index  # both should have the same index
 
-    labels = list(es['Encounter'].df['readmitted'])
+    labels = list(generated_df['label'])
 
     assert labels == [False, False, False, True, False, True]
 
@@ -219,8 +219,7 @@ def test_generate_labels_success_threshold(entityset_success):
         entityset_success)
     generated_df.index = cutoff_times().index  # both should have the same index
 
-    labels = list(es['Encounter'].df['readmitted'])
-
+    labels = list(generated_df['label'])
     assert labels == [False, False, False, True, False, False]
 
 
