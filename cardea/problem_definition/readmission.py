@@ -58,7 +58,7 @@ class Readmission (ProblemDefinition):
             cutoff_times['instance_id'] = instance_id
             cutoff_times.columns = ['cutoff_time', 'instance_id']
             cutoff_times['label'] = list(es[self.target_entity].df[self.target_label])
-
+            es[self.target_entity].delete_variable(self.target_label)
             return(es, self.target_entity, cutoff_times)
         else:
             raise ValueError('Cutoff time label {} in table {} does not exist'

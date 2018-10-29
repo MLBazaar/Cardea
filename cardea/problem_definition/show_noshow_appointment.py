@@ -49,6 +49,7 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
                 cutoff_times['instance_id'] = instance_id
                 cutoff_times.columns = ['cutoff_time', 'instance_id']
                 cutoff_times['label'] = list(entity_set[self.target_entity].df[self.target_label])
+                entity_set[self.target_entity].delete_variable(self.target_label)
                 return (entity_set, self.target_entity, cutoff_times)
             else:
                 raise ValueError(

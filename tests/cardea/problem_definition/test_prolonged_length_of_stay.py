@@ -307,6 +307,5 @@ def test_generate_cutoff_times_with_threshold(entityset_success):
     values_should_be = [1, 0, 1]
     es, _, generated_df = los.generate_cutoff_times(
         entityset_success)
-    generated_labels = es['Encounter'].df['length'].tolist()
-
+    generated_labels = list(generated_df['label'])
     assert values_should_be == generated_labels
