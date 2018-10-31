@@ -21,6 +21,7 @@ class ProlongedLengthOfStay (ProblemDefinition):
     target_entity = 'Encounter'
     cutoff_time_label = 'start'
     cutoff_entity = 'Period'
+    conn = 'period'
     prediction_type = 'classification'
 
     def __init__(self, t=7):
@@ -50,8 +51,11 @@ class ProlongedLengthOfStay (ProblemDefinition):
                     self.cutoff_entity,
                     self.cutoff_time_label):
 
-                instance_id = list(es[self.target_entity].df.index)
                 cutoff_times = es[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
+                label = es[self.target_entity].df[self.conn].values
+                instance_id = list(es[self.target_entity].df.index)
+
+                cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
                 cutoff_times['instance_id'] = instance_id
                 cutoff_times.columns = ['cutoff_time', 'instance_id']
                 update_es = es[self.target_entity].df
@@ -63,8 +67,8 @@ class ProlongedLengthOfStay (ProblemDefinition):
                 es = es.entity_from_dataframe(entity_id=self.target_entity,
                                               dataframe=update_es,
                                               index='identifier')
+
                 cutoff_times['label'] = list(es[self.target_entity].df[self.target_label])
-                es[self.target_entity].delete_variable(self.target_label)
                 return(es, self.target_entity, cutoff_times)
             else:
                 raise ValueError('Cutoff time label {} in table {} does not exist'
