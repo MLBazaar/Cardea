@@ -1,5 +1,6 @@
 import pandas as pd
 
+from cardea.data_loader import DataLoader
 from cardea.problem_definition import ProblemDefinition
 
 
@@ -49,7 +50,7 @@ class Readmission (ProblemDefinition):
 
         self.generate_target_label(es)
 
-        if self.check_target_label(
+        if DataLoader().check_column_existence(
                 es,
                 self.cutoff_entity,
                 self.cutoff_time_label):  # check the existance of the cutoff label
@@ -83,14 +84,14 @@ class Readmission (ProblemDefinition):
             """
         generate_from = 'Period'
         end = 'end'
-        if (self.check_target_label(
+        if (DataLoader().check_column_existence(
             es,
             generate_from,
-            end)) and (self.check_target_label(es,
-                                               self.target_entity,
-                                               'period')):
+            end)) and (DataLoader().check_column_existence(es,
+                                                           self.target_entity,
+                                                           'period')):
 
-            if not self.check_target_label_values(
+            if not DataLoader().check_for_missing_values(
                     es,
                     generate_from, end):
 

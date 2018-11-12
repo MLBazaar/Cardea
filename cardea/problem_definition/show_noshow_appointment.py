@@ -1,4 +1,5 @@
 
+from cardea.data_loader import DataLoader
 from cardea.problem_definition import ProblemDefinition
 
 
@@ -36,13 +37,14 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
         if (self.check_target_label(
             entity_set,
             self.target_entity,
-            self.target_label)) and not (self.check_target_label_values(entity_set,
-                                                                        self.target_entity,
-                                                                        self.target_label)):
+            self.target_label)) and\
+            not (self.check_for_missing_values_in_target_label(entity_set,
+                                                               self.target_entity,
+                                                               self.target_label)):
 
-            if self.check_target_label(entity_set,
-                                       self.target_entity,
-                                       self.cutoff_time_label):
+            if DataLoader().check_column_existence(entity_set,
+                                                   self.target_entity,
+                                                   self.cutoff_time_label):
 
                 instance_id = list(entity_set[self.target_entity].df.index)
                 cutoff_times = entity_set[self.cutoff_entity].df[self.cutoff_time_label].to_frame()

@@ -1,6 +1,7 @@
 import featuretools as ft
 import pandas as pd
 
+from cardea.data_loader import DataLoader as DL
 from cardea.problem_definition import ProblemDefinition
 
 
@@ -40,12 +41,12 @@ class LengthOfStay (ProblemDefinition):
         if (self.check_target_label(es,
                                     self.target_entity,
                                     self.target_label) and not
-            self.check_target_label_values(es,
-                                           self.target_entity,
-                                           self.target_label)):
-            if self.check_target_label(es,
-                                       self.cutoff_entity,
-                                       self.cutoff_time_label):
+            self.check_for_missing_values_in_target_label(es,
+                                                          self.target_entity,
+                                                          self.target_label)):
+            if DL().check_column_existence(es,
+                                           self.cutoff_entity,
+                                           self.cutoff_time_label):
 
                 cutoff_times = es[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
                 label = es[self.target_entity].df[self.conn].values
@@ -85,18 +86,17 @@ class LengthOfStay (ProblemDefinition):
         start = 'start'
         end = 'end'
 
-        if (self.check_target_label(es,
-                                    generate_from,
-                                    start) and self.check_target_label(es,
-                                                                       generate_from,
-                                                                       end)):
-
-            if (not self.check_target_label_values(es,
-                                                   generate_from,
-                                                   start) and not
-                (self.check_target_label_values(es,
-                                                generate_from,
-                                                end))):
+        if (DL().check_column_existence(es,
+                                        generate_from,
+                                        start) and DL().check_column_existence(es,
+                                                                               generate_from,
+                                                                               end)):
+            if (not DL().check_for_missing_values(es,
+                                                  generate_from,
+                                                  start) and not
+                (DL().check_for_missing_values(es,
+                                               generate_from,
+                                               end))):
 
                 es[generate_from].df[start] = pd.to_datetime(
                     es[generate_from].df[start])
