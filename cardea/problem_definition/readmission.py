@@ -16,11 +16,11 @@ class Readmission (ProblemDefinition):
         prediction_type: The type of the machine learning prediction.
 
         Assumptions:
-        the patient visit is considered a readmission if he visits
+        The patient visit is considered a readmission if he/she visits
             the hospital again within 30 days.
 
-        the readmission diagnosis does not have to be the same as the initial visit diagnosis,
-            (he could be diagnosed of something that is a complication of the initial diagnosis).
+        The readmission diagnosis does not have to be the same as the initial visit diagnosis,
+             (The patient could be diagnosed of something that is a complication of the initial diagnosis).
 
         """
 
@@ -42,7 +42,7 @@ class Readmission (ProblemDefinition):
             es: fhir entityset.
 
             Returns:
-            entity_set, target_entity, series of target_labels and a dataframe of cutoff_times.
+            entity_set, target_entity, and a dataframe of cutoff_times and target_labels.
 
             Raises:
             ValueError: An error occurs if the cutoff variable does not exist.

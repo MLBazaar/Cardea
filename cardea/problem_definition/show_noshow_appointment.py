@@ -10,8 +10,8 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
     Attributes:
         target_label: The target label of the prediction problem.
         target_entity: The entity name which contains the target label.
-        cutoff_time_label: The cutoff time label of the prediction problem
-        cutoff_entity: The entity name in which it contains the cutoff time label.
+        cutoff_time_label: The cutoff time label of the prediction problem.
+        cutoff_entity: Name of the entity containing the cutoff time label.
         prediction_type: The type of the machine learning prediction.
     """
 
@@ -28,7 +28,7 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
             entity_set: fhir entityset.
 
         Returns:
-            entity_set, target_entity, series of target_labels and a dataframe of cutoff_times
+            entity_set, target_entity and a dataframe of cutoff_times and target_labels
 
         Raises:
             ValueError: An error occurs if the cutoff variable does not exist.

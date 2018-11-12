@@ -32,7 +32,7 @@ class LengthOfStay (ProblemDefinition):
             es: fhir entityset.
 
             Returns:
-            entity_set, target_entity, series of target_labels and a dataframe of cutoff_times.
+            entity_set, target_entity, and a dataframe of cutoff_times and target_labels.
 
             Raises:
             ValueError: An error occurs if the cutoff variable does not exist.
