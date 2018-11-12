@@ -29,6 +29,7 @@ class Readmission (ProblemDefinition):
     cutoff_time_label = 'end'
     cutoff_entity = 'Period'
     prediction_type = 'classification'
+    conn = 'period'
 
     def __init__(self, t=30):
         self.readmission_threshold = t
@@ -49,16 +50,18 @@ class Readmission (ProblemDefinition):
         self.generate_target_label(es)
 
         if self.check_target_label(
-            es,
-            self.cutoff_entity,
+                es,
+                self.cutoff_entity,
                 self.cutoff_time_label):  # check the existance of the cutoff label
 
-            instance_id = list(es[self.target_entity].df.index)
             cutoff_times = es[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
+            label = es[self.target_entity].df[self.conn].values
+            instance_id = list(es[self.target_entity].df.index)
+
+            cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
             cutoff_times['instance_id'] = instance_id
             cutoff_times.columns = ['cutoff_time', 'instance_id']
             cutoff_times['label'] = list(es[self.target_entity].df[self.target_label])
-            es[self.target_entity].delete_variable(self.target_label)
             return(es, self.target_entity, cutoff_times)
         else:
             raise ValueError('Cutoff time label {} in table {} does not exist'
@@ -93,7 +96,7 @@ class Readmission (ProblemDefinition):
 
                 entity_set_df = es[self.target_entity].df
                 generated_df = es[generate_from].df
-                merged_df = pd.merge(entity_set_df, generated_df,
+                merged_df = pd.merge(entity_set_df, generated_df, how='left',
                                      left_on='period', right_on='object_id')
 
                 generated_target_label = []
