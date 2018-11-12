@@ -1,6 +1,4 @@
-import numpy as np
-import pandas as pd
-from numpy import nan
+from cardea.data_loader import DataLoader
 
 
 class ProblemDefinition:
@@ -9,7 +7,6 @@ class ProblemDefinition:
 
     def check_target_label(self, entity_set, target_entity, target_label):
         """Checks if target label exists in the entity set.
-
         Args:
             entity_set: fhir entityset.
             target_label: The target label of the prediction problem.
@@ -17,23 +14,11 @@ class ProblemDefinition:
 
         Returns:
             True if the target label exists.
-        Raises:
-            ValueError: An error occurs if the target label does not exist.
-
         """
-        columns_list = []
-        does_exist = True
+        return DataLoader().check_column_existence(entity_set, target_entity, target_label)
 
-        for variable in entity_set.__getitem__(target_entity).variables:
-            columns_list.append(variable.name)
-
-        does_exist = target_label in columns_list
-        if does_exist:
-            return does_exist
-        else:
-            return False
-
-    def check_target_label_values(self, entity_set, target_entity, target_label):
+    def check_for_missing_values_in_target_label(
+            self, entity_set, target_entity, target_label_column_name):
         """Checks if there is a missing value in the target label.
 
         Args:
@@ -43,40 +28,11 @@ class ProblemDefinition:
 
         Returns:
             False is the target label does not contain a missing value.
-        Raises:
-            ValueError: An error occurs if the target label contains a missing value.
+
         """
-
-        if self.check_target_label(entity_set, target_entity, target_label):
-
-            nat = np.datetime64('NaT')
-            missings = [
-                nat,
-                nan,
-                'null',
-                'nan',
-                'NAN',
-                'Nan',
-                'NaN',
-                'undefined',
-                None,
-                'unknown']
-            contains_nan = False
-
-            target_label_values = entity_set.__getitem__(target_entity).df[target_label]
-
-            for missing_value in missings:
-                if missing_value in list(target_label_values):
-                    contains_nan = True
-
-            for missing_value in missings:
-                for target_value in (target_label_values):
-                    if pd.isnull(target_value):
-                        contains_nan = True
-
-            return contains_nan
-        else:
-            return False
+        return DataLoader().check_for_missing_values(entity_set,
+                                                     target_entity,
+                                                     target_label_column_name)
 
     def generate_target_label(self, entity_set, target_entity, target_label):
         """Generates target labels if the entityset is missing labels.
