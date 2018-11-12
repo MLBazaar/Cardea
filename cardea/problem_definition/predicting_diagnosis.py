@@ -1,5 +1,6 @@
 import pandas as pd
 
+from cardea.data_loader import DataLoader
 from cardea.problem_definition import ProblemDefinition
 
 
@@ -29,6 +30,7 @@ class DiagnosisPrediction (ProblemDefinition):
     cutoff_time_label = 'start'
     cutoff_entity = 'Period'
     prediction_type = 'classification'
+    conn = 'period'
 
     def __init__(self, d):
         self.diagnosis = d
@@ -48,18 +50,21 @@ class DiagnosisPrediction (ProblemDefinition):
 
         es = self.generate_target_label(es)
 
-        if self.check_target_label(
+        if DataLoader().check_column_existence(
             es,
             self.cutoff_entity,
                 self.cutoff_time_label):  # check the existance of the cutoff label
 
-            instance_id = list(es[self.target_entity].df.index)
             cutoff_times = es[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
+            label = es[self.target_entity].df[self.conn].values
+            instance_id = list(es[self.target_entity].df.index)
+            cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
+
             cutoff_times['instance_id'] = instance_id
             cutoff_times.columns = ['cutoff_time', 'instance_id']
             cutoff_times['label'] = list(es[self.target_entity].df[self.target_label])
             cutoff_times['label'] = cutoff_times['label'] == self.diagnosis
-            es[self.target_entity].delete_variable(self.target_label)
+
             return(es, self.target_entity, cutoff_times)
         else:
             raise ValueError('Cutoff time label {} in table {} does not exist'
@@ -85,23 +90,23 @@ class DiagnosisPrediction (ProblemDefinition):
             self.target_entity,
                 self.target_label)):
 
-            if not self.check_target_label_values(es,
-                                                  self.target_entity,
-                                                  self.target_label):
+            if not DataLoader().check_for_missing_values(es,
+                                                         self.target_entity,
+                                                         self.target_label):
                 entity_set_df = es[self.target_entity].df
 
                 merging_coding = pd.merge(es['Coding'].df, es['CodeableConcept'].df,
-                                          left_on='object_id', right_on='coding')
+                                          left_on='object_id', right_on='coding', how='left')
                 merging_condtion = pd.merge(merging_coding, es['Condition'].df,
-                                            left_on='object_id_y', right_on='code')
+                                            left_on='object_id_y', right_on='code', how='left')
                 merging_diagnosis = pd.merge(
                     merging_condtion,
                     es['Encounter_Diagnosis'].df,
                     left_on='identifier',
-                    right_on='condition')
+                    right_on='condition', how='left')
 
                 merging_encouter = pd.merge(merging_diagnosis, es[self.target_entity].df,
-                                            left_on='subject', right_on='identifier')
+                                            left_on='subject', right_on='identifier', how='left')
                 merging_encouter['target'] = merging_encouter['code_x']
 
                 set(es[self.target_entity].df.identifier)
