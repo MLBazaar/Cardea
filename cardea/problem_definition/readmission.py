@@ -20,7 +20,8 @@ class Readmission (ProblemDefinition):
             the hospital again within 30 days.
 
         The readmission diagnosis does not have to be the same as the initial visit diagnosis,
-             (The patient could be diagnosed of something that is a complication of the initial diagnosis).
+             (The patient could be diagnosed of something that is a complication
+             of the initial diagnosis).
 
         """
 
