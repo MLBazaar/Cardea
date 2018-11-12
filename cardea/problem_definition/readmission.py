@@ -9,7 +9,7 @@ class Readmission (ProblemDefinition):
         a patient will revisit the hospital within certain period of time.
 
         Attributes:
-        target_label: The target label of the prediction problem.
+        target_label_column_name: The target label of the prediction problem.
         target_entity: Name of the entity containing the target label.
         cutoff_time_label: The cutoff time label of the prediction problem.
         cutoff_entity: Name of the entity containing the cutoff time label.
@@ -25,7 +25,7 @@ class Readmission (ProblemDefinition):
         """
 
     updated_es = None
-    target_label = 'readmitted'
+    target_label_column_name = 'readmitted'
     target_entity = 'Encounter'
     cutoff_time_label = 'end'
     cutoff_entity = 'Period'
@@ -62,7 +62,7 @@ class Readmission (ProblemDefinition):
             cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
             cutoff_times['instance_id'] = instance_id
             cutoff_times.columns = ['cutoff_time', 'instance_id']
-            cutoff_times['label'] = list(es[self.target_entity].df[self.target_label])
+            cutoff_times['label'] = list(es[self.target_entity].df[self.target_label_column_name])
             return(es, self.target_entity, cutoff_times)
         else:
             raise ValueError('Cutoff time label {} in table {} does not exist'
@@ -73,8 +73,6 @@ class Readmission (ProblemDefinition):
 
             Args:
             es: fhir entityset.
-            target_label: The target label of the prediction problem.
-            target_entity: Name of the entity containing the target label.
 
             Returns:
             Updated entityset with the generated label.
@@ -126,7 +124,7 @@ class Readmission (ProblemDefinition):
                                 encounter_identifier.append(encounter_id)
 
                 generated_labels = pd.DataFrame(
-                    {self.target_label: generated_target_label,
+                    {self.target_label_column_name: generated_target_label,
                      'identifier': encounter_identifier})
                 updated_target_entity = pd.merge(entity_set_df,
                                                  generated_labels,
@@ -142,12 +140,12 @@ class Readmission (ProblemDefinition):
                 raise ValueError(
                     'Can not generate target label {} in table {}' +
                     ' beacuse end label in table {} contains missing value.'
-                    .format(self.target_label,
+                    .format(self.target_label_column_name,
                             self. target_entity,
                             generate_from))
 
         else:
             raise ValueError(
                 'Can not generate target label {} in table {}.'.format(
-                    self.target_label,
+                    self.target_label_column_name,
                     self.target_entity))

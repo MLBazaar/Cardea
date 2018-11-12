@@ -10,7 +10,7 @@ class ProlongedLengthOfStay (ProblemDefinition):
         a patient stayed in the hospital more or less than a week (Default).
 
         Attributes:
-        target_label: The target label of the prediction problem.
+        target_label_column_name: The target label of the prediction problem.
         target_entity: Name of the entity containing the target label.
         cutoff_time_label: The cutoff time label of the prediction problem.
         cutoff_entity: Name of the entity containing the cutoff time label.
@@ -18,7 +18,7 @@ class ProlongedLengthOfStay (ProblemDefinition):
         """
 
     updated_es = None
-    target_label = 'length'
+    target_label_column_name = 'length'
     target_entity = 'Encounter'
     cutoff_time_label = 'start'
     cutoff_entity = 'Period'
@@ -43,10 +43,10 @@ class ProlongedLengthOfStay (ProblemDefinition):
 
         if (self.check_target_label(es,
                                     self.target_entity,
-                                    self.target_label) and not
+                                    self.target_label_column_name) and not
             self.check_for_missing_values_in_target_label(es,
                                                           self.target_entity,
-                                                          self.target_label)):
+                                                          self.target_label_column_name)):
             if DataLoader().check_column_existence(
                     es,
                     self.cutoff_entity,
@@ -69,7 +69,8 @@ class ProlongedLengthOfStay (ProblemDefinition):
                                               dataframe=update_es,
                                               index='identifier')
 
-                cutoff_times['label'] = list(es[self.target_entity].df[self.target_label])
+                cutoff_times['label'] = list(
+                    es[self.target_entity].df[self.target_label_column_name])
                 return(es, self.target_entity, cutoff_times)
             else:
                 raise ValueError('Cutoff time label {} in table {} does not exist'
@@ -84,8 +85,6 @@ class ProlongedLengthOfStay (ProblemDefinition):
 
             Args:
             es: fhir entityset.
-            target_label: The target label of the prediction problem.
-            target_entity: Name of the entity containing the target label.
 
             Returns:
             Updated entityset with the generated label.
@@ -96,7 +95,7 @@ class ProlongedLengthOfStay (ProblemDefinition):
         generate_from = 'Period'
         start = 'start'
         end = 'end'
-
+        label_name = self.target_label_column_name
         if (DataLoader().check_column_existence(
             es,
             generate_from,
@@ -119,7 +118,7 @@ class ProlongedLengthOfStay (ProblemDefinition):
                 duration = (es[generate_from].df[end] -
                             es[generate_from].df[start]).dt.days
                 duration = duration.tolist()
-                es[self.target_entity].df[self.target_label] = duration
+                es[self.target_entity].df[label_name] = duration
                 updated_target_entity = es[self.target_entity].df
                 duration_df = pd.DataFrame({'object_id': duration})
 
@@ -132,7 +131,7 @@ class ProlongedLengthOfStay (ProblemDefinition):
                                               dataframe=updated_target_entity,
                                               index='identifier')
                 new_relationship = ft.Relationship(es['Duration']['object_id'],
-                                                   es[self.target_entity][self.target_label])
+                                                   es[self.target_entity][label_name])
                 es = es.add_relationship(new_relationship)
 
                 return es
@@ -141,12 +140,12 @@ class ProlongedLengthOfStay (ProblemDefinition):
                 raise ValueError(
                     'Can not generate target label {} in table {}' +
                     'beacuse start or end labels in table {} contain missing value.'
-                    .format(self.target_label,
+                    .format(label_name,
                             self.target_entity,
                             generate_from))
 
         else:
             raise ValueError(
                 'Can not generate target label {} in table {}.'.format(
-                    self.target_label,
+                    label_name,
                     self.target_entity))

@@ -15,7 +15,7 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
         prediction_type: The type of the machine learning prediction.
     """
 
-    target_label = 'status'
+    target_label_column_name = 'status'
     target_entity = 'Appointment'
     prediction_type = 'classification'
     cutoff_time_label = 'created'
@@ -37,10 +37,10 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
         if (self.check_target_label(
             entity_set,
             self.target_entity,
-            self.target_label)) and\
+            self.target_label_column_name)) and\
             not (self.check_for_missing_values_in_target_label(entity_set,
                                                                self.target_entity,
-                                                               self.target_label)):
+                                                               self.target_label_column_name)):
 
             if DataLoader().check_column_existence(entity_set,
                                                    self.target_entity,
@@ -50,8 +50,9 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
                 cutoff_times = entity_set[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
                 cutoff_times['instance_id'] = instance_id
                 cutoff_times.columns = ['cutoff_time', 'instance_id']
-                cutoff_times['label'] = list(entity_set[self.target_entity].df[self.target_label])
-                entity_set[self.target_entity].delete_variable(self.target_label)
+                cutoff_times['label'] = list(
+                    entity_set[self.target_entity].df[self.target_label_column_name])
+                entity_set[self.target_entity].delete_variable(self.target_label_column_name)
                 return (entity_set, self.target_entity, cutoff_times)
             else:
                 raise ValueError(
@@ -60,5 +61,5 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
         else:
             raise ValueError(
                 'Can not generate target label {} in table {}.'.format(
-                    self.target_label,
+                    self.target_label_column_name,
                     self.target_entity))

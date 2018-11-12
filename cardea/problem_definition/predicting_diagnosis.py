@@ -9,7 +9,7 @@ class DiagnosisPrediction (ProblemDefinition):
         a patient will be diagnosed with a specifed diagnosis.
 
         Attributes:
-        target_label: The target label of the prediction problem.
+        target_label_column_name: The target label of the prediction problem.
         target_entity: Name of the entity containing the target label.
         cutoff_time_label: The cutoff time label of the prediction problem.
         cutoff_entity: Name of the entity containing the cutoff time label.
@@ -25,7 +25,7 @@ class DiagnosisPrediction (ProblemDefinition):
         """
 
     updated_es = None
-    target_label = 'diagnosis'
+    target_label_column_name = 'diagnosis'
     target_entity = 'Encounter'
     cutoff_time_label = 'start'
     cutoff_entity = 'Period'
@@ -62,7 +62,7 @@ class DiagnosisPrediction (ProblemDefinition):
 
             cutoff_times['instance_id'] = instance_id
             cutoff_times.columns = ['cutoff_time', 'instance_id']
-            cutoff_times['label'] = list(es[self.target_entity].df[self.target_label])
+            cutoff_times['label'] = list(es[self.target_entity].df[self.target_label_column_name])
             cutoff_times['label'] = cutoff_times['label'] == self.diagnosis
 
             return(es, self.target_entity, cutoff_times)
@@ -75,8 +75,6 @@ class DiagnosisPrediction (ProblemDefinition):
 
             Args:
             es: fhir entityset.
-            target_label: The target label of the prediction problem.
-            target_entity: Name of the entity containing the target label.
 
             Returns:
             Updated entityset with the generated label.
@@ -88,11 +86,11 @@ class DiagnosisPrediction (ProblemDefinition):
         if (self.check_target_label(
             es,
             self.target_entity,
-                self.target_label)):
+                self.target_label_column_name)):
 
             if not DataLoader().check_for_missing_values(es,
                                                          self.target_entity,
-                                                         self.target_label):
+                                                         self.target_label_column_name):
                 entity_set_df = es[self.target_entity].df
 
                 merging_coding = pd.merge(es['Coding'].df, es['CodeableConcept'].df,
@@ -111,7 +109,7 @@ class DiagnosisPrediction (ProblemDefinition):
 
                 set(es[self.target_entity].df.identifier)
 
-                entity_set_df[self.target_label] = list(merging_encouter['target'])
+                entity_set_df[self.target_label_column_name] = list(merging_encouter['target'])
 
                 es = es.entity_from_dataframe(entity_id=self.target_entity,
                                               dataframe=entity_set_df,
@@ -123,12 +121,12 @@ class DiagnosisPrediction (ProblemDefinition):
                 raise ValueError(
                     'Can not generate target label {} in table {}' +
                     ' beacuse end label in table {} contains missing value.'
-                    .format(self.target_label,
+                    .format(self.target_label_column_name,
                             self. target_entity,
                             generate_from))
 
         else:
             raise ValueError(
                 'Can not generate target label {} in table {}.'.format(
-                    self.target_label,
+                    self.target_label_column_name,
                     self.target_entity))
