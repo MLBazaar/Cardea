@@ -17,6 +17,18 @@ class Featurization():
         self.target = target_entity
         self.cutoff = cutoff
 
+    @staticmethod
+    def agg_prim():
+        return ["sum", "std", "max", "skew", "min", "mean", "count", "percent_true"]
+
+    @staticmethod
+    def trans_prim():
+        return ["day", "month", "year", "weekday", "weekend"]
+
+    @staticmethod
+    def n_jobs():
+        return 1
+
     def generate_feature_matrix(self, verbose=True):
         """Calculates a feature matrix and features given in Featurization object.
 
@@ -28,7 +40,10 @@ class Featurization():
 
         feature_matrix, features_defs = ft.dfs(entityset=self.es,
                                                target_entity=self.target,
+                                               agg_primitives=self.agg_prim(),
+                                               trans_primitives=self.trans_prim(),
                                                cutoff_time=self.cutoff,
+                                               n_jobs=self.n_jobs(),
                                                verbose=verbose)
 
         # encode categorical values
