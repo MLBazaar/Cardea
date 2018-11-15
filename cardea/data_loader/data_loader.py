@@ -2,7 +2,9 @@ import inspect
 import sys
 
 import networkx as nx
+import numpy as np
 import pandas as pd
+from numpy import nan
 
 from cardea import fhir as fh
 
@@ -87,6 +89,71 @@ class DataLoader():
         fhir = dict(fhir)
 
         return fhir
+
+    def check_column_existence(self, entity_set, target_entity, column_name):
+        """Checks if a coulmn exists in the entity set.
+
+            Args:
+            entity_set: fhir entityset.
+            column_name: The column name to be checked.
+            target_entity: The entity name which contains the column_name.
+
+            Returns:
+            True if the column_name exists, False otherwise.
+            """
+        columns_list = []
+        does_exist = True
+
+        for variable in entity_set.__getitem__(target_entity).variables:
+            columns_list.append(variable.name)
+
+        does_exist = column_name in columns_list
+        if does_exist:
+            return does_exist
+        else:
+            return False
+
+    def check_for_missing_values(self, entity_set, target_entity, column_name):
+        """Checks if there is a missing value in the given column.
+
+        Args:
+        entity_set: fhir entityset.
+        column_name: The column name to be checked for missing values.
+        target_entity: The entity name which contains the column_name.
+
+        Returns:
+        False is the column_name does not contain a missing value.
+        """
+        if self.check_column_existence(entity_set, target_entity, column_name):
+
+            nat = np.datetime64('NaT')
+            missings = [
+                nat,
+                nan,
+                'null',
+                'nan',
+                'NAN',
+                'Nan',
+                'NaN',
+                'undefined',
+                None,
+                'unknown']
+            contains_nan = False
+
+            target_label_values = entity_set.__getitem__(target_entity).df[column_name]
+
+            for missing_value in missings:
+                if missing_value in list(target_label_values):
+                    contains_nan = True
+
+            for missing_value in missings:
+                for target_value in (target_label_values):
+                    if pd.isnull(target_value):
+                        contains_nan = True
+
+            return contains_nan
+        else:
+            return False
 
 
 class Diamond(DataLoader):
