@@ -1,0 +1,44 @@
+{
+    "name": "sklearn.decomposition.PCA",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html",
+    "description": "Principal component analysis (PCA)",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_selector"
+    },
+    "modalities": [],
+    "primitive": "sklearn.decomposition.PCA",
+    "validation_dataset": "wine",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "FIXME": "This needs to be reviewed",
+        "fixed": {
+        },
+        "tunable": {
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "name": "mlprimitives.trivial.TrivialPredictor",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "description": "Simple predictor that returns a constant value, such as as the mode or the median of the predictable targets.",
+    "classifiers": {
+        "type": "estimator"
+    },
+    "primitive": "mlprimitives.trivial.TrivialPredictor",
+    "validation_dataset": "wine",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "y",
+                "description": "Vector of targets to predict.",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "description": "Feature matrix.",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "descrtiption": "Predicted targets",
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "default": {
+                "descrtiption": "Default value to return if the trivial value cannot be computed.",
+                "default": 0
+            },
+            "method": {
+                "descrtiption": "Method to use to compute the predicted value. One of 'median', 'mode' or null. If null, the default value is always returned.",
+                "type": "str",
+                "default": null
+            }
+        }
+    }
+}

@@ -1,0 +1,89 @@
+{
+    "name": "lightfm.LightFM",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "documentation": "http://lyst.github.io/lightfm/docs/index.html",
+    "description": "LightFM is a Python implementation of a number of popular recommendation algorithms for both implicit and explicit feedback.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "recommender"
+    },
+    "modalities": [],
+    "primitive": "mlprimitives.adapters.lightfm.LightFM",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "epochs": {
+                "type": "int",
+                "default": 1
+            },
+            "num_threads": {
+                "type": "int",
+                "default": 1
+            }
+        },
+        "FIXME": "This needs to be reviewed and extended",
+        "tunable": {
+            "loss": {
+                "type": "str",
+                "default": "warp",
+                "values": [
+                    "warp",
+                    "logistic",
+                    "bpr",
+                    "warp-kos"
+                ]
+            },
+            "learning_schedule": {
+                "type": "str",
+                "default": "adagrad",
+                "values": [
+                    "adagrad",
+                    "adadelta"
+                ]
+            },
+            "no_components": {
+                "type": "int",
+                "default": 5,
+                "range": [
+                    5,
+                    15
+                ]
+            },
+            "k": {
+                "type": "int",
+                "default": 2,
+                "range": [
+                    2,
+                    10
+                ]
+            }
+        }
+    }
+}

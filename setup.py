@@ -11,7 +11,10 @@ with open('HISTORY.md') as history_file:
 
 install_requires = [
     'pandas',
-    'featuretools'
+    'featuretools',
+    'mlblocks',
+    'sklearn',
+    'scipy'
 ]
 
 setup_requires = [

@@ -1,0 +1,63 @@
+{
+    "name": "sklearn.naive_bayes.MultinomialNB",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html",
+    "description": "Naive Bayes classifier for multinomial models",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "classifier"
+    },
+    "modalities": ["text"],
+    "primitive": "sklearn.naive_bayes.MultinomialNB",
+    "validation_dataset": "wine",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "fit_prior": {
+                "type": "bool",
+                "default": true
+            },
+            "class_prior": {
+                "type": "iterable",
+                "default": null
+            }
+        },
+        "tunable": {
+            "alpha": {
+                "type": "float",
+                "default": 1.0,
+                "range": [
+                    0.0,
+                    1.0
+                ]
+            }
+        }
+    }
+}

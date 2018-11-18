@@ -1,0 +1,82 @@
+{
+    "name": "sklearn.linear_model.Ridge",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "documentation": "http://scikit-learn.org/stable/modules/generated/",
+    "description": "",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "regressor"
+    },
+    "modalities": [],
+    "primitive": "sklearn.linear_model.Ridge",
+    "validation_dataset": "boston",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+         "fit_intercept": {
+                "type": "bool",
+                "default": true
+            },        
+        "normalize": {
+                "type": "bool",
+                "default": false
+            },
+        "copy_X": {
+                "type": "bool",
+                "default": true
+            },
+        "max_iter": {
+                "type": "int",
+                "default": null
+            },
+        "tol": {
+                "type": "float",
+                "default": 0.001
+            },
+        "random_state": {
+                "type": "int",
+                "default": null
+            }
+        },
+        "tunable": {
+         "alpha": {
+                "type": "flost",
+                "default": 1.0,
+                "range":[0.5, 1.1]
+            },
+            "solver": {
+                "type": "str",
+                "default": "auto",
+                "values": ["auto", "svd","cholesky","lsqr","sparse_cg","sag", "saga"]
+                }
+        }
+    
+    }
+}

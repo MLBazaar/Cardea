@@ -1,0 +1,62 @@
+{
+    "name": "featuretools.dfs",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "documentation": "https://docs.featuretools.com/generated/featuretools.dfs.html#featuretools.dfs",
+    "description": "Calculates a feature matrix and features given a dictionary of entities and a list of relationships.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_extractor"
+    },
+    "modalities": [],
+    "primitive": "mlprimitives.adapters.featuretools.DFS",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            }
+        ]
+    },
+    "produce": {
+        "method": "produce",
+        "args": [
+            {
+                "name": "X",
+                "type": "array"
+            },
+            {
+                "name": "instance_ids",
+                "type": "array"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {},
+        "tunable": {
+            "max_depth": {
+                "type": "int",
+                "default": 1,
+                "range": [
+                    1,
+                    3
+                ],
+                "values": null
+            },
+            "features_only": {
+                "type": "bool",
+                "default": true
+            },
+            "remove_low_information": {
+                "type": "bool",
+                "default": true
+            }
+        }
+    }
+}

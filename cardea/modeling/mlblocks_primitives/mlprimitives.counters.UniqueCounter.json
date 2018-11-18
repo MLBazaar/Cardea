@@ -1,0 +1,42 @@
+{
+    "name": "mlprimitives.counters.UniqueCounter",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "description": "Count the number of unique values in each column of a matrix.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_extractor"
+    },
+    "modalities": [],
+    "primitive": "mlprimitives.counters.UniqueCounter",
+    "fit": {
+        "method": "count",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "get_counts",
+        "args": [],
+        "output": [
+            {
+                "name": "counts",
+                "type": "ndarray or int"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "scalar": {
+                "type": "bool",
+                "default": true
+            },
+            "add": {
+                "type": "int",
+                "default": 0
+            }
+        }
+    }
+}

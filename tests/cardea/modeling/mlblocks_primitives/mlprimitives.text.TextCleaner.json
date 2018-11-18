@@ -1,0 +1,69 @@
+{
+    "name": "mlprimitives.text.TextCleaner",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "description": "Text Cleanup: set text to lowercase and remove accents, stopwords, non alhpanumeric characters and single character words.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_extractor"
+    },
+    "modalities": ["text"],
+    "primitive": "mlprimitives.text.TextCleaner",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "produce",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "language": {
+                "type": "str",
+                "default": "multi"
+            },
+            "column": {
+                "type": "str",
+                "default": null
+            }
+        },
+        "tunable": {
+            "lower": {
+                "type": "bool",
+                "default": true
+            },
+            "accents": {
+                "type": "bool",
+                "default": true
+            },
+            "stopwrods": {
+                "type": "bool",
+                "default": true
+            },
+            "non_alpha": {
+                "type": "bool",
+                "default": true
+            },
+            "single_chars": {
+                "type": "bool",
+                "default": true
+            }
+        }
+    }
+}

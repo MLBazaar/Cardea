@@ -1,0 +1,44 @@
+{
+    "name": "mlprimitives.preprocessing.ClassEncoder",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "description": "Encode an array of strings using integers.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "data_cleanup"
+    },
+    "modalities": [],
+    "primitive": "mlprimitives.preprocessing.ClassEncoder",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "encode",
+        "args": [
+            {
+                "name": "y",
+                "default": null,
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "ndarray"
+            },
+            {
+                "name": "classes",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {},
+        "tunable": {}
+    }
+}

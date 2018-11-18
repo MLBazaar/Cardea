@@ -1,0 +1,105 @@
+{
+    "name": "sklearn.svm.SVC",
+    "documentation":"http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC",
+    "primitive": "sklearn.svm.SVC",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            },
+            {
+                "name": "y",
+                "type": "Series"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "Series"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "tunable": {
+            "tol": {
+                "type": "float",
+                "default": 1e-3
+            }
+            ,
+            "C": {
+                "type": "float",
+                "default": 1.0
+            }
+            ,
+            "kernel": {
+                "type": "str",
+                "default": "rbf"
+            }
+            ,
+            "degree": {
+                "type": "int",
+                "default": 3
+            }
+            ,
+            "gamma": {
+                "type": "float",
+                "default": "auto"
+            }
+            ,
+            "coef0": {
+                "type": "float",
+                "default": 0.0
+            }
+            ,
+            "probability": {
+                "type": "bool",
+                "default": false
+            }
+            ,
+            "shrinking": {
+                "type": "bool",
+                "default": true
+            }
+            ,  
+            "class_weight": {
+                "type": "str",
+                "default": null,
+                "range": [null, "balanced"]
+            }
+            ,
+            "verbose": {
+                "type": "int",
+                "default": 0
+            }
+            ,
+            "max_iter": {
+                "type": "int",
+                "default": -1
+            }
+            ,
+            "decision_function_shape": {
+                "type": "str",
+                "default": "ovo",
+                "values":["ovo","ovr"]
+                
+            }   
+            ,
+            "random_state": {
+                "type": "int",
+                "default": null
+            }
+         
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "name": "numpy.argmax",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "documentation": "https://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html",
+    "description": "Returns the indices of the maximum values along an axis.",
+    "classifiers": {
+        "type": "postprocessor"
+    },
+    "modalities": [],
+    "primitive": "numpy.argmax",
+    "produce": {
+        "args": [
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "axis": {
+                "type": "int",
+                "default": 1
+            }
+        }
+    }
+}

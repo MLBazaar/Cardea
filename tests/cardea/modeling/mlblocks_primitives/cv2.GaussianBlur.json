@@ -1,0 +1,51 @@
+{
+    "name": "cv2.GaussianBlur",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "documentation": "https://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html#gaussianblur",
+    "description": "Blurs an image using a Gaussian filter.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "transformer"
+    },
+    "modalities": ["image"],
+    "primitive": "mlprimitives.adapters.cv2.GaussianBlur",
+    "validation_dataset": "digits",
+    "produce": {
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "ksize_width": {
+                "type": "int",
+                "description": "Gaussian kernel size. ksize.width and ksize.height can differ but they both must be positive and odd. Or, they can be zero’s and then they are computed from sigma*",
+                "default": 3
+            },
+            "ksize_height": {
+                "type": "int",
+                "description": "Gaussian kernel size. ksize.width and ksize.height can differ but they both must be positive and odd. Or, they can be zero’s and then they are computed from sigma*",
+                "default": 3
+            },
+            "sigma_x": {
+                "type": "float",
+                "description": "Gaussian kernel standard deviation in X direction.",
+                "default": 0
+            },
+            "sigma_y": {
+                "type": "float",
+                "description": "Gaussian kernel standard deviation in Y direction.",
+                "default": 0
+            }
+        }
+    }
+}

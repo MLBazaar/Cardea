@@ -1,0 +1,81 @@
+{
+    "name": "sklearn.ensemble.RandomForestRegressor",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html",
+    "description": "A random forest is a meta estimator that fits a number of decision tree classifiers on various sub-samples of the dataset and use averaging to improve the predictive accuracy and control over-fitting. The sub-sample size is always the same as the original input sample size but the samples are drawn with replacement if bootstrap=True (default).",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "regressor"
+    },
+    "modalities": [],
+    "primitive": "sklearn.ensemble.RandomForestRegressor",
+    "validation_dataset": "boston",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "n_jobs": {
+                "type": "int",
+                "default": -1
+            }
+        },
+        "tunable": {
+            "criterion": {
+                "type": "str",
+                "default": "mse",
+                "values": ["mse", "mae"]
+            },
+            "max_features": {
+                "type": "str",
+                "default": null,
+                "range": [null, "auto", "log2"]
+            },
+            "max_depth": {
+                "type": "int",
+                "default": 10,
+                "range": [1, 30]
+            },
+            "min_samples_split": {
+                "type": "float",
+                "default": 0.1,
+                "range": [0.0001, 0.5]
+            },
+            "min_samples_leaf": {
+                "type": "float",
+                "default": 0.1,
+                "range": [0.0001, 0.5]
+            },
+            "n_estimators": {
+                "type": "int",
+                "default": 30,
+                "values": [2, 500]
+            }
+        }
+    }
+}

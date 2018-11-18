@@ -1,0 +1,49 @@
+{
+    "name": "mlprimitives.feature_extraction.DatetimeFeaturizer",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "description": "mlprimitives.feature_extraction.DatetimeFeaturizer",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_extractor"
+    },
+    "modalities": [],
+    "primitive": "mlprimitives.feature_extraction.DatetimeFeaturizer",
+    "validation_dataset": "wine",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "copy": {
+                "type": "bool",
+                "default": true
+            },
+            "features": {
+                "type": "str or list",
+                "default": "auto"
+            }
+        },
+        "tunable": {}
+    }
+}

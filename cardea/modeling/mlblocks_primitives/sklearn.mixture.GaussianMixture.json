@@ -1,0 +1,91 @@
+{
+    "name": "sklearn.mixture.GaussianMixture",
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html",
+    "description": "Gaussian Mixture.Representation of a Gaussian mixture model probability distribution. This class allows to estimate the parameters of a Gaussian mixture distribution.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "regressor"
+    },
+    "modalities": [],
+    "primitive": "sklearn.mixture.GaussianMixture",
+    "validation_dataset": "boston",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "tunable": {
+            "n_components": {
+                "type": "int",
+                "default": 1
+            },
+            "covariance_type": {
+                "type": "str",
+                "default": "full",
+                "range": ["full", "tied", "diag", "spherical"]
+            },
+            "tol": {
+                "type": "float",
+                "default": 1e-3
+            },
+            "reg_covar": {
+                "type": "float",
+                "default": 1e-6
+            },
+            "max_iter": {
+                "type": "int",
+                "default": 100
+            },
+            "n_init": {
+                "type": "int",
+                "default": 1
+            },
+            "init_params":{
+                "type": "str",
+                "default": "kmeans",
+                "range": ["kmeans", "random"]
+            },
+            "random_state":{
+                 "type": "int",
+                "default": null
+            },
+            "warm_start":{
+                "type": "bool",
+                "default": false
+            },
+            "verbose":{
+                 "type": "int",
+                "default": 0
+            },
+            "verbose_interval":{
+                "type": "int",
+                "default": 10 
+            }
+            
+        }
+    }
+}

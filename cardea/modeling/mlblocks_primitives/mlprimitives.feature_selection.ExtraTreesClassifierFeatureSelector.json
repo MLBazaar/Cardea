@@ -1,0 +1,58 @@
+{
+    "name": "mlprimitives.feature_selection.ExtraTreesClassifierFeatureSelector",
+    "author": "Carles Sala <carles@pythiac.com>",
+    "description": "mlprimitives.feature_selection.ExtraTreesClassifierFeatureSelector",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_selector"
+    },
+    "modalities": [],
+    "primitive": "mlprimitives.feature_selection.ExtraTreesClassifierFeatureSelector",
+    "validation_dataset": "wine",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            },
+            {
+                "name": "y",
+                "type": "Series"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "Series"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {},
+        "tunable": {
+            "bypass": {
+                "type": "bool",
+                "default": true
+            },
+            "threshold": {
+                "type": "str",
+                "default": null,
+                "values": [
+                    null,
+                    "mean",
+                    "median"
+                ]
+            }
+        }
+    }
+}
