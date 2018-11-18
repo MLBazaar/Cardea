@@ -399,7 +399,7 @@ class Modeler():
         opt_list.append(self.result['y_test'])
         return opt_list
    
-                    
+'''                    
 primitive = [
              #'sklearn.linear_model.LogisticRegression',
              'sklearn.ensemble.RandomForestRegressor'
@@ -415,7 +415,7 @@ y = iris.target
 
 print (model.execute_pipeline(X,y,[primitive],"regrission", True))             
 
-'''
+
 import pandas as pd
 from sklearn.datasets import load_iris
 
