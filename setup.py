@@ -13,8 +13,10 @@ install_requires = [
     'pandas',
     'featuretools',
     'mlblocks',
+    'mlprimitives',
     'sklearn',
-    'scipy'
+    'scipy',
+    'hyperopt'
 ]
 
 setup_requires = [

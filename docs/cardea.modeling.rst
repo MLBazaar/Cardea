@@ -1,14 +1,6 @@
 cardea.modeling package
 =======================
 
-Subpackages
------------
-
-.. toctree::
-
-    cardea.modeling.mlblocks_primitives
-    cardea.modeling.mlprimitives
-
 Submodules
 ----------
 

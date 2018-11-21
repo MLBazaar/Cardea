@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os
 
+import mlprimitives
 import numpy as np
 import pytest
+from mlblocks import MLPipeline
 from sklearn.datasets import load_iris
 
 from cardea.modeling.modeler import Modeler
@@ -12,19 +13,26 @@ from cardea.modeling.modeler import Modeler
 
 @pytest.fixture()
 def path():
-    path = os.getcwd() + '/cardea/modeling/mlblocks_primitives/'
+    path = mlprimitives.get_primitives_paths()[1] + '/'
     return path
 
 
 @pytest.fixture()
 def primitives(path):
-    primitives = [path + 'sklearn.preprocessing.StandardScaler']
+    primitives = [path + 'sklearn.ensemble.RandomForestRegressor']
     return primitives
 
 
 @pytest.fixture()
+def primitives_no_tunning(path):
+    primitive = MLPipeline([path + 'sklearn.decomposition.PCA'])
+    return primitive
+
+
+@pytest.fixture()
 def primitives_list(path):
-    primitives_list = [path + 'sklearn.svm.SVC', path + 'sklearn.svm.SVC_proba']
+    primitives_list = [path + 'sklearn.ensemble.RandomForestClassifier',
+                       path + 'sklearn.ensemble.RandomForestClassifier_proba']
     return primitives_list
 
 
@@ -60,23 +68,19 @@ def load_data():
 
 
 @pytest.fixture()
-def get_model(primitives):
-    model = Modeler(primitives)
+def get_model():
+    model = Modeler()
     return model
 
 
 def test_get_directory(get_model, path):
-    assert path == get_model.get_directory() + '/'
+    assert path == get_model.get_directory()
 
 
 def test_check_path(get_model, path):
     path = path + 'sklearn.ensemble.RandomForestClassifier'
     result = get_model.check_path(['sklearn.ensemble.RandomForestClassifier'])
     assert [path] == result
-
-
-def test_get_primitives(get_model, primitives):
-    assert primitives == get_model.get_primitives()
 
 
 def test_set_data(get_model):
@@ -88,7 +92,7 @@ def test_search_all_possible_primitives(get_model, primitives):
     iris = load_iris()
 
     result = get_model.search_all_possible_primitives(iris.data, iris.target, primitives)
-    assert 2 == len(result) and (result[0][3] is None)
+    assert 10 == len(result) and (result[0][3] is None)
 
 
 def test_fit_predict_model_length(get_model, load_data, primitives):
@@ -100,15 +104,35 @@ def test_fit_predict_model_length(get_model, load_data, primitives):
 
 def test_create_kfold(get_model, primitives_list):
     iris = load_iris()
-    result = get_model.create_kfold(iris.data, iris.target, primitives_list, 'sklearn.svm.SVC')
+    print(primitives_list)
+    result = get_model.create_kfold(
+        iris.data,
+        iris.target,
+        'sklearn.ensemble.RandomForestClassifier',
+        primitives_list)
     assert 5 == len(result[0])
+
+
+def test_create_space(get_model, primitives_no_tunning):
+    with pytest.raises(Exception):
+        get_model.create_space(primitives_no_tunning)
+
+
+def test_get_block(get_model):
+    with pytest.raises(KeyError):
+        get_model.get_block(MLPipeline(""))
 
 
 def test_execute_pipeline(get_model, path):
     iris = load_iris()
     primitives_list = [
-        [path + 'sklearn.mixture.GaussianMixture_proba'],
-        [path + 'sklearn.svm.SVC']]
-    result = get_model.execute_pipeline(iris.data, iris.target, primitives_list)
+        [path + 'xgboost.XGBRegressor'],
+        [path + 'sklearn.ensemble.RandomForestRegressor']]
+    result = get_model.execute_pipeline(
+        iris.data,
+        iris.target,
+        primitives_list,
+        'regression',
+        False)
     result = np.array(result)
     assert result.ndim == 3
