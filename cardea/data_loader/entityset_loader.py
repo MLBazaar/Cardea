@@ -3,7 +3,7 @@ from glob import glob
 import featuretools as ft
 import pandas as pd
 
-from cardea.data_loader import DataLoader
+from cardea.data_loader import DataLoader, Diamond
 
 
 class EntitySetLoader(DataLoader):
@@ -11,51 +11,61 @@ class EntitySetLoader(DataLoader):
 
     __name__ = 'EntitySetLoader'
 
-    def create_entity(self, object, entity_set):
-        """Creates an entity from fhir object and add it to entityset.
+    def create_entity(self, fhir, identifiers, entity_set):
+        """Creates an entity from fhir dataframes and add it to entityset.
 
         Args:
-            object: A fhir class object.
+            fhir: A dictionary of fhir class dataframes.
             entity_set: The global entityset that the entity will be added to.
         """
 
-        df = object.get_dataframe()
-        object_name = object.__name__
-        id = object.get_id()
+        for object_name, df in fhir.items():
 
-        if object_name == 'Period':
-            entity_set.entity_from_dataframe(entity_id=str(object_name),
-                                             dataframe=df,
-                                             index=id,
-                                             time_index="start")
-        else:
-            entity_set.entity_from_dataframe(entity_id=str(object_name),
-                                             dataframe=df,
-                                             index=id)
+            id = identifiers[object_name]
+            df = df.apply(pd.to_numeric, errors='ignore')
 
-    def create_relationships(self, object, entity_set):
+            if object_name == 'Period':
+                entity_set.entity_from_dataframe(entity_id=str(object_name),
+                                                 dataframe=df,
+                                                 index=id,
+                                                 time_index="start")
+            else:
+                entity_set.entity_from_dataframe(entity_id=str(object_name),
+                                                 dataframe=df,
+                                                 index=id)
+
+    def create_relationships(self, relationships, entity_set):
         """Binds entities in the entityset.
 
         Args:
-            object: A fhir class object.
+            relationships: A dataframe of the relationships in fhir.
             entity_set: The global entityset that the entity will be added to.
         """
 
-        entity_names = [e.id for e in entity_set.entities]
-
-        for relation in object.get_relationships():
+        for i, relation in relationships.iterrows():
             # parent table: 0, field: 1
             # child table: 2, field: 3
 
-            if relation['parent_entity'] in entity_names and getattr(
-                    object, relation['child_variable']) is not None:
-                new_relationship = ft.Relationship(
-                    entity_set[relation['parent_entity']][relation['parent_variable']],
-                    entity_set[relation['child_entity']][relation['child_variable']])
+            new_relationship = ft.Relationship(
+                entity_set[relation['parent_entity']][relation['parent_variable']],
+                entity_set[relation['child_entity']][relation['child_variable']])
 
-                entity_set.add_relationship(new_relationship)
+            entity_set.add_relationship(new_relationship)
 
-    def load_data_entityset(self, folder_path):
+    def read_csv_files(self, folder_path):
+
+        fhir = {}
+
+        csv_files = glob(folder_path + "/*.csv")
+        for file_path in csv_files:
+            df = pd.read_csv(file_path)
+            file_name = file_path.split("/")[-1].split(".")[0]
+
+            fhir[file_name] = df
+
+        return fhir
+
+    def load_data_entityset(self, fhir):
         """Returns an entityset loaded with .csv files in folder_path.
 
         Loads the data into pandas dataframes then loads them into featuretools' entityset.
@@ -68,18 +78,20 @@ class EntitySetLoader(DataLoader):
         """
 
         all_objects = []
-        csv_files = glob(folder_path + "/*.csv")
         entity_set = ft.EntitySet(id="fhir")
 
-        for file_path in csv_files:
-            df = pd.read_csv(file_path)
-            file_name = file_path.split("/")[-1].split(".")[0]
+        for name, df in fhir.items():
 
-            object = self.create_object(df, file_name)
+            object = self.create_object(df, name)
             all_objects.append(object)
-            self.create_entity(object, entity_set=entity_set)
 
-        for object in all_objects:
-            self.create_relationships(object, entity_set=entity_set)
+        diamond = Diamond(all_objects)
+        diamond.resolve_diamond()
+        fhir = diamond.get_fhir_dataframes()
+        relationships = diamond.get_fhir_relationships()
+        identifiers = diamond.get_object_ids(all_objects)
+
+        self.create_entity(fhir, identifiers, entity_set=entity_set)
+        self.create_relationships(relationships, entity_set=entity_set)
 
         return entity_set
