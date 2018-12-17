@@ -87,6 +87,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="cardea.html">cardea package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">cardea.problem_definition package</a></li>
 </ul>
@@ -191,58 +192,30 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cardea.problem_definition.problem_definition">
-<span id="cardea-problem-definition-problem-definition-module"></span><h2>cardea.problem_definition.problem_definition module<a class="headerlink" href="#module-cardea.problem_definition.problem_definition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cardea.problem_definition.definition">
+<span id="cardea-problem-definition-definition-module"></span><h2>cardea.problem_definition.definition module<a class="headerlink" href="#module-cardea.problem_definition.definition" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="cardea.problem_definition.problem_definition.ProblemDefinition">
-<em class="property">class </em><code class="descclassname">cardea.problem_definition.problem_definition.</code><code class="descname">ProblemDefinition</code><a class="reference internal" href="_modules/cardea/problem_definition/problem_definition.html#ProblemDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.problem_definition.ProblemDefinition" title="Permalink to this definition">¶</a></dt>
+<dt id="cardea.problem_definition.definition.ProblemDefinition">
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.definition.</code><code class="descname">ProblemDefinition</code><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class that defines the prediction problem
 by specifying cutoff times and generating the target label if it does not exist</p>
 <dl class="method">
-<dt id="cardea.problem_definition.problem_definition.ProblemDefinition.check_target_label">
-<code class="descname">check_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/problem_definition.html#ProblemDefinition.check_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.problem_definition.ProblemDefinition.check_target_label" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if target label exists in the entity set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>entity_set</strong> – FHIR entityset.</li>
-<li><strong>target_label</strong> – The target label of the prediction problem.</li>
-<li><strong>target_entity</strong> – The entity name which contains the target label.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if the target label exists.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – An error occurs if the target label does not exist.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="cardea.problem_definition.problem_definition.ProblemDefinition.check_target_label_values">
-<code class="descname">check_target_label_values</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/problem_definition.html#ProblemDefinition.check_target_label_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.problem_definition.ProblemDefinition.check_target_label_values" title="Permalink to this definition">¶</a></dt>
+<dt id="cardea.problem_definition.definition.ProblemDefinition.check_for_missing_values_in_target_label">
+<code class="descname">check_for_missing_values_in_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label_column_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.check_for_missing_values_in_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.check_for_missing_values_in_target_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if there is a missing value in the target label.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>entity_set</strong> – FHIR entityset.</li>
+<li><strong>entity_set</strong> – fhir entityset.</li>
 <li><strong>target_label</strong> – The target label of the prediction problem.</li>
 <li><strong>target_entity</strong> – The entity name which contains the target label.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">False is the target label does not contain a missing value.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – An error occurs if the target label contains a missing value.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">False is the target label does not contain a missing value.</p>
 </td>
 </tr>
 </tbody>
@@ -250,16 +223,33 @@ by specifying cutoff times and generating the target label if it does not exist<
 </dd></dl>
 
 <dl class="method">
-<dt id="cardea.problem_definition.problem_definition.ProblemDefinition.generate_cutoff_times">
-<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/problem_definition.html#ProblemDefinition.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.problem_definition.ProblemDefinition.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<dt id="cardea.problem_definition.definition.ProblemDefinition.check_target_label">
+<code class="descname">check_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.check_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.check_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if target label exists in the entity set.
+:param entity_set: fhir entityset.
+:param target_label: The target label of the prediction problem.
+:param target_entity: The entity name which contains the target label.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the target label exists.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.definition.ProblemDefinition.generate_cutoff_times">
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates cutoff times for the predection problem.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity_set</strong> – FHIR entityset.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity_set</strong> – fhir entityset.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">entity_set, target_entity, target_label and a dataframe of cutoff_times</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">entity_set, target_entity, series of target_labels and a dataframe of cutoff_times.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – An error occurs if the cutoff variable does not exist.</td>
 </tr>
@@ -268,15 +258,15 @@ by specifying cutoff times and generating the target label if it does not exist<
 </dd></dl>
 
 <dl class="method">
-<dt id="cardea.problem_definition.problem_definition.ProblemDefinition.generate_target_label">
-<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/problem_definition.html#ProblemDefinition.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.problem_definition.ProblemDefinition.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<dt id="cardea.problem_definition.definition.ProblemDefinition.generate_target_label">
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.generate_target_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates target labels if the entityset is missing labels.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>entity_set</strong> – FHIR entityset.</li>
+<li><strong>entity_set</strong> – fhir entityset.</li>
 <li><strong>target_label</strong> – The target label of the prediction problem.</li>
 <li><strong>target_entity</strong> – The entity name which contains the target label.</li>
 </ul>
@@ -292,12 +282,422 @@ by specifying cutoff times and generating the target label if it does not exist<
 </dd></dl>
 
 </div>
+<div class="section" id="module-cardea.problem_definition.length_of_stay">
+<span id="cardea-problem-definition-length-of-stay-module"></span><h2>cardea.problem_definition.length_of_stay module<a class="headerlink" href="#module-cardea.problem_definition.length_of_stay" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cardea.problem_definition.length_of_stay.LengthOfStay">
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.length_of_stay.</code><code class="descname">LengthOfStay</code><a class="reference internal" href="_modules/cardea/problem_definition/length_of_stay.html#LengthOfStay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.length_of_stay.LengthOfStay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
+<p>Defines the problem of length of stay, predicting how many days
+the patient will be in the hospital.</p>
+<p>Attributes:
+target_label_column_name: The target label of the prediction problem.
+target_entity: Name of the entity containing the target label.
+cutoff_time_label: The cutoff time label of the prediction problem.
+cutoff_entity: Name of the entity containing the cutoff time label.
+prediction_type: The type of the machine learning prediction.</p>
+<dl class="attribute">
+<dt id="cardea.problem_definition.length_of_stay.LengthOfStay.conn">
+<code class="descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.length_of_stay.LengthOfStay.conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.length_of_stay.LengthOfStay.cutoff_entity">
+<code class="descname">cutoff_entity</code><em class="property"> = 'Period'</em><a class="headerlink" href="#cardea.problem_definition.length_of_stay.LengthOfStay.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.length_of_stay.LengthOfStay.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><em class="property"> = 'start'</em><a class="headerlink" href="#cardea.problem_definition.length_of_stay.LengthOfStay.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.length_of_stay.LengthOfStay.generate_cutoff_times">
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/length_of_stay.html#LengthOfStay.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.length_of_stay.LengthOfStay.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates cutoff times for the predection problem.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+entity_set, target_entity, and a dataframe of cutoff_times and target_labels.</p>
+<p>Raises:
+ValueError: An error occurs if the cutoff variable does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.length_of_stay.LengthOfStay.generate_target_label">
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/length_of_stay.html#LengthOfStay.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.length_of_stay.LengthOfStay.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates target labels in the case of having missing label in the entityset.</p>
+<p>Args:
+es: fhir entityset.
+Returns:
+Updated entityset with the generated label.</p>
+<p>Raises:
+ValueError: An error occurs if the target label cannot be generated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.length_of_stay.LengthOfStay.prediction_type">
+<code class="descname">prediction_type</code><em class="property"> = 'regression'</em><a class="headerlink" href="#cardea.problem_definition.length_of_stay.LengthOfStay.prediction_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.length_of_stay.LengthOfStay.target_entity">
+<code class="descname">target_entity</code><em class="property"> = 'Encounter'</em><a class="headerlink" href="#cardea.problem_definition.length_of_stay.LengthOfStay.target_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.length_of_stay.LengthOfStay.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'length'</em><a class="headerlink" href="#cardea.problem_definition.length_of_stay.LengthOfStay.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.length_of_stay.LengthOfStay.updated_es">
+<code class="descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.length_of_stay.LengthOfStay.updated_es" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cardea.problem_definition.mortality_prediction">
+<span id="cardea-problem-definition-mortality-prediction-module"></span><h2>cardea.problem_definition.mortality_prediction module<a class="headerlink" href="#module-cardea.problem_definition.mortality_prediction" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cardea.problem_definition.mortality_prediction.MortalityPrediction">
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.mortality_prediction.</code><code class="descname">MortalityPrediction</code><a class="reference internal" href="_modules/cardea/problem_definition/mortality_prediction.html#MortalityPrediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.mortality_prediction.MortalityPrediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
+<p>Defines the problem of diagnosis Prediction, finding whether
+a patient will be diagnosed with a specifed diagnosis.</p>
+<p>Attributes:
+target_label_column_name: The target label of the prediction problem.
+target_entity: Name of the entity containing the target label.
+cutoff_time_label: The cutoff time label of the prediction problem.
+cutoff_entity: Name of the entity containing the cutoff time label.
+prediction_type: The type of the machine learning prediction.</p>
+<p>Assumptions:
+the patient visit is considered a readmission if he visits</p>
+<blockquote>
+<div>the hospital again within 30 days.</div></blockquote>
+<dl class="docutils">
+<dt>the readmission diagnosis does not have to be the same as the initial visit diagnosis,</dt>
+<dd>(he could be diagnosed of something that is a complication of the initial diagnosis).</dd>
+</dl>
+<dl class="attribute">
+<dt id="cardea.problem_definition.mortality_prediction.MortalityPrediction.causes_of_death">
+<code class="descname">causes_of_death</code><em class="property"> = ['X60', 'X84', 'Y87.0', 'X85', 'Y09', 'Y87.1', 'V02', 'V04', 'V09.0', 'V09.2', 'V12', 'V14']</em><a class="headerlink" href="#cardea.problem_definition.mortality_prediction.MortalityPrediction.causes_of_death" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.mortality_prediction.MortalityPrediction.conn">
+<code class="descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.mortality_prediction.MortalityPrediction.conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.mortality_prediction.MortalityPrediction.cutoff_entity">
+<code class="descname">cutoff_entity</code><em class="property"> = 'Period'</em><a class="headerlink" href="#cardea.problem_definition.mortality_prediction.MortalityPrediction.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.mortality_prediction.MortalityPrediction.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><em class="property"> = 'start'</em><a class="headerlink" href="#cardea.problem_definition.mortality_prediction.MortalityPrediction.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.mortality_prediction.MortalityPrediction.generate_cutoff_times">
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/mortality_prediction.html#MortalityPrediction.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.mortality_prediction.MortalityPrediction.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates cutoff times for the predection problem.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+entity_set, target_entity, and a dataframe of cutoff_times and target_labels.</p>
+<p>Raises:
+ValueError: An error occurs if the cutoff variable does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.mortality_prediction.MortalityPrediction.generate_target_label">
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/mortality_prediction.html#MortalityPrediction.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.mortality_prediction.MortalityPrediction.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates target labels in the case of having missing label in the entityset.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+Updated entityset with the generated label.</p>
+<p>Raises:
+ValueError: An error occurs if the target label cannot be generated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.mortality_prediction.MortalityPrediction.prediction_type">
+<code class="descname">prediction_type</code><em class="property"> = 'classification'</em><a class="headerlink" href="#cardea.problem_definition.mortality_prediction.MortalityPrediction.prediction_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.mortality_prediction.MortalityPrediction.target_entity">
+<code class="descname">target_entity</code><em class="property"> = 'Encounter'</em><a class="headerlink" href="#cardea.problem_definition.mortality_prediction.MortalityPrediction.target_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.mortality_prediction.MortalityPrediction.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'diagnosis'</em><a class="headerlink" href="#cardea.problem_definition.mortality_prediction.MortalityPrediction.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.mortality_prediction.MortalityPrediction.updated_es">
+<code class="descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.mortality_prediction.MortalityPrediction.updated_es" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cardea.problem_definition.predicting_diagnosis">
+<span id="cardea-problem-definition-predicting-diagnosis-module"></span><h2>cardea.problem_definition.predicting_diagnosis module<a class="headerlink" href="#module-cardea.problem_definition.predicting_diagnosis" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction">
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.predicting_diagnosis.</code><code class="descname">DiagnosisPrediction</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
+<p>Defines the problem of diagnosis Prediction, finding whether
+a patient will be diagnosed with a specifed diagnosis.</p>
+<p>Attributes:
+target_label_column_name: The target label of the prediction problem.
+target_entity: Name of the entity containing the target label.
+cutoff_time_label: The cutoff time label of the prediction problem.
+cutoff_entity: Name of the entity containing the cutoff time label.
+prediction_type: The type of the machine learning prediction.</p>
+<p>Assumptions:
+the patient visit is considered a readmission if he visits</p>
+<blockquote>
+<div>the hospital again within 30 days.</div></blockquote>
+<dl class="docutils">
+<dt>the readmission diagnosis does not have to be the same as the initial visit diagnosis,</dt>
+<dd>(he could be diagnosed of something that is a complication of the initial diagnosis).</dd>
+</dl>
+<dl class="attribute">
+<dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.conn">
+<code class="descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.cutoff_entity">
+<code class="descname">cutoff_entity</code><em class="property"> = 'Period'</em><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><em class="property"> = 'start'</em><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.generate_cutoff_times">
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates cutoff times for the predection problem.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+entity_set, target_entity, and a dataframe of cutoff_times and target_labels.</p>
+<p>Raises:
+ValueError: An error occurs if the cutoff variable does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.generate_target_label">
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates target labels in the case of having missing label in the entityset.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+Updated entityset with the generated label.</p>
+<p>Raises:
+ValueError: An error occurs if the target label cannot be generated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.prediction_type">
+<code class="descname">prediction_type</code><em class="property"> = 'classification'</em><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.prediction_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.target_entity">
+<code class="descname">target_entity</code><em class="property"> = 'Encounter'</em><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.target_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'diagnosis'</em><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.updated_es">
+<code class="descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.updated_es" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cardea.problem_definition.prolonged_length_of_stay">
+<span id="cardea-problem-definition-prolonged-length-of-stay-module"></span><h2>cardea.problem_definition.prolonged_length_of_stay module<a class="headerlink" href="#module-cardea.problem_definition.prolonged_length_of_stay" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay">
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.prolonged_length_of_stay.</code><code class="descname">ProlongedLengthOfStay</code><span class="sig-paren">(</span><em>t=7</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/prolonged_length_of_stay.html#ProlongedLengthOfStay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
+<p>Defines the problem of length of stay, predicting whether
+a patient stayed in the hospital more or less than a week (Default).</p>
+<p>Attributes:
+target_label_column_name: The target label of the prediction problem.
+target_entity: Name of the entity containing the target label.
+cutoff_time_label: The cutoff time label of the prediction problem.
+cutoff_entity: Name of the entity containing the cutoff time label.
+prediction_type: The type of the machine learning prediction.</p>
+<dl class="attribute">
+<dt id="cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.conn">
+<code class="descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.cutoff_entity">
+<code class="descname">cutoff_entity</code><em class="property"> = 'Period'</em><a class="headerlink" href="#cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><em class="property"> = 'start'</em><a class="headerlink" href="#cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.generate_cutoff_times">
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/prolonged_length_of_stay.html#ProlongedLengthOfStay.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates cutoff times for the predection problem.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+entity_set, target_entity, and a dataframe of cutoff_times and target_labels.</p>
+<p>Raises:
+ValueError: An error occurs if the cutoff variable does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.generate_target_label">
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/prolonged_length_of_stay.html#ProlongedLengthOfStay.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates target labels in the case of having missing label in the entityset.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+Updated entityset with the generated label.</p>
+<p>Raises:
+ValueError: An error occurs if the target label cannot be generated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.prediction_type">
+<code class="descname">prediction_type</code><em class="property"> = 'classification'</em><a class="headerlink" href="#cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.prediction_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.target_entity">
+<code class="descname">target_entity</code><em class="property"> = 'Encounter'</em><a class="headerlink" href="#cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.target_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'length'</em><a class="headerlink" href="#cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.updated_es">
+<code class="descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.prolonged_length_of_stay.ProlongedLengthOfStay.updated_es" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cardea.problem_definition.readmission">
+<span id="cardea-problem-definition-readmission-module"></span><h2>cardea.problem_definition.readmission module<a class="headerlink" href="#module-cardea.problem_definition.readmission" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cardea.problem_definition.readmission.Readmission">
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.readmission.</code><code class="descname">Readmission</code><span class="sig-paren">(</span><em>t=30</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/readmission.html#Readmission"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.readmission.Readmission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
+<p>Defines the problem of readmission, predicting whether
+a patient will revisit the hospital within certain period of time.</p>
+<p>Attributes:
+target_label_column_name: The target label of the prediction problem.
+target_entity: Name of the entity containing the target label.
+cutoff_time_label: The cutoff time label of the prediction problem.
+cutoff_entity: Name of the entity containing the cutoff time label.
+prediction_type: The type of the machine learning prediction.</p>
+<p>Assumptions:
+The patient visit is considered a readmission if he/she visits</p>
+<blockquote>
+<div>the hospital again within 30 days.</div></blockquote>
+<dl class="docutils">
+<dt>The readmission diagnosis does not have to be the same as the initial visit diagnosis,</dt>
+<dd>(The patient could be diagnosed of something that is a complication
+of the initial diagnosis).</dd>
+</dl>
+<dl class="attribute">
+<dt id="cardea.problem_definition.readmission.Readmission.conn">
+<code class="descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.readmission.Readmission.conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.readmission.Readmission.cutoff_entity">
+<code class="descname">cutoff_entity</code><em class="property"> = 'Period'</em><a class="headerlink" href="#cardea.problem_definition.readmission.Readmission.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.readmission.Readmission.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><em class="property"> = 'end'</em><a class="headerlink" href="#cardea.problem_definition.readmission.Readmission.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.readmission.Readmission.generate_cutoff_times">
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/readmission.html#Readmission.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.readmission.Readmission.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates cutoff times for the predection problem.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+entity_set, target_entity, and a dataframe of cutoff_times and target_labels.</p>
+<p>Raises:
+ValueError: An error occurs if the cutoff variable does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.readmission.Readmission.generate_target_label">
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/readmission.html#Readmission.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.readmission.Readmission.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates target labels in the case of having missing label in the entityset.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+Updated entityset with the generated label.</p>
+<p>Raises:
+ValueError: An error occurs if the target label cannot be generated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.readmission.Readmission.prediction_type">
+<code class="descname">prediction_type</code><em class="property"> = 'classification'</em><a class="headerlink" href="#cardea.problem_definition.readmission.Readmission.prediction_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.readmission.Readmission.target_entity">
+<code class="descname">target_entity</code><em class="property"> = 'Encounter'</em><a class="headerlink" href="#cardea.problem_definition.readmission.Readmission.target_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.readmission.Readmission.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'readmitted'</em><a class="headerlink" href="#cardea.problem_definition.readmission.Readmission.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.readmission.Readmission.updated_es">
+<code class="descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.readmission.Readmission.updated_es" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-cardea.problem_definition.show_noshow_appointment">
 <span id="cardea-problem-definition-show-noshow-appointment-module"></span><h2>cardea.problem_definition.show_noshow_appointment module<a class="headerlink" href="#module-cardea.problem_definition.show_noshow_appointment" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition">
 <em class="property">class </em><code class="descclassname">cardea.problem_definition.show_noshow_appointment.</code><code class="descname">MissedAppointmentProblemDefinition</code><a class="reference internal" href="_modules/cardea/problem_definition/show_noshow_appointment.html#MissedAppointmentProblemDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.problem_definition.ProblemDefinition" title="cardea.problem_definition.problem_definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.problem_definition.ProblemDefinition</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
 <dl class="docutils">
 <dt>Defines the problem of missed appointments,</dt>
 <dd>whether the patient showed to the appointment or not.</dd>
@@ -315,10 +715,32 @@ by specifying cutoff times and generating the target label if it does not exist<
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><a class="headerlink" href="#cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>The cutoff time label of the prediction problem.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.cutoff_entity">
+<code class="descname">cutoff_entity</code><a class="headerlink" href="#cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the entity containing the cutoff time label.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.prediction_type">
 <code class="descname">prediction_type</code><a class="headerlink" href="#cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.prediction_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The type of the machine learning prediction.</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">cutoff_entity</code><em class="property"> = 'Appointment'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">cutoff_time_label</code><em class="property"> = 'created'</em></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.generate_cutoff_times">
@@ -328,9 +750,9 @@ by specifying cutoff times and generating the target label if it does not exist<
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity_set</strong> – FHIR entityset.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity_set</strong> – fhir entityset.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">entity_set, target_entity, target_label and a dataframe of cutoff_times</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">entity_set, target_entity and a dataframe of cutoff_times and target_labels</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – An error occurs if the cutoff variable does not exist.</td>
 </tr>
@@ -343,6 +765,16 @@ by specifying cutoff times and generating the target label if it does not exist<
 <code class="descname">prediction_type</code><em class="property"> = 'classification'</em></dt>
 <dd></dd></dl>
 
+<dl class="attribute">
+<dt>
+<code class="descname">target_entity</code><em class="property"> = 'Appointment'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'status'</em><a class="headerlink" href="#cardea.problem_definition.show_noshow_appointment.MissedAppointmentProblemDefinition.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -350,29 +782,26 @@ by specifying cutoff times and generating the target label if it does not exist<
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cardea.problem_definition" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cardea.problem_definition.ProblemDefinition">
-<em class="property">class </em><code class="descclassname">cardea.problem_definition.</code><code class="descname">ProblemDefinition</code><a class="reference internal" href="_modules/cardea/problem_definition/problem_definition.html#ProblemDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.</code><code class="descname">ProblemDefinition</code><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class that defines the prediction problem
 by specifying cutoff times and generating the target label if it does not exist</p>
 <dl class="method">
-<dt id="cardea.problem_definition.ProblemDefinition.check_target_label">
-<code class="descname">check_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/problem_definition.html#ProblemDefinition.check_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.check_target_label" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if target label exists in the entity set.</p>
+<dt id="cardea.problem_definition.ProblemDefinition.check_for_missing_values_in_target_label">
+<code class="descname">check_for_missing_values_in_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label_column_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.check_for_missing_values_in_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.check_for_missing_values_in_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if there is a missing value in the target label.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>entity_set</strong> – FHIR entityset.</li>
+<li><strong>entity_set</strong> – fhir entityset.</li>
 <li><strong>target_label</strong> – The target label of the prediction problem.</li>
 <li><strong>target_entity</strong> – The entity name which contains the target label.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if the target label exists.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – An error occurs if the target label does not exist.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">False is the target label does not contain a missing value.</p>
 </td>
 </tr>
 </tbody>
@@ -380,25 +809,17 @@ by specifying cutoff times and generating the target label if it does not exist<
 </dd></dl>
 
 <dl class="method">
-<dt id="cardea.problem_definition.ProblemDefinition.check_target_label_values">
-<code class="descname">check_target_label_values</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/problem_definition.html#ProblemDefinition.check_target_label_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.check_target_label_values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if there is a missing value in the target label.</p>
+<dt id="cardea.problem_definition.ProblemDefinition.check_target_label">
+<code class="descname">check_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.check_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.check_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if target label exists in the entity set.
+:param entity_set: fhir entityset.
+:param target_label: The target label of the prediction problem.
+:param target_entity: The entity name which contains the target label.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>entity_set</strong> – FHIR entityset.</li>
-<li><strong>target_label</strong> – The target label of the prediction problem.</li>
-<li><strong>target_entity</strong> – The entity name which contains the target label.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">False is the target label does not contain a missing value.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – An error occurs if the target label contains a missing value.</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the target label exists.</td>
 </tr>
 </tbody>
 </table>
@@ -406,15 +827,15 @@ by specifying cutoff times and generating the target label if it does not exist<
 
 <dl class="method">
 <dt id="cardea.problem_definition.ProblemDefinition.generate_cutoff_times">
-<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/problem_definition.html#ProblemDefinition.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates cutoff times for the predection problem.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity_set</strong> – FHIR entityset.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity_set</strong> – fhir entityset.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">entity_set, target_entity, target_label and a dataframe of cutoff_times</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">entity_set, target_entity, series of target_labels and a dataframe of cutoff_times.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – An error occurs if the cutoff variable does not exist.</td>
 </tr>
@@ -424,14 +845,14 @@ by specifying cutoff times and generating the target label if it does not exist<
 
 <dl class="method">
 <dt id="cardea.problem_definition.ProblemDefinition.generate_target_label">
-<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/problem_definition.html#ProblemDefinition.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.generate_target_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates target labels if the entityset is missing labels.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>entity_set</strong> – FHIR entityset.</li>
+<li><strong>entity_set</strong> – fhir entityset.</li>
 <li><strong>target_label</strong> – The target label of the prediction problem.</li>
 <li><strong>target_entity</strong> – The entity name which contains the target label.</li>
 </ul>
@@ -449,7 +870,7 @@ by specifying cutoff times and generating the target label if it does not exist<
 <dl class="class">
 <dt id="cardea.problem_definition.MissedAppointmentProblemDefinition">
 <em class="property">class </em><code class="descclassname">cardea.problem_definition.</code><code class="descname">MissedAppointmentProblemDefinition</code><a class="reference internal" href="_modules/cardea/problem_definition/show_noshow_appointment.html#MissedAppointmentProblemDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.MissedAppointmentProblemDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.problem_definition.ProblemDefinition" title="cardea.problem_definition.problem_definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.problem_definition.ProblemDefinition</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
 <dl class="docutils">
 <dt>Defines the problem of missed appointments,</dt>
 <dd>whether the patient showed to the appointment or not.</dd>
@@ -467,10 +888,32 @@ by specifying cutoff times and generating the target label if it does not exist<
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cardea.problem_definition.MissedAppointmentProblemDefinition.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><a class="headerlink" href="#cardea.problem_definition.MissedAppointmentProblemDefinition.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>The cutoff time label of the prediction problem.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.MissedAppointmentProblemDefinition.cutoff_entity">
+<code class="descname">cutoff_entity</code><a class="headerlink" href="#cardea.problem_definition.MissedAppointmentProblemDefinition.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the entity containing the cutoff time label.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cardea.problem_definition.MissedAppointmentProblemDefinition.prediction_type">
 <code class="descname">prediction_type</code><a class="headerlink" href="#cardea.problem_definition.MissedAppointmentProblemDefinition.prediction_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The type of the machine learning prediction.</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">cutoff_entity</code><em class="property"> = 'Appointment'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">cutoff_time_label</code><em class="property"> = 'created'</em></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cardea.problem_definition.MissedAppointmentProblemDefinition.generate_cutoff_times">
@@ -480,9 +923,9 @@ by specifying cutoff times and generating the target label if it does not exist<
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity_set</strong> – FHIR entityset.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity_set</strong> – fhir entityset.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">entity_set, target_entity, target_label and a dataframe of cutoff_times</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">entity_set, target_entity and a dataframe of cutoff_times and target_labels</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – An error occurs if the cutoff variable does not exist.</td>
 </tr>
@@ -493,6 +936,411 @@ by specifying cutoff times and generating the target label if it does not exist<
 <dl class="attribute">
 <dt>
 <code class="descname">prediction_type</code><em class="property"> = 'classification'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">target_entity</code><em class="property"> = 'Appointment'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.MissedAppointmentProblemDefinition.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'status'</em><a class="headerlink" href="#cardea.problem_definition.MissedAppointmentProblemDefinition.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.problem_definition.LengthOfStay">
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.</code><code class="descname">LengthOfStay</code><a class="reference internal" href="_modules/cardea/problem_definition/length_of_stay.html#LengthOfStay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.LengthOfStay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
+<p>Defines the problem of length of stay, predicting how many days
+the patient will be in the hospital.</p>
+<p>Attributes:
+target_label_column_name: The target label of the prediction problem.
+target_entity: Name of the entity containing the target label.
+cutoff_time_label: The cutoff time label of the prediction problem.
+cutoff_entity: Name of the entity containing the cutoff time label.
+prediction_type: The type of the machine learning prediction.</p>
+<dl class="attribute">
+<dt id="cardea.problem_definition.LengthOfStay.conn">
+<code class="descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.LengthOfStay.conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.LengthOfStay.cutoff_entity">
+<code class="descname">cutoff_entity</code><em class="property"> = 'Period'</em><a class="headerlink" href="#cardea.problem_definition.LengthOfStay.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.LengthOfStay.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><em class="property"> = 'start'</em><a class="headerlink" href="#cardea.problem_definition.LengthOfStay.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.LengthOfStay.generate_cutoff_times">
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/length_of_stay.html#LengthOfStay.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.LengthOfStay.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates cutoff times for the predection problem.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+entity_set, target_entity, and a dataframe of cutoff_times and target_labels.</p>
+<p>Raises:
+ValueError: An error occurs if the cutoff variable does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.LengthOfStay.generate_target_label">
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/length_of_stay.html#LengthOfStay.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.LengthOfStay.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates target labels in the case of having missing label in the entityset.</p>
+<p>Args:
+es: fhir entityset.
+Returns:
+Updated entityset with the generated label.</p>
+<p>Raises:
+ValueError: An error occurs if the target label cannot be generated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.LengthOfStay.prediction_type">
+<code class="descname">prediction_type</code><em class="property"> = 'regression'</em><a class="headerlink" href="#cardea.problem_definition.LengthOfStay.prediction_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.LengthOfStay.target_entity">
+<code class="descname">target_entity</code><em class="property"> = 'Encounter'</em><a class="headerlink" href="#cardea.problem_definition.LengthOfStay.target_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.LengthOfStay.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'length'</em><a class="headerlink" href="#cardea.problem_definition.LengthOfStay.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.LengthOfStay.updated_es">
+<code class="descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.LengthOfStay.updated_es" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.problem_definition.ProlongedLengthOfStay">
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.</code><code class="descname">ProlongedLengthOfStay</code><span class="sig-paren">(</span><em>t=7</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/prolonged_length_of_stay.html#ProlongedLengthOfStay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProlongedLengthOfStay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
+<p>Defines the problem of length of stay, predicting whether
+a patient stayed in the hospital more or less than a week (Default).</p>
+<p>Attributes:
+target_label_column_name: The target label of the prediction problem.
+target_entity: Name of the entity containing the target label.
+cutoff_time_label: The cutoff time label of the prediction problem.
+cutoff_entity: Name of the entity containing the cutoff time label.
+prediction_type: The type of the machine learning prediction.</p>
+<dl class="attribute">
+<dt id="cardea.problem_definition.ProlongedLengthOfStay.conn">
+<code class="descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.ProlongedLengthOfStay.conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.ProlongedLengthOfStay.cutoff_entity">
+<code class="descname">cutoff_entity</code><em class="property"> = 'Period'</em><a class="headerlink" href="#cardea.problem_definition.ProlongedLengthOfStay.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.ProlongedLengthOfStay.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><em class="property"> = 'start'</em><a class="headerlink" href="#cardea.problem_definition.ProlongedLengthOfStay.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.ProlongedLengthOfStay.generate_cutoff_times">
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/prolonged_length_of_stay.html#ProlongedLengthOfStay.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProlongedLengthOfStay.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates cutoff times for the predection problem.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+entity_set, target_entity, and a dataframe of cutoff_times and target_labels.</p>
+<p>Raises:
+ValueError: An error occurs if the cutoff variable does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.ProlongedLengthOfStay.generate_target_label">
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/prolonged_length_of_stay.html#ProlongedLengthOfStay.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProlongedLengthOfStay.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates target labels in the case of having missing label in the entityset.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+Updated entityset with the generated label.</p>
+<p>Raises:
+ValueError: An error occurs if the target label cannot be generated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.ProlongedLengthOfStay.prediction_type">
+<code class="descname">prediction_type</code><em class="property"> = 'classification'</em><a class="headerlink" href="#cardea.problem_definition.ProlongedLengthOfStay.prediction_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.ProlongedLengthOfStay.target_entity">
+<code class="descname">target_entity</code><em class="property"> = 'Encounter'</em><a class="headerlink" href="#cardea.problem_definition.ProlongedLengthOfStay.target_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.ProlongedLengthOfStay.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'length'</em><a class="headerlink" href="#cardea.problem_definition.ProlongedLengthOfStay.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.ProlongedLengthOfStay.updated_es">
+<code class="descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.ProlongedLengthOfStay.updated_es" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.problem_definition.Readmission">
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.</code><code class="descname">Readmission</code><span class="sig-paren">(</span><em>t=30</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/readmission.html#Readmission"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.Readmission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
+<p>Defines the problem of readmission, predicting whether
+a patient will revisit the hospital within certain period of time.</p>
+<p>Attributes:
+target_label_column_name: The target label of the prediction problem.
+target_entity: Name of the entity containing the target label.
+cutoff_time_label: The cutoff time label of the prediction problem.
+cutoff_entity: Name of the entity containing the cutoff time label.
+prediction_type: The type of the machine learning prediction.</p>
+<p>Assumptions:
+The patient visit is considered a readmission if he/she visits</p>
+<blockquote>
+<div>the hospital again within 30 days.</div></blockquote>
+<dl class="docutils">
+<dt>The readmission diagnosis does not have to be the same as the initial visit diagnosis,</dt>
+<dd>(The patient could be diagnosed of something that is a complication
+of the initial diagnosis).</dd>
+</dl>
+<dl class="attribute">
+<dt id="cardea.problem_definition.Readmission.conn">
+<code class="descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.Readmission.conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.Readmission.cutoff_entity">
+<code class="descname">cutoff_entity</code><em class="property"> = 'Period'</em><a class="headerlink" href="#cardea.problem_definition.Readmission.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.Readmission.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><em class="property"> = 'end'</em><a class="headerlink" href="#cardea.problem_definition.Readmission.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.Readmission.generate_cutoff_times">
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/readmission.html#Readmission.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.Readmission.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates cutoff times for the predection problem.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+entity_set, target_entity, and a dataframe of cutoff_times and target_labels.</p>
+<p>Raises:
+ValueError: An error occurs if the cutoff variable does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.Readmission.generate_target_label">
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/readmission.html#Readmission.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.Readmission.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates target labels in the case of having missing label in the entityset.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+Updated entityset with the generated label.</p>
+<p>Raises:
+ValueError: An error occurs if the target label cannot be generated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.Readmission.prediction_type">
+<code class="descname">prediction_type</code><em class="property"> = 'classification'</em><a class="headerlink" href="#cardea.problem_definition.Readmission.prediction_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.Readmission.target_entity">
+<code class="descname">target_entity</code><em class="property"> = 'Encounter'</em><a class="headerlink" href="#cardea.problem_definition.Readmission.target_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.Readmission.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'readmitted'</em><a class="headerlink" href="#cardea.problem_definition.Readmission.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.Readmission.updated_es">
+<code class="descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.Readmission.updated_es" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.problem_definition.DiagnosisPrediction">
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.</code><code class="descname">DiagnosisPrediction</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.DiagnosisPrediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
+<p>Defines the problem of diagnosis Prediction, finding whether
+a patient will be diagnosed with a specifed diagnosis.</p>
+<p>Attributes:
+target_label_column_name: The target label of the prediction problem.
+target_entity: Name of the entity containing the target label.
+cutoff_time_label: The cutoff time label of the prediction problem.
+cutoff_entity: Name of the entity containing the cutoff time label.
+prediction_type: The type of the machine learning prediction.</p>
+<p>Assumptions:
+the patient visit is considered a readmission if he visits</p>
+<blockquote>
+<div>the hospital again within 30 days.</div></blockquote>
+<dl class="docutils">
+<dt>the readmission diagnosis does not have to be the same as the initial visit diagnosis,</dt>
+<dd>(he could be diagnosed of something that is a complication of the initial diagnosis).</dd>
+</dl>
+<dl class="attribute">
+<dt id="cardea.problem_definition.DiagnosisPrediction.conn">
+<code class="descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.DiagnosisPrediction.conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.DiagnosisPrediction.cutoff_entity">
+<code class="descname">cutoff_entity</code><em class="property"> = 'Period'</em><a class="headerlink" href="#cardea.problem_definition.DiagnosisPrediction.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.DiagnosisPrediction.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><em class="property"> = 'start'</em><a class="headerlink" href="#cardea.problem_definition.DiagnosisPrediction.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.DiagnosisPrediction.generate_cutoff_times">
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.DiagnosisPrediction.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates cutoff times for the predection problem.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+entity_set, target_entity, and a dataframe of cutoff_times and target_labels.</p>
+<p>Raises:
+ValueError: An error occurs if the cutoff variable does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.DiagnosisPrediction.generate_target_label">
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.DiagnosisPrediction.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates target labels in the case of having missing label in the entityset.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+Updated entityset with the generated label.</p>
+<p>Raises:
+ValueError: An error occurs if the target label cannot be generated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.DiagnosisPrediction.prediction_type">
+<code class="descname">prediction_type</code><em class="property"> = 'classification'</em><a class="headerlink" href="#cardea.problem_definition.DiagnosisPrediction.prediction_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.DiagnosisPrediction.target_entity">
+<code class="descname">target_entity</code><em class="property"> = 'Encounter'</em><a class="headerlink" href="#cardea.problem_definition.DiagnosisPrediction.target_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.DiagnosisPrediction.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'diagnosis'</em><a class="headerlink" href="#cardea.problem_definition.DiagnosisPrediction.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.DiagnosisPrediction.updated_es">
+<code class="descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.DiagnosisPrediction.updated_es" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.problem_definition.MortalityPrediction">
+<em class="property">class </em><code class="descclassname">cardea.problem_definition.</code><code class="descname">MortalityPrediction</code><a class="reference internal" href="_modules/cardea/problem_definition/mortality_prediction.html#MortalityPrediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
+<p>Defines the problem of diagnosis Prediction, finding whether
+a patient will be diagnosed with a specifed diagnosis.</p>
+<p>Attributes:
+target_label_column_name: The target label of the prediction problem.
+target_entity: Name of the entity containing the target label.
+cutoff_time_label: The cutoff time label of the prediction problem.
+cutoff_entity: Name of the entity containing the cutoff time label.
+prediction_type: The type of the machine learning prediction.</p>
+<p>Assumptions:
+the patient visit is considered a readmission if he visits</p>
+<blockquote>
+<div>the hospital again within 30 days.</div></blockquote>
+<dl class="docutils">
+<dt>the readmission diagnosis does not have to be the same as the initial visit diagnosis,</dt>
+<dd>(he could be diagnosed of something that is a complication of the initial diagnosis).</dd>
+</dl>
+<dl class="attribute">
+<dt id="cardea.problem_definition.MortalityPrediction.causes_of_death">
+<code class="descname">causes_of_death</code><em class="property"> = ['X60', 'X84', 'Y87.0', 'X85', 'Y09', 'Y87.1', 'V02', 'V04', 'V09.0', 'V09.2', 'V12', 'V14']</em><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction.causes_of_death" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.MortalityPrediction.conn">
+<code class="descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction.conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.MortalityPrediction.cutoff_entity">
+<code class="descname">cutoff_entity</code><em class="property"> = 'Period'</em><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.MortalityPrediction.cutoff_time_label">
+<code class="descname">cutoff_time_label</code><em class="property"> = 'start'</em><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.MortalityPrediction.generate_cutoff_times">
+<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/mortality_prediction.html#MortalityPrediction.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates cutoff times for the predection problem.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+entity_set, target_entity, and a dataframe of cutoff_times and target_labels.</p>
+<p>Raises:
+ValueError: An error occurs if the cutoff variable does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.MortalityPrediction.generate_target_label">
+<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/mortality_prediction.html#MortalityPrediction.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates target labels in the case of having missing label in the entityset.</p>
+<p>Args:
+es: fhir entityset.</p>
+<p>Returns:
+Updated entityset with the generated label.</p>
+<p>Raises:
+ValueError: An error occurs if the target label cannot be generated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.MortalityPrediction.prediction_type">
+<code class="descname">prediction_type</code><em class="property"> = 'classification'</em><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction.prediction_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.MortalityPrediction.target_entity">
+<code class="descname">target_entity</code><em class="property"> = 'Encounter'</em><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction.target_entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.MortalityPrediction.target_label_column_name">
+<code class="descname">target_label_column_name</code><em class="property"> = 'diagnosis'</em><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.problem_definition.MortalityPrediction.updated_es">
+<code class="descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction.updated_es" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -545,7 +1393,6 @@ by specifying cutoff times and generating the target label if it does not exist<
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
   
