@@ -1,5 +1,7 @@
+import logging
 import pandas as pd
 
+logger = logging.getLogger('cardea.fhir')
 
 class fhirbase(object):
 
@@ -11,11 +13,15 @@ class fhirbase(object):
 
         Returns:
             An object of the associate fhir class filled with data.
-        """
+        """  
 
-        for attr, _ in self.__dict__.items():
-            if attr in dict_values.keys():
-                self.__dict__[str(attr)] = dict_values[str(attr)]
+        for key in dict_values.keys():
+            if key not in self.__dict__.keys():
+                logger.warning(
+                "Attribute %s in %s could not be loaded.", (key, self.__name__))
+            else:
+                self.__dict__[key] = dict_values[key]
+
 
     def get_dataframe(self):
         """Returns dataframe from class attribute values.
