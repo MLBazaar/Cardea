@@ -23,7 +23,7 @@ def es_loader():
 @pytest.fixture()
 def cutoff_times():
     temp = pd.DataFrame({"instance_id": [10, 11, 12],
-                         "cutoff_time": ['9/18/2018', '9/19/2018', '9/20/2018'],
+                         "cutoff_time": ['9/19/2018 00:00', '9/19/2018 00:00', '9/20/2018 11:23'],
                          "label": [0, 0, 1]
                          })
     temp['cutoff_time'] = pd.to_datetime(temp['cutoff_time'])
@@ -39,8 +39,8 @@ def objects(es_loader):
                                  "length": [2, 1, 7]})
 
     period_df = pd.DataFrame({"object_id": [120, 121, 122],
-                              "start": ['9/18/2018', '9/19/2018', '9/20/2018'],
-                              "end": ['9/20/2018', '9/20/2018', '9/27/2018']})
+                              "start": ['9/18/2018 00:00', '9/19/2018 00:00', '9/20/2018 11:23'],
+                              "end": ['9/20/2018 00:12', '9/20/2018 00:20', '9/27/2018 11:23']})
 
     duration_df = pd.DataFrame({"object_id": [2, 1, 7]})
 
@@ -65,8 +65,8 @@ def objects_fail(es_loader):
                                  "period": [120, 121, 122]})
 
     period_df = pd.DataFrame({"object_id": [120, 121, 122],
-                              "start": ['9/18/2018', '9/19/2018', '9/20/2018'],
-                              "end": ['9/20/2018', '9/20/2018', '9/27/2018']})
+                              "start": ['9/18/2018 00:00', '9/19/2018 00:00', '9/20/2018 11:23'],
+                              "end": ['9/20/2018 00:12', '9/20/2018 00:20', '9/27/2018 11:23']})
 
     patient_df = pd.DataFrame({"identifier": [0, 1, 2],
                                "gender": ['female', 'female', 'male'],
@@ -127,9 +127,8 @@ def objects_missing_generation_value(es_loader):
                                  "period": [120, 121, 122]})
 
     period_df = pd.DataFrame({"object_id": [120, 121, 122],
-                              "start": ['9/18/2018', '9/19/2018', '9/20/2018'],
-                              "end": ['9/20/2018', '9/20/2018', nan]
-                              })
+                              "start": ['9/18/2018 00:00', '9/19/2018 00:00', '9/20/2018 11:23'],
+                              "end": ['9/20/2018 00:12', '9/20/2018 00:20', nan]})
 
     patient_df = pd.DataFrame({"identifier": [0, 1, 2],
                                "gender": ['female', 'female', 'male'],
@@ -152,8 +151,8 @@ def objects_missing_cutoff_label(es_loader):
                                  "length": [2, 1, 7]})
 
     period_df = pd.DataFrame({"object_id": [120, 121, 122],
-                              "start": ['9/18/2018', '9/19/2018', '9/20/2018'],
-                              "end": ['9/20/2018', '9/20/2018', '9/30/2018']})
+                              "start": ['9/18/2018 00:00', '9/19/2018 00:00', '9/20/2018 11:23'],
+                              "end": ['9/20/2018 00:12', '9/20/2018 00:20', '9/27/2018 11:23']})
 
     duration_df = pd.DataFrame({"object_id": [2, 1, 7]})
 
