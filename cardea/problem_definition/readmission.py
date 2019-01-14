@@ -36,6 +36,93 @@ class Readmission (ProblemDefinition):
     def __init__(self, t=30):
         self.readmission_threshold = t
 
+    def unify_cutoff_times_days(self, df):
+        """ Unify records cutoff times based on shared days.
+
+            Attributes:
+            df: cutoff_entity dataframe.
+            """
+
+        frames = []
+        for d in set(df['end_date']):
+            sub_day = df[df['end_date'] == d]
+
+            sub_duration_greater = sub_day[sub_day['duration'] > 0]
+            sub_duration_less = sub_day[sub_day['duration'] <= 0]
+            frames.append(sub_duration_less)
+            sub_duration_greater = sub_duration_greater.sort_values(by=[self.cutoff_time_label])
+            if len(sub_duration_greater) != 0:
+                first_date = sub_duration_greater.iloc[0][self.cutoff_time_label]
+
+                for i in sub_duration_greater.index:
+                    sub_duration_greater.set_value(i, 'ct', first_date)
+                    sub_duration_greater.set_value(i, 'checked', True)
+
+                frames.append(sub_duration_greater)
+
+                for i in sub_duration_less.index:
+                    sub_duration_less.set_value(i, 'ct', pd.NaT)
+                    sub_duration_less.set_value(i, 'checked', False)
+
+                frames.append(sub_duration_less)
+
+        result = pd.concat(frames)
+        result = result.drop_duplicates()
+        result[self.cutoff_time_label] = pd.to_datetime(result.end)
+        result = result.reset_index()
+        return result
+
+    def unify_cutoff_times_hours(self, df):
+        """ Unify records cutoff times based on shared time.
+
+            Attributes:
+            df: cutoff_entity dataframe.
+            """
+
+        frames = []
+
+        for d in set(df['end_date']):
+            sub_day = df[df['end_date'] == d]
+            for h in set(sub_day['hour']):
+                sub_hour = sub_day[sub_day['hour'] == h]
+                sub_hour = sub_hour.sort_values(by=[self.cutoff_time_label])
+                if len(sub_hour) != 0:
+                    first_date = sub_hour.iloc[0][self.cutoff_time_label]
+                    for i in sub_hour.index:
+                        sub_hour.set_value(i, 'ct', first_date)
+                        sub_hour.set_value(i, 'checked', True)
+
+                    frames.append(sub_hour)
+
+        result = pd.concat(frames)
+        result = result.drop_duplicates()
+        return result
+
+    def unify_cutoff_time(self, es):
+        """ Process records in the entity that contains cutoff times
+            based on shared days and time.
+
+            Attributes:
+            es: fhir entityset.
+
+            Returns:
+            processed entity
+            """
+
+        df = es[self.cutoff_entity].df
+        df['end_date'] = df[self.cutoff_time_label].dt.date
+        df['hour'] = df.end.apply(lambda x: x.hour)
+        duration = (df[self.cutoff_time_label] - df['start']).dt.days
+        duration = duration.tolist()
+        df['duration'] = duration
+        df['ct'] = ''
+        df['checked'] = False
+        result1 = self.unify_cutoff_times_days(df)
+        result = self.unify_cutoff_times_hours(result1)
+        if 'level_0' in result.columns:
+            result = result.drop(columns=['level_0'])
+        return result
+
     def generate_cutoff_times(self, es):
         """Generates cutoff times for the predection problem.
 
@@ -56,11 +143,19 @@ class Readmission (ProblemDefinition):
                 self.cutoff_entity,
                 self.cutoff_time_label):  # check the existance of the cutoff label
 
-            cutoff_times = es[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
+            generated_cts = self.unify_cutoff_time(es)
+
+            es = es.entity_from_dataframe(entity_id=self.cutoff_entity,
+                                          dataframe=generated_cts,
+                                          index='object_id')
+            cutoff_times = es[self.cutoff_entity].df['ct'].to_frame()
+
             label = es[self.target_entity].df[self.conn].values
             instance_id = list(es[self.target_entity].df.index)
+            cutoff_times = cutoff_times.reindex(index=label)
 
             cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
+
             cutoff_times['instance_id'] = instance_id
             cutoff_times.columns = ['cutoff_time', 'instance_id']
             cutoff_times['label'] = list(es[self.target_entity].df[self.target_label_column_name])
