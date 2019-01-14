@@ -56,27 +56,27 @@ def entityset(objects, es_loader):
     return es
 
 
-def test_check_target_label_true(entityset):
-    assert problem_definition().check_target_label(entityset, 'Patient', 'gender') is True
+def test_check_target_label_true(entityset, problem_definition):
+    assert problem_definition.check_target_label(entityset, 'Patient', 'gender') is True
 
 
-def test_check_target_label_false(entityset):
+def test_check_target_label_false(entityset, problem_definition):
 
-    assert problem_definition().check_target_label(
+    assert problem_definition.check_target_label(
         entityset, 'Encounter', 'class') is False
 
 
-def test_check_target_label_values_true(entityset):
+def test_check_target_label_values_true(entityset, problem_definition):
 
-    assert problem_definition().check_for_missing_values_in_target_label(
+    assert problem_definition.check_for_missing_values_in_target_label(
         entityset, 'Patient', 'active') is True
 
 
-def test_check_target_label_values_false(entityset):
-    assert problem_definition().check_for_missing_values_in_target_label(
+def test_check_target_label_values_false(entityset, problem_definition):
+    assert problem_definition.check_for_missing_values_in_target_label(
         entityset, 'Patient', 'gender') is False
 
 
-def test_check_target_label_values_error(entityset):
-    assert problem_definition().check_for_missing_values_in_target_label(
+def test_check_target_label_values_error(entityset, problem_definition):
+    assert problem_definition.check_for_missing_values_in_target_label(
         entityset, 'Encounter', 'class') is False

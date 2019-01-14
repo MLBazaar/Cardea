@@ -220,6 +220,28 @@ class Diamond(DataLoader):
             for edge in edges:
                 self.merge(edge, remove=True)
 
+    def get_relation(self, source, target):
+        """Obtains the record for the edge to break from relationships.
+
+        Args:
+            source: The resource from which an edge leaves.
+            target: The resource from which an edge enters.
+
+        Returns:
+            An index of the record of the edge in relationships.
+        """
+
+        source_df = self.relationships[self.relationships['parent_entity'] == source]
+        target_df = self.relationships[self.relationships['child_entity'] == target]
+        intersection = source_df[source_df.index.isin(target_df.index)]
+
+        if len(intersection) == 0:
+                source_df = self.relationships[self.relationships['child_entity'] == source]
+                target_df = self.relationships[self.relationships['parent_entity'] == target]
+                intersection = source_df[source_df.index.isin(target_df.index)]
+
+        return intersection
+
     def merge(self, edge, remove=False):
         """Merges dataframes that are in edge then removes it from relationships and updates the fhir.
 
@@ -228,12 +250,7 @@ class Diamond(DataLoader):
             remove: A boolean to determine whether the edge should be removed from relationships.
         """
 
-        relation = self.relationships[(self.relationships['parent_entity'] == edge[0]) &
-                                      (self.relationships['child_entity'] == edge[1])]
-
-        if len(relation) == 0:  # undirected
-            relation = self.relationships[(self.relationships['parent_entity'] == edge[1]) &
-                                          (self.relationships['child_entity'] == edge[0])]
+        relation = self.get_relation(edge[0], edge[1])
 
         source_entity = relation.iloc[0]['parent_entity']
         source_column = relation.iloc[0]['parent_variable']

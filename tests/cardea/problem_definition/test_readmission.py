@@ -195,41 +195,41 @@ def entityset_fail(objects_fail, es_loader):
     return es
 
 
-def test_generate_cutoff_times_success(entityset_success):
-    _, _, generated_df = readmission().generate_cutoff_times(
+def test_generate_cutoff_times_success(entityset_success, readmission, cutoff_times):
+    _, _, generated_df = readmission.generate_cutoff_times(
         entityset_success)
-    generated_df.index = cutoff_times().index  # both should have the same index
-    generated_df = generated_df[cutoff_times().columns]  # same columns order
-    assert generated_df.equals(cutoff_times())
+    generated_df.index = cutoff_times.index  # both should have the same index
+    generated_df = generated_df[cutoff_times.columns]  # same columns order
+    assert generated_df.equals(cutoff_times)
 
 
-def test_generate_labels_success(entityset_success):
-    es, _, generated_df = readmission().generate_cutoff_times(
+def test_generate_labels_success(entityset_success, readmission, cutoff_times):
+    es, _, generated_df = readmission.generate_cutoff_times(
         entityset_success)
-    generated_df.index = cutoff_times().index  # both should have the same index
+    generated_df.index = cutoff_times.index  # both should have the same index
 
     labels = list(generated_df['label'])
 
     assert labels == [False, False, False, True, False, True]
 
 
-def test_generate_labels_success_threshold(entityset_success):
+def test_generate_labels_success_threshold(entityset_success, cutoff_times):
 
     es, _, generated_df = Readmission(6).generate_cutoff_times(
         entityset_success)
-    generated_df.index = cutoff_times().index  # both should have the same index
+    generated_df.index = cutoff_times.index  # both should have the same index
 
     labels = list(generated_df['label'])
     assert labels == [False, False, False, True, False, False]
 
 
-def test_generate_cutoff_times_missing_generation_label(entityset_success):
+def test_generate_cutoff_times_missing_generation_label(entityset_success, readmission):
     entityset_success['Period'].delete_variable('end')
     with pytest.raises(ValueError):
-        readmission().generate_cutoff_times(
+        readmission.generate_cutoff_times(
             entityset_success)
 
 
-def test_generate_label_with_missing_values(entityset_fail_missing_generation_value):
+def test_generate_label_with_missing_values(entityset_fail_missing_generation_value, readmission):
     with pytest.raises(ValueError):
-        readmission().generate_cutoff_times(entityset_fail_missing_generation_value)
+        readmission.generate_cutoff_times(entityset_fail_missing_generation_value)

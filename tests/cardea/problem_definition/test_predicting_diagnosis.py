@@ -234,28 +234,29 @@ def entityset_fail(objects_fail, es_loader):
     return es
 
 
-def test_generate_cutoff_times_success(entityset_success):
-    _, _, generated_df = diagnosis_prediction().generate_cutoff_times(
+def test_generate_cutoff_times_success(entityset_success, diagnosis_prediction, cutoff_times):
+    _, _, generated_df = diagnosis_prediction.generate_cutoff_times(
         entityset_success)
-    generated_df.index = cutoff_times().index  # both should have the same index
-    generated_df = generated_df[cutoff_times().columns]  # same columns order
-    assert generated_df.equals(cutoff_times())
+    generated_df.index = cutoff_times.index  # both should have the same index
+    generated_df = generated_df[cutoff_times.columns]  # same columns order
+    assert generated_df.equals(cutoff_times)
 
 
-def test_generate_cutoff_times_missing_generation_label(entityset_success):
+def test_generate_cutoff_times_missing_generation_label(entityset_success, diagnosis_prediction):
     entityset_success['Period'].delete_variable('start')
     with pytest.raises(ValueError):
-        diagnosis_prediction().generate_cutoff_times(
+        diagnosis_prediction.generate_cutoff_times(
             entityset_success)
 
 
-def test_generate_label_with_missing_label(entityset_success):
+def test_generate_label_with_missing_label(entityset_success, diagnosis_prediction):
     entityset_success['Encounter'].delete_variable('diagnosis')
     with pytest.raises(ValueError):
-        diagnosis_prediction().generate_cutoff_times(entityset_success)
+        diagnosis_prediction.generate_cutoff_times(entityset_success)
 
 
-def test_generate_label_with_missing_values(entityset_fail_missing_generation_value):
+def test_generate_label_with_missing_values(
+        entityset_fail_missing_generation_value, diagnosis_prediction):
     es_fail = entityset_fail_missing_generation_value
     temp = es_fail['Encounter'].df
     temp['diagnosis'] = [nan, nan, nan]
@@ -263,4 +264,4 @@ def test_generate_label_with_missing_values(entityset_fail_missing_generation_va
                                        dataframe=temp,
                                        index='identifier')
     with pytest.raises(ValueError):
-        diagnosis_prediction().generate_cutoff_times(es)
+        diagnosis_prediction.generate_cutoff_times(es)
