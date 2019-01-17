@@ -28,6 +28,10 @@ class Featurization():
     @staticmethod
     def n_jobs():
         return 1
+    
+    @staticmethod
+    def max_depth():
+        return 2
 
     def generate_feature_matrix(self, verbose=True):
         """Calculates a feature matrix and features given in Featurization object.
@@ -44,6 +48,7 @@ class Featurization():
                                                trans_primitives=self.trans_prim(),
                                                cutoff_time=self.cutoff,
                                                n_jobs=self.n_jobs(),
+                                               max_depth=self.max_depth(),
                                                verbose=verbose)
 
         # encode categorical values
