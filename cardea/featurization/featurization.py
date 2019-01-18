@@ -28,7 +28,7 @@ class Featurization():
     @staticmethod
     def n_jobs():
         return 1
-    
+
     @staticmethod
     def max_depth():
         return 2

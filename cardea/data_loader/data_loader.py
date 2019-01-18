@@ -93,14 +93,14 @@ class DataLoader():
     def check_column_existence(self, entity_set, target_entity, column_name):
         """Checks if a coulmn exists in the entity set.
 
-            Args:
+        Args:
             entity_set: fhir entityset.
             column_name: The column name to be checked.
             target_entity: The entity name which contains the column_name.
 
-            Returns:
+        Returns:
             True if the column_name exists, False otherwise.
-            """
+        """
         columns_list = []
         does_exist = True
 
@@ -117,12 +117,12 @@ class DataLoader():
         """Checks if there is a missing value in the given column.
 
         Args:
-        entity_set: fhir entityset.
-        column_name: The column name to be checked for missing values.
-        target_entity: The entity name which contains the column_name.
+            entity_set: fhir entityset.
+            column_name: The column name to be checked for missing values.
+            target_entity: The entity name which contains the column_name.
 
         Returns:
-        False is the column_name does not contain a missing value.
+            False is the column_name does not contain a missing value.
         """
         if self.check_column_existence(entity_set, target_entity, column_name):
 
@@ -236,9 +236,9 @@ class Diamond(DataLoader):
         intersection = source_df[source_df.index.isin(target_df.index)]
 
         if len(intersection) == 0:
-                source_df = self.relationships[self.relationships['child_entity'] == source]
-                target_df = self.relationships[self.relationships['parent_entity'] == target]
-                intersection = source_df[source_df.index.isin(target_df.index)]
+            source_df = self.relationships[self.relationships['child_entity'] == source]
+            target_df = self.relationships[self.relationships['parent_entity'] == target]
+            intersection = source_df[source_df.index.isin(target_df.index)]
 
         return intersection
 
