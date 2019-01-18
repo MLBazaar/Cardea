@@ -81,7 +81,7 @@ class EntitySetLoader(DataLoader):
 
         fhir = {}
 
-        csv_files = glob(folder_path + "/*.csv")
+        csv_files = glob(folder_path + "*.csv")
         for file_path in csv_files:
             df = pd.read_csv(file_path)
             file_name = file_path.split("/")[-1].split(".")[0]
