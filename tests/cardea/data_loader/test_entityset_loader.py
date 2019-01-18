@@ -67,7 +67,7 @@ def test_number_relations_in_create_relationships(entityset):
     assert len(entityset.relationships) == 1
 
 
-def test_load_df_entityset(es_loader, encounter_df, period_df):
+def test_load_data_entityset(es_loader, encounter_df, period_df):
     fhir = {"Encounter": encounter_df, "Period": period_df}
-    es = es_loader.load_df_entityset(fhir)
+    es = es_loader.load_data_entityset(fhir)
     assert len(es.relationships) == 1 and len(es.entities) == 2

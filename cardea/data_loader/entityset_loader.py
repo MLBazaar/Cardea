@@ -52,7 +52,7 @@ class EntitySetLoader(DataLoader):
 
             entity_set.add_relationship(new_relationship)
 
-    def load_data_entityset(self, folder_path):
+    def load_df_entityset(self, folder_path):
         """Returns an entityset loaded with .csv files in folder_path.
 
         Loads .csv files into pandas dataframes then loads them into featuretools' entityset.
@@ -65,7 +65,7 @@ class EntitySetLoader(DataLoader):
         """
 
         fhir = self.read_csv_files(folder_path)
-        return self.load_df_entityset(fhir)
+        return self.load_data_entityset(fhir)
 
     def read_csv_files(self, folder_path):
         """Returns a dictionary with loaded .csv files in folder_path.
@@ -90,7 +90,7 @@ class EntitySetLoader(DataLoader):
 
         return fhir
 
-    def load_df_entityset(self, fhir):
+    def load_data_entityset(self, fhir):
         """Returns an entityset loaded with received dataframes in fhir.
 
         Loads the received dictionary of fhir resources into featuretools' entityset, where
