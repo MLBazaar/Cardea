@@ -12,7 +12,12 @@ with open('HISTORY.md') as history_file:
 install_requires = [
     'networkx',
     'pandas',
-    'featuretools'
+    'featuretools',
+    'mlblocks',
+    'mlprimitives',
+    'sklearn',
+    'scipy',
+    'hyperopt'
 ]
 
 setup_requires = [
