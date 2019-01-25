@@ -60,5 +60,6 @@ def featurization():
 
 
 def test_generate_feature_matrix(featurization, entityset, cutoff):
-    fm_encoded, features_encoded = featurization.generate_feature_matrix(entityset, "Encounter", cutoff)
+    fm_encoded, features_encoded = featurization.generate_feature_matrix(
+        entityset, "Encounter", cutoff)
     assert len(fm_encoded) == 3 and len(fm_encoded.columns) == 30
