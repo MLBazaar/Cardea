@@ -464,7 +464,7 @@ class Claim_CareTeam(fhirbase):
         # reference to Reference: identifier
 
         self.responsible = None
-        # type: boolean
+        # type: bool
 
         self.role = None
         # reference to CodeableConcept
@@ -755,7 +755,7 @@ class Claim_Insurance(fhirbase):
         # type: int
 
         self.focal = None
-        # type: boolean
+        # type: bool
 
         self.coverage = None
         # reference to Reference: identifier

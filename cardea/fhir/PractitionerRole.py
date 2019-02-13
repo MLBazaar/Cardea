@@ -44,7 +44,7 @@ class PractitionerRole(fhirbase):
         # possible values: PractitionerRole
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.period = None
         # reference to Period
@@ -186,7 +186,7 @@ class PractitionerRole_AvailableTime(fhirbase):
         # type: array
 
         self.allDay = None
-        # type: boolean
+        # type: bool
 
         self.availableStartTime = None
         # type: str

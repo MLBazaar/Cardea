@@ -44,10 +44,10 @@ class Medication(fhirbase):
         # possible values: active, inactive, entered-in-error
 
         self.isBrand = None
-        # type: boolean
+        # type: bool
 
         self.isOverTheCounter = None
-        # type: boolean
+        # type: bool
 
         self.manufacturer = None
         # reference to Reference: identifier
@@ -146,7 +146,7 @@ class Medication_Ingredient(fhirbase):
         # reference to Reference: identifier
 
         self.isActive = None
-        # type: boolean
+        # type: bool
 
         self.amount = None
         # reference to Ratio

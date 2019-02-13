@@ -152,7 +152,7 @@ class MedicationDispense(fhirbase):
         # reference to Reference: identifier
 
         self.notDone = None
-        # type: boolean
+        # type: bool
 
         self.notDoneReasonCodeableConcept = None
         # reference to CodeableConcept
@@ -366,7 +366,7 @@ class MedicationDispense_Substitution(fhirbase):
 
     def __init__(self, dict_values=None):
         self.wasSubstituted = None
-        # type: boolean
+        # type: bool
 
         self.type = None
         # reference to CodeableConcept

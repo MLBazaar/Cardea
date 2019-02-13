@@ -39,7 +39,7 @@ class Coding(fhirbase):
         # type: str
 
         self.userSelected = None
-        # type: boolean
+        # type: bool
 
         self.object_id = None
         # unique identifier for object class

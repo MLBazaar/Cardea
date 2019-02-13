@@ -101,7 +101,7 @@ class TestScript(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -435,10 +435,10 @@ class TestScript_Capability(fhirbase):
 
     def __init__(self, dict_values=None):
         self.required = None
-        # type: boolean
+        # type: bool
 
         self.validated = None
-        # type: boolean
+        # type: bool
 
         self.description = None
         # type: str
@@ -493,10 +493,10 @@ class TestScript_Fixture(fhirbase):
 
     def __init__(self, dict_values=None):
         self.autocreate = None
-        # type: boolean
+        # type: bool
 
         self.autodelete = None
-        # type: boolean
+        # type: bool
 
         self.resource = None
         # reference to Reference: identifier
@@ -893,7 +893,7 @@ class TestScript_Operation(fhirbase):
         # type: int
 
         self.encodeRequestUrl = None
-        # type: boolean
+        # type: bool
 
         self.origin = None
         # type: int
@@ -1103,7 +1103,7 @@ class TestScript_Assert(fhirbase):
         # type: str
 
         self.navigationLinks = None
-        # type: boolean
+        # type: bool
 
         self.operator = None
         # type: str
@@ -1148,7 +1148,7 @@ class TestScript_Assert(fhirbase):
         # type: str
 
         self.warningOnly = None
-        # type: boolean
+        # type: bool
 
         self.object_id = None
         # unique identifier for object class

@@ -458,7 +458,7 @@ class Task_Input(fhirbase):
         # reference to CodeableConcept
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueInteger = None
         # type: int
@@ -888,7 +888,7 @@ class Task_Output(fhirbase):
         # reference to CodeableConcept
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueInteger = None
         # type: int

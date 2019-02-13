@@ -107,7 +107,7 @@ class Parameters_Parameter(fhirbase):
         # type: str
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueInteger = None
         # type: int

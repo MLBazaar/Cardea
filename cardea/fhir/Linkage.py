@@ -26,7 +26,7 @@ class Linkage(fhirbase):
         # possible values: Linkage
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.author = None
         # reference to Reference: identifier

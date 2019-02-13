@@ -818,7 +818,7 @@ class ClaimResponse_Insurance(fhirbase):
         # type: int
 
         self.focal = None
-        # type: boolean
+        # type: bool
 
         self.coverage = None
         # reference to Reference: identifier

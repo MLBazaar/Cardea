@@ -33,7 +33,7 @@ class Practitioner(fhirbase):
         # possible values: Practitioner
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.name = None
         # type: array

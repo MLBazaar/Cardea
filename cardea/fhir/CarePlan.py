@@ -416,7 +416,7 @@ class CarePlan_Detail(fhirbase):
         # type: str
 
         self.prohibited = None
-        # type: boolean
+        # type: bool
 
         self.scheduledTiming = None
         # reference to Timing

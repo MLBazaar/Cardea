@@ -37,7 +37,7 @@ class Group(fhirbase):
         # possible values: Group
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.type = None
         # type: str
@@ -45,7 +45,7 @@ class Group(fhirbase):
         # medication, substance
 
         self.actual = None
-        # type: boolean
+        # type: bool
 
         self.code = None
         # reference to CodeableConcept
@@ -140,7 +140,7 @@ class Group_Characteristic(fhirbase):
         # reference to CodeableConcept
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueQuantity = None
         # reference to Quantity
@@ -149,7 +149,7 @@ class Group_Characteristic(fhirbase):
         # reference to Range
 
         self.exclude = None
-        # type: boolean
+        # type: bool
 
         self.period = None
         # reference to Period
@@ -215,7 +215,7 @@ class Group_Member(fhirbase):
         # reference to Period
 
         self.inactive = None
-        # type: boolean
+        # type: bool
 
         self.object_id = None
         # unique identifier for object class

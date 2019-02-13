@@ -180,7 +180,7 @@ class AuditEvent_Agent(fhirbase):
         # type: str
 
         self.requestor = None
-        # type: boolean
+        # type: bool
 
         self.location = None
         # reference to Reference: identifier

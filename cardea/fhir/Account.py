@@ -204,7 +204,7 @@ class Account_Guarantor(fhirbase):
         # reference to Reference: identifier
 
         self.onHold = None
-        # type: boolean
+        # type: bool
 
         self.period = None
         # reference to Period

@@ -33,7 +33,7 @@ class Organization(fhirbase):
         # possible values: Organization
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.type = None
         # type: array

@@ -98,7 +98,7 @@ class ExpansionProfile(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -129,31 +129,31 @@ class ExpansionProfile(fhirbase):
         # reference to ExpansionProfile_ExcludedSystem
 
         self.includeDesignations = None
-        # type: boolean
+        # type: bool
 
         self.designation = None
         # reference to ExpansionProfile_Designation
 
         self.includeDefinition = None
-        # type: boolean
+        # type: bool
 
         self.activeOnly = None
-        # type: boolean
+        # type: bool
 
         self.excludeNested = None
-        # type: boolean
+        # type: bool
 
         self.excludeNotForUI = None
-        # type: boolean
+        # type: bool
 
         self.excludePostCoordinated = None
-        # type: boolean
+        # type: bool
 
         self.displayLanguage = None
         # type: str
 
         self.limitedExpansion = None
-        # type: boolean
+        # type: bool
 
         self.identifier = None
         # reference to Identifier

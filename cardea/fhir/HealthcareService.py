@@ -63,7 +63,7 @@ class HealthcareService(fhirbase):
         # possible values: HealthcareService
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.providedBy = None
         # reference to Reference: identifier
@@ -125,7 +125,7 @@ class HealthcareService(fhirbase):
         # reference to CodeableConcept
 
         self.appointmentRequired = None
-        # type: boolean
+        # type: bool
 
         self.availableTime = None
         # type: array
@@ -258,7 +258,7 @@ class HealthcareService_AvailableTime(fhirbase):
         # possible values: mon, tue, wed, thu, fri, sat, sun
 
         self.allDay = None
-        # type: boolean
+        # type: bool
 
         self.availableStartTime = None
         # type: str

@@ -252,7 +252,7 @@ class QuestionnaireResponse_Answer(fhirbase):
 
     def __init__(self, dict_values=None):
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueDecimal = None
         # type: int

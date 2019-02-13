@@ -39,7 +39,7 @@ class Schedule(fhirbase):
         # possible values: Schedule
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.serviceCategory = None
         # reference to CodeableConcept

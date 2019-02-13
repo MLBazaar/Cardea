@@ -99,7 +99,7 @@ class Questionnaire(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -309,13 +309,13 @@ class Questionnaire_Item(fhirbase):
         # reference to Questionnaire_EnableWhen
 
         self.required = None
-        # type: boolean
+        # type: bool
 
         self.repeats = None
-        # type: boolean
+        # type: bool
 
         self.readOnly = None
-        # type: boolean
+        # type: bool
 
         self.maxLength = None
         # type: int
@@ -328,7 +328,7 @@ class Questionnaire_Item(fhirbase):
         # reference to Questionnaire_Option
 
         self.initialBoolean = None
-        # type: boolean
+        # type: bool
 
         self.initialDecimal = None
         # type: int
@@ -483,10 +483,10 @@ class Questionnaire_EnableWhen(fhirbase):
         # type: str
 
         self.hasAnswer = None
-        # type: boolean
+        # type: bool
 
         self.answerBoolean = None
-        # type: boolean
+        # type: bool
 
         self.answerDecimal = None
         # type: int

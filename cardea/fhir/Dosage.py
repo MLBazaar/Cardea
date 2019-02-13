@@ -57,7 +57,7 @@ class Dosage(fhirbase):
         # reference to Timing
 
         self.asNeededBoolean = None
-        # type: boolean
+        # type: bool
 
         self.asNeededCodeableConcept = None
         # reference to CodeableConcept

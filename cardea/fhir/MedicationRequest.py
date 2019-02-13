@@ -459,7 +459,7 @@ class MedicationRequest_Substitution(fhirbase):
 
     def __init__(self, dict_values=None):
         self.allowed = None
-        # type: boolean
+        # type: bool
 
         self.reason = None
         # reference to CodeableConcept

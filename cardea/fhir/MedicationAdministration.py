@@ -122,7 +122,7 @@ class MedicationAdministration(fhirbase):
         # reference to MedicationAdministration_Performer
 
         self.notGiven = None
-        # type: boolean
+        # type: bool
 
         self.reasonNotGiven = None
         # type: array

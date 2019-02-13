@@ -113,7 +113,7 @@ class ProcedureRequest(fhirbase):
         # type: str
 
         self.doNotPerform = None
-        # type: boolean
+        # type: bool
 
         self.category = None
         # type: array
@@ -138,7 +138,7 @@ class ProcedureRequest(fhirbase):
         # reference to Timing
 
         self.asNeededBoolean = None
-        # type: boolean
+        # type: bool
 
         self.asNeededCodeableConcept = None
         # reference to CodeableConcept

@@ -91,7 +91,7 @@ class ImplementationGuide(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -308,7 +308,7 @@ class ImplementationGuide_Resource(fhirbase):
 
     def __init__(self, dict_values=None):
         self.example = None
-        # type: boolean
+        # type: bool
 
         self.name = None
         # type: str

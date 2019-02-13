@@ -124,7 +124,7 @@ class CapabilityStatement(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -468,7 +468,7 @@ class CapabilityStatement_Security(fhirbase):
 
     def __init__(self, dict_values=None):
         self.cors = None
-        # type: boolean
+        # type: bool
 
         self.service = None
         # type: array
@@ -599,13 +599,13 @@ class CapabilityStatement_Resource(fhirbase):
         # possible values: no-version, versioned, versioned-update
 
         self.readHistory = None
-        # type: boolean
+        # type: bool
 
         self.updateCreate = None
-        # type: boolean
+        # type: bool
 
         self.conditionalCreate = None
-        # type: boolean
+        # type: bool
 
         self.conditionalRead = None
         # type: str
@@ -613,7 +613,7 @@ class CapabilityStatement_Resource(fhirbase):
         # full-support
 
         self.conditionalUpdate = None
-        # type: boolean
+        # type: bool
 
         self.conditionalDelete = None
         # type: str

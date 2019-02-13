@@ -103,7 +103,7 @@ class CodeSystem(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -133,7 +133,7 @@ class CodeSystem(fhirbase):
         # type: str
 
         self.caseSensitive = None
-        # type: boolean
+        # type: bool
 
         self.valueSet = None
         # type: str
@@ -143,10 +143,10 @@ class CodeSystem(fhirbase):
         # possible values: grouped-by, is-a, part-of, classified-with
 
         self.compositional = None
-        # type: boolean
+        # type: bool
 
         self.versionNeeded = None
-        # type: boolean
+        # type: bool
 
         self.content = None
         # type: str
@@ -471,7 +471,7 @@ class CodeSystem_Property1(fhirbase):
         # type: int
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueDateTime = None
         # type: str

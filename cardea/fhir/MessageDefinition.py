@@ -98,7 +98,7 @@ class MessageDefinition(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -149,7 +149,7 @@ class MessageDefinition(fhirbase):
         # reference to MessageDefinition_Focus
 
         self.responseRequired = None
-        # type: boolean
+        # type: bool
 
         self.allowedResponse = None
         # type: array

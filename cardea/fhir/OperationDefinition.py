@@ -100,7 +100,7 @@ class OperationDefinition(fhirbase):
         # possible values: operation, query
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -127,7 +127,7 @@ class OperationDefinition(fhirbase):
         # type: str
 
         self.idempotent = None
-        # type: boolean
+        # type: bool
 
         self.code = None
         # type: str
@@ -142,13 +142,13 @@ class OperationDefinition(fhirbase):
         # type: array
 
         self.system = None
-        # type: boolean
+        # type: bool
 
         self.type = None
-        # type: boolean
+        # type: bool
 
         self.instance = None
-        # type: boolean
+        # type: bool
 
         self.parameter = None
         # type: array

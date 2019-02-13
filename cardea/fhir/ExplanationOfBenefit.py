@@ -652,7 +652,7 @@ class ExplanationOfBenefit_CareTeam(fhirbase):
         # reference to Reference: identifier
 
         self.responsible = None
-        # type: boolean
+        # type: bool
 
         self.role = None
         # reference to CodeableConcept
@@ -1867,7 +1867,7 @@ class ExplanationOfBenefit_BenefitBalance(fhirbase):
         # reference to CodeableConcept
 
         self.excluded = None
-        # type: boolean
+        # type: bool
 
         self.name = None
         # type: str

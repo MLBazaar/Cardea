@@ -56,7 +56,7 @@ class Person(fhirbase):
         # reference to Reference: identifier
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.link = None
         # type: array

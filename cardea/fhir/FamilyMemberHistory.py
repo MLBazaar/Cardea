@@ -83,7 +83,7 @@ class FamilyMemberHistory(fhirbase):
         # health-unknown
 
         self.notDone = None
-        # type: boolean
+        # type: bool
 
         self.notDoneReason = None
         # reference to CodeableConcept
@@ -123,10 +123,10 @@ class FamilyMemberHistory(fhirbase):
         # type: str
 
         self.estimatedAge = None
-        # type: boolean
+        # type: bool
 
         self.deceasedBoolean = None
-        # type: boolean
+        # type: bool
 
         self.deceasedAge = None
         # reference to Age

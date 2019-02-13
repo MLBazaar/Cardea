@@ -115,7 +115,7 @@ class Library(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.type = None
         # reference to CodeableConcept

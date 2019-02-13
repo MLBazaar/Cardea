@@ -118,7 +118,7 @@ class StructureDefinition(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -164,7 +164,7 @@ class StructureDefinition(fhirbase):
         # logical
 
         self.abstract = None
-        # type: boolean
+        # type: bool
 
         self.contextType = None
         # type: str

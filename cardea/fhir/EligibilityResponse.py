@@ -62,7 +62,7 @@ class EligibilityResponse(fhirbase):
         # reference to Reference: identifier
 
         self.inforce = None
-        # type: boolean
+        # type: bool
 
         self.insurance = None
         # type: array
@@ -218,7 +218,7 @@ class EligibilityResponse_BenefitBalance(fhirbase):
         # reference to CodeableConcept
 
         self.excluded = None
-        # type: boolean
+        # type: bool
 
         self.name = None
         # type: str

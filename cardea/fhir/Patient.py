@@ -46,7 +46,7 @@ class Patient(fhirbase):
         # possible values: Patient
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.name = None
         # type: array
@@ -64,7 +64,7 @@ class Patient(fhirbase):
         # type: str
 
         self.deceasedBoolean = None
-        # type: boolean
+        # type: bool
 
         self.deceasedDateTime = None
         # type: str
@@ -77,7 +77,7 @@ class Patient(fhirbase):
         # reference to CodeableConcept
 
         self.multipleBirthBoolean = None
-        # type: boolean
+        # type: bool
 
         self.multipleBirthInteger = None
         # type: int
@@ -360,7 +360,7 @@ class Patient_Communication(fhirbase):
         # reference to CodeableConcept
 
         self.preferred = None
-        # type: boolean
+        # type: bool
 
         self.object_id = None
         # unique identifier for object class

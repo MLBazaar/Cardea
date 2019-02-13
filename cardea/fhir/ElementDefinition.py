@@ -937,7 +937,7 @@ class ElementDefinition(fhirbase):
         # reference to ElementDefinition_Type
 
         self.defaultValueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.defaultValueInteger = None
         # type: int
@@ -1102,7 +1102,7 @@ class ElementDefinition(fhirbase):
         # type: str
 
         self.fixedBoolean = None
-        # type: boolean
+        # type: bool
 
         self.fixedInteger = None
         # type: int
@@ -1261,7 +1261,7 @@ class ElementDefinition(fhirbase):
         # reference to TriggerDefinition
 
         self.patternBoolean = None
-        # type: boolean
+        # type: bool
 
         self.patternInteger = None
         # type: int
@@ -1488,13 +1488,13 @@ class ElementDefinition(fhirbase):
         # reference to ElementDefinition_Constraint
 
         self.mustSupport = None
-        # type: boolean
+        # type: bool
 
         self.isModifier = None
-        # type: boolean
+        # type: bool
 
         self.isSummary = None
-        # type: boolean
+        # type: bool
 
         self.binding = None
         # reference to ElementDefinition_Binding
@@ -2148,7 +2148,7 @@ class ElementDefinition_Slicing(fhirbase):
         # type: str
 
         self.ordered = None
-        # type: boolean
+        # type: bool
 
         self.rules = None
         # type: str
@@ -2451,7 +2451,7 @@ class ElementDefinition_Example(fhirbase):
         # type: str
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueInteger = None
         # type: int

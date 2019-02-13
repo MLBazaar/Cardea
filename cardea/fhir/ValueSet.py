@@ -93,7 +93,7 @@ class ValueSet(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -117,7 +117,7 @@ class ValueSet(fhirbase):
         # reference to CodeableConcept
 
         self.immutable = None
-        # type: boolean
+        # type: bool
 
         self.purpose = None
         # type: str
@@ -126,7 +126,7 @@ class ValueSet(fhirbase):
         # type: str
 
         self.extensible = None
-        # type: boolean
+        # type: bool
 
         self.compose = None
         # reference to ValueSet_Compose
@@ -216,7 +216,7 @@ class ValueSet_Compose(fhirbase):
         # type: str
 
         self.inactive = None
-        # type: boolean
+        # type: bool
 
         self.include = None
         # type: array
@@ -529,7 +529,7 @@ class ValueSet_Parameter(fhirbase):
         # type: str
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueInteger = None
         # type: int
@@ -586,10 +586,10 @@ class ValueSet_Contains(fhirbase):
         # type: str
 
         self.abstract = None
-        # type: boolean
+        # type: bool
 
         self.inactive = None
-        # type: boolean
+        # type: bool
 
         self.version = None
         # type: str

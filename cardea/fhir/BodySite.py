@@ -29,7 +29,7 @@ class BodySite(fhirbase):
         # possible values: BodySite
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.code = None
         # reference to CodeableConcept

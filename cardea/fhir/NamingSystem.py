@@ -190,7 +190,7 @@ class NamingSystem_UniqueId(fhirbase):
         # type: str
 
         self.preferred = None
-        # type: boolean
+        # type: bool
 
         self.comment = None
         # type: str

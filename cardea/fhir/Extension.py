@@ -176,7 +176,7 @@ class Extension(fhirbase):
         # type: str
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueInteger = None
         # type: int

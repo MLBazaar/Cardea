@@ -142,7 +142,7 @@ class Observation(fhirbase):
         # type: str
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueRange = None
         # reference to Range

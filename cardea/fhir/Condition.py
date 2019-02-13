@@ -131,7 +131,7 @@ class Condition(fhirbase):
         # reference to Age
 
         self.abatementBoolean = None
-        # type: boolean
+        # type: bool
 
         self.abatementPeriod = None
         # reference to Period

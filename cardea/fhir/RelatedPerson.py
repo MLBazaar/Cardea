@@ -34,7 +34,7 @@ class RelatedPerson(fhirbase):
         # possible values: RelatedPerson
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.patient = None
         # reference to Reference: identifier

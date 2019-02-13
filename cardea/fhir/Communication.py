@@ -75,7 +75,7 @@ class Communication(fhirbase):
         # type: str
 
         self.notDone = None
-        # type: boolean
+        # type: bool
 
         self.notDoneReason = None
         # reference to CodeableConcept

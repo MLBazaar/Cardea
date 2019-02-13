@@ -171,7 +171,7 @@ class List_Entry(fhirbase):
         # reference to CodeableConcept
 
         self.deleted = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str

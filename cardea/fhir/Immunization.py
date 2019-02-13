@@ -54,7 +54,7 @@ class Immunization(fhirbase):
         # type: str
 
         self.notGiven = None
-        # type: boolean
+        # type: bool
 
         self.vaccineCode = None
         # reference to CodeableConcept
@@ -69,7 +69,7 @@ class Immunization(fhirbase):
         # type: str
 
         self.primarySource = None
-        # type: boolean
+        # type: bool
 
         self.reportOrigin = None
         # reference to CodeableConcept
@@ -312,7 +312,7 @@ class Immunization_Reaction(fhirbase):
         # reference to Reference: identifier
 
         self.reported = None
-        # type: boolean
+        # type: bool
 
         self.object_id = None
         # unique identifier for object class

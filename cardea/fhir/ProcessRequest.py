@@ -66,7 +66,7 @@ class ProcessRequest(fhirbase):
         # reference to Reference: identifier
 
         self.nullify = None
-        # type: boolean
+        # type: bool
 
         self.reference = None
         # type: str

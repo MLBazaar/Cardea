@@ -72,7 +72,7 @@ class CompartmentDefinition(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -104,7 +104,7 @@ class CompartmentDefinition(fhirbase):
         # Practitioner, Device
 
         self.search = None
-        # type: boolean
+        # type: bool
 
         self.resource = None
         # type: array

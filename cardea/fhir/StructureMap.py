@@ -89,7 +89,7 @@ class StructureMap(fhirbase):
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
         # type: str
@@ -561,7 +561,7 @@ class StructureMap_Source(fhirbase):
         # type: str
 
         self.defaultValueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.defaultValueInteger = None
         # type: int
@@ -1076,7 +1076,7 @@ class StructureMap_Parameter(fhirbase):
         # type: str
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueInteger = None
         # type: int

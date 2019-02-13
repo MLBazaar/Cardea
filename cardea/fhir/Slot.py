@@ -67,7 +67,7 @@ class Slot(fhirbase):
         # type: str
 
         self.overbooked = None
-        # type: boolean
+        # type: bool
 
         self.comment = None
         # type: str
