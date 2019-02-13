@@ -82,7 +82,7 @@ class Coverage(fhirbase):
         # reference to Period
 
         self.payor = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.grouping = None
@@ -101,11 +101,11 @@ class Coverage(fhirbase):
         # type: str
 
         self.contract = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

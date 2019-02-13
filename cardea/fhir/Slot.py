@@ -42,11 +42,11 @@ class Slot(fhirbase):
         # reference to CodeableConcept
 
         self.serviceType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.specialty = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.appointmentType = None
@@ -73,7 +73,7 @@ class Slot(fhirbase):
         # type: str
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

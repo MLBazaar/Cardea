@@ -64,7 +64,7 @@ class PaymentReconciliation(fhirbase):
         # reference to Reference: identifier
 
         self.detail = None
-        # type: array
+        # type: list
         # reference to PaymentReconciliation_Detail
 
         self.form = None
@@ -74,11 +74,11 @@ class PaymentReconciliation(fhirbase):
         # reference to Money
 
         self.processNote = None
-        # type: array
+        # type: list
         # reference to PaymentReconciliation_ProcessNote
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

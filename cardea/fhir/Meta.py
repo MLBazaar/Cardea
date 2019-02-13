@@ -34,14 +34,14 @@ class Meta(fhirbase):
         # type: str
 
         self.profile = None
-        # type: array
+        # type: list
 
         self.security = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.tag = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.object_id = None

@@ -36,11 +36,11 @@ class Bundle(fhirbase):
         # type: int
 
         self.link = None
-        # type: array
+        # type: list
         # reference to Bundle_Link
 
         self.entry = None
-        # type: array
+        # type: list
         # reference to Bundle_Entry
 
         self.signature = None
@@ -141,7 +141,7 @@ class Bundle_Entry(fhirbase):
 
     def __init__(self, dict_values=None):
         self.link = None
-        # type: array
+        # type: list
         # reference to Bundle_Link
 
         self.fullUrl = None

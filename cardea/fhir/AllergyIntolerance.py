@@ -76,7 +76,7 @@ class AllergyIntolerance(fhirbase):
         # possible values: allergy, intolerance
 
         self.category = None
-        # type: array
+        # type: list
         # possible values: food, medication, environment, biologic
 
         self.criticality = None
@@ -117,15 +117,15 @@ class AllergyIntolerance(fhirbase):
         # type: str
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.reaction = None
-        # type: array
+        # type: list
         # reference to AllergyIntolerance_Reaction
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -258,7 +258,7 @@ class AllergyIntolerance_Reaction(fhirbase):
         # reference to CodeableConcept
 
         self.manifestation = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.description = None
@@ -275,7 +275,7 @@ class AllergyIntolerance_Reaction(fhirbase):
         # reference to CodeableConcept
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.object_id = None

@@ -41,7 +41,7 @@ class Subscription(fhirbase):
         # possible values: requested, active, error, off
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.end = None
@@ -60,7 +60,7 @@ class Subscription(fhirbase):
         # reference to Subscription_Channel
 
         self.tag = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.object_id = None
@@ -134,7 +134,7 @@ class Subscription_Channel(fhirbase):
         # type: str
 
         self.header = None
-        # type: array
+        # type: list
 
         self.object_id = None
         # unique identifier for object class

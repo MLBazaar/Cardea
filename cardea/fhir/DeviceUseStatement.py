@@ -66,18 +66,18 @@ class DeviceUseStatement(fhirbase):
         # reference to Reference: identifier
 
         self.indication = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.bodySite = None
         # reference to CodeableConcept
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

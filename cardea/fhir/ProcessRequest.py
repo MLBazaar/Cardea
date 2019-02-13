@@ -72,20 +72,20 @@ class ProcessRequest(fhirbase):
         # type: str
 
         self.item = None
-        # type: array
+        # type: list
         # reference to ProcessRequest_Item
 
         self.include = None
-        # type: array
+        # type: list
 
         self.exclude = None
-        # type: array
+        # type: list
 
         self.period = None
         # reference to Period
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

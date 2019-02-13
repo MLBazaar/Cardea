@@ -37,13 +37,13 @@ class HumanName(fhirbase):
         # type: str
 
         self.given = None
-        # type: array
+        # type: list
 
         self.prefix = None
-        # type: array
+        # type: list
 
         self.suffix = None
-        # type: array
+        # type: list
 
         self.period = None
         # reference to Period

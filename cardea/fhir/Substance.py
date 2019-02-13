@@ -31,7 +31,7 @@ class Substance(fhirbase):
         # possible values: active, inactive, entered-in-error
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.code = None
@@ -41,15 +41,15 @@ class Substance(fhirbase):
         # type: str
 
         self.instance = None
-        # type: array
+        # type: list
         # reference to Substance_Instance: identifier
 
         self.ingredient = None
-        # type: array
+        # type: list
         # reference to Substance_Ingredient
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

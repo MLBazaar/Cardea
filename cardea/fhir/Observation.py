@@ -98,7 +98,7 @@ class Observation(fhirbase):
         # possible values: Observation
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
@@ -107,7 +107,7 @@ class Observation(fhirbase):
         # corrected, cancelled, entered-in-error, unknown
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.code = None
@@ -129,7 +129,7 @@ class Observation(fhirbase):
         # type: str
 
         self.performer = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.valueQuantity = None
@@ -187,19 +187,19 @@ class Observation(fhirbase):
         # reference to Reference: identifier
 
         self.referenceRange = None
-        # type: array
+        # type: list
         # reference to Observation_ReferenceRange
 
         self.related = None
-        # type: array
+        # type: list
         # reference to Observation_Related
 
         self.component = None
-        # type: array
+        # type: list
         # reference to Observation_Component
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -383,7 +383,7 @@ class Observation_ReferenceRange(fhirbase):
         # reference to CodeableConcept
 
         self.appliesTo = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.age = None
@@ -561,7 +561,7 @@ class Observation_Component(fhirbase):
         # reference to CodeableConcept
 
         self.referenceRange = None
-        # type: array
+        # type: list
         # reference to Observation_ReferenceRange
 
         self.object_id = None

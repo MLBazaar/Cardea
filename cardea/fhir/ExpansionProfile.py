@@ -107,22 +107,22 @@ class ExpansionProfile(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.fixedVersion = None
-        # type: array
+        # type: list
         # reference to ExpansionProfile_FixedVersion
 
         self.excludedSystem = None
@@ -331,7 +331,7 @@ class ExpansionProfile_Include(fhirbase):
 
     def __init__(self, dict_values=None):
         self.designation = None
-        # type: array
+        # type: list
         # reference to ExpansionProfile_Designation1
 
         self.object_id = None
@@ -396,7 +396,7 @@ class ExpansionProfile_Exclude(fhirbase):
 
     def __init__(self, dict_values=None):
         self.designation = None
-        # type: array
+        # type: list
         # reference to ExpansionProfile_Designation2
 
         self.object_id = None

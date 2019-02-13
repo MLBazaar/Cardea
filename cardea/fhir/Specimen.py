@@ -58,30 +58,30 @@ class Specimen(fhirbase):
         # type: str
 
         self.parent = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.request = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.collection = None
         # reference to Specimen_Collection
 
         self.processing = None
-        # type: array
+        # type: list
         # reference to Specimen_Processing
 
         self.container = None
-        # type: array
+        # type: list
         # reference to Specimen_Container: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -256,7 +256,7 @@ class Specimen_Processing(fhirbase):
         # reference to CodeableConcept
 
         self.additive = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.timeDateTime = None
@@ -335,7 +335,7 @@ class Specimen_Container(fhirbase):
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

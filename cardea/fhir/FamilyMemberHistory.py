@@ -74,7 +74,7 @@ class FamilyMemberHistory(fhirbase):
         # possible values: FamilyMemberHistory
 
         self.definition = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
@@ -141,23 +141,23 @@ class FamilyMemberHistory(fhirbase):
         # type: str
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.condition = None
-        # type: array
+        # type: list
         # reference to FamilyMemberHistory_Condition
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -306,7 +306,7 @@ class FamilyMemberHistory_Condition(fhirbase):
         # type: str
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.object_id = None

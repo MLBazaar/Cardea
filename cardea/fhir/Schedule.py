@@ -45,15 +45,15 @@ class Schedule(fhirbase):
         # reference to CodeableConcept
 
         self.serviceType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.specialty = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.actor = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.planningHorizon = None
@@ -63,7 +63,7 @@ class Schedule(fhirbase):
         # type: str
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

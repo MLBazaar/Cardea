@@ -98,18 +98,18 @@ class StructureMap(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
@@ -119,18 +119,18 @@ class StructureMap(fhirbase):
         # type: str
 
         self.structure = None
-        # type: array
+        # type: list
         # reference to StructureMap_Structure
 
         self._import = None
-        # type: array
+        # type: list
 
         self.group = None
-        # type: array
+        # type: list
         # reference to StructureMap_Group
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -262,11 +262,11 @@ class StructureMap_Group(fhirbase):
         # type: str
 
         self.input = None
-        # type: array
+        # type: list
         # reference to StructureMap_Input
 
         self.rule = None
-        # type: array
+        # type: list
         # reference to StructureMap_Rule
 
         self.object_id = None
@@ -366,19 +366,19 @@ class StructureMap_Rule(fhirbase):
         # type: str
 
         self.source = None
-        # type: array
+        # type: list
         # reference to StructureMap_Source
 
         self.target = None
-        # type: array
+        # type: list
         # reference to StructureMap_Target
 
         self.rule = None
-        # type: array
+        # type: list
         # reference to StructureMap_Rule
 
         self.dependent = None
-        # type: array
+        # type: list
         # reference to StructureMap_Dependent
 
         self.documentation = None
@@ -970,7 +970,7 @@ class StructureMap_Target(fhirbase):
         # type: str
 
         self.listMode = None
-        # type: array
+        # type: list
         # possible values: first, share, last, collate
 
         self.listRuleId = None
@@ -983,7 +983,7 @@ class StructureMap_Target(fhirbase):
         # qty, id, cp
 
         self.parameter = None
-        # type: array
+        # type: list
         # reference to StructureMap_Parameter
 
         self.object_id = None
@@ -1108,7 +1108,7 @@ class StructureMap_Dependent(fhirbase):
         # type: str
 
         self.variable = None
-        # type: array
+        # type: list
 
         self.object_id = None
         # unique identifier for object class

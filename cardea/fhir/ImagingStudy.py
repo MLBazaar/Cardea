@@ -71,7 +71,7 @@ class ImagingStudy(fhirbase):
         # possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
 
         self.modalityList = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.patient = None
@@ -84,18 +84,18 @@ class ImagingStudy(fhirbase):
         # type: str
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.referrer = None
         # reference to Reference: identifier
 
         self.interpreter = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.numberOfSeries = None
@@ -105,11 +105,11 @@ class ImagingStudy(fhirbase):
         # type: int
 
         self.procedureReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.procedureCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reason = None
@@ -119,11 +119,11 @@ class ImagingStudy(fhirbase):
         # type: str
 
         self.series = None
-        # type: array
+        # type: list
         # reference to ImagingStudy_Series
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -274,7 +274,7 @@ class ImagingStudy_Series(fhirbase):
         # possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
 
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.bodySite = None
@@ -287,11 +287,11 @@ class ImagingStudy_Series(fhirbase):
         # type: str
 
         self.performer = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.instance = None
-        # type: array
+        # type: list
         # reference to ImagingStudy_Instance
 
         self.object_id = None

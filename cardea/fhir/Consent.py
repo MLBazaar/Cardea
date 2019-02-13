@@ -71,7 +71,7 @@ class Consent(fhirbase):
         # inactive, entered-in-error
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.patient = None
@@ -84,19 +84,19 @@ class Consent(fhirbase):
         # type: str
 
         self.consentingParty = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.actor = None
-        # type: array
+        # type: list
         # reference to Consent_Actor
 
         self.action = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.organization = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.sourceAttachment = None
@@ -109,29 +109,29 @@ class Consent(fhirbase):
         # reference to Reference: identifier
 
         self.policy = None
-        # type: array
+        # type: list
         # reference to Consent_Policy
 
         self.policyRule = None
         # type: str
 
         self.securityLabel = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.purpose = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.dataPeriod = None
         # reference to Period
 
         self.data = None
-        # type: array
+        # type: list
         # reference to Consent_Data
 
         self._except = None
-        # type: array
+        # type: list
         # reference to Consent_Except
 
         self.identifier = None
@@ -411,34 +411,34 @@ class Consent_Except(fhirbase):
         # reference to Period
 
         self.actor = None
-        # type: array
+        # type: list
         # reference to Consent_Actor1
 
         self.action = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.securityLabel = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.purpose = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self._class = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.code = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.dataPeriod = None
         # reference to Period
 
         self.data = None
-        # type: array
+        # type: list
         # reference to Consent_Data1
 
         self.object_id = None

@@ -46,7 +46,7 @@ class Address(fhirbase):
         # type: str
 
         self.line = None
-        # type: array
+        # type: list
 
         self.city = None
         # type: str

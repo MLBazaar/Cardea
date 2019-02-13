@@ -56,11 +56,11 @@ class VisionPrescription(fhirbase):
         # reference to Reference: identifier
 
         self.dispense = None
-        # type: array
+        # type: list
         # reference to VisionPrescription_Dispense
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -183,7 +183,7 @@ class VisionPrescription_Dispense(fhirbase):
         # type: str
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.object_id = None

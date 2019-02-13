@@ -45,11 +45,11 @@ class QuestionnaireResponse(fhirbase):
         # possible values: QuestionnaireResponse
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.parent = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.questionnaire = None
@@ -76,7 +76,7 @@ class QuestionnaireResponse(fhirbase):
         # reference to Reference: identifier
 
         self.item = None
-        # type: array
+        # type: list
         # reference to QuestionnaireResponse_Item
 
         self.identifier = None
@@ -180,11 +180,11 @@ class QuestionnaireResponse_Item(fhirbase):
         # reference to Reference: identifier
 
         self.answer = None
-        # type: array
+        # type: list
         # reference to QuestionnaireResponse_Answer
 
         self.item = None
-        # type: array
+        # type: list
         # reference to QuestionnaireResponse_Item
 
         self.object_id = None
@@ -288,7 +288,7 @@ class QuestionnaireResponse_Answer(fhirbase):
         # reference to Reference: identifier
 
         self.item = None
-        # type: array
+        # type: list
         # reference to QuestionnaireResponse_Item
 
         self.object_id = None

@@ -70,15 +70,15 @@ class DeviceRequest(fhirbase):
         # possible values: DeviceRequest
 
         self.definition = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.priorRequest = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.groupIdentifier = None
@@ -127,27 +127,27 @@ class DeviceRequest(fhirbase):
         # reference to Reference: identifier
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.supportingInfo = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.relevantHistory = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

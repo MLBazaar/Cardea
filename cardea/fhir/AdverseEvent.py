@@ -65,7 +65,7 @@ class AdverseEvent(fhirbase):
         # type: str
 
         self.reaction = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.location = None
@@ -87,19 +87,19 @@ class AdverseEvent(fhirbase):
         # type: str
 
         self.suspectEntity = None
-        # type: array
+        # type: list
         # reference to AdverseEvent_SuspectEntity
 
         self.subjectMedicalHistory = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.referenceDocument = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.study = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None

@@ -100,11 +100,11 @@ class GuidanceResponse(fhirbase):
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.evaluationMessage = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.outputParameters = None
@@ -114,7 +114,7 @@ class GuidanceResponse(fhirbase):
         # reference to Reference: identifier
 
         self.dataRequirement = None
-        # type: array
+        # type: list
         # reference to DataRequirement
 
         self.identifier = None

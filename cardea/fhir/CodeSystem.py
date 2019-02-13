@@ -112,18 +112,18 @@ class CodeSystem(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
@@ -156,15 +156,15 @@ class CodeSystem(fhirbase):
         # type: int
 
         self.filter = None
-        # type: array
+        # type: list
         # reference to CodeSystem_Filter
 
         self.property = None
-        # type: array
+        # type: list
         # reference to CodeSystem_Property
 
         self.concept = None
-        # type: array
+        # type: list
         # reference to CodeSystem_Concept
 
         self.identifier = None
@@ -260,7 +260,7 @@ class CodeSystem_Filter(fhirbase):
         # type: str
 
         self.operator = None
-        # type: array
+        # type: list
 
         self.value = None
         # type: str
@@ -361,15 +361,15 @@ class CodeSystem_Concept(fhirbase):
         # type: str
 
         self.designation = None
-        # type: array
+        # type: list
         # reference to CodeSystem_Designation
 
         self.property = None
-        # type: array
+        # type: list
         # reference to CodeSystem_Property1
 
         self.concept = None
-        # type: array
+        # type: list
         # reference to CodeSystem_Concept
 
         self.object_id = None

@@ -84,11 +84,11 @@ class RiskAssessment(fhirbase):
         # reference to Reference: identifier
 
         self.basis = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.prediction = None
-        # type: array
+        # type: list
         # reference to RiskAssessment_Prediction
 
         self.mitigation = None

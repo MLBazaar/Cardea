@@ -35,21 +35,21 @@ class BodySite(fhirbase):
         # reference to CodeableConcept
 
         self.qualifier = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.description = None
         # type: str
 
         self.image = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.patient = None
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

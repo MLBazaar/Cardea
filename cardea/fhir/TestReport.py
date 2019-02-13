@@ -64,14 +64,14 @@ class TestReport(fhirbase):
         # type: str
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to TestReport_Participant
 
         self.setup = None
         # reference to TestReport_Setup
 
         self.test = None
-        # type: array
+        # type: list
         # reference to TestReport_Test
 
         self.teardown = None
@@ -189,7 +189,7 @@ class TestReport_Setup(fhirbase):
 
     def __init__(self, dict_values=None):
         self.action = None
-        # type: array
+        # type: list
         # reference to TestReport_Action
 
         self.object_id = None
@@ -354,7 +354,7 @@ class TestReport_Test(fhirbase):
         # type: str
 
         self.action = None
-        # type: array
+        # type: list
         # reference to TestReport_Action1
 
         self.object_id = None
@@ -427,7 +427,7 @@ class TestReport_Teardown(fhirbase):
 
     def __init__(self, dict_values=None):
         self.action = None
-        # type: array
+        # type: list
         # reference to TestReport_Action2
 
         self.object_id = None

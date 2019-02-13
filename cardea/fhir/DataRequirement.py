@@ -34,17 +34,17 @@ class DataRequirement(fhirbase):
         # type: str
 
         self.profile = None
-        # type: array
+        # type: list
 
         self.mustSupport = None
-        # type: array
+        # type: list
 
         self.codeFilter = None
-        # type: array
+        # type: list
         # reference to DataRequirement_CodeFilter
 
         self.dateFilter = None
-        # type: array
+        # type: list
         # reference to DataRequirement_DateFilter
 
         self.object_id = None
@@ -120,14 +120,14 @@ class DataRequirement_CodeFilter(fhirbase):
         # reference to Reference: identifier
 
         self.valueCode = None
-        # type: array
+        # type: list
 
         self.valueCoding = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.valueCodeableConcept = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.object_id = None

@@ -89,15 +89,15 @@ class ProcedureRequest(fhirbase):
         # possible values: ProcedureRequest
 
         self.definition = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.replaces = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.requisition = None
@@ -116,7 +116,7 @@ class ProcedureRequest(fhirbase):
         # type: bool
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.code = None
@@ -156,35 +156,35 @@ class ProcedureRequest(fhirbase):
         # reference to Reference: identifier
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.supportingInfo = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.specimen = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.bodySite = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.relevantHistory = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

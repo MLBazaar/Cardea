@@ -90,11 +90,11 @@ class MedicationRequest(fhirbase):
         # possible values: MedicationRequest
 
         self.definition = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.groupIdentifier = None
@@ -129,7 +129,7 @@ class MedicationRequest(fhirbase):
         # reference to Reference: identifier
 
         self.supportingInformation = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.authoredOn = None
@@ -142,19 +142,19 @@ class MedicationRequest(fhirbase):
         # reference to Reference: identifier
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.dosageInstruction = None
-        # type: array
+        # type: list
         # reference to Dosage
 
         self.dispenseRequest = None
@@ -167,15 +167,15 @@ class MedicationRequest(fhirbase):
         # reference to Reference: identifier
 
         self.detectedIssue = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.eventHistory = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

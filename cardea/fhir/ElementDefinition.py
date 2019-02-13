@@ -889,7 +889,7 @@ class ElementDefinition(fhirbase):
         # type: str
 
         self.representation = None
-        # type: array
+        # type: list
         # possible values: xmlAttr, xmlText, typeAttr, cdaText, xhtml
 
         self.sliceName = None
@@ -899,7 +899,7 @@ class ElementDefinition(fhirbase):
         # type: str
 
         self.code = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.slicing = None
@@ -918,7 +918,7 @@ class ElementDefinition(fhirbase):
         # type: str
 
         self.alias = None
-        # type: array
+        # type: list
 
         self.min = None
         # type: int
@@ -933,7 +933,7 @@ class ElementDefinition(fhirbase):
         # type: str
 
         self.type = None
-        # type: array
+        # type: list
         # reference to ElementDefinition_Type
 
         self.defaultValueBoolean = None
@@ -1420,7 +1420,7 @@ class ElementDefinition(fhirbase):
         # reference to TriggerDefinition
 
         self.example = None
-        # type: array
+        # type: list
         # reference to ElementDefinition_Example
 
         self.minValueDate = None
@@ -1481,10 +1481,10 @@ class ElementDefinition(fhirbase):
         # type: int
 
         self.condition = None
-        # type: array
+        # type: list
 
         self.constraint = None
-        # type: array
+        # type: list
         # reference to ElementDefinition_Constraint
 
         self.mustSupport = None
@@ -1500,7 +1500,7 @@ class ElementDefinition(fhirbase):
         # reference to ElementDefinition_Binding
 
         self.mapping = None
-        # type: array
+        # type: list
         # reference to ElementDefinition_Mapping
 
         self.object_id = None
@@ -2141,7 +2141,7 @@ class ElementDefinition_Slicing(fhirbase):
 
     def __init__(self, dict_values=None):
         self.discriminator = None
-        # type: array
+        # type: list
         # reference to ElementDefinition_Discriminator
 
         self.description = None
@@ -2297,7 +2297,7 @@ class ElementDefinition_Type(fhirbase):
         # type: str
 
         self.aggregation = None
-        # type: array
+        # type: list
         # possible values: contained, referenced, bundled
 
         self.versioning = None

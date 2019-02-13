@@ -104,18 +104,18 @@ class ConceptMap(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
@@ -137,7 +137,7 @@ class ConceptMap(fhirbase):
         # reference to Reference: identifier
 
         self.group = None
-        # type: array
+        # type: list
         # reference to ConceptMap_Group
 
         self.identifier = None
@@ -233,7 +233,7 @@ class ConceptMap_Group(fhirbase):
         # type: str
 
         self.element = None
-        # type: array
+        # type: list
         # reference to ConceptMap_Element
 
         self.unmapped = None
@@ -283,7 +283,7 @@ class ConceptMap_Element(fhirbase):
         # type: str
 
         self.target = None
-        # type: array
+        # type: list
         # reference to ConceptMap_Target
 
         self.object_id = None
@@ -346,11 +346,11 @@ class ConceptMap_Target(fhirbase):
         # type: str
 
         self.dependsOn = None
-        # type: array
+        # type: list
         # reference to ConceptMap_DependsOn
 
         self.product = None
-        # type: array
+        # type: list
         # reference to ConceptMap_DependsOn
 
         self.object_id = None

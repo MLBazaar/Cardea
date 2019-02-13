@@ -44,7 +44,7 @@ class CareTeam(fhirbase):
         # entered-in-error
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.name = None
@@ -60,27 +60,27 @@ class CareTeam(fhirbase):
         # reference to Period
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to CareTeam_Participant
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.managingOrganization = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

@@ -72,7 +72,7 @@ class NamingSystem(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.responsible = None
@@ -85,18 +85,18 @@ class NamingSystem(fhirbase):
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.usage = None
         # type: str
 
         self.uniqueId = None
-        # type: array
+        # type: list
         # reference to NamingSystem_UniqueId
 
         self.replacedBy = None

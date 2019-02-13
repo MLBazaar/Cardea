@@ -96,26 +96,26 @@ class Immunization(fhirbase):
         # reference to Quantity
 
         self.practitioner = None
-        # type: array
+        # type: list
         # reference to Immunization_Practitioner
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.explanation = None
         # reference to Immunization_Explanation
 
         self.reaction = None
-        # type: array
+        # type: list
         # reference to Immunization_Reaction
 
         self.vaccinationProtocol = None
-        # type: array
+        # type: list
         # reference to Immunization_VaccinationProtocol
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -261,11 +261,11 @@ class Immunization_Explanation(fhirbase):
 
     def __init__(self, dict_values=None):
         self.reason = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonNotGiven = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.object_id = None
@@ -372,7 +372,7 @@ class Immunization_VaccinationProtocol(fhirbase):
         # type: int
 
         self.targetDisease = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.doseStatus = None

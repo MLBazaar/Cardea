@@ -20,7 +20,7 @@ class OperationOutcome(fhirbase):
         # possible values: OperationOutcome
 
         self.issue = None
-        # type: array
+        # type: list
         # reference to OperationOutcome_Issue
 
         self.object_id = None
@@ -89,10 +89,10 @@ class OperationOutcome_Issue(fhirbase):
         # type: str
 
         self.location = None
-        # type: array
+        # type: list
 
         self.expression = None
-        # type: array
+        # type: list
 
         self.object_id = None
         # unique identifier for object class

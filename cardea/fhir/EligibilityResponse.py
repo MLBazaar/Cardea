@@ -65,18 +65,18 @@ class EligibilityResponse(fhirbase):
         # type: bool
 
         self.insurance = None
-        # type: array
+        # type: list
         # reference to EligibilityResponse_Insurance
 
         self.form = None
         # reference to CodeableConcept
 
         self.error = None
-        # type: array
+        # type: list
         # reference to EligibilityResponse_Error
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -155,7 +155,7 @@ class EligibilityResponse_Insurance(fhirbase):
         # reference to Reference: identifier
 
         self.benefitBalance = None
-        # type: array
+        # type: list
         # reference to EligibilityResponse_BenefitBalance
 
         self.object_id = None
@@ -236,7 +236,7 @@ class EligibilityResponse_BenefitBalance(fhirbase):
         # reference to CodeableConcept
 
         self.financial = None
-        # type: array
+        # type: list
         # reference to EligibilityResponse_Financial
 
         self.object_id = None

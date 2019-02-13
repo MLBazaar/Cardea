@@ -18,7 +18,7 @@ class ContactDetail(fhirbase):
         # type: str
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.object_id = None

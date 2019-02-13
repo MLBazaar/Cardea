@@ -81,7 +81,7 @@ class CompartmentDefinition(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
@@ -91,11 +91,11 @@ class CompartmentDefinition(fhirbase):
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.code = None
@@ -107,7 +107,7 @@ class CompartmentDefinition(fhirbase):
         # type: bool
 
         self.resource = None
-        # type: array
+        # type: list
         # reference to CompartmentDefinition_Resource
 
         self.object_id = None
@@ -179,7 +179,7 @@ class CompartmentDefinition_Resource(fhirbase):
         # type: str
 
         self.param = None
-        # type: array
+        # type: list
 
         self.documentation = None
         # type: str

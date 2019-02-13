@@ -138,45 +138,45 @@ class ServiceDefinition(fhirbase):
         # reference to Period
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.topic = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.contributor = None
-        # type: array
+        # type: list
         # reference to Contributor
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.copyright = None
         # type: str
 
         self.relatedArtifact = None
-        # type: array
+        # type: list
         # reference to RelatedArtifact
 
         self.trigger = None
-        # type: array
+        # type: list
         # reference to TriggerDefinition
 
         self.dataRequirement = None
-        # type: array
+        # type: list
         # reference to DataRequirement
 
         self.operationDefinition = None
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

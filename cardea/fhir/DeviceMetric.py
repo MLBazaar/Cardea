@@ -88,7 +88,7 @@ class DeviceMetric(fhirbase):
         # reference to Timing
 
         self.calibration = None
-        # type: array
+        # type: list
         # reference to DeviceMetric_Calibration
 
         self.identifier = None

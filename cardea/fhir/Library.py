@@ -145,46 +145,46 @@ class Library(fhirbase):
         # reference to Period
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.topic = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.contributor = None
-        # type: array
+        # type: list
         # reference to Contributor
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.copyright = None
         # type: str
 
         self.relatedArtifact = None
-        # type: array
+        # type: list
         # reference to RelatedArtifact
 
         self.parameter = None
-        # type: array
+        # type: list
         # reference to ParameterDefinition
 
         self.dataRequirement = None
-        # type: array
+        # type: list
         # reference to DataRequirement
 
         self.content = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

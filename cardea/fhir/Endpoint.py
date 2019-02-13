@@ -58,27 +58,27 @@ class Endpoint(fhirbase):
         # reference to Reference: identifier
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.period = None
         # reference to Period
 
         self.payloadType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.payloadMimeType = None
-        # type: array
+        # type: list
 
         self.address = None
         # type: str
 
         self.header = None
-        # type: array
+        # type: list
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

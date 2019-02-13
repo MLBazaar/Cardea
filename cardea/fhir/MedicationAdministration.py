@@ -80,11 +80,11 @@ class MedicationAdministration(fhirbase):
         # possible values: MedicationAdministration
 
         self.definition = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.partOf = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
@@ -108,7 +108,7 @@ class MedicationAdministration(fhirbase):
         # reference to Reference: identifier
 
         self.supportingInformation = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.effectiveDateTime = None
@@ -118,44 +118,44 @@ class MedicationAdministration(fhirbase):
         # reference to Period
 
         self.performer = None
-        # type: array
+        # type: list
         # reference to MedicationAdministration_Performer
 
         self.notGiven = None
         # type: bool
 
         self.reasonNotGiven = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.prescription = None
         # reference to Reference: identifier
 
         self.device = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.dosage = None
         # reference to MedicationAdministration_Dosage
 
         self.eventHistory = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

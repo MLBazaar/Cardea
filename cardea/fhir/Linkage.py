@@ -32,7 +32,7 @@ class Linkage(fhirbase):
         # reference to Reference: identifier
 
         self.item = None
-        # type: array
+        # type: list
         # reference to Linkage_Item
 
         self.object_id = None

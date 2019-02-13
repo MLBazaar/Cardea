@@ -72,15 +72,15 @@ class HealthcareService(fhirbase):
         # reference to CodeableConcept
 
         self.type = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.specialty = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.location = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.name = None
@@ -96,15 +96,15 @@ class HealthcareService(fhirbase):
         # reference to Attachment
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.coverageArea = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.serviceProvisionCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.eligibility = None
@@ -114,36 +114,36 @@ class HealthcareService(fhirbase):
         # type: str
 
         self.programName = None
-        # type: array
+        # type: list
 
         self.characteristic = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.referralMethod = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.appointmentRequired = None
         # type: bool
 
         self.availableTime = None
-        # type: array
+        # type: list
         # reference to HealthcareService_AvailableTime
 
         self.notAvailable = None
-        # type: array
+        # type: list
         # reference to HealthcareService_NotAvailable
 
         self.availabilityExceptions = None
         # type: str
 
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -254,7 +254,7 @@ class HealthcareService_AvailableTime(fhirbase):
 
     def __init__(self, dict_values=None):
         self.daysOfWeek = None
-        # type: array
+        # type: list
         # possible values: mon, tue, wed, thu, fri, sat, sun
 
         self.allDay = None

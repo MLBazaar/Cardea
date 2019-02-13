@@ -47,7 +47,7 @@ class AppointmentResponse(fhirbase):
         # type: str
 
         self.participantType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.actor = None
@@ -60,7 +60,7 @@ class AppointmentResponse(fhirbase):
         # type: str
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

@@ -62,7 +62,7 @@ class MeasureReport(fhirbase):
         # reference to Period
 
         self.group = None
-        # type: array
+        # type: list
         # reference to MeasureReport_Group: identifier
 
         self.evaluatedResources = None
@@ -152,14 +152,14 @@ class MeasureReport_Group(fhirbase):
 
     def __init__(self, dict_values=None):
         self.population = None
-        # type: array
+        # type: list
         # reference to MeasureReport_Population: identifier
 
         self.measureScore = None
         # type: int
 
         self.stratifier = None
-        # type: array
+        # type: list
         # reference to MeasureReport_Stratifier: identifier
 
         self.identifier = None
@@ -257,7 +257,7 @@ class MeasureReport_Stratifier(fhirbase):
 
     def __init__(self, dict_values=None):
         self.stratum = None
-        # type: array
+        # type: list
         # reference to MeasureReport_Stratum
 
         self.identifier = None
@@ -304,7 +304,7 @@ class MeasureReport_Stratum(fhirbase):
         # type: str
 
         self.population = None
-        # type: array
+        # type: list
         # reference to MeasureReport_Population1: identifier
 
         self.measureScore = None

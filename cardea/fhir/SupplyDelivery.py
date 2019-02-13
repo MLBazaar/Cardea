@@ -38,11 +38,11 @@ class SupplyDelivery(fhirbase):
         # possible values: SupplyDelivery
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.partOf = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
@@ -75,7 +75,7 @@ class SupplyDelivery(fhirbase):
         # reference to Reference: identifier
 
         self.receiver = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None

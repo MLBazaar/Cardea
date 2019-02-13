@@ -57,15 +57,15 @@ class Group(fhirbase):
         # type: int
 
         self.characteristic = None
-        # type: array
+        # type: list
         # reference to Group_Characteristic
 
         self.member = None
-        # type: array
+        # type: list
         # reference to Group_Member
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

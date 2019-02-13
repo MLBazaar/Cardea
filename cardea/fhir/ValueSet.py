@@ -102,18 +102,18 @@ class ValueSet(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.immutable = None
@@ -135,7 +135,7 @@ class ValueSet(fhirbase):
         # reference to ValueSet_Expansion: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -219,11 +219,11 @@ class ValueSet_Compose(fhirbase):
         # type: bool
 
         self.include = None
-        # type: array
+        # type: list
         # reference to ValueSet_Include
 
         self.exclude = None
-        # type: array
+        # type: list
         # reference to ValueSet_Include
 
         self.object_id = None
@@ -275,15 +275,15 @@ class ValueSet_Include(fhirbase):
         # type: str
 
         self.concept = None
-        # type: array
+        # type: list
         # reference to ValueSet_Concept
 
         self.filter = None
-        # type: array
+        # type: list
         # reference to ValueSet_Filter
 
         self.valueSet = None
-        # type: array
+        # type: list
 
         self.object_id = None
         # unique identifier for object class
@@ -332,7 +332,7 @@ class ValueSet_Concept(fhirbase):
         # type: str
 
         self.designation = None
-        # type: array
+        # type: list
         # reference to ValueSet_Designation
 
         self.object_id = None
@@ -476,11 +476,11 @@ class ValueSet_Expansion(fhirbase):
         # type: int
 
         self.parameter = None
-        # type: array
+        # type: list
         # reference to ValueSet_Parameter
 
         self.contains = None
-        # type: array
+        # type: list
         # reference to ValueSet_Contains
 
         self.identifier = None
@@ -601,11 +601,11 @@ class ValueSet_Contains(fhirbase):
         # type: str
 
         self.designation = None
-        # type: array
+        # type: list
         # reference to ValueSet_Designation
 
         self.contains = None
-        # type: array
+        # type: list
         # reference to ValueSet_Contains
 
         self.object_id = None

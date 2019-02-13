@@ -56,7 +56,7 @@ class Goal(fhirbase):
         # on-hold, cancelled, entered-in-error, rejected
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.priority = None
@@ -87,23 +87,23 @@ class Goal(fhirbase):
         # reference to Reference: identifier
 
         self.addresses = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.outcomeCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.outcomeReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

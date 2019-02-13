@@ -26,11 +26,11 @@ class ImmunizationRecommendation(fhirbase):
         # reference to Reference: identifier
 
         self.recommendation = None
-        # type: array
+        # type: list
         # reference to ImmunizationRecommendation_Recommendation
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -100,18 +100,18 @@ class ImmunizationRecommendation_Recommendation(fhirbase):
         # reference to CodeableConcept
 
         self.dateCriterion = None
-        # type: array
+        # type: list
         # reference to ImmunizationRecommendation_DateCriterion
 
         self.protocol = None
         # reference to ImmunizationRecommendation_Protocol
 
         self.supportingImmunization = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.supportingPatientInformation = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.object_id = None

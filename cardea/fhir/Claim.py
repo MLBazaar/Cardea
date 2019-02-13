@@ -88,7 +88,7 @@ class Claim(fhirbase):
         # reference to CodeableConcept
 
         self.subType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.use = None
@@ -123,7 +123,7 @@ class Claim(fhirbase):
         # reference to CodeableConcept
 
         self.related = None
-        # type: array
+        # type: list
         # reference to Claim_Related
 
         self.prescription = None
@@ -142,23 +142,23 @@ class Claim(fhirbase):
         # reference to Reference: identifier
 
         self.careTeam = None
-        # type: array
+        # type: list
         # reference to Claim_CareTeam
 
         self.information = None
-        # type: array
+        # type: list
         # reference to Claim_Information
 
         self.diagnosis = None
-        # type: array
+        # type: list
         # reference to Claim_Diagnosis
 
         self.procedure = None
-        # type: array
+        # type: list
         # reference to Claim_Procedure
 
         self.insurance = None
-        # type: array
+        # type: list
         # reference to Claim_Insurance
 
         self.accident = None
@@ -171,14 +171,14 @@ class Claim(fhirbase):
         # reference to Period
 
         self.item = None
-        # type: array
+        # type: list
         # reference to Claim_Item
 
         self.total = None
         # reference to Money
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -640,7 +640,7 @@ class Claim_Diagnosis(fhirbase):
         # reference to Reference: identifier
 
         self.type = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.packageCode = None
@@ -764,7 +764,7 @@ class Claim_Insurance(fhirbase):
         # type: str
 
         self.preAuthRef = None
-        # type: array
+        # type: list
 
         self.claimResponse = None
         # reference to Reference: identifier
@@ -908,16 +908,16 @@ class Claim_Item(fhirbase):
         # type: int
 
         self.careTeamLinkId = None
-        # type: array
+        # type: list
 
         self.diagnosisLinkId = None
-        # type: array
+        # type: list
 
         self.procedureLinkId = None
-        # type: array
+        # type: list
 
         self.informationLinkId = None
-        # type: array
+        # type: list
 
         self.revenue = None
         # reference to CodeableConcept
@@ -929,11 +929,11 @@ class Claim_Item(fhirbase):
         # reference to CodeableConcept
 
         self.modifier = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.programCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.servicedDate = None
@@ -964,22 +964,22 @@ class Claim_Item(fhirbase):
         # reference to Money
 
         self.udi = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.bodySite = None
         # reference to CodeableConcept
 
         self.subSite = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.encounter = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.detail = None
-        # type: array
+        # type: list
         # reference to Claim_Detail
 
         self.object_id = None
@@ -1132,11 +1132,11 @@ class Claim_Detail(fhirbase):
         # reference to CodeableConcept
 
         self.modifier = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.programCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.quantity = None
@@ -1152,11 +1152,11 @@ class Claim_Detail(fhirbase):
         # reference to Money
 
         self.udi = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.subDetail = None
-        # type: array
+        # type: list
         # reference to Claim_SubDetail
 
         self.object_id = None
@@ -1268,11 +1268,11 @@ class Claim_SubDetail(fhirbase):
         # reference to CodeableConcept
 
         self.modifier = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.programCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.quantity = None
@@ -1288,7 +1288,7 @@ class Claim_SubDetail(fhirbase):
         # reference to Money
 
         self.udi = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.object_id = None

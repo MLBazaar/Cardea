@@ -51,7 +51,7 @@ class DeviceComponent(fhirbase):
         # reference to Reference: identifier
 
         self.operationalStatus = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.parameterGroup = None
@@ -63,7 +63,7 @@ class DeviceComponent(fhirbase):
         # nuclear, optical, thermal, biological, mechanical, acoustical, manual
 
         self.productionSpecification = None
-        # type: array
+        # type: list
         # reference to DeviceComponent_ProductionSpecification
 
         self.languageCode = None

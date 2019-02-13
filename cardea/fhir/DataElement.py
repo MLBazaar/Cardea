@@ -94,15 +94,15 @@ class DataElement(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.copyright = None
@@ -114,15 +114,15 @@ class DataElement(fhirbase):
         # convertable, scaleable, flexible
 
         self.mapping = None
-        # type: array
+        # type: list
         # reference to DataElement_Mapping
 
         self.element = None
-        # type: array
+        # type: list
         # reference to ElementDefinition
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

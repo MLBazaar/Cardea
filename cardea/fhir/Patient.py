@@ -49,11 +49,11 @@ class Patient(fhirbase):
         # type: bool
 
         self.name = None
-        # type: array
+        # type: list
         # reference to HumanName
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.gender = None
@@ -70,7 +70,7 @@ class Patient(fhirbase):
         # type: str
 
         self.address = None
-        # type: array
+        # type: list
         # reference to Address
 
         self.maritalStatus = None
@@ -83,33 +83,33 @@ class Patient(fhirbase):
         # type: int
 
         self.photo = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to Patient_Contact
 
         self.animal = None
         # reference to Patient_Animal
 
         self.communication = None
-        # type: array
+        # type: list
         # reference to Patient_Communication
 
         self.generalPractitioner = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.managingOrganization = None
         # reference to Reference: identifier
 
         self.link = None
-        # type: array
+        # type: list
         # reference to Patient_Link
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -214,14 +214,14 @@ class Patient_Contact(fhirbase):
 
     def __init__(self, dict_values=None):
         self.relationship = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.name = None
         # reference to HumanName
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.address = None

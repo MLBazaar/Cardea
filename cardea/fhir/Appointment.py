@@ -82,22 +82,22 @@ class Appointment(fhirbase):
         # reference to CodeableConcept
 
         self.serviceType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.specialty = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.appointmentType = None
         # reference to CodeableConcept
 
         self.reason = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.indication = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.priority = None
@@ -107,7 +107,7 @@ class Appointment(fhirbase):
         # type: str
 
         self.supportingInformation = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.start = None
@@ -120,7 +120,7 @@ class Appointment(fhirbase):
         # type: int
 
         self.slot = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.created = None
@@ -130,19 +130,19 @@ class Appointment(fhirbase):
         # type: str
 
         self.incomingReferral = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to Appointment_Participant
 
         self.requestedPeriod = None
-        # type: array
+        # type: list
         # reference to Period
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -246,7 +246,7 @@ class Appointment_Participant(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.actor = None

@@ -64,11 +64,11 @@ class CommunicationRequest(fhirbase):
         # possible values: CommunicationRequest
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.replaces = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.groupIdentifier = None
@@ -78,32 +78,32 @@ class CommunicationRequest(fhirbase):
         # type: str
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.priority = None
         # type: str
 
         self.medium = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.subject = None
         # reference to Reference: identifier
 
         self.recipient = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.topic = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.context = None
         # reference to Reference: identifier
 
         self.payload = None
-        # type: array
+        # type: list
         # reference to CommunicationRequest_Payload
 
         self.occurrenceDateTime = None
@@ -122,19 +122,19 @@ class CommunicationRequest(fhirbase):
         # reference to CommunicationRequest_Requester
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

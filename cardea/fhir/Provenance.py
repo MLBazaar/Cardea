@@ -47,7 +47,7 @@ class Provenance(fhirbase):
         # possible values: Provenance
 
         self.target = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.period = None
@@ -57,28 +57,28 @@ class Provenance(fhirbase):
         # type: str
 
         self.policy = None
-        # type: array
+        # type: list
 
         self.location = None
         # reference to Reference: identifier
 
         self.reason = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.activity = None
         # reference to Coding
 
         self.agent = None
-        # type: array
+        # type: list
         # reference to Provenance_Agent
 
         self.entity = None
-        # type: array
+        # type: list
         # reference to Provenance_Entity
 
         self.signature = None
-        # type: array
+        # type: list
         # reference to Signature
 
         self.object_id = None
@@ -165,7 +165,7 @@ class Provenance_Agent(fhirbase):
 
     def __init__(self, dict_values=None):
         self.role = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.whoUri = None
@@ -260,7 +260,7 @@ class Provenance_Entity(fhirbase):
         # reference to Identifier
 
         self.agent = None
-        # type: array
+        # type: list
         # reference to Provenance_Agent
 
         self.object_id = None

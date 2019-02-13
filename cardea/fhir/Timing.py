@@ -26,7 +26,7 @@ class Timing(fhirbase):
 
     def __init__(self, dict_values=None):
         self.event = None
-        # type: array
+        # type: list
 
         self.repeat = None
         # reference to Timing_Repeat
@@ -149,13 +149,13 @@ class Timing_Repeat(fhirbase):
         # possible values: s, min, h, d, wk, mo, a
 
         self.dayOfWeek = None
-        # type: array
+        # type: list
 
         self.timeOfDay = None
-        # type: array
+        # type: list
 
         self.when = None
-        # type: array
+        # type: list
         # possible values: MORN, AFT, EVE, NIGHT, PHS, HS, WAKE, C,
         # CM, CD, CV, AC, ACM, ACD, ACV, PC, PCM, PCD, PCV
 

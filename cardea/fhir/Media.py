@@ -56,7 +56,7 @@ class Media(fhirbase):
         # possible values: Media
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.type = None
@@ -85,7 +85,7 @@ class Media(fhirbase):
         # reference to Reference: identifier
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.bodySite = None
@@ -110,11 +110,11 @@ class Media(fhirbase):
         # reference to Attachment
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

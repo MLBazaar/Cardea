@@ -172,34 +172,34 @@ class ActivityDefinition(fhirbase):
         # reference to Period
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.topic = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.contributor = None
-        # type: array
+        # type: list
         # reference to Contributor
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.copyright = None
         # type: str
 
         self.relatedArtifact = None
-        # type: array
+        # type: list
         # reference to RelatedArtifact
 
         self.library = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.kind = None
@@ -224,7 +224,7 @@ class ActivityDefinition(fhirbase):
         # reference to Reference: identifier
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to ActivityDefinition_Participant
 
         self.productReference = None
@@ -237,22 +237,22 @@ class ActivityDefinition(fhirbase):
         # reference to Quantity
 
         self.dosage = None
-        # type: array
+        # type: list
         # reference to Dosage
 
         self.bodySite = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.transform = None
         # reference to Reference: identifier
 
         self.dynamicValue = None
-        # type: array
+        # type: list
         # reference to ActivityDefinition_DynamicValue
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

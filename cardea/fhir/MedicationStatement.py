@@ -93,11 +93,11 @@ class MedicationStatement(fhirbase):
         # possible values: MedicationStatement
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.partOf = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.context = None
@@ -133,7 +133,7 @@ class MedicationStatement(fhirbase):
         # reference to Reference: identifier
 
         self.derivedFrom = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.taken = None
@@ -141,27 +141,27 @@ class MedicationStatement(fhirbase):
         # possible values: y, n, unk, na
 
         self.reasonNotTaken = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.dosage = None
-        # type: array
+        # type: list
         # reference to Dosage
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

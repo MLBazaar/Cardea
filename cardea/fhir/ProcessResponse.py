@@ -64,19 +64,19 @@ class ProcessResponse(fhirbase):
         # reference to CodeableConcept
 
         self.processNote = None
-        # type: array
+        # type: list
         # reference to ProcessResponse_ProcessNote
 
         self.error = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.communicationRequest = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

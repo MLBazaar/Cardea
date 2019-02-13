@@ -56,42 +56,42 @@ class PractitionerRole(fhirbase):
         # reference to Reference: identifier
 
         self.code = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.specialty = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.location = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.healthcareService = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.availableTime = None
-        # type: array
+        # type: list
         # reference to PractitionerRole_AvailableTime
 
         self.notAvailable = None
-        # type: array
+        # type: list
         # reference to PractitionerRole_NotAvailable
 
         self.availabilityExceptions = None
         # type: str
 
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -183,7 +183,7 @@ class PractitionerRole_AvailableTime(fhirbase):
 
     def __init__(self, dict_values=None):
         self.daysOfWeek = None
-        # type: array
+        # type: list
 
         self.allDay = None
         # type: bool

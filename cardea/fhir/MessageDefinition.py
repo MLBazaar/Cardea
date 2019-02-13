@@ -107,18 +107,18 @@ class MessageDefinition(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
@@ -131,11 +131,11 @@ class MessageDefinition(fhirbase):
         # reference to Reference: identifier
 
         self.parent = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.replaces = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.event = None
@@ -145,14 +145,14 @@ class MessageDefinition(fhirbase):
         # type: str
 
         self.focus = None
-        # type: array
+        # type: list
         # reference to MessageDefinition_Focus
 
         self.responseRequired = None
         # type: bool
 
         self.allowedResponse = None
-        # type: array
+        # type: list
         # reference to MessageDefinition_AllowedResponse
 
         self.identifier = None

@@ -146,46 +146,46 @@ class PlanDefinition(fhirbase):
         # reference to Period
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.topic = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.contributor = None
-        # type: array
+        # type: list
         # reference to Contributor
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.copyright = None
         # type: str
 
         self.relatedArtifact = None
-        # type: array
+        # type: list
         # reference to RelatedArtifact
 
         self.library = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.goal = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Goal
 
         self.action = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Action
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -307,15 +307,15 @@ class PlanDefinition_Goal(fhirbase):
         # reference to CodeableConcept
 
         self.addresses = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.documentation = None
-        # type: array
+        # type: list
         # reference to RelatedArtifact
 
         self.target = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Target
 
         self.object_id = None
@@ -545,38 +545,38 @@ class PlanDefinition_Action(fhirbase):
         # type: str
 
         self.code = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reason = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.documentation = None
-        # type: array
+        # type: list
         # reference to RelatedArtifact
 
         self.goalId = None
-        # type: array
+        # type: list
 
         self.triggerDefinition = None
-        # type: array
+        # type: list
         # reference to TriggerDefinition
 
         self.condition = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Condition
 
         self.input = None
-        # type: array
+        # type: list
         # reference to DataRequirement
 
         self.output = None
-        # type: array
+        # type: list
         # reference to DataRequirement
 
         self.relatedAction = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_RelatedAction
 
         self.timingDateTime = None
@@ -595,7 +595,7 @@ class PlanDefinition_Action(fhirbase):
         # reference to Timing
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Participant
 
         self.type = None
@@ -629,11 +629,11 @@ class PlanDefinition_Action(fhirbase):
         # reference to Reference: identifier
 
         self.dynamicValue = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_DynamicValue
 
         self.action = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Action
 
         self.object_id = None

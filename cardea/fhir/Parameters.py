@@ -15,7 +15,7 @@ class Parameters(fhirbase):
 
     def __init__(self, dict_values=None):
         self.parameter = None
-        # type: array
+        # type: list
         # reference to Parameters_Parameter
 
         self.object_id = None
@@ -269,7 +269,7 @@ class Parameters_Parameter(fhirbase):
         # reference to ResourceList
 
         self.part = None
-        # type: array
+        # type: list
         # reference to Parameters_Parameter
 
         self.object_id = None

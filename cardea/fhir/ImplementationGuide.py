@@ -100,18 +100,18 @@ class ImplementationGuide(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.copyright = None
@@ -121,19 +121,19 @@ class ImplementationGuide(fhirbase):
         # type: str
 
         self.dependency = None
-        # type: array
+        # type: list
         # reference to ImplementationGuide_Dependency
 
         self.package = None
-        # type: array
+        # type: list
         # reference to ImplementationGuide_Package
 
         self._global = None
-        # type: array
+        # type: list
         # reference to ImplementationGuide_Global
 
         self.binary = None
-        # type: array
+        # type: list
 
         self.page = None
         # reference to ImplementationGuide_Page
@@ -259,7 +259,7 @@ class ImplementationGuide_Package(fhirbase):
         # type: str
 
         self.resource = None
-        # type: array
+        # type: list
         # reference to ImplementationGuide_Resource
 
         self.object_id = None
@@ -424,16 +424,16 @@ class ImplementationGuide_Page(fhirbase):
         # dictionary, toc, resource
 
         self.type = None
-        # type: array
+        # type: list
 
         self.package = None
-        # type: array
+        # type: list
 
         self.format = None
         # type: str
 
         self.page = None
-        # type: array
+        # type: list
         # reference to ImplementationGuide_Page
 
         self.object_id = None

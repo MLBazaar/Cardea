@@ -87,18 +87,18 @@ class GraphDefinition(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
@@ -111,7 +111,7 @@ class GraphDefinition(fhirbase):
         # type: str
 
         self.link = None
-        # type: array
+        # type: list
         # reference to GraphDefinition_Link
 
         self.object_id = None
@@ -191,7 +191,7 @@ class GraphDefinition_Link(fhirbase):
         # type: str
 
         self.target = None
-        # type: array
+        # type: list
 
         self.object_id = None
         # unique identifier for object class
@@ -224,11 +224,11 @@ class GraphDefinition_Target(fhirbase):
         # type: str
 
         self.compartment = None
-        # type: array
+        # type: list
         # reference to GraphDefinition_Compartment
 
         self.link = None
-        # type: array
+        # type: list
         # reference to GraphDefinition_Link
 
         self.object_id = None

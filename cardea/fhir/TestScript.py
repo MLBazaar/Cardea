@@ -110,18 +110,18 @@ class TestScript(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
@@ -131,41 +131,41 @@ class TestScript(fhirbase):
         # type: str
 
         self.origin = None
-        # type: array
+        # type: list
         # reference to TestScript_Origin
 
         self.destination = None
-        # type: array
+        # type: list
         # reference to TestScript_Destination
 
         self.metadata = None
         # reference to TestScript_Metadata
 
         self.fixture = None
-        # type: array
+        # type: list
         # reference to TestScript_Fixture
 
         self.profile = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.variable = None
-        # type: array
+        # type: list
         # reference to TestScript_Variable
 
         self.rule = None
-        # type: array
+        # type: list
         # reference to TestScript_Rule
 
         self.ruleset = None
-        # type: array
+        # type: list
         # reference to TestScript_Ruleset
 
         self.setup = None
         # reference to TestScript_Setup
 
         self.test = None
-        # type: array
+        # type: list
         # reference to TestScript_Test
 
         self.teardown = None
@@ -354,11 +354,11 @@ class TestScript_Metadata(fhirbase):
 
     def __init__(self, dict_values=None):
         self.link = None
-        # type: array
+        # type: list
         # reference to TestScript_Link
 
         self.capability = None
-        # type: array
+        # type: list
         # reference to TestScript_Capability
 
         self.object_id = None
@@ -444,13 +444,13 @@ class TestScript_Capability(fhirbase):
         # type: str
 
         self.origin = None
-        # type: array
+        # type: list
 
         self.destination = None
         # type: int
 
         self.link = None
-        # type: array
+        # type: list
 
         self.capabilities = None
         # reference to Reference: identifier
@@ -595,7 +595,7 @@ class TestScript_Rule(fhirbase):
         # reference to Reference: identifier
 
         self.param = None
-        # type: array
+        # type: list
         # reference to TestScript_Param
 
         self.object_id = None
@@ -665,7 +665,7 @@ class TestScript_Ruleset(fhirbase):
         # reference to Reference: identifier
 
         self.rule = None
-        # type: array
+        # type: list
         # reference to TestScript_Rule1
 
         self.object_id = None
@@ -708,7 +708,7 @@ class TestScript_Rule1(fhirbase):
         # type: str
 
         self.param = None
-        # type: array
+        # type: list
         # reference to TestScript_Param1
 
         self.object_id = None
@@ -768,7 +768,7 @@ class TestScript_Setup(fhirbase):
 
     def __init__(self, dict_values=None):
         self.action = None
-        # type: array
+        # type: list
         # reference to TestScript_Action
 
         self.object_id = None
@@ -902,7 +902,7 @@ class TestScript_Operation(fhirbase):
         # type: str
 
         self.requestHeader = None
-        # type: array
+        # type: list
         # reference to TestScript_RequestHeader
 
         self.requestId = None
@@ -1272,7 +1272,7 @@ class TestScript_Rule2(fhirbase):
         # type: str
 
         self.param = None
-        # type: array
+        # type: list
         # reference to TestScript_Param2
 
         self.object_id = None
@@ -1336,7 +1336,7 @@ class TestScript_Ruleset1(fhirbase):
         # type: str
 
         self.rule = None
-        # type: array
+        # type: list
         # reference to TestScript_Rule3
 
         self.object_id = None
@@ -1374,7 +1374,7 @@ class TestScript_Rule3(fhirbase):
         # type: str
 
         self.param = None
-        # type: array
+        # type: list
         # reference to TestScript_Param3
 
         self.object_id = None
@@ -1444,7 +1444,7 @@ class TestScript_Test(fhirbase):
         # type: str
 
         self.action = None
-        # type: array
+        # type: list
         # reference to TestScript_Action1
 
         self.object_id = None
@@ -1517,7 +1517,7 @@ class TestScript_Teardown(fhirbase):
 
     def __init__(self, dict_values=None):
         self.action = None
-        # type: array
+        # type: list
         # reference to TestScript_Action2
 
         self.object_id = None

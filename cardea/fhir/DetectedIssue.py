@@ -62,7 +62,7 @@ class DetectedIssue(fhirbase):
         # reference to Reference: identifier
 
         self.implicated = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.detail = None
@@ -72,7 +72,7 @@ class DetectedIssue(fhirbase):
         # type: str
 
         self.mitigation = None
-        # type: array
+        # type: list
         # reference to DetectedIssue_Mitigation
 
         self.identifier = None

@@ -56,14 +56,14 @@ class Medication(fhirbase):
         # reference to CodeableConcept
 
         self.ingredient = None
-        # type: array
+        # type: list
         # reference to Medication_Ingredient
 
         self.package = None
         # reference to Medication_Package
 
         self.image = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.object_id = None
@@ -197,11 +197,11 @@ class Medication_Package(fhirbase):
         # reference to CodeableConcept
 
         self.content = None
-        # type: array
+        # type: list
         # reference to Medication_Content
 
         self.batch = None
-        # type: array
+        # type: list
         # reference to Medication_Batch
 
         self.object_id = None

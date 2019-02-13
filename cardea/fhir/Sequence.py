@@ -77,29 +77,29 @@ class Sequence(fhirbase):
         # reference to Sequence_ReferenceSeq
 
         self.variant = None
-        # type: array
+        # type: list
         # reference to Sequence_Variant
 
         self.observedSeq = None
         # type: str
 
         self.quality = None
-        # type: array
+        # type: list
         # reference to Sequence_Quality
 
         self.readCoverage = None
         # type: int
 
         self.repository = None
-        # type: array
+        # type: list
         # reference to Sequence_Repository
 
         self.pointer = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

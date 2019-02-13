@@ -81,7 +81,7 @@ class DocumentReference(fhirbase):
         # type: str
 
         self.author = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.authenticator = None
@@ -91,25 +91,25 @@ class DocumentReference(fhirbase):
         # reference to Reference: identifier
 
         self.relatesTo = None
-        # type: array
+        # type: list
         # reference to DocumentReference_RelatesTo
 
         self.description = None
         # type: str
 
         self.securityLabel = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.content = None
-        # type: array
+        # type: list
         # reference to DocumentReference_Content
 
         self.context = None
         # reference to DocumentReference_Context
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -309,7 +309,7 @@ class DocumentReference_Context(fhirbase):
         # reference to Reference: identifier
 
         self.event = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.period = None
@@ -325,7 +325,7 @@ class DocumentReference_Context(fhirbase):
         # reference to Reference: identifier
 
         self.related = None
-        # type: array
+        # type: list
         # reference to DocumentReference_Related: identifier
 
         self.object_id = None

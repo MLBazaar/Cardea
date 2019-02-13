@@ -74,18 +74,18 @@ class Encounter(fhirbase):
         # onleave, finished, cancelled, entered-in-error, unknown
 
         self.statusHistory = None
-        # type: array
+        # type: list
         # reference to Encounter_StatusHistory
 
         self._class = None
         # reference to Coding
 
         self.classHistory = None
-        # type: array
+        # type: list
         # reference to Encounter_ClassHistory
 
         self.type = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.priority = None
@@ -95,15 +95,15 @@ class Encounter(fhirbase):
         # reference to Reference: identifier
 
         self.episodeOfCare = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.incomingReferral = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to Encounter_Participant
 
         self.appointment = None
@@ -116,22 +116,22 @@ class Encounter(fhirbase):
         # reference to Duration
 
         self.reason = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.diagnosis = None
-        # type: array
+        # type: list
         # reference to Encounter_Diagnosis
 
         self.account = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.hospitalization = None
         # reference to Encounter_Hospitalization
 
         self.location = None
-        # type: array
+        # type: list
         # reference to Encounter_Location
 
         self.serviceProvider = None
@@ -141,7 +141,7 @@ class Encounter(fhirbase):
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -374,7 +374,7 @@ class Encounter_Participant(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.period = None
@@ -497,15 +497,15 @@ class Encounter_Hospitalization(fhirbase):
         # reference to CodeableConcept
 
         self.dietPreference = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.specialCourtesy = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.specialArrangement = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.destination = None

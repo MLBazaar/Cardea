@@ -68,18 +68,18 @@ class List(fhirbase):
         # reference to CodeableConcept
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.entry = None
-        # type: array
+        # type: list
         # reference to List_Entry
 
         self.emptyReason = None
         # reference to CodeableConcept
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

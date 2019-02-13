@@ -55,7 +55,7 @@ class MessageHeader(fhirbase):
         # reference to Coding
 
         self.destination = None
-        # type: array
+        # type: list
         # reference to MessageHeader_Destination
 
         self.receiver = None
@@ -86,7 +86,7 @@ class MessageHeader(fhirbase):
         # reference to MessageHeader_Response: identifier
 
         self.focus = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.object_id = None

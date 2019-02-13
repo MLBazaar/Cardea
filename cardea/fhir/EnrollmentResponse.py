@@ -54,7 +54,7 @@ class EnrollmentResponse(fhirbase):
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

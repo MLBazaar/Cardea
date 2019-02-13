@@ -36,36 +36,36 @@ class Organization(fhirbase):
         # type: bool
 
         self.type = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.name = None
         # type: str
 
         self.alias = None
-        # type: array
+        # type: list
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.address = None
-        # type: array
+        # type: list
         # reference to Address
 
         self.partOf = None
         # reference to Reference: identifier
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to Organization_Contact
 
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -137,7 +137,7 @@ class Organization_Contact(fhirbase):
         # reference to HumanName
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.address = None

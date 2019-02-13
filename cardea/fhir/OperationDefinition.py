@@ -109,18 +109,18 @@ class OperationDefinition(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
@@ -139,7 +139,7 @@ class OperationDefinition(fhirbase):
         # reference to Reference: identifier
 
         self.resource = None
-        # type: array
+        # type: list
 
         self.system = None
         # type: bool
@@ -151,11 +151,11 @@ class OperationDefinition(fhirbase):
         # type: bool
 
         self.parameter = None
-        # type: array
+        # type: list
         # reference to OperationDefinition_Parameter
 
         self.overload = None
-        # type: array
+        # type: list
         # reference to OperationDefinition_Overload
 
         self.object_id = None
@@ -273,7 +273,7 @@ class OperationDefinition_Parameter(fhirbase):
         # reference to OperationDefinition_Binding
 
         self.part = None
-        # type: array
+        # type: list
         # reference to OperationDefinition_Parameter
 
         self.object_id = None
@@ -403,7 +403,7 @@ class OperationDefinition_Overload(fhirbase):
 
     def __init__(self, dict_values=None):
         self.parameterName = None
-        # type: array
+        # type: list
 
         self.comment = None
         # type: str

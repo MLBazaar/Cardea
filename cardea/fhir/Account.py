@@ -63,7 +63,7 @@ class Account(fhirbase):
         # reference to Money
 
         self.coverage = None
-        # type: array
+        # type: list
         # reference to Account_Coverage
 
         self.owner = None
@@ -73,11 +73,11 @@ class Account(fhirbase):
         # type: str
 
         self.guarantor = None
-        # type: array
+        # type: list
         # reference to Account_Guarantor
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

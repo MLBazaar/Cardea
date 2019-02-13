@@ -36,15 +36,15 @@ class Practitioner(fhirbase):
         # type: bool
 
         self.name = None
-        # type: array
+        # type: list
         # reference to HumanName
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.address = None
-        # type: array
+        # type: list
         # reference to Address
 
         self.gender = None
@@ -55,19 +55,19 @@ class Practitioner(fhirbase):
         # type: str
 
         self.photo = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.qualification = None
-        # type: array
+        # type: list
         # reference to Practitioner_Qualification: identifier
 
         self.communication = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -149,7 +149,7 @@ class Practitioner_Qualification(fhirbase):
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

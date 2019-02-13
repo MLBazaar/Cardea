@@ -82,14 +82,14 @@ class Task(fhirbase):
         # reference to Reference: identifier
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.groupIdentifier = None
         # reference to Identifier
 
         self.partOf = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
@@ -138,7 +138,7 @@ class Task(fhirbase):
         # reference to Task_Requester
 
         self.performerType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.owner = None
@@ -148,26 +148,26 @@ class Task(fhirbase):
         # reference to CodeableConcept
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.relevantHistory = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.restriction = None
         # reference to Task_Restriction
 
         self.input = None
-        # type: array
+        # type: list
         # reference to Task_Input
 
         self.output = None
-        # type: array
+        # type: list
         # reference to Task_Output
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -358,7 +358,7 @@ class Task_Restriction(fhirbase):
         # reference to Period
 
         self.recipient = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.object_id = None

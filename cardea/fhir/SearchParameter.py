@@ -110,15 +110,15 @@ class SearchParameter(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
@@ -128,7 +128,7 @@ class SearchParameter(fhirbase):
         # type: str
 
         self.base = None
-        # type: array
+        # type: list
 
         self.type = None
         # type: str
@@ -152,22 +152,22 @@ class SearchParameter(fhirbase):
         # possible values: normal, phonetic, nearby, distance, other
 
         self.target = None
-        # type: array
+        # type: list
 
         self.comparator = None
-        # type: array
+        # type: list
         # possible values: eq, ne, gt, lt, ge, le, sa, eb, ap
 
         self.modifier = None
-        # type: array
+        # type: list
         # possible values: missing, exact, contains, not, text, in,
         # not-in, below, above, type
 
         self.chain = None
-        # type: array
+        # type: list
 
         self.component = None
-        # type: array
+        # type: list
         # reference to SearchParameter_Component
 
         self.object_id = None

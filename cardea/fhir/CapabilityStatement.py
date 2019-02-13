@@ -133,18 +133,18 @@ class CapabilityStatement(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
@@ -158,7 +158,7 @@ class CapabilityStatement(fhirbase):
         # possible values: instance, capability, requirements
 
         self.instantiates = None
-        # type: array
+        # type: list
 
         self.software = None
         # reference to CapabilityStatement_Software
@@ -174,28 +174,28 @@ class CapabilityStatement(fhirbase):
         # possible values: no, extensions, elements, both
 
         self.format = None
-        # type: array
+        # type: list
 
         self.patchFormat = None
-        # type: array
+        # type: list
 
         self.implementationGuide = None
-        # type: array
+        # type: list
 
         self.profile = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.rest = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_Rest
 
         self.messaging = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_Messaging
 
         self.document = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_Document
 
         self.object_id = None
@@ -384,23 +384,23 @@ class CapabilityStatement_Rest(fhirbase):
         # reference to CapabilityStatement_Security
 
         self.resource = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_Resource
 
         self.interaction = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_Interaction1
 
         self.searchParam = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_SearchParam
 
         self.operation = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_Operation
 
         self.compartment = None
-        # type: array
+        # type: list
 
         self.object_id = None
         # unique identifier for object class
@@ -471,14 +471,14 @@ class CapabilityStatement_Security(fhirbase):
         # type: bool
 
         self.service = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.description = None
         # type: str
 
         self.certificate = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_Certificate
 
         self.object_id = None
@@ -591,7 +591,7 @@ class CapabilityStatement_Resource(fhirbase):
         # type: str
 
         self.interaction = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_Interaction
 
         self.versioning = None
@@ -620,17 +620,17 @@ class CapabilityStatement_Resource(fhirbase):
         # possible values: not-supported, single, multiple
 
         self.referencePolicy = None
-        # type: array
+        # type: list
         # possible values: literal, logical, resolves, enforced, local
 
         self.searchInclude = None
-        # type: array
+        # type: list
 
         self.searchRevInclude = None
-        # type: array
+        # type: list
 
         self.searchParam = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_SearchParam
 
         self.object_id = None
@@ -899,7 +899,7 @@ class CapabilityStatement_Messaging(fhirbase):
 
     def __init__(self, dict_values=None):
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_Endpoint
 
         self.reliableCache = None
@@ -909,11 +909,11 @@ class CapabilityStatement_Messaging(fhirbase):
         # type: str
 
         self.supportedMessage = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_SupportedMessage
 
         self.event = None
-        # type: array
+        # type: list
         # reference to CapabilityStatement_Event
 
         self.object_id = None

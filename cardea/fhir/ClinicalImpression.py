@@ -96,41 +96,41 @@ class ClinicalImpression(fhirbase):
         # reference to Reference: identifier
 
         self.problem = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.investigation = None
-        # type: array
+        # type: list
         # reference to ClinicalImpression_Investigation
 
         self.protocol = None
-        # type: array
+        # type: list
 
         self.summary = None
         # type: str
 
         self.finding = None
-        # type: array
+        # type: list
         # reference to ClinicalImpression_Finding
 
         self.prognosisCodeableConcept = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.prognosisReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.action = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -247,7 +247,7 @@ class ClinicalImpression_Investigation(fhirbase):
         # reference to CodeableConcept
 
         self.item = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.object_id = None

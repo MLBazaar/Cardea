@@ -64,11 +64,11 @@ class ResearchStudy(fhirbase):
         # type: str
 
         self.protocol = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.partOf = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
@@ -77,34 +77,34 @@ class ResearchStudy(fhirbase):
         # completed, entered-in-error
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.focus = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.relatedArtifact = None
-        # type: array
+        # type: list
         # reference to RelatedArtifact
 
         self.keyword = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.description = None
         # type: str
 
         self.enrollment = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.period = None
@@ -117,22 +117,22 @@ class ResearchStudy(fhirbase):
         # reference to Reference: identifier
 
         self.site = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.reasonStopped = None
         # reference to CodeableConcept
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.arm = None
-        # type: array
+        # type: list
         # reference to ResearchStudy_Arm
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

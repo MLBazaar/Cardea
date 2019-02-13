@@ -70,29 +70,29 @@ class NutritionOrder(fhirbase):
         # reference to Reference: identifier
 
         self.allergyIntolerance = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.foodPreferenceModifier = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.excludeFoodModifier = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.oralDiet = None
         # reference to NutritionOrder_OralDiet
 
         self.supplement = None
-        # type: array
+        # type: list
         # reference to NutritionOrder_Supplement
 
         self.enteralFormula = None
         # reference to NutritionOrder_EnteralFormula
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -192,23 +192,23 @@ class NutritionOrder_OralDiet(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.schedule = None
-        # type: array
+        # type: list
         # reference to Timing
 
         self.nutrient = None
-        # type: array
+        # type: list
         # reference to NutritionOrder_Nutrient
 
         self.texture = None
-        # type: array
+        # type: list
         # reference to NutritionOrder_Texture
 
         self.fluidConsistencyType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.instruction = None
@@ -361,7 +361,7 @@ class NutritionOrder_Supplement(fhirbase):
         # type: str
 
         self.schedule = None
-        # type: array
+        # type: list
         # reference to Timing
 
         self.quantity = None
@@ -453,7 +453,7 @@ class NutritionOrder_EnteralFormula(fhirbase):
         # reference to CodeableConcept
 
         self.administration = None
-        # type: array
+        # type: list
         # reference to NutritionOrder_Administration
 
         self.maxVolumeToDeliver = None

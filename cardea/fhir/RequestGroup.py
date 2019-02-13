@@ -55,15 +55,15 @@ class RequestGroup(fhirbase):
         # possible values: RequestGroup
 
         self.definition = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.replaces = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.groupIdentifier = None
@@ -97,15 +97,15 @@ class RequestGroup(fhirbase):
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.action = None
-        # type: array
+        # type: list
         # reference to RequestGroup_Action
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -246,19 +246,19 @@ class RequestGroup_Action(fhirbase):
         # type: str
 
         self.code = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.documentation = None
-        # type: array
+        # type: list
         # reference to RelatedArtifact
 
         self.condition = None
-        # type: array
+        # type: list
         # reference to RequestGroup_Condition
 
         self.relatedAction = None
-        # type: array
+        # type: list
         # reference to RequestGroup_RelatedAction
 
         self.timingDateTime = None
@@ -277,7 +277,7 @@ class RequestGroup_Action(fhirbase):
         # reference to Timing
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.type = None
@@ -302,7 +302,7 @@ class RequestGroup_Action(fhirbase):
         # reference to Reference: identifier
 
         self.action = None
-        # type: array
+        # type: list
         # reference to RequestGroup_Action
 
         self.object_id = None

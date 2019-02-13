@@ -127,18 +127,18 @@ class StructureDefinition(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
         # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
@@ -148,14 +148,14 @@ class StructureDefinition(fhirbase):
         # type: str
 
         self.keyword = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.fhirVersion = None
         # type: str
 
         self.mapping = None
-        # type: array
+        # type: list
         # reference to StructureDefinition_Mapping
 
         self.kind = None
@@ -171,10 +171,10 @@ class StructureDefinition(fhirbase):
         # possible values: resource, datatype, extension
 
         self.context = None
-        # type: array
+        # type: list
 
         self.contextInvariant = None
-        # type: array
+        # type: list
 
         self.type = None
         # type: str
@@ -193,7 +193,7 @@ class StructureDefinition(fhirbase):
         # reference to StructureDefinition_Differential
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -327,7 +327,7 @@ class StructureDefinition_Snapshot(fhirbase):
 
     def __init__(self, dict_values=None):
         self.element = None
-        # type: array
+        # type: list
         # reference to ElementDefinition
 
         self.object_id = None
@@ -360,7 +360,7 @@ class StructureDefinition_Differential(fhirbase):
 
     def __init__(self, dict_values=None):
         self.element = None
-        # type: array
+        # type: list
         # reference to ElementDefinition
 
         self.object_id = None

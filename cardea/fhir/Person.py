@@ -31,11 +31,11 @@ class Person(fhirbase):
         # possible values: Person
 
         self.name = None
-        # type: array
+        # type: list
         # reference to HumanName
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.gender = None
@@ -46,7 +46,7 @@ class Person(fhirbase):
         # type: str
 
         self.address = None
-        # type: array
+        # type: list
         # reference to Address
 
         self.photo = None
@@ -59,11 +59,11 @@ class Person(fhirbase):
         # type: bool
 
         self.link = None
-        # type: array
+        # type: list
         # reference to Person_Link
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

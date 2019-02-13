@@ -25,7 +25,7 @@ class Contributor(fhirbase):
         # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.object_id = None

@@ -17,7 +17,7 @@ class CodeableConcept(fhirbase):
 
     def __init__(self, dict_values=None):
         self.coding = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.text = None

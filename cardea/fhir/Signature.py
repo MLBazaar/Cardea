@@ -34,7 +34,7 @@ class Signature(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.when = None

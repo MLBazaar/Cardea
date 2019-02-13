@@ -62,7 +62,7 @@ class Location(fhirbase):
         # type: str
 
         self.alias = None
-        # type: array
+        # type: list
 
         self.description = None
         # type: str
@@ -75,7 +75,7 @@ class Location(fhirbase):
         # reference to CodeableConcept
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.address = None
@@ -94,11 +94,11 @@ class Location(fhirbase):
         # reference to Reference: identifier
 
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

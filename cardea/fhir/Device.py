@@ -86,7 +86,7 @@ class Device(fhirbase):
         # reference to Reference: identifier
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.location = None
@@ -96,15 +96,15 @@ class Device(fhirbase):
         # type: str
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.safety = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

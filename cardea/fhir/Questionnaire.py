@@ -123,33 +123,33 @@ class Questionnaire(fhirbase):
         # reference to Period
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.copyright = None
         # type: str
 
         self.code = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.subjectType = None
-        # type: array
+        # type: list
 
         self.item = None
-        # type: array
+        # type: list
         # reference to Questionnaire_Item
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -289,7 +289,7 @@ class Questionnaire_Item(fhirbase):
         # type: str
 
         self.code = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.prefix = None
@@ -305,7 +305,7 @@ class Questionnaire_Item(fhirbase):
         # attachment, reference, quantity
 
         self.enableWhen = None
-        # type: array
+        # type: list
         # reference to Questionnaire_EnableWhen
 
         self.required = None
@@ -324,7 +324,7 @@ class Questionnaire_Item(fhirbase):
         # reference to Reference: identifier
 
         self.option = None
-        # type: array
+        # type: list
         # reference to Questionnaire_Option
 
         self.initialBoolean = None
@@ -364,7 +364,7 @@ class Questionnaire_Item(fhirbase):
         # reference to Reference: identifier
 
         self.item = None
-        # type: array
+        # type: list
         # reference to Questionnaire_Item
 
         self.object_id = None

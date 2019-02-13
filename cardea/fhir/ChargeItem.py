@@ -62,7 +62,7 @@ class ChargeItem(fhirbase):
         # possible values: ChargeItem
 
         self.definition = None
-        # type: array
+        # type: list
 
         self.status = None
         # type: str
@@ -70,7 +70,7 @@ class ChargeItem(fhirbase):
         # billed, entered-in-error, unknown
 
         self.partOf = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.code = None
@@ -92,7 +92,7 @@ class ChargeItem(fhirbase):
         # reference to Timing
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to ChargeItem_Participant
 
         self.performingOrganization = None
@@ -105,7 +105,7 @@ class ChargeItem(fhirbase):
         # reference to Quantity
 
         self.bodysite = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.factorOverride = None
@@ -124,23 +124,23 @@ class ChargeItem(fhirbase):
         # type: str
 
         self.reason = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.service = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.account = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.supportingInformation = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None

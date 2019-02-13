@@ -78,15 +78,15 @@ class ReferralRequest(fhirbase):
         # possible values: ReferralRequest
 
         self.definition = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.replaces = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.groupIdentifier = None
@@ -105,7 +105,7 @@ class ReferralRequest(fhirbase):
         # type: str
 
         self.serviceRequested = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.subject = None
@@ -130,34 +130,34 @@ class ReferralRequest(fhirbase):
         # reference to CodeableConcept
 
         self.recipient = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.description = None
         # type: str
 
         self.supportingInfo = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.relevantHistory = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

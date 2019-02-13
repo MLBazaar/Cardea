@@ -79,7 +79,7 @@ class MedicationDispense(fhirbase):
         # possible values: MedicationDispense
 
         self.partOf = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
@@ -103,15 +103,15 @@ class MedicationDispense(fhirbase):
         # reference to Reference: identifier
 
         self.supportingInformation = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.performer = None
-        # type: array
+        # type: list
         # reference to MedicationDispense_Performer
 
         self.authorizingPrescription = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.type = None
@@ -133,22 +133,22 @@ class MedicationDispense(fhirbase):
         # reference to Reference: identifier
 
         self.receiver = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.dosageInstruction = None
-        # type: array
+        # type: list
         # reference to Dosage
 
         self.substitution = None
         # reference to MedicationDispense_Substitution
 
         self.detectedIssue = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.notDone = None
@@ -161,11 +161,11 @@ class MedicationDispense(fhirbase):
         # reference to Reference: identifier
 
         self.eventHistory = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -372,11 +372,11 @@ class MedicationDispense_Substitution(fhirbase):
         # reference to CodeableConcept
 
         self.reason = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.responsibleParty = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.object_id = None

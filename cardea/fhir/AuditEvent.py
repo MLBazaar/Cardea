@@ -37,7 +37,7 @@ class AuditEvent(fhirbase):
         # reference to Coding
 
         self.subtype = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.action = None
@@ -55,18 +55,18 @@ class AuditEvent(fhirbase):
         # type: str
 
         self.purposeOfEvent = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.agent = None
-        # type: array
+        # type: list
         # reference to AuditEvent_Agent
 
         self.source = None
         # reference to AuditEvent_Source: identifier
 
         self.entity = None
-        # type: array
+        # type: list
         # reference to AuditEvent_Entity: identifier
 
         self.object_id = None
@@ -164,7 +164,7 @@ class AuditEvent_Agent(fhirbase):
 
     def __init__(self, dict_values=None):
         self.role = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reference = None
@@ -186,7 +186,7 @@ class AuditEvent_Agent(fhirbase):
         # reference to Reference: identifier
 
         self.policy = None
-        # type: array
+        # type: list
 
         self.media = None
         # reference to Coding
@@ -195,7 +195,7 @@ class AuditEvent_Agent(fhirbase):
         # reference to AuditEvent_Network
 
         self.purposeOfUse = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.object_id = None
@@ -305,7 +305,7 @@ class AuditEvent_Source(fhirbase):
         # type: str
 
         self.type = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.identifier = None
@@ -368,7 +368,7 @@ class AuditEvent_Entity(fhirbase):
         # reference to Coding
 
         self.securityLabel = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.name = None
@@ -381,7 +381,7 @@ class AuditEvent_Entity(fhirbase):
         # type: str
 
         self.detail = None
-        # type: array
+        # type: list
         # reference to AuditEvent_Detail
 
         self.identifier = None

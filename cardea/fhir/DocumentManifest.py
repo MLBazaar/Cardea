@@ -64,11 +64,11 @@ class DocumentManifest(fhirbase):
         # type: str
 
         self.author = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.recipient = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.source = None
@@ -78,15 +78,15 @@ class DocumentManifest(fhirbase):
         # type: str
 
         self.content = None
-        # type: array
+        # type: list
         # reference to DocumentManifest_Content
 
         self.related = None
-        # type: array
+        # type: list
         # reference to DocumentManifest_Related: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

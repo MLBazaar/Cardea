@@ -65,7 +65,7 @@ class SupplyRequest(fhirbase):
         # reference to SupplyRequest_Requester
 
         self.supplier = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.reasonCodeableConcept = None

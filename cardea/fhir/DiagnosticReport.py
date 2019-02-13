@@ -70,7 +70,7 @@ class DiagnosticReport(fhirbase):
         # possible values: DiagnosticReport
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
@@ -100,38 +100,38 @@ class DiagnosticReport(fhirbase):
         # type: str
 
         self.performer = None
-        # type: array
+        # type: list
         # reference to DiagnosticReport_Performer
 
         self.specimen = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.result = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.imagingStudy = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.image = None
-        # type: array
+        # type: list
         # reference to DiagnosticReport_Image
 
         self.conclusion = None
         # type: str
 
         self.codedDiagnosis = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.presentedForm = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

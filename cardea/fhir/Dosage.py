@@ -47,7 +47,7 @@ class Dosage(fhirbase):
         # type: str
 
         self.additionalInstruction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.patientInstruction = None

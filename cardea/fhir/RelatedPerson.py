@@ -43,11 +43,11 @@ class RelatedPerson(fhirbase):
         # reference to CodeableConcept
 
         self.name = None
-        # type: array
+        # type: list
         # reference to HumanName
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.gender = None
@@ -58,18 +58,18 @@ class RelatedPerson(fhirbase):
         # type: str
 
         self.address = None
-        # type: array
+        # type: list
         # reference to Address
 
         self.photo = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.period = None
         # reference to Period
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
