@@ -236,9 +236,9 @@ class Diamond(DataLoader):
         intersection = source_df[source_df.index.isin(target_df.index)]
 
         if len(intersection) == 0:
-                source_df = self.relationships[self.relationships['child_entity'] == source]
-                target_df = self.relationships[self.relationships['parent_entity'] == target]
-                intersection = source_df[source_df.index.isin(target_df.index)]
+            source_df = self.relationships[self.relationships['child_entity'] == source]
+            target_df = self.relationships[self.relationships['parent_entity'] == target]
+            intersection = source_df[source_df.index.isin(target_df.index)]
 
         return intersection
 
