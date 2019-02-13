@@ -33,14 +33,14 @@ class Medication(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Medication'
-        # type: string
+        # type: str
         # possible values: Medication
 
         self.code = None
         # reference to CodeableConcept
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: active, inactive, entered-in-error
 
         self.isBrand = None
@@ -296,10 +296,10 @@ class Medication_Batch(fhirbase):
 
     def __init__(self, dict_values=None):
         self.lotNumber = None
-        # type: string
+        # type: str
 
         self.expirationDate = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

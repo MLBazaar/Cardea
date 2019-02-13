@@ -66,7 +66,7 @@ class DiagnosticReport(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'DiagnosticReport'
-        # type: string
+        # type: str
         # possible values: DiagnosticReport
 
         self.basedOn = None
@@ -74,7 +74,7 @@ class DiagnosticReport(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: registered, partial, preliminary, final,
         # amended, corrected, appended, cancelled, entered-in-error, unknown
 
@@ -91,13 +91,13 @@ class DiagnosticReport(fhirbase):
         # reference to Reference: identifier
 
         self.effectiveDateTime = None
-        # type: string
+        # type: str
 
         self.effectivePeriod = None
         # reference to Period
 
         self.issued = None
-        # type: string
+        # type: str
 
         self.performer = None
         # type: array
@@ -120,7 +120,7 @@ class DiagnosticReport(fhirbase):
         # reference to DiagnosticReport_Image
 
         self.conclusion = None
-        # type: string
+        # type: str
 
         self.codedDiagnosis = None
         # type: array
@@ -291,7 +291,7 @@ class DiagnosticReport_Image(fhirbase):
 
     def __init__(self, dict_values=None):
         self.comment = None
-        # type: string
+        # type: str
 
         self.link = None
         # reference to Reference: identifier

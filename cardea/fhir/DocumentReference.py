@@ -52,18 +52,18 @@ class DocumentReference(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'DocumentReference'
-        # type: string
+        # type: str
         # possible values: DocumentReference
 
         self.masterIdentifier = None
         # reference to Identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: current, superseded, entered-in-error
 
         self.docStatus = None
-        # type: string
+        # type: str
 
         self.type = None
         # reference to CodeableConcept
@@ -75,10 +75,10 @@ class DocumentReference(fhirbase):
         # reference to Reference: identifier
 
         self.created = None
-        # type: string
+        # type: str
 
         self.indexed = None
-        # type: string
+        # type: str
 
         self.author = None
         # type: array
@@ -95,7 +95,7 @@ class DocumentReference(fhirbase):
         # reference to DocumentReference_RelatesTo
 
         self.description = None
-        # type: string
+        # type: str
 
         self.securityLabel = None
         # type: array
@@ -204,7 +204,7 @@ class DocumentReference_RelatesTo(fhirbase):
 
     def __init__(self, dict_values=None):
         self.code = None
-        # type: string
+        # type: str
         # possible values: replaces, transforms, signs, appends
 
         self.target = None

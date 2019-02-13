@@ -25,7 +25,7 @@ class BodySite(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'BodySite'
-        # type: string
+        # type: str
         # possible values: BodySite
 
         self.active = None
@@ -39,7 +39,7 @@ class BodySite(fhirbase):
         # reference to CodeableConcept
 
         self.description = None
-        # type: string
+        # type: str
 
         self.image = None
         # type: array

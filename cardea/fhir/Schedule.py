@@ -35,7 +35,7 @@ class Schedule(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Schedule'
-        # type: string
+        # type: str
         # possible values: Schedule
 
         self.active = None
@@ -60,7 +60,7 @@ class Schedule(fhirbase):
         # reference to Period
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.identifier = None
         # type: array

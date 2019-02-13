@@ -23,11 +23,11 @@ class Bundle(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Bundle'
-        # type: string
+        # type: str
         # possible values: Bundle
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: document, message, transaction,
         # transaction-response, batch, batch-response, history, searchset,
         # collection
@@ -103,10 +103,10 @@ class Bundle_Link(fhirbase):
 
     def __init__(self, dict_values=None):
         self.relation = None
-        # type: string
+        # type: str
 
         self.url = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -145,7 +145,7 @@ class Bundle_Entry(fhirbase):
         # reference to Bundle_Link
 
         self.fullUrl = None
-        # type: string
+        # type: str
 
         self.resource = None
         # reference to ResourceList
@@ -210,7 +210,7 @@ class Bundle_Search(fhirbase):
 
     def __init__(self, dict_values=None):
         self.mode = None
-        # type: string
+        # type: str
         # possible values: match, include, outcome
 
         self.score = None
@@ -262,23 +262,23 @@ class Bundle_Request(fhirbase):
 
     def __init__(self, dict_values=None):
         self.method = None
-        # type: string
+        # type: str
         # possible values: GET, POST, PUT, DELETE
 
         self.url = None
-        # type: string
+        # type: str
 
         self.ifNoneMatch = None
-        # type: string
+        # type: str
 
         self.ifModifiedSince = None
-        # type: string
+        # type: str
 
         self.ifMatch = None
-        # type: string
+        # type: str
 
         self.ifNoneExist = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -320,16 +320,16 @@ class Bundle_Response(fhirbase):
 
     def __init__(self, dict_values=None):
         self.status = None
-        # type: string
+        # type: str
 
         self.location = None
-        # type: string
+        # type: str
 
         self.etag = None
-        # type: string
+        # type: str
 
         self.lastModified = None
-        # type: string
+        # type: str
 
         self.outcome = None
         # reference to ResourceList

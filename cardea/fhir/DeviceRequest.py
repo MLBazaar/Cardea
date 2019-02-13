@@ -66,7 +66,7 @@ class DeviceRequest(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'DeviceRequest'
-        # type: string
+        # type: str
         # possible values: DeviceRequest
 
         self.definition = None
@@ -85,13 +85,13 @@ class DeviceRequest(fhirbase):
         # reference to Identifier
 
         self.status = None
-        # type: string
+        # type: str
 
         self.intent = None
         # reference to CodeableConcept
 
         self.priority = None
-        # type: string
+        # type: str
 
         self.codeReference = None
         # reference to Reference: identifier
@@ -106,7 +106,7 @@ class DeviceRequest(fhirbase):
         # reference to Reference: identifier
 
         self.occurrenceDateTime = None
-        # type: string
+        # type: str
 
         self.occurrencePeriod = None
         # reference to Period
@@ -115,7 +115,7 @@ class DeviceRequest(fhirbase):
         # reference to Timing
 
         self.authoredOn = None
-        # type: string
+        # type: str
 
         self.requester = None
         # reference to DeviceRequest_Requester

@@ -81,37 +81,37 @@ class ExpansionProfile(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ExpansionProfile'
-        # type: string
+        # type: str
         # possible values: ExpansionProfile
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
         # type: boolean
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
         # type: array
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
         # type: array
@@ -150,7 +150,7 @@ class ExpansionProfile(fhirbase):
         # type: boolean
 
         self.displayLanguage = None
-        # type: string
+        # type: str
 
         self.limitedExpansion = None
         # type: boolean
@@ -228,13 +228,13 @@ class ExpansionProfile_FixedVersion(fhirbase):
 
     def __init__(self, dict_values=None):
         self.system = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.mode = None
-        # type: string
+        # type: str
         # possible values: default, check, override
 
         self.object_id = None
@@ -268,10 +268,10 @@ class ExpansionProfile_ExcludedSystem(fhirbase):
 
     def __init__(self, dict_values=None):
         self.system = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -363,7 +363,7 @@ class ExpansionProfile_Designation1(fhirbase):
 
     def __init__(self, dict_values=None):
         self.language = None
-        # type: string
+        # type: str
 
         self.use = None
         # reference to Coding
@@ -428,7 +428,7 @@ class ExpansionProfile_Designation2(fhirbase):
 
     def __init__(self, dict_values=None):
         self.language = None
-        # type: string
+        # type: str
 
         self.use = None
         # reference to Coding

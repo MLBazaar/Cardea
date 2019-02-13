@@ -76,7 +76,7 @@ class MedicationAdministration(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'MedicationAdministration'
-        # type: string
+        # type: str
         # possible values: MedicationAdministration
 
         self.definition = None
@@ -88,7 +88,7 @@ class MedicationAdministration(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: in-progress, on-hold, completed,
         # entered-in-error, stopped, unknown
 
@@ -112,7 +112,7 @@ class MedicationAdministration(fhirbase):
         # reference to Reference: identifier
 
         self.effectiveDateTime = None
-        # type: string
+        # type: str
 
         self.effectivePeriod = None
         # reference to Period
@@ -359,7 +359,7 @@ class MedicationAdministration_Dosage(fhirbase):
 
     def __init__(self, dict_values=None):
         self.text = None
-        # type: string
+        # type: str
 
         self.site = None
         # reference to CodeableConcept

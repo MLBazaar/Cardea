@@ -35,11 +35,11 @@ class CareTeam(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'CareTeam'
-        # type: string
+        # type: str
         # possible values: CareTeam
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: proposed, active, suspended, inactive,
         # entered-in-error
 
@@ -48,7 +48,7 @@ class CareTeam(fhirbase):
         # reference to CodeableConcept
 
         self.name = None
-        # type: string
+        # type: str
 
         self.subject = None
         # reference to Reference: identifier

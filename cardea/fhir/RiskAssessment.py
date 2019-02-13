@@ -41,7 +41,7 @@ class RiskAssessment(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'RiskAssessment'
-        # type: string
+        # type: str
         # possible values: RiskAssessment
 
         self.basedOn = None
@@ -51,7 +51,7 @@ class RiskAssessment(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
 
         self.method = None
         # reference to CodeableConcept
@@ -66,7 +66,7 @@ class RiskAssessment(fhirbase):
         # reference to Reference: identifier
 
         self.occurrenceDateTime = None
-        # type: string
+        # type: str
 
         self.occurrencePeriod = None
         # reference to Period
@@ -92,10 +92,10 @@ class RiskAssessment(fhirbase):
         # reference to RiskAssessment_Prediction
 
         self.mitigation = None
-        # type: string
+        # type: str
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.identifier = None
         # reference to Identifier
@@ -230,7 +230,7 @@ class RiskAssessment_Prediction(fhirbase):
         # reference to Range
 
         self.rationale = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

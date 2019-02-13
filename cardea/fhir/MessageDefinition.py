@@ -78,40 +78,40 @@ class MessageDefinition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'MessageDefinition'
-        # type: string
+        # type: str
         # possible values: MessageDefinition
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
         # type: boolean
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
         # type: array
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
         # type: array
@@ -122,10 +122,10 @@ class MessageDefinition(fhirbase):
         # reference to CodeableConcept
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.base = None
         # reference to Reference: identifier
@@ -142,7 +142,7 @@ class MessageDefinition(fhirbase):
         # reference to Coding
 
         self.category = None
-        # type: string
+        # type: str
 
         self.focus = None
         # type: array
@@ -248,7 +248,7 @@ class MessageDefinition_Focus(fhirbase):
 
     def __init__(self, dict_values=None):
         self.code = None
-        # type: string
+        # type: str
 
         self.profile = None
         # reference to Reference: identifier
@@ -257,7 +257,7 @@ class MessageDefinition_Focus(fhirbase):
         # type: int
 
         self.max = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -296,7 +296,7 @@ class MessageDefinition_AllowedResponse(fhirbase):
         # reference to Reference: identifier
 
         self.situation = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

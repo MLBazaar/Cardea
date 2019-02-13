@@ -21,7 +21,7 @@ class CodeableConcept(fhirbase):
         # reference to Coding
 
         self.text = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

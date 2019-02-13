@@ -104,40 +104,40 @@ class CapabilityStatement(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'CapabilityStatement'
-        # type: string
+        # type: str
         # possible values: CapabilityStatement
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
         # type: boolean
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
         # type: array
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
         # type: array
@@ -148,13 +148,13 @@ class CapabilityStatement(fhirbase):
         # reference to CodeableConcept
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.kind = None
-        # type: string
+        # type: str
         # possible values: instance, capability, requirements
 
         self.instantiates = None
@@ -167,10 +167,10 @@ class CapabilityStatement(fhirbase):
         # reference to CapabilityStatement_Implementation
 
         self.fhirVersion = None
-        # type: string
+        # type: str
 
         self.acceptUnknown = None
-        # type: string
+        # type: str
         # possible values: no, extensions, elements, both
 
         self.format = None
@@ -296,13 +296,13 @@ class CapabilityStatement_Software(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.releaseDate = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -329,10 +329,10 @@ class CapabilityStatement_Implementation(fhirbase):
 
     def __init__(self, dict_values=None):
         self.description = None
-        # type: string
+        # type: str
 
         self.url = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -374,11 +374,11 @@ class CapabilityStatement_Rest(fhirbase):
 
     def __init__(self, dict_values=None):
         self.mode = None
-        # type: string
+        # type: str
         # possible values: client, server
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.security = None
         # reference to CapabilityStatement_Security
@@ -475,7 +475,7 @@ class CapabilityStatement_Security(fhirbase):
         # reference to CodeableConcept
 
         self.description = None
-        # type: string
+        # type: str
 
         self.certificate = None
         # type: array
@@ -518,10 +518,10 @@ class CapabilityStatement_Certificate(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
 
         self.blob = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -582,20 +582,20 @@ class CapabilityStatement_Resource(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
 
         self.profile = None
         # reference to Reference: identifier
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.interaction = None
         # type: array
         # reference to CapabilityStatement_Interaction
 
         self.versioning = None
-        # type: string
+        # type: str
         # possible values: no-version, versioned, versioned-update
 
         self.readHistory = None
@@ -608,7 +608,7 @@ class CapabilityStatement_Resource(fhirbase):
         # type: boolean
 
         self.conditionalRead = None
-        # type: string
+        # type: str
         # possible values: not-supported, modified-since, not-match,
         # full-support
 
@@ -616,7 +616,7 @@ class CapabilityStatement_Resource(fhirbase):
         # type: boolean
 
         self.conditionalDelete = None
-        # type: string
+        # type: str
         # possible values: not-supported, single, multiple
 
         self.referencePolicy = None
@@ -710,12 +710,12 @@ class CapabilityStatement_Interaction(fhirbase):
 
     def __init__(self, dict_values=None):
         self.code = None
-        # type: string
+        # type: str
         # possible values: read, vread, update, patch, delete,
         # history-instance, history-type, create, search-type
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -760,18 +760,18 @@ class CapabilityStatement_SearchParam(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.definition = None
-        # type: string
+        # type: str
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: number, date, string, token, reference,
         # composite, quantity, uri
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -809,12 +809,12 @@ class CapabilityStatement_Interaction1(fhirbase):
 
     def __init__(self, dict_values=None):
         self.code = None
-        # type: string
+        # type: str
         # possible values: transaction, batch, search-system,
         # history-system
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -851,7 +851,7 @@ class CapabilityStatement_Operation(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.definition = None
         # reference to Reference: identifier
@@ -906,7 +906,7 @@ class CapabilityStatement_Messaging(fhirbase):
         # type: int
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.supportedMessage = None
         # type: array
@@ -963,7 +963,7 @@ class CapabilityStatement_Endpoint(fhirbase):
         # reference to Coding
 
         self.address = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -999,7 +999,7 @@ class CapabilityStatement_SupportedMessage(fhirbase):
 
     def __init__(self, dict_values=None):
         self.mode = None
-        # type: string
+        # type: str
         # possible values: sender, receiver
 
         self.definition = None
@@ -1058,15 +1058,15 @@ class CapabilityStatement_Event(fhirbase):
         # reference to Coding
 
         self.category = None
-        # type: string
+        # type: str
         # possible values: Consequence, Currency, Notification
 
         self.mode = None
-        # type: string
+        # type: str
         # possible values: sender, receiver
 
         self.focus = None
-        # type: string
+        # type: str
 
         self.request = None
         # reference to Reference: identifier
@@ -1075,7 +1075,7 @@ class CapabilityStatement_Event(fhirbase):
         # reference to Reference: identifier
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -1140,11 +1140,11 @@ class CapabilityStatement_Document(fhirbase):
 
     def __init__(self, dict_values=None):
         self.mode = None
-        # type: string
+        # type: str
         # possible values: producer, consumer
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.profile = None
         # reference to Reference: identifier

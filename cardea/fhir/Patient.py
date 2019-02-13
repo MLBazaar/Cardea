@@ -42,7 +42,7 @@ class Patient(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Patient'
-        # type: string
+        # type: str
         # possible values: Patient
 
         self.active = None
@@ -57,17 +57,17 @@ class Patient(fhirbase):
         # reference to ContactPoint
 
         self.gender = None
-        # type: string
+        # type: str
         # possible values: male, female, other, unknown
 
         self.birthDate = None
-        # type: string
+        # type: str
 
         self.deceasedBoolean = None
         # type: boolean
 
         self.deceasedDateTime = None
-        # type: string
+        # type: str
 
         self.address = None
         # type: array
@@ -228,7 +228,7 @@ class Patient_Contact(fhirbase):
         # reference to Address
 
         self.gender = None
-        # type: string
+        # type: str
         # possible values: male, female, other, unknown
 
         self.organization = None
@@ -396,7 +396,7 @@ class Patient_Link(fhirbase):
         # reference to Reference: identifier
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: replaced-by, replaces, refer, seealso
 
         self.object_id = None

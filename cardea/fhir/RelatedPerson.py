@@ -30,7 +30,7 @@ class RelatedPerson(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'RelatedPerson'
-        # type: string
+        # type: str
         # possible values: RelatedPerson
 
         self.active = None
@@ -51,11 +51,11 @@ class RelatedPerson(fhirbase):
         # reference to ContactPoint
 
         self.gender = None
-        # type: string
+        # type: str
         # possible values: male, female, other, unknown
 
         self.birthDate = None
-        # type: string
+        # type: str
 
         self.address = None
         # type: array

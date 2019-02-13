@@ -57,11 +57,11 @@ class ResearchStudy(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ResearchStudy'
-        # type: string
+        # type: str
         # possible values: ResearchStudy
 
         self.title = None
-        # type: string
+        # type: str
 
         self.protocol = None
         # type: array
@@ -72,7 +72,7 @@ class ResearchStudy(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, in-progress, suspended, stopped,
         # completed, entered-in-error
 
@@ -101,7 +101,7 @@ class ResearchStudy(fhirbase):
         # reference to CodeableConcept
 
         self.description = None
-        # type: string
+        # type: str
 
         self.enrollment = None
         # type: array
@@ -262,13 +262,13 @@ class ResearchStudy_Arm(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.code = None
         # reference to CodeableConcept
 
         self.description = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

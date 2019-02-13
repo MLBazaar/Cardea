@@ -129,7 +129,7 @@ class Timing_Repeat(fhirbase):
         # type: int
 
         self.durationUnit = None
-        # type: string
+        # type: str
         # possible values: s, min, h, d, wk, mo, a
 
         self.frequency = None
@@ -145,7 +145,7 @@ class Timing_Repeat(fhirbase):
         # type: int
 
         self.periodUnit = None
-        # type: string
+        # type: str
         # possible values: s, min, h, d, wk, mo, a
 
         self.dayOfWeek = None

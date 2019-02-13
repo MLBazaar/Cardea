@@ -49,11 +49,11 @@ class NutritionOrder(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'NutritionOrder'
-        # type: string
+        # type: str
         # possible values: NutritionOrder
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: proposed, draft, planned, requested,
         # active, on-hold, completed, cancelled, entered-in-error
 
@@ -64,7 +64,7 @@ class NutritionOrder(fhirbase):
         # reference to Reference: identifier
 
         self.dateTime = None
-        # type: string
+        # type: str
 
         self.orderer = None
         # reference to Reference: identifier
@@ -212,7 +212,7 @@ class NutritionOrder_OralDiet(fhirbase):
         # reference to CodeableConcept
 
         self.instruction = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -358,7 +358,7 @@ class NutritionOrder_Supplement(fhirbase):
         # reference to CodeableConcept
 
         self.productName = None
-        # type: string
+        # type: str
 
         self.schedule = None
         # type: array
@@ -368,7 +368,7 @@ class NutritionOrder_Supplement(fhirbase):
         # reference to Quantity
 
         self.instruction = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -438,13 +438,13 @@ class NutritionOrder_EnteralFormula(fhirbase):
         # reference to CodeableConcept
 
         self.baseFormulaProductName = None
-        # type: string
+        # type: str
 
         self.additiveType = None
         # reference to CodeableConcept
 
         self.additiveProductName = None
-        # type: string
+        # type: str
 
         self.caloricDensity = None
         # reference to Quantity
@@ -460,7 +460,7 @@ class NutritionOrder_EnteralFormula(fhirbase):
         # reference to Quantity
 
         self.administrationInstruction = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

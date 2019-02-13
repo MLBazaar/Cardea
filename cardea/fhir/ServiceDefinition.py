@@ -91,48 +91,48 @@ class ServiceDefinition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ServiceDefinition'
-        # type: string
+        # type: str
         # possible values: ServiceDefinition
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
         # type: boolean
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.usage = None
-        # type: string
+        # type: str
 
         self.approvalDate = None
-        # type: string
+        # type: str
 
         self.lastReviewDate = None
-        # type: string
+        # type: str
 
         self.effectivePeriod = None
         # reference to Period
@@ -158,7 +158,7 @@ class ServiceDefinition(fhirbase):
         # reference to ContactDetail
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.relatedArtifact = None
         # type: array

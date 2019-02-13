@@ -25,7 +25,7 @@ class Basic(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Basic'
-        # type: string
+        # type: str
         # possible values: Basic
 
         self.code = None
@@ -35,7 +35,7 @@ class Basic(fhirbase):
         # reference to Reference: identifier
 
         self.created = None
-        # type: string
+        # type: str
 
         self.author = None
         # reference to Reference: identifier

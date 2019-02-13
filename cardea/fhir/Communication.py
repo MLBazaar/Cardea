@@ -56,7 +56,7 @@ class Communication(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Communication'
-        # type: string
+        # type: str
         # possible values: Communication
 
         self.definition = None
@@ -72,7 +72,7 @@ class Communication(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
 
         self.notDone = None
         # type: boolean
@@ -103,10 +103,10 @@ class Communication(fhirbase):
         # reference to Reference: identifier
 
         self.sent = None
-        # type: string
+        # type: str
 
         self.received = None
-        # type: string
+        # type: str
 
         self.sender = None
         # reference to Reference: identifier
@@ -239,7 +239,7 @@ class Communication_Payload(fhirbase):
 
     def __init__(self, dict_values=None):
         self.contentString = None
-        # type: string
+        # type: str
 
         self.contentAttachment = None
         # reference to Attachment

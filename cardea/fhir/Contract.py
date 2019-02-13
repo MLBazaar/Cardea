@@ -74,14 +74,14 @@ class Contract(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Contract'
-        # type: string
+        # type: str
         # possible values: Contract
 
         self.status = None
-        # type: string
+        # type: str
 
         self.issued = None
-        # type: string
+        # type: str
 
         self.applies = None
         # reference to Period
@@ -416,7 +416,7 @@ class Contract_ValuedItem(fhirbase):
         # reference to Reference: identifier
 
         self.effectiveTime = None
-        # type: string
+        # type: str
 
         self.quantity = None
         # reference to Quantity
@@ -508,7 +508,7 @@ class Contract_Term(fhirbase):
 
     def __init__(self, dict_values=None):
         self.issued = None
-        # type: string
+        # type: str
 
         self.applies = None
         # reference to Period
@@ -540,7 +540,7 @@ class Contract_Term(fhirbase):
         # reference to Contract_Agent1
 
         self.text = None
-        # type: string
+        # type: str
 
         self.valuedItem = None
         # type: array
@@ -701,7 +701,7 @@ class Contract_ValuedItem1(fhirbase):
         # reference to Reference: identifier
 
         self.effectiveTime = None
-        # type: string
+        # type: str
 
         self.quantity = None
         # reference to Quantity

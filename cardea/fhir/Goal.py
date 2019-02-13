@@ -46,11 +46,11 @@ class Goal(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Goal'
-        # type: string
+        # type: str
         # possible values: Goal
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: proposed, accepted, planned, in-progress,
         # on-target, ahead-of-target, behind-target, sustaining, achieved,
         # on-hold, cancelled, entered-in-error, rejected
@@ -69,7 +69,7 @@ class Goal(fhirbase):
         # reference to Reference: identifier
 
         self.startDate = None
-        # type: string
+        # type: str
 
         self.startCodeableConcept = None
         # reference to CodeableConcept
@@ -78,10 +78,10 @@ class Goal(fhirbase):
         # reference to Goal_Target
 
         self.statusDate = None
-        # type: string
+        # type: str
 
         self.statusReason = None
-        # type: string
+        # type: str
 
         self.expressedBy = None
         # reference to Reference: identifier
@@ -241,7 +241,7 @@ class Goal_Target(fhirbase):
         # reference to CodeableConcept
 
         self.dueDate = None
-        # type: string
+        # type: str
 
         self.dueDuration = None
         # reference to Duration

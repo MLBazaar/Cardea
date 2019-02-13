@@ -72,11 +72,11 @@ class Task(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Task'
-        # type: string
+        # type: str
         # possible values: Task
 
         self.definitionUri = None
-        # type: string
+        # type: str
 
         self.definitionReference = None
         # reference to Reference: identifier
@@ -93,7 +93,7 @@ class Task(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, requested, received, accepted,
         # rejected, ready, cancelled, in-progress, on-hold, failed, completed,
         # entered-in-error
@@ -105,16 +105,16 @@ class Task(fhirbase):
         # reference to CodeableConcept
 
         self.intent = None
-        # type: string
+        # type: str
 
         self.priority = None
-        # type: string
+        # type: str
 
         self.code = None
         # reference to CodeableConcept
 
         self.description = None
-        # type: string
+        # type: str
 
         self.focus = None
         # reference to Reference: identifier
@@ -129,10 +129,10 @@ class Task(fhirbase):
         # reference to Period
 
         self.authoredOn = None
-        # type: string
+        # type: str
 
         self.lastModified = None
-        # type: string
+        # type: str
 
         self.requester = None
         # reference to Task_Requester
@@ -467,37 +467,37 @@ class Task_Input(fhirbase):
         # type: int
 
         self.valueBase64Binary = None
-        # type: string
+        # type: str
 
         self.valueInstant = None
-        # type: string
+        # type: str
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueUri = None
-        # type: string
+        # type: str
 
         self.valueDate = None
-        # type: string
+        # type: str
 
         self.valueDateTime = None
-        # type: string
+        # type: str
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueCode = None
-        # type: string
+        # type: str
 
         self.valueOid = None
-        # type: string
+        # type: str
 
         self.valueUuid = None
-        # type: string
+        # type: str
 
         self.valueId = None
-        # type: string
+        # type: str
 
         self.valueUnsignedInt = None
         # type: int
@@ -506,7 +506,7 @@ class Task_Input(fhirbase):
         # type: int
 
         self.valueMarkdown = None
-        # type: string
+        # type: str
 
         self.valueElement = None
         # reference to Element: id
@@ -897,37 +897,37 @@ class Task_Output(fhirbase):
         # type: int
 
         self.valueBase64Binary = None
-        # type: string
+        # type: str
 
         self.valueInstant = None
-        # type: string
+        # type: str
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueUri = None
-        # type: string
+        # type: str
 
         self.valueDate = None
-        # type: string
+        # type: str
 
         self.valueDateTime = None
-        # type: string
+        # type: str
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueCode = None
-        # type: string
+        # type: str
 
         self.valueOid = None
-        # type: string
+        # type: str
 
         self.valueUuid = None
-        # type: string
+        # type: str
 
         self.valueId = None
-        # type: string
+        # type: str
 
         self.valueUnsignedInt = None
         # type: int
@@ -936,7 +936,7 @@ class Task_Output(fhirbase):
         # type: int
 
         self.valueMarkdown = None
-        # type: string
+        # type: str
 
         self.valueElement = None
         # reference to Element: id

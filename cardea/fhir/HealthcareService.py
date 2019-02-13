@@ -59,7 +59,7 @@ class HealthcareService(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'HealthcareService'
-        # type: string
+        # type: str
         # possible values: HealthcareService
 
         self.active = None
@@ -84,13 +84,13 @@ class HealthcareService(fhirbase):
         # reference to Reference: identifier
 
         self.name = None
-        # type: string
+        # type: str
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.extraDetails = None
-        # type: string
+        # type: str
 
         self.photo = None
         # reference to Attachment
@@ -111,7 +111,7 @@ class HealthcareService(fhirbase):
         # reference to CodeableConcept
 
         self.eligibilityNote = None
-        # type: string
+        # type: str
 
         self.programName = None
         # type: array
@@ -136,7 +136,7 @@ class HealthcareService(fhirbase):
         # reference to HealthcareService_NotAvailable
 
         self.availabilityExceptions = None
-        # type: string
+        # type: str
 
         self.endpoint = None
         # type: array
@@ -261,10 +261,10 @@ class HealthcareService_AvailableTime(fhirbase):
         # type: boolean
 
         self.availableStartTime = None
-        # type: string
+        # type: str
 
         self.availableEndTime = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -298,7 +298,7 @@ class HealthcareService_NotAvailable(fhirbase):
 
     def __init__(self, dict_values=None):
         self.description = None
-        # type: string
+        # type: str
 
         self.during = None
         # reference to Period

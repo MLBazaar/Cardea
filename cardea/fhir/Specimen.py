@@ -37,14 +37,14 @@ class Specimen(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Specimen'
-        # type: string
+        # type: str
         # possible values: Specimen
 
         self.accessionIdentifier = None
         # reference to Identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: available, unavailable, unsatisfactory,
         # entered-in-error
 
@@ -55,7 +55,7 @@ class Specimen(fhirbase):
         # reference to Reference: identifier
 
         self.receivedTime = None
-        # type: string
+        # type: str
 
         self.parent = None
         # type: array
@@ -179,7 +179,7 @@ class Specimen_Collection(fhirbase):
         # reference to Reference: identifier
 
         self.collectedDateTime = None
-        # type: string
+        # type: str
 
         self.collectedPeriod = None
         # reference to Period
@@ -250,7 +250,7 @@ class Specimen_Processing(fhirbase):
 
     def __init__(self, dict_values=None):
         self.description = None
-        # type: string
+        # type: str
 
         self.procedure = None
         # reference to CodeableConcept
@@ -260,7 +260,7 @@ class Specimen_Processing(fhirbase):
         # reference to Reference: identifier
 
         self.timeDateTime = None
-        # type: string
+        # type: str
 
         self.timePeriod = None
         # reference to Period
@@ -317,7 +317,7 @@ class Specimen_Container(fhirbase):
 
     def __init__(self, dict_values=None):
         self.description = None
-        # type: string
+        # type: str
 
         self.type = None
         # reference to CodeableConcept

@@ -33,11 +33,11 @@ class DeviceUseStatement(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'DeviceUseStatement'
-        # type: string
+        # type: str
         # possible values: DeviceUseStatement
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: active, completed, entered-in-error,
         # intended, stopped, on-hold
 
@@ -54,10 +54,10 @@ class DeviceUseStatement(fhirbase):
         # reference to Period
 
         self.timingDateTime = None
-        # type: string
+        # type: str
 
         self.recordedOn = None
-        # type: string
+        # type: str
 
         self.source = None
         # reference to Reference: identifier

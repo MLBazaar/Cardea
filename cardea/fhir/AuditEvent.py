@@ -30,7 +30,7 @@ class AuditEvent(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'AuditEvent'
-        # type: string
+        # type: str
         # possible values: AuditEvent
 
         self.type = None
@@ -41,18 +41,18 @@ class AuditEvent(fhirbase):
         # reference to Coding
 
         self.action = None
-        # type: string
+        # type: str
         # possible values: C, R, U, D, E
 
         self.recorded = None
-        # type: string
+        # type: str
 
         self.outcome = None
-        # type: string
+        # type: str
         # possible values: 0, 4, 8, 12
 
         self.outcomeDesc = None
-        # type: string
+        # type: str
 
         self.purposeOfEvent = None
         # type: array
@@ -174,10 +174,10 @@ class AuditEvent_Agent(fhirbase):
         # reference to Identifier
 
         self.altId = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.requestor = None
         # type: boolean
@@ -261,10 +261,10 @@ class AuditEvent_Network(fhirbase):
 
     def __init__(self, dict_values=None):
         self.address = None
-        # type: string
+        # type: str
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: 1, 2, 3, 4, 5
 
         self.object_id = None
@@ -302,7 +302,7 @@ class AuditEvent_Source(fhirbase):
 
     def __init__(self, dict_values=None):
         self.site = None
-        # type: string
+        # type: str
 
         self.type = None
         # type: array
@@ -372,13 +372,13 @@ class AuditEvent_Entity(fhirbase):
         # reference to Coding
 
         self.name = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.query = None
-        # type: string
+        # type: str
 
         self.detail = None
         # type: array
@@ -445,10 +445,10 @@ class AuditEvent_Detail(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
 
         self.value = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

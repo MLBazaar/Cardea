@@ -75,7 +75,7 @@ class MedicationDispense(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'MedicationDispense'
-        # type: string
+        # type: str
         # possible values: MedicationDispense
 
         self.partOf = None
@@ -83,7 +83,7 @@ class MedicationDispense(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: preparation, in-progress, on-hold,
         # completed, entered-in-error, stopped
 
@@ -124,10 +124,10 @@ class MedicationDispense(fhirbase):
         # reference to Quantity
 
         self.whenPrepared = None
-        # type: string
+        # type: str
 
         self.whenHandedOver = None
-        # type: string
+        # type: str
 
         self.destination = None
         # reference to Reference: identifier

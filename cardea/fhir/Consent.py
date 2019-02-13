@@ -62,11 +62,11 @@ class Consent(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Consent'
-        # type: string
+        # type: str
         # possible values: Consent
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, proposed, active, rejected,
         # inactive, entered-in-error
 
@@ -81,7 +81,7 @@ class Consent(fhirbase):
         # reference to Period
 
         self.dateTime = None
-        # type: string
+        # type: str
 
         self.consentingParty = None
         # type: array
@@ -113,7 +113,7 @@ class Consent(fhirbase):
         # reference to Consent_Policy
 
         self.policyRule = None
-        # type: string
+        # type: str
 
         self.securityLabel = None
         # type: array
@@ -306,10 +306,10 @@ class Consent_Policy(fhirbase):
 
     def __init__(self, dict_values=None):
         self.authority = None
-        # type: string
+        # type: str
 
         self.uri = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -336,7 +336,7 @@ class Consent_Data(fhirbase):
 
     def __init__(self, dict_values=None):
         self.meaning = None
-        # type: string
+        # type: str
         # possible values: instance, related, dependents, authoredby
 
         self.reference = None
@@ -404,7 +404,7 @@ class Consent_Except(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: deny, permit
 
         self.period = None
@@ -570,7 +570,7 @@ class Consent_Data1(fhirbase):
 
     def __init__(self, dict_values=None):
         self.meaning = None
-        # type: string
+        # type: str
         # possible values: instance, related, dependents, authoredby
 
         self.reference = None

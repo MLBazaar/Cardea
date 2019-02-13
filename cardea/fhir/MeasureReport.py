@@ -35,15 +35,15 @@ class MeasureReport(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'MeasureReport'
-        # type: string
+        # type: str
         # possible values: MeasureReport
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: complete, pending, error
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: individual, patient-list, summary
 
         self.measure = None
@@ -53,7 +53,7 @@ class MeasureReport(fhirbase):
         # reference to Reference: identifier
 
         self.date = None
-        # type: string
+        # type: str
 
         self.reportingOrganization = None
         # reference to Reference: identifier
@@ -301,7 +301,7 @@ class MeasureReport_Stratum(fhirbase):
 
     def __init__(self, dict_values=None):
         self.value = None
-        # type: string
+        # type: str
 
         self.population = None
         # type: array

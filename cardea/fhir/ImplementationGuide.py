@@ -74,37 +74,37 @@ class ImplementationGuide(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ImplementationGuide'
-        # type: string
+        # type: str
         # possible values: ImplementationGuide
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
         # type: boolean
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
         # type: array
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
         # type: array
@@ -115,10 +115,10 @@ class ImplementationGuide(fhirbase):
         # reference to CodeableConcept
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.fhirVersion = None
-        # type: string
+        # type: str
 
         self.dependency = None
         # type: array
@@ -210,11 +210,11 @@ class ImplementationGuide_Dependency(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: reference, inclusion
 
         self.uri = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -253,10 +253,10 @@ class ImplementationGuide_Package(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.resource = None
         # type: array
@@ -311,16 +311,16 @@ class ImplementationGuide_Resource(fhirbase):
         # type: boolean
 
         self.name = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.acronym = None
-        # type: string
+        # type: str
 
         self.sourceUri = None
-        # type: string
+        # type: str
 
         self.sourceReference = None
         # reference to Reference: identifier
@@ -366,7 +366,7 @@ class ImplementationGuide_Global(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
 
         self.profile = None
         # reference to Reference: identifier
@@ -413,13 +413,13 @@ class ImplementationGuide_Page(fhirbase):
 
     def __init__(self, dict_values=None):
         self.source = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.kind = None
-        # type: string
+        # type: str
         # possible values: page, example, list, include, directory,
         # dictionary, toc, resource
 
@@ -430,7 +430,7 @@ class ImplementationGuide_Page(fhirbase):
         # type: array
 
         self.format = None
-        # type: string
+        # type: str
 
         self.page = None
         # type: array

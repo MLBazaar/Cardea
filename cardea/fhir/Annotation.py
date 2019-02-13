@@ -20,13 +20,13 @@ class Annotation(fhirbase):
         # reference to Reference: identifier
 
         self.authorString = None
-        # type: string
+        # type: str
 
         self.time = None
-        # type: string
+        # type: str
 
         self.text = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

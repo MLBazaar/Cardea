@@ -74,7 +74,7 @@ class ReferralRequest(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ReferralRequest'
-        # type: string
+        # type: str
         # possible values: ReferralRequest
 
         self.definition = None
@@ -93,16 +93,16 @@ class ReferralRequest(fhirbase):
         # reference to Identifier
 
         self.status = None
-        # type: string
+        # type: str
 
         self.intent = None
-        # type: string
+        # type: str
 
         self.type = None
         # reference to CodeableConcept
 
         self.priority = None
-        # type: string
+        # type: str
 
         self.serviceRequested = None
         # type: array
@@ -115,13 +115,13 @@ class ReferralRequest(fhirbase):
         # reference to Reference: identifier
 
         self.occurrenceDateTime = None
-        # type: string
+        # type: str
 
         self.occurrencePeriod = None
         # reference to Period
 
         self.authoredOn = None
-        # type: string
+        # type: str
 
         self.requester = None
         # reference to ReferralRequest_Requester
@@ -142,7 +142,7 @@ class ReferralRequest(fhirbase):
         # reference to Reference: identifier
 
         self.description = None
-        # type: string
+        # type: str
 
         self.supportingInfo = None
         # type: array

@@ -27,7 +27,7 @@ class Person(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Person'
-        # type: string
+        # type: str
         # possible values: Person
 
         self.name = None
@@ -39,11 +39,11 @@ class Person(fhirbase):
         # reference to ContactPoint
 
         self.gender = None
-        # type: string
+        # type: str
         # possible values: male, female, other, unknown
 
         self.birthDate = None
-        # type: string
+        # type: str
 
         self.address = None
         # type: array
@@ -137,7 +137,7 @@ class Person_Link(fhirbase):
         # reference to Reference: identifier
 
         self.assurance = None
-        # type: string
+        # type: str
         # possible values: level1, level2, level3, level4
 
         self.object_id = None

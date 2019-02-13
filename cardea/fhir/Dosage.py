@@ -44,14 +44,14 @@ class Dosage(fhirbase):
         # type: int
 
         self.text = None
-        # type: string
+        # type: str
 
         self.additionalInstruction = None
         # type: array
         # reference to CodeableConcept
 
         self.patientInstruction = None
-        # type: string
+        # type: str
 
         self.timing = None
         # reference to Timing

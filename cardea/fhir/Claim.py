@@ -78,11 +78,11 @@ class Claim(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Claim'
-        # type: string
+        # type: str
         # possible values: Claim
 
         self.status = None
-        # type: string
+        # type: str
 
         self.type = None
         # reference to CodeableConcept
@@ -92,7 +92,7 @@ class Claim(fhirbase):
         # reference to CodeableConcept
 
         self.use = None
-        # type: string
+        # type: str
         # possible values: complete, proposed, exploratory, other
 
         self.patient = None
@@ -102,7 +102,7 @@ class Claim(fhirbase):
         # reference to Period
 
         self.created = None
-        # type: string
+        # type: str
 
         self.enterer = None
         # reference to Reference: identifier
@@ -545,13 +545,13 @@ class Claim_Information(fhirbase):
         # reference to CodeableConcept
 
         self.timingDate = None
-        # type: string
+        # type: str
 
         self.timingPeriod = None
         # reference to Period
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueQuantity = None
         # reference to Quantity
@@ -698,7 +698,7 @@ class Claim_Procedure(fhirbase):
         # type: int
 
         self.date = None
-        # type: string
+        # type: str
 
         self.procedureCodeableConcept = None
         # reference to CodeableConcept
@@ -761,7 +761,7 @@ class Claim_Insurance(fhirbase):
         # reference to Reference: identifier
 
         self.businessArrangement = None
-        # type: string
+        # type: str
 
         self.preAuthRef = None
         # type: array
@@ -807,7 +807,7 @@ class Claim_Accident(fhirbase):
 
     def __init__(self, dict_values=None):
         self.date = None
-        # type: string
+        # type: str
 
         self.type = None
         # reference to CodeableConcept
@@ -937,7 +937,7 @@ class Claim_Item(fhirbase):
         # reference to CodeableConcept
 
         self.servicedDate = None
-        # type: string
+        # type: str
 
         self.servicedPeriod = None
         # reference to Period

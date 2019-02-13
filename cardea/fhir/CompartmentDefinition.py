@@ -55,40 +55,40 @@ class CompartmentDefinition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'CompartmentDefinition'
-        # type: string
+        # type: str
         # possible values: CompartmentDefinition
 
         self.url = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
         # type: boolean
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
         # type: array
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.useContext = None
         # type: array
@@ -99,7 +99,7 @@ class CompartmentDefinition(fhirbase):
         # reference to CodeableConcept
 
         self.code = None
-        # type: string
+        # type: str
         # possible values: Patient, Encounter, RelatedPerson,
         # Practitioner, Device
 
@@ -176,13 +176,13 @@ class CompartmentDefinition_Resource(fhirbase):
 
     def __init__(self, dict_values=None):
         self.code = None
-        # type: string
+        # type: str
 
         self.param = None
         # type: array
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

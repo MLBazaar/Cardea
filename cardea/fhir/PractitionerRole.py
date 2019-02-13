@@ -40,7 +40,7 @@ class PractitionerRole(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'PractitionerRole'
-        # type: string
+        # type: str
         # possible values: PractitionerRole
 
         self.active = None
@@ -84,7 +84,7 @@ class PractitionerRole(fhirbase):
         # reference to PractitionerRole_NotAvailable
 
         self.availabilityExceptions = None
-        # type: string
+        # type: str
 
         self.endpoint = None
         # type: array
@@ -189,10 +189,10 @@ class PractitionerRole_AvailableTime(fhirbase):
         # type: boolean
 
         self.availableStartTime = None
-        # type: string
+        # type: str
 
         self.availableEndTime = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -217,7 +217,7 @@ class PractitionerRole_NotAvailable(fhirbase):
 
     def __init__(self, dict_values=None):
         self.description = None
-        # type: string
+        # type: str
 
         self.during = None
         # reference to Period

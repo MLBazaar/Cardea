@@ -85,7 +85,7 @@ class ProcedureRequest(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ProcedureRequest'
-        # type: string
+        # type: str
         # possible values: ProcedureRequest
 
         self.definition = None
@@ -104,13 +104,13 @@ class ProcedureRequest(fhirbase):
         # reference to Identifier
 
         self.status = None
-        # type: string
+        # type: str
 
         self.intent = None
-        # type: string
+        # type: str
 
         self.priority = None
-        # type: string
+        # type: str
 
         self.doNotPerform = None
         # type: boolean
@@ -129,7 +129,7 @@ class ProcedureRequest(fhirbase):
         # reference to Reference: identifier
 
         self.occurrenceDateTime = None
-        # type: string
+        # type: str
 
         self.occurrencePeriod = None
         # reference to Period
@@ -144,7 +144,7 @@ class ProcedureRequest(fhirbase):
         # reference to CodeableConcept
 
         self.authoredOn = None
-        # type: string
+        # type: str
 
         self.requester = None
         # reference to ProcedureRequest_Requester

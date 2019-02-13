@@ -53,11 +53,11 @@ class Composition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Composition'
-        # type: string
+        # type: str
         # possible values: Composition
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: preliminary, final, amended,
         # entered-in-error
 
@@ -74,17 +74,17 @@ class Composition(fhirbase):
         # reference to Reference: identifier
 
         self.date = None
-        # type: string
+        # type: str
 
         self.author = None
         # type: array
         # reference to Reference: identifier
 
         self.title = None
-        # type: string
+        # type: str
 
         self.confidentiality = None
-        # type: string
+        # type: str
 
         self.attester = None
         # type: array
@@ -205,7 +205,7 @@ class Composition_Attester(fhirbase):
         # possible values: personal, professional, legal, official
 
         self.time = None
-        # type: string
+        # type: str
 
         self.party = None
         # reference to Reference: identifier
@@ -258,7 +258,7 @@ class Composition_RelatesTo(fhirbase):
 
     def __init__(self, dict_values=None):
         self.code = None
-        # type: string
+        # type: str
 
         self.targetIdentifier = None
         # reference to Identifier
@@ -390,7 +390,7 @@ class Composition_Section(fhirbase):
 
     def __init__(self, dict_values=None):
         self.title = None
-        # type: string
+        # type: str
 
         self.code = None
         # reference to CodeableConcept
@@ -399,7 +399,7 @@ class Composition_Section(fhirbase):
         # reference to Narrative
 
         self.mode = None
-        # type: string
+        # type: str
 
         self.orderedBy = None
         # reference to CodeableConcept

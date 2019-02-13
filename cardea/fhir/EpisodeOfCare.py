@@ -38,11 +38,11 @@ class EpisodeOfCare(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'EpisodeOfCare'
-        # type: string
+        # type: str
         # possible values: EpisodeOfCare
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: planned, waitlist, active, onhold,
         # finished, cancelled, entered-in-error
 
@@ -178,7 +178,7 @@ class EpisodeOfCare_StatusHistory(fhirbase):
 
     def __init__(self, dict_values=None):
         self.status = None
-        # type: string
+        # type: str
         # possible values: planned, waitlist, active, onhold,
         # finished, cancelled, entered-in-error
 

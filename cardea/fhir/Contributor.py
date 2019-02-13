@@ -18,11 +18,11 @@ class Contributor(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: author, editor, reviewer, endorser
 
         self.name = None
-        # type: string
+        # type: str
 
         self.contact = None
         # type: array

@@ -78,14 +78,14 @@ class Condition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Condition'
-        # type: string
+        # type: str
         # possible values: Condition
 
         self.clinicalStatus = None
-        # type: string
+        # type: str
 
         self.verificationStatus = None
-        # type: string
+        # type: str
         # possible values: provisional, differential, confirmed,
         # refuted, entered-in-error, unknown
 
@@ -110,7 +110,7 @@ class Condition(fhirbase):
         # reference to Reference: identifier
 
         self.onsetDateTime = None
-        # type: string
+        # type: str
 
         self.onsetAge = None
         # reference to Age
@@ -122,10 +122,10 @@ class Condition(fhirbase):
         # reference to Range
 
         self.onsetString = None
-        # type: string
+        # type: str
 
         self.abatementDateTime = None
-        # type: string
+        # type: str
 
         self.abatementAge = None
         # reference to Age
@@ -140,10 +140,10 @@ class Condition(fhirbase):
         # reference to Range
 
         self.abatementString = None
-        # type: string
+        # type: str
 
         self.assertedDate = None
-        # type: string
+        # type: str
 
         self.asserter = None
         # reference to Reference: identifier

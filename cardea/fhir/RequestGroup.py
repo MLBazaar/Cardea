@@ -51,7 +51,7 @@ class RequestGroup(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'RequestGroup'
-        # type: string
+        # type: str
         # possible values: RequestGroup
 
         self.definition = None
@@ -70,13 +70,13 @@ class RequestGroup(fhirbase):
         # reference to Identifier
 
         self.status = None
-        # type: string
+        # type: str
 
         self.intent = None
-        # type: string
+        # type: str
 
         self.priority = None
-        # type: string
+        # type: str
 
         self.subject = None
         # reference to Reference: identifier
@@ -85,7 +85,7 @@ class RequestGroup(fhirbase):
         # reference to Reference: identifier
 
         self.authoredOn = None
-        # type: string
+        # type: str
 
         self.author = None
         # reference to Reference: identifier
@@ -234,16 +234,16 @@ class RequestGroup_Action(fhirbase):
 
     def __init__(self, dict_values=None):
         self.label = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.textEquivalent = None
-        # type: string
+        # type: str
 
         self.code = None
         # type: array
@@ -262,7 +262,7 @@ class RequestGroup_Action(fhirbase):
         # reference to RequestGroup_RelatedAction
 
         self.timingDateTime = None
-        # type: string
+        # type: str
 
         self.timingPeriod = None
         # reference to Period
@@ -284,19 +284,19 @@ class RequestGroup_Action(fhirbase):
         # reference to Coding
 
         self.groupingBehavior = None
-        # type: string
+        # type: str
 
         self.selectionBehavior = None
-        # type: string
+        # type: str
 
         self.requiredBehavior = None
-        # type: string
+        # type: str
 
         self.precheckBehavior = None
-        # type: string
+        # type: str
 
         self.cardinalityBehavior = None
-        # type: string
+        # type: str
 
         self.resource = None
         # reference to Reference: identifier
@@ -395,16 +395,16 @@ class RequestGroup_Condition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.kind = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.language = None
-        # type: string
+        # type: str
 
         self.expression = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -432,10 +432,10 @@ class RequestGroup_RelatedAction(fhirbase):
 
     def __init__(self, dict_values=None):
         self.actionId = None
-        # type: string
+        # type: str
 
         self.relationship = None
-        # type: string
+        # type: str
 
         self.offsetDuration = None
         # reference to Duration

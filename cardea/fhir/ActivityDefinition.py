@@ -125,48 +125,48 @@ class ActivityDefinition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ActivityDefinition'
-        # type: string
+        # type: str
         # possible values: ActivityDefinition
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
         # type: boolean
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.usage = None
-        # type: string
+        # type: str
 
         self.approvalDate = None
-        # type: string
+        # type: str
 
         self.lastReviewDate = None
-        # type: string
+        # type: str
 
         self.effectivePeriod = None
         # reference to Period
@@ -192,7 +192,7 @@ class ActivityDefinition(fhirbase):
         # reference to ContactDetail
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.relatedArtifact = None
         # type: array
@@ -203,7 +203,7 @@ class ActivityDefinition(fhirbase):
         # reference to Reference: identifier
 
         self.kind = None
-        # type: string
+        # type: str
 
         self.code = None
         # reference to CodeableConcept
@@ -212,7 +212,7 @@ class ActivityDefinition(fhirbase):
         # reference to Timing
 
         self.timingDateTime = None
-        # type: string
+        # type: str
 
         self.timingPeriod = None
         # reference to Period
@@ -399,7 +399,7 @@ class ActivityDefinition_Participant(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
 
         self.role = None
         # reference to CodeableConcept
@@ -441,16 +441,16 @@ class ActivityDefinition_DynamicValue(fhirbase):
 
     def __init__(self, dict_values=None):
         self.description = None
-        # type: string
+        # type: str
 
         self.path = None
-        # type: string
+        # type: str
 
         self.language = None
-        # type: string
+        # type: str
 
         self.expression = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

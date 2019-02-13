@@ -29,7 +29,7 @@ class Practitioner(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Practitioner'
-        # type: string
+        # type: str
         # possible values: Practitioner
 
         self.active = None
@@ -48,11 +48,11 @@ class Practitioner(fhirbase):
         # reference to Address
 
         self.gender = None
-        # type: string
+        # type: str
         # possible values: male, female, other, unknown
 
         self.birthDate = None
-        # type: string
+        # type: str
 
         self.photo = None
         # type: array

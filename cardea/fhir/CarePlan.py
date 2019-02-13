@@ -61,7 +61,7 @@ class CarePlan(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'CarePlan'
-        # type: string
+        # type: str
         # possible values: CarePlan
 
         self.definition = None
@@ -81,12 +81,12 @@ class CarePlan(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, suspended, completed,
         # entered-in-error, cancelled, unknown
 
         self.intent = None
-        # type: string
+        # type: str
         # possible values: proposal, plan, order, option
 
         self.category = None
@@ -94,10 +94,10 @@ class CarePlan(fhirbase):
         # reference to CodeableConcept
 
         self.title = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.subject = None
         # reference to Reference: identifier
@@ -408,12 +408,12 @@ class CarePlan_Detail(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: not-started, scheduled, in-progress,
         # on-hold, completed, cancelled, unknown
 
         self.statusReason = None
-        # type: string
+        # type: str
 
         self.prohibited = None
         # type: boolean
@@ -425,7 +425,7 @@ class CarePlan_Detail(fhirbase):
         # reference to Period
 
         self.scheduledString = None
-        # type: string
+        # type: str
 
         self.location = None
         # reference to Reference: identifier
@@ -447,7 +447,7 @@ class CarePlan_Detail(fhirbase):
         # reference to Quantity
 
         self.description = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

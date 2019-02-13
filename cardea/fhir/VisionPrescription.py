@@ -31,11 +31,11 @@ class VisionPrescription(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'VisionPrescription'
-        # type: string
+        # type: str
         # possible values: VisionPrescription
 
         self.status = None
-        # type: string
+        # type: str
 
         self.patient = None
         # reference to Reference: identifier
@@ -44,7 +44,7 @@ class VisionPrescription(fhirbase):
         # reference to Reference: identifier
 
         self.dateWritten = None
-        # type: string
+        # type: str
 
         self.prescriber = None
         # reference to Reference: identifier
@@ -142,7 +142,7 @@ class VisionPrescription_Dispense(fhirbase):
         # reference to CodeableConcept
 
         self.eye = None
-        # type: string
+        # type: str
         # possible values: right, left
 
         self.sphere = None
@@ -158,7 +158,7 @@ class VisionPrescription_Dispense(fhirbase):
         # type: int
 
         self.base = None
-        # type: string
+        # type: str
         # possible values: up, down, in, out
 
         self.add = None
@@ -177,10 +177,10 @@ class VisionPrescription_Dispense(fhirbase):
         # reference to Quantity
 
         self.color = None
-        # type: string
+        # type: str
 
         self.brand = None
-        # type: string
+        # type: str
 
         self.note = None
         # type: array

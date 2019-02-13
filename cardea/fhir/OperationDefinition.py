@@ -79,41 +79,41 @@ class OperationDefinition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'OperationDefinition'
-        # type: string
+        # type: str
         # possible values: OperationDefinition
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.kind = None
-        # type: string
+        # type: str
         # possible values: operation, query
 
         self.experimental = None
         # type: boolean
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
         # type: array
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
         # type: array
@@ -124,16 +124,16 @@ class OperationDefinition(fhirbase):
         # reference to CodeableConcept
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.idempotent = None
         # type: boolean
 
         self.code = None
-        # type: string
+        # type: str
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.base = None
         # reference to Reference: identifier
@@ -243,26 +243,26 @@ class OperationDefinition_Parameter(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.use = None
-        # type: string
+        # type: str
         # possible values: in, out
 
         self.min = None
         # type: int
 
         self.max = None
-        # type: string
+        # type: str
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.type = None
-        # type: string
+        # type: str
 
         self.searchType = None
-        # type: string
+        # type: str
         # possible values: number, date, string, token, reference,
         # composite, quantity, uri
 
@@ -354,11 +354,11 @@ class OperationDefinition_Binding(fhirbase):
 
     def __init__(self, dict_values=None):
         self.strength = None
-        # type: string
+        # type: str
         # possible values: required, extensible, preferred, example
 
         self.valueSetUri = None
-        # type: string
+        # type: str
 
         self.valueSetReference = None
         # reference to Reference: identifier
@@ -406,7 +406,7 @@ class OperationDefinition_Overload(fhirbase):
         # type: array
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

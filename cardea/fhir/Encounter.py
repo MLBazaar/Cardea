@@ -65,11 +65,11 @@ class Encounter(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Encounter'
-        # type: string
+        # type: str
         # possible values: Encounter
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: planned, arrived, triaged, in-progress,
         # onleave, finished, cancelled, entered-in-error, unknown
 
@@ -280,7 +280,7 @@ class Encounter_StatusHistory(fhirbase):
 
     def __init__(self, dict_values=None):
         self.status = None
-        # type: string
+        # type: str
         # possible values: planned, arrived, triaged, in-progress,
         # onleave, finished, cancelled, entered-in-error, unknown
 
@@ -592,7 +592,7 @@ class Encounter_Location(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: planned, active, reserved, completed
 
         self.period = None

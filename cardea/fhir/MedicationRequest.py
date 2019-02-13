@@ -86,7 +86,7 @@ class MedicationRequest(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'MedicationRequest'
-        # type: string
+        # type: str
         # possible values: MedicationRequest
 
         self.definition = None
@@ -101,19 +101,19 @@ class MedicationRequest(fhirbase):
         # reference to Identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: active, on-hold, cancelled, completed,
         # entered-in-error, stopped, draft, unknown
 
         self.intent = None
-        # type: string
+        # type: str
         # possible values: proposal, plan, order, instance-order
 
         self.category = None
         # reference to CodeableConcept
 
         self.priority = None
-        # type: string
+        # type: str
         # possible values: routine, urgent, stat, asap
 
         self.medicationCodeableConcept = None
@@ -133,7 +133,7 @@ class MedicationRequest(fhirbase):
         # reference to Reference: identifier
 
         self.authoredOn = None
-        # type: string
+        # type: str
 
         self.requester = None
         # reference to MedicationRequest_Requester

@@ -29,7 +29,7 @@ class Organization(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Organization'
-        # type: string
+        # type: str
         # possible values: Organization
 
         self.active = None
@@ -40,7 +40,7 @@ class Organization(fhirbase):
         # reference to CodeableConcept
 
         self.name = None
-        # type: string
+        # type: str
 
         self.alias = None
         # type: array

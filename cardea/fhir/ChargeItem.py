@@ -58,14 +58,14 @@ class ChargeItem(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ChargeItem'
-        # type: string
+        # type: str
         # possible values: ChargeItem
 
         self.definition = None
         # type: array
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: planned, billable, not-billable, aborted,
         # billed, entered-in-error, unknown
 
@@ -83,7 +83,7 @@ class ChargeItem(fhirbase):
         # reference to Reference: identifier
 
         self.occurrenceDateTime = None
-        # type: string
+        # type: str
 
         self.occurrencePeriod = None
         # reference to Period
@@ -115,13 +115,13 @@ class ChargeItem(fhirbase):
         # reference to Money
 
         self.overrideReason = None
-        # type: string
+        # type: str
 
         self.enterer = None
         # reference to Reference: identifier
 
         self.enteredDate = None
-        # type: string
+        # type: str
 
         self.reason = None
         # type: array

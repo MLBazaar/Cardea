@@ -34,14 +34,14 @@ class EligibilityResponse(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'EligibilityResponse'
-        # type: string
+        # type: str
         # possible values: EligibilityResponse
 
         self.status = None
-        # type: string
+        # type: str
 
         self.created = None
-        # type: string
+        # type: str
 
         self.requestProvider = None
         # reference to Reference: identifier
@@ -56,7 +56,7 @@ class EligibilityResponse(fhirbase):
         # reference to CodeableConcept
 
         self.disposition = None
-        # type: string
+        # type: str
 
         self.insurer = None
         # reference to Reference: identifier
@@ -221,10 +221,10 @@ class EligibilityResponse_BenefitBalance(fhirbase):
         # type: boolean
 
         self.name = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.network = None
         # reference to CodeableConcept
@@ -304,7 +304,7 @@ class EligibilityResponse_Financial(fhirbase):
         # type: int
 
         self.allowedString = None
-        # type: string
+        # type: str
 
         self.allowedMoney = None
         # reference to Money

@@ -33,14 +33,14 @@ class Group(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Group'
-        # type: string
+        # type: str
         # possible values: Group
 
         self.active = None
         # type: boolean
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: person, animal, practitioner, device,
         # medication, substance
 
@@ -51,7 +51,7 @@ class Group(fhirbase):
         # reference to CodeableConcept
 
         self.name = None
-        # type: string
+        # type: str
 
         self.quantity = None
         # type: int

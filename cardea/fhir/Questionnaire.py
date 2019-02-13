@@ -79,45 +79,45 @@ class Questionnaire(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Questionnaire'
-        # type: string
+        # type: str
         # possible values: Questionnaire
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
         # type: boolean
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.approvalDate = None
-        # type: string
+        # type: str
 
         self.lastReviewDate = None
-        # type: string
+        # type: str
 
         self.effectivePeriod = None
         # reference to Period
@@ -135,7 +135,7 @@ class Questionnaire(fhirbase):
         # reference to ContactDetail
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.code = None
         # type: array
@@ -283,23 +283,23 @@ class Questionnaire_Item(fhirbase):
 
     def __init__(self, dict_values=None):
         self.linkId = None
-        # type: string
+        # type: str
 
         self.definition = None
-        # type: string
+        # type: str
 
         self.code = None
         # type: array
         # reference to Coding
 
         self.prefix = None
-        # type: string
+        # type: str
 
         self.text = None
-        # type: string
+        # type: str
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: group, display, boolean, decimal, integer,
         # date, dateTime, time, string, text, url, choice, open-choice,
         # attachment, reference, quantity
@@ -337,19 +337,19 @@ class Questionnaire_Item(fhirbase):
         # type: int
 
         self.initialDate = None
-        # type: string
+        # type: str
 
         self.initialDateTime = None
-        # type: string
+        # type: str
 
         self.initialTime = None
-        # type: string
+        # type: str
 
         self.initialString = None
-        # type: string
+        # type: str
 
         self.initialUri = None
-        # type: string
+        # type: str
 
         self.initialAttachment = None
         # reference to Attachment
@@ -480,7 +480,7 @@ class Questionnaire_EnableWhen(fhirbase):
 
     def __init__(self, dict_values=None):
         self.question = None
-        # type: string
+        # type: str
 
         self.hasAnswer = None
         # type: boolean
@@ -495,19 +495,19 @@ class Questionnaire_EnableWhen(fhirbase):
         # type: int
 
         self.answerDate = None
-        # type: string
+        # type: str
 
         self.answerDateTime = None
-        # type: string
+        # type: str
 
         self.answerTime = None
-        # type: string
+        # type: str
 
         self.answerString = None
-        # type: string
+        # type: str
 
         self.answerUri = None
-        # type: string
+        # type: str
 
         self.answerAttachment = None
         # reference to Attachment
@@ -579,13 +579,13 @@ class Questionnaire_Option(fhirbase):
         # type: int
 
         self.valueDate = None
-        # type: string
+        # type: str
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueCoding = None
         # reference to Coding

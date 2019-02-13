@@ -26,11 +26,11 @@ class EnrollmentResponse(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'EnrollmentResponse'
-        # type: string
+        # type: str
         # possible values: EnrollmentResponse
 
         self.status = None
-        # type: string
+        # type: str
 
         self.request = None
         # reference to Reference: identifier
@@ -39,10 +39,10 @@ class EnrollmentResponse(fhirbase):
         # reference to CodeableConcept
 
         self.disposition = None
-        # type: string
+        # type: str
 
         self.created = None
-        # type: string
+        # type: str
 
         self.organization = None
         # reference to Reference: identifier

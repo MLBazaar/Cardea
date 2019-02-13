@@ -22,7 +22,7 @@ class Linkage(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Linkage'
-        # type: string
+        # type: str
         # possible values: Linkage
 
         self.active = None
@@ -72,7 +72,7 @@ class Linkage_Item(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: source, alternate, historical
 
         self.resource = None

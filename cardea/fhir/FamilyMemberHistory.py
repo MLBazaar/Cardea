@@ -70,7 +70,7 @@ class FamilyMemberHistory(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'FamilyMemberHistory'
-        # type: string
+        # type: str
         # possible values: FamilyMemberHistory
 
         self.definition = None
@@ -78,7 +78,7 @@ class FamilyMemberHistory(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: partial, completed, entered-in-error,
         # health-unknown
 
@@ -92,26 +92,26 @@ class FamilyMemberHistory(fhirbase):
         # reference to Reference: identifier
 
         self.date = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.relationship = None
         # reference to CodeableConcept
 
         self.gender = None
-        # type: string
+        # type: str
         # possible values: male, female, other, unknown
 
         self.bornPeriod = None
         # reference to Period
 
         self.bornDate = None
-        # type: string
+        # type: str
 
         self.bornString = None
-        # type: string
+        # type: str
 
         self.ageAge = None
         # reference to Age
@@ -120,7 +120,7 @@ class FamilyMemberHistory(fhirbase):
         # reference to Range
 
         self.ageString = None
-        # type: string
+        # type: str
 
         self.estimatedAge = None
         # type: boolean
@@ -135,10 +135,10 @@ class FamilyMemberHistory(fhirbase):
         # reference to Range
 
         self.deceasedDate = None
-        # type: string
+        # type: str
 
         self.deceasedString = None
-        # type: string
+        # type: str
 
         self.reasonCode = None
         # type: array
@@ -303,7 +303,7 @@ class FamilyMemberHistory_Condition(fhirbase):
         # reference to Period
 
         self.onsetString = None
-        # type: string
+        # type: str
 
         self.note = None
         # type: array

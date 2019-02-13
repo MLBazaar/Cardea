@@ -26,7 +26,7 @@ class Element(fhirbase):
         # reference to Extension
 
         self.id = None
-        # type: string
+        # type: str
 
         if dict_values:
             self.set_attributes(dict_values)

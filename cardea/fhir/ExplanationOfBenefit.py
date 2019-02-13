@@ -84,11 +84,11 @@ class ExplanationOfBenefit(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ExplanationOfBenefit'
-        # type: string
+        # type: str
         # possible values: ExplanationOfBenefit
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: active, cancelled, draft, entered-in-error
 
         self.type = None
@@ -105,7 +105,7 @@ class ExplanationOfBenefit(fhirbase):
         # reference to Period
 
         self.created = None
-        # type: string
+        # type: str
 
         self.enterer = None
         # reference to Reference: identifier
@@ -135,7 +135,7 @@ class ExplanationOfBenefit(fhirbase):
         # reference to CodeableConcept
 
         self.disposition = None
-        # type: string
+        # type: str
 
         self.related = None
         # type: array
@@ -559,13 +559,13 @@ class ExplanationOfBenefit_Information(fhirbase):
         # reference to CodeableConcept
 
         self.timingDate = None
-        # type: string
+        # type: str
 
         self.timingPeriod = None
         # reference to Period
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueQuantity = None
         # reference to Quantity
@@ -773,7 +773,7 @@ class ExplanationOfBenefit_Procedure(fhirbase):
         # type: int
 
         self.date = None
-        # type: string
+        # type: str
 
         self.procedureCodeableConcept = None
         # reference to CodeableConcept
@@ -857,7 +857,7 @@ class ExplanationOfBenefit_Accident(fhirbase):
 
     def __init__(self, dict_values=None):
         self.date = None
-        # type: string
+        # type: str
 
         self.type = None
         # reference to CodeableConcept
@@ -989,7 +989,7 @@ class ExplanationOfBenefit_Item(fhirbase):
         # reference to CodeableConcept
 
         self.servicedDate = None
-        # type: string
+        # type: str
 
         self.servicedPeriod = None
         # reference to Period
@@ -1738,7 +1738,7 @@ class ExplanationOfBenefit_Payment(fhirbase):
         # reference to CodeableConcept
 
         self.date = None
-        # type: string
+        # type: str
 
         self.amount = None
         # reference to Money
@@ -1806,7 +1806,7 @@ class ExplanationOfBenefit_ProcessNote(fhirbase):
         # reference to CodeableConcept
 
         self.text = None
-        # type: string
+        # type: str
 
         self.language = None
         # reference to CodeableConcept
@@ -1870,10 +1870,10 @@ class ExplanationOfBenefit_BenefitBalance(fhirbase):
         # type: boolean
 
         self.name = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.network = None
         # reference to CodeableConcept
@@ -1954,7 +1954,7 @@ class ExplanationOfBenefit_Financial(fhirbase):
         # type: int
 
         self.allowedString = None
-        # type: string
+        # type: str
 
         self.allowedMoney = None
         # reference to Money

@@ -57,17 +57,17 @@ class ImagingStudy(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ImagingStudy'
-        # type: string
+        # type: str
         # possible values: ImagingStudy
 
         self.uid = None
-        # type: string
+        # type: str
 
         self.accession = None
         # reference to Identifier
 
         self.availability = None
-        # type: string
+        # type: str
         # possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
 
         self.modalityList = None
@@ -81,7 +81,7 @@ class ImagingStudy(fhirbase):
         # reference to Reference: identifier
 
         self.started = None
-        # type: string
+        # type: str
 
         self.basedOn = None
         # type: array
@@ -116,7 +116,7 @@ class ImagingStudy(fhirbase):
         # reference to CodeableConcept
 
         self.description = None
-        # type: string
+        # type: str
 
         self.series = None
         # type: array
@@ -255,7 +255,7 @@ class ImagingStudy_Series(fhirbase):
 
     def __init__(self, dict_values=None):
         self.uid = None
-        # type: string
+        # type: str
 
         self.number = None
         # type: int
@@ -264,13 +264,13 @@ class ImagingStudy_Series(fhirbase):
         # reference to Coding
 
         self.description = None
-        # type: string
+        # type: str
 
         self.numberOfInstances = None
         # type: int
 
         self.availability = None
-        # type: string
+        # type: str
         # possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
 
         self.endpoint = None
@@ -284,7 +284,7 @@ class ImagingStudy_Series(fhirbase):
         # reference to Coding
 
         self.started = None
-        # type: string
+        # type: str
 
         self.performer = None
         # type: array
@@ -365,16 +365,16 @@ class ImagingStudy_Instance(fhirbase):
 
     def __init__(self, dict_values=None):
         self.uid = None
-        # type: string
+        # type: str
 
         self.number = None
         # type: int
 
         self.sopClass = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

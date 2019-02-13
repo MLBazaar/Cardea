@@ -48,11 +48,11 @@ class Sequence(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Sequence'
-        # type: string
+        # type: str
         # possible values: Sequence
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: aa, dna, rna
 
         self.coordinateSystem = None
@@ -81,7 +81,7 @@ class Sequence(fhirbase):
         # reference to Sequence_Variant
 
         self.observedSeq = None
-        # type: string
+        # type: str
 
         self.quality = None
         # type: array
@@ -214,7 +214,7 @@ class Sequence_ReferenceSeq(fhirbase):
         # reference to CodeableConcept
 
         self.genomeBuild = None
-        # type: string
+        # type: str
 
         self.referenceSeqId = None
         # reference to CodeableConcept
@@ -223,7 +223,7 @@ class Sequence_ReferenceSeq(fhirbase):
         # reference to Reference: identifier
 
         self.referenceSeqString = None
-        # type: string
+        # type: str
 
         self.strand = None
         # type: int
@@ -305,13 +305,13 @@ class Sequence_Variant(fhirbase):
         # type: int
 
         self.observedAllele = None
-        # type: string
+        # type: str
 
         self.referenceAllele = None
-        # type: string
+        # type: str
 
         self.cigar = None
-        # type: string
+        # type: str
 
         self.variantPointer = None
         # reference to Reference: identifier
@@ -381,7 +381,7 @@ class Sequence_Quality(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: indel, snp, unknown
 
         self.standardSequence = None
@@ -483,23 +483,23 @@ class Sequence_Repository(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: directlink, openapi, login, oauth, other
 
         self.url = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.datasetId = None
-        # type: string
+        # type: str
 
         self.variantsetId = None
-        # type: string
+        # type: str
 
         self.readsetId = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

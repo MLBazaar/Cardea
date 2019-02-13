@@ -61,37 +61,37 @@ class GraphDefinition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'GraphDefinition'
-        # type: string
+        # type: str
         # possible values: GraphDefinition
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
         # type: boolean
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
         # type: array
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
         # type: array
@@ -102,13 +102,13 @@ class GraphDefinition(fhirbase):
         # reference to CodeableConcept
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.start = None
-        # type: string
+        # type: str
 
         self.profile = None
-        # type: string
+        # type: str
 
         self.link = None
         # type: array
@@ -176,19 +176,19 @@ class GraphDefinition_Link(fhirbase):
 
     def __init__(self, dict_values=None):
         self.path = None
-        # type: string
+        # type: str
 
         self.sliceName = None
-        # type: string
+        # type: str
 
         self.min = None
         # type: int
 
         self.max = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.target = None
         # type: array
@@ -218,10 +218,10 @@ class GraphDefinition_Target(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
 
         self.profile = None
-        # type: string
+        # type: str
 
         self.compartment = None
         # type: array
@@ -270,17 +270,17 @@ class GraphDefinition_Compartment(fhirbase):
 
     def __init__(self, dict_values=None):
         self.code = None
-        # type: string
+        # type: str
 
         self.rule = None
-        # type: string
+        # type: str
         # possible values: identical, matching, different, custom
 
         self.expression = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

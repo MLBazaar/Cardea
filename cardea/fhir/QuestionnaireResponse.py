@@ -41,7 +41,7 @@ class QuestionnaireResponse(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'QuestionnaireResponse'
-        # type: string
+        # type: str
         # possible values: QuestionnaireResponse
 
         self.basedOn = None
@@ -56,7 +56,7 @@ class QuestionnaireResponse(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: in-progress, completed, amended,
         # entered-in-error, stopped
 
@@ -67,7 +67,7 @@ class QuestionnaireResponse(fhirbase):
         # reference to Reference: identifier
 
         self.authored = None
-        # type: string
+        # type: str
 
         self.author = None
         # reference to Reference: identifier
@@ -168,13 +168,13 @@ class QuestionnaireResponse_Item(fhirbase):
 
     def __init__(self, dict_values=None):
         self.linkId = None
-        # type: string
+        # type: str
 
         self.definition = None
-        # type: string
+        # type: str
 
         self.text = None
-        # type: string
+        # type: str
 
         self.subject = None
         # reference to Reference: identifier
@@ -261,19 +261,19 @@ class QuestionnaireResponse_Answer(fhirbase):
         # type: int
 
         self.valueDate = None
-        # type: string
+        # type: str
 
         self.valueDateTime = None
-        # type: string
+        # type: str
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueUri = None
-        # type: string
+        # type: str
 
         self.valueAttachment = None
         # reference to Attachment

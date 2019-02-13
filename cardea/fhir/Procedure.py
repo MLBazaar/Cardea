@@ -78,7 +78,7 @@ class Procedure(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Procedure'
-        # type: string
+        # type: str
         # possible values: Procedure
 
         self.definition = None
@@ -94,7 +94,7 @@ class Procedure(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
 
         self.notDone = None
         # type: boolean
@@ -115,7 +115,7 @@ class Procedure(fhirbase):
         # reference to Reference: identifier
 
         self.performedDateTime = None
-        # type: string
+        # type: str
 
         self.performedPeriod = None
         # reference to Period

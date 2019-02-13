@@ -59,20 +59,20 @@ class AllergyIntolerance(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'AllergyIntolerance'
-        # type: string
+        # type: str
         # possible values: AllergyIntolerance
 
         self.clinicalStatus = None
-        # type: string
+        # type: str
         # possible values: active, inactive, resolved
 
         self.verificationStatus = None
-        # type: string
+        # type: str
         # possible values: unconfirmed, confirmed, refuted,
         # entered-in-error
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: allergy, intolerance
 
         self.category = None
@@ -80,7 +80,7 @@ class AllergyIntolerance(fhirbase):
         # possible values: food, medication, environment, biologic
 
         self.criticality = None
-        # type: string
+        # type: str
         # possible values: low, high, unable-to-assess
 
         self.code = None
@@ -90,7 +90,7 @@ class AllergyIntolerance(fhirbase):
         # reference to Reference: identifier
 
         self.onsetDateTime = None
-        # type: string
+        # type: str
 
         self.onsetAge = None
         # reference to Age
@@ -102,10 +102,10 @@ class AllergyIntolerance(fhirbase):
         # reference to Range
 
         self.onsetString = None
-        # type: string
+        # type: str
 
         self.assertedDate = None
-        # type: string
+        # type: str
 
         self.recorder = None
         # reference to Reference: identifier
@@ -114,7 +114,7 @@ class AllergyIntolerance(fhirbase):
         # reference to Reference: identifier
 
         self.lastOccurrence = None
-        # type: string
+        # type: str
 
         self.note = None
         # type: array
@@ -262,13 +262,13 @@ class AllergyIntolerance_Reaction(fhirbase):
         # reference to CodeableConcept
 
         self.description = None
-        # type: string
+        # type: str
 
         self.onset = None
-        # type: string
+        # type: str
 
         self.severity = None
-        # type: string
+        # type: str
         # possible values: mild, moderate, severe
 
         self.exposureRoute = None

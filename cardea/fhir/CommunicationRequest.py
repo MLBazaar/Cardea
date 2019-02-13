@@ -60,7 +60,7 @@ class CommunicationRequest(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'CommunicationRequest'
-        # type: string
+        # type: str
         # possible values: CommunicationRequest
 
         self.basedOn = None
@@ -75,14 +75,14 @@ class CommunicationRequest(fhirbase):
         # reference to Identifier
 
         self.status = None
-        # type: string
+        # type: str
 
         self.category = None
         # type: array
         # reference to CodeableConcept
 
         self.priority = None
-        # type: string
+        # type: str
 
         self.medium = None
         # type: array
@@ -107,13 +107,13 @@ class CommunicationRequest(fhirbase):
         # reference to CommunicationRequest_Payload
 
         self.occurrenceDateTime = None
-        # type: string
+        # type: str
 
         self.occurrencePeriod = None
         # reference to Period
 
         self.authoredOn = None
-        # type: string
+        # type: str
 
         self.sender = None
         # reference to Reference: identifier
@@ -250,7 +250,7 @@ class CommunicationRequest_Payload(fhirbase):
 
     def __init__(self, dict_values=None):
         self.contentString = None
-        # type: string
+        # type: str
 
         self.contentAttachment = None
         # reference to Attachment

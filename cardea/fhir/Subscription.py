@@ -33,11 +33,11 @@ class Subscription(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Subscription'
-        # type: string
+        # type: str
         # possible values: Subscription
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: requested, active, error, off
 
         self.contact = None
@@ -45,16 +45,16 @@ class Subscription(fhirbase):
         # reference to ContactPoint
 
         self.end = None
-        # type: string
+        # type: str
 
         self.reason = None
-        # type: string
+        # type: str
 
         self.criteria = None
-        # type: string
+        # type: str
 
         self.error = None
-        # type: string
+        # type: str
 
         self.channel = None
         # reference to Subscription_Channel
@@ -124,14 +124,14 @@ class Subscription_Channel(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: rest-hook, websocket, email, sms, message
 
         self.endpoint = None
-        # type: string
+        # type: str
 
         self.payload = None
-        # type: string
+        # type: str
 
         self.header = None
         # type: array

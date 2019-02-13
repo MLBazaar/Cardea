@@ -47,17 +47,17 @@ class ClaimResponse(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ClaimResponse'
-        # type: string
+        # type: str
         # possible values: ClaimResponse
 
         self.status = None
-        # type: string
+        # type: str
 
         self.patient = None
         # reference to Reference: identifier
 
         self.created = None
-        # type: string
+        # type: str
 
         self.insurer = None
         # reference to Reference: identifier
@@ -75,7 +75,7 @@ class ClaimResponse(fhirbase):
         # reference to CodeableConcept
 
         self.disposition = None
-        # type: string
+        # type: str
 
         self.payeeType = None
         # reference to CodeableConcept
@@ -699,7 +699,7 @@ class ClaimResponse_Payment(fhirbase):
         # reference to CodeableConcept
 
         self.date = None
-        # type: string
+        # type: str
 
         self.amount = None
         # reference to Money
@@ -766,7 +766,7 @@ class ClaimResponse_ProcessNote(fhirbase):
         # reference to CodeableConcept
 
         self.text = None
-        # type: string
+        # type: str
 
         self.language = None
         # reference to CodeableConcept
@@ -824,7 +824,7 @@ class ClaimResponse_Insurance(fhirbase):
         # reference to Reference: identifier
 
         self.businessArrangement = None
-        # type: string
+        # type: str
 
         self.preAuthRef = None
         # type: array

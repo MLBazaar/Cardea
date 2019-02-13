@@ -70,11 +70,11 @@ class Appointment(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Appointment'
-        # type: string
+        # type: str
         # possible values: Appointment
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: proposed, pending, booked, arrived,
         # fulfilled, cancelled, noshow, entered-in-error
 
@@ -104,17 +104,17 @@ class Appointment(fhirbase):
         # type: int
 
         self.description = None
-        # type: string
+        # type: str
 
         self.supportingInformation = None
         # type: array
         # reference to Reference: identifier
 
         self.start = None
-        # type: string
+        # type: str
 
         self.end = None
-        # type: string
+        # type: str
 
         self.minutesDuration = None
         # type: int
@@ -124,10 +124,10 @@ class Appointment(fhirbase):
         # reference to Reference: identifier
 
         self.created = None
-        # type: string
+        # type: str
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.incomingReferral = None
         # type: array
@@ -253,11 +253,11 @@ class Appointment_Participant(fhirbase):
         # reference to Reference: identifier
 
         self.required = None
-        # type: string
+        # type: str
         # possible values: required, optional, information-only
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: accepted, declined, tentative, needs-action
 
         self.object_id = None

@@ -94,7 +94,7 @@ class Observation(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Observation'
-        # type: string
+        # type: str
         # possible values: Observation
 
         self.basedOn = None
@@ -102,7 +102,7 @@ class Observation(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: registered, preliminary, final, amended,
         # corrected, cancelled, entered-in-error, unknown
 
@@ -120,13 +120,13 @@ class Observation(fhirbase):
         # reference to Reference: identifier
 
         self.effectiveDateTime = None
-        # type: string
+        # type: str
 
         self.effectivePeriod = None
         # reference to Period
 
         self.issued = None
-        # type: string
+        # type: str
 
         self.performer = None
         # type: array
@@ -139,7 +139,7 @@ class Observation(fhirbase):
         # reference to CodeableConcept
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueBoolean = None
         # type: boolean
@@ -157,10 +157,10 @@ class Observation(fhirbase):
         # reference to Attachment
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueDateTime = None
-        # type: string
+        # type: str
 
         self.valuePeriod = None
         # reference to Period
@@ -172,7 +172,7 @@ class Observation(fhirbase):
         # reference to CodeableConcept
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.bodySite = None
         # reference to CodeableConcept
@@ -390,7 +390,7 @@ class Observation_ReferenceRange(fhirbase):
         # reference to Range
 
         self.text = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -444,7 +444,7 @@ class Observation_Related(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: has-member, derived-from, sequel-to,
         # replaces, qualified-by, interfered-by
 
@@ -531,7 +531,7 @@ class Observation_Component(fhirbase):
         # reference to CodeableConcept
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueRange = None
         # reference to Range
@@ -546,10 +546,10 @@ class Observation_Component(fhirbase):
         # reference to Attachment
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueDateTime = None
-        # type: string
+        # type: str
 
         self.valuePeriod = None
         # reference to Period

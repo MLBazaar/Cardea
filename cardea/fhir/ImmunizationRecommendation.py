@@ -19,7 +19,7 @@ class ImmunizationRecommendation(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ImmunizationRecommendation'
-        # type: string
+        # type: str
         # possible values: ImmunizationRecommendation
 
         self.patient = None
@@ -85,7 +85,7 @@ class ImmunizationRecommendation_Recommendation(fhirbase):
 
     def __init__(self, dict_values=None):
         self.date = None
-        # type: string
+        # type: str
 
         self.vaccineCode = None
         # reference to CodeableConcept
@@ -179,7 +179,7 @@ class ImmunizationRecommendation_DateCriterion(fhirbase):
         # reference to CodeableConcept
 
         self.value = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -222,13 +222,13 @@ class ImmunizationRecommendation_Protocol(fhirbase):
         # type: int
 
         self.description = None
-        # type: string
+        # type: str
 
         self.authority = None
         # reference to Reference: identifier
 
         self.series = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

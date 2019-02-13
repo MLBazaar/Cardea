@@ -75,40 +75,40 @@ class ConceptMap(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ConceptMap'
-        # type: string
+        # type: str
         # possible values: ConceptMap
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
         # type: boolean
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
         # type: array
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
         # type: array
@@ -119,19 +119,19 @@ class ConceptMap(fhirbase):
         # reference to CodeableConcept
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.sourceUri = None
-        # type: string
+        # type: str
 
         self.sourceReference = None
         # reference to Reference: identifier
 
         self.targetUri = None
-        # type: string
+        # type: str
 
         self.targetReference = None
         # reference to Reference: identifier
@@ -221,16 +221,16 @@ class ConceptMap_Group(fhirbase):
 
     def __init__(self, dict_values=None):
         self.source = None
-        # type: string
+        # type: str
 
         self.sourceVersion = None
-        # type: string
+        # type: str
 
         self.target = None
-        # type: string
+        # type: str
 
         self.targetVersion = None
-        # type: string
+        # type: str
 
         self.element = None
         # type: array
@@ -277,10 +277,10 @@ class ConceptMap_Element(fhirbase):
 
     def __init__(self, dict_values=None):
         self.code = None
-        # type: string
+        # type: str
 
         self.display = None
-        # type: string
+        # type: str
 
         self.target = None
         # type: array
@@ -332,18 +332,18 @@ class ConceptMap_Target(fhirbase):
 
     def __init__(self, dict_values=None):
         self.code = None
-        # type: string
+        # type: str
 
         self.display = None
-        # type: string
+        # type: str
 
         self.equivalence = None
-        # type: string
+        # type: str
         # possible values: relatedto, equivalent, equal, wider,
         # subsumes, narrower, specializes, inexact, unmatched, disjoint
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.dependsOn = None
         # type: array
@@ -410,16 +410,16 @@ class ConceptMap_DependsOn(fhirbase):
 
     def __init__(self, dict_values=None):
         self.property = None
-        # type: string
+        # type: str
 
         self.system = None
-        # type: string
+        # type: str
 
         self.code = None
-        # type: string
+        # type: str
 
         self.display = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -453,17 +453,17 @@ class ConceptMap_Unmapped(fhirbase):
 
     def __init__(self, dict_values=None):
         self.mode = None
-        # type: string
+        # type: str
         # possible values: provided, fixed, other-map
 
         self.code = None
-        # type: string
+        # type: str
 
         self.display = None
-        # type: string
+        # type: str
 
         self.url = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
