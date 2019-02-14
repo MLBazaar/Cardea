@@ -19,17 +19,17 @@ class Binary(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Binary'
-        # type: string
+        # type: str
         # possible values: Binary
 
         self.contentType = None
-        # type: string
+        # type: str
 
         self.securityContext = None
         # reference to Reference: identifier
 
         self.content = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

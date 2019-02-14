@@ -57,21 +57,21 @@ class ImagingStudy(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ImagingStudy'
-        # type: string
+        # type: str
         # possible values: ImagingStudy
 
         self.uid = None
-        # type: string
+        # type: str
 
         self.accession = None
         # reference to Identifier
 
         self.availability = None
-        # type: string
+        # type: str
         # possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
 
         self.modalityList = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.patient = None
@@ -81,21 +81,21 @@ class ImagingStudy(fhirbase):
         # reference to Reference: identifier
 
         self.started = None
-        # type: string
+        # type: str
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.referrer = None
         # reference to Reference: identifier
 
         self.interpreter = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.numberOfSeries = None
@@ -105,25 +105,25 @@ class ImagingStudy(fhirbase):
         # type: int
 
         self.procedureReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.procedureCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reason = None
         # reference to CodeableConcept
 
         self.description = None
-        # type: string
+        # type: str
 
         self.series = None
-        # type: array
+        # type: list
         # reference to ImagingStudy_Series
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -255,7 +255,7 @@ class ImagingStudy_Series(fhirbase):
 
     def __init__(self, dict_values=None):
         self.uid = None
-        # type: string
+        # type: str
 
         self.number = None
         # type: int
@@ -264,17 +264,17 @@ class ImagingStudy_Series(fhirbase):
         # reference to Coding
 
         self.description = None
-        # type: string
+        # type: str
 
         self.numberOfInstances = None
         # type: int
 
         self.availability = None
-        # type: string
+        # type: str
         # possible values: ONLINE, OFFLINE, NEARLINE, UNAVAILABLE
 
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.bodySite = None
@@ -284,14 +284,14 @@ class ImagingStudy_Series(fhirbase):
         # reference to Coding
 
         self.started = None
-        # type: string
+        # type: str
 
         self.performer = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.instance = None
-        # type: array
+        # type: list
         # reference to ImagingStudy_Instance
 
         self.object_id = None
@@ -365,16 +365,16 @@ class ImagingStudy_Instance(fhirbase):
 
     def __init__(self, dict_values=None):
         self.uid = None
-        # type: string
+        # type: str
 
         self.number = None
         # type: int
 
         self.sopClass = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

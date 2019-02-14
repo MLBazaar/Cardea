@@ -16,11 +16,11 @@ class OperationOutcome(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'OperationOutcome'
-        # type: string
+        # type: str
         # possible values: OperationOutcome
 
         self.issue = None
-        # type: array
+        # type: list
         # reference to OperationOutcome_Issue
 
         self.object_id = None
@@ -70,11 +70,11 @@ class OperationOutcome_Issue(fhirbase):
 
     def __init__(self, dict_values=None):
         self.severity = None
-        # type: string
+        # type: str
         # possible values: fatal, error, warning, information
 
         self.code = None
-        # type: string
+        # type: str
         # possible values: invalid, structure, required, value,
         # invariant, security, login, unknown, expired, forbidden, suppressed,
         # processing, not-supported, duplicate, not-found, too-long,
@@ -86,13 +86,13 @@ class OperationOutcome_Issue(fhirbase):
         # reference to CodeableConcept
 
         self.diagnostics = None
-        # type: string
+        # type: str
 
         self.location = None
-        # type: array
+        # type: list
 
         self.expression = None
-        # type: array
+        # type: list
 
         self.object_id = None
         # unique identifier for object class

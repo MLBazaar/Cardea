@@ -37,21 +37,21 @@ class ProcessRequest(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ProcessRequest'
-        # type: string
+        # type: str
         # possible values: ProcessRequest
 
         self.status = None
-        # type: string
+        # type: str
 
         self.action = None
-        # type: string
+        # type: str
         # possible values: cancel, poll, reprocess, status
 
         self.target = None
         # reference to Reference: identifier
 
         self.created = None
-        # type: string
+        # type: str
 
         self.provider = None
         # reference to Reference: identifier
@@ -66,26 +66,26 @@ class ProcessRequest(fhirbase):
         # reference to Reference: identifier
 
         self.nullify = None
-        # type: boolean
+        # type: bool
 
         self.reference = None
-        # type: string
+        # type: str
 
         self.item = None
-        # type: array
+        # type: list
         # reference to ProcessRequest_Item
 
         self.include = None
-        # type: array
+        # type: list
 
         self.exclude = None
-        # type: array
+        # type: list
 
         self.period = None
         # reference to Period
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

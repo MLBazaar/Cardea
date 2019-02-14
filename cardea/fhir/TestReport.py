@@ -36,14 +36,14 @@ class TestReport(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'TestReport'
-        # type: string
+        # type: str
         # possible values: TestReport
 
         self.name = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: completed, in-progress, waiting, stopped,
         # entered-in-error
 
@@ -51,27 +51,27 @@ class TestReport(fhirbase):
         # reference to Reference: identifier
 
         self.result = None
-        # type: string
+        # type: str
         # possible values: pass, fail, pending
 
         self.score = None
         # type: int
 
         self.tester = None
-        # type: string
+        # type: str
 
         self.issued = None
-        # type: string
+        # type: str
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to TestReport_Participant
 
         self.setup = None
         # reference to TestReport_Setup
 
         self.test = None
-        # type: array
+        # type: list
         # reference to TestReport_Test
 
         self.teardown = None
@@ -150,14 +150,14 @@ class TestReport_Participant(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: test-engine, client, server
 
         self.uri = None
-        # type: string
+        # type: str
 
         self.display = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -189,7 +189,7 @@ class TestReport_Setup(fhirbase):
 
     def __init__(self, dict_values=None):
         self.action = None
-        # type: array
+        # type: list
         # reference to TestReport_Action
 
         self.object_id = None
@@ -264,14 +264,14 @@ class TestReport_Operation(fhirbase):
 
     def __init__(self, dict_values=None):
         self.result = None
-        # type: string
+        # type: str
         # possible values: pass, skip, fail, warning, error
 
         self.message = None
-        # type: string
+        # type: str
 
         self.detail = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -305,14 +305,14 @@ class TestReport_Assert(fhirbase):
 
     def __init__(self, dict_values=None):
         self.result = None
-        # type: string
+        # type: str
         # possible values: pass, skip, fail, warning, error
 
         self.message = None
-        # type: string
+        # type: str
 
         self.detail = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -348,13 +348,13 @@ class TestReport_Test(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.action = None
-        # type: array
+        # type: list
         # reference to TestReport_Action1
 
         self.object_id = None
@@ -427,7 +427,7 @@ class TestReport_Teardown(fhirbase):
 
     def __init__(self, dict_values=None):
         self.action = None
-        # type: array
+        # type: list
         # reference to TestReport_Action2
 
         self.object_id = None

@@ -81,79 +81,79 @@ class ExpansionProfile(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ExpansionProfile'
-        # type: string
+        # type: str
         # possible values: ExpansionProfile
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.fixedVersion = None
-        # type: array
+        # type: list
         # reference to ExpansionProfile_FixedVersion
 
         self.excludedSystem = None
         # reference to ExpansionProfile_ExcludedSystem
 
         self.includeDesignations = None
-        # type: boolean
+        # type: bool
 
         self.designation = None
         # reference to ExpansionProfile_Designation
 
         self.includeDefinition = None
-        # type: boolean
+        # type: bool
 
         self.activeOnly = None
-        # type: boolean
+        # type: bool
 
         self.excludeNested = None
-        # type: boolean
+        # type: bool
 
         self.excludeNotForUI = None
-        # type: boolean
+        # type: bool
 
         self.excludePostCoordinated = None
-        # type: boolean
+        # type: bool
 
         self.displayLanguage = None
-        # type: string
+        # type: str
 
         self.limitedExpansion = None
-        # type: boolean
+        # type: bool
 
         self.identifier = None
         # reference to Identifier
@@ -228,13 +228,13 @@ class ExpansionProfile_FixedVersion(fhirbase):
 
     def __init__(self, dict_values=None):
         self.system = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.mode = None
-        # type: string
+        # type: str
         # possible values: default, check, override
 
         self.object_id = None
@@ -268,10 +268,10 @@ class ExpansionProfile_ExcludedSystem(fhirbase):
 
     def __init__(self, dict_values=None):
         self.system = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -331,7 +331,7 @@ class ExpansionProfile_Include(fhirbase):
 
     def __init__(self, dict_values=None):
         self.designation = None
-        # type: array
+        # type: list
         # reference to ExpansionProfile_Designation1
 
         self.object_id = None
@@ -363,7 +363,7 @@ class ExpansionProfile_Designation1(fhirbase):
 
     def __init__(self, dict_values=None):
         self.language = None
-        # type: string
+        # type: str
 
         self.use = None
         # reference to Coding
@@ -396,7 +396,7 @@ class ExpansionProfile_Exclude(fhirbase):
 
     def __init__(self, dict_values=None):
         self.designation = None
-        # type: array
+        # type: list
         # reference to ExpansionProfile_Designation2
 
         self.object_id = None
@@ -428,7 +428,7 @@ class ExpansionProfile_Designation2(fhirbase):
 
     def __init__(self, dict_values=None):
         self.language = None
-        # type: string
+        # type: str
 
         self.use = None
         # reference to Coding

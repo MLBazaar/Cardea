@@ -37,18 +37,18 @@ class Account(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Account'
-        # type: string
+        # type: str
         # possible values: Account
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: active, inactive, entered-in-error
 
         self.type = None
         # reference to CodeableConcept
 
         self.name = None
-        # type: string
+        # type: str
 
         self.subject = None
         # reference to Reference: identifier
@@ -63,21 +63,21 @@ class Account(fhirbase):
         # reference to Money
 
         self.coverage = None
-        # type: array
+        # type: list
         # reference to Account_Coverage
 
         self.owner = None
         # reference to Reference: identifier
 
         self.description = None
-        # type: string
+        # type: str
 
         self.guarantor = None
-        # type: array
+        # type: list
         # reference to Account_Guarantor
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -204,7 +204,7 @@ class Account_Guarantor(fhirbase):
         # reference to Reference: identifier
 
         self.onHold = None
-        # type: boolean
+        # type: bool
 
         self.period = None
         # reference to Period

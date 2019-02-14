@@ -23,7 +23,7 @@ class BackboneElement(fhirbase):
 
     def __init__(self, dict_values=None):
         self.modifierExtension = None
-        # type: array
+        # type: list
         # reference to Extension
 
         self.object_id = None

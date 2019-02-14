@@ -29,45 +29,45 @@ class Practitioner(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Practitioner'
-        # type: string
+        # type: str
         # possible values: Practitioner
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.name = None
-        # type: array
+        # type: list
         # reference to HumanName
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.address = None
-        # type: array
+        # type: list
         # reference to Address
 
         self.gender = None
-        # type: string
+        # type: str
         # possible values: male, female, other, unknown
 
         self.birthDate = None
-        # type: string
+        # type: str
 
         self.photo = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.qualification = None
-        # type: array
+        # type: list
         # reference to Practitioner_Qualification: identifier
 
         self.communication = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -149,7 +149,7 @@ class Practitioner_Qualification(fhirbase):
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

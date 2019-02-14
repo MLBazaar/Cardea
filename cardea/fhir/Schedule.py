@@ -35,35 +35,35 @@ class Schedule(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Schedule'
-        # type: string
+        # type: str
         # possible values: Schedule
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.serviceCategory = None
         # reference to CodeableConcept
 
         self.serviceType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.specialty = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.actor = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.planningHorizon = None
         # reference to Period
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

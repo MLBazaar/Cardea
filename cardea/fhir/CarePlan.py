@@ -61,43 +61,43 @@ class CarePlan(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'CarePlan'
-        # type: string
+        # type: str
         # possible values: CarePlan
 
         self.definition = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.replaces = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.partOf = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, suspended, completed,
         # entered-in-error, cancelled, unknown
 
         self.intent = None
-        # type: string
+        # type: str
         # possible values: proposal, plan, order, option
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.title = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.subject = None
         # reference to Reference: identifier
@@ -109,35 +109,35 @@ class CarePlan(fhirbase):
         # reference to Period
 
         self.author = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.careTeam = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.addresses = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.supportingInfo = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.goal = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.activity = None
-        # type: array
+        # type: list
         # reference to CarePlan_Activity
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -276,15 +276,15 @@ class CarePlan_Activity(fhirbase):
 
     def __init__(self, dict_values=None):
         self.outcomeCodeableConcept = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.outcomeReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.progress = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.reference = None
@@ -396,27 +396,27 @@ class CarePlan_Detail(fhirbase):
         # reference to CodeableConcept
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.goal = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: not-started, scheduled, in-progress,
         # on-hold, completed, cancelled, unknown
 
         self.statusReason = None
-        # type: string
+        # type: str
 
         self.prohibited = None
-        # type: boolean
+        # type: bool
 
         self.scheduledTiming = None
         # reference to Timing
@@ -425,13 +425,13 @@ class CarePlan_Detail(fhirbase):
         # reference to Period
 
         self.scheduledString = None
-        # type: string
+        # type: str
 
         self.location = None
         # reference to Reference: identifier
 
         self.performer = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.productCodeableConcept = None
@@ -447,7 +447,7 @@ class CarePlan_Detail(fhirbase):
         # reference to Quantity
 
         self.description = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

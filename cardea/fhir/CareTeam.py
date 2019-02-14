@@ -35,20 +35,20 @@ class CareTeam(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'CareTeam'
-        # type: string
+        # type: str
         # possible values: CareTeam
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: proposed, active, suspended, inactive,
         # entered-in-error
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.name = None
-        # type: string
+        # type: str
 
         self.subject = None
         # reference to Reference: identifier
@@ -60,27 +60,27 @@ class CareTeam(fhirbase):
         # reference to Period
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to CareTeam_Participant
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.managingOrganization = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

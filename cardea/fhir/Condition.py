@@ -78,19 +78,19 @@ class Condition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Condition'
-        # type: string
+        # type: str
         # possible values: Condition
 
         self.clinicalStatus = None
-        # type: string
+        # type: str
 
         self.verificationStatus = None
-        # type: string
+        # type: str
         # possible values: provisional, differential, confirmed,
         # refuted, entered-in-error, unknown
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.severity = None
@@ -100,7 +100,7 @@ class Condition(fhirbase):
         # reference to CodeableConcept
 
         self.bodySite = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.subject = None
@@ -110,7 +110,7 @@ class Condition(fhirbase):
         # reference to Reference: identifier
 
         self.onsetDateTime = None
-        # type: string
+        # type: str
 
         self.onsetAge = None
         # reference to Age
@@ -122,16 +122,16 @@ class Condition(fhirbase):
         # reference to Range
 
         self.onsetString = None
-        # type: string
+        # type: str
 
         self.abatementDateTime = None
-        # type: string
+        # type: str
 
         self.abatementAge = None
         # reference to Age
 
         self.abatementBoolean = None
-        # type: boolean
+        # type: bool
 
         self.abatementPeriod = None
         # reference to Period
@@ -140,10 +140,10 @@ class Condition(fhirbase):
         # reference to Range
 
         self.abatementString = None
-        # type: string
+        # type: str
 
         self.assertedDate = None
-        # type: string
+        # type: str
 
         self.asserter = None
         # reference to Reference: identifier
@@ -152,15 +152,15 @@ class Condition(fhirbase):
         # reference to Condition_Stage
 
         self.evidence = None
-        # type: array
+        # type: list
         # reference to Condition_Evidence
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -287,7 +287,7 @@ class Condition_Stage(fhirbase):
         # reference to CodeableConcept
 
         self.assessment = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.object_id = None
@@ -327,11 +327,11 @@ class Condition_Evidence(fhirbase):
 
     def __init__(self, dict_values=None):
         self.code = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.detail = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.object_id = None

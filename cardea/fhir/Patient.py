@@ -42,74 +42,74 @@ class Patient(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Patient'
-        # type: string
+        # type: str
         # possible values: Patient
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.name = None
-        # type: array
+        # type: list
         # reference to HumanName
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.gender = None
-        # type: string
+        # type: str
         # possible values: male, female, other, unknown
 
         self.birthDate = None
-        # type: string
+        # type: str
 
         self.deceasedBoolean = None
-        # type: boolean
+        # type: bool
 
         self.deceasedDateTime = None
-        # type: string
+        # type: str
 
         self.address = None
-        # type: array
+        # type: list
         # reference to Address
 
         self.maritalStatus = None
         # reference to CodeableConcept
 
         self.multipleBirthBoolean = None
-        # type: boolean
+        # type: bool
 
         self.multipleBirthInteger = None
         # type: int
 
         self.photo = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to Patient_Contact
 
         self.animal = None
         # reference to Patient_Animal
 
         self.communication = None
-        # type: array
+        # type: list
         # reference to Patient_Communication
 
         self.generalPractitioner = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.managingOrganization = None
         # reference to Reference: identifier
 
         self.link = None
-        # type: array
+        # type: list
         # reference to Patient_Link
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -214,21 +214,21 @@ class Patient_Contact(fhirbase):
 
     def __init__(self, dict_values=None):
         self.relationship = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.name = None
         # reference to HumanName
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.address = None
         # reference to Address
 
         self.gender = None
-        # type: string
+        # type: str
         # possible values: male, female, other, unknown
 
         self.organization = None
@@ -360,7 +360,7 @@ class Patient_Communication(fhirbase):
         # reference to CodeableConcept
 
         self.preferred = None
-        # type: boolean
+        # type: bool
 
         self.object_id = None
         # unique identifier for object class
@@ -396,7 +396,7 @@ class Patient_Link(fhirbase):
         # reference to Reference: identifier
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: replaced-by, replaces, refer, seealso
 
         self.object_id = None

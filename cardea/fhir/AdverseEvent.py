@@ -48,11 +48,11 @@ class AdverseEvent(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'AdverseEvent'
-        # type: string
+        # type: str
         # possible values: AdverseEvent
 
         self.category = None
-        # type: string
+        # type: str
         # possible values: AE, PAE
 
         self.type = None
@@ -62,10 +62,10 @@ class AdverseEvent(fhirbase):
         # reference to Reference: identifier
 
         self.date = None
-        # type: string
+        # type: str
 
         self.reaction = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.location = None
@@ -84,22 +84,22 @@ class AdverseEvent(fhirbase):
         # reference to Reference: identifier
 
         self.description = None
-        # type: string
+        # type: str
 
         self.suspectEntity = None
-        # type: array
+        # type: list
         # reference to AdverseEvent_SuspectEntity
 
         self.subjectMedicalHistory = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.referenceDocument = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.study = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
@@ -215,14 +215,14 @@ class AdverseEvent_SuspectEntity(fhirbase):
         # reference to Reference: identifier
 
         self.causality = None
-        # type: string
+        # type: str
         # possible values: causality1, causality2
 
         self.causalityAssessment = None
         # reference to CodeableConcept
 
         self.causalityProductRelatedness = None
-        # type: string
+        # type: str
 
         self.causalityMethod = None
         # reference to CodeableConcept
