@@ -240,9 +240,7 @@ def test_generate_cutoff_times_success(entityset_success, mortality_prediction, 
     generated_df.index = cutoff_times.index  # both should have the same index
     generated_df = generated_df[cutoff_times.columns]  # same columns order
     generated_df['label'] = generated_df['label'].astype(bool)  # same data type
-
-    assert generated_df.equals(cutoff_times())
-
+    assert generated_df.equals(cutoff_times)
 
 
 def test_generate_cutoff_times_missing_generation_label(entityset_success, mortality_prediction):

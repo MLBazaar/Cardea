@@ -270,11 +270,10 @@ def entityset_error_missing_cutoff_label(objects_missing_cutoff_label, es_loader
 def test_generate_cutoff_times_success(entityset_success, length_of_stay, cutoff_times):
     _, _, generated_df = length_of_stay.generate_cutoff_times(
         entityset_success)
-    generated_df.index = cutoff_times().index  # both should have the same index
-    generated_df = generated_df[cutoff_times().columns]  # same columns order
+    generated_df.index = cutoff_times.index  # both should have the same index
+    generated_df = generated_df[cutoff_times.columns]  # same columns order
 
-    assert generated_df.equals(cutoff_times())
-
+    assert generated_df.equals(cutoff_times)
 
 
 def test_generate_cutoff_times_missing_target_label(entityset_fail, length_of_stay, cutoff_times):
