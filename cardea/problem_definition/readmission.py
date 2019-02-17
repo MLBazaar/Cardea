@@ -24,6 +24,7 @@ class Readmission (ProblemDefinition):
              of the initial diagnosis).
 
         """
+    __name__ = 'readmission'
 
     updated_es = None
     target_label_column_name = 'readmitted'

@@ -23,6 +23,7 @@ class DiagnosisPrediction (ProblemDefinition):
             (he could be diagnosed of something that is a complication of the initial diagnosis).
 
         """
+    __name__ = 'diagnosis'
 
     updated_es = None
     target_label_column_name = 'diagnosis'

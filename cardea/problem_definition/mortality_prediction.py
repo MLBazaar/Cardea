@@ -24,6 +24,8 @@ class MortalityPrediction (ProblemDefinition):
 
         """
 
+    __name__ = 'mortality'
+    
     updated_es = None
     target_label_column_name = 'diagnosis'
     target_entity = 'Encounter'

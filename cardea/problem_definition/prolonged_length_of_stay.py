@@ -16,6 +16,7 @@ class ProlongedLengthOfStay (ProblemDefinition):
         cutoff_entity: Name of the entity containing the cutoff time label.
         prediction_type: The type of the machine learning prediction.
         """
+    __name__ = 'plos'
 
     updated_es = None
     target_label_column_name = 'length'

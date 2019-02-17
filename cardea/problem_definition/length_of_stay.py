@@ -17,6 +17,8 @@ class LengthOfStay (ProblemDefinition):
         prediction_type: The type of the machine learning prediction.
         """
 
+    __name__ = 'los'
+
     updated_es = None
     target_label_column_name = 'length'
     target_entity = 'Encounter'
