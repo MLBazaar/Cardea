@@ -17,32 +17,34 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -87,6 +89,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.data_loader.html">cardea.data_loader package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.featurization.html">cardea.featurization package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.fhir.html">cardea.fhir package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.modeling.html">cardea.modeling package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.problem_definition.html">cardea.problem_definition package</a></li>
 </ul>
 </li>
@@ -1066,58 +1069,58 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">representation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># possible values: xmlAttr, xmlText, typeAttr, cdaText, xhtml</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">sliceName</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to Coding</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">slicing</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to ElementDefinition_Slicing</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">short</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">requirements</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">alias</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to ElementDefinition_Base</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">contentReference</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to ElementDefinition_Type</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueBoolean</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueInteger</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -1126,37 +1129,37 @@
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueBase64Binary</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueInstant</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueString</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueUri</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueDate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueDateTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueCode</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueOid</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueUuid</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueUnsignedInt</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -1165,7 +1168,7 @@
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueMarkdown</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValueElement</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Element: id</span>
@@ -1276,13 +1279,13 @@
         <span class="c1"># reference to TriggerDefinition</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">meaningWhenMissing</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">orderMeaning</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedBoolean</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedInteger</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -1291,37 +1294,37 @@
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedBase64Binary</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedInstant</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedString</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedUri</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedDate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedDateTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedCode</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedOid</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedUuid</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedUnsignedInt</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -1330,7 +1333,7 @@
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedMarkdown</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedElement</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Element: id</span>
@@ -1441,7 +1444,7 @@
         <span class="c1"># reference to TriggerDefinition</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternBoolean</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternInteger</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -1450,37 +1453,37 @@
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternBase64Binary</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternInstant</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternString</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternUri</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternDate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternDateTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternCode</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternOid</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternUuid</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternUnsignedInt</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -1489,7 +1492,7 @@
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternMarkdown</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patternElement</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Element: id</span>
@@ -1600,20 +1603,20 @@
         <span class="c1"># reference to TriggerDefinition</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">example</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to ElementDefinition_Example</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">minValueDate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">minValueDateTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">minValueInstant</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">minValueTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">minValueDecimal</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -1631,16 +1634,16 @@
         <span class="c1"># reference to Quantity</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">maxValueDate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">maxValueDateTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">maxValueInstant</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">maxValueTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">maxValueDecimal</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -1661,26 +1664,26 @@
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to ElementDefinition_Constraint</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">mustSupport</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">isModifier</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">isSummary</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">binding</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to ElementDefinition_Binding</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to ElementDefinition_Mapping</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -2321,17 +2324,17 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">discriminator</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to ElementDefinition_Discriminator</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ordered</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rules</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: closed, open, openAtEnd</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -2376,11 +2379,11 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: value, exists, pattern, type, profile</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -2417,13 +2420,13 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -2468,20 +2471,20 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">profile</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">targetProfile</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">aggregation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># possible values: contained, referenced, bundled</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">versioning</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: either, independent, specific</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -2628,10 +2631,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueBoolean</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueInteger</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -2640,37 +2643,37 @@
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueBase64Binary</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueInstant</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueString</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueUri</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueDate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueDateTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueCode</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueOid</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueUuid</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueUnsignedInt</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -2679,7 +2682,7 @@
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueMarkdown</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueElement</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Element: id</span>
@@ -3001,26 +3004,26 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">requirements</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: error, warning</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">human</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">expression</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">xpath</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -3070,14 +3073,14 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">strength</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: required, extensible, preferred, example</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueSetUri</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueSetReference</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Reference: identifier</span>
@@ -3127,16 +3130,16 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">identity</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">language</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -3172,25 +3175,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

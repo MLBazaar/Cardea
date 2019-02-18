@@ -17,32 +17,34 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -87,6 +89,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.data_loader.html">cardea.data_loader package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.featurization.html">cardea.featurization package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.fhir.html">cardea.fhir package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.modeling.html">cardea.modeling package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.problem_definition.html">cardea.problem_definition package</a></li>
 </ul>
 </li>
@@ -284,61 +287,61 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;CapabilityStatement&#39;</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: CapabilityStatement</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: draft, active, retired, unknown</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">experimental</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">publisher</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">contact</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to ContactDetail</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">useContext</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to UsageContext</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">jurisdiction</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CodeableConcept</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">purpose</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">copyright</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: instance, capability, requirements</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">instantiates</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">software</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to CapabilityStatement_Software</span>
@@ -347,35 +350,35 @@
         <span class="c1"># reference to CapabilityStatement_Implementation</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fhirVersion</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">acceptUnknown</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: no, extensions, elements, both</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">patchFormat</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">implementationGuide</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">profile</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to Reference: identifier</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rest</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_Rest</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">messaging</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_Messaging</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">document</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_Document</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -476,13 +479,13 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">releaseDate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -509,10 +512,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -554,33 +557,33 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: client, server</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">security</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to CapabilityStatement_Security</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_Resource</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">interaction</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_Interaction1</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">searchParam</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_SearchParam</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">operation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_Operation</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">compartment</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -648,17 +651,17 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cors</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">service</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CodeableConcept</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">certificate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_Certificate</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -698,10 +701,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">blob</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -762,55 +765,55 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">profile</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Reference: identifier</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">interaction</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_Interaction</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">versioning</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: no-version, versioned, versioned-update</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">readHistory</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">updateCreate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">conditionalCreate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">conditionalRead</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: not-supported, modified-since, not-match,</span>
         <span class="c1"># full-support</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">conditionalUpdate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">conditionalDelete</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: not-supported, single, multiple</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">referencePolicy</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># possible values: literal, logical, resolves, enforced, local</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">searchInclude</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">searchRevInclude</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">searchParam</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_SearchParam</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -890,12 +893,12 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: read, vread, update, patch, delete,</span>
         <span class="c1"># history-instance, history-type, create, search-type</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -940,18 +943,18 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: number, date, string, token, reference,</span>
         <span class="c1"># composite, quantity, uri</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -989,12 +992,12 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: transaction, batch, search-system,</span>
         <span class="c1"># history-system</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -1031,7 +1034,7 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Reference: identifier</span>
@@ -1079,21 +1082,21 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_Endpoint</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">reliableCache</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">supportedMessage</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_SupportedMessage</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">event</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CapabilityStatement_Event</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1143,7 +1146,7 @@
         <span class="c1"># reference to Coding</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -1179,7 +1182,7 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: sender, receiver</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1238,15 +1241,15 @@
         <span class="c1"># reference to Coding</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: Consequence, Currency, Notification</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: sender, receiver</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">focus</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Reference: identifier</span>
@@ -1255,7 +1258,7 @@
         <span class="c1"># reference to Reference: identifier</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -1320,11 +1323,11 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: producer, consumer</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">documentation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">profile</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Reference: identifier</span>
@@ -1382,25 +1385,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

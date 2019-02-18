@@ -17,32 +17,34 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -87,6 +89,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.data_loader.html">cardea.data_loader package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.featurization.html">cardea.featurization package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.fhir.html">cardea.fhir package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.modeling.html">cardea.modeling package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.problem_definition.html">cardea.problem_definition package</a></li>
 </ul>
 </li>
@@ -261,91 +264,91 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;TestScript&#39;</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: TestScript</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: draft, active, retired, unknown</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">experimental</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">publisher</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">contact</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to ContactDetail</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">useContext</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to UsageContext</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">jurisdiction</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CodeableConcept</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">purpose</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">copyright</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Origin</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Destination</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to TestScript_Metadata</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fixture</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Fixture</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">profile</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to Reference: identifier</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">variable</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Variable</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rule</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Rule</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ruleset</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Ruleset</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setup</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to TestScript_Setup</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">test</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Test</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">teardown</span> <span class="o">=</span> <span class="kc">None</span>
@@ -534,11 +537,11 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">link</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Link</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">capability</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Capability</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -577,10 +580,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -615,22 +618,22 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">required</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">validated</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">link</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">capabilities</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Reference: identifier</span>
@@ -673,10 +676,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">autocreate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">autodelete</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Reference: identifier</span>
@@ -726,28 +729,28 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">defaultValue</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">expression</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">headerField</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">hint</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">sourceId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -775,7 +778,7 @@
         <span class="c1"># reference to Reference: identifier</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">param</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Param</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -815,10 +818,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -845,7 +848,7 @@
         <span class="c1"># reference to Reference: identifier</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rule</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Rule1</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -885,10 +888,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ruleId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">param</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Param1</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -923,10 +926,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -948,7 +951,7 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Action</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1053,52 +1056,52 @@
         <span class="c1"># reference to Coding</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">accept</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: xml, json, ttl, none</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">contentType</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: xml, json, ttl, none</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">encodeRequestUrl</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">requestHeader</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_RequestHeader</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">requestId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">responseId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">sourceId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">targetId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -1180,10 +1183,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -1251,66 +1254,66 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: response, request</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">compareToSourceId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">compareToSourceExpression</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">compareToSourcePath</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">contentType</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: xml, json, ttl, none</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">expression</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">headerField</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">minimumId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">navigationLinks</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">operator</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: equals, notEquals, in, notIn, greaterThan,</span>
         <span class="c1"># lessThan, empty, notEmpty, contains, notContains, eval</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">requestMethod</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: delete, get, options, patch, post, put</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">requestURL</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: okay, created, noContent, notModified, bad,</span>
         <span class="c1"># forbidden, notFound, methodNotAllowed, conflict, gone,</span>
         <span class="c1"># preconditionFailed, unprocessable</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">responseCode</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rule</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to TestScript_Rule2</span>
@@ -1319,16 +1322,16 @@
         <span class="c1"># reference to TestScript_Ruleset1</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">sourceId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">validateProfileId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">warningOnly</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -1449,10 +1452,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ruleId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">param</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Param2</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1487,10 +1490,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -1513,10 +1516,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rulesetId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rule</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Rule3</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1551,10 +1554,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ruleId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">param</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Param3</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1589,10 +1592,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># unique identifier for object class</span>
@@ -1618,13 +1621,13 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Action1</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1697,7 +1700,7 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to TestScript_Action2</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1774,25 +1777,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

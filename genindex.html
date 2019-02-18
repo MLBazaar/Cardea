@@ -18,32 +18,34 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -88,6 +90,7 @@
 <li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a></li>
 </ul>
 </li>
@@ -2469,6 +2472,8 @@
         <li><a href="cardea.fhir.html#cardea.fhir.Signature.Signature.blob">(cardea.fhir.Signature.Signature attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.block_instance">block_instance (cardea.modeling.modeler.Modeler attribute)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.ActivityDefinition.bodySite">bodySite (cardea.fhir.ActivityDefinition attribute)</a>
 
       <ul>
@@ -3091,6 +3096,10 @@
 </li>
       <li><a href="cardea.fhir.html#module-cardea.fhir.VisionPrescription">cardea.fhir.VisionPrescription (module)</a>
 </li>
+      <li><a href="cardea.modeling.html#module-cardea.modeling">cardea.modeling (module)</a>
+</li>
+      <li><a href="cardea.modeling.html#module-cardea.modeling.modeler">cardea.modeling.modeler (module)</a>
+</li>
       <li><a href="cardea.problem_definition.html#module-cardea.problem_definition">cardea.problem_definition (module)</a>
 </li>
       <li><a href="cardea.problem_definition.html#module-cardea.problem_definition.definition">cardea.problem_definition.definition (module)</a>
@@ -3479,6 +3488,8 @@
         <li><a href="cardea.problem_definition.html#cardea.problem_definition.ProblemDefinition.check_for_missing_values_in_target_label">(cardea.problem_definition.ProblemDefinition method)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.check_path">check_path() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.problem_definition.html#cardea.problem_definition.definition.ProblemDefinition.check_target_label">check_target_label() (cardea.problem_definition.definition.ProblemDefinition method)</a>
 
       <ul>
@@ -5291,18 +5302,24 @@
         <li><a href="cardea.data_loader.html#cardea.data_loader.EntitySetLoader.create_entity">(cardea.data_loader.EntitySetLoader method)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.create_kfold">create_kfold() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.data_loader.html#cardea.data_loader.data_loader.DataLoader.create_object">create_object() (cardea.data_loader.data_loader.DataLoader method)</a>
 
       <ul>
         <li><a href="cardea.data_loader.html#cardea.data_loader.DataLoader.create_object">(cardea.data_loader.DataLoader method)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.create_pipeline">create_pipeline() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.data_loader.html#cardea.data_loader.entityset_loader.EntitySetLoader.create_relationships">create_relationships() (cardea.data_loader.entityset_loader.EntitySetLoader method)</a>
 
       <ul>
         <li><a href="cardea.data_loader.html#cardea.data_loader.EntitySetLoader.create_relationships">(cardea.data_loader.EntitySetLoader method)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.create_space">create_space() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.Appointment.created">created (cardea.fhir.Appointment attribute)</a>
 
       <ul>
@@ -8431,6 +8448,8 @@
         <li><a href="cardea.fhir.html#cardea.fhir.ExpansionProfile.ExpansionProfile.excludePostCoordinated">(cardea.fhir.ExpansionProfile.ExpansionProfile attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.execute_pipeline">execute_pipeline() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.Task.executionPeriod">executionPeriod (cardea.fhir.Task attribute)</a>
 
       <ul>
@@ -8981,12 +9000,18 @@
         <li><a href="cardea.fhir.html#cardea.fhir.ExplanationOfBenefit_BenefitBalance.financial">(cardea.fhir.ExplanationOfBenefit_BenefitBalance attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.find_opt_proba">find_opt_proba() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.ClinicalImpression.finding">finding (cardea.fhir.ClinicalImpression attribute)</a>
 
       <ul>
         <li><a href="cardea.fhir.html#cardea.fhir.ClinicalImpression.ClinicalImpression.finding">(cardea.fhir.ClinicalImpression.ClinicalImpression attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.fit_predict_model">fit_predict_model() (cardea.modeling.modeler.Modeler method)</a>
+</li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.fit_predict_optimize_model">fit_predict_optimize_model() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.ElementDefinition.fixedAddress">fixedAddress (cardea.fhir.ElementDefinition attribute)</a>
 
       <ul>
@@ -9595,6 +9620,8 @@
         <li><a href="cardea.fhir.html#cardea.fhir.Sequence_ReferenceSeq.genomeBuild">(cardea.fhir.Sequence_ReferenceSeq attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.get_block">get_block() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.fhirbase.get_dataframe">get_dataframe() (cardea.fhir.fhirbase method)</a>
 
       <ul>
@@ -9607,6 +9634,8 @@
         <li><a href="cardea.data_loader.html#cardea.data_loader.DataLoader.get_dataframes">(cardea.data_loader.DataLoader method)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.get_directory">get_directory() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.fhirbase.get_eligible_relationships">get_eligible_relationships() (cardea.fhir.fhirbase method)</a>
 
       <ul>
@@ -11569,14 +11598,14 @@
         <li><a href="cardea.fhir.html#cardea.fhir.HealthcareService.HealthcareService_NotAvailable">(class in cardea.fhir.HealthcareService)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cardea.fhir.html#cardea.fhir.Media.height">height (cardea.fhir.Media attribute)</a>
 
       <ul>
         <li><a href="cardea.fhir.html#cardea.fhir.Media.Media.height">(cardea.fhir.Media.Media attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cardea.fhir.html#cardea.fhir.CodeSystem.hierarchyMeaning">hierarchyMeaning (cardea.fhir.CodeSystem attribute)</a>
 
       <ul>
@@ -11625,6 +11654,10 @@
         <li><a href="cardea.fhir.html#cardea.fhir.HumanName.HumanName">(class in cardea.fhir.HumanName)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.hyperopt_train_test">hyperopt_train_test() (cardea.modeling.modeler.Modeler method)</a>
+</li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.hyperparameter_tunning">hyperparameter_tunning() (cardea.modeling.modeler.Modeler method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -14349,6 +14382,8 @@
         <li><a href="cardea.fhir.html#cardea.fhir.Device.Device.model">(cardea.fhir.Device.Device attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler">Modeler (class in cardea.modeling.modeler)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.Claim.Claim_Detail.modifier">modifier (cardea.fhir.Claim.Claim_Detail attribute)</a>
 
       <ul>
@@ -15167,6 +15202,8 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.objective">objective() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.Observation">Observation (class in cardea.fhir)</a>
 
       <ul>
@@ -15587,6 +15624,8 @@
         <li><a href="cardea.fhir.html#cardea.fhir.TestScript_Assert.operator">(cardea.fhir.TestScript_Assert attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.optimization">optimization() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.Questionnaire.Questionnaire_Item.option">option (cardea.fhir.Questionnaire.Questionnaire_Item attribute)</a>
 
       <ul>
@@ -17057,6 +17096,8 @@
         <li><a href="cardea.fhir.html#cardea.fhir.Location.Location.physicalType">(cardea.fhir.Location.Location attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.pipeline_dict">pipeline_dict (cardea.modeling.modeler.Modeler attribute)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.Coverage.Coverage_Grouping.plan">plan (cardea.fhir.Coverage.Coverage_Grouping attribute)</a>
 
       <ul>
@@ -17387,6 +17428,8 @@
         <li><a href="cardea.fhir.html#cardea.fhir.Immunization.Immunization.primarySource">(cardea.fhir.Immunization.Immunization attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.primitive">primitive (cardea.modeling.modeler.Modeler attribute)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.ResearchStudy.principalInvestigator">principalInvestigator (cardea.fhir.ResearchStudy attribute)</a>
 
       <ul>
@@ -17491,6 +17534,8 @@
         <li><a href="cardea.fhir.html#cardea.fhir.ClinicalImpression.ClinicalImpression.problem">(cardea.fhir.ClinicalImpression.ClinicalImpression attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.problem_type">problem_type (cardea.modeling.modeler.Modeler attribute)</a>
+</li>
       <li><a href="cardea.problem_definition.html#cardea.problem_definition.ProblemDefinition">ProblemDefinition (class in cardea.problem_definition)</a>
 
       <ul>
@@ -20082,6 +20127,8 @@
 </li>
         <li><a href="cardea.fhir.html#cardea.fhir.TestReport_Operation.result">(cardea.fhir.TestReport_Operation attribute)</a>
 </li>
+        <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.result">(cardea.modeling.modeler.Modeler attribute)</a>
+</li>
       </ul></li>
       <li><a href="cardea.fhir.html#cardea.fhir.Claim.Claim_Detail.revenue">revenue (cardea.fhir.Claim.Claim_Detail attribute)</a>
 
@@ -20401,6 +20448,8 @@
         <li><a href="cardea.fhir.html#cardea.fhir.CompartmentDefinition.CompartmentDefinition.search">(cardea.fhir.CompartmentDefinition.CompartmentDefinition attribute)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.search_all_possible_primitives">search_all_possible_primitives() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.searchInclude">searchInclude (cardea.fhir.CapabilityStatement.CapabilityStatement_Resource attribute)</a>
 
       <ul>
@@ -20829,6 +20878,8 @@
         <li><a href="cardea.fhir.html#cardea.fhir.fhirbase.fhirbase.set_attributes">(cardea.fhir.fhirbase.fhirbase method)</a>
 </li>
       </ul></li>
+      <li><a href="cardea.modeling.html#cardea.modeling.modeler.Modeler.set_data">set_data() (cardea.modeling.modeler.Modeler method)</a>
+</li>
       <li><a href="cardea.fhir.html#cardea.fhir.TestReport.setup">setup (cardea.fhir.TestReport attribute)</a>
 
       <ul>
@@ -26401,25 +26452,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

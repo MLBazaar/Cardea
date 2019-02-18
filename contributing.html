@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Credits" href="authors.html" />
     <link rel="prev" title="cardea.problem_definition package" href="cardea.problem_definition.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -89,6 +91,7 @@
 <li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a></li>
 </ul>
 </li>
@@ -243,8 +246,7 @@ are welcome :)</li>
 this is how you set up your fork for local development:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkvirtualenv Cardea
 $ <span class="nb">cd</span> Cardea/
-$ pip install -e .
-$ pip install -r requirements_dev.txt
+$ make install-develop
 </pre></div>
 </div>
 </li>
@@ -264,7 +266,8 @@ $ make coverage   <span class="c1"># Get the coverage report</span>
 </li>
 <li><p class="first">When you’re done making changes, check that your changes pass flake8 and the
 tests, including testing other Python versions with tox:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ make test-all
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ make lint       <span class="c1"># Check code styling</span>
+$ make test-all   <span class="c1"># Execute tests on all python versions</span>
 </pre></div>
 </div>
 <p>If flake8 or isort errors fail to pass, you must fix them prior to committing your
@@ -389,7 +392,7 @@ git push
         <a href="authors.html" class="btn btn-neutral float-right" title="Credits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cardea.problem_definition.html" class="btn btn-neutral" title="cardea.problem_definition package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cardea.problem_definition.html" class="btn btn-neutral float-left" title="cardea.problem_definition package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -415,25 +418,16 @@ git push
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

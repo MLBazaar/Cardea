@@ -17,32 +17,34 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -87,6 +89,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.data_loader.html">cardea.data_loader package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.featurization.html">cardea.featurization package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.fhir.html">cardea.fhir package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.modeling.html">cardea.modeling package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.problem_definition.html">cardea.problem_definition package</a></li>
 </ul>
 </li>
@@ -258,19 +261,19 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;Condition&#39;</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: Condition</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">clinicalStatus</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">verificationStatus</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
         <span class="c1"># possible values: provisional, differential, confirmed,</span>
         <span class="c1"># refuted, entered-in-error, unknown</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CodeableConcept</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="kc">None</span>
@@ -280,7 +283,7 @@
         <span class="c1"># reference to CodeableConcept</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">bodySite</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CodeableConcept</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="kc">None</span>
@@ -290,7 +293,7 @@
         <span class="c1"># reference to Reference: identifier</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">onsetDateTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">onsetAge</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Age</span>
@@ -302,16 +305,16 @@
         <span class="c1"># reference to Range</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">onsetString</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">abatementDateTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">abatementAge</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Age</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">abatementBoolean</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">abatementPeriod</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Period</span>
@@ -320,10 +323,10 @@
         <span class="c1"># reference to Range</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">abatementString</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">assertedDate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">asserter</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Reference: identifier</span>
@@ -332,15 +335,15 @@
         <span class="c1"># reference to Condition_Stage</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">evidence</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to Condition_Evidence</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">note</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to Annotation</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to Identifier</span>
 
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
@@ -467,7 +470,7 @@
         <span class="c1"># reference to CodeableConcept</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">assessment</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to Reference: identifier</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -507,11 +510,11 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to CodeableConcept</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">detail</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to Reference: identifier</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -562,25 +565,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

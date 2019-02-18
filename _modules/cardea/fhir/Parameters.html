@@ -17,32 +17,34 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -87,6 +89,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.data_loader.html">cardea.data_loader package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.featurization.html">cardea.featurization package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.fhir.html">cardea.fhir package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cardea.modeling.html">cardea.modeling package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cardea.problem_definition.html">cardea.problem_definition package</a></li>
 </ul>
 </li>
@@ -195,7 +198,7 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameter</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to Parameters_Parameter</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -284,10 +287,10 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueBoolean</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: boolean</span>
+        <span class="c1"># type: bool</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueInteger</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -296,37 +299,37 @@
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueBase64Binary</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueInstant</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueString</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueUri</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueDate</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueDateTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueTime</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueCode</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueOid</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueUuid</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueId</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueUnsignedInt</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
@@ -335,7 +338,7 @@
         <span class="c1"># type: int</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueMarkdown</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: string</span>
+        <span class="c1"># type: str</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">valueElement</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Element: id</span>
@@ -449,7 +452,7 @@
         <span class="c1"># reference to ResourceList</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">part</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># type: array</span>
+        <span class="c1"># type: list</span>
         <span class="c1"># reference to Parameters_Parameter</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="kc">None</span>
@@ -680,25 +683,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
