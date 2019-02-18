@@ -73,4 +73,4 @@ def test_featurization_target(featurization, cutoff):
 
 def test_generate_feature_matrix(featurization):
     fm_encoded, features_encoded = featurization.generate_feature_matrix()
-    assert len(fm_encoded) == 3 and len(fm_encoded.columns) == 30
+    assert len(fm_encoded) == 3 and len(fm_encoded.columns) == 32
