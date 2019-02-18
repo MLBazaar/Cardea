@@ -85,38 +85,38 @@ class ProcedureRequest(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ProcedureRequest'
-        # type: string
+        # type: str
         # possible values: ProcedureRequest
 
         self.definition = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.replaces = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.requisition = None
         # reference to Identifier
 
         self.status = None
-        # type: string
+        # type: str
 
         self.intent = None
-        # type: string
+        # type: str
 
         self.priority = None
-        # type: string
+        # type: str
 
         self.doNotPerform = None
-        # type: boolean
+        # type: bool
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.code = None
@@ -129,7 +129,7 @@ class ProcedureRequest(fhirbase):
         # reference to Reference: identifier
 
         self.occurrenceDateTime = None
-        # type: string
+        # type: str
 
         self.occurrencePeriod = None
         # reference to Period
@@ -138,13 +138,13 @@ class ProcedureRequest(fhirbase):
         # reference to Timing
 
         self.asNeededBoolean = None
-        # type: boolean
+        # type: bool
 
         self.asNeededCodeableConcept = None
         # reference to CodeableConcept
 
         self.authoredOn = None
-        # type: string
+        # type: str
 
         self.requester = None
         # reference to ProcedureRequest_Requester
@@ -156,35 +156,35 @@ class ProcedureRequest(fhirbase):
         # reference to Reference: identifier
 
         self.reasonCode = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reasonReference = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.supportingInfo = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.specimen = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.bodySite = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.relevantHistory = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

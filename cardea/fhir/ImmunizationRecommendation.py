@@ -19,18 +19,18 @@ class ImmunizationRecommendation(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ImmunizationRecommendation'
-        # type: string
+        # type: str
         # possible values: ImmunizationRecommendation
 
         self.patient = None
         # reference to Reference: identifier
 
         self.recommendation = None
-        # type: array
+        # type: list
         # reference to ImmunizationRecommendation_Recommendation
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -85,7 +85,7 @@ class ImmunizationRecommendation_Recommendation(fhirbase):
 
     def __init__(self, dict_values=None):
         self.date = None
-        # type: string
+        # type: str
 
         self.vaccineCode = None
         # reference to CodeableConcept
@@ -100,18 +100,18 @@ class ImmunizationRecommendation_Recommendation(fhirbase):
         # reference to CodeableConcept
 
         self.dateCriterion = None
-        # type: array
+        # type: list
         # reference to ImmunizationRecommendation_DateCriterion
 
         self.protocol = None
         # reference to ImmunizationRecommendation_Protocol
 
         self.supportingImmunization = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.supportingPatientInformation = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.object_id = None
@@ -179,7 +179,7 @@ class ImmunizationRecommendation_DateCriterion(fhirbase):
         # reference to CodeableConcept
 
         self.value = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -222,13 +222,13 @@ class ImmunizationRecommendation_Protocol(fhirbase):
         # type: int
 
         self.description = None
-        # type: string
+        # type: str
 
         self.authority = None
         # reference to Reference: identifier
 
         self.series = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

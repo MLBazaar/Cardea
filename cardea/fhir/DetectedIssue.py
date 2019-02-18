@@ -39,40 +39,40 @@ class DetectedIssue(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'DetectedIssue'
-        # type: string
+        # type: str
         # possible values: DetectedIssue
 
         self.status = None
-        # type: string
+        # type: str
 
         self.category = None
         # reference to CodeableConcept
 
         self.severity = None
-        # type: string
+        # type: str
         # possible values: high, moderate, low
 
         self.patient = None
         # reference to Reference: identifier
 
         self.date = None
-        # type: string
+        # type: str
 
         self.author = None
         # reference to Reference: identifier
 
         self.implicated = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.detail = None
-        # type: string
+        # type: str
 
         self.reference = None
-        # type: string
+        # type: str
 
         self.mitigation = None
-        # type: array
+        # type: list
         # reference to DetectedIssue_Mitigation
 
         self.identifier = None
@@ -149,7 +149,7 @@ class DetectedIssue_Mitigation(fhirbase):
         # reference to CodeableConcept
 
         self.date = None
-        # type: string
+        # type: str
 
         self.author = None
         # reference to Reference: identifier

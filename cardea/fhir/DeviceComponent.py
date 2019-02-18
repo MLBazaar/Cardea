@@ -35,14 +35,14 @@ class DeviceComponent(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'DeviceComponent'
-        # type: string
+        # type: str
         # possible values: DeviceComponent
 
         self.type = None
         # reference to CodeableConcept
 
         self.lastSystemChange = None
-        # type: string
+        # type: str
 
         self.source = None
         # reference to Reference: identifier
@@ -51,19 +51,19 @@ class DeviceComponent(fhirbase):
         # reference to Reference: identifier
 
         self.operationalStatus = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.parameterGroup = None
         # reference to CodeableConcept
 
         self.measurementPrinciple = None
-        # type: string
+        # type: str
         # possible values: other, chemical, electrical, impedance,
         # nuclear, optical, thermal, biological, mechanical, acoustical, manual
 
         self.productionSpecification = None
-        # type: array
+        # type: list
         # reference to DeviceComponent_ProductionSpecification
 
         self.languageCode = None
@@ -157,7 +157,7 @@ class DeviceComponent_ProductionSpecification(fhirbase):
         # reference to Identifier
 
         self.productionSpec = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

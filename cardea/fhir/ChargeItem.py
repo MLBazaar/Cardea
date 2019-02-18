@@ -58,19 +58,19 @@ class ChargeItem(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ChargeItem'
-        # type: string
+        # type: str
         # possible values: ChargeItem
 
         self.definition = None
-        # type: array
+        # type: list
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: planned, billable, not-billable, aborted,
         # billed, entered-in-error, unknown
 
         self.partOf = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.code = None
@@ -83,7 +83,7 @@ class ChargeItem(fhirbase):
         # reference to Reference: identifier
 
         self.occurrenceDateTime = None
-        # type: string
+        # type: str
 
         self.occurrencePeriod = None
         # reference to Period
@@ -92,7 +92,7 @@ class ChargeItem(fhirbase):
         # reference to Timing
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to ChargeItem_Participant
 
         self.performingOrganization = None
@@ -105,7 +105,7 @@ class ChargeItem(fhirbase):
         # reference to Quantity
 
         self.bodysite = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.factorOverride = None
@@ -115,32 +115,32 @@ class ChargeItem(fhirbase):
         # reference to Money
 
         self.overrideReason = None
-        # type: string
+        # type: str
 
         self.enterer = None
         # reference to Reference: identifier
 
         self.enteredDate = None
-        # type: string
+        # type: str
 
         self.reason = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.service = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.account = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.supportingInformation = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None

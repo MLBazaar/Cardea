@@ -41,22 +41,22 @@ class QuestionnaireResponse(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'QuestionnaireResponse'
-        # type: string
+        # type: str
         # possible values: QuestionnaireResponse
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.parent = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.questionnaire = None
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: in-progress, completed, amended,
         # entered-in-error, stopped
 
@@ -67,7 +67,7 @@ class QuestionnaireResponse(fhirbase):
         # reference to Reference: identifier
 
         self.authored = None
-        # type: string
+        # type: str
 
         self.author = None
         # reference to Reference: identifier
@@ -76,7 +76,7 @@ class QuestionnaireResponse(fhirbase):
         # reference to Reference: identifier
 
         self.item = None
-        # type: array
+        # type: list
         # reference to QuestionnaireResponse_Item
 
         self.identifier = None
@@ -168,23 +168,23 @@ class QuestionnaireResponse_Item(fhirbase):
 
     def __init__(self, dict_values=None):
         self.linkId = None
-        # type: string
+        # type: str
 
         self.definition = None
-        # type: string
+        # type: str
 
         self.text = None
-        # type: string
+        # type: str
 
         self.subject = None
         # reference to Reference: identifier
 
         self.answer = None
-        # type: array
+        # type: list
         # reference to QuestionnaireResponse_Answer
 
         self.item = None
-        # type: array
+        # type: list
         # reference to QuestionnaireResponse_Item
 
         self.object_id = None
@@ -252,7 +252,7 @@ class QuestionnaireResponse_Answer(fhirbase):
 
     def __init__(self, dict_values=None):
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueDecimal = None
         # type: int
@@ -261,19 +261,19 @@ class QuestionnaireResponse_Answer(fhirbase):
         # type: int
 
         self.valueDate = None
-        # type: string
+        # type: str
 
         self.valueDateTime = None
-        # type: string
+        # type: str
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueUri = None
-        # type: string
+        # type: str
 
         self.valueAttachment = None
         # reference to Attachment
@@ -288,7 +288,7 @@ class QuestionnaireResponse_Answer(fhirbase):
         # reference to Reference: identifier
 
         self.item = None
-        # type: array
+        # type: list
         # reference to QuestionnaireResponse_Item
 
         self.object_id = None

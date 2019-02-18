@@ -24,12 +24,12 @@ class TriggerDefinition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: named-event, periodic, data-added,
         # data-modified, data-removed, data-accessed, data-access-ended
 
         self.eventName = None
-        # type: string
+        # type: str
 
         self.eventTimingTiming = None
         # reference to Timing
@@ -38,10 +38,10 @@ class TriggerDefinition(fhirbase):
         # reference to Reference: identifier
 
         self.eventTimingDate = None
-        # type: string
+        # type: str
 
         self.eventTimingDateTime = None
-        # type: string
+        # type: str
 
         self.eventData = None
         # reference to DataRequirement

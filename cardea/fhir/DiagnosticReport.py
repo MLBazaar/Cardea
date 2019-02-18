@@ -66,15 +66,15 @@ class DiagnosticReport(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'DiagnosticReport'
-        # type: string
+        # type: str
         # possible values: DiagnosticReport
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: registered, partial, preliminary, final,
         # amended, corrected, appended, cancelled, entered-in-error, unknown
 
@@ -91,47 +91,47 @@ class DiagnosticReport(fhirbase):
         # reference to Reference: identifier
 
         self.effectiveDateTime = None
-        # type: string
+        # type: str
 
         self.effectivePeriod = None
         # reference to Period
 
         self.issued = None
-        # type: string
+        # type: str
 
         self.performer = None
-        # type: array
+        # type: list
         # reference to DiagnosticReport_Performer
 
         self.specimen = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.result = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.imagingStudy = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.image = None
-        # type: array
+        # type: list
         # reference to DiagnosticReport_Image
 
         self.conclusion = None
-        # type: string
+        # type: str
 
         self.codedDiagnosis = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.presentedForm = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -291,7 +291,7 @@ class DiagnosticReport_Image(fhirbase):
 
     def __init__(self, dict_values=None):
         self.comment = None
-        # type: string
+        # type: str
 
         self.link = None
         # reference to Reference: identifier

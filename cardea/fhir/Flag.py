@@ -30,11 +30,11 @@ class Flag(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Flag'
-        # type: string
+        # type: str
         # possible values: Flag
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: active, inactive, entered-in-error
 
         self.category = None
@@ -56,7 +56,7 @@ class Flag(fhirbase):
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
