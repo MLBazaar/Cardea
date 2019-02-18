@@ -16,6 +16,7 @@ class Modeler():
     problem_type = ""
     block_instance = ""
     primitive = []
+    pipeline_dict = {}
 
     def get_directory(self):
         '''Returns the path of the directory.
@@ -133,8 +134,13 @@ class Modeler():
                 file = filename[:index]
                 if(file == primitive):
                     primitives_names.append(mypath + filename)
+            pipeline_list.append(
+                self.create_kfold(
+                    data_frame,
+                    target,
+                    primitive,
+                    primitives_names))
 
-            pipeline_list = self.create_kfold(data_frame, target, primitive, primitives_names)
         return pipeline_list
 
     def create_kfold(self, data_frame, target, primitive, primitives_names, hyperparameters=None):
@@ -176,7 +182,7 @@ class Modeler():
 
                 # Append the primitive name.
                 if(primitive == name.split('/')[-1]):
-                    predict_result.append(pipeline)
+                    predict_result.append(primitive)
 
                 # Append the predicted labels.
                 predict_result.append(self.fit_predict_model(X_train, y_train, X_test, pipeline))
@@ -203,22 +209,43 @@ class Modeler():
             hyperparameters: A dictionary of hyperparameters for each primitives.
 
         Returns:
-            A list for all the pipelines which consists of, the fold number and the used pipeline
+            A list for all the pipelines which consists of: the fold number, the used pipeline
             and an array of the predicted values and an array of the actual values.
         '''
+        all_pipeline_dict = {}
+        Folds = {}
         if(not isinstance(target, np.ndarray)):
             target = np.asarray(target)
 
         list_of_executed_pipelines = []
-        for primitives in primitives_list:
+        for index, primitives in enumerate(primitives_list):
+            pipleline_order = "pipeline" + str(index)
             if(optimize):
                 list_of_executed_pipelines.append([
                     self.find_opt_proba(primitives, data_frame, target, problem_type)])
+                self.pipeline_dict = {'primitives': primitives,
+                                      'Folds': {'0': {
+                                          "predicted": list_of_executed_pipelines[0][0][2],
+                                          "Actual": list_of_executed_pipelines[0][0][4]}}
+                                      }
+
             else:
                 list_of_executed_pipelines.append(
                     self.search_all_possible_primitives(data_frame, target,
                                                         primitives, hyperparameters))
-        return list_of_executed_pipelines
+
+                for fold in list_of_executed_pipelines[0][0]:
+                    fold_number = fold[0]
+                    Folds[str(fold_number)] = {"predicted": list_of_executed_pipelines[0][0][0][2],
+                                               "Actual": list_of_executed_pipelines[0][0][0][4]}
+
+                self.pipeline_dict = {'primitives': primitives,
+                                      'Folds': Folds,
+                                      'Hyperparameter': None}
+
+            all_pipeline_dict[pipleline_order] = self.pipeline_dict
+
+        return all_pipeline_dict
 
     def fit_predict_optimize_model(self, X_train, y_train, X_test, pipeline):
         '''Fits and predicts all the primitives within the pipeline to find
@@ -251,30 +278,38 @@ class Modeler():
             A dictionary of the space over which to search.
         '''
         space = {}
-        self.get_block(pipeline)
-        tunable_hyperparameters = self.block_instance.get_tunable_hyperparameters()
+        space_list = {}
+        for block in list(pipeline.blocks.values()):
+            space = {}
 
-        if(tunable_hyperparameters == {}):
-            raise Exception(
-                'Can not create the domain Space. The value of tunnable hyperparameters is: {}')
+            tunable_hyperparameters = block.get_tunable_hyperparameters()
+            primitive = str(block).split('MLBlock - ')[1]
+            if(tunable_hyperparameters == {}):
+                raise Exception(
+                    'Can not create the domain Space.\
+                     The value of tunnable hyperparameters is: {}')
 
-        for hyperparameter in tunable_hyperparameters:
-            hp_type = list(tunable_hyperparameters[hyperparameter].keys())
-            if('values' in hp_type):
-                value = tunable_hyperparameters[hyperparameter]['values']
-                space[hyperparameter] = hp.choice(hyperparameter, value)
-            elif('range' in hp_type):
-                value = tunable_hyperparameters[hyperparameter]['range']
-                if(tunable_hyperparameters[hyperparameter]['type'] == 'float'):
-                    space[hyperparameter] = hp.choice(
-                        hyperparameter, np.linspace(
-                            value[0], value[1], 10))
-                elif (tunable_hyperparameters[hyperparameter]['type'] == 'str'):
+            for hyperparameter in tunable_hyperparameters:
+                hp_type = list(tunable_hyperparameters[hyperparameter].keys())
+                if('values' in hp_type):
+                    value = tunable_hyperparameters[hyperparameter]['values']
                     space[hyperparameter] = hp.choice(hyperparameter, value)
+                elif('range' in hp_type):
+                    value = tunable_hyperparameters[hyperparameter]['range']
+                    if(tunable_hyperparameters[hyperparameter]['type'] == 'float'):
+                        space[hyperparameter] = hp.choice(
+                            hyperparameter, np.linspace(
+                                value[0], value[1], 10))
+                    elif (tunable_hyperparameters[hyperparameter]['type'] == 'str'):
+                        space[hyperparameter] = hp.choice(hyperparameter, value)
+                    else:
+                        space[hyperparameter] = hp.choice(
+                            hyperparameter, np.arange(value[0], value[1], 1))
                 else:
-                    space[hyperparameter] = hp.choice(
-                        hyperparameter, np.arange(value[0], value[1], 1))
-        return space
+                    space[hyperparameter] = hp.choice(hyperparameter, [True, False])
+
+            space_list[primitive] = space
+        return space_list
 
     def get_block(self, pipeline):
         blocks = pipeline.blocks
@@ -290,7 +325,7 @@ class Modeler():
         Returns:
             The the model secore after K-fold corss-validation.
         '''
-        pipeline = self.create_pipeline(self.primitives, {self.primitives[0]: params})
+        pipeline = self.create_pipeline(self.primitives, params)
         self.get_block(pipeline)
         model = self.block_instance.instance
         if(self.problem_type == 'regression'):
@@ -336,7 +371,9 @@ class Modeler():
         '''
         self.problem_type = problem_type
         hyperparameter = self.hyperparameter_tunning(pipeline, data_frame, target)
-        pipeline = self.create_pipeline(self.primitives, {self.primitives[0]: hyperparameter})
+        self.pipeline_dict['hyperparameter'] = hyperparameter
+
+        pipeline = self.create_pipeline(self.primitives, hyperparameter)
         opt_list.append(
             self.fit_predict_model(
                 self.result['X_train'],
@@ -356,39 +393,15 @@ class Modeler():
         Returns:
             A list of the tuned hyperparameter that best fits the model.
         '''
-        not_predict_proba = True
         opt_list = []
         opt_list.append(0)
+        opt_list.append(primitives_list)
 
-        mypath = self.get_directory()
-        for primitive in primitives_list:
-            primitive = primitive.split('/')[-1]
+        pipeline = self.create_pipeline(primitives_list)
 
-            primitives = mypath + primitive
-            pipeline = self.create_pipeline([primitives])
-            opt_list.append(pipeline)
+        opt_list = self.optimization(pipeline, data_frame, target, problem_type, opt_list)
 
-            opt_list = self.optimization(pipeline, data_frame, target, problem_type, opt_list)
-
-            onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-            for file in onlyfiles:
-                file = file.split('/')[-1]
-                filename = file.split(".json")[0]
-                index = filename.rfind('_')
-                file = filename[:index]
-                if(file == primitive):
-                    primitives = mypath + primitive
-                    opt_list = self.optimization(
-                        self.create_pipeline(
-                            [primitives]),
-                        data_frame,
-                        target,
-                        problem_type,
-                        opt_list)
-                    not_predict_proba = False
-
-            if(not_predict_proba):
-                opt_list.append(None)
+        opt_list.append(None)
 
         opt_list.append(self.result['y_test'])
         return opt_list
