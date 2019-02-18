@@ -173,10 +173,10 @@ class Extension(fhirbase):
 
     def __init__(self, dict_values=None):
         self.url = None
-        # type: string
+        # type: str
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueInteger = None
         # type: int
@@ -185,37 +185,37 @@ class Extension(fhirbase):
         # type: int
 
         self.valueBase64Binary = None
-        # type: string
+        # type: str
 
         self.valueInstant = None
-        # type: string
+        # type: str
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueUri = None
-        # type: string
+        # type: str
 
         self.valueDate = None
-        # type: string
+        # type: str
 
         self.valueDateTime = None
-        # type: string
+        # type: str
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueCode = None
-        # type: string
+        # type: str
 
         self.valueOid = None
-        # type: string
+        # type: str
 
         self.valueUuid = None
-        # type: string
+        # type: str
 
         self.valueId = None
-        # type: string
+        # type: str
 
         self.valueUnsignedInt = None
         # type: int
@@ -224,7 +224,7 @@ class Extension(fhirbase):
         # type: int
 
         self.valueMarkdown = None
-        # type: string
+        # type: str
 
         self.valueElement = None
 

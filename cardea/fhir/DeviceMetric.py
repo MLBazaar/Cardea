@@ -55,7 +55,7 @@ class DeviceMetric(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'DeviceMetric'
-        # type: string
+        # type: str
         # possible values: DeviceMetric
 
         self.type = None
@@ -71,16 +71,16 @@ class DeviceMetric(fhirbase):
         # reference to Reference: identifier
 
         self.operationalStatus = None
-        # type: string
+        # type: str
         # possible values: on, off, standby, entered-in-error
 
         self.color = None
-        # type: string
+        # type: str
         # possible values: black, red, green, yellow, blue, magenta,
         # cyan, white
 
         self.category = None
-        # type: string
+        # type: str
         # possible values: measurement, setting, calculation,
         # unspecified
 
@@ -88,7 +88,7 @@ class DeviceMetric(fhirbase):
         # reference to Timing
 
         self.calibration = None
-        # type: array
+        # type: list
         # reference to DeviceMetric_Calibration
 
         self.identifier = None
@@ -176,16 +176,16 @@ class DeviceMetric_Calibration(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: unspecified, offset, gain, two-point
 
         self.state = None
-        # type: string
+        # type: str
         # possible values: not-calibrated, calibration-required,
         # calibrated, unspecified
 
         self.time = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

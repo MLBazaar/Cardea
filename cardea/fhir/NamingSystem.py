@@ -51,52 +51,52 @@ class NamingSystem(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'NamingSystem'
-        # type: string
+        # type: str
         # possible values: NamingSystem
 
         self.name = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.kind = None
-        # type: string
+        # type: str
         # possible values: codesystem, identifier, root
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.responsible = None
-        # type: string
+        # type: str
 
         self.type = None
         # reference to CodeableConcept
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.usage = None
-        # type: string
+        # type: str
 
         self.uniqueId = None
-        # type: array
+        # type: list
         # reference to NamingSystem_UniqueId
 
         self.replacedBy = None
@@ -183,17 +183,17 @@ class NamingSystem_UniqueId(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: oid, uuid, uri, other
 
         self.value = None
-        # type: string
+        # type: str
 
         self.preferred = None
-        # type: boolean
+        # type: bool
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.period = None
         # reference to Period

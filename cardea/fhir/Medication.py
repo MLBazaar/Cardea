@@ -33,21 +33,21 @@ class Medication(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Medication'
-        # type: string
+        # type: str
         # possible values: Medication
 
         self.code = None
         # reference to CodeableConcept
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: active, inactive, entered-in-error
 
         self.isBrand = None
-        # type: boolean
+        # type: bool
 
         self.isOverTheCounter = None
-        # type: boolean
+        # type: bool
 
         self.manufacturer = None
         # reference to Reference: identifier
@@ -56,14 +56,14 @@ class Medication(fhirbase):
         # reference to CodeableConcept
 
         self.ingredient = None
-        # type: array
+        # type: list
         # reference to Medication_Ingredient
 
         self.package = None
         # reference to Medication_Package
 
         self.image = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.object_id = None
@@ -146,7 +146,7 @@ class Medication_Ingredient(fhirbase):
         # reference to Reference: identifier
 
         self.isActive = None
-        # type: boolean
+        # type: bool
 
         self.amount = None
         # reference to Ratio
@@ -197,11 +197,11 @@ class Medication_Package(fhirbase):
         # reference to CodeableConcept
 
         self.content = None
-        # type: array
+        # type: list
         # reference to Medication_Content
 
         self.batch = None
-        # type: array
+        # type: list
         # reference to Medication_Batch
 
         self.object_id = None
@@ -296,10 +296,10 @@ class Medication_Batch(fhirbase):
 
     def __init__(self, dict_values=None):
         self.lotNumber = None
-        # type: string
+        # type: str
 
         self.expirationDate = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

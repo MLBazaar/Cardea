@@ -28,11 +28,11 @@ class PaymentNotice(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'PaymentNotice'
-        # type: string
+        # type: str
         # possible values: PaymentNotice
 
         self.status = None
-        # type: string
+        # type: str
 
         self.request = None
         # reference to Reference: identifier
@@ -41,10 +41,10 @@ class PaymentNotice(fhirbase):
         # reference to Reference: identifier
 
         self.statusDate = None
-        # type: string
+        # type: str
 
         self.created = None
-        # type: string
+        # type: str
 
         self.target = None
         # reference to Reference: identifier
@@ -59,7 +59,7 @@ class PaymentNotice(fhirbase):
         # reference to CodeableConcept
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

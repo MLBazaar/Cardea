@@ -35,19 +35,19 @@ class List(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'List'
-        # type: string
+        # type: str
         # possible values: List
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: current, retired, entered-in-error
 
         self.mode = None
-        # type: string
+        # type: str
         # possible values: working, snapshot, changes
 
         self.title = None
-        # type: string
+        # type: str
 
         self.code = None
         # reference to CodeableConcept
@@ -59,7 +59,7 @@ class List(fhirbase):
         # reference to Reference: identifier
 
         self.date = None
-        # type: string
+        # type: str
 
         self.source = None
         # reference to Reference: identifier
@@ -68,18 +68,18 @@ class List(fhirbase):
         # reference to CodeableConcept
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.entry = None
-        # type: array
+        # type: list
         # reference to List_Entry
 
         self.emptyReason = None
         # reference to CodeableConcept
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -171,10 +171,10 @@ class List_Entry(fhirbase):
         # reference to CodeableConcept
 
         self.deleted = None
-        # type: boolean
+        # type: bool
 
         self.date = None
-        # type: string
+        # type: str
 
         self.item = None
         # reference to Reference: identifier

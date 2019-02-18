@@ -35,18 +35,18 @@ class Slot(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Slot'
-        # type: string
+        # type: str
         # possible values: Slot
 
         self.serviceCategory = None
         # reference to CodeableConcept
 
         self.serviceType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.specialty = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.appointmentType = None
@@ -56,24 +56,24 @@ class Slot(fhirbase):
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: busy, free, busy-unavailable,
         # busy-tentative, entered-in-error
 
         self.start = None
-        # type: string
+        # type: str
 
         self.end = None
-        # type: string
+        # type: str
 
         self.overbooked = None
-        # type: boolean
+        # type: bool
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

@@ -25,31 +25,31 @@ class BodySite(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'BodySite'
-        # type: string
+        # type: str
         # possible values: BodySite
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.code = None
         # reference to CodeableConcept
 
         self.qualifier = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.description = None
-        # type: string
+        # type: str
 
         self.image = None
-        # type: array
+        # type: list
         # reference to Attachment
 
         self.patient = None
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

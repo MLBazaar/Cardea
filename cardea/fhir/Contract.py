@@ -74,47 +74,47 @@ class Contract(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Contract'
-        # type: string
+        # type: str
         # possible values: Contract
 
         self.status = None
-        # type: string
+        # type: str
 
         self.issued = None
-        # type: string
+        # type: str
 
         self.applies = None
         # reference to Period
 
         self.subject = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.topic = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.authority = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.domain = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.type = None
         # reference to CodeableConcept
 
         self.subType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.action = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.actionReason = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.decisionType = None
@@ -124,23 +124,23 @@ class Contract(fhirbase):
         # reference to CodeableConcept
 
         self.securityLabel = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.agent = None
-        # type: array
+        # type: list
         # reference to Contract_Agent
 
         self.signer = None
-        # type: array
+        # type: list
         # reference to Contract_Signer
 
         self.valuedItem = None
-        # type: array
+        # type: list
         # reference to Contract_ValuedItem: identifier
 
         self.term = None
-        # type: array
+        # type: list
         # reference to Contract_Term: identifier
 
         self.bindingAttachment = None
@@ -150,15 +150,15 @@ class Contract(fhirbase):
         # reference to Reference: identifier
 
         self.friendly = None
-        # type: array
+        # type: list
         # reference to Contract_Friendly
 
         self.legal = None
-        # type: array
+        # type: list
         # reference to Contract_Legal
 
         self.rule = None
-        # type: array
+        # type: list
         # reference to Contract_Rule
 
         self.identifier = None
@@ -300,7 +300,7 @@ class Contract_Agent(fhirbase):
         # reference to Reference: identifier
 
         self.role = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.object_id = None
@@ -345,7 +345,7 @@ class Contract_Signer(fhirbase):
         # reference to Reference: identifier
 
         self.signature = None
-        # type: array
+        # type: list
         # reference to Signature
 
         self.object_id = None
@@ -416,7 +416,7 @@ class Contract_ValuedItem(fhirbase):
         # reference to Reference: identifier
 
         self.effectiveTime = None
-        # type: string
+        # type: str
 
         self.quantity = None
         # reference to Quantity
@@ -508,7 +508,7 @@ class Contract_Term(fhirbase):
 
     def __init__(self, dict_values=None):
         self.issued = None
-        # type: string
+        # type: str
 
         self.applies = None
         # reference to Period
@@ -520,34 +520,34 @@ class Contract_Term(fhirbase):
         # reference to CodeableConcept
 
         self.topic = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.action = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.actionReason = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.securityLabel = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.agent = None
-        # type: array
+        # type: list
         # reference to Contract_Agent1
 
         self.text = None
-        # type: string
+        # type: str
 
         self.valuedItem = None
-        # type: array
+        # type: list
         # reference to Contract_ValuedItem1: identifier
 
         self.group = None
-        # type: array
+        # type: list
         # reference to Contract_Term: identifier
 
         self.identifier = None
@@ -634,7 +634,7 @@ class Contract_Agent1(fhirbase):
         # reference to Reference: identifier
 
         self.role = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.object_id = None
@@ -701,7 +701,7 @@ class Contract_ValuedItem1(fhirbase):
         # reference to Reference: identifier
 
         self.effectiveTime = None
-        # type: string
+        # type: str
 
         self.quantity = None
         # reference to Quantity

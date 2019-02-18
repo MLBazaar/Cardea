@@ -40,11 +40,11 @@ class Endpoint(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Endpoint'
-        # type: string
+        # type: str
         # possible values: Endpoint
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: active, suspended, error, off,
         # entered-in-error, test
 
@@ -52,33 +52,33 @@ class Endpoint(fhirbase):
         # reference to Coding
 
         self.name = None
-        # type: string
+        # type: str
 
         self.managingOrganization = None
         # reference to Reference: identifier
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.period = None
         # reference to Period
 
         self.payloadType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.payloadMimeType = None
-        # type: array
+        # type: list
 
         self.address = None
-        # type: string
+        # type: str
 
         self.header = None
-        # type: array
+        # type: list
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

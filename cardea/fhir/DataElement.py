@@ -65,64 +65,64 @@ class DataElement(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'DataElement'
-        # type: string
+        # type: str
         # possible values: DataElement
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.stringency = None
-        # type: string
+        # type: str
         # possible values: comparable, fully-specified, equivalent,
         # convertable, scaleable, flexible
 
         self.mapping = None
-        # type: array
+        # type: list
         # reference to DataElement_Mapping
 
         self.element = None
-        # type: array
+        # type: list
         # reference to ElementDefinition
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -201,16 +201,16 @@ class DataElement_Mapping(fhirbase):
 
     def __init__(self, dict_values=None):
         self.identity = None
-        # type: string
+        # type: str
 
         self.uri = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
