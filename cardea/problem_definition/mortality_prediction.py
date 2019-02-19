@@ -21,7 +21,6 @@ class MortalityPrediction (ProblemDefinition):
 
         the readmission diagnosis does not have to be the same as the initial visit diagnosis,
             (he could be diagnosed of something that is a complication of the initial diagnosis).
-
         """
 
     __name__ = 'mortality'
@@ -35,101 +34,6 @@ class MortalityPrediction (ProblemDefinition):
     conn = 'period'
     causes_of_death = ['X60', 'X84', 'Y87.0', 'X85', 'Y09',
                        'Y87.1', 'V02', 'V04', 'V09.0', 'V09.2', 'V12', 'V14']
-
-    def unify_cutoff_times_hours(self, df):
-        """ Unify records cutoff times based on shared time.
-
-            Attributes:
-            df: cutoff_entity dataframe.
-            """
-        df = df.sort_values(by=[self.cutoff_time_label])
-        df = df.reset_index()
-        for i in df.index:
-            if i == 0:
-                if df.get_value(i, 'checked') is not True:
-                    df.set_value(i, 'ct', df.get_value(i, self.cutoff_time_label))
-                    df.set_value(i, 'checked', True)
-
-            elif df.get_value(i, 'checked') is not True:
-                ct_val1 = df.get_value(i - 1, 'ct')
-                end_val1 = df.get_value(i - 1, 'end')
-                start_val2 = df.get_value(i, self.cutoff_time_label)
-
-                if ct_val1 < start_val2 < end_val1:
-                    df.set_value(i - 1, 'ct', start_val2)
-                    df.set_value(i, 'ct', start_val2)
-                    df.set_value(i, 'checked', True)
-
-                else:
-                    df.set_value(i, 'ct', df.get_value(i, self.cutoff_time_label))
-                    df.set_value(i, 'checked', True)
-
-                if i + 1 == len(df):
-                    break
-        return df
-
-    def unify_cutoff_times_days(self, df):
-        """ Unify records cutoff times based on shared days.
-
-            Attributes:
-            df: cutoff_entity dataframe.
-            """
-
-        frames = []
-        for d in set(df['date']):
-            sub_day = df[df['date'] == d]
-
-            sub_duration_greater = sub_day[sub_day['duration'] > 0]
-            sub_duration_less = sub_day[sub_day['duration'] <= 0]
-            frames.append(sub_duration_less)
-            sub_duration_greater = sub_duration_greater.sort_values(by=[self.cutoff_time_label])
-            if len(sub_duration_greater) != 0:
-                final_date = sub_duration_greater.iloc[-1][self.cutoff_time_label]
-
-                for i in sub_duration_greater.index:
-                    sub_duration_greater.set_value(i, 'ct', final_date)
-                    sub_duration_greater.set_value(i, 'checked', True)
-
-                frames.append(sub_duration_greater)
-
-                for i in sub_duration_less.index:
-                    sub_duration_less.set_value(i, 'ct', pd.NaT)
-                    sub_duration_less.set_value(i, 'checked', False)
-
-                frames.append(sub_duration_less)
-
-        result = pd.concat(frames)
-        result = result.drop_duplicates()
-        result[self.cutoff_time_label] = pd.to_datetime(result.start)
-        result = result.sort_values(by=[self.cutoff_time_label])
-        result = result.reset_index()
-        return result
-
-    def unify_cutoff_time(self, es):
-        """ Process records in the entity that contains cutoff times
-            based on shared days and time.
-
-            Attributes:
-            es: fhir entityset.
-
-            Returns:
-            processed entity
-            """
-
-        df = es[self.cutoff_entity].df
-        df[self.cutoff_time_label] = pd.to_datetime(df[self.cutoff_time_label])
-        df['end'] = pd.to_datetime(df['end'])
-        duration = (df['end'] - df[self.cutoff_time_label]).dt.days
-        duration = duration.tolist()
-        df['duration'] = duration
-        df['date'] = df[self.cutoff_time_label].dt.date
-        df['ct'] = ''
-        df['checked'] = False
-        result1 = self.unify_cutoff_times_days(df)
-        result = self.unify_cutoff_times_hours(result1)
-        if 'level_0' in result.columns:
-            result = result.drop(columns=['level_0'])
-        return result
 
     def generate_cutoff_times(self, es):
         """Generates cutoff times for the predection problem.
@@ -151,7 +55,8 @@ class MortalityPrediction (ProblemDefinition):
             self.cutoff_entity,
                 self.cutoff_time_label):  # check the existance of the cutoff label
 
-            generated_cts = self.unify_cutoff_time(es)
+            generated_cts = self.unify_cutoff_time_admission_time(
+                es, self.cutoff_entity, self.cutoff_time_label)
 
             es = es.entity_from_dataframe(entity_id=self.cutoff_entity,
                                           dataframe=generated_cts,
