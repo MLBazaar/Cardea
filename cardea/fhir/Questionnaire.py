@@ -79,77 +79,77 @@ class Questionnaire(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Questionnaire'
-        # type: string
+        # type: str
         # possible values: Questionnaire
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.approvalDate = None
-        # type: string
+        # type: str
 
         self.lastReviewDate = None
-        # type: string
+        # type: str
 
         self.effectivePeriod = None
         # reference to Period
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.code = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.subjectType = None
-        # type: array
+        # type: list
 
         self.item = None
-        # type: array
+        # type: list
         # reference to Questionnaire_Item
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -283,39 +283,39 @@ class Questionnaire_Item(fhirbase):
 
     def __init__(self, dict_values=None):
         self.linkId = None
-        # type: string
+        # type: str
 
         self.definition = None
-        # type: string
+        # type: str
 
         self.code = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.prefix = None
-        # type: string
+        # type: str
 
         self.text = None
-        # type: string
+        # type: str
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: group, display, boolean, decimal, integer,
         # date, dateTime, time, string, text, url, choice, open-choice,
         # attachment, reference, quantity
 
         self.enableWhen = None
-        # type: array
+        # type: list
         # reference to Questionnaire_EnableWhen
 
         self.required = None
-        # type: boolean
+        # type: bool
 
         self.repeats = None
-        # type: boolean
+        # type: bool
 
         self.readOnly = None
-        # type: boolean
+        # type: bool
 
         self.maxLength = None
         # type: int
@@ -324,11 +324,11 @@ class Questionnaire_Item(fhirbase):
         # reference to Reference: identifier
 
         self.option = None
-        # type: array
+        # type: list
         # reference to Questionnaire_Option
 
         self.initialBoolean = None
-        # type: boolean
+        # type: bool
 
         self.initialDecimal = None
         # type: int
@@ -337,19 +337,19 @@ class Questionnaire_Item(fhirbase):
         # type: int
 
         self.initialDate = None
-        # type: string
+        # type: str
 
         self.initialDateTime = None
-        # type: string
+        # type: str
 
         self.initialTime = None
-        # type: string
+        # type: str
 
         self.initialString = None
-        # type: string
+        # type: str
 
         self.initialUri = None
-        # type: string
+        # type: str
 
         self.initialAttachment = None
         # reference to Attachment
@@ -364,7 +364,7 @@ class Questionnaire_Item(fhirbase):
         # reference to Reference: identifier
 
         self.item = None
-        # type: array
+        # type: list
         # reference to Questionnaire_Item
 
         self.object_id = None
@@ -480,13 +480,13 @@ class Questionnaire_EnableWhen(fhirbase):
 
     def __init__(self, dict_values=None):
         self.question = None
-        # type: string
+        # type: str
 
         self.hasAnswer = None
-        # type: boolean
+        # type: bool
 
         self.answerBoolean = None
-        # type: boolean
+        # type: bool
 
         self.answerDecimal = None
         # type: int
@@ -495,19 +495,19 @@ class Questionnaire_EnableWhen(fhirbase):
         # type: int
 
         self.answerDate = None
-        # type: string
+        # type: str
 
         self.answerDateTime = None
-        # type: string
+        # type: str
 
         self.answerTime = None
-        # type: string
+        # type: str
 
         self.answerString = None
-        # type: string
+        # type: str
 
         self.answerUri = None
-        # type: string
+        # type: str
 
         self.answerAttachment = None
         # reference to Attachment
@@ -579,13 +579,13 @@ class Questionnaire_Option(fhirbase):
         # type: int
 
         self.valueDate = None
-        # type: string
+        # type: str
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueCoding = None
         # reference to Coding

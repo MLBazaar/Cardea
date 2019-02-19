@@ -23,33 +23,33 @@ class Substance(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Substance'
-        # type: string
+        # type: str
         # possible values: Substance
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: active, inactive, entered-in-error
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.code = None
         # reference to CodeableConcept
 
         self.description = None
-        # type: string
+        # type: str
 
         self.instance = None
-        # type: array
+        # type: list
         # reference to Substance_Instance: identifier
 
         self.ingredient = None
-        # type: array
+        # type: list
         # reference to Substance_Ingredient
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -111,7 +111,7 @@ class Substance_Instance(fhirbase):
 
     def __init__(self, dict_values=None):
         self.expiry = None
-        # type: string
+        # type: str
 
         self.quantity = None
         # reference to Quantity

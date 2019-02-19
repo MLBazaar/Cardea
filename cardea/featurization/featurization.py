@@ -23,7 +23,7 @@ class Featurization():
 
     @staticmethod
     def trans_prim():
-        return ["day", "month", "year", "weekday", "weekend"]
+        return ["day", "month", "year", "weekday", "is_weekend"]
 
     @staticmethod
     def n_jobs():

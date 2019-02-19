@@ -34,29 +34,29 @@ class Signature(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: array
+        # type: list
         # reference to Coding
 
         self.when = None
-        # type: string
+        # type: str
 
         self.whoUri = None
-        # type: string
+        # type: str
 
         self.whoReference = None
         # reference to Reference: identifier
 
         self.onBehalfOfUri = None
-        # type: string
+        # type: str
 
         self.onBehalfOfReference = None
         # reference to Reference: identifier
 
         self.contentType = None
-        # type: string
+        # type: str
 
         self.blob = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

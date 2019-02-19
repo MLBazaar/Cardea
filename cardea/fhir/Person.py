@@ -27,26 +27,26 @@ class Person(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Person'
-        # type: string
+        # type: str
         # possible values: Person
 
         self.name = None
-        # type: array
+        # type: list
         # reference to HumanName
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.gender = None
-        # type: string
+        # type: str
         # possible values: male, female, other, unknown
 
         self.birthDate = None
-        # type: string
+        # type: str
 
         self.address = None
-        # type: array
+        # type: list
         # reference to Address
 
         self.photo = None
@@ -56,14 +56,14 @@ class Person(fhirbase):
         # reference to Reference: identifier
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.link = None
-        # type: array
+        # type: list
         # reference to Person_Link
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -137,7 +137,7 @@ class Person_Link(fhirbase):
         # reference to Reference: identifier
 
         self.assurance = None
-        # type: string
+        # type: str
         # possible values: level1, level2, level3, level4
 
         self.object_id = None

@@ -27,22 +27,22 @@ class ParameterDefinition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.use = None
-        # type: string
+        # type: str
 
         self.min = None
         # type: int
 
         self.max = None
-        # type: string
+        # type: str
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.type = None
-        # type: string
+        # type: str
 
         self.profile = None
         # reference to Reference: identifier

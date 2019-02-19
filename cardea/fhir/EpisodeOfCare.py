@@ -38,24 +38,24 @@ class EpisodeOfCare(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'EpisodeOfCare'
-        # type: string
+        # type: str
         # possible values: EpisodeOfCare
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: planned, waitlist, active, onhold,
         # finished, cancelled, entered-in-error
 
         self.statusHistory = None
-        # type: array
+        # type: list
         # reference to EpisodeOfCare_StatusHistory
 
         self.type = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.diagnosis = None
-        # type: array
+        # type: list
         # reference to EpisodeOfCare_Diagnosis
 
         self.patient = None
@@ -68,22 +68,22 @@ class EpisodeOfCare(fhirbase):
         # reference to Period
 
         self.referralRequest = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.careManager = None
         # reference to Reference: identifier
 
         self.team = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.account = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -178,7 +178,7 @@ class EpisodeOfCare_StatusHistory(fhirbase):
 
     def __init__(self, dict_values=None):
         self.status = None
-        # type: string
+        # type: str
         # possible values: planned, waitlist, active, onhold,
         # finished, cancelled, entered-in-error
 

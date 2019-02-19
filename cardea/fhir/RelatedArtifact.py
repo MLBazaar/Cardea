@@ -24,18 +24,18 @@ class RelatedArtifact(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: documentation, justification, citation,
         # predecessor, successor, derived-from, depends-on, composed-of
 
         self.display = None
-        # type: string
+        # type: str
 
         self.citation = None
-        # type: string
+        # type: str
 
         self.url = None
-        # type: string
+        # type: str
 
         self.document = None
         # reference to Attachment

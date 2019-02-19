@@ -84,90 +84,90 @@ class SearchParameter(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'SearchParameter'
-        # type: string
+        # type: str
         # possible values: SearchParameter
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.code = None
-        # type: string
+        # type: str
 
         self.base = None
-        # type: array
+        # type: list
 
         self.type = None
-        # type: string
+        # type: str
         # possible values: number, date, string, token, reference,
         # composite, quantity, uri
 
         self.derivedFrom = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.expression = None
-        # type: string
+        # type: str
 
         self.xpath = None
-        # type: string
+        # type: str
 
         self.xpathUsage = None
-        # type: string
+        # type: str
         # possible values: normal, phonetic, nearby, distance, other
 
         self.target = None
-        # type: array
+        # type: list
 
         self.comparator = None
-        # type: array
+        # type: list
         # possible values: eq, ne, gt, lt, ge, le, sa, eb, ap
 
         self.modifier = None
-        # type: array
+        # type: list
         # possible values: missing, exact, contains, not, text, in,
         # not-in, below, above, type
 
         self.chain = None
-        # type: array
+        # type: list
 
         self.component = None
-        # type: array
+        # type: list
         # reference to SearchParameter_Component
 
         self.object_id = None
@@ -261,7 +261,7 @@ class SearchParameter_Component(fhirbase):
         # reference to Reference: identifier
 
         self.expression = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

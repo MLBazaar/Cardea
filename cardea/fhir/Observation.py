@@ -94,20 +94,20 @@ class Observation(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'Observation'
-        # type: string
+        # type: str
         # possible values: Observation
 
         self.basedOn = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: registered, preliminary, final, amended,
         # corrected, cancelled, entered-in-error, unknown
 
         self.category = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.code = None
@@ -120,16 +120,16 @@ class Observation(fhirbase):
         # reference to Reference: identifier
 
         self.effectiveDateTime = None
-        # type: string
+        # type: str
 
         self.effectivePeriod = None
         # reference to Period
 
         self.issued = None
-        # type: string
+        # type: str
 
         self.performer = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.valueQuantity = None
@@ -139,10 +139,10 @@ class Observation(fhirbase):
         # reference to CodeableConcept
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueRange = None
         # reference to Range
@@ -157,10 +157,10 @@ class Observation(fhirbase):
         # reference to Attachment
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueDateTime = None
-        # type: string
+        # type: str
 
         self.valuePeriod = None
         # reference to Period
@@ -172,7 +172,7 @@ class Observation(fhirbase):
         # reference to CodeableConcept
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.bodySite = None
         # reference to CodeableConcept
@@ -187,19 +187,19 @@ class Observation(fhirbase):
         # reference to Reference: identifier
 
         self.referenceRange = None
-        # type: array
+        # type: list
         # reference to Observation_ReferenceRange
 
         self.related = None
-        # type: array
+        # type: list
         # reference to Observation_Related
 
         self.component = None
-        # type: array
+        # type: list
         # reference to Observation_Component
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -383,14 +383,14 @@ class Observation_ReferenceRange(fhirbase):
         # reference to CodeableConcept
 
         self.appliesTo = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.age = None
         # reference to Range
 
         self.text = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -444,7 +444,7 @@ class Observation_Related(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: has-member, derived-from, sequel-to,
         # replaces, qualified-by, interfered-by
 
@@ -531,7 +531,7 @@ class Observation_Component(fhirbase):
         # reference to CodeableConcept
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueRange = None
         # reference to Range
@@ -546,10 +546,10 @@ class Observation_Component(fhirbase):
         # reference to Attachment
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueDateTime = None
-        # type: string
+        # type: str
 
         self.valuePeriod = None
         # reference to Period
@@ -561,7 +561,7 @@ class Observation_Component(fhirbase):
         # reference to CodeableConcept
 
         self.referenceRange = None
-        # type: array
+        # type: list
         # reference to Observation_ReferenceRange
 
         self.object_id = None

@@ -33,11 +33,11 @@ class ResearchSubject(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ResearchSubject'
-        # type: string
+        # type: str
         # possible values: ResearchSubject
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: candidate, enrolled, active, suspended,
         # withdrawn, completed
 
@@ -51,10 +51,10 @@ class ResearchSubject(fhirbase):
         # reference to Reference: identifier
 
         self.assignedArm = None
-        # type: string
+        # type: str
 
         self.actualArm = None
-        # type: string
+        # type: str
 
         self.consent = None
         # reference to Reference: identifier

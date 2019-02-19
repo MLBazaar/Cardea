@@ -22,11 +22,11 @@ class Element(fhirbase):
 
     def __init__(self, dict_values=None):
         self.extension = None
-        # type: array
+        # type: list
         # reference to Extension
 
         self.id = None
-        # type: string
+        # type: str
 
         if dict_values:
             self.set_attributes(dict_values)
