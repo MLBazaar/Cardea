@@ -55,22 +55,11 @@ def cutoff():
 
 
 @pytest.fixture()
-def featurization(entityset, cutoff):
-    return Featurization(entityset, "Encounter", cutoff)
+def featurization():
+    return Featurization()
 
 
-def test_featurization_entityset(featurization, entityset):
-    assert len(entityset.entities) == len(featurization.es.entities)
-
-
-def test_featurization_cutoff(featurization, cutoff):
-    assert len(featurization.cutoff) == len(cutoff)
-
-
-def test_featurization_target(featurization, cutoff):
-    assert featurization.target == 'Encounter'
-
-
-def test_generate_feature_matrix(featurization):
-    fm_encoded, features_encoded = featurization.generate_feature_matrix()
+def test_generate_feature_matrix(featurization, entityset, cutoff):
+    fm_encoded, features_encoded = featurization.generate_feature_matrix(
+        entityset, "Encounter", cutoff)
     assert len(fm_encoded) == 3 and len(fm_encoded.columns) == 32

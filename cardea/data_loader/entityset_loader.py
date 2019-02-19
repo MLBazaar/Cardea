@@ -52,11 +52,36 @@ class EntitySetLoader(DataLoader):
 
             entity_set.add_relationship(new_relationship)
 
+    def load_data_entityset(self, folder_path):
+        """Returns an entityset loaded with .csv files in folder_path.
+
+        Loads .csv files into pandas dataframes then loads them into featuretools' entityset.
+
+        Args:
+            folder_path: A directory of all .csv files that should be loaded.
+
+        Returns:
+            An entityset with loaded data.
+        """
+
+        fhir = self.read_csv_files(folder_path)
+        return self.load_data_entityset(fhir)
+
     def read_csv_files(self, folder_path):
+        """Returns a dictionary with loaded .csv files in folder_path.
+
+        Loads .csv files into pandas dataframes.
+
+        Args:
+            folder_path: A dictionary of fhir resources in pandas dataframe format.
+
+        Returns:
+            A dictionary of fhir resources in pandas dataframe format.
+        """
 
         fhir = {}
 
-        csv_files = glob(folder_path + "/*.csv")
+        csv_files = glob(folder_path + "*.csv")
         for file_path in csv_files:
             df = pd.read_csv(file_path)
             file_name = file_path.split("/")[-1].split(".")[0]
@@ -65,13 +90,14 @@ class EntitySetLoader(DataLoader):
 
         return fhir
 
-    def load_data_entityset(self, fhir):
-        """Returns an entityset loaded with .csv files in folder_path.
+    def load_df_entityset(self, fhir):
+        """Returns an entityset loaded with received dataframes in fhir.
 
-        Loads the data into pandas dataframes then loads them into featuretools' entityset.
+        Loads the received dictionary of fhir resources into featuretools' entityset, where
+        the key is the resource name and the value is a pandas dataframe.
 
         Args:
-            folder_path: A directory of all .csv files that should be loaded.
+            fhir: A dictionary of fhir resources in pandas dataframe format.
 
         Returns:
             An entityset with loaded data.
