@@ -73,60 +73,60 @@ class ValueSet(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ValueSet'
-        # type: string
+        # type: str
         # possible values: ValueSet
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.immutable = None
-        # type: boolean
+        # type: bool
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.extensible = None
-        # type: boolean
+        # type: bool
 
         self.compose = None
         # reference to ValueSet_Compose
@@ -135,7 +135,7 @@ class ValueSet(fhirbase):
         # reference to ValueSet_Expansion: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -213,17 +213,17 @@ class ValueSet_Compose(fhirbase):
 
     def __init__(self, dict_values=None):
         self.lockedDate = None
-        # type: string
+        # type: str
 
         self.inactive = None
-        # type: boolean
+        # type: bool
 
         self.include = None
-        # type: array
+        # type: list
         # reference to ValueSet_Include
 
         self.exclude = None
-        # type: array
+        # type: list
         # reference to ValueSet_Include
 
         self.object_id = None
@@ -269,21 +269,21 @@ class ValueSet_Include(fhirbase):
 
     def __init__(self, dict_values=None):
         self.system = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.concept = None
-        # type: array
+        # type: list
         # reference to ValueSet_Concept
 
         self.filter = None
-        # type: array
+        # type: list
         # reference to ValueSet_Filter
 
         self.valueSet = None
-        # type: array
+        # type: list
 
         self.object_id = None
         # unique identifier for object class
@@ -326,13 +326,13 @@ class ValueSet_Concept(fhirbase):
 
     def __init__(self, dict_values=None):
         self.code = None
-        # type: string
+        # type: str
 
         self.display = None
-        # type: string
+        # type: str
 
         self.designation = None
-        # type: array
+        # type: list
         # reference to ValueSet_Designation
 
         self.object_id = None
@@ -366,13 +366,13 @@ class ValueSet_Designation(fhirbase):
 
     def __init__(self, dict_values=None):
         self.language = None
-        # type: string
+        # type: str
 
         self.use = None
         # reference to Coding
 
         self.value = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -409,15 +409,15 @@ class ValueSet_Filter(fhirbase):
 
     def __init__(self, dict_values=None):
         self.property = None
-        # type: string
+        # type: str
 
         self.op = None
-        # type: string
+        # type: str
         # possible values: =, is-a, descendent-of, is-not-a, regex,
         # in, not-in, generalizes, exists
 
         self.value = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -467,7 +467,7 @@ class ValueSet_Expansion(fhirbase):
 
     def __init__(self, dict_values=None):
         self.timestamp = None
-        # type: string
+        # type: str
 
         self.total = None
         # type: int
@@ -476,15 +476,15 @@ class ValueSet_Expansion(fhirbase):
         # type: int
 
         self.parameter = None
-        # type: array
+        # type: list
         # reference to ValueSet_Parameter
 
         self.contains = None
-        # type: array
+        # type: list
         # reference to ValueSet_Contains
 
         self.identifier = None
-        # type: string
+        # type: str
 
         if dict_values:
             self.set_attributes(dict_values)
@@ -523,13 +523,13 @@ class ValueSet_Parameter(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueInteger = None
         # type: int
@@ -538,10 +538,10 @@ class ValueSet_Parameter(fhirbase):
         # type: int
 
         self.valueUri = None
-        # type: string
+        # type: str
 
         self.valueCode = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -583,29 +583,29 @@ class ValueSet_Contains(fhirbase):
 
     def __init__(self, dict_values=None):
         self.system = None
-        # type: string
+        # type: str
 
         self.abstract = None
-        # type: boolean
+        # type: bool
 
         self.inactive = None
-        # type: boolean
+        # type: bool
 
         self.version = None
-        # type: string
+        # type: str
 
         self.code = None
-        # type: string
+        # type: str
 
         self.display = None
-        # type: string
+        # type: str
 
         self.designation = None
-        # type: array
+        # type: list
         # reference to ValueSet_Designation
 
         self.contains = None
-        # type: array
+        # type: list
         # reference to ValueSet_Contains
 
         self.object_id = None

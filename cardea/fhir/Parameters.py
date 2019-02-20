@@ -15,7 +15,7 @@ class Parameters(fhirbase):
 
     def __init__(self, dict_values=None):
         self.parameter = None
-        # type: array
+        # type: list
         # reference to Parameters_Parameter
 
         self.object_id = None
@@ -104,10 +104,10 @@ class Parameters_Parameter(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.valueBoolean = None
-        # type: boolean
+        # type: bool
 
         self.valueInteger = None
         # type: int
@@ -116,37 +116,37 @@ class Parameters_Parameter(fhirbase):
         # type: int
 
         self.valueBase64Binary = None
-        # type: string
+        # type: str
 
         self.valueInstant = None
-        # type: string
+        # type: str
 
         self.valueString = None
-        # type: string
+        # type: str
 
         self.valueUri = None
-        # type: string
+        # type: str
 
         self.valueDate = None
-        # type: string
+        # type: str
 
         self.valueDateTime = None
-        # type: string
+        # type: str
 
         self.valueTime = None
-        # type: string
+        # type: str
 
         self.valueCode = None
-        # type: string
+        # type: str
 
         self.valueOid = None
-        # type: string
+        # type: str
 
         self.valueUuid = None
-        # type: string
+        # type: str
 
         self.valueId = None
-        # type: string
+        # type: str
 
         self.valueUnsignedInt = None
         # type: int
@@ -155,7 +155,7 @@ class Parameters_Parameter(fhirbase):
         # type: int
 
         self.valueMarkdown = None
-        # type: string
+        # type: str
 
         self.valueElement = None
         # reference to Element: id
@@ -269,7 +269,7 @@ class Parameters_Parameter(fhirbase):
         # reference to ResourceList
 
         self.part = None
-        # type: array
+        # type: list
         # reference to Parameters_Parameter
 
         self.object_id = None

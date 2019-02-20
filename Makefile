@@ -29,6 +29,10 @@ BROWSER := python -c "$$BROWSER_PYSCRIPT"
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
+
+# CLEAN TARGETS
+
+
 clean: clean-build clean-pyc clean-coverage clean-test clean-docs ## remove all build, test, coverage, docs and Python artifacts
 
 clean-build: ## remove build artifacts
@@ -44,6 +48,12 @@ clean-pyc: ## remove Python file artifacts
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
 
+clean-docs: ## remove previously built docs
+	rm -f docs/cardea.rst
+	rm -f docs/cardea.*.rst
+	rm -f docs/modules.rst
+	$(MAKE) -C docs clean
+
 clean-coverage: ## remove coverage artifacts
 	rm -f .coverage
 	rm -f .coverage.*
@@ -52,6 +62,10 @@ clean-coverage: ## remove coverage artifacts
 clean-test: ## remove test and coverage artifacts
 	rm -fr .tox/
 	rm -fr .pytest_cache
+
+
+# LINT TARGETS
+
 
 lint: ## check style with flake8 and isort
 	flake8 cardea tests
@@ -66,6 +80,10 @@ fixlint: ## fix lint issues using autoflake, autopep8, and isort
 	autopep8 --in-place --recursive --aggressive tests
 	isort --apply --atomic --recursive tests
 
+
+# TEST TARGETS
+
+
 test: ## run tests quickly with the default Python
 	pytest
 
@@ -78,11 +96,9 @@ coverage: clean-coverage ## check code coverage quickly with the default Python
 	coverage html
 	$(BROWSER) htmlcov/index.html
 
-clean-docs: ## remove previously built docs
-	rm -f docs/cardea.rst
-	rm -f docs/cardea.*.rst
-	rm -f docs/modules.rst
-	$(MAKE) -C docs clean
+
+# DOCS TARGETS
+
 
 docs: clean-docs ## generate Sphinx HTML documentation, including API docs
 	sphinx-apidoc -o docs/ cardea
@@ -95,6 +111,10 @@ viewdocs: docs ## view docs in browser
 servedocs: docs ## compile the docs watching for changes
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
+
+# RELEASE TARGETS
+
+
 release: dist ## package and upload a release
 	twine upload dist/*
 
@@ -106,5 +126,15 @@ dist: clean ## builds source and wheel package
 	python setup.py bdist_wheel
 	ls -l dist
 
-install: clean ## install the package to the active Python's site-packages
-	python setup.py install
+
+# INSTALL TARGETS
+
+
+install: clean-build clean-pyc ## install the package to the active Python's site-packages
+	pip install .
+
+install-test: clean-build clean-pyc ## install the package and test dependencies
+	pip install .[test]
+
+install-develop: clean-build clean-pyc ## install the package in editable mode and dependencies for development
+	pip install -e .[dev]

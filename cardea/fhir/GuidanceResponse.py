@@ -67,17 +67,17 @@ class GuidanceResponse(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'GuidanceResponse'
-        # type: string
+        # type: str
         # possible values: GuidanceResponse
 
         self.requestId = None
-        # type: string
+        # type: str
 
         self.module = None
         # reference to Reference: identifier
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: success, data-requested, data-required,
         # in-progress, failure, entered-in-error
 
@@ -88,7 +88,7 @@ class GuidanceResponse(fhirbase):
         # reference to Reference: identifier
 
         self.occurrenceDateTime = None
-        # type: string
+        # type: str
 
         self.performer = None
         # reference to Reference: identifier
@@ -100,11 +100,11 @@ class GuidanceResponse(fhirbase):
         # reference to Reference: identifier
 
         self.note = None
-        # type: array
+        # type: list
         # reference to Annotation
 
         self.evaluationMessage = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.outputParameters = None
@@ -114,7 +114,7 @@ class GuidanceResponse(fhirbase):
         # reference to Reference: identifier
 
         self.dataRequirement = None
-        # type: array
+        # type: list
         # reference to DataRequirement
 
         self.identifier = None

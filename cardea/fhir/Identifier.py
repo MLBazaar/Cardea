@@ -22,17 +22,17 @@ class Identifier(fhirbase):
 
     def __init__(self, dict_values=None):
         self.use = None
-        # type: string
+        # type: str
         # possible values: usual, official, temp, secondary
 
         self.type = None
         # reference to CodeableConcept
 
         self.system = None
-        # type: string
+        # type: str
 
         self.value = None
-        # type: string
+        # type: str
 
         self.period = None
         # reference to Period

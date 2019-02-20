@@ -24,13 +24,13 @@ class Resource(fhirbase):
         # reference to Meta
 
         self.implicitRules = None
-        # type: string
+        # type: str
 
         self.language = None
-        # type: string
+        # type: str
 
         self.id = None
-        # type: string
+        # type: str
 
         if dict_values:
             self.set_attributes(dict_values)

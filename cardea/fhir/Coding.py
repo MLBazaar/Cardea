@@ -27,19 +27,19 @@ class Coding(fhirbase):
 
     def __init__(self, dict_values=None):
         self.system = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.code = None
-        # type: string
+        # type: str
 
         self.display = None
-        # type: string
+        # type: str
 
         self.userSelected = None
-        # type: boolean
+        # type: bool
 
         self.object_id = None
         # unique identifier for object class
