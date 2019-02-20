@@ -69,8 +69,7 @@ Ready to contribute? Here's how to set up `Cardea` for local development.
 
     $ mkvirtualenv Cardea
     $ cd Cardea/
-    $ pip install -e .
-    $ pip install -r requirements_dev.txt
+    $ make install-develop
 
 4. Create a branch for local development::
 
@@ -88,7 +87,8 @@ Ready to contribute? Here's how to set up `Cardea` for local development.
 6. When you're done making changes, check that your changes pass flake8 and the
    tests, including testing other Python versions with tox::
 
-    $ make test-all
+    $ make lint       # Check code styling
+    $ make test-all   # Execute tests on all python versions
 
    If flake8 or isort errors fail to pass, you must fix them prior to committing your
    changes.  Some errors can be fixed automatically by running autopep8, autoflake and
