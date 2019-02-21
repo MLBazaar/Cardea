@@ -206,24 +206,44 @@
 <dt id="cardea.data_loader.data_loader.DataLoader.check_column_existence">
 <code class="descname">check_column_existence</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>column_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#DataLoader.check_column_existence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.check_column_existence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if a coulmn exists in the entity set.</p>
-<p>Args:
-entity_set: fhir entityset.
-column_name: The column name to be checked.
-target_entity: The entity name which contains the column_name.</p>
-<p>Returns:
-True if the column_name exists, False otherwise.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entity_set</strong> – fhir entityset.</li>
+<li><strong>column_name</strong> – The column name to be checked.</li>
+<li><strong>target_entity</strong> – The entity name which contains the column_name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if the column_name exists, False otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.DataLoader.check_for_missing_values">
 <code class="descname">check_for_missing_values</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>column_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#DataLoader.check_for_missing_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.check_for_missing_values" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if there is a missing value in the given column.</p>
-<p>Args:
-entity_set: fhir entityset.
-column_name: The column name to be checked for missing values.
-target_entity: The entity name which contains the column_name.</p>
-<p>Returns:
-False is the column_name does not contain a missing value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entity_set</strong> – fhir entityset.</li>
+<li><strong>column_name</strong> – The column name to be checked for missing values.</li>
+<li><strong>target_entity</strong> – The entity name which contains the column_name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">False is the column_name does not contain a missing value.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -462,9 +482,9 @@ the cut ties.</p>
 
 <dl class="method">
 <dt id="cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset">
-<code class="descname">load_data_entityset</code><span class="sig-paren">(</span><em>fhir</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_data_entityset</code><span class="sig-paren">(</span><em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an entityset loaded with .csv files in folder_path.</p>
-<p>Loads the data into pandas dataframes then loads them into featuretools’ entityset.</p>
+<p>Loads .csv files into pandas dataframes then loads them into featuretools’ entityset.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -478,9 +498,39 @@ the cut ties.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cardea.data_loader.entityset_loader.EntitySetLoader.load_df_entityset">
+<code class="descname">load_df_entityset</code><span class="sig-paren">(</span><em>fhir</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_df_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.load_df_entityset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an entityset loaded with received dataframes in fhir.</p>
+<p>Loads the received dictionary of fhir resources into featuretools’ entityset, where
+the key is the resource name and the value is a pandas dataframe.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fhir</strong> – A dictionary of fhir resources in pandas dataframe format.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An entityset with loaded data.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="cardea.data_loader.entityset_loader.EntitySetLoader.read_csv_files">
 <code class="descname">read_csv_files</code><span class="sig-paren">(</span><em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.read_csv_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.read_csv_files" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a dictionary with loaded .csv files in folder_path.</p>
+<p>Loads .csv files into pandas dataframes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>folder_path</strong> – A dictionary of fhir resources in pandas dataframe format.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A dictionary of fhir resources in pandas dataframe format.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -496,24 +546,44 @@ the cut ties.</p>
 <dt id="cardea.data_loader.DataLoader.check_column_existence">
 <code class="descname">check_column_existence</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>column_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#DataLoader.check_column_existence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.DataLoader.check_column_existence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if a coulmn exists in the entity set.</p>
-<p>Args:
-entity_set: fhir entityset.
-column_name: The column name to be checked.
-target_entity: The entity name which contains the column_name.</p>
-<p>Returns:
-True if the column_name exists, False otherwise.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entity_set</strong> – fhir entityset.</li>
+<li><strong>column_name</strong> – The column name to be checked.</li>
+<li><strong>target_entity</strong> – The entity name which contains the column_name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if the column_name exists, False otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.data_loader.DataLoader.check_for_missing_values">
 <code class="descname">check_for_missing_values</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>column_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/data_loader.html#DataLoader.check_for_missing_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.DataLoader.check_for_missing_values" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if there is a missing value in the given column.</p>
-<p>Args:
-entity_set: fhir entityset.
-column_name: The column name to be checked for missing values.
-target_entity: The entity name which contains the column_name.</p>
-<p>Returns:
-False is the column_name does not contain a missing value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entity_set</strong> – fhir entityset.</li>
+<li><strong>column_name</strong> – The column name to be checked for missing values.</li>
+<li><strong>target_entity</strong> – The entity name which contains the column_name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">False is the column_name does not contain a missing value.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -749,9 +819,9 @@ the cut ties.</p>
 
 <dl class="method">
 <dt id="cardea.data_loader.EntitySetLoader.load_data_entityset">
-<code class="descname">load_data_entityset</code><span class="sig-paren">(</span><em>fhir</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.load_data_entityset" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_data_entityset</code><span class="sig-paren">(</span><em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.load_data_entityset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an entityset loaded with .csv files in folder_path.</p>
-<p>Loads the data into pandas dataframes then loads them into featuretools’ entityset.</p>
+<p>Loads .csv files into pandas dataframes then loads them into featuretools’ entityset.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -765,9 +835,39 @@ the cut ties.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cardea.data_loader.EntitySetLoader.load_df_entityset">
+<code class="descname">load_df_entityset</code><span class="sig-paren">(</span><em>fhir</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_df_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.load_df_entityset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an entityset loaded with received dataframes in fhir.</p>
+<p>Loads the received dictionary of fhir resources into featuretools’ entityset, where
+the key is the resource name and the value is a pandas dataframe.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fhir</strong> – A dictionary of fhir resources in pandas dataframe format.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An entityset with loaded data.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="cardea.data_loader.EntitySetLoader.read_csv_files">
 <code class="descname">read_csv_files</code><span class="sig-paren">(</span><em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.read_csv_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.read_csv_files" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a dictionary with loaded .csv files in folder_path.</p>
+<p>Loads .csv files into pandas dataframes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>folder_path</strong> – A dictionary of fhir resources in pandas dataframe format.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A dictionary of fhir resources in pandas dataframe format.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 

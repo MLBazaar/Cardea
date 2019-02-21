@@ -199,27 +199,9 @@
 <span id="cardea-featurization-featurization-module"></span><h2>cardea.featurization.featurization module<a class="headerlink" href="#module-cardea.featurization.featurization" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cardea.featurization.featurization.Featurization">
-<em class="property">class </em><code class="descclassname">cardea.featurization.featurization.</code><code class="descname">Featurization</code><span class="sig-paren">(</span><em>es</em>, <em>target_entity</em>, <em>cutoff</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cardea.featurization.featurization.</code><code class="descname">Featurization</code><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>“A class that generates a feature matrix from its attributes.</p>
-<dl class="attribute">
-<dt id="cardea.featurization.featurization.Featurization.es">
-<code class="descname">es</code><a class="headerlink" href="#cardea.featurization.featurization.Featurization.es" title="Permalink to this definition">¶</a></dt>
-<dd><p>A featuretools entityset that holds injested data.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.featurization.featurization.Featurization.target">
-<code class="descname">target</code><a class="headerlink" href="#cardea.featurization.featurization.Featurization.target" title="Permalink to this definition">¶</a></dt>
-<dd><p>A string of the target entity name.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.featurization.featurization.Featurization.cutoff">
-<code class="descname">cutoff</code><a class="headerlink" href="#cardea.featurization.featurization.Featurization.cutoff" title="Permalink to this definition">¶</a></dt>
-<dd><p>A pandas dataframe that indicates cutoff_time for each instance.</p>
-</dd></dl>
-
 <dl class="staticmethod">
 <dt id="cardea.featurization.featurization.Featurization.agg_prim">
 <em class="property">static </em><code class="descname">agg_prim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization.agg_prim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.agg_prim" title="Permalink to this definition">¶</a></dt>
@@ -227,19 +209,21 @@
 
 <dl class="method">
 <dt id="cardea.featurization.featurization.Featurization.generate_feature_matrix">
-<code class="descname">generate_feature_matrix</code><span class="sig-paren">(</span><em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization.generate_feature_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.generate_feature_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates a feature matrix and features given in Featurization object.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>verbose</strong> – A boolean indicator of verbose option.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A pandas dataframe of the calculated matrix.</td>
-</tr>
-</tbody>
-</table>
+<code class="descname">generate_feature_matrix</code><span class="sig-paren">(</span><em>es</em>, <em>target</em>, <em>cutoff</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization.generate_feature_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.generate_feature_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates a feature matrix and features given in Featurization object.
+Args:
+es: A featuretools entityset that holds injested data.
+target: A string of the target entity name.
+cutoff: A pandas dataframe that indicates cutoff_time for each instance.
+verbose: A boolean indicator of verbose option.
+Returns:
+A pandas dataframe of the calculated matrix.</p>
 </dd></dl>
+
+<dl class="staticmethod">
+<dt id="cardea.featurization.featurization.Featurization.max_depth">
+<em class="property">static </em><code class="descname">max_depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization.max_depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.max_depth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="cardea.featurization.featurization.Featurization.n_jobs">

@@ -186,19 +186,8 @@
 
 <div class="viewcode-block" id="Featurization"><a class="viewcode-back" href="../../../cardea.featurization.html#cardea.featurization.featurization.Featurization">[docs]</a><span class="k">class</span> <span class="nc">Featurization</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;&quot;A class that generates a feature matrix from its attributes.</span>
-
-<span class="sd">    Attributes:</span>
-<span class="sd">        es: A featuretools entityset that holds injested data.</span>
-<span class="sd">        target: A string of the target entity name.</span>
-<span class="sd">        cutoff: A pandas dataframe that indicates cutoff_time for each instance.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Featurization&#39;</span>
-
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="n">target_entity</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">):</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">es</span> <span class="o">=</span> <span class="n">es</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target_entity</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cutoff</span> <span class="o">=</span> <span class="n">cutoff</span>
 
 <div class="viewcode-block" id="Featurization.agg_prim"><a class="viewcode-back" href="../../../cardea.featurization.html#cardea.featurization.featurization.Featurization.agg_prim">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">agg_prim</span><span class="p">():</span>
@@ -212,21 +201,28 @@
     <span class="k">def</span> <span class="nf">n_jobs</span><span class="p">():</span>
         <span class="k">return</span> <span class="mi">1</span></div>
 
-<div class="viewcode-block" id="Featurization.generate_feature_matrix"><a class="viewcode-back" href="../../../cardea.featurization.html#cardea.featurization.featurization.Featurization.generate_feature_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">generate_feature_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Featurization.max_depth"><a class="viewcode-back" href="../../../cardea.featurization.html#cardea.featurization.featurization.Featurization.max_depth">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">max_depth</span><span class="p">():</span>
+        <span class="k">return</span> <span class="mi">2</span></div>
+
+<div class="viewcode-block" id="Featurization.generate_feature_matrix"><a class="viewcode-back" href="../../../cardea.featurization.html#cardea.featurization.featurization.Featurization.generate_feature_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">generate_feature_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Calculates a feature matrix and features given in Featurization object.</span>
-
-<span class="sd">        Args:</span>
+<span class="sd">            Args:</span>
+<span class="sd">            es: A featuretools entityset that holds injested data.</span>
+<span class="sd">            target: A string of the target entity name.</span>
+<span class="sd">            cutoff: A pandas dataframe that indicates cutoff_time for each instance.</span>
 <span class="sd">            verbose: A boolean indicator of verbose option.</span>
-<span class="sd">        Returns:</span>
+<span class="sd">            Returns:</span>
 <span class="sd">            A pandas dataframe of the calculated matrix.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">            &quot;&quot;&quot;</span>
 
-        <span class="n">feature_matrix</span><span class="p">,</span> <span class="n">features_defs</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="n">entityset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">es</span><span class="p">,</span>
-                                               <span class="n">target_entity</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">,</span>
+        <span class="n">feature_matrix</span><span class="p">,</span> <span class="n">features_defs</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="n">entityset</span><span class="o">=</span><span class="n">es</span><span class="p">,</span>
+                                               <span class="n">target_entity</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
                                                <span class="n">agg_primitives</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">agg_prim</span><span class="p">(),</span>
                                                <span class="n">trans_primitives</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">trans_prim</span><span class="p">(),</span>
-                                               <span class="n">cutoff_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cutoff</span><span class="p">,</span>
+                                               <span class="n">cutoff_time</span><span class="o">=</span><span class="n">cutoff</span><span class="p">,</span>
                                                <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">(),</span>
+                                               <span class="n">max_depth</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_depth</span><span class="p">(),</span>
                                                <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
 
         <span class="c1"># encode categorical values</span>

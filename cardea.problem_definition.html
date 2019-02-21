@@ -282,6 +282,60 @@ by specifying cutoff times and generating the target label if it does not exist<
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_admission_time">
+<code class="descname">unify_cutoff_time_admission_time</code><span class="sig-paren">(</span><em>es</em>, <em>cutoff_entity</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_time_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_admission_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process records in the entity that contains cutoff times
+based on shared days and time.</p>
+<p>Attributes:
+es: fhir entityset.</p>
+<p>Returns:
+processed entity</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_discharge_time">
+<code class="descname">unify_cutoff_time_discharge_time</code><span class="sig-paren">(</span><em>es</em>, <em>cutoff_entity</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_time_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_discharge_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process records in the entity that contains cutoff times
+based on shared days and time.</p>
+<p>Attributes:
+es: fhir entityset.</p>
+<p>Returns:
+processed entity</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_admission_time">
+<code class="descname">unify_cutoff_times_days_admission_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_days_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_admission_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unify records cutoff times based on shared days.</p>
+<p>Attributes:
+df: cutoff_entity dataframe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_discharge_time">
+<code class="descname">unify_cutoff_times_days_discharge_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_days_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_discharge_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unify records cutoff times based on shared days.</p>
+<p>Attributes:
+df: cutoff_entity dataframe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_admission_time">
+<code class="descname">unify_cutoff_times_hours_admission_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_hours_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_admission_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unify records cutoff times based on shared time.</p>
+<p>Attributes:
+df: cutoff_entity dataframe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_discharge_time">
+<code class="descname">unify_cutoff_times_hours_discharge_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_hours_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_discharge_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unify records cutoff times based on shared time.</p>
+<p>Attributes:
+df: cutoff_entity dataframe.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -866,6 +920,60 @@ by specifying cutoff times and generating the target label if it does not exist<
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.ProblemDefinition.unify_cutoff_time_admission_time">
+<code class="descname">unify_cutoff_time_admission_time</code><span class="sig-paren">(</span><em>es</em>, <em>cutoff_entity</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_time_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.unify_cutoff_time_admission_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process records in the entity that contains cutoff times
+based on shared days and time.</p>
+<p>Attributes:
+es: fhir entityset.</p>
+<p>Returns:
+processed entity</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.ProblemDefinition.unify_cutoff_time_discharge_time">
+<code class="descname">unify_cutoff_time_discharge_time</code><span class="sig-paren">(</span><em>es</em>, <em>cutoff_entity</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_time_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.unify_cutoff_time_discharge_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process records in the entity that contains cutoff times
+based on shared days and time.</p>
+<p>Attributes:
+es: fhir entityset.</p>
+<p>Returns:
+processed entity</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.ProblemDefinition.unify_cutoff_times_days_admission_time">
+<code class="descname">unify_cutoff_times_days_admission_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_days_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.unify_cutoff_times_days_admission_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unify records cutoff times based on shared days.</p>
+<p>Attributes:
+df: cutoff_entity dataframe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.ProblemDefinition.unify_cutoff_times_days_discharge_time">
+<code class="descname">unify_cutoff_times_days_discharge_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_days_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.unify_cutoff_times_days_discharge_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unify records cutoff times based on shared days.</p>
+<p>Attributes:
+df: cutoff_entity dataframe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.ProblemDefinition.unify_cutoff_times_hours_admission_time">
+<code class="descname">unify_cutoff_times_hours_admission_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_hours_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.unify_cutoff_times_hours_admission_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unify records cutoff times based on shared time.</p>
+<p>Attributes:
+df: cutoff_entity dataframe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.problem_definition.ProblemDefinition.unify_cutoff_times_hours_discharge_time">
+<code class="descname">unify_cutoff_times_hours_discharge_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_hours_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.ProblemDefinition.unify_cutoff_times_hours_discharge_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unify records cutoff times based on shared time.</p>
+<p>Attributes:
+df: cutoff_entity dataframe.</p>
 </dd></dl>
 
 </dd></dl>

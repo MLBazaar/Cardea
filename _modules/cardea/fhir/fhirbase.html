@@ -181,7 +181,11 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cardea.fhir.fhirbase</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;cardea.fhir&#39;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="fhirbase"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.fhirbase.fhirbase">[docs]</a><span class="k">class</span> <span class="nc">fhirbase</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -196,9 +200,12 @@
 <span class="sd">            An object of the associate fhir class filled with data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">dict_values</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">attr</span><span class="p">)]</span> <span class="o">=</span> <span class="n">dict_values</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">attr</span><span class="p">)]</span></div>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dict_values</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s2">&quot;Attribute </span><span class="si">%s</span><span class="s2"> in </span><span class="si">%s</span><span class="s2"> could not be loaded.&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="fhirbase.get_dataframe"><a class="viewcode-back" href="../../../cardea.fhir.html#cardea.fhir.fhirbase.fhirbase.get_dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">get_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns dataframe from class attribute values.</span>

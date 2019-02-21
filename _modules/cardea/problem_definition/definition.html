@@ -181,7 +181,9 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cardea.problem_definition.definition</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">cardea.data_loader</span> <span class="k">import</span> <span class="n">DataLoader</span>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">cardea.data_loader</span> <span class="k">import</span> <span class="n">DataLoader</span>
 
 
 <div class="viewcode-block" id="ProblemDefinition"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.definition.ProblemDefinition">[docs]</a><span class="k">class</span> <span class="nc">ProblemDefinition</span><span class="p">:</span>
@@ -211,7 +213,6 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            False is the target label does not contain a missing value.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">DataLoader</span><span class="p">()</span><span class="o">.</span><span class="n">check_for_missing_values</span><span class="p">(</span><span class="n">entity_set</span><span class="p">,</span>
                                                      <span class="n">target_entity</span><span class="p">,</span>
@@ -240,7 +241,191 @@
 
 <span class="sd">        Raises:</span>
 <span class="sd">            ValueError: An error occurs if the cutoff variable does not exist.</span>
-<span class="sd">            &quot;&quot;&quot;</span></div></div>
+<span class="sd">            &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="ProblemDefinition.unify_cutoff_times_hours_admission_time"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_admission_time">[docs]</a>    <span class="k">def</span> <span class="nf">unify_cutoff_times_hours_admission_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Unify records cutoff times based on shared time.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">            df: cutoff_entity dataframe.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">])</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">df</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">))</span>
+                    <span class="n">df</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">df</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">:</span>
+
+                <span class="n">ct_val1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">)</span>
+                <span class="n">end_val1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">)</span>
+                <span class="n">start_val2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">)</span>
+                <span class="n">df</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">ct_val1</span> <span class="o">&lt;</span> <span class="n">start_val2</span> <span class="o">&lt;</span> <span class="n">end_val1</span><span class="p">:</span>
+                    <span class="n">df</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">,</span> <span class="n">start_val2</span><span class="p">)</span>
+                    <span class="n">df</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">,</span> <span class="n">start_val2</span><span class="p">)</span>
+                    <span class="n">df</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">df</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">))</span>
+                    <span class="n">df</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+                    <span class="k">break</span>
+        <span class="k">return</span> <span class="n">df</span></div>
+
+<div class="viewcode-block" id="ProblemDefinition.unify_cutoff_times_days_admission_time"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_admission_time">[docs]</a>    <span class="k">def</span> <span class="nf">unify_cutoff_times_days_admission_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Unify records cutoff times based on shared days.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">            df: cutoff_entity dataframe.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+        <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]):</span>
+            <span class="n">sub_day</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">d</span><span class="p">]</span>
+
+            <span class="n">sub_duration_greater</span> <span class="o">=</span> <span class="n">sub_day</span><span class="p">[</span><span class="n">sub_day</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">sub_duration_less</span> <span class="o">=</span> <span class="n">sub_day</span><span class="p">[</span><span class="n">sub_day</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_duration_less</span><span class="p">)</span>
+            <span class="n">sub_duration_greater</span> <span class="o">=</span> <span class="n">sub_duration_greater</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">])</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sub_duration_greater</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">final_date</span> <span class="o">=</span> <span class="n">sub_duration_greater</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">cutoff_time_label</span><span class="p">]</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sub_duration_greater</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+                    <span class="n">sub_duration_greater</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">,</span> <span class="n">final_date</span><span class="p">)</span>
+                    <span class="n">sub_duration_greater</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+                <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_duration_greater</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sub_duration_less</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+                    <span class="n">sub_duration_less</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NaT</span><span class="p">)</span>
+                    <span class="n">sub_duration_less</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+                    <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_duration_less</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">])</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="ProblemDefinition.unify_cutoff_time_admission_time"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_admission_time">[docs]</a>    <span class="k">def</span> <span class="nf">unify_cutoff_time_admission_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="n">cutoff_entity</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Process records in the entity that contains cutoff times</span>
+<span class="sd">            based on shared days and time.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">            es: fhir entityset.</span>
+
+<span class="sd">            Returns:</span>
+<span class="sd">            processed entity</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="n">es</span><span class="p">[</span><span class="n">cutoff_entity</span><span class="p">]</span><span class="o">.</span><span class="n">df</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">])</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">])</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="n">duration</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">duration</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;checked&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">result1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unify_cutoff_times_days_admission_time</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unify_cutoff_times_hours_admission_time</span><span class="p">(</span><span class="n">result1</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;level_0&#39;</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;level_0&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="ProblemDefinition.unify_cutoff_times_days_discharge_time"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_discharge_time">[docs]</a>    <span class="k">def</span> <span class="nf">unify_cutoff_times_days_discharge_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Unify records cutoff times based on shared days.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">            df: cutoff_entity dataframe.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+        <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">]):</span>
+            <span class="n">sub_day</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">d</span><span class="p">]</span>
+
+            <span class="n">sub_duration_greater</span> <span class="o">=</span> <span class="n">sub_day</span><span class="p">[</span><span class="n">sub_day</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">sub_duration_less</span> <span class="o">=</span> <span class="n">sub_day</span><span class="p">[</span><span class="n">sub_day</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_duration_less</span><span class="p">)</span>
+            <span class="n">sub_duration_greater</span> <span class="o">=</span> <span class="n">sub_duration_greater</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">])</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sub_duration_greater</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">first_date</span> <span class="o">=</span> <span class="n">sub_duration_greater</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">cutoff_time_label</span><span class="p">]</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sub_duration_greater</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+                    <span class="n">sub_duration_greater</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">,</span> <span class="n">first_date</span><span class="p">)</span>
+                    <span class="n">sub_duration_greater</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+                <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_duration_greater</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sub_duration_less</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+                    <span class="n">sub_duration_less</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NaT</span><span class="p">)</span>
+                    <span class="n">sub_duration_less</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+                <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_duration_less</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">end</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="ProblemDefinition.unify_cutoff_times_hours_discharge_time"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_discharge_time">[docs]</a>    <span class="k">def</span> <span class="nf">unify_cutoff_times_hours_discharge_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Unify records cutoff times based on shared time.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">            df: cutoff_entity dataframe.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+        <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">]):</span>
+            <span class="n">sub_day</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">d</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">sub_day</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]):</span>
+                <span class="n">sub_hour</span> <span class="o">=</span> <span class="n">sub_day</span><span class="p">[</span><span class="n">sub_day</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">h</span><span class="p">]</span>
+                <span class="n">sub_hour</span> <span class="o">=</span> <span class="n">sub_hour</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">])</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sub_hour</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">first_date</span> <span class="o">=</span> <span class="n">sub_hour</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">cutoff_time_label</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sub_hour</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+                        <span class="n">sub_hour</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ct&#39;</span><span class="p">,</span> <span class="n">first_date</span><span class="p">)</span>
+                        <span class="n">sub_hour</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+                    <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_hour</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="ProblemDefinition.unify_cutoff_time_discharge_time"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_discharge_time">[docs]</a>    <span class="k">def</span> <span class="nf">unify_cutoff_time_discharge_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="n">cutoff_entity</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Process records in the entity that contains cutoff times</span>
+<span class="sd">            based on shared days and time.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">            es: fhir entityset.</span>
+
+<span class="sd">            Returns:</span>
+<span class="sd">            processed entity</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="n">es</span><span class="p">[</span><span class="n">cutoff_entity</span><span class="p">]</span><span class="o">.</span><span class="n">df</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">end</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cutoff_time_label</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="n">duration</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">duration</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;checked&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">result1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unify_cutoff_times_days_discharge_time</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unify_cutoff_times_hours_discharge_time</span><span class="p">(</span><span class="n">result1</span><span class="p">,</span> <span class="n">cutoff_time_label</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;level_0&#39;</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;level_0&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">result</span></div></div>
 </pre></div>
 
            </div>
