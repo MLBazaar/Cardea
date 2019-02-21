@@ -2,4 +2,4 @@
 
 from cardea.featurization.featurization import Featurization
 
-__all__ = (Featurization)
+__all__ = ('Featurization',)
