@@ -14,6 +14,7 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
         cutoff_entity: Name of the entity containing the cutoff time label.
         prediction_type: The type of the machine learning prediction.
     """
+    __name__ = 'mapp'
 
     target_label_column_name = 'status'
     target_entity = 'Appointment'

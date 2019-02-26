@@ -23,7 +23,7 @@ def es_loader():
 @pytest.fixture()
 def cutoff_times():
     temp = pd.DataFrame({"instance_id": [10, 11, 12],
-                         "cutoff_time": ['9/21/2018', '9/22/2018', '10/4/2018'],
+                         "cutoff_time": ['9/22/2018 00:00', '9/21/2018 00:00', '10/4/2018 00:00'],
                          "label": [True, False, True]})
     temp['cutoff_time'] = pd.to_datetime(temp['cutoff_time'])
     return temp
@@ -53,9 +53,8 @@ def objects(es_loader):
                               "code": ["X60", "C12", "V02"]})
 
     period_df = pd.DataFrame({"object_id": [120, 121, 122],
-                              "start": ['9/22/2018', '9/21/2018', '10/4/2018'],
-                              "end": ['9/22/2018', '9/21/2018', '10/4/2018']
-                              })
+                              "start": ['9/22/2018 00:00', '9/21/2018 00:00', '10/4/2018 00:00'],
+                              "end": ['9/22/2018 00:10', '9/21/2018 00:10', '10/4/2018 00:10']})
 
     duration_df = pd.DataFrame({"object_id": [0, 2, 1, 7]})
 
@@ -85,8 +84,8 @@ def objects_fail(es_loader):
                                  "period": [120, 121, 122]})
 
     period_df = pd.DataFrame({"object_id": [120, 121, 122],
-                              "start": ['9/18/2018', '9/19/2018', '9/20/2018'],
-                              "end": ['9/20/2018', '9/20/2018', '9/27/2018']})
+                              "start": ['9/22/2018 00:00', '9/21/2018 00:00', '10/4/2018 00:00'],
+                              "end": ['9/22/2018 00:10', '9/21/2018 00:10', '10/4/2018 00:10']})
 
     patient_df = pd.DataFrame({"identifier": [0, 1, 2],
                                "gender": ['female', 'female', 'male'],
