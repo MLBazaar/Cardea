@@ -7,15 +7,15 @@ from cardea.problem_definition import ProblemDefinition
 
 class ProlongedLengthOfStay (ProblemDefinition):
     """Defines the problem of length of stay, predicting whether
-        a patient stayed in the hospital more or less than a week (Default).
+    a patient stayed in the hospital more or less than a week (Default).
 
-        Attributes:
+    Attributes:
         target_label_column_name: The target label of the prediction problem.
         target_entity: Name of the entity containing the target label.
         cutoff_time_label: The cutoff time label of the prediction problem.
         cutoff_entity: Name of the entity containing the cutoff time label.
         prediction_type: The type of the machine learning prediction.
-        """
+    """
 
     updated_es = None
     target_label_column_name = 'length'
@@ -31,15 +31,15 @@ class ProlongedLengthOfStay (ProblemDefinition):
     def generate_cutoff_times(self, es):
         """Generates cutoff times for the predection problem.
 
-            Args:
+        Args:
             es: fhir entityset.
 
-            Returns:
+        Returns:
             entity_set, target_entity, and a dataframe of cutoff_times and target_labels.
 
-            Raises:
+        Raises:
             ValueError: An error occurs if the cutoff variable does not exist.
-            """
+        """
 
         if (self.check_target_label(es,
                                     self.target_entity,
@@ -83,15 +83,15 @@ class ProlongedLengthOfStay (ProblemDefinition):
     def generate_target_label(self, es):
         """Generates target labels in the case of having missing label in the entityset.
 
-            Args:
+        Args:
             es: fhir entityset.
 
-            Returns:
+        Returns:
             Updated entityset with the generated label.
 
-            Raises:
+        Raises:
             ValueError: An error occurs if the target label cannot be generated.
-            """
+        """
         generate_from = 'Period'
         start = 'start'
         end = 'end'

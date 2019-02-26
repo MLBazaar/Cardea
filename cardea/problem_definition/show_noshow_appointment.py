@@ -5,7 +5,7 @@ from cardea.problem_definition import ProblemDefinition
 
 class MissedAppointmentProblemDefinition (ProblemDefinition):
     """Defines the problem of missed appointments,
-        whether the patient showed to the appointment or not.
+    whether the patient showed to the appointment or not.
 
     Attributes:
         target_label: The target label of the prediction problem.

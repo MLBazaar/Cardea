@@ -7,6 +7,7 @@ class ProblemDefinition:
 
     def check_target_label(self, entity_set, target_entity, target_label):
         """Checks if target label exists in the entity set.
+
         Args:
             entity_set: fhir entityset.
             target_label: The target label of the prediction problem.
@@ -57,4 +58,4 @@ class ProblemDefinition:
 
         Raises:
             ValueError: An error occurs if the cutoff variable does not exist.
-            """
+        """
