@@ -2,7 +2,7 @@ import featuretools as ft
 
 
 class Featurization():
-    """"A class that generates a feature matrix from its attributes.
+    """A class that generates a feature matrix from its attributes.
 
     Attributes:
         es: A featuretools entityset that holds injested data.
