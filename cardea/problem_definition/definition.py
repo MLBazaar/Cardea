@@ -5,7 +5,8 @@ from cardea.data_loader import DataLoader
 
 class ProblemDefinition:
     """A class that defines the prediction problem
-        by specifying cutoff times and generating the target label if it does not exist"""
+    by specifying cutoff times and generating the target label if it does not exist.
+    """
 
     def check_target_label(self, entity_set, target_entity, target_label):
         """Checks if target label exists in the entity set.
@@ -64,9 +65,9 @@ class ProblemDefinition:
     def unify_cutoff_times_hours_admission_time(self, df, cutoff_time_label):
         """Unify records cutoff times based on shared time.
 
-            Attributes:
+        Args:
             df: cutoff_entity dataframe.
-            """
+        """
         df = df.sort_values(by=[cutoff_time_label])
         df = df.reset_index()
 
@@ -101,9 +102,9 @@ class ProblemDefinition:
     def unify_cutoff_times_days_admission_time(self, df, cutoff_time_label):
         """Unify records cutoff times based on shared days.
 
-            Attributes:
+        Args:
             df: cutoff_entity dataframe.
-            """
+        """
 
         frames = []
         for d in set(df['date']):
@@ -137,14 +138,14 @@ class ProblemDefinition:
 
     def unify_cutoff_time_admission_time(self, es, cutoff_entity, cutoff_time_label):
         """Process records in the entity that contains cutoff times
-            based on shared days and time.
+        based on shared days and time.
 
-            Attributes:
+        Args:
             es: fhir entityset.
 
-            Returns:
+        Returns:
             processed entity
-            """
+        """
 
         df = es[cutoff_entity].df
         df[cutoff_time_label] = pd.to_datetime(df[cutoff_time_label])
@@ -164,9 +165,9 @@ class ProblemDefinition:
     def unify_cutoff_times_days_discharge_time(self, df, cutoff_time_label):
         """Unify records cutoff times based on shared days.
 
-            Attributes:
+        Args:
             df: cutoff_entity dataframe.
-            """
+        """
 
         frames = []
         for d in set(df['end_date']):
@@ -198,9 +199,9 @@ class ProblemDefinition:
     def unify_cutoff_times_hours_discharge_time(self, df, cutoff_time_label):
         """Unify records cutoff times based on shared time.
 
-            Attributes:
+        Args:
             df: cutoff_entity dataframe.
-            """
+        """
 
         frames = []
         for d in set(df['end_date']):
@@ -222,14 +223,14 @@ class ProblemDefinition:
 
     def unify_cutoff_time_discharge_time(self, es, cutoff_entity, cutoff_time_label):
         """Process records in the entity that contains cutoff times
-            based on shared days and time.
+        based on shared days and time.
 
-            Attributes:
+        Args:
             es: fhir entityset.
 
-            Returns:
+        Returns:
             processed entity
-            """
+        """
 
         df = es[cutoff_entity].df
         df['end_date'] = df[cutoff_time_label].dt.date
