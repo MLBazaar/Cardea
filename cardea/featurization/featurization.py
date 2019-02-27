@@ -3,7 +3,7 @@ import featuretools as ft
 
 class Featurization():
     """"A class that generates a feature matrix from its attributes.
-    """
+        """
     __name__ = 'Featurization'
 
     @staticmethod
@@ -24,14 +24,14 @@ class Featurization():
 
     def generate_feature_matrix(self, es, target, cutoff, verbose=True):
         """Calculates a feature matrix and features given in Featurization object.
-        Args:
+            Args:
             es: A featuretools entityset that holds injested data.
             target: A string of the target entity name.
             cutoff: A pandas dataframe that indicates cutoff_time for each instance.
             verbose: A boolean indicator of verbose option.
-        Returns:
+            Returns:
             A pandas dataframe of the calculated matrix.
-        """
+            """
 
         feature_matrix, features_defs = ft.dfs(entityset=es,
                                                target_entity=target,
