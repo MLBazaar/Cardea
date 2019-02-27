@@ -2,8 +2,6 @@ from inspect import isclass
 import pandas as pd
 import json
 
-import featuretools as ft
-
 import cardea
 from cardea.data_loader import EntitySetLoader
 from cardea.featurization import Featurization
@@ -56,7 +54,7 @@ class Cardea():
         else:
             csv_s3 = "https://s3.amazonaws.com/dai-cardea/"
             kaggle = ['Address',
-                      'Appointment_Participant'
+                      'Appointment_Participant',
                       'Appointment',
                       'CodeableConcept',
                       'Coding',
@@ -67,8 +65,7 @@ class Cardea():
 
             fhir = {
                 resource: pd.read_csv(
-                    csv_s3 + resource + ".zip",
-                    compression='zip') for resource in kaggle}
+                    csv_s3 + resource + ".csv") for resource in kaggle}
             self.es = self.es_loader.load_df_entityset(fhir)
 
     def list_problems(self):
@@ -174,7 +171,7 @@ class Cardea():
         fm_encoded = fm_encoded.reset_index(drop=True)
         return fm_encoded
 
-    def execute_model(self, feature_matrix, primitives, optimize=False, hyperparameters=None):
+    def execute_model(self, feature_matrix, target, primitives, optimize=False, hyperparameters=None):
         '''Executes and predict all the pipelines.
 
         Args:
@@ -188,14 +185,34 @@ class Cardea():
             and an array of the predicted values and an array of the actual values.
         '''
 
-        y = list(feature_matrix.pop('label'))
-        X = feature_matrix.values
-
         return self.modeler.execute_pipeline(
-            data_frame=X,
-            target=y,
+            data_frame=feature_matrix,
+            target=target,
             primitives_list=primitives,
             problem_type=self.chosen_problem.prediction_type,
             optimize=False,
             hyperparameters=None
         )
+    
+    def convert_to_json(dic):
+        '''Converts a given dictionary to json format.
+        
+        Args:
+            dict: A dictionary of values to be coverted.
+            
+        Returns:
+            A string in json format.
+        '''
+        return json.dumps(dic)
+        
+    
+    def convert_from_json(string):
+        '''Converts a given json string to dictionary format.
+        
+        Args:
+            json: A dictionary of values to be coverted.
+            
+        Returns:
+            A parsed dictionary.
+        '''
+        return json.loads(string)
