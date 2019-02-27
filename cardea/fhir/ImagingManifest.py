@@ -38,23 +38,23 @@ class ImagingManifest(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ImagingManifest'
-        # type: string
+        # type: str
         # possible values: ImagingManifest
 
         self.patient = None
         # reference to Reference: identifier
 
         self.authoringTime = None
-        # type: string
+        # type: str
 
         self.author = None
         # reference to Reference: identifier
 
         self.description = None
-        # type: string
+        # type: str
 
         self.study = None
-        # type: array
+        # type: list
         # reference to ImagingManifest_Study
 
         self.identifier = None
@@ -110,17 +110,17 @@ class ImagingManifest_Study(fhirbase):
 
     def __init__(self, dict_values=None):
         self.uid = None
-        # type: string
+        # type: str
 
         self.imagingStudy = None
         # reference to Reference: identifier
 
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.series = None
-        # type: array
+        # type: list
         # reference to ImagingManifest_Series
 
         self.object_id = None
@@ -168,14 +168,14 @@ class ImagingManifest_Series(fhirbase):
 
     def __init__(self, dict_values=None):
         self.uid = None
-        # type: string
+        # type: str
 
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.instance = None
-        # type: array
+        # type: list
         # reference to ImagingManifest_Instance
 
         self.object_id = None
@@ -213,10 +213,10 @@ class ImagingManifest_Instance(fhirbase):
 
     def __init__(self, dict_values=None):
         self.sopClass = None
-        # type: string
+        # type: str
 
         self.uid = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

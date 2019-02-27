@@ -10,9 +10,14 @@ with open('HISTORY.md') as history_file:
     history = history_file.read()
 
 install_requires = [
-    'networkx',
-    'pandas',
-    'featuretools'
+    'featuretools>=0.3.1',
+    'networkx>=2.0',
+    'pandas>=0.23.4,<0.24',
+    'mlblocks',
+    'mlprimitives',
+    'sklearn',
+    'scipy>=1.1.0',
+    'hyperopt'
 ]
 
 setup_requires = [
@@ -20,15 +25,11 @@ setup_requires = [
 ]
 
 tests_require = [
-    'pytest>=3.4.2'
+    'pytest>=3.4.2',
+    'google-compute-engine==2.8.12',    # required by travis
 ]
 
 development_requires = [
-    # dependencies
-    'pandas',
-    'networkx',
-    'featuretools',
-                        
     # general
     'bumpversion>=0.5.3',
     'pip>=10.0.1',

@@ -40,11 +40,11 @@ class PractitionerRole(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'PractitionerRole'
-        # type: string
+        # type: str
         # possible values: PractitionerRole
 
         self.active = None
-        # type: boolean
+        # type: bool
 
         self.period = None
         # reference to Period
@@ -56,42 +56,42 @@ class PractitionerRole(fhirbase):
         # reference to Reference: identifier
 
         self.code = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.specialty = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.location = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.healthcareService = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.telecom = None
-        # type: array
+        # type: list
         # reference to ContactPoint
 
         self.availableTime = None
-        # type: array
+        # type: list
         # reference to PractitionerRole_AvailableTime
 
         self.notAvailable = None
-        # type: array
+        # type: list
         # reference to PractitionerRole_NotAvailable
 
         self.availabilityExceptions = None
-        # type: string
+        # type: str
 
         self.endpoint = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -183,16 +183,16 @@ class PractitionerRole_AvailableTime(fhirbase):
 
     def __init__(self, dict_values=None):
         self.daysOfWeek = None
-        # type: array
+        # type: list
 
         self.allDay = None
-        # type: boolean
+        # type: bool
 
         self.availableStartTime = None
-        # type: string
+        # type: str
 
         self.availableEndTime = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -217,7 +217,7 @@ class PractitionerRole_NotAvailable(fhirbase):
 
     def __init__(self, dict_values=None):
         self.description = None
-        # type: string
+        # type: str
 
         self.during = None
         # reference to Period

@@ -74,66 +74,66 @@ class ImplementationGuide(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ImplementationGuide'
-        # type: string
+        # type: str
         # possible values: ImplementationGuide
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.fhirVersion = None
-        # type: string
+        # type: str
 
         self.dependency = None
-        # type: array
+        # type: list
         # reference to ImplementationGuide_Dependency
 
         self.package = None
-        # type: array
+        # type: list
         # reference to ImplementationGuide_Package
 
         self._global = None
-        # type: array
+        # type: list
         # reference to ImplementationGuide_Global
 
         self.binary = None
-        # type: array
+        # type: list
 
         self.page = None
         # reference to ImplementationGuide_Page
@@ -210,11 +210,11 @@ class ImplementationGuide_Dependency(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: reference, inclusion
 
         self.uri = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -253,13 +253,13 @@ class ImplementationGuide_Package(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.resource = None
-        # type: array
+        # type: list
         # reference to ImplementationGuide_Resource
 
         self.object_id = None
@@ -308,19 +308,19 @@ class ImplementationGuide_Resource(fhirbase):
 
     def __init__(self, dict_values=None):
         self.example = None
-        # type: boolean
+        # type: bool
 
         self.name = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.acronym = None
-        # type: string
+        # type: str
 
         self.sourceUri = None
-        # type: string
+        # type: str
 
         self.sourceReference = None
         # reference to Reference: identifier
@@ -366,7 +366,7 @@ class ImplementationGuide_Global(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
 
         self.profile = None
         # reference to Reference: identifier
@@ -413,27 +413,27 @@ class ImplementationGuide_Page(fhirbase):
 
     def __init__(self, dict_values=None):
         self.source = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.kind = None
-        # type: string
+        # type: str
         # possible values: page, example, list, include, directory,
         # dictionary, toc, resource
 
         self.type = None
-        # type: array
+        # type: list
 
         self.package = None
-        # type: array
+        # type: list
 
         self.format = None
-        # type: string
+        # type: str
 
         self.page = None
-        # type: array
+        # type: list
         # reference to ImplementationGuide_Page
 
         self.object_id = None

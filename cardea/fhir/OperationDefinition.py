@@ -79,83 +79,83 @@ class OperationDefinition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'OperationDefinition'
-        # type: string
+        # type: str
         # possible values: OperationDefinition
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.kind = None
-        # type: string
+        # type: str
         # possible values: operation, query
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.description = None
-        # type: string
+        # type: str
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.idempotent = None
-        # type: boolean
+        # type: bool
 
         self.code = None
-        # type: string
+        # type: str
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.base = None
         # reference to Reference: identifier
 
         self.resource = None
-        # type: array
+        # type: list
 
         self.system = None
-        # type: boolean
+        # type: bool
 
         self.type = None
-        # type: boolean
+        # type: bool
 
         self.instance = None
-        # type: boolean
+        # type: bool
 
         self.parameter = None
-        # type: array
+        # type: list
         # reference to OperationDefinition_Parameter
 
         self.overload = None
-        # type: array
+        # type: list
         # reference to OperationDefinition_Overload
 
         self.object_id = None
@@ -243,26 +243,26 @@ class OperationDefinition_Parameter(fhirbase):
 
     def __init__(self, dict_values=None):
         self.name = None
-        # type: string
+        # type: str
 
         self.use = None
-        # type: string
+        # type: str
         # possible values: in, out
 
         self.min = None
         # type: int
 
         self.max = None
-        # type: string
+        # type: str
 
         self.documentation = None
-        # type: string
+        # type: str
 
         self.type = None
-        # type: string
+        # type: str
 
         self.searchType = None
-        # type: string
+        # type: str
         # possible values: number, date, string, token, reference,
         # composite, quantity, uri
 
@@ -273,7 +273,7 @@ class OperationDefinition_Parameter(fhirbase):
         # reference to OperationDefinition_Binding
 
         self.part = None
-        # type: array
+        # type: list
         # reference to OperationDefinition_Parameter
 
         self.object_id = None
@@ -354,11 +354,11 @@ class OperationDefinition_Binding(fhirbase):
 
     def __init__(self, dict_values=None):
         self.strength = None
-        # type: string
+        # type: str
         # possible values: required, extensible, preferred, example
 
         self.valueSetUri = None
-        # type: string
+        # type: str
 
         self.valueSetReference = None
         # reference to Reference: identifier
@@ -403,10 +403,10 @@ class OperationDefinition_Overload(fhirbase):
 
     def __init__(self, dict_values=None):
         self.parameterName = None
-        # type: array
+        # type: list
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

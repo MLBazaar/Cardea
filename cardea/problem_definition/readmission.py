@@ -22,8 +22,8 @@ class Readmission (ProblemDefinition):
         The readmission diagnosis does not have to be the same as the initial visit diagnosis,
              (The patient could be diagnosed of something that is a complication
              of the initial diagnosis).
-
         """
+    __name__ = 'readmission'
 
     updated_es = None
     target_label_column_name = 'readmitted'
@@ -56,11 +56,20 @@ class Readmission (ProblemDefinition):
                 self.cutoff_entity,
                 self.cutoff_time_label):  # check the existance of the cutoff label
 
-            cutoff_times = es[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
+            generated_cts = self.unify_cutoff_time_discharge_time(
+                es, self.cutoff_entity, self.cutoff_time_label)
+
+            es = es.entity_from_dataframe(entity_id=self.cutoff_entity,
+                                          dataframe=generated_cts,
+                                          index='object_id')
+            cutoff_times = es[self.cutoff_entity].df['ct'].to_frame()
+
             label = es[self.target_entity].df[self.conn].values
             instance_id = list(es[self.target_entity].df.index)
+            cutoff_times = cutoff_times.reindex(index=label)
 
             cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
+
             cutoff_times['instance_id'] = instance_id
             cutoff_times.columns = ['cutoff_time', 'instance_id']
             cutoff_times['label'] = list(es[self.target_entity].df[self.target_label_column_name])

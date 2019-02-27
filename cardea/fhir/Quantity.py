@@ -29,17 +29,17 @@ class Quantity(fhirbase):
         # type: int
 
         self.comparator = None
-        # type: string
+        # type: str
         # possible values: <, <=, >=, >
 
         self.unit = None
-        # type: string
+        # type: str
 
         self.system = None
-        # type: string
+        # type: str
 
         self.code = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class

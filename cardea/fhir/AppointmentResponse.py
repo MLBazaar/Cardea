@@ -34,33 +34,33 @@ class AppointmentResponse(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'AppointmentResponse'
-        # type: string
+        # type: str
         # possible values: AppointmentResponse
 
         self.appointment = None
         # reference to Reference: identifier
 
         self.start = None
-        # type: string
+        # type: str
 
         self.end = None
-        # type: string
+        # type: str
 
         self.participantType = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.actor = None
         # reference to Reference: identifier
 
         self.participantStatus = None
-        # type: string
+        # type: str
 
         self.comment = None
-        # type: string
+        # type: str
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:

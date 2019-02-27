@@ -17,6 +17,8 @@ class LengthOfStay (ProblemDefinition):
         prediction_type: The type of the machine learning prediction.
         """
 
+    __name__ = 'los'
+
     updated_es = None
     target_label_column_name = 'length'
     target_entity = 'Encounter'
@@ -47,11 +49,18 @@ class LengthOfStay (ProblemDefinition):
             if DL().check_column_existence(es,
                                            self.cutoff_entity,
                                            self.cutoff_time_label):
+                generated_cts = self.unify_cutoff_time_admission_time(
+                    es, self.cutoff_entity, self.cutoff_time_label)
 
-                cutoff_times = es[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
+                es = es.entity_from_dataframe(entity_id=self.cutoff_entity,
+                                              dataframe=generated_cts,
+                                              index='object_id')
+
+                cutoff_times = es[self.cutoff_entity].df['ct'].to_frame()
+
                 label = es[self.target_entity].df[self.conn].values
                 instance_id = list(es[self.target_entity].df.index)
-
+                cutoff_times = cutoff_times.reindex(index=label)
                 cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
                 cutoff_times['instance_id'] = instance_id
                 cutoff_times.columns = ['cutoff_time', 'instance_id']
@@ -81,7 +90,7 @@ class LengthOfStay (ProblemDefinition):
         """
 
         generate_from = 'Period'
-        start = 'start'
+        start = self.cutoff_time_label
         end = 'end'
         label_name = self.target_label_column_name
 

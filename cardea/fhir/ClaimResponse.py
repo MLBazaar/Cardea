@@ -47,17 +47,17 @@ class ClaimResponse(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'ClaimResponse'
-        # type: string
+        # type: str
         # possible values: ClaimResponse
 
         self.status = None
-        # type: string
+        # type: str
 
         self.patient = None
         # reference to Reference: identifier
 
         self.created = None
-        # type: string
+        # type: str
 
         self.insurer = None
         # reference to Reference: identifier
@@ -75,21 +75,21 @@ class ClaimResponse(fhirbase):
         # reference to CodeableConcept
 
         self.disposition = None
-        # type: string
+        # type: str
 
         self.payeeType = None
         # reference to CodeableConcept
 
         self.item = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_Item
 
         self.addItem = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_AddItem
 
         self.error = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_Error
 
         self.totalCost = None
@@ -111,19 +111,19 @@ class ClaimResponse(fhirbase):
         # reference to CodeableConcept
 
         self.processNote = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_ProcessNote
 
         self.communicationRequest = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.insurance = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_Insurance
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -254,14 +254,14 @@ class ClaimResponse_Item(fhirbase):
         # type: int
 
         self.noteNumber = None
-        # type: array
+        # type: list
 
         self.adjudication = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_Adjudication
 
         self.detail = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_Detail
 
         self.object_id = None
@@ -360,14 +360,14 @@ class ClaimResponse_Detail(fhirbase):
         # type: int
 
         self.noteNumber = None
-        # type: array
+        # type: list
 
         self.adjudication = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_Adjudication
 
         self.subDetail = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_SubDetail
 
         self.object_id = None
@@ -409,10 +409,10 @@ class ClaimResponse_SubDetail(fhirbase):
         # type: int
 
         self.noteNumber = None
-        # type: array
+        # type: list
 
         self.adjudication = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_Adjudication
 
         self.object_id = None
@@ -459,7 +459,7 @@ class ClaimResponse_AddItem(fhirbase):
 
     def __init__(self, dict_values=None):
         self.sequenceLinkId = None
-        # type: array
+        # type: list
 
         self.revenue = None
         # reference to CodeableConcept
@@ -471,21 +471,21 @@ class ClaimResponse_AddItem(fhirbase):
         # reference to CodeableConcept
 
         self.modifier = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.fee = None
         # reference to Money
 
         self.noteNumber = None
-        # type: array
+        # type: list
 
         self.adjudication = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_Adjudication
 
         self.detail = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_Detail1
 
         self.object_id = None
@@ -567,17 +567,17 @@ class ClaimResponse_Detail1(fhirbase):
         # reference to CodeableConcept
 
         self.modifier = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.fee = None
         # reference to Money
 
         self.noteNumber = None
-        # type: array
+        # type: list
 
         self.adjudication = None
-        # type: array
+        # type: list
         # reference to ClaimResponse_Adjudication
 
         self.object_id = None
@@ -699,7 +699,7 @@ class ClaimResponse_Payment(fhirbase):
         # reference to CodeableConcept
 
         self.date = None
-        # type: string
+        # type: str
 
         self.amount = None
         # reference to Money
@@ -766,7 +766,7 @@ class ClaimResponse_ProcessNote(fhirbase):
         # reference to CodeableConcept
 
         self.text = None
-        # type: string
+        # type: str
 
         self.language = None
         # reference to CodeableConcept
@@ -818,16 +818,16 @@ class ClaimResponse_Insurance(fhirbase):
         # type: int
 
         self.focal = None
-        # type: boolean
+        # type: bool
 
         self.coverage = None
         # reference to Reference: identifier
 
         self.businessArrangement = None
-        # type: string
+        # type: str
 
         self.preAuthRef = None
-        # type: array
+        # type: list
 
         self.claimResponse = None
         # reference to Reference: identifier

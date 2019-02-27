@@ -96,96 +96,96 @@ class PlanDefinition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.resourceType = 'PlanDefinition'
-        # type: string
+        # type: str
         # possible values: PlanDefinition
 
         self.url = None
-        # type: string
+        # type: str
 
         self.version = None
-        # type: string
+        # type: str
 
         self.name = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.type = None
         # reference to CodeableConcept
 
         self.status = None
-        # type: string
+        # type: str
         # possible values: draft, active, retired, unknown
 
         self.experimental = None
-        # type: boolean
+        # type: bool
 
         self.date = None
-        # type: string
+        # type: str
 
         self.publisher = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.purpose = None
-        # type: string
+        # type: str
 
         self.usage = None
-        # type: string
+        # type: str
 
         self.approvalDate = None
-        # type: string
+        # type: str
 
         self.lastReviewDate = None
-        # type: string
+        # type: str
 
         self.effectivePeriod = None
         # reference to Period
 
         self.useContext = None
-        # type: array
+        # type: list
         # reference to UsageContext
 
         self.jurisdiction = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.topic = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.contributor = None
-        # type: array
+        # type: list
         # reference to Contributor
 
         self.contact = None
-        # type: array
+        # type: list
         # reference to ContactDetail
 
         self.copyright = None
-        # type: string
+        # type: str
 
         self.relatedArtifact = None
-        # type: array
+        # type: list
         # reference to RelatedArtifact
 
         self.library = None
-        # type: array
+        # type: list
         # reference to Reference: identifier
 
         self.goal = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Goal
 
         self.action = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Action
 
         self.identifier = None
-        # type: array
+        # type: list
         # reference to Identifier
 
         if dict_values:
@@ -307,15 +307,15 @@ class PlanDefinition_Goal(fhirbase):
         # reference to CodeableConcept
 
         self.addresses = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.documentation = None
-        # type: array
+        # type: list
         # reference to RelatedArtifact
 
         self.target = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Target
 
         self.object_id = None
@@ -533,54 +533,54 @@ class PlanDefinition_Action(fhirbase):
 
     def __init__(self, dict_values=None):
         self.label = None
-        # type: string
+        # type: str
 
         self.title = None
-        # type: string
+        # type: str
 
         self.description = None
-        # type: string
+        # type: str
 
         self.textEquivalent = None
-        # type: string
+        # type: str
 
         self.code = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.reason = None
-        # type: array
+        # type: list
         # reference to CodeableConcept
 
         self.documentation = None
-        # type: array
+        # type: list
         # reference to RelatedArtifact
 
         self.goalId = None
-        # type: array
+        # type: list
 
         self.triggerDefinition = None
-        # type: array
+        # type: list
         # reference to TriggerDefinition
 
         self.condition = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Condition
 
         self.input = None
-        # type: array
+        # type: list
         # reference to DataRequirement
 
         self.output = None
-        # type: array
+        # type: list
         # reference to DataRequirement
 
         self.relatedAction = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_RelatedAction
 
         self.timingDateTime = None
-        # type: string
+        # type: str
 
         self.timingPeriod = None
         # reference to Period
@@ -595,31 +595,31 @@ class PlanDefinition_Action(fhirbase):
         # reference to Timing
 
         self.participant = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Participant
 
         self.type = None
         # reference to Coding
 
         self.groupingBehavior = None
-        # type: string
+        # type: str
         # possible values: visual-group, logical-group, sentence-group
 
         self.selectionBehavior = None
-        # type: string
+        # type: str
         # possible values: any, all, all-or-none, exactly-one,
         # at-most-one, one-or-more
 
         self.requiredBehavior = None
-        # type: string
+        # type: str
         # possible values: must, could, must-unless-documented
 
         self.precheckBehavior = None
-        # type: string
+        # type: str
         # possible values: yes, no
 
         self.cardinalityBehavior = None
-        # type: string
+        # type: str
         # possible values: single, multiple
 
         self.definition = None
@@ -629,11 +629,11 @@ class PlanDefinition_Action(fhirbase):
         # reference to Reference: identifier
 
         self.dynamicValue = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_DynamicValue
 
         self.action = None
-        # type: array
+        # type: list
         # reference to PlanDefinition_Action
 
         self.object_id = None
@@ -833,17 +833,17 @@ class PlanDefinition_Condition(fhirbase):
 
     def __init__(self, dict_values=None):
         self.kind = None
-        # type: string
+        # type: str
         # possible values: applicability, start, stop
 
         self.description = None
-        # type: string
+        # type: str
 
         self.language = None
-        # type: string
+        # type: str
 
         self.expression = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
@@ -883,10 +883,10 @@ class PlanDefinition_RelatedAction(fhirbase):
 
     def __init__(self, dict_values=None):
         self.actionId = None
-        # type: string
+        # type: str
 
         self.relationship = None
-        # type: string
+        # type: str
         # possible values: before-start, before, before-end,
         # concurrent-with-start, concurrent, concurrent-with-end, after-start,
         # after, after-end
@@ -949,7 +949,7 @@ class PlanDefinition_Participant(fhirbase):
 
     def __init__(self, dict_values=None):
         self.type = None
-        # type: string
+        # type: str
         # possible values: patient, practitioner, related-person
 
         self.role = None
@@ -1004,16 +1004,16 @@ class PlanDefinition_DynamicValue(fhirbase):
 
     def __init__(self, dict_values=None):
         self.description = None
-        # type: string
+        # type: str
 
         self.path = None
-        # type: string
+        # type: str
 
         self.language = None
-        # type: string
+        # type: str
 
         self.expression = None
-        # type: string
+        # type: str
 
         self.object_id = None
         # unique identifier for object class
