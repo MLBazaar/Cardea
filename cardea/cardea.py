@@ -1,6 +1,8 @@
-from inspect import isclass
-import pandas as pd
 import json
+from inspect import isclass
+
+import featuretools as ft
+import pandas as pd
 
 import cardea
 from cardea.data_loader import EntitySetLoader
@@ -87,14 +89,14 @@ class Cardea():
         Returns:
             A set of the available problems.
         """
-        
+
         problems = set([])
         for attribute_string in dir(cardea.problem_definition):
             attribute = getattr(cardea.problem_definition, attribute_string)
             if isclass(attribute):
                 if attribute.__name__ and attribute.__name__ != 'ProblemDefinition':
                     problems.add(attribute.__name__)
-                    
+
         return problems
 
     def select_problem(self, selection, parameter=None):
@@ -147,10 +149,10 @@ class Cardea():
         # target label calculation
         self.es, self.target_entity, cutoff = self.chosen_problem.generate_cutoff_times(self.es)
         return cutoff
-    
+
     def list_feature_primitives(self):
         """Returns built-in primitive in Featuretools.
-        
+
         Returns:
             A pandas dataframe that lists and describes each built-in primitive in Featuretools.
         """
@@ -167,11 +169,13 @@ class Cardea():
             Encoded feature_matrix, encoded features.
         """
 
-        fm_encoded, _ = self.featurization.generate_feature_matrix(self.es, self.target_entity, cutoff)
+        fm_encoded, _ = self.featurization.generate_feature_matrix(
+            self.es, self.target_entity, cutoff)
         fm_encoded = fm_encoded.reset_index(drop=True)
         return fm_encoded
 
-    def execute_model(self, feature_matrix, target, primitives, optimize=False, hyperparameters=None):
+    def execute_model(self, feature_matrix, target, primitives,
+                      optimize=False, hyperparameters=None):
         '''Executes and predict all the pipelines.
 
         Args:
@@ -193,25 +197,24 @@ class Cardea():
             optimize=False,
             hyperparameters=None
         )
-    
+
     def convert_to_json(dic):
         '''Converts a given dictionary to json format.
-        
+
         Args:
             dict: A dictionary of values to be coverted.
-            
+
         Returns:
             A string in json format.
         '''
         return json.dumps(dic)
-        
-    
+
     def convert_from_json(string):
         '''Converts a given json string to dictionary format.
-        
+
         Args:
             json: A dictionary of values to be coverted.
-            
+
         Returns:
             A parsed dictionary.
         '''
