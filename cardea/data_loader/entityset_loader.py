@@ -64,8 +64,8 @@ class EntitySetLoader(DataLoader):
             An entityset with loaded data.
         """
 
-        fhir = self.read_csv_files(folder_path)
-        return self.load_data_entityset(fhir)
+        fhir = self.read_csv_files(folder_path=folder_path)
+        return self.load_df_entityset(fhir=fhir)
 
     def read_csv_files(self, folder_path):
         """Returns a dictionary with loaded .csv files in folder_path.
@@ -81,7 +81,7 @@ class EntitySetLoader(DataLoader):
 
         fhir = {}
 
-        csv_files = glob(folder_path + "*.csv")
+        csv_files = glob(folder_path + "/*.csv")
         for file_path in csv_files:
             df = pd.read_csv(file_path)
             file_name = file_path.split("/")[-1].split(".")[0]
