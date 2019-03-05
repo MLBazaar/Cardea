@@ -11,7 +11,7 @@ from sklearn.model_selection import KFold
 
 
 class Modeler():
-    '''A class responsible for executing various Machine Learning Pipelines using MLBlocks.'''
+    """A class responsible for executing various Machine Learning Pipelines using MLBlocks."""
 
     problem_type = None
     primitive = []
@@ -33,24 +33,23 @@ class Modeler():
                                        }
 
     def get_directory(self):
-        '''Returns the path of the directory.
+        """Returns the path of the directory.
 
         Returns:
-            The absolute path of the directory.
-        '''
+            An arrary of all the absolute paths for all MLplrimitive folders.
+        """
         mypath = mlprimitives.get_primitives_paths()
         return mypath
 
     def check_path(self, primitives):
-        '''Checks the path of each primitive in the pipeline.
+        """Checks the path of each primitive in the pipeline.
 
         Args:
             primitives: A list of primitive.
 
         Returns:
             A list of primitives after edition.
-
-        '''
+        """
         new_list = []
         mypath = self.get_directory()
 
@@ -69,15 +68,14 @@ class Modeler():
         return new_list
 
     def check_path_hyperparameters(self, hyperparameters):
-        '''Checks the path of each hyperparameters in the pipeline.
+        """Checks the path of each hyperparameters in the pipeline.
 
         Args:
             hyperparameters: A list of hyperparameters.
 
         Returns:
             A list of hyperparameters after edition.
-
-        '''
+        """
 
         new_list = {}
         mypath = self.get_directory()
@@ -99,7 +97,7 @@ class Modeler():
         return new_list
 
     def create_pipeline(self, primitives, hyperparameters=None):
-        '''Creates a pipeline of primitives.
+        """Creates a pipeline of primitives.
 
         Args:
             primitives: A list of primitive.
@@ -107,7 +105,7 @@ class Modeler():
 
         Returns:
             A MLPipeline instance.
-        '''
+        """
 
         self.primitive = self.check_path(primitives)
 
@@ -119,7 +117,7 @@ class Modeler():
         return pipeline
 
     def fit_predict_model(self, X_train, y_train, X_test, pipeline):
-        '''Fits and predicts all the primitives within the pipeline.
+        """Fits and predicts all the primitives within the pipeline.
 
         Args:
             X_train: A ndarray of the training data.
@@ -129,7 +127,7 @@ class Modeler():
 
         Returns:
             A list consists of the used pipeline and an array of the predicted values.
-        '''
+        """
 
         pipeline.fit(X_train, y_train)
         y_pred = pipeline.predict(X_test)
@@ -137,7 +135,7 @@ class Modeler():
 
     def search_all_possible_primitives(
             self, primitives, hyperparameters=None):
-        '''Searches for all primitives similar to the ones provided.
+        """Searches for all primitives similar to the ones provided.
 
         Args:
             primitives: A list of primitive.
@@ -146,7 +144,7 @@ class Modeler():
         Returns:
             A list that encapsulate a list consisting of the fold number and the used pipeline and
             an array of the predicted values and an array of the actual values.
-        '''
+        """
 
         pipeline_list = []
         pipeline_list.append(
@@ -155,7 +153,7 @@ class Modeler():
         return pipeline_list
 
     def create_kfold(self, primitives, hyperparameters=None):
-        '''Creates Kfold cross-validation and predicts all the primitives within the pipeline.
+        """Creates Kfold cross-validation and predicts all the primitives within the pipeline.
 
         Args:
             primitive: The name of the primitive.
@@ -166,7 +164,7 @@ class Modeler():
         Returns:
             A list consists of the fold number and the used pipeline and an array of
             the predicted values and an array of the actual values.
-        '''
+        """
         pipeline_list = []
         kf = KFold(n_splits=10, random_state=None, shuffle=True)
         i = 0
@@ -202,7 +200,7 @@ class Modeler():
         return pipeline_list
 
     def kfold_scoring(self, data_frame, target, pipeline):
-        '''Calculate the average Kfold cross-validation score.
+        """Calculate the average Kfold cross-validation score.
 
         Args:
             data_frame: A dataframe, which encapsulates all the records of that entity.
@@ -211,7 +209,7 @@ class Modeler():
 
         Returns:
             The average folds score.
-        '''
+        """
 
         fold_score = []
         macro = ['recall', 'f1', 'precision']
@@ -256,7 +254,7 @@ class Modeler():
         return np.mean(fold_score)
 
     def create_space(self, pipeline):
-        '''Creates the search space.
+        """Creates the search space.
 
         Args:
             pipeline: A MLPipeline instance.
@@ -266,7 +264,7 @@ class Modeler():
 
         Returns:
             A dictionary of the space over which to search.
-        '''
+        """
         space = {}
         space_list = {}
         for block in list(pipeline.blocks.values()):
@@ -302,14 +300,14 @@ class Modeler():
         return space_list
 
     def hyperopt_train_test(self, params):
-        '''Creates the objective function to minimize.
+        """Creates the objective function to minimize.
 
         Args:
             params: The parameter for a specific pipleline.
 
         Returns:
             The the model secore after K-fold corss-validation.
-        '''
+        """
 
         pipeline = self.create_pipeline(self.primitive, params)
 
@@ -321,7 +319,7 @@ class Modeler():
         return {'loss': -accuracy, 'status': STATUS_OK}
 
     def hyperparameter_tunning(self, pipeline, max_evals):
-        '''Tuens and optimize the models' hyperparameter.
+        """Tuens and optimize the models' hyperparameter.
 
         Args:
             pipeline: A MLPipeline instance.
@@ -329,7 +327,7 @@ class Modeler():
 
         Returns:
             A list of the tuned hyperparameter that best fits the model.
-        '''
+        """
         space = self.create_space(pipeline)
 
         trials = Trials()
@@ -339,18 +337,18 @@ class Modeler():
         return best
 
     def optimization(self, pipeline, max_evals):
-        '''Tuens and optimize the models' hyperparameter.
+        """Tuens and optimize the models' hyperparameter.
 
         Args:
             pipeline: A MLPipeline instance.
             max_evals: Maximum number of hyperparameter evaluations.
-        '''
+        """
         hyperparameter = self.hyperparameter_tunning(pipeline, max_evals)
         self.pipeline_dict['hyperparameter'] = hyperparameter
 
     def execute_pipeline(self, data_frame, target, primitives_list, problem_type,
                          optimize=False, max_evals=10, scoring=None, hyperparameters=None):
-        '''Executes and predict all the pipelines.
+        """Executes and predict all the pipelines.
 
         Args:
             data_frame: A dataframe, which encapsulates all the records of that entity.
@@ -366,7 +364,7 @@ class Modeler():
         Returns:
             A list for all the pipelines which consists of: the fold number, the used pipeline
             and an array of the predicted values and an array of the actual values.
-        '''
+        """
         all_pipeline_dict = {}
         Folds = {}
         self.scoring = scoring
