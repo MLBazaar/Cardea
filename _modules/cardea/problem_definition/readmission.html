@@ -77,6 +77,11 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">Cardea</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#documentation">Documentation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../installation.html#stable-release">Stable release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../installation.html#from-sources">From sources</a></li>
@@ -116,6 +121,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id1">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -188,24 +197,25 @@
 
 
 <div class="viewcode-block" id="Readmission"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.readmission.Readmission">[docs]</a><span class="k">class</span> <span class="nc">Readmission</span> <span class="p">(</span><span class="n">ProblemDefinition</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Defines the problem of readmission, predicting whether</span>
-<span class="sd">        a patient will revisit the hospital within certain period of time.</span>
+    <span class="sd">&quot;&quot;&quot;Defines the problem of readmission.</span>
 
-<span class="sd">        Attributes:</span>
+<span class="sd">    Predicting whether a patient will revisit the hospital within certain period of time.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        The patient visit is considered a readmission if he/she visits</span>
+<span class="sd">        the hospital again within 30 days.</span>
+
+<span class="sd">        The readmission diagnosis does not have to be the same as the initial visit diagnosis,</span>
+<span class="sd">        (The patient could be diagnosed of something that is a complication</span>
+<span class="sd">        of the initial diagnosis).</span>
+
+<span class="sd">    Attributes:</span>
 <span class="sd">        target_label_column_name: The target label of the prediction problem.</span>
 <span class="sd">        target_entity: Name of the entity containing the target label.</span>
 <span class="sd">        cutoff_time_label: The cutoff time label of the prediction problem.</span>
 <span class="sd">        cutoff_entity: Name of the entity containing the cutoff time label.</span>
 <span class="sd">        prediction_type: The type of the machine learning prediction.</span>
-
-<span class="sd">        Assumptions:</span>
-<span class="sd">        The patient visit is considered a readmission if he/she visits</span>
-<span class="sd">            the hospital again within 30 days.</span>
-
-<span class="sd">        The readmission diagnosis does not have to be the same as the initial visit diagnosis,</span>
-<span class="sd">             (The patient could be diagnosed of something that is a complication</span>
-<span class="sd">             of the initial diagnosis).</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;readmission&#39;</span>
 
     <span class="n">updated_es</span> <span class="o">=</span> <span class="kc">None</span>
@@ -222,13 +232,13 @@
 <div class="viewcode-block" id="Readmission.generate_cutoff_times"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.readmission.Readmission.generate_cutoff_times">[docs]</a>    <span class="k">def</span> <span class="nf">generate_cutoff_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">es</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Generates cutoff times for the predection problem.</span>
 
-<span class="sd">            Args:</span>
+<span class="sd">        Args:</span>
 <span class="sd">            es: fhir entityset.</span>
 
-<span class="sd">            Returns:</span>
+<span class="sd">        Returns:</span>
 <span class="sd">            entity_set, target_entity, and a dataframe of cutoff_times and target_labels.</span>
 
-<span class="sd">            Raises:</span>
+<span class="sd">        Raises:</span>
 <span class="sd">            ValueError: An error occurs if the cutoff variable does not exist.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -264,15 +274,15 @@
 <div class="viewcode-block" id="Readmission.generate_target_label"><a class="viewcode-back" href="../../../cardea.problem_definition.html#cardea.problem_definition.readmission.Readmission.generate_target_label">[docs]</a>    <span class="k">def</span> <span class="nf">generate_target_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">es</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Generates target labels in the case of having missing label in the entityset.</span>
 
-<span class="sd">            Args:</span>
+<span class="sd">        Args:</span>
 <span class="sd">            es: fhir entityset.</span>
 
-<span class="sd">            Returns:</span>
+<span class="sd">        Returns:</span>
 <span class="sd">            Updated entityset with the generated label.</span>
 
-<span class="sd">            Raises:</span>
+<span class="sd">        Raises:</span>
 <span class="sd">            ValueError: An error occurs if the target label cannot be generated.</span>
-<span class="sd">            &quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">generate_from</span> <span class="o">=</span> <span class="s1">&#39;Period&#39;</span>
         <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;end&#39;</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">DataLoader</span><span class="p">()</span><span class="o">.</span><span class="n">check_column_existence</span><span class="p">(</span>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cardea 0.0.1 documentation</title>
+  <title>Cardea &mdash; Cardea 0.0.1 documentation</title>
   
 
   
@@ -78,7 +78,12 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cardea</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#stable-release">Stable release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#from-sources">From sources</a></li>
@@ -118,6 +123,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id1">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -165,7 +174,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Cardea</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -186,7 +195,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
+  <p align="center">
+<img width=20% src="https://dai.lids.mit.edu/wp-content/uploads/2018/08/cardea.png" alt=“Cardea” />
+</p><p align="center">
+<i>Cardea is a machine learning library built on top of FHIR schema. </I>
+</p><p align="center">
+<i>An open source project from Data to AI Lab at MIT </I>
+</p><a class="reference external image-reference" href="https://pypi.python.org/pypi/cardea"><img alt="PyPi Shield" src="https://img.shields.io/pypi/v/cardea.svg" /></a>
+<a class="reference external image-reference" href="https://travis-ci.org/D3-AI/Cardea"><img alt="Travis CI Shield" src="https://travis-ci.org/D3-AI/Cardea.svg?branch=master" /></a>
+<div class="section" id="cardea">
+<h1>Cardea<a class="headerlink" href="#cardea" title="Permalink to this headline">¶</a></h1>
+<p>This library is under development. Please contact <a class="reference external" href="mailto:dai-lab&#37;&#52;&#48;mit&#46;edu">dai-lab<span>&#64;</span>mit<span>&#46;</span>edu</a> or any of the contributors for more information. We will announce our first release soon.</p>
+<p>Cardea is a machine learning library built on top of the FHIR data schema. The library uses a number of automl tools developed under <a class="reference external" href="https://github.com/HDI-Project">“The Human Data Interaction Project”</a> at <a class="reference external" href="https://dai.lids.mit.edu/">Data to AI lab at MIT</a>. Our goal is to provide an easy to use library to develop machine learning models from electronic health records. A typical usage of this library will involve:</p>
+<ul class="simple">
+<li>Installing the library available via pypi</li>
+<li>Integrating their data in FHIR schema (whatever subset of data is available)</li>
+<li>Following the API develop some pre specified prediction models (or specify new ones using our API) The model building process is parameterized but automatically does:<ul>
+<li>data cleaning, auditing</li>
+<li>preprocessing</li>
+<li>feature engineering</li>
+<li>machine learning model search and tuning</li>
+<li>model evaluation</li>
+<li>model auditing</li>
+</ul>
+</li>
+<li>Testing the models using our API</li>
+<li>Preparing and deploying the models</li>
+</ul>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Free software: MIT license</li>
+</ul>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Documentation: <a class="reference external" href="https://D3-AI.github.io/Cardea">https://D3-AI.github.io/Cardea</a></li>
+</ul>
+</div>
+</div>
+
 
            </div>
            

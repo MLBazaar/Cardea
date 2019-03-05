@@ -79,6 +79,11 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Cardea</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#documentation">Documentation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#stable-release">Stable release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#from-sources">From sources</a></li>
@@ -118,6 +123,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id1">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -201,7 +210,7 @@
 <dt id="cardea.featurization.featurization.Featurization">
 <em class="property">class </em><code class="descclassname">cardea.featurization.featurization.</code><code class="descname">Featurization</code><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>“A class that generates a feature matrix from its attributes.</p>
+<p>A class that generates a feature matrix from its attributes.</p>
 <dl class="staticmethod">
 <dt id="cardea.featurization.featurization.Featurization.agg_prim">
 <em class="property">static </em><code class="descname">agg_prim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization.agg_prim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.agg_prim" title="Permalink to this definition">¶</a></dt>
@@ -240,6 +249,46 @@ A pandas dataframe of the calculated matrix.</p>
 </div>
 <div class="section" id="module-cardea.featurization">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cardea.featurization" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cardea.featurization.Featurization">
+<em class="property">class </em><code class="descclassname">cardea.featurization.</code><code class="descname">Featurization</code><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.Featurization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class that generates a feature matrix from its attributes.</p>
+<dl class="staticmethod">
+<dt id="cardea.featurization.Featurization.agg_prim">
+<em class="property">static </em><code class="descname">agg_prim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization.agg_prim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.Featurization.agg_prim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.featurization.Featurization.generate_feature_matrix">
+<code class="descname">generate_feature_matrix</code><span class="sig-paren">(</span><em>es</em>, <em>target</em>, <em>cutoff</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization.generate_feature_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.Featurization.generate_feature_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates a feature matrix and features given in Featurization object.
+Args:
+es: A featuretools entityset that holds injested data.
+target: A string of the target entity name.
+cutoff: A pandas dataframe that indicates cutoff_time for each instance.
+verbose: A boolean indicator of verbose option.
+Returns:
+A pandas dataframe of the calculated matrix.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="cardea.featurization.Featurization.max_depth">
+<em class="property">static </em><code class="descname">max_depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization.max_depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.Featurization.max_depth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="cardea.featurization.Featurization.n_jobs">
+<em class="property">static </em><code class="descname">n_jobs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization.n_jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.Featurization.n_jobs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="cardea.featurization.Featurization.trans_prim">
+<em class="property">static </em><code class="descname">trans_prim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/featurization/featurization.html#Featurization.trans_prim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.Featurization.trans_prim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
