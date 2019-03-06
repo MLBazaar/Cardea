@@ -244,7 +244,7 @@ class Modeler():
                         y_predict, y_test, average='macro')
 
             fold_score.append(result)
-        self.pipeline_dict['Folds'] = Folds
+        self.pipeline_dict['folds'] = Folds
         return np.mean(fold_score)
 
     def create_space(self, pipeline):
@@ -390,8 +390,8 @@ class Modeler():
                                                "Actual": list_of_executed_pipelines[0][0][0][3]}
 
                 self.pipeline_dict = {'primitives': primitives,
-                                      'Folds': Folds,
-                                      'Hyperparameter': None}
+                                      'folds': Folds,
+                                      'hyperparameter': None}
 
             all_pipeline_dict[pipleline_order] = self.pipeline_dict
             self.pipeline_dict = {}
