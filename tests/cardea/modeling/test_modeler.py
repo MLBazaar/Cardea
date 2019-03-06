@@ -11,7 +11,7 @@ from cardea.modeling.modeler import Modeler
 
 @pytest.fixture()
 def path():
-    path = mlprimitives.get_primitives_paths()
+    path = mlprimitives.get_primitives_paths()[-1]
     return path
 
 

@@ -36,9 +36,9 @@ class Modeler():
         """Returns the path of the directory.
 
         Returns:
-            An arrary of all the absolute paths for all MLplrimitive folders.
+            The absolute path of MLplrimitive directory.
         """
-        mypath = mlprimitives.get_primitives_paths()
+        mypath = mlprimitives.get_primitives_paths()[-1]
         return mypath
 
     def check_path(self, primitives):
@@ -54,15 +54,12 @@ class Modeler():
         mypath = self.get_directory()
 
         for primitive in primitives:
-            for path in mypath:
-                path = path + '/'
-                primitive_file_name = primitive + '.json'
-                if(path in primitive and os.path.exists(primitive_file_name)):
-                    new_list.append(primitive)
-                    break
-                elif(os.path.exists(path + primitive_file_name)):
-                    new_list.append(path + primitive)
-                    break
+            mypath = mypath + '/'
+            primitive_file_name = primitive + '.json'
+            if(mypath in primitive and os.path.exists(primitive_file_name)):
+                new_list.append(primitive)
+            elif(os.path.exists(mypath + primitive_file_name)):
+                new_list.append(mypath + primitive)
         if new_list == []:
             raise ValueError(primitives, 'is not found is MLprimitives.')
         return new_list
@@ -82,16 +79,13 @@ class Modeler():
         hyperparameters_keys = hyperparameters.keys()
 
         for hyperparameter in hyperparameters_keys:
-            for path in mypath:
-                path = path + '/'
-                primitive_file_name = hyperparameter + '.json'
+            mypath = mypath + '/'
+            primitive_file_name = hyperparameter + '.json'
 
-                if(path in hyperparameter and os.path.exists(primitive_file_name)):
-                    new_list[hyperparameter] = hyperparameters[hyperparameter]
-                    break
-                elif(os.path.exists(path + hyperparameter + ".json")):
-                    new_list[path + hyperparameter] = hyperparameters[hyperparameter]
-                    break
+            if(mypath in hyperparameter and os.path.exists(primitive_file_name)):
+                new_list[hyperparameter] = hyperparameters[hyperparameter]
+            elif(os.path.exists(mypath + hyperparameter + ".json")):
+                new_list[mypath + hyperparameter] = hyperparameters[hyperparameter]
         if new_list == {}:
             raise ValueError(list(hyperparameters_keys), 'is not found is MLprimitives.')
         return new_list
