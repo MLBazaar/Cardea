@@ -19,6 +19,7 @@ class Modeler():
     scoring = None
     data_frame = None
     target = None
+    minimize_cost = False
 
     regression_scoring_function = {'explained_variance_score': metrics.explained_variance_score,
                                    'mean_absolute_error': metrics.mean_absolute_error,
@@ -310,7 +311,10 @@ class Modeler():
     def objective(self, params):
 
         accuracy = self.hyperopt_train_test(params)
-        return {'loss': -accuracy, 'status': STATUS_OK}
+        if not self.minimize_cost:
+            print("Maximum")
+            accuracy = -accuracy
+        return {'loss': accuracy, 'status': STATUS_OK}
 
     def hyperparameter_tunning(self, pipeline, max_evals):
         """Tuens and optimize the models' hyperparameter.
@@ -341,7 +345,8 @@ class Modeler():
         self.pipeline_dict['hyperparameter'] = hyperparameter
 
     def execute_pipeline(self, data_frame, target, primitives_list, problem_type,
-                         optimize=False, max_evals=10, scoring=None, hyperparameters=None):
+                         optimize=False, max_evals=10, scoring=None,
+                         minimize_cost=False, hyperparameters=None):
         """Executes and predict all the pipelines.
 
         Args:
@@ -353,6 +358,7 @@ class Modeler():
             optimize: A boolean value which indicates whether to optimize the model or not.
             max_evals: Maximum number of hyperparameter evaluations.
             scoring: A label to specify the scoring function.
+            minimize_cost: A boolean value indicating whether to get minimum or maximum cost value.
             hyperparameters: A dictionary of hyperparameters for each primitives.
 
         Returns:
@@ -364,7 +370,7 @@ class Modeler():
         self.scoring = scoring
         self.data_frame = data_frame
         self.problem_type = problem_type
-
+        self.minimize_cost = minimize_cost
         if(not isinstance(target, np.ndarray)):
             target = np.asarray(target)
         self.target = target

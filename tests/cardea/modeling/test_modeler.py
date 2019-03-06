@@ -140,6 +140,6 @@ def test_execute_pipeline_without_optimize(get_model):
     second_pipeline = ['sklearn.linear_model.LinearRegression']
     pipeline_list = [first_pipeline, second_pipeline]
     result = get_model.execute_pipeline(iris.data, iris.target, pipeline_list, "regression", False)
-    result_hyperparameter = result['pipeline0']['Hyperparameter']
+    result_hyperparameter = result['pipeline0']['hyperparameter']
     assert set(list(result.keys())) == set(['pipeline0',
                                             'pipeline1']) and result_hyperparameter is None
