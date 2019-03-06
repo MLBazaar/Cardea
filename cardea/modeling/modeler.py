@@ -61,7 +61,7 @@ class Modeler():
             elif(os.path.exists(mypath + primitive_file_name)):
                 new_list.append(mypath + primitive)
         if new_list == []:
-            raise ValueError(primitives, 'is not found is MLprimitives.')
+            raise ValueError(primitives, 'is not found in MLprimitives.')
         return new_list
 
     def check_path_hyperparameters(self, hyperparameters):
@@ -87,7 +87,7 @@ class Modeler():
             elif(os.path.exists(mypath + hyperparameter + ".json")):
                 new_list[mypath + hyperparameter] = hyperparameters[hyperparameter]
         if new_list == {}:
-            raise ValueError(list(hyperparameters_keys), 'is not found is MLprimitives.')
+            raise ValueError(list(hyperparameters_keys), 'is not found in MLprimitives.')
         return new_list
 
     def create_pipeline(self, primitives, hyperparameters=None):
