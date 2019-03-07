@@ -2,8 +2,8 @@ import featuretools as ft
 
 
 class Featurization():
-    """A class that generates a feature matrix from its attributes.
-        """
+    """A class that generates a feature matrix from its attributes."""
+
     __name__ = 'Featurization'
 
     @staticmethod
