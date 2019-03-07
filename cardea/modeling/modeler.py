@@ -312,7 +312,6 @@ class Modeler():
 
         accuracy = self.hyperopt_train_test(params)
         if not self.minimize_cost:
-            print("Maximum")
             accuracy = -accuracy
         return {'loss': accuracy, 'status': STATUS_OK}
 
