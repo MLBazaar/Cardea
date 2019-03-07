@@ -256,8 +256,8 @@
 <span class="sd">            An entityset with loaded data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">fhir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_csv_files</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_data_entityset</span><span class="p">(</span><span class="n">fhir</span><span class="p">)</span></div>
+        <span class="n">fhir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_csv_files</span><span class="p">(</span><span class="n">folder_path</span><span class="o">=</span><span class="n">folder_path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_df_entityset</span><span class="p">(</span><span class="n">fhir</span><span class="o">=</span><span class="n">fhir</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="EntitySetLoader.read_csv_files"><a class="viewcode-back" href="../../../cardea.data_loader.html#cardea.data_loader.entityset_loader.EntitySetLoader.read_csv_files">[docs]</a>    <span class="k">def</span> <span class="nf">read_csv_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns a dictionary with loaded .csv files in folder_path.</span>
