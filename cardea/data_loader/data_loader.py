@@ -218,7 +218,8 @@ class Diamond(DataLoader):
             edges = [x for x in G.edges() if x not in X.edges()]
 
             for edge in edges:
-                self.merge(edge, remove=True)
+                if edge[0] != edge[1]:
+                    self.merge(edge, remove=True)
 
     def get_relation(self, source, target):
         """Obtains the record for the edge to break from relationships.
