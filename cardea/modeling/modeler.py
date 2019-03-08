@@ -328,7 +328,7 @@ class Modeler():
         space = self.create_space(pipeline)
 
         trials = Trials()
-        best = fmin(self.objective, space, algo=tpe.suggest, max_evals=max_evals, trials=trials)
+        best = fmin(self.objective, space, algo=tpe.suggest, max_evals=max_evals, catch_eval_exceptions=True, trials=trials)
 
         best = hyperopt.space_eval(space, best)
         return best
