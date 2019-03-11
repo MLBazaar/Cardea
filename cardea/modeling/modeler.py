@@ -288,7 +288,7 @@ class Modeler():
                     else:
                         space[hyperparameter] = hp.choice(
                             hyperparameter, np.arange(value[0], value[1], 1))
-                else:
+                elif(tunable_hyperparameters[hyperparameter]['type'] == 'bool'):
                     space[hyperparameter] = hp.choice(hyperparameter, [True, False])
 
             space_list[primitive] = space
