@@ -14,7 +14,7 @@ install_requires = [
     'networkx==2.2',
     'pandas>=0.23.4,<0.25',
     'mlblocks==0.3.0',
-    'mlprimitives==0.1.7',
+    'mlprimitives==0.1.6',
     'sklearn',
     'scipy>=1.1.0',
     'hyperopt==0.1.2'
