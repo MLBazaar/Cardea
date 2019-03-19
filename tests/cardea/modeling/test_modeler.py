@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-import mlprimitives
+import mlblocks
 import pytest
 from sklearn.datasets import load_iris
 
@@ -11,7 +11,7 @@ from cardea.modeling.modeler import Modeler
 
 @pytest.fixture()
 def path():
-    path = mlprimitives.get_primitives_paths()[-1]
+    path = mlblocks.get_primitives_paths()[-1]
     return path
 
 
