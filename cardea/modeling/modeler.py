@@ -250,13 +250,10 @@ class Modeler():
 
     def create_space(self, pipeline):
         """Creates the search space.
-
         Args:
             pipeline: A MLPipeline instance.
-
         Raises:
         Exception: If the value of tunnable hyperparameters is empty.
-
         Returns:
             A dictionary of the space over which to search.
         """
@@ -280,14 +277,19 @@ class Modeler():
                 elif('range' in hp_type):
                     value = tunable_hyperparameters[hyperparameter]['range']
                     if(tunable_hyperparameters[hyperparameter]['type'] == 'float'):
+                        values = np.linspace(value[0], value[1], 10)
+                        if(tunable_hyperparameters[hyperparameter]['default'] is None):
+                            np.append(values, None)
                         space[hyperparameter] = hp.choice(
-                            hyperparameter, np.linspace(
-                                value[0], value[1], 10))
+                            hyperparameter, values)
                     elif (tunable_hyperparameters[hyperparameter]['type'] == 'str'):
                         space[hyperparameter] = hp.choice(hyperparameter, value)
                     else:
+                        values = np.arange(value[0], value[1], 1)
+                        if(tunable_hyperparameters[hyperparameter]['default'] is None):
+                            np.append(values, None)
                         space[hyperparameter] = hp.choice(
-                            hyperparameter, np.arange(value[0], value[1], 1))
+                            hyperparameter, values)
                 elif(tunable_hyperparameters[hyperparameter]['type'] == 'bool'):
                     space[hyperparameter] = hp.choice(hyperparameter, [True, False])
 

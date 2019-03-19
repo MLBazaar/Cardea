@@ -116,8 +116,7 @@ def test_create_space(get_model, get_pipeline):
         'min_impurity_decrease',
         'min_weight_fraction_leaf',
         'bootstrap',
-        'oob_score',
-        'max_leaf_nodes']
+        'oob_score']
     space = get_model.create_space(get_pipeline)
     space_values = list(space.values())[0]
     parameter = list(space_values.keys())
