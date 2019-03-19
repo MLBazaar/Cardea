@@ -2,7 +2,7 @@
 import os
 
 import hyperopt
-import mlprimitives
+import mlblocks
 import numpy as np
 from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
 from mlblocks import MLPipeline
@@ -39,7 +39,7 @@ class Modeler():
         Returns:
             The absolute path of MLplrimitive directory.
         """
-        mypath = mlprimitives.get_primitives_paths()[-1]
+        mypath = mlblocks.get_primitives_paths()[-1]
         return mypath
 
     def check_path(self, primitives):
