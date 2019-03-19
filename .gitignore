@@ -101,8 +101,11 @@ ENV/
 # mypy
 .mypy_cache/
 
+# other
+.DS_Store
+
 # vim
 .*.swp
 
-# other
-.DS_Store
+# IntelliJ Idea
+.idea/
