@@ -211,11 +211,6 @@
 <em class="property">class </em><code class="descclassname">cardea.modeling.modeler.</code><code class="descname">Modeler</code><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class responsible for executing various Machine Learning Pipelines using MLBlocks.</p>
-<dl class="attribute">
-<dt id="cardea.modeling.modeler.Modeler.block_instance">
-<code class="descname">block_instance</code><em class="property"> = ''</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.block_instance" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="cardea.modeling.modeler.Modeler.check_path">
 <code class="descname">check_path</code><span class="sig-paren">(</span><em>primitives</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.check_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.check_path" title="Permalink to this definition">¶</a></dt>
@@ -233,16 +228,35 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.check_path_hyperparameters">
+<code class="descname">check_path_hyperparameters</code><span class="sig-paren">(</span><em>hyperparameters</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.check_path_hyperparameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.check_path_hyperparameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the path of each hyperparameters in the pipeline.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>hyperparameters</strong> – A list of hyperparameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of hyperparameters after edition.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.classification_scoring_function">
+<code class="descname">classification_scoring_function</code><em class="property"> = {'accuracy': &lt;function accuracy_score&gt;, 'f1': &lt;function f1_score&gt;, 'precision': &lt;function precision_score&gt;, 'recall': &lt;function recall_score&gt;}</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.classification_scoring_function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cardea.modeling.modeler.Modeler.create_kfold">
-<code class="descname">create_kfold</code><span class="sig-paren">(</span><em>data_frame</em>, <em>target</em>, <em>primitive</em>, <em>primitives_names</em>, <em>hyperparameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.create_kfold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.create_kfold" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_kfold</code><span class="sig-paren">(</span><em>primitives</em>, <em>hyperparameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.create_kfold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.create_kfold" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates Kfold cross-validation and predicts all the primitives within the pipeline.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data_frame</strong> – A dataframe, which encapsulates all the records of that entity.</li>
-<li><strong>target</strong> – An array of labels for the target variable.</li>
 <li><strong>primitive</strong> – The name of the primitive.</li>
 <li><strong>primitives_names</strong> – A list of the names of all the primitives similar</li>
 <li><strong>the ones provided.</strong> (<em>to</em>) – </li>
@@ -282,30 +296,21 @@ the predicted values and an array of the actual values.</p>
 <dl class="method">
 <dt id="cardea.modeling.modeler.Modeler.create_space">
 <code class="descname">create_space</code><span class="sig-paren">(</span><em>pipeline</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.create_space"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.create_space" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates the search space.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pipeline</strong> – A MLPipeline instance.</td>
-</tr>
-</tbody>
-</table>
+<dd><p>Creates the search space.
+:param pipeline: A MLPipeline instance.</p>
 <p>Raises:
-Exception: If the value of tunnable hyperparameters is empty.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary of the space over which to search.</td>
-</tr>
-</tbody>
-</table>
+Exception: If the value of tunnable hyperparameters is empty.
+:returns: A dictionary of the space over which to search.</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.data_frame">
+<code class="descname">data_frame</code><em class="property"> = None</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.data_frame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cardea.modeling.modeler.Modeler.execute_pipeline">
-<code class="descname">execute_pipeline</code><span class="sig-paren">(</span><em>data_frame</em>, <em>target</em>, <em>primitives_list</em>, <em>problem_type</em>, <em>optimize=False</em>, <em>hyperparameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.execute_pipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.execute_pipeline" title="Permalink to this definition">¶</a></dt>
+<code class="descname">execute_pipeline</code><span class="sig-paren">(</span><em>data_frame</em>, <em>target</em>, <em>primitives_list</em>, <em>problem_type</em>, <em>optimize=False</em>, <em>max_evals=10</em>, <em>scoring=None</em>, <em>minimize_cost=False</em>, <em>hyperparameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.execute_pipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.execute_pipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes and predict all the pipelines.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -318,6 +323,9 @@ Exception: If the value of tunnable hyperparameters is empty.</p>
 <li><strong>problem_type</strong> – A label to specify the type of problem whether</li>
 <li><strong>or classification.</strong> (<em>regression</em>) – </li>
 <li><strong>optimize</strong> – A boolean value which indicates whether to optimize the model or not.</li>
+<li><strong>max_evals</strong> – Maximum number of hyperparameter evaluations.</li>
+<li><strong>scoring</strong> – A label to specify the scoring function.</li>
+<li><strong>minimize_cost</strong> – A boolean value indicating whether to get minimum or maximum cost value.</li>
 <li><strong>hyperparameters</strong> – A dictionary of hyperparameters for each primitives.</li>
 </ul>
 </td>
@@ -327,28 +335,6 @@ and an array of the predicted values and an array of the actual values.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A list for all the pipelines which consists of</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="cardea.modeling.modeler.Modeler.find_opt_proba">
-<code class="descname">find_opt_proba</code><span class="sig-paren">(</span><em>primitives_list</em>, <em>data_frame</em>, <em>target</em>, <em>problem_type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.find_opt_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.find_opt_proba" title="Permalink to this definition">¶</a></dt>
-<dd><p>Tuens and optimize the models’ hyperparameter.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>pipeline</strong> – A MLPipeline instance.</li>
-<li><strong>data_frame</strong> – A dataframe, which encapsulates all the records of that entity.</li>
-<li><strong>target</strong> – An array of labels for the target variable.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of the tuned hyperparameter that best fits the model.</p>
 </td>
 </tr>
 </tbody>
@@ -367,29 +353,6 @@ and an array of the predicted values and an array of the actual values.</p>
 <li><strong>X_train</strong> – A ndarray of the training data.</li>
 <li><strong>y_train</strong> – An array of the training target variable.</li>
 <li><strong>X_test</strong> – A ndarray of the testing data.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list consists of the used pipeline and an array of the predicted values.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="cardea.modeling.modeler.Modeler.fit_predict_optimize_model">
-<code class="descname">fit_predict_optimize_model</code><span class="sig-paren">(</span><em>X_train</em>, <em>y_train</em>, <em>X_test</em>, <em>pipeline</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.fit_predict_optimize_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.fit_predict_optimize_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fits and predicts all the primitives within the pipeline to find
-the optimal hyperparameter.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>X_train</strong> – A ndarray of the training data.</li>
-<li><strong>y_train</strong> – An array of the training target variable.</li>
-<li><strong>X_test</strong> – A ndarray of the testing data.</li>
 <li><strong>pipeline</strong> – A MLPipeline instance.</li>
 </ul>
 </td>
@@ -402,11 +365,6 @@ the optimal hyperparameter.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="cardea.modeling.modeler.Modeler.get_block">
-<code class="descname">get_block</code><span class="sig-paren">(</span><em>pipeline</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.get_block"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.get_block" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="cardea.modeling.modeler.Modeler.get_directory">
 <code class="descname">get_directory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.get_directory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.get_directory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the path of the directory.</p>
@@ -414,7 +372,7 @@ the optimal hyperparameter.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The absolute path of the directory.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The absolute path of MLplrimitive directory.</td>
 </tr>
 </tbody>
 </table>
@@ -438,7 +396,7 @@ the optimal hyperparameter.</p>
 
 <dl class="method">
 <dt id="cardea.modeling.modeler.Modeler.hyperparameter_tunning">
-<code class="descname">hyperparameter_tunning</code><span class="sig-paren">(</span><em>pipeline</em>, <em>data_frame</em>, <em>target</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.hyperparameter_tunning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.hyperparameter_tunning" title="Permalink to this definition">¶</a></dt>
+<code class="descname">hyperparameter_tunning</code><span class="sig-paren">(</span><em>pipeline</em>, <em>max_evals</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.hyperparameter_tunning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.hyperparameter_tunning" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tuens and optimize the models’ hyperparameter.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -446,8 +404,7 @@ the optimal hyperparameter.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>pipeline</strong> – A MLPipeline instance.</li>
-<li><strong>data_frame</strong> – A dataframe, which encapsulates all the records of that entity.</li>
-<li><strong>target</strong> – An array of labels for the target variable.</li>
+<li><strong>max_evals</strong> – Maximum number of hyperparameter evaluations.</li>
 </ul>
 </td>
 </tr>
@@ -459,26 +416,49 @@ the optimal hyperparameter.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.kfold_scoring">
+<code class="descname">kfold_scoring</code><span class="sig-paren">(</span><em>data_frame</em>, <em>target</em>, <em>pipeline</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.kfold_scoring"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.kfold_scoring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the average Kfold cross-validation score.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data_frame</strong> – A dataframe, which encapsulates all the records of that entity.</li>
+<li><strong>target</strong> – An array of labels for the target variable.</li>
+<li><strong>pipeline</strong> – A MLPipeline instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The average folds score.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.minimize_cost">
+<code class="descname">minimize_cost</code><em class="property"> = False</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.minimize_cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cardea.modeling.modeler.Modeler.objective">
 <code class="descname">objective</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.objective"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.objective" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="cardea.modeling.modeler.Modeler.optimization">
-<code class="descname">optimization</code><span class="sig-paren">(</span><em>pipeline</em>, <em>data_frame</em>, <em>target</em>, <em>problem_type</em>, <em>opt_list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.optimization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.optimization" title="Permalink to this definition">¶</a></dt>
+<code class="descname">optimization</code><span class="sig-paren">(</span><em>pipeline</em>, <em>max_evals</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.optimization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.optimization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tuens and optimize the models’ hyperparameter.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>pipeline</strong> – A MLPipeline instance.</li>
-<li><strong>data_frame</strong> – A dataframe, which encapsulates all the records of that entity.</li>
-<li><strong>target</strong> – An array of labels for the target variable.</li>
+<li><strong>max_evals</strong> – Maximum number of hyperparameter evaluations.</li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of the tuned hyperparameter that best fits the model.</p>
 </td>
 </tr>
 </tbody>
@@ -497,25 +477,28 @@ the optimal hyperparameter.</p>
 
 <dl class="attribute">
 <dt id="cardea.modeling.modeler.Modeler.problem_type">
-<code class="descname">problem_type</code><em class="property"> = ''</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.problem_type" title="Permalink to this definition">¶</a></dt>
+<code class="descname">problem_type</code><em class="property"> = None</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.problem_type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="cardea.modeling.modeler.Modeler.result">
-<code class="descname">result</code><em class="property"> = {}</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.result" title="Permalink to this definition">¶</a></dt>
+<dt id="cardea.modeling.modeler.Modeler.regression_scoring_function">
+<code class="descname">regression_scoring_function</code><em class="property"> = {'explained_variance_score': &lt;function explained_variance_score&gt;, 'mean_absolute_error': &lt;function mean_absolute_error&gt;, 'mean_squared_error': &lt;function mean_squared_error&gt;, 'mean_squared_log_error': &lt;function mean_squared_log_error&gt;, 'median_absolute_error': &lt;function median_absolute_error&gt;, 'r2_score': &lt;function r2_score&gt;}</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.regression_scoring_function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.scoring">
+<code class="descname">scoring</code><em class="property"> = None</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.scoring" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="cardea.modeling.modeler.Modeler.search_all_possible_primitives">
-<code class="descname">search_all_possible_primitives</code><span class="sig-paren">(</span><em>data_frame</em>, <em>target</em>, <em>primitives</em>, <em>hyperparameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.search_all_possible_primitives"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.search_all_possible_primitives" title="Permalink to this definition">¶</a></dt>
+<code class="descname">search_all_possible_primitives</code><span class="sig-paren">(</span><em>primitives</em>, <em>hyperparameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.search_all_possible_primitives"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.search_all_possible_primitives" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for all primitives similar to the ones provided.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data_frame</strong> – A dataframe, which encapsulates all the records of that entity.</li>
-<li><strong>target</strong> – An array of labels for the target variable.</li>
 <li><strong>primitives</strong> – A list of primitive.</li>
 <li><strong>hyperparameters</strong> – A dictionary of hyperparameters for each primitives.</li>
 </ul>
@@ -529,27 +512,10 @@ an array of the predicted values and an array of the actual values.</p>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="cardea.modeling.modeler.Modeler.set_data">
-<code class="descname">set_data</code><span class="sig-paren">(</span><em>data_frame</em>, <em>target</em>, <em>test_size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/modeling/modeler.html#Modeler.set_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.set_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Splits the data into training and testing data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data_frame</strong> – A dataframe, which encapsulates all the records of that entity.</li>
-<li><strong>target</strong> – An array of labels for the target variable.</li>
-<li><strong>test_size</strong> – The proportion of the dataset to include in the test split.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A dictionary of the training and testing data.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.target">
+<code class="descname">target</code><em class="property"> = None</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
