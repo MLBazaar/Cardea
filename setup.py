@@ -88,6 +88,6 @@ setup(
     test_suite='tests',
     tests_require=tests_require,
     url='https://github.com/D3-AI/Cardea',
-    version='0.0.1',
+    version='0.0.2',
     zip_safe=False,
 )
