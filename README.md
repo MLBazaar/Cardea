@@ -13,7 +13,9 @@
 
 
 
-[![][pypi-img]][pypi-url] [![][travis-img]][travis-url]
+[![PyPi Shield](https://img.shields.io/pypi/v/cardea.svg)](https://pypi.python.org/pypi/cardea)
+[![Travis CI Shield](https://travis-ci.org/D3-AI/Cardea.svg?branch=master)](https://travis-ci.org/D3-AI/Cardea)
+
 
 # Cardea
 
@@ -38,8 +40,3 @@ Cardea is a machine learning library built on top of the FHIR data schema. The l
 
 ## Documentation
 - Documentation: https://D3-AI.github.io/Cardea
-
-[travis-img]: https://travis-ci.org/D3-AI/Cardea.svg?branch=master
-[travis-url]: https://travis-ci.org/D3-AI/Cardea
-[pypi-img]: https://img.shields.io/pypi/v/cardea.svg
-[pypi-url]: https://pypi.python.org/pypi/cardea

@@ -10,14 +10,14 @@ with open('HISTORY.md') as history_file:
     history = history_file.read()
 
 install_requires = [
-    'featuretools>=0.3.1',
-    'networkx>=2.0',
-    'pandas>=0.23.4,<0.24',
-    'mlblocks',
-    'mlprimitives',
+    'featuretools==0.6.1',
+    'networkx==2.2',
+    'pandas>=0.23.4,<0.25',
+    'mlblocks==0.3.0',
+    'mlprimitives==0.1.6',
     'sklearn',
     'scipy>=1.1.0',
-    'hyperopt'
+    'hyperopt==0.1.2'
 ]
 
 setup_requires = [
@@ -35,9 +35,10 @@ development_requires = [
     'pip>=10.0.1',
     
     # build docs
+    'm2r>=0.2.0',
     'Sphinx>=1.7.1',
-    'recommonmark>=0.4.0',
     'sphinx_rtd_theme>=0.2.4',
+    'recommonmark>=0.4.0',
     
     # style check
     'flake8>=3.5.0',
@@ -87,6 +88,6 @@ setup(
     test_suite='tests',
     tests_require=tests_require,
     url='https://github.com/D3-AI/Cardea',
-    version='0.0.1',
+    version='0.0.2',
     zip_safe=False,
 )

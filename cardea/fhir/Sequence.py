@@ -189,8 +189,8 @@ class Sequence_ReferenceSeq(fhirbase):
             versioned release of a primary build was used.
         referenceSeqId: Reference identifier of reference sequence submitted
             to NCBI. It must match the type in the Sequence.type field. For
-            example, the prefix, “NG_” identifies reference sequence for genes,
-            “NM_” for messenger RNA transcripts, and “NP_” for amino acid
+            example, the prefix, *NG_* identifies reference sequence for genes,
+            *NM_* for messenger RNA transcripts, and *NP_* for amino acid
             sequences.
         referenceSeqPointer: A Pointer to another Sequence entity as reference
             sequence.
