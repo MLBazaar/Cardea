@@ -14,20 +14,17 @@ from cardea.problem_definition import (
 
 
 class Cardea():
-    """"An interface class that ties the end-to-end system together.
+    """An interface class that ties the end-to-end system together.
 
-    Attributes:
-        es_loader: An entityset loader.
-        featurization: A featurization class.
-        modeler: A modeling class.
-        problems: A list of currently available prediction problems.
-        chosen_problem: The selected prediction problem.
-        or regression which is acquired from the chosen problem.
-        es: The loaded entityset.
-        target_entity: The target entity in which the problem defines the
-        entity of interest for the featurization.
-
-    """
+        Attributes:
+            es_loader: An entityset loader.
+            featurization: A featurization class.
+            modeler: A modeling class.
+            problems: A list of currently available prediction problems.
+            chosen_problem: The selected prediction problem or regression which is acquired from the chosen problem.
+            es: The loaded entityset.
+            target_entity: The target entity in which the problem defines the entity of interest for the featurization.
+        """
 
     def __init__(self):
 
@@ -42,13 +39,12 @@ class Cardea():
     def load_data_entityset(self, folder_path=None):
         """Returns an entityset loaded with .csv files in folder_path.
 
-        Args:
-            folder_path: A directory of all .csv files that should be loaded. If empty
-            the method will automatically load kaggle's missed appointment dataset.
+            Args:
+                folder_path: A directory of all .csv files that should be loaded. If empty the method will automatically load kaggle's missed appointment dataset.
 
-        Returns:
-            An entityset with loaded data.
-        """
+            Returns:
+                An entityset with loaded data.
+            """
 
         if folder_path:
             self.es = self.es_loader.load_data_entityset(folder_path)
@@ -73,22 +69,9 @@ class Cardea():
     def list_problems(self):
         """Returns a list of the currently available problems.
 
-        LengthOfStay: Length of stay prediction problem, predicting how many days
-        a patient will be in the hospital.
-        ProlongedLengthOfStay: Prolonged length of stay prediction problem, predicting whether
-        a patient stayed in the hospital more or less than a week.
-        MortalityPrediction: Mortality prediction problem, finding whether
-        a patient will suffer from mortality.
-        Readmission: Readmission prediction problem, predicting whether
-        a patient will revisit the hospital within certain period of time.
-        DiagnosisPrediction: Diagnosis prediction problem, finding whether
-        a patient will be diagnosed with a specifed diagnosis.
-        MissedAppointmentProblemDefinition: Missed appointment prediction problem, predicting
-        whether the patient showed to the appointment or not.
-
-        Returns:
-            A set of the available problems.
-        """
+            Returns:
+                A set of the available problems.
+            """
 
         problems = set([])
         for attribute_string in dir(cardea.problem_definition):
@@ -102,18 +85,16 @@ class Cardea():
     def select_problem(self, selection, parameter=None):
         """Select a prediction problem and extract information.
 
-        Update the select_problem attribute and generate the cutoff times,
-        the target entity and update the entityset.
+            Update the select_problem attribute and generate the cutoff times, the target entity and update the entityset.
 
-        Args:
-            selection: Name of the chosen prediction problem.
-            data: Entityset representation of the data.
-            parameters: A variable to change the default parameters, if any.
+            Args:
+                selection: Name of the chosen prediction problem.
+                data: Entityset representation of the data.
+                parameters: A variable to change the default parameters, if any.
 
-        Returns:
-            The updated version of the entityset and cutoff time label
-            of the prediction problem.
-        """
+            Returns:
+                The updated version of the entityset and cutoff time label of the prediction problem.
+            """
 
         # problem selection
         if selection == 'LengthOfStay':
@@ -153,21 +134,21 @@ class Cardea():
     def list_feature_primitives(self):
         """Returns built-in primitive in Featuretools.
 
-        Returns:
-            A pandas dataframe that lists and describes each built-in primitive in Featuretools.
-        """
+            Returns:
+                A pandas dataframe that lists and describes each built-in primitive in Featuretools.
+            """
         return ft.list_primitives()
 
     def generate_features(self, cutoff):
         """Returns a the calculated feature matrix.
 
-        Args:
-            es: A featuretools entityset that holds data.
-            cutoff: A pandas dataframe that indicates cutoff_time for each instance.
+            Args:
+                es: A featuretools entityset that holds data.
+                cutoff: A pandas dataframe that indicates cutoff_time for each instance.
 
-        Returns:
-            Encoded feature_matrix, encoded features.
-        """
+            Returns:
+                Encoded feature_matrix, encoded features.
+            """
 
         fm_encoded, _ = self.featurization.generate_feature_matrix(
             self.es, self.target_entity, cutoff)
@@ -176,18 +157,17 @@ class Cardea():
 
     def execute_model(self, feature_matrix, target, primitives,
                       optimize=False, hyperparameters=None):
-        '''Executes and predict all the pipelines.
+        """Executes and predict all the pipelines.
 
-        Args:
-            data_frame: A dataframe, which encapsulates all the records of that entity.
-            primitives_list: A list of the primitives within a pipeline.
-            optimize: A boolean value which indicates whether to optimize the model or not.
-            hyperparameters: A dictionary of hyperparameters for each primitives.
+            Args:
+                data_frame: A dataframe, which encapsulates all the records of that entity.
+                primitives_list: A list of the primitives within a pipeline.
+                optimize: A boolean value which indicates whether to optimize the model or not.
+                hyperparameters: A dictionary of hyperparameters for each primitives.
 
-        Returns:
-            A list for all the pipelines which consists of, the fold number and the used pipeline
-            and an array of the predicted values and an array of the actual values.
-        '''
+            Returns:
+                A list for all the pipelines which consists of, the fold number and the used pipeline and an array of the predicted values and an array of the actual values.
+            """
 
         return self.modeler.execute_pipeline(
             data_frame=feature_matrix,
@@ -199,23 +179,23 @@ class Cardea():
         )
 
     def convert_to_json(dic):
-        '''Converts a given dictionary to json format.
+        """Converts a given dictionary to json format.
 
-        Args:
-            dict: A dictionary of values to be coverted.
+            Args:
+                dict: A dictionary of values to be coverted.
 
-        Returns:
-            A string in json format.
-        '''
+            Returns:
+                A string in json format.
+            """
         return json.dumps(dic)
 
     def convert_from_json(string):
-        '''Converts a given json string to dictionary format.
+        """Converts a given json string to dictionary format.
 
-        Args:
-            json: A dictionary of values to be coverted.
+            Args:
+                json: A dictionary of values to be coverted.
 
-        Returns:
-            A parsed dictionary.
-        '''
+            Returns:
+                A parsed dictionary.
+            """
         return json.loads(string)
