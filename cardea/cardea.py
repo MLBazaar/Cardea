@@ -40,7 +40,7 @@ class Cardea():
         """Returns an entityset loaded with .csv files in folder_path.
 
             Load the given dataset within the folder path into an entityset. The dataset
-            must be in a FHIR structure format. If no folder_path is not passed, the 
+            must be in a FHIR structure format. If no folder_path is not passed, the
             function will automatically load kaggle's missed appointment dataset.
 
             Args:
@@ -164,7 +164,7 @@ class Cardea():
                       optimize=False, hyperparameters=None):
         """Executes and predict all the pipelines.
 
-            This method executes the given pipeline and returns a list for all the pipelines 
+            This method executes the given pipeline and returns a list for all the pipelines
             with the result of each fold with its associated predicted values and actual values.
 
             Args:
