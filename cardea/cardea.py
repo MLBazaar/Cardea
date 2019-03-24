@@ -21,9 +21,9 @@ class Cardea():
             featurization: A featurization class.
             modeler: A modeling class.
             problems: A list of currently available prediction problems.
-            chosen_problem: The selected prediction problem or regression which is acquired from the chosen problem.
+            chosen_problem: The selected prediction problem or regression.
             es: The loaded entityset.
-            target_entity: The target entity in which the problem defines the entity of interest for the featurization.
+            target_entity: The target entity for featurization.
         """
 
     def __init__(self):
@@ -39,8 +39,12 @@ class Cardea():
     def load_data_entityset(self, folder_path=None):
         """Returns an entityset loaded with .csv files in folder_path.
 
+            Load the given dataset within the folder path into an entityset. The dataset
+            must be in a FHIR structure format. If no folder_path is not passed, the 
+            function will automatically load kaggle's missed appointment dataset.
+
             Args:
-                folder_path: A directory of all .csv files that should be loaded. If empty the method will automatically load kaggle's missed appointment dataset.
+                folder_path: A directory of all .csv files that should be loaded.
 
             Returns:
                 An entityset with loaded data.
@@ -85,7 +89,8 @@ class Cardea():
     def select_problem(self, selection, parameter=None):
         """Select a prediction problem and extract information.
 
-            Update the select_problem attribute and generate the cutoff times, the target entity and update the entityset.
+            Update the select_problem attribute and generate the cutoff times,
+            the target entity and update the entityset.
 
             Args:
                 selection: Name of the chosen prediction problem.
@@ -93,7 +98,7 @@ class Cardea():
                 parameters: A variable to change the default parameters, if any.
 
             Returns:
-                The updated version of the entityset and cutoff time label of the prediction problem.
+                The updated version of the entityset and cutoff time label.
             """
 
         # problem selection
@@ -135,7 +140,7 @@ class Cardea():
         """Returns built-in primitive in Featuretools.
 
             Returns:
-                A pandas dataframe that lists and describes each built-in primitive in Featuretools.
+                A pandas dataframe that lists and describes each built-in primitives.
             """
         return ft.list_primitives()
 
@@ -159,6 +164,9 @@ class Cardea():
                       optimize=False, hyperparameters=None):
         """Executes and predict all the pipelines.
 
+            This method executes the given pipeline and returns a list for all the pipelines 
+            with the result of each fold with its associated predicted values and actual values.
+
             Args:
                 data_frame: A dataframe, which encapsulates all the records of that entity.
                 primitives_list: A list of the primitives within a pipeline.
@@ -166,7 +174,7 @@ class Cardea():
                 hyperparameters: A dictionary of hyperparameters for each primitives.
 
             Returns:
-                A list for all the pipelines which consists of, the fold number and the used pipeline and an array of the predicted values and an array of the actual values.
+                A list for all the executed pipelines and its result.
             """
 
         return self.modeler.execute_pipeline(
