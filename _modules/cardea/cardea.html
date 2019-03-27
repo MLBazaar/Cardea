@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.cardea &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Cardea</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#from-sources">From sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">cardea</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../cardea.html">cardea package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cardea.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cardea.data_loader.html">cardea.data_loader package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cardea.featurization.html">cardea.featurization package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cardea.fhir.html">cardea.fhir package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cardea.modeling.html">cardea.modeling package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cardea.problem_definition.html">cardea.problem_definition package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../cardea.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cardea.html#module-cardea.cardea">cardea.cardea module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cardea.html#module-cardea">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#release-workflow">Release Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>cardea.cardea</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cardea.cardea</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">inspect</span> <span class="k">import</span> <span class="n">isclass</span>
+
+<span class="kn">import</span> <span class="nn">featuretools</span> <span class="k">as</span> <span class="nn">ft</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">cardea</span>
+<span class="kn">from</span> <span class="nn">cardea.data_loader</span> <span class="k">import</span> <span class="n">EntitySetLoader</span>
+<span class="kn">from</span> <span class="nn">cardea.featurization</span> <span class="k">import</span> <span class="n">Featurization</span>
+<span class="kn">from</span> <span class="nn">cardea.modeling</span> <span class="k">import</span> <span class="n">Modeler</span>
+<span class="kn">from</span> <span class="nn">cardea.problem_definition</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">DiagnosisPrediction</span><span class="p">,</span> <span class="n">LengthOfStay</span><span class="p">,</span> <span class="n">MissedAppointmentProblemDefinition</span><span class="p">,</span> <span class="n">MortalityPrediction</span><span class="p">,</span>
+    <span class="n">ProlongedLengthOfStay</span><span class="p">,</span> <span class="n">Readmission</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Cardea"><a class="viewcode-back" href="../../cardea.html#cardea.cardea.Cardea">[docs]</a><span class="k">class</span> <span class="nc">Cardea</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;An interface class that ties the end-to-end system together.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        es_loader: An entityset loader.</span>
+<span class="sd">        featurization: A featurization class.</span>
+<span class="sd">        modeler: A modeling class.</span>
+<span class="sd">        problems: A list of currently available prediction problems.</span>
+<span class="sd">        chosen_problem: The selected prediction problem or regression.</span>
+<span class="sd">        es: The loaded entityset.</span>
+<span class="sd">        target_entity: The target entity for featurization.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">es_loader</span> <span class="o">=</span> <span class="n">EntitySetLoader</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">featurization</span> <span class="o">=</span> <span class="n">Featurization</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modeler</span> <span class="o">=</span> <span class="n">Modeler</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">es</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_entity</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Cardea.load_data_entityset"><a class="viewcode-back" href="../../cardea.html#cardea.cardea.Cardea.load_data_entityset">[docs]</a>    <span class="k">def</span> <span class="nf">load_data_entityset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns an entityset loaded with .csv files in folder_path.</span>
+
+<span class="sd">        Load the given dataset within the folder path into an entityset. The dataset</span>
+<span class="sd">        must be in a FHIR structure format. If no folder_path is not passed, the</span>
+<span class="sd">        function will automatically load kaggle&#39;s missed appointment dataset.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            folder_path: A directory of all .csv files that should be loaded.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            An entityset with loaded data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">folder_path</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">es</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">es_loader</span><span class="o">.</span><span class="n">load_data_entityset</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">csv_s3</span> <span class="o">=</span> <span class="s2">&quot;https://s3.amazonaws.com/dai-cardea/&quot;</span>
+            <span class="n">kaggle</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Address&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Appointment_Participant&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Appointment&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Coding&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Observation&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Patient&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Reference&#39;</span><span class="p">]</span>
+
+            <span class="n">fhir</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">resource</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+                    <span class="n">csv_s3</span> <span class="o">+</span> <span class="n">resource</span> <span class="o">+</span> <span class="s2">&quot;.csv&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">kaggle</span><span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">es</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">es_loader</span><span class="o">.</span><span class="n">load_df_entityset</span><span class="p">(</span><span class="n">fhir</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Cardea.list_problems"><a class="viewcode-back" href="../../cardea.html#cardea.cardea.Cardea.list_problems">[docs]</a>    <span class="k">def</span> <span class="nf">list_problems</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of the currently available problems.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A set of the available problems.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">problems</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([])</span>
+        <span class="k">for</span> <span class="n">attribute_string</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">cardea</span><span class="o">.</span><span class="n">problem_definition</span><span class="p">):</span>
+            <span class="n">attribute</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cardea</span><span class="o">.</span><span class="n">problem_definition</span><span class="p">,</span> <span class="n">attribute_string</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">isclass</span><span class="p">(</span><span class="n">attribute</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">attribute</span><span class="o">.</span><span class="vm">__name__</span> <span class="ow">and</span> <span class="n">attribute</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">!=</span> <span class="s1">&#39;ProblemDefinition&#39;</span><span class="p">:</span>
+                    <span class="n">problems</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">attribute</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">problems</span></div>
+
+<div class="viewcode-block" id="Cardea.select_problem"><a class="viewcode-back" href="../../cardea.html#cardea.cardea.Cardea.select_problem">[docs]</a>    <span class="k">def</span> <span class="nf">select_problem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">parameter</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Select a prediction problem and extract information.</span>
+
+<span class="sd">        Update the select_problem attribute and generate the cutoff times,</span>
+<span class="sd">        the target entity and update the entityset.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            selection: Name of the chosen prediction problem.</span>
+<span class="sd">            data: Entityset representation of the data.</span>
+<span class="sd">            parameters: A variable to change the default parameters, if any.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The updated version of the entityset and cutoff time label.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># problem selection</span>
+        <span class="k">if</span> <span class="n">selection</span> <span class="o">==</span> <span class="s1">&#39;LengthOfStay&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span> <span class="o">=</span> <span class="n">LengthOfStay</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">selection</span> <span class="o">==</span> <span class="s1">&#39;MortalityPrediction&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span> <span class="o">=</span> <span class="n">MortalityPrediction</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">selection</span> <span class="o">==</span> <span class="s1">&#39;MissedAppointmentProblemDefinition&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span> <span class="o">=</span> <span class="n">MissedAppointmentProblemDefinition</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">selection</span> <span class="o">==</span> <span class="s1">&#39;ProlongedLengthOfStay&#39;</span> <span class="ow">and</span> <span class="n">parameter</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span> <span class="o">=</span> <span class="n">ProlongedLengthOfStay</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">selection</span> <span class="o">==</span> <span class="s1">&#39;ProlongedLengthOfStay&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span> <span class="o">=</span> <span class="n">ProlongedLengthOfStay</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">selection</span> <span class="o">==</span> <span class="s1">&#39;Readmission&#39;</span> <span class="ow">and</span> <span class="n">parameter</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span> <span class="o">=</span> <span class="n">Readmission</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">selection</span> <span class="o">==</span> <span class="s1">&#39;Readmission&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span> <span class="o">=</span> <span class="n">Readmission</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">selection</span> <span class="o">==</span> <span class="s1">&#39;DiagnosisPrediction&#39;</span> <span class="ow">and</span> <span class="n">parameter</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span> <span class="o">=</span> <span class="n">DiagnosisPrediction</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">selection</span> <span class="o">==</span> <span class="s1">&#39;DiagnosisPrediction&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;unspecified diagnosis code&#39;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is not a defined problem&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selection</span><span class="p">))</span>
+
+        <span class="c1"># target label calculation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">es</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_entity</span><span class="p">,</span> <span class="n">cutoff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span><span class="o">.</span><span class="n">generate_cutoff_times</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">es</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cutoff</span></div>
+
+<div class="viewcode-block" id="Cardea.list_feature_primitives"><a class="viewcode-back" href="../../cardea.html#cardea.cardea.Cardea.list_feature_primitives">[docs]</a>    <span class="k">def</span> <span class="nf">list_feature_primitives</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns built-in primitive in Featuretools.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A pandas dataframe that lists and describes each built-in primitives.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ft</span><span class="o">.</span><span class="n">list_primitives</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Cardea.generate_features"><a class="viewcode-back" href="../../cardea.html#cardea.cardea.Cardea.generate_features">[docs]</a>    <span class="k">def</span> <span class="nf">generate_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a the calculated feature matrix.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            es: A featuretools entityset that holds data.</span>
+<span class="sd">            cutoff: A pandas dataframe that indicates cutoff_time for each instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Encoded feature_matrix, encoded features.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">fm_encoded</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">featurization</span><span class="o">.</span><span class="n">generate_feature_matrix</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">es</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_entity</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span>
+        <span class="n">fm_encoded</span> <span class="o">=</span> <span class="n">fm_encoded</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fm_encoded</span></div>
+
+<div class="viewcode-block" id="Cardea.execute_model"><a class="viewcode-back" href="../../cardea.html#cardea.cardea.Cardea.execute_model">[docs]</a>    <span class="k">def</span> <span class="nf">execute_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature_matrix</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">primitives</span><span class="p">,</span>
+                      <span class="n">optimize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Executes and predict all the pipelines.</span>
+
+<span class="sd">        This method executes the given pipeline and returns a list for all the pipelines</span>
+<span class="sd">        with the result of each fold with its associated predicted values and actual values.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data_frame: A dataframe, which encapsulates all the records of that entity.</span>
+<span class="sd">            primitives_list: A list of the primitives within a pipeline.</span>
+<span class="sd">            optimize: A boolean value which indicates whether to optimize the model or not.</span>
+<span class="sd">            hyperparameters: A dictionary of hyperparameters for each primitives.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A list for all the executed pipelines and its result.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">modeler</span><span class="o">.</span><span class="n">execute_pipeline</span><span class="p">(</span>
+            <span class="n">data_frame</span><span class="o">=</span><span class="n">feature_matrix</span><span class="p">,</span>
+            <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+            <span class="n">primitives_list</span><span class="o">=</span><span class="n">primitives</span><span class="p">,</span>
+            <span class="n">problem_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span><span class="o">.</span><span class="n">prediction_type</span><span class="p">,</span>
+            <span class="n">optimize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">hyperparameters</span><span class="o">=</span><span class="kc">None</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Cardea.convert_to_json"><a class="viewcode-back" href="../../cardea.html#cardea.cardea.Cardea.convert_to_json">[docs]</a>    <span class="k">def</span> <span class="nf">convert_to_json</span><span class="p">(</span><span class="n">dic</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Converts a given dictionary to json format.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dict: A dictionary of values to be coverted.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A string in json format.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Cardea.convert_from_json"><a class="viewcode-back" href="../../cardea.html#cardea.cardea.Cardea.convert_from_json">[docs]</a>    <span class="k">def</span> <span class="nf">convert_from_json</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Converts a given json string to dictionary format.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            json: A dictionary of values to be coverted.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A parsed dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">string</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

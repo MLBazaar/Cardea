@@ -100,6 +100,8 @@
 <li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cardea.cardea">cardea.cardea module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cardea">Module contents</a></li>
 </ul>
 </li>
@@ -397,6 +399,210 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cardea.cardea">
+<span id="cardea-cardea-module"></span><h2>cardea.cardea module<a class="headerlink" href="#module-cardea.cardea" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cardea.cardea.Cardea">
+<em class="property">class </em><code class="descclassname">cardea.cardea.</code><code class="descname">Cardea</code><a class="reference internal" href="_modules/cardea/cardea.html#Cardea"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.cardea.Cardea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An interface class that ties the end-to-end system together.</p>
+<dl class="attribute">
+<dt id="cardea.cardea.Cardea.es_loader">
+<code class="descname">es_loader</code><a class="headerlink" href="#cardea.cardea.Cardea.es_loader" title="Permalink to this definition">¶</a></dt>
+<dd><p>An entityset loader.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.cardea.Cardea.featurization">
+<code class="descname">featurization</code><a class="headerlink" href="#cardea.cardea.Cardea.featurization" title="Permalink to this definition">¶</a></dt>
+<dd><p>A featurization class.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.cardea.Cardea.modeler">
+<code class="descname">modeler</code><a class="headerlink" href="#cardea.cardea.Cardea.modeler" title="Permalink to this definition">¶</a></dt>
+<dd><p>A modeling class.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.cardea.Cardea.problems">
+<code class="descname">problems</code><a class="headerlink" href="#cardea.cardea.Cardea.problems" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of currently available prediction problems.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.cardea.Cardea.chosen_problem">
+<code class="descname">chosen_problem</code><a class="headerlink" href="#cardea.cardea.Cardea.chosen_problem" title="Permalink to this definition">¶</a></dt>
+<dd><p>The selected prediction problem or regression.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.cardea.Cardea.es">
+<code class="descname">es</code><a class="headerlink" href="#cardea.cardea.Cardea.es" title="Permalink to this definition">¶</a></dt>
+<dd><p>The loaded entityset.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.cardea.Cardea.target_entity">
+<code class="descname">target_entity</code><a class="headerlink" href="#cardea.cardea.Cardea.target_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The target entity for featurization.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.cardea.Cardea.convert_from_json">
+<code class="descname">convert_from_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/cardea.html#Cardea.convert_from_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.cardea.Cardea.convert_from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a given json string to dictionary format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>json</strong> – A dictionary of values to be coverted.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A parsed dictionary.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.cardea.Cardea.convert_to_json">
+<code class="descname">convert_to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/cardea.html#Cardea.convert_to_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.cardea.Cardea.convert_to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a given dictionary to json format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dict</strong> – A dictionary of values to be coverted.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A string in json format.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.cardea.Cardea.execute_model">
+<code class="descname">execute_model</code><span class="sig-paren">(</span><em>feature_matrix</em>, <em>target</em>, <em>primitives</em>, <em>optimize=False</em>, <em>hyperparameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/cardea.html#Cardea.execute_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.cardea.Cardea.execute_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes and predict all the pipelines.</p>
+<p>This method executes the given pipeline and returns a list for all the pipelines
+with the result of each fold with its associated predicted values and actual values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data_frame</strong> – A dataframe, which encapsulates all the records of that entity.</li>
+<li><strong>primitives_list</strong> – A list of the primitives within a pipeline.</li>
+<li><strong>optimize</strong> – A boolean value which indicates whether to optimize the model or not.</li>
+<li><strong>hyperparameters</strong> – A dictionary of hyperparameters for each primitives.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list for all the executed pipelines and its result.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.cardea.Cardea.generate_features">
+<code class="descname">generate_features</code><span class="sig-paren">(</span><em>cutoff</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/cardea.html#Cardea.generate_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.cardea.Cardea.generate_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a the calculated feature matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>es</strong> – A featuretools entityset that holds data.</li>
+<li><strong>cutoff</strong> – A pandas dataframe that indicates cutoff_time for each instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Encoded feature_matrix, encoded features.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.cardea.Cardea.list_feature_primitives">
+<code class="descname">list_feature_primitives</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/cardea.html#Cardea.list_feature_primitives"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.cardea.Cardea.list_feature_primitives" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns built-in primitive in Featuretools.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A pandas dataframe that lists and describes each built-in primitives.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.cardea.Cardea.list_problems">
+<code class="descname">list_problems</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/cardea.html#Cardea.list_problems"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.cardea.Cardea.list_problems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of the currently available problems.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A set of the available problems.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.cardea.Cardea.load_data_entityset">
+<code class="descname">load_data_entityset</code><span class="sig-paren">(</span><em>folder_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/cardea.html#Cardea.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.cardea.Cardea.load_data_entityset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an entityset loaded with .csv files in folder_path.</p>
+<p>Load the given dataset within the folder path into an entityset. The dataset
+must be in a FHIR structure format. If no folder_path is not passed, the
+function will automatically load kaggle’s missed appointment dataset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>folder_path</strong> – A directory of all .csv files that should be loaded.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An entityset with loaded data.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.cardea.Cardea.select_problem">
+<code class="descname">select_problem</code><span class="sig-paren">(</span><em>selection</em>, <em>parameter=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cardea/cardea.html#Cardea.select_problem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.cardea.Cardea.select_problem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select a prediction problem and extract information.</p>
+<p>Update the select_problem attribute and generate the cutoff times,
+the target entity and update the entityset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>selection</strong> – Name of the chosen prediction problem.</li>
+<li><strong>data</strong> – Entityset representation of the data.</li>
+<li><strong>parameters</strong> – A variable to change the default parameters, if any.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The updated version of the entityset and cutoff time label.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-cardea">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cardea" title="Permalink to this headline">¶</a></h2>
