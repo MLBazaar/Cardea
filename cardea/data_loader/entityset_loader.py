@@ -52,6 +52,53 @@ class EntitySetLoader(DataLoader):
 
             entity_set.add_relationship(new_relationship)
 
+    def load_sepsis_entityset(self, folder_path):
+        """Returns an entityset loaded with .psv files in folder_path.
+
+        Loads .csv files into pandas dataframes then loads them into featuretools' entityset.
+
+        Args:
+            folder_path: A directory of all .psv files of the sepsis data.
+
+        Returns:
+            An entityset with loaded data.
+        """
+
+        psv_files = glob(folder_path + "/*.psv")
+        visits = []
+        patients = []
+
+        for file_path in psv_files:
+            df = pd.read_csv(file_path, sep="|")
+            patient_id = file_path.split("/")[-1].split(".")[0]
+            patient_id = [patient_id] * len(df)
+            df['Patient_ID'] = patient_id
+
+            gender = df.pop('Gender')
+
+            patient = pd.DataFrame({'Patient_ID': patient_id, 'Gender': gender})
+            visits.append(df)
+            patients.append(patient)
+
+        visits_df = pd.concat(visits)
+        visits_df['ID'] = [i for i in range(1, len(visits_df) + 1)]
+        patients_df = pd.concat(patients).drop_duplicates()
+
+        entity_set = ft.EntitySet(id="sepsis")
+        entity_set.entity_from_dataframe(entity_id='Patients',
+                                         dataframe=patients_df,
+                                         index='Patient_ID')
+
+        entity_set.entity_from_dataframe(entity_id='Visits',
+                                         dataframe=visits_df,
+                                         index='ID')
+
+        new_relationship = ft.Relationship(
+            entity_set['Patients']['Patient_ID'],
+            entity_set['Visits']['Patient_ID'])
+
+        entity_set.add_relationship(new_relationship)
+
     def load_data_entityset(self, folder_path):
         """Returns an entityset loaded with .csv files in folder_path.
 
