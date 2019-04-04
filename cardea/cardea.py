@@ -10,7 +10,7 @@ from cardea.featurization import Featurization
 from cardea.modeling import Modeler
 from cardea.problem_definition import (
     DiagnosisPrediction, LengthOfStay, MissedAppointmentProblemDefinition, MortalityPrediction,
-    ProlongedLengthOfStay, Readmission)
+    ProlongedLengthOfStay, Readmission, Sepsis)
 
 
 class Cardea():
@@ -35,6 +35,9 @@ class Cardea():
         self.es = None
         self.chosen_problem = None
         self.target_entity = None
+
+    def load_sepsis(self, folder_path):
+        self.es = self.es_loader.load_sepsis_entityset(folder_path)
 
     def load_data_entityset(self, folder_path=None):
         """Returns an entityset loaded with .csv files in folder_path.
@@ -116,6 +119,9 @@ class Cardea():
 
         elif selection == 'ProlongedLengthOfStay':
             self.chosen_problem = ProlongedLengthOfStay()
+
+        elif selection == 'Sepsis':
+            self.chosen_problem = Sepsis()
 
         elif selection == 'Readmission' and parameter:
             self.chosen_problem = Readmission(parameter)
