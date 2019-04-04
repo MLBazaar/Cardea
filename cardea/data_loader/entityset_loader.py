@@ -98,6 +98,7 @@ class EntitySetLoader(DataLoader):
             entity_set['Visits']['Patient_ID'])
 
         entity_set.add_relationship(new_relationship)
+        return entity_set
 
     def load_data_entityset(self, folder_path):
         """Returns an entityset loaded with .csv files in folder_path.
