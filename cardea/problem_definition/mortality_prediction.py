@@ -5,24 +5,25 @@ from cardea.problem_definition import ProblemDefinition
 
 
 class MortalityPrediction (ProblemDefinition):
-    """Defines the problem of diagnosis Prediction, finding whether
-        a patient will be diagnosed with a specifed diagnosis.
+    """Defines the problem of diagnosis Prediction.
 
-        Attributes:
+    Finding whether a patient will be diagnosed with a specifed diagnosis.
+
+    Note:
+        The patient visit is considered a readmission if he visits
+        the hospital again within 30 days.
+
+        The readmission diagnosis does not have to be the same as the initial visit diagnosis,
+        (he could be diagnosed of something that is a complication of the initial diagnosis).
+
+    Attributes:
+
         target_label_column_name: The target label of the prediction problem.
         target_entity: Name of the entity containing the target label.
         cutoff_time_label: The cutoff time label of the prediction problem.
         cutoff_entity: Name of the entity containing the cutoff time label.
         prediction_type: The type of the machine learning prediction.
-
-        Assumptions:
-        the patient visit is considered a readmission if he visits
-            the hospital again within 30 days.
-
-        the readmission diagnosis does not have to be the same as the initial visit diagnosis,
-            (he could be diagnosed of something that is a complication of the initial diagnosis).
-        """
-
+    """
     __name__ = 'mortality'
 
     updated_es = None
@@ -38,13 +39,13 @@ class MortalityPrediction (ProblemDefinition):
     def generate_cutoff_times(self, es):
         """Generates cutoff times for the predection problem.
 
-            Args:
+        Args:
             es: fhir entityset.
 
-            Returns:
+        Returns:
             entity_set, target_entity, and a dataframe of cutoff_times and target_labels.
 
-            Raises:
+        Raises:
             ValueError: An error occurs if the cutoff variable does not exist.
         """
 
@@ -86,15 +87,15 @@ class MortalityPrediction (ProblemDefinition):
     def generate_target_label(self, es):
         """Generates target labels in the case of having missing label in the entityset.
 
-            Args:
+        Args:
             es: fhir entityset.
 
-            Returns:
+        Returns:
             Updated entityset with the generated label.
 
-            Raises:
+        Raises:
             ValueError: An error occurs if the target label cannot be generated.
-            """
+        """
         generate_from = 'Period'
         if (self.check_target_label(
             es,
