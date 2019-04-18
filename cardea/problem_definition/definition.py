@@ -4,9 +4,30 @@ from cardea.data_loader import DataLoader
 
 
 class ProblemDefinition:
-    """A class that defines the prediction problem
-    by specifying cutoff times and generating the target label if it does not exist.
+    """Base class that defines a prediction problem.
+
+    Attributes:
+        target_label_column_name: The target label of the prediction problem.
+        target_entity: Name of the entity containing the target label.
+        cutoff_time_label: The cutoff time label of the prediction problem.
+        cutoff_entity: Name of the entity containing the cutoff time label.
+        prediction_type: The type of the machine learning prediction.
     """
+
+    def __init__(self, target_label_column_name,
+                 target_entity, cutoff_time_label,
+                 cutoff_entity, prediction_type,
+                 updated_es=None, conn=None):
+
+        self.target_label_column_name = target_label_column_name
+        self.target_entity = target_entity
+        self.cutoff_time_label = cutoff_time_label
+        self.cutoff_entity = cutoff_entity
+        self.prediction_type = prediction_type
+
+        # optionals
+        self.conn = conn
+        self.updated_es = updated_es
 
     def check_target_label(self, entity_set, target_entity, target_label):
         """Checks if target label exists in the entity set.

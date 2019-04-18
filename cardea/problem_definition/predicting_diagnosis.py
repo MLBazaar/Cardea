@@ -4,10 +4,10 @@ from cardea.data_loader import DataLoader
 from cardea.problem_definition import ProblemDefinition
 
 
-class DiagnosisPrediction (ProblemDefinition):
+class DiagnosisPrediction(ProblemDefinition):
     """Defines the problem of diagnosis Prediction.
 
-    Finding whether a patient will be diagnosed with a specifed diagnosis.
+    It finds whether a patient will be diagnosed with a specifed diagnosis.
 
     Note:
         The patient visit is considered a readmission if he visits
@@ -15,26 +15,20 @@ class DiagnosisPrediction (ProblemDefinition):
 
         The readmission diagnosis does not have to be the same as the initial visit diagnosis,
         (he could be diagnosed of something that is a complication of the initial diagnosis).
-
-    Attributes:
-        target_label_column_name: The target label of the prediction problem.
-        target_entity: Name of the entity containing the target label.
-        cutoff_time_label: The cutoff time label of the prediction problem.
-        cutoff_entity: Name of the entity containing the cutoff time label.
-        prediction_type: The type of the machine learning prediction.
     """
     __name__ = 'diagnosis'
 
-    updated_es = None
-    target_label_column_name = 'diagnosis'
-    target_entity = 'Encounter'
-    cutoff_time_label = 'start'
-    cutoff_entity = 'Period'
-    prediction_type = 'classification'
-    conn = 'period'
-
     def __init__(self, d):
         self.diagnosis = d
+
+        super().__init__(
+            'diagnosis',        # target_label_column_name
+            'Encounter',        # target_entity
+            'start',            # cutoff_time_label
+            'Period',           # cutoff_entity
+            'classification',   # prediction_type
+            conn='period'
+        )
 
     def generate_cutoff_times(self, es):
         """Generates cutoff times for the predection problem.

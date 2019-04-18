@@ -3,11 +3,14 @@ import pandas as pd
 from cardea.data_loader import DataLoader
 from cardea.problem_definition import ProblemDefinition
 
+DEFAULT_CAUSES = ['X60', 'X84', 'Y87.0', 'X85', 'Y09', 'Y87.1',
+                  'V02', 'V04', 'V09.0', 'V09.2', 'V12', 'V14']
 
-class MortalityPrediction (ProblemDefinition):
-    """Defines the problem of diagnosis Prediction.
 
-    Finding whether a patient will be diagnosed with a specifed diagnosis.
+class MortalityPrediction(ProblemDefinition):
+    """Defines the problem of Diagnosis Prediction.
+
+    It finds whether a patient will be diagnosed with a specifed diagnosis.
 
     Note:
         The patient visit is considered a readmission if he visits
@@ -15,26 +18,20 @@ class MortalityPrediction (ProblemDefinition):
 
         The readmission diagnosis does not have to be the same as the initial visit diagnosis,
         (he could be diagnosed of something that is a complication of the initial diagnosis).
-
-    Attributes:
-
-        target_label_column_name: The target label of the prediction problem.
-        target_entity: Name of the entity containing the target label.
-        cutoff_time_label: The cutoff time label of the prediction problem.
-        cutoff_entity: Name of the entity containing the cutoff time label.
-        prediction_type: The type of the machine learning prediction.
     """
     __name__ = 'mortality'
 
-    updated_es = None
-    target_label_column_name = 'diagnosis'
-    target_entity = 'Encounter'
-    cutoff_time_label = 'start'
-    cutoff_entity = 'Period'
-    prediction_type = 'classification'
-    conn = 'period'
-    causes_of_death = ['X60', 'X84', 'Y87.0', 'X85', 'Y09',
-                       'Y87.1', 'V02', 'V04', 'V09.0', 'V09.2', 'V12', 'V14']
+    def __init__(self, causes_of_death=DEFAULT_CAUSES):
+        self.causes_of_death = causes_of_death
+
+        super().__init__(
+            'diagnosis',        # target_label_column_name
+            'Encounter',        # target_entity
+            'start',            # cutoff_time_label
+            'Period',           # cutoff_entity
+            'classification',   # prediction_type
+            conn='period'
+        )
 
     def generate_cutoff_times(self, es):
         """Generates cutoff times for the predection problem.
