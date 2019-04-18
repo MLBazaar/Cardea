@@ -33,46 +33,12 @@ class Readmission(ProblemDefinition):
         )
 
     def generate_cutoff_times(self, es):
-        """Generates cutoff times for the predection problem.
-
-        Args:
-            es: fhir entityset.
-
-        Returns:
-            entity_set, target_entity, and a dataframe of cutoff_times and target_labels.
-
-        Raises:
-            ValueError: An error occurs if the cutoff variable does not exist.
-        """
-
+        # pre-processing step
         self.generate_target_label(es)
 
-        if DataLoader().check_column_existence(
-                es,
-                self.cutoff_entity,
-                self.cutoff_time_label):  # check the existance of the cutoff label
-
-            generated_cts = self.unify_cutoff_time_discharge_time(
-                es, self.cutoff_entity, self.cutoff_time_label)
-
-            es = es.entity_from_dataframe(entity_id=self.cutoff_entity,
-                                          dataframe=generated_cts,
-                                          index='object_id')
-            cutoff_times = es[self.cutoff_entity].df['ct'].to_frame()
-
-            label = es[self.target_entity].df[self.conn].values
-            instance_id = list(es[self.target_entity].df.index)
-            cutoff_times = cutoff_times.reindex(index=label)
-
-            cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
-
-            cutoff_times['instance_id'] = instance_id
-            cutoff_times.columns = ['cutoff_time', 'instance_id']
-            cutoff_times['label'] = list(es[self.target_entity].df[self.target_label_column_name])
-            return(es, self.target_entity, cutoff_times)
-        else:
-            raise ValueError('Cutoff time label {} in table {} does not exist'
-                             .format(self.cutoff_time_label, self.target_entity))
+        return super().generate_cutoff_times(
+            es, cutoff_time_unifier='unify_cutoff_time_discharge_time'
+        )
 
     def generate_target_label(self, es):
         """Generates target labels in the case of having missing label in the entityset.
