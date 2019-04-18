@@ -16,7 +16,13 @@ def es_loader():
 
 @pytest.fixture()
 def problem_definition():
-    return ProblemDefinition()
+    return ProblemDefinition(
+        'gender',           # target_label_column_name
+        'Patient',          # target_entity
+        'created',          # cutoff_time_label
+        'Appointment',      # cutoff_entity
+        'classification'    # prediction_type
+    )
 
 
 @pytest.fixture()
