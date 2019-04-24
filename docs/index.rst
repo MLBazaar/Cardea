@@ -50,7 +50,18 @@ electronic health records. A typical usage of this library will involve:
    Welcome <self>
    getting_started/install
    getting_started/quickstart
-   getting_started/concepts
+
+.. toctree::
+   :caption: Basic Concepts
+   :maxdepth: 2
+
+   Welcome <basic_concepts/concepts>
+   Data Loading <basic_concepts/data_loading>
+   Machine Learning Tasks <basic_concepts/machine_learning_tasks>
+   Auto - Featurization <basic_concepts/auto_featurization>
+   Auto - ML <basic_concepts/auto_ml>
+   Auditing <basic_concepts/auditing>
+   Advanced Use <basic_concepts/advanced_use>
 
 .. toctree::
    :caption: Community
