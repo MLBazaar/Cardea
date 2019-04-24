@@ -30,35 +30,45 @@ When doing so, make sure to follow these guidelines:
    own fork of the project. Please implement them in a branch named after the issue number and
    title, as this makes keeping track of the history of the project easier in the long run.
 
-   You can create such a branch with the following command::
+   You can create such a branch with the following command:
 
-    $ git checkout -b name-of-your-bugfix-or-feature
+   .. code-block:: console
+
+       $ git checkout -b name-of-your-bugfix-or-feature
 
 4. While hacking your changes, make sure to cover all your developments with the required
    unit tests, and that none of the old tests fail as a consequence of your changes.
-   For this, make sure to run the tests suite and check the code coverage::
+   For this, make sure to run the tests suite and check the code coverage:
 
-    $ make test       # Run the tests
-    $ make coverage   # Get the coverage report
+   .. code-block:: console
+
+       $ make test       # Run the tests
+       $ make coverage   # Get the coverage report
 
 5. When you're done making changes, check that your changes pass flake8 and the
-   tests, including testing other Python versions with tox::
+   tests, including testing other Python versions with tox:
 
-    $ make lint       # Check code styling
-    $ make test-all   # Execute tests on all python versions
+   .. code-block:: console
+
+       $ make lint       # Check code styling
+       $ make test-all   # Execute tests on all python versions
 
 6. Make also sure to include the necessary documentation in the code as docstrings following
    the `google docstring`_ style.
    If you want to view how your documentation will look like when it is published, you can
-   generate and view the docs with this command::
+   generate and view the docs with this command:
 
-    $ make viewdocs
+   .. code-block:: console
 
-7. Commit your changes and push your branch to GitHub::
+       $ make viewdocs
 
-    $ git add .
-    $ git commit -m "Your detailed description of your changes."
-    $ git push origin name-of-your-bugfix-or-feature
+7. Commit your changes and push your branch to GitHub:
+
+   .. code-block:: console
+
+       $ git add .
+       $ git commit -m "Your detailed description of your changes."
+       $ git push origin name-of-your-bugfix-or-feature
 
 8. Submit a pull request through the GitHub website and wait for feedback from the maintainers.
 

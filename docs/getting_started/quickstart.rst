@@ -32,6 +32,7 @@ You can see the list of problem definitions and select one with the following co
 Then, you can perform the AutoML steps and take advantage of Cardea:
 
 1. Extracting features (automated feature engineering), using the following commands:
+
    .. ipython:: python
 
        feature_matrix = cardea.generate_features(problem[:1000])  # a subset
@@ -40,6 +41,7 @@ Then, you can perform the AutoML steps and take advantage of Cardea:
        X = feature_matrix.values
 
 2. Modeling, optimizing hyperparameters and finding the most optimal model using the following commands:
+
    .. ipython:: python
 
        pipeline = [
@@ -47,11 +49,13 @@ Then, you can perform the AutoML steps and take advantage of Cardea:
            ['sklearn.naive_bayes.MultinomialNB'],
            ['sklearn.neighbors.KNeighborsClassifier']
        ]
+
        result = cardea.execute_model(
            feature_matrix=X,
            target=y,
            primitives=pipeline
        )
+
 
 Finally, you can see accuracy results using the following commands:
 

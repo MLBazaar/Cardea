@@ -21,16 +21,26 @@ Our goal is to provide an easy to use library to develop machine learning models
 electronic health records. A typical usage of this library will involve:
 
 * Installing the library available via pypi
+
 * Integrating their data in FHIR schema (whatever subset of data is available)
+
 * Following the API to develop some pre-specified prediction models (or specify new ones using
   our API). The model building process is parameterized but automatically does:
+
   * data cleaning, auditing
+
   * preprocessing
+
   * feature engineering
+
   * machine learning model search and tuning
+
   * model evaluation
+
   * model auditing
+
 * Testing the models using our API
+
 * Preparing and deploying the models
 
 .. toctree::

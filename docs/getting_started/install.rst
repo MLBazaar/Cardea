@@ -57,16 +57,20 @@ These are the required steps:
 
 1. Fork the Cardea `Github repo`_.
 
-2. Clone your fork locally::
+2. Clone your fork locally:
 
-    $ git clone git@github.com:your_name_here/Cardea.git
+   .. code-block:: console
+
+       $ git clone git@github.com:your_name_here/Cardea.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed,
-   this is how you set up your fork for local development::
+   this is how you set up your fork for local development:
 
-    $ mkvirtualenv Cardea
-    $ cd Cardea/
-    $ make install-develop
+   .. code-block:: console
+
+       $ mkvirtualenv Cardea
+       $ cd Cardea/
+       $ make install-develop
 
 .. _Github repo: https://github.com/D3-AI/Cardea
 .. _tarball: https://github.com/D3-AI/Cardea/tarball/master

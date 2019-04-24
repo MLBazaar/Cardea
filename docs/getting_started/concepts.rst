@@ -176,7 +176,7 @@ hyper-parameter tuning steps can be done easily using JSON annotations as follow
 Where, for example, the ``sklearn.naive_bayes.MultinomialNB`` primitive is defined in the
 `MLPrimitives`_ package, with the following structure:
 
-.. code-block:: json
+.. code-block:: python
 
     {
         "name": "sklearn.naive_bayes.MultinomialNB",
@@ -282,16 +282,20 @@ How to define a new machine learning task?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The definition of a new Machine Learning task in Cardea can be made in four simple steps:
+
 1. Go to the `problem_definition`_ directory and create a file with a class specifically for
    your problem. This class should extend the `ProblemDefinition`_ class and overwrites
    accordingly the necessary attributes and methods as needed. Usually, you should pay special
    attention to the ``generate_target_label(...)`` and ``generate_cutoff_times(...)`` methods
    as you might need to extend them or re-implemented in some cases.
+
 2. Expose your new class definition in the `init`_ file inside the `problem_definition`_ directory
+
 3. If you will be using a dataset in a different format that the expected by Cardea (CSV files),
    then you will need to provide a specific loading dataset method for your data in the
    `EntitySetLoader`_ class, where you will be creating your collection of entities and
    relationships between them using the `featuretools.EntitySet`_ class.
+
 4. Finally, you need to update the `Cardea`_ class to support the new problem definition and be
    able to instantiate the proper class when it is necessary in the ``Cardea.select_problem(...)``
    method.
@@ -327,8 +331,8 @@ able to perform featurization and run different primitives using the AutoML tool
 .. _MLPrimitives: https://hdi-project.github.io/MLPrimitives/
 .. _MLBlocks: https://hdi-project.github.io/MLBlocks/
 .. _Model Auditor: https://github.com/HDI-Project/ModelAudit
-.. _problem_definition: https://github.com/D3-AI/Cardea/tree/sepsis/cardea/problem_definition
-.. _ProblemDefinition: https://github.com/D3-AI/Cardea/blob/sepsis/cardea/problem_definition/definition.py
-.. _init: https://github.com/D3-AI/Cardea/blob/sepsis/cardea/problem_definition/__init__.py
-.. _EntitySetLoader`: https://github.com/D3-AI/Cardea/blob/sepsis/cardea/data_loader/entityset_loader.py#L9
-.. _Cardea: https://github.com/D3-AI/Cardea/blob/sepsis/cardea/cardea.py
+.. _problem_definition: https://github.com/D3-AI/Cardea/tree/master/cardea/problem_definition
+.. _ProblemDefinition: https://github.com/D3-AI/Cardea/blob/master/cardea/problem_definition/definition.py
+.. _init: https://github.com/D3-AI/Cardea/blob/master/cardea/problem_definition/__init__.py
+.. _EntitySetLoader: https://github.com/D3-AI/Cardea/blob/master/cardea/data_loader/entityset_loader.py#L9
+.. _Cardea: https://github.com/D3-AI/Cardea/blob/master/cardea/cardea.py
