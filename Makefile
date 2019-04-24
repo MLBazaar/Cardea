@@ -99,7 +99,7 @@ coverage: clean-coverage ## check code coverage quickly with the default Python
 
 
 docs: clean-docs ## generate Sphinx HTML documentation, including API docs
-	sphinx-apidoc --separate --no-toc --output-dir docs/api/ cardea
+	sphinx-apidoc --module-first --separate --no-toc --output-dir docs/api/ cardea
 	$(MAKE) -C docs html
 	touch docs/_build/html/.nojekyll
 
