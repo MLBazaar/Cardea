@@ -7,4 +7,6 @@ __version__ = '0.0.1'
 
 import logging
 
+from cardea.cardea import Cardea
+
 logging.getLogger('cardea').addHandler(logging.NullHandler())
