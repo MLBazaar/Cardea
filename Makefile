@@ -49,9 +49,7 @@ clean-pyc: ## remove Python file artifacts
 	find . -name '__pycache__' -exec rm -fr {} +
 
 clean-docs: ## remove previously built docs
-	rm -f docs/cardea.rst
-	rm -f docs/cardea.*.rst
-	rm -f docs/modules.rst
+	rm -f docs/api/*.rst
 	$(MAKE) -C docs clean
 
 clean-coverage: ## remove coverage artifacts
@@ -101,7 +99,7 @@ coverage: clean-coverage ## check code coverage quickly with the default Python
 
 
 docs: clean-docs ## generate Sphinx HTML documentation, including API docs
-	sphinx-apidoc -o docs/ cardea
+	sphinx-apidoc --module-first --separate --no-toc --output-dir docs/api/ cardea
 	$(MAKE) -C docs html
 	touch docs/_build/html/.nojekyll
 

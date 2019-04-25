@@ -33,13 +33,15 @@ development_requires = [
     # general
     'bumpversion>=0.5.3',
     'pip>=10.0.1',
+    'watchdog>=0.8.3',
     
     # build docs
     'm2r>=0.2.0',
     'Sphinx>=1.7.1',
     'sphinx_rtd_theme>=0.2.4',
     'recommonmark>=0.4.0',
-    
+    'ipython==6.5.0',
+
     # style check
     'flake8>=3.5.0',
     'isort>=4.3.4',

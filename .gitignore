@@ -64,6 +64,10 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+docs/cardea.rst
+docs/cardea.*.rst
+docs/modules.rst
+docs/api
 
 # PyBuilder
 target/
