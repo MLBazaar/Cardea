@@ -1,0 +1,7 @@
+cardea.fhir.MedicationStatement module
+======================================
+
+.. automodule:: cardea.fhir.MedicationStatement
+    :members:
+    :undoc-members:
+    :show-inheritance:

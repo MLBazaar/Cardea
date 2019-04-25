@@ -1,0 +1,7 @@
+cardea.fhir.NamingSystem module
+===============================
+
+.. automodule:: cardea.fhir.NamingSystem
+    :members:
+    :undoc-members:
+    :show-inheritance:

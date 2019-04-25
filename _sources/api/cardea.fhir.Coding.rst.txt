@@ -1,0 +1,7 @@
+cardea.fhir.Coding module
+=========================
+
+.. automodule:: cardea.fhir.Coding
+    :members:
+    :undoc-members:
+    :show-inheritance:

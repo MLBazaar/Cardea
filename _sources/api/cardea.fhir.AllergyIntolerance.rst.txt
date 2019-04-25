@@ -1,0 +1,7 @@
+cardea.fhir.AllergyIntolerance module
+=====================================
+
+.. automodule:: cardea.fhir.AllergyIntolerance
+    :members:
+    :undoc-members:
+    :show-inheritance:

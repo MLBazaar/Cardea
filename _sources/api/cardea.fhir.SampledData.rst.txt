@@ -1,0 +1,7 @@
+cardea.fhir.SampledData module
+==============================
+
+.. automodule:: cardea.fhir.SampledData
+    :members:
+    :undoc-members:
+    :show-inheritance:

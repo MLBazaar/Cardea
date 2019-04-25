@@ -1,0 +1,7 @@
+cardea.fhir.EnrollmentResponse module
+=====================================
+
+.. automodule:: cardea.fhir.EnrollmentResponse
+    :members:
+    :undoc-members:
+    :show-inheritance:

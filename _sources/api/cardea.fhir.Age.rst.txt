@@ -1,0 +1,7 @@
+cardea.fhir.Age module
+======================
+
+.. automodule:: cardea.fhir.Age
+    :members:
+    :undoc-members:
+    :show-inheritance:

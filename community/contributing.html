@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contributing Guidelines &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea package" href="../api/cardea.html" />
+    <link rel="prev" title="Welcome to the Community" href="welcome.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/cardea.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/cardea.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.fhir.html">cardea.fhir package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Contributing Guidelines</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/community/contributing.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contributing-guidelines">
+<span id="contributing"></span><h1>Contributing Guidelines<a class="headerlink" href="#contributing-guidelines" title="Permalink to this headline">¶</a></h1>
+<p>Ready to contribute with your own code? Great!</p>
+<p>Before diving deeper into the contributing guidelines, please make sure to having read
+the <a class="reference internal" href="../basic_concepts/concepts.html#concepts"><span class="std std-ref">Basic Concepts</span></a> section and to have gone through the <a class="reference internal" href="../getting_started/install.html#development"><span class="std std-ref">Development Setup</span></a> guide.</p>
+<p>Afterwards, please make sure to read the following contributing guidelines carefully, and
+later on head to the step-by-step guides for each possible type of contribution.</p>
+<div class="section" id="general-coding-guidelines">
+<h2>General Coding Guidelines<a class="headerlink" href="#general-coding-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>Once you have set up your development environment, you are ready to start working on your
+python code.</p>
+<p>When doing so, make sure to follow these guidelines:</p>
+<ol class="arabic">
+<li><p>If it does not exist yet, create a new GitHub issue. Indicate in the issue description or
+in a comment that you are available to apply the changes yourself.</p></li>
+<li><p>Wait for the feedback from the maintainers, who will approve the issue and assign it to you,
+before proceeding to implement any changes. Be open to discuss with them about the need
+of adding these changes.</p></li>
+<li><p>Once the issue has been approved and assigned to you, implement the necessary changes in your
+own fork of the project. Please implement them in a branch named after the issue number and
+title, as this makes keeping track of the history of the project easier in the long run.</p>
+<p>You can create such a branch with the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git checkout -b name-of-your-bugfix-or-feature
+</pre></div>
+</div>
+</li>
+<li><p>While hacking your changes, make sure to cover all your developments with the required
+unit tests, and that none of the old tests fail as a consequence of your changes.
+For this, make sure to run the tests suite and check the code coverage:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> make <span class="nb">test</span>       <span class="c1"># Run the tests</span>
+<span class="gp">$</span> make coverage   <span class="c1"># Get the coverage report</span>
+</pre></div>
+</div>
+</li>
+<li><p>When you’re done making changes, check that your changes pass flake8 and the
+tests, including testing other Python versions with tox:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> make lint       <span class="c1"># Check code styling</span>
+<span class="gp">$</span> make test-all   <span class="c1"># Execute tests on all python versions</span>
+</pre></div>
+</div>
+</li>
+<li><p>Make also sure to include the necessary documentation in the code as docstrings following
+the <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">google docstring</a> style.
+If you want to view how your documentation will look like when it is published, you can
+generate and view the docs with this command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> make viewdocs
+</pre></div>
+</div>
+</li>
+<li><p>Commit your changes and push your branch to GitHub:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git add .
+<span class="gp">$</span> git commit -m <span class="s2">&quot;Your detailed description of your changes.&quot;</span>
+<span class="gp">$</span> git push origin name-of-your-bugfix-or-feature
+</pre></div>
+</div>
+</li>
+<li><p>Submit a pull request through the GitHub website and wait for feedback from the maintainers.</p></li>
+</ol>
+</div>
+<div class="section" id="unit-testing-guidelines">
+<h2>Unit Testing Guidelines<a class="headerlink" href="#unit-testing-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>If you are going to contribute Python code, we will ask you to write unit tests that cover
+your development, following these requirements:</p>
+<ol class="arabic simple">
+<li><p>Unit Tests should be based only in unittest and pytest modules.</p></li>
+<li><p>The tests that cover a module called <code class="docutils literal notranslate"><span class="pre">cardea/path/to/a_module.py</span></code> should be
+implemented in a separated module called <code class="docutils literal notranslate"><span class="pre">tests/cardea/path/to/test_a_module.py</span></code>.
+Note that the module name has the <code class="docutils literal notranslate"><span class="pre">test_</span></code> prefix and is located in a path similar
+to the one of the tested module, just inside the <code class="docutils literal notranslate"><span class="pre">tests</span></code> folder.</p></li>
+<li><p>Each method of the tested module should have at least one associated test method, and
+each test method should cover only <strong>one</strong> use case or scenario.</p></li>
+<li><p>Test case methods should start with the <code class="docutils literal notranslate"><span class="pre">test_</span></code> prefix and have descriptive names
+that indicate which scenario they cover.
+Names such as <code class="docutils literal notranslate"><span class="pre">test_some_method_input_none</span></code>, <code class="docutils literal notranslate"><span class="pre">test_some_method_value_error</span></code> or
+<code class="docutils literal notranslate"><span class="pre">test_some_method_timeout</span></code> are right, but names like <code class="docutils literal notranslate"><span class="pre">test_some_method_1</span></code>,
+<code class="docutils literal notranslate"><span class="pre">some_method</span></code> or <code class="docutils literal notranslate"><span class="pre">test_error</span></code> are not.</p></li>
+<li><p>Each test should validate only what the code of the method being tested does, and not
+cover the behavior of any third party package or tool being used, which is assumed to
+work properly as far as it is being passed the right values.</p></li>
+<li><p>Any third party tool that may have any kind of random behavior, such as some Machine
+Learning models, databases or Web APIs, will be mocked using the <code class="docutils literal notranslate"><span class="pre">mock</span></code> library, and
+the only thing that will be tested is that our code passes the right values to them.</p></li>
+<li><p>Unit tests should not use anything from outside the test and the code being tested. This
+includes not reading or writing to any file system or database, which will be properly
+mocked.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../api/cardea.html" class="btn btn-neutral float-right" title="cardea package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="welcome.html" class="btn btn-neutral float-left" title="Welcome to the Community" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

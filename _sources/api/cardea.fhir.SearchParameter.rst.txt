@@ -1,0 +1,7 @@
+cardea.fhir.SearchParameter module
+==================================
+
+.. automodule:: cardea.fhir.SearchParameter
+    :members:
+    :undoc-members:
+    :show-inheritance:

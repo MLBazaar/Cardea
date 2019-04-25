@@ -1,0 +1,7 @@
+cardea.fhir.RiskAssessment module
+=================================
+
+.. automodule:: cardea.fhir.RiskAssessment
+    :members:
+    :undoc-members:
+    :show-inheritance:

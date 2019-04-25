@@ -1,0 +1,7 @@
+cardea.fhir.AuditEvent module
+=============================
+
+.. automodule:: cardea.fhir.AuditEvent
+    :members:
+    :undoc-members:
+    :show-inheritance:

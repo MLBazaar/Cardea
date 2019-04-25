@@ -1,0 +1,15 @@
+cardea.featurization package
+============================
+
+.. automodule:: cardea.featurization
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   cardea.featurization.featurization
+

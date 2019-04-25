@@ -1,0 +1,7 @@
+cardea.fhir.Distance module
+===========================
+
+.. automodule:: cardea.fhir.Distance
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+cardea.fhir.Location module
+===========================
+
+.. automodule:: cardea.fhir.Location
+    :members:
+    :undoc-members:
+    :show-inheritance:

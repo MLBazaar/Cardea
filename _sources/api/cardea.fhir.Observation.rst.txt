@@ -1,0 +1,7 @@
+cardea.fhir.Observation module
+==============================
+
+.. automodule:: cardea.fhir.Observation
+    :members:
+    :undoc-members:
+    :show-inheritance:

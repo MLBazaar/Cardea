@@ -1,0 +1,7 @@
+cardea.fhir.Narrative module
+============================
+
+.. automodule:: cardea.fhir.Narrative
+    :members:
+    :undoc-members:
+    :show-inheritance:

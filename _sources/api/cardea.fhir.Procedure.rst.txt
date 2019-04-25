@@ -1,0 +1,7 @@
+cardea.fhir.Procedure module
+============================
+
+.. automodule:: cardea.fhir.Procedure
+    :members:
+    :undoc-members:
+    :show-inheritance:

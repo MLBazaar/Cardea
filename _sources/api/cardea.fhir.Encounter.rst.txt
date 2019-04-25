@@ -1,0 +1,7 @@
+cardea.fhir.Encounter module
+============================
+
+.. automodule:: cardea.fhir.Encounter
+    :members:
+    :undoc-members:
+    :show-inheritance:

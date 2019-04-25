@@ -1,0 +1,715 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.CarePlan module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.fhir.CareTeam module" href="cardea.fhir.CareTeam.html" />
+    <link rel="prev" title="cardea.fhir.CapabilityStatement module" href="cardea.fhir.CapabilityStatement.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
+        
+      <li>cardea.fhir.CarePlan module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.CarePlan.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.fhir.CarePlan">
+<span id="cardea-fhir-careplan-module"></span><h1>cardea.fhir.CarePlan module<a class="headerlink" href="#module-cardea.fhir.CarePlan" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.CarePlan.CarePlan">
+<em class="property">class </em><code class="descclassname">cardea.fhir.CarePlan.</code><code class="descname">CarePlan</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CarePlan.html#CarePlan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Describes the intention of how one or more practitioners intend to
+deliver care for a particular patient, group or community for a period
+of time, possibly limited to care for a specific condition or set of
+conditions.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.resourceType">
+<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.resourceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a CarePlan resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>This records identifiers associated with this care plan
+that are defined by business processes and/or used to refer to it when
+a direct URL reference to the resource itself is not appropriate (e.g.
+in CDA documents, or in written / printed documentation).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.definition">
+<code class="descname">definition</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.definition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the protocol, questionnaire, guideline or other
+specification the care plan should be conducted in accordance with.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.basedOn">
+<code class="descname">basedOn</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.basedOn" title="Permalink to this definition">¶</a></dt>
+<dd><p>A care plan that is fulfilled in whole or in part by this
+care plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.replaces">
+<code class="descname">replaces</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.replaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Completed or terminated care plan whose function is taken by
+this new care plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.partOf">
+<code class="descname">partOf</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.partOf" title="Permalink to this definition">¶</a></dt>
+<dd><p>A larger care plan of which this particular care plan is a
+component or step.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.status">
+<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the plan is currently being acted upon,
+represents future intentions or is now a historical record.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.intent">
+<code class="descname">intent</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.intent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the level of authority/intentionality associated
+with the care plan and where the care plan fits into the workflow
+chain.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.category">
+<code class="descname">category</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies what “kind” of plan this is to support
+differentiation between multiple co-existing plans; e.g. “Home
+health”, “psychiatric”, “asthma”, “disease management”, “wellness
+plan”, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.title">
+<code class="descname">title</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human-friendly name for the CarePlan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.description">
+<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A description of the scope and nature of the plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.subject">
+<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the patient or group whose intended care is
+described by the plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.context">
+<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the original context in which this particular
+CarePlan was created.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.period">
+<code class="descname">period</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates when the plan did (or is intended to) come into
+effect and end.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.author">
+<code class="descname">author</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.author" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the individual(s) or ogranization who is
+responsible for the content of the care plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.careTeam">
+<code class="descname">careTeam</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.careTeam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies all people and organizations who are expected to
+be involved in the care envisioned by this plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.addresses">
+<code class="descname">addresses</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.addresses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the conditions/problems/concerns/diagnoses/etc.
+whose management and/or mitigation are handled by this plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.supportingInfo">
+<code class="descname">supportingInfo</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.supportingInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies portions of the patient’s record that
+specifically influenced the formation of the plan.  These might
+include co-morbidities, recent procedures, limitations, recent
+assessments, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.goal">
+<code class="descname">goal</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.goal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes the intended objective(s) of carrying out the care
+plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.activity">
+<code class="descname">activity</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies a planned action to occur as part of the plan.
+For example, a medication to be used, lab tests to perform,
+self-monitoring, education, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan.note">
+<code class="descname">note</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.note" title="Permalink to this definition">¶</a></dt>
+<dd><p>General notes about the care plan not covered elsewhere.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.CarePlan.CarePlan.assert_type">
+<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CarePlan.html#CarePlan.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.assert_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks class values follow set possible enumerations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – An error occurs if an attribute of the fhir class
+    does not match its possible enumerations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.CarePlan.CarePlan.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CarePlan.html#CarePlan.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.CarePlan.CarePlan_Activity">
+<em class="property">class </em><code class="descclassname">cardea.fhir.CarePlan.</code><code class="descname">CarePlan_Activity</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CarePlan.html#CarePlan_Activity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Describes the intention of how one or more practitioners intend to
+deliver care for a particular patient, group or community for a period
+of time, possibly limited to care for a specific condition or set of
+conditions.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Activity.outcomeCodeableConcept">
+<code class="descname">outcomeCodeableConcept</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Activity.outcomeCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the outcome at the point when the
+status of the activity is assessed.  For example, the outcome of an
+education activity could be patient understands (or not).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Activity.outcomeReference">
+<code class="descname">outcomeReference</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Activity.outcomeReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Details of the outcome or action resulting from the
+activity.  The reference to an “event” resource, such as Procedure or
+Encounter or Observation, is the result/outcome of the activity
+itself.  The activity can be conveyed using CarePlan.activity.detail
+OR using the CarePlan.activity.reference (a reference to a “request”
+resource).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Activity.progress">
+<code class="descname">progress</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Activity.progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notes about the adherence/status/progress of the activity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Activity.reference">
+<code class="descname">reference</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Activity.reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>The details of the proposed activity represented in a
+specific resource.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Activity.detail">
+<code class="descname">detail</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Activity.detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple summary of a planned activity suitable for a general
+care plan system (e.g. form driven) that doesn’t know about specific
+resources such as procedure etc.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.CarePlan.CarePlan_Activity.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CarePlan.html#CarePlan_Activity.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Activity.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail">
+<em class="property">class </em><code class="descclassname">cardea.fhir.CarePlan.</code><code class="descname">CarePlan_Detail</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CarePlan.html#CarePlan_Detail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Describes the intention of how one or more practitioners intend to
+deliver care for a particular patient, group or community for a period
+of time, possibly limited to care for a specific condition or set of
+conditions.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.category">
+<code class="descname">category</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.category" title="Permalink to this definition">¶</a></dt>
+<dd><p>High-level categorization of the type of activity in a care
+plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.definition">
+<code class="descname">definition</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.definition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the protocol, questionnaire, guideline or other
+specification the planned activity should be conducted in accordance
+with.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.code">
+<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detailed description of the type of planned activity; e.g. What
+lab test, what procedure, what kind of encounter.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.reasonCode">
+<code class="descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.reasonCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the rationale that drove the inclusion of this
+particular activity as part of the plan or the reason why the activity
+was prohibited.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.reasonReference">
+<code class="descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.reasonReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the health condition(s) that drove the
+inclusion of this particular activity as part of the plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.goal">
+<code class="descname">goal</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.goal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal reference that identifies the goals that this activity
+is intended to contribute towards meeting.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.status">
+<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies what progress is being made for the specific
+activity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.statusReason">
+<code class="descname">statusReason</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.statusReason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides reason why the activity isn’t yet started, is
+on hold, was cancelled, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.prohibited">
+<code class="descname">prohibited</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.prohibited" title="Permalink to this definition">¶</a></dt>
+<dd><p>If true, indicates that the described activity is one that
+must NOT be engaged in when following the plan.  If false, indicates
+that the described activity is one that should be engaged in when
+following the plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.scheduledTiming">
+<code class="descname">scheduledTiming</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.scheduledTiming" title="Permalink to this definition">¶</a></dt>
+<dd><p>The period, timing or frequency upon which the
+described activity is to occur.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.scheduledPeriod">
+<code class="descname">scheduledPeriod</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.scheduledPeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p>The period, timing or frequency upon which the
+described activity is to occur.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.scheduledString">
+<code class="descname">scheduledString</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.scheduledString" title="Permalink to this definition">¶</a></dt>
+<dd><p>The period, timing or frequency upon which the
+described activity is to occur.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.location">
+<code class="descname">location</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the facility where the activity will occur; e.g.
+home, hospital, specific clinic, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.performer">
+<code class="descname">performer</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.performer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies who’s expected to be involved in the activity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.productCodeableConcept">
+<code class="descname">productCodeableConcept</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.productCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the food, drug or other product to
+be consumed or supplied in the activity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.productReference">
+<code class="descname">productReference</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.productReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the food, drug or other product to be
+consumed or supplied in the activity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.dailyAmount">
+<code class="descname">dailyAmount</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.dailyAmount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the quantity expected to be consumed in a
+given day.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.quantity">
+<code class="descname">quantity</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the quantity expected to be supplied,
+administered or consumed by the subject.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.description">
+<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>This provides a textual description of constraints on the
+intended activity occurrence, including relation to other activities.
+It may also include objectives, pre-conditions and end-conditions.
+Finally, it may convey specifics about the activity such as body site,
+method, route, etc.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.assert_type">
+<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CarePlan.html#CarePlan_Detail.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.assert_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks class values follow set possible enumerations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – An error occurs if an attribute of the fhir class
+    does not match its possible enumerations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.CarePlan.CarePlan_Detail.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CarePlan.html#CarePlan_Detail.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CarePlan.CarePlan_Detail.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.fhir.CareTeam.html" class="btn btn-neutral float-right" title="cardea.fhir.CareTeam module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.fhir.CapabilityStatement.html" class="btn btn-neutral float-left" title="cardea.fhir.CapabilityStatement module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

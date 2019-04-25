@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.Condition module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.fhir.Consent module" href="cardea.fhir.Consent.html" />
+    <link rel="prev" title="cardea.fhir.ConceptMap module" href="cardea.fhir.ConceptMap.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
+        
+      <li>cardea.fhir.Condition module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Condition.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.fhir.Condition">
+<span id="cardea-fhir-condition-module"></span><h1>cardea.fhir.Condition module<a class="headerlink" href="#module-cardea.fhir.Condition" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.Condition.Condition">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Condition.</code><code class="descname">Condition</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Condition.html#Condition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Condition.Condition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A clinical condition, problem, diagnosis, or other event, situation,
+issue, or clinical concept that has risen to a level of concern.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.resourceType">
+<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.resourceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a Condition resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>This records identifiers associated with this condition
+that are defined by business processes and/or used to refer to it when
+a direct URL reference to the resource itself is not appropriate (e.g.
+in CDA documents, or in written / printed documentation).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.clinicalStatus">
+<code class="descname">clinicalStatus</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.clinicalStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>The clinical status of the condition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.verificationStatus">
+<code class="descname">verificationStatus</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.verificationStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>The verification status to support the clinical
+status of the condition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.category">
+<code class="descname">category</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.category" title="Permalink to this definition">¶</a></dt>
+<dd><p>A category assigned to the condition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.severity">
+<code class="descname">severity</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.severity" title="Permalink to this definition">¶</a></dt>
+<dd><p>A subjective assessment of the severity of the condition as
+evaluated by the clinician.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.code">
+<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identification of the condition, problem or diagnosis.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.bodySite">
+<code class="descname">bodySite</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.bodySite" title="Permalink to this definition">¶</a></dt>
+<dd><p>The anatomical location where this condition manifests
+itself.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.subject">
+<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the patient or group who the condition record is
+associated with.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.context">
+<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encounter during which the condition was first asserted.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.onsetDateTime">
+<code class="descname">onsetDateTime</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.onsetDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated or actual date or date-time  the condition
+began, in the opinion of the clinician.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.onsetAge">
+<code class="descname">onsetAge</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.onsetAge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated or actual date or date-time  the condition began,
+in the opinion of the clinician.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.onsetPeriod">
+<code class="descname">onsetPeriod</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.onsetPeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated or actual date or date-time  the condition
+began, in the opinion of the clinician.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.onsetRange">
+<code class="descname">onsetRange</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.onsetRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated or actual date or date-time  the condition
+began, in the opinion of the clinician.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.onsetString">
+<code class="descname">onsetString</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.onsetString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated or actual date or date-time  the condition
+began, in the opinion of the clinician.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.abatementDateTime">
+<code class="descname">abatementDateTime</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.abatementDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date or estimated date that the condition
+resolved or went into remission. This is called “abatement” because of
+the many overloaded connotations associated with “remission” or
+“resolution” - Conditions are never really resolved, but they can
+abate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.abatementAge">
+<code class="descname">abatementAge</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.abatementAge" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date or estimated date that the condition resolved
+or went into remission. This is called “abatement” because of the many
+overloaded connotations associated with “remission” or “resolution” -
+Conditions are never really resolved, but they can abate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.abatementBoolean">
+<code class="descname">abatementBoolean</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.abatementBoolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date or estimated date that the condition
+resolved or went into remission. This is called “abatement” because of
+the many overloaded connotations associated with “remission” or
+“resolution” - Conditions are never really resolved, but they can
+abate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.abatementPeriod">
+<code class="descname">abatementPeriod</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.abatementPeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date or estimated date that the condition
+resolved or went into remission. This is called “abatement” because of
+the many overloaded connotations associated with “remission” or
+“resolution” - Conditions are never really resolved, but they can
+abate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.abatementRange">
+<code class="descname">abatementRange</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.abatementRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date or estimated date that the condition resolved
+or went into remission. This is called “abatement” because of the many
+overloaded connotations associated with “remission” or “resolution” -
+Conditions are never really resolved, but they can abate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.abatementString">
+<code class="descname">abatementString</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.abatementString" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date or estimated date that the condition
+resolved or went into remission. This is called “abatement” because of
+the many overloaded connotations associated with “remission” or
+“resolution” - Conditions are never really resolved, but they can
+abate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.assertedDate">
+<code class="descname">assertedDate</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.assertedDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date on which the existance of the Condition was
+first asserted or acknowledged.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.asserter">
+<code class="descname">asserter</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.asserter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Individual who is making the condition statement.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.stage">
+<code class="descname">stage</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.stage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clinical stage or grade of a condition. May include formal
+severity assessments.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.evidence">
+<code class="descname">evidence</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.evidence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Supporting Evidence / manifestations that are the basis on
+which this condition is suspected or confirmed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition.note">
+<code class="descname">note</code><a class="headerlink" href="#cardea.fhir.Condition.Condition.note" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional information about the Condition. This is a general
+notes/comments entry  for description of the Condition, its diagnosis
+and prognosis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Condition.Condition.assert_type">
+<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Condition.html#Condition.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Condition.Condition.assert_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks class values follow set possible enumerations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – An error occurs if an attribute of the fhir class
+    does not match its possible enumerations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Condition.Condition.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Condition.html#Condition.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Condition.Condition.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Condition.Condition_Evidence">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Condition.</code><code class="descname">Condition_Evidence</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Condition.html#Condition_Evidence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Condition.Condition_Evidence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A clinical condition, problem, diagnosis, or other event, situation,
+issue, or clinical concept that has risen to a level of concern.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition_Evidence.code">
+<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.Condition.Condition_Evidence.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>A manifestation or symptom that led to the recording of this
+condition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition_Evidence.detail">
+<code class="descname">detail</code><a class="headerlink" href="#cardea.fhir.Condition.Condition_Evidence.detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Links to other relevant information, including pathology
+reports.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Condition.Condition_Evidence.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Condition.html#Condition_Evidence.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Condition.Condition_Evidence.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Condition.Condition_Stage">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Condition.</code><code class="descname">Condition_Stage</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Condition.html#Condition_Stage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Condition.Condition_Stage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A clinical condition, problem, diagnosis, or other event, situation,
+issue, or clinical concept that has risen to a level of concern.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition_Stage.summary">
+<code class="descname">summary</code><a class="headerlink" href="#cardea.fhir.Condition.Condition_Stage.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple summary of the stage such as “Stage 3”. The
+determination of the stage is disease-specific.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Condition.Condition_Stage.assessment">
+<code class="descname">assessment</code><a class="headerlink" href="#cardea.fhir.Condition.Condition_Stage.assessment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to a formal record of the evidence on which the
+staging assessment is based.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Condition.Condition_Stage.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Condition.html#Condition_Stage.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Condition.Condition_Stage.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.fhir.Consent.html" class="btn btn-neutral float-right" title="cardea.fhir.Consent module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.fhir.ConceptMap.html" class="btn btn-neutral float-left" title="cardea.fhir.ConceptMap module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

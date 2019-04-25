@@ -1,0 +1,985 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.Contract module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.fhir.Contributor module" href="cardea.fhir.Contributor.html" />
+    <link rel="prev" title="cardea.fhir.ContactPoint module" href="cardea.fhir.ContactPoint.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
+        
+      <li>cardea.fhir.Contract module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Contract.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.fhir.Contract">
+<span id="cardea-fhir-contract-module"></span><h1>cardea.fhir.Contract module<a class="headerlink" href="#module-cardea.fhir.Contract" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.Contract.Contract">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Contract.</code><code class="descname">Contract</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A formal agreement between parties regarding the conduct of business,
+exchange of information or other matters.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.resourceType">
+<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.resourceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a Contract resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique identifier for this Contract.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.status">
+<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of the resource instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.issued">
+<code class="descname">issued</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.issued" title="Permalink to this definition">¶</a></dt>
+<dd><p>When this  Contract was issued.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.applies">
+<code class="descname">applies</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.applies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relevant time or time-period when this Contract is
+applicable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.subject">
+<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>The target entity impacted by or of interest to parties to
+the agreement.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.topic">
+<code class="descname">topic</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matter of concern in the context of this agreement.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.authority">
+<code class="descname">authority</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.authority" title="Permalink to this definition">¶</a></dt>
+<dd><p>A formally or informally recognized grouping of people,
+principals, organizations, or jurisdictions formed for the purpose of
+achieving some form of collective action such as the promulgation,
+administration and enforcement of contracts and policies.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.domain">
+<code class="descname">domain</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recognized governance framework or system operating with a
+circumscribed scope in accordance with specified principles, policies,
+processes or procedures for managing rights, actions, or behaviors of
+parties or principals relative to resources.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.type">
+<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of Contract such as an insurance policy, real estate
+contract, a will, power of attorny, Privacy or Security policy , trust
+framework agreement, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.subType">
+<code class="descname">subType</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.subType" title="Permalink to this definition">¶</a></dt>
+<dd><p>More specific type or specialization of an overarching or
+more general contract such as auto insurance, home owner  insurance,
+prenupial agreement, Advanced-Directive, or privacy consent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.action">
+<code class="descname">action</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Action stipulated by this Contract.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.actionReason">
+<code class="descname">actionReason</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.actionReason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reason for action stipulated by this Contract.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.decisionType">
+<code class="descname">decisionType</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.decisionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of decision made by a grantor with respect to
+an offer made by a grantee.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.contentDerivative">
+<code class="descname">contentDerivative</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.contentDerivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>The minimal content derived from the basal
+information source at a specific stage in its lifecycle.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.securityLabel">
+<code class="descname">securityLabel</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.securityLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of security labels that define which resources
+are controlled by this consent. If more than one label is specified,
+all resources must have all the specified labels.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.agent">
+<code class="descname">agent</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>An actor taking a role in an activity for which it can be
+assigned some degree of responsibility for the activity taking place.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.signer">
+<code class="descname">signer</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.signer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parties with legal standing in the Contract, including the
+principal parties, the grantor(s) and grantee(s), which are any person
+or organization bound by the contract, and any ancillary parties,
+which facilitate the execution of the contract such as a notary or
+witness.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.valuedItem">
+<code class="descname">valuedItem</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.valuedItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contract Valued Item List.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.term">
+<code class="descname">term</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.term" title="Permalink to this definition">¶</a></dt>
+<dd><p>One or more Contract Provisions, which may be related and
+conveyed as a group, and may contain nested groups.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.bindingAttachment">
+<code class="descname">bindingAttachment</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.bindingAttachment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Legally binding Contract: This is the signed and
+legally recognized representation of the Contract, which is considered
+the “source of truth” and which would be the basis for legal action
+related to enforcement of this Contract.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.bindingReference">
+<code class="descname">bindingReference</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.bindingReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Legally binding Contract: This is the signed and
+legally recognized representation of the Contract, which is considered
+the “source of truth” and which would be the basis for legal action
+related to enforcement of this Contract.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.friendly">
+<code class="descname">friendly</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.friendly" title="Permalink to this definition">¶</a></dt>
+<dd><p>The “patient friendly language” versionof the Contract in
+whole or in parts. “Patient friendly language” means the
+representation of the Contract and Contract Provisions in a manner
+that is readily accessible and understandable by a layperson in
+accordance with best practices for communication styles that ensure
+that those agreeing to or signing the Contract understand the roles,
+actions, obligations, responsibilities, and implication of the
+agreement.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.legal">
+<code class="descname">legal</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.legal" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of Legal expressions or representations of this Contract.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract.rule">
+<code class="descname">rule</code><a class="headerlink" href="#cardea.fhir.Contract.Contract.rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of Computable Policy Rule Language Representations of this
+Contract.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Contract.Contract.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Contract.Contract_Agent">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Contract.</code><code class="descname">Contract_Agent</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Agent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A formal agreement between parties regarding the conduct of business,
+exchange of information or other matters.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Agent.actor">
+<code class="descname">actor</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Agent.actor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Who or what parties are assigned roles in this Contract.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Agent.role">
+<code class="descname">role</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Agent.role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Role type of agent assigned roles in this Contract.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Contract.Contract_Agent.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Agent.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Agent.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Contract.Contract_Agent1">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Contract.</code><code class="descname">Contract_Agent1</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Agent1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Agent1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A formal agreement between parties regarding the conduct of business,
+exchange of information or other matters.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Agent1.actor">
+<code class="descname">actor</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Agent1.actor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The agent assigned a role in this Contract Provision.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Agent1.role">
+<code class="descname">role</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Agent1.role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Role played by the agent assigned this role in the execution of
+this Contract Provision.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Contract.Contract_Agent1.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Agent1.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Agent1.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Contract.Contract_Friendly">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Contract.</code><code class="descname">Contract_Friendly</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Friendly"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Friendly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A formal agreement between parties regarding the conduct of business,
+exchange of information or other matters.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Friendly.contentAttachment">
+<code class="descname">contentAttachment</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Friendly.contentAttachment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human readable rendering of this Contract in a
+format and representation intended to enhance comprehension and ensure
+understandability.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Friendly.contentReference">
+<code class="descname">contentReference</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Friendly.contentReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human readable rendering of this Contract in a
+format and representation intended to enhance comprehension and ensure
+understandability.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Contract.Contract_Friendly.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Friendly.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Friendly.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Contract.Contract_Legal">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Contract.</code><code class="descname">Contract_Legal</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Legal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Legal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A formal agreement between parties regarding the conduct of business,
+exchange of information or other matters.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Legal.contentAttachment">
+<code class="descname">contentAttachment</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Legal.contentAttachment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contract legal text in human renderable form.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Legal.contentReference">
+<code class="descname">contentReference</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Legal.contentReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contract legal text in human renderable form.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Contract.Contract_Legal.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Legal.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Legal.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Contract.Contract_Rule">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Contract.</code><code class="descname">Contract_Rule</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A formal agreement between parties regarding the conduct of business,
+exchange of information or other matters.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Rule.contentAttachment">
+<code class="descname">contentAttachment</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Rule.contentAttachment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computable Contract conveyed using a policy rule
+language (e.g. XACML, DKAL, SecPal).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Rule.contentReference">
+<code class="descname">contentReference</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Rule.contentReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computable Contract conveyed using a policy rule
+language (e.g. XACML, DKAL, SecPal).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Contract.Contract_Rule.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Rule.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Rule.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Contract.Contract_Signer">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Contract.</code><code class="descname">Contract_Signer</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Signer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Signer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A formal agreement between parties regarding the conduct of business,
+exchange of information or other matters.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Signer.type">
+<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Signer.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Role of this Contract signer, e.g. notary, grantee.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Signer.party">
+<code class="descname">party</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Signer.party" title="Permalink to this definition">¶</a></dt>
+<dd><p>Party which is a signator to this Contract.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Signer.signature">
+<code class="descname">signature</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Signer.signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Legally binding Contract DSIG signature contents in Base64.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Contract.Contract_Signer.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Signer.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Signer.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Contract.Contract_Term">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Contract.</code><code class="descname">Contract_Term</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Term"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A formal agreement between parties regarding the conduct of business,
+exchange of information or other matters.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique identifier for this particular Contract Provision.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.issued">
+<code class="descname">issued</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.issued" title="Permalink to this definition">¶</a></dt>
+<dd><p>When this Contract Provision was issued.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.applies">
+<code class="descname">applies</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.applies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relevant time or time-period when this Contract Provision is
+applicable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.type">
+<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of Contract Provision such as specific requirements,
+purposes for actions, obligations, prohibitions, e.g. life time
+maximum benefit.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.subType">
+<code class="descname">subType</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.subType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subtype of this Contract Provision, e.g. life time maximum
+payment for a contract term for specific valued item, e.g. disability
+payment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.topic">
+<code class="descname">topic</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matter of concern in the context of this provision of the
+agrement.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.action">
+<code class="descname">action</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Action stipulated by this Contract Provision.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.actionReason">
+<code class="descname">actionReason</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.actionReason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reason or purpose for the action stipulated by this
+Contract Provision.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.securityLabel">
+<code class="descname">securityLabel</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.securityLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of security labels that define which terms are
+controlled by this condition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.agent">
+<code class="descname">agent</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>An actor taking a role in an activity for which it can be
+assigned some degree of responsibility for the activity taking place.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.text">
+<code class="descname">text</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human readable form of this Contract Provision.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.valuedItem">
+<code class="descname">valuedItem</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.valuedItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contract Provision Valued Item List.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_Term.group">
+<code class="descname">group</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nested group of Contract Provisions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Contract.Contract_Term.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_Term.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_Term.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Contract.</code><code class="descname">Contract_ValuedItem</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_ValuedItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A formal agreement between parties regarding the conduct of business,
+exchange of information or other matters.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem.entityCodeableConcept">
+<code class="descname">entityCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem.entityCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific type of Contract Valued Item that may
+be priced.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem.entityReference">
+<code class="descname">entityReference</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem.entityReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific type of Contract Valued Item that may be
+priced.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies a Contract Valued Item instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem.effectiveTime">
+<code class="descname">effectiveTime</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem.effectiveTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the time during which this Contract
+ValuedItem information is effective.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem.quantity">
+<code class="descname">quantity</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem.quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the units by which the Contract Valued Item is
+measured or counted, and quantifies the countable or measurable
+Contract Valued Item instances.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem.unitPrice">
+<code class="descname">unitPrice</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem.unitPrice" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Contract Valued Item unit valuation measure.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem.factor">
+<code class="descname">factor</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem.factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A real number that represents a multiplier used in determining
+the overall value of the Contract Valued Item delivered. The concept
+of a Factor allows for a discount or surcharge multiplier to be
+applied to a monetary amount.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem.points">
+<code class="descname">points</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem.points" title="Permalink to this definition">¶</a></dt>
+<dd><p>An amount that expresses the weighting (based on difficulty,
+cost and/or resource intensiveness) associated with the Contract
+Valued Item delivered. The concept of Points allows for assignment of
+point values for a Contract Valued Item, such that a monetary amount
+can be assigned to each point.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem.net">
+<code class="descname">net</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem.net" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expresses the product of the Contract Valued Item unitQuantity
+and the unitPriceAmt. For example, the formula: unit Quantity * unit
+Price (Cost per Point) * factor Number  * points = net Amount.
+Quantity, factor and points are assumed to be 1 if not supplied.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_ValuedItem.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem1">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Contract.</code><code class="descname">Contract_ValuedItem1</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_ValuedItem1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A formal agreement between parties regarding the conduct of business,
+exchange of information or other matters.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem1.entityCodeableConcept">
+<code class="descname">entityCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem1.entityCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific type of Contract Provision Valued Item
+that may be priced.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem1.entityReference">
+<code class="descname">entityReference</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem1.entityReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific type of Contract Provision Valued Item that
+may be priced.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem1.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem1.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies a Contract Provision Valued Item instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem1.effectiveTime">
+<code class="descname">effectiveTime</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem1.effectiveTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the time during which this Contract Term
+ValuedItem information is effective.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem1.quantity">
+<code class="descname">quantity</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem1.quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the units by which the Contract Provision Valued
+Item is measured or counted, and quantifies the countable or
+measurable Contract Term Valued Item instances.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem1.unitPrice">
+<code class="descname">unitPrice</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem1.unitPrice" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Contract Provision Valued Item unit valuation measure.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem1.factor">
+<code class="descname">factor</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem1.factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A real number that represents a multiplier used in determining
+the overall value of the Contract Provision Valued Item delivered. The
+concept of a Factor allows for a discount or surcharge multiplier to
+be applied to a monetary amount.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem1.points">
+<code class="descname">points</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem1.points" title="Permalink to this definition">¶</a></dt>
+<dd><p>An amount that expresses the weighting (based on difficulty,
+cost and/or resource intensiveness) associated with the Contract
+Provision Valued Item delivered. The concept of Points allows for
+assignment of point values for a Contract ProvisionValued Item, such
+that a monetary amount can be assigned to each point.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem1.net">
+<code class="descname">net</code><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem1.net" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expresses the product of the Contract Provision Valued Item
+unitQuantity and the unitPriceAmt. For example, the formula: unit
+Quantity * unit Price (Cost per Point) * factor Number  * points = net
+Amount. Quantity, factor and points are assumed to be 1 if not
+supplied.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Contract.Contract_ValuedItem1.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Contract.html#Contract_ValuedItem1.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Contract.Contract_ValuedItem1.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.fhir.Contributor.html" class="btn btn-neutral float-right" title="cardea.fhir.Contributor module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.fhir.ContactPoint.html" class="btn btn-neutral float-left" title="cardea.fhir.ContactPoint module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

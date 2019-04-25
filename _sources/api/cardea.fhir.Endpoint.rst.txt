@@ -1,0 +1,7 @@
+cardea.fhir.Endpoint module
+===========================
+
+.. automodule:: cardea.fhir.Endpoint
+    :members:
+    :undoc-members:
+    :show-inheritance:

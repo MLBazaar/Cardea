@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.DeviceRequest module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.fhir.DeviceUseStatement module" href="cardea.fhir.DeviceUseStatement.html" />
+    <link rel="prev" title="cardea.fhir.DeviceMetric module" href="cardea.fhir.DeviceMetric.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
+        
+      <li>cardea.fhir.DeviceRequest module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.DeviceRequest.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.fhir.DeviceRequest">
+<span id="cardea-fhir-devicerequest-module"></span><h1>cardea.fhir.DeviceRequest module<a class="headerlink" href="#module-cardea.fhir.DeviceRequest" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest">
+<em class="property">class </em><code class="descclassname">cardea.fhir.DeviceRequest.</code><code class="descname">DeviceRequest</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DeviceRequest.html#DeviceRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Represents a request for a patient to employ a medical device. The
+device may be an implantable device, or an external assistive device,
+such as a walker.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.resourceType">
+<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.resourceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a DeviceRequest resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifiers assigned to this order by the orderer or by
+the receiver.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.definition">
+<code class="descname">definition</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.definition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Protocol or definition followed by this request. For
+example: The proposed act must be performed if the indicated
+conditions occur, e.g.., shortness of breath, SpO2 less than x%.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.basedOn">
+<code class="descname">basedOn</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.basedOn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plan/proposal/order fulfilled by this request.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.priorRequest">
+<code class="descname">priorRequest</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.priorRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>The request takes the place of the referenced completed
+or terminated request(s).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.groupIdentifier">
+<code class="descname">groupIdentifier</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.groupIdentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Composite request this is part of.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.status">
+<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of the request.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.intent">
+<code class="descname">intent</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.intent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the request is a proposal, plan, an original order or
+a reflex order.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.priority">
+<code class="descname">priority</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates how quickly the {{title}} should be addressed with
+respect to other requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.codeReference">
+<code class="descname">codeReference</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.codeReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>The details of the device to be used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.codeCodeableConcept">
+<code class="descname">codeCodeableConcept</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.codeCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<dd><p>The details of the device to be used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.subject">
+<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>The patient who will use the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.context">
+<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.context" title="Permalink to this definition">¶</a></dt>
+<dd><p>An encounter that provides additional context in which this
+request is made.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.occurrenceDateTime">
+<code class="descname">occurrenceDateTime</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.occurrenceDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timing schedule for the use of the device. The
+Schedule data type allows many different expressions, for example.
+“Every 8 hours”; “Three times a day”; “1/2 an hour before breakfast
+for 10 days from 23-Dec 2011:”; “15 Oct 2013, 17 Oct 2013 and 1 Nov
+2013”.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.occurrencePeriod">
+<code class="descname">occurrencePeriod</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.occurrencePeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timing schedule for the use of the device. The
+Schedule data type allows many different expressions, for example.
+“Every 8 hours”; “Three times a day”; “1/2 an hour before breakfast
+for 10 days from 23-Dec 2011:”; “15 Oct 2013, 17 Oct 2013 and 1 Nov
+2013”.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.occurrenceTiming">
+<code class="descname">occurrenceTiming</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.occurrenceTiming" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timing schedule for the use of the device. The
+Schedule data type allows many different expressions, for example.
+“Every 8 hours”; “Three times a day”; “1/2 an hour before breakfast
+for 10 days from 23-Dec 2011:”; “15 Oct 2013, 17 Oct 2013 and 1 Nov
+2013”.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.authoredOn">
+<code class="descname">authoredOn</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.authoredOn" title="Permalink to this definition">¶</a></dt>
+<dd><p>When the request transitioned to being actionable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.requester">
+<code class="descname">requester</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.requester" title="Permalink to this definition">¶</a></dt>
+<dd><p>The individual who initiated the request and has
+responsibility for its activation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.performerType">
+<code class="descname">performerType</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.performerType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Desired type of performer for doing the diagnostic
+testing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.performer">
+<code class="descname">performer</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.performer" title="Permalink to this definition">¶</a></dt>
+<dd><p>The desired perfomer for doing the diagnostic testing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.reasonCode">
+<code class="descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.reasonCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reason or justification for the use of this device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.reasonReference">
+<code class="descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.reasonReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reason or justification for the use of this device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.supportingInfo">
+<code class="descname">supportingInfo</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.supportingInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional clinical information about the patient that
+may influence the request fulfilment.  For example, this may includes
+body where on the subject’s the device will be used ( i.e. the target
+site).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.note">
+<code class="descname">note</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.note" title="Permalink to this definition">¶</a></dt>
+<dd><p>Details about this request that were not represented at all or
+sufficiently in one of the attributes provided in a class. These may
+include for example a comment, an instruction, or a note associated
+with the statement.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.relevantHistory">
+<code class="descname">relevantHistory</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.relevantHistory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Key events in the history of the request.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DeviceRequest.html#DeviceRequest.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest_Requester">
+<em class="property">class </em><code class="descclassname">cardea.fhir.DeviceRequest.</code><code class="descname">DeviceRequest_Requester</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DeviceRequest.html#DeviceRequest_Requester"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest_Requester" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Represents a request for a patient to employ a medical device. The
+device may be an implantable device, or an external assistive device,
+such as a walker.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest_Requester.agent">
+<code class="descname">agent</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest_Requester.agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>The device, practitioner, etc. who initiated the request.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest_Requester.onBehalfOf">
+<code class="descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest_Requester.onBehalfOf" title="Permalink to this definition">¶</a></dt>
+<dd><p>The organization the device or practitioner was acting on
+behalf of.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DeviceRequest.DeviceRequest_Requester.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DeviceRequest.html#DeviceRequest_Requester.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DeviceRequest.DeviceRequest_Requester.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.fhir.DeviceUseStatement.html" class="btn btn-neutral float-right" title="cardea.fhir.DeviceUseStatement module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.fhir.DeviceMetric.html" class="btn btn-neutral float-left" title="cardea.fhir.DeviceMetric module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

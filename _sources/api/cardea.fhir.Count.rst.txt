@@ -1,0 +1,7 @@
+cardea.fhir.Count module
+========================
+
+.. automodule:: cardea.fhir.Count
+    :members:
+    :undoc-members:
+    :show-inheritance:

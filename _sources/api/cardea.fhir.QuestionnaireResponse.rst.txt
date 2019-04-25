@@ -1,0 +1,7 @@
+cardea.fhir.QuestionnaireResponse module
+========================================
+
+.. automodule:: cardea.fhir.QuestionnaireResponse
+    :members:
+    :undoc-members:
+    :show-inheritance:

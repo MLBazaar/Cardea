@@ -1,0 +1,7 @@
+cardea.cardea module
+====================
+
+.. automodule:: cardea.cardea
+    :members:
+    :undoc-members:
+    :show-inheritance:

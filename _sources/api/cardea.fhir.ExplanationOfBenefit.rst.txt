@@ -1,0 +1,7 @@
+cardea.fhir.ExplanationOfBenefit module
+=======================================
+
+.. automodule:: cardea.fhir.ExplanationOfBenefit
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+cardea.fhir.Goal module
+=======================
+
+.. automodule:: cardea.fhir.Goal
+    :members:
+    :undoc-members:
+    :show-inheritance:

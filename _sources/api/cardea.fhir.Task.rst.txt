@@ -1,0 +1,7 @@
+cardea.fhir.Task module
+=======================
+
+.. automodule:: cardea.fhir.Task
+    :members:
+    :undoc-members:
+    :show-inheritance:

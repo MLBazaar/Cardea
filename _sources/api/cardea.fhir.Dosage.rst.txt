@@ -1,0 +1,7 @@
+cardea.fhir.Dosage module
+=========================
+
+.. automodule:: cardea.fhir.Dosage
+    :members:
+    :undoc-members:
+    :show-inheritance:

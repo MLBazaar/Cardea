@@ -1,0 +1,7 @@
+cardea.fhir.ContactPoint module
+===============================
+
+.. automodule:: cardea.fhir.ContactPoint
+    :members:
+    :undoc-members:
+    :show-inheritance:

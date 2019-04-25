@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced use &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Welcome to the Community" href="../community/welcome.html" />
+    <link rel="prev" title="Auditing" href="auditing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auditing.html">Auditing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/cardea.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/cardea.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.fhir.html">cardea.fhir package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Advanced use</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/basic_concepts/advanced_use.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="advanced-use">
+<h1>Advanced use<a class="headerlink" href="#advanced-use" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-define-a-new-machine-learning-task">
+<h2>How to define a new machine learning task?<a class="headerlink" href="#how-to-define-a-new-machine-learning-task" title="Permalink to this headline">¶</a></h2>
+<p>The definition of a new Machine Learning task in Cardea can be made in four simple steps:</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://github.com/D3-AI/Cardea/tree/master/cardea/problem_definition">problem_definition</a> directory and create a file with a class specifically for
+your problem. This class should extend the <a class="reference external" href="https://github.com/D3-AI/Cardea/blob/master/cardea/problem_definition/definition.py">ProblemDefinition</a> class and overwrites
+accordingly the necessary attributes and methods as needed. Usually, you should pay special
+attention to the <code class="docutils literal notranslate"><span class="pre">generate_target_label(...)</span></code> and <code class="docutils literal notranslate"><span class="pre">generate_cutoff_times(...)</span></code> methods
+as you might need to extend them or re-implemented in some cases.</p></li>
+<li><p>Expose your new class definition in the <a class="reference external" href="https://github.com/D3-AI/Cardea/blob/master/cardea/problem_definition/__init__.py">init</a> file inside the <a class="reference external" href="https://github.com/D3-AI/Cardea/tree/master/cardea/problem_definition">problem_definition</a> directory</p></li>
+<li><p>If you will be using a dataset in a different format that the expected by Cardea (CSV files),
+then you will need to provide a specific loading dataset method for your data in the
+<a class="reference external" href="https://github.com/D3-AI/Cardea/blob/master/cardea/data_loader/entityset_loader.py#L9">EntitySetLoader</a> class, where you will be creating your collection of entities and
+relationships between them using the <a class="reference external" href="https://docs.featuretools.com/generated/featuretools.EntitySet.html#featuretools.EntitySet">featuretools.EntitySet</a> class.</p></li>
+<li><p>Finally, you need to update the <a class="reference external" href="https://github.com/D3-AI/Cardea/blob/master/cardea/cardea.py">Cardea</a> class to support the new problem definition and be
+able to instantiate the proper class when it is necessary in the <code class="docutils literal notranslate"><span class="pre">Cardea.select_problem(...)</span></code>
+method.</p></li>
+</ol>
+</div>
+<div class="section" id="features-primitives-and-automl-integration">
+<h2>Features, primitives and AutoML integration<a class="headerlink" href="#features-primitives-and-automl-integration" title="Permalink to this headline">¶</a></h2>
+<p>Once you have defined your problem, following the four steps in the previous section, you will be
+able to perform featurization and run different primitives using the AutoML tool as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cardea</span> <span class="kn">import</span> <span class="n">Cardea</span>
+<span class="n">cardea</span> <span class="o">=</span> <span class="n">Cardea</span><span class="p">()</span>
+<span class="n">cardea</span><span class="o">.</span><span class="n">load_your_custom_data</span><span class="p">()</span>
+<span class="n">problem</span> <span class="o">=</span> <span class="n">cardea</span><span class="o">.</span><span class="n">select_problem</span><span class="p">(</span><span class="s1">&#39;YourCustomProblemDefinition&#39;</span><span class="p">)</span>
+<span class="n">feature_matrix</span> <span class="o">=</span> <span class="n">cardea</span><span class="o">.</span><span class="n">generate_features</span><span class="p">(</span><span class="n">problem</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>  <span class="c1"># a subset</span>
+<span class="n">feature_matrix</span> <span class="o">=</span> <span class="n">feature_matrix</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># shuffle</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">feature_matrix</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">feature_matrix</span><span class="o">.</span><span class="n">values</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;sklearn.ensemble.RandomForestClassifier&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;sklearn.naive_bayes.MultinomialNB&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;sklearn.neighbors.KNeighborsClassifier&#39;</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">cardea</span><span class="o">.</span><span class="n">execute_model</span><span class="p">(</span><span class="n">feature_matrix</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">primitives</span><span class="o">=</span><span class="n">pipeline</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../community/welcome.html" class="btn btn-neutral float-right" title="Welcome to the Community" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="auditing.html" class="btn btn-neutral float-left" title="Auditing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

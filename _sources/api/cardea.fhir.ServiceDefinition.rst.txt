@@ -1,0 +1,7 @@
+cardea.fhir.ServiceDefinition module
+====================================
+
+.. automodule:: cardea.fhir.ServiceDefinition
+    :members:
+    :undoc-members:
+    :show-inheritance:

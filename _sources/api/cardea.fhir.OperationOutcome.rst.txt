@@ -1,0 +1,7 @@
+cardea.fhir.OperationOutcome module
+===================================
+
+.. automodule:: cardea.fhir.OperationOutcome
+    :members:
+    :undoc-members:
+    :show-inheritance:

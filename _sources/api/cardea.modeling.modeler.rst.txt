@@ -1,0 +1,7 @@
+cardea.modeling.modeler module
+==============================
+
+.. automodule:: cardea.modeling.modeler
+    :members:
+    :undoc-members:
+    :show-inheritance:

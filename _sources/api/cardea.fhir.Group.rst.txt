@@ -1,0 +1,7 @@
+cardea.fhir.Group module
+========================
+
+.. automodule:: cardea.fhir.Group
+    :members:
+    :undoc-members:
+    :show-inheritance:

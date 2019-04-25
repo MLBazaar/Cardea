@@ -1,0 +1,7 @@
+cardea.fhir.HumanName module
+============================
+
+.. automodule:: cardea.fhir.HumanName
+    :members:
+    :undoc-members:
+    :show-inheritance:

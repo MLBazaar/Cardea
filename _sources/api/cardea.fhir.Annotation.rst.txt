@@ -1,0 +1,7 @@
+cardea.fhir.Annotation module
+=============================
+
+.. automodule:: cardea.fhir.Annotation
+    :members:
+    :undoc-members:
+    :show-inheritance:

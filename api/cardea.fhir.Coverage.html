@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.Coverage module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.fhir.DataElement module" href="cardea.fhir.DataElement.html" />
+    <link rel="prev" title="cardea.fhir.Count module" href="cardea.fhir.Count.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
+        
+      <li>cardea.fhir.Coverage module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Coverage.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.fhir.Coverage">
+<span id="cardea-fhir-coverage-module"></span><h1>cardea.fhir.Coverage module<a class="headerlink" href="#module-cardea.fhir.Coverage" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.Coverage.Coverage">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Coverage.</code><code class="descname">Coverage</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Coverage.html#Coverage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Coverage.Coverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Financial instrument which may be used to reimburse or pay for health
+care products and services.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.resourceType">
+<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.resourceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a Coverage resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>The main (and possibly only) identifier for the coverage -
+often referred to as a Member Id, Certificate number, Personal Health
+Number or Case ID. May be constructed as the concatination of the
+Coverage.SubscriberID and the Coverage.dependant.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.status">
+<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of the resource instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.type">
+<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of coverage: social program, medical plan, accident
+coverage (workers compensation, auto), group health or payment by an
+individual or organization.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.policyHolder">
+<code class="descname">policyHolder</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.policyHolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>The party who ‘owns’ the insurance policy,  may be an
+individual, corporation or the subscriber’s employer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.subscriber">
+<code class="descname">subscriber</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.subscriber" title="Permalink to this definition">¶</a></dt>
+<dd><p>The party who has signed-up for or ‘owns’ the contractual
+relationship to the policy or to whom the benefit of the policy for
+services rendered to them or their family is due.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.subscriberId">
+<code class="descname">subscriberId</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.subscriberId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The insurer assigned ID for the Subscriber.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.beneficiary">
+<code class="descname">beneficiary</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.beneficiary" title="Permalink to this definition">¶</a></dt>
+<dd><p>The party who benefits from the insurance coverage., the
+patient when services are provided.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.relationship">
+<code class="descname">relationship</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.relationship" title="Permalink to this definition">¶</a></dt>
+<dd><p>The relationship of beneficiary (patient) to the
+subscriber.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.period">
+<code class="descname">period</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time period during which the coverage is in force. A missing
+start date indicates the start date isn’t known, a missing end date
+means the coverage is continuing to be in force.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.payor">
+<code class="descname">payor</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.payor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The program or plan underwriter or payor including both
+insurance and non-insurance agreements, such as patient-pay
+agreements. May provide multiple identifiers such as insurance company
+identifier or business identifier (BIN number).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.grouping">
+<code class="descname">grouping</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.grouping" title="Permalink to this definition">¶</a></dt>
+<dd><p>A suite of underwrite specific classifiers, for example may
+be used to identify a class of coverage or employer group, Policy,
+Plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.dependent">
+<code class="descname">dependent</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.dependent" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unique identifier for a dependent under the coverage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.sequence">
+<code class="descname">sequence</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional counter for a particular instance of the
+identified coverage which increments upon each renewal.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.order">
+<code class="descname">order</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.order" title="Permalink to this definition">¶</a></dt>
+<dd><p>The order of applicability of this coverage relative to other
+coverages which are currently inforce. Note, there may be gaps in the
+numbering and this does not imply primary, secondard etc. as the
+specific positioning of coverages depends upon the episode of care.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.network">
+<code class="descname">network</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.network" title="Permalink to this definition">¶</a></dt>
+<dd><p>The insurer-specific identifier for the insurer-defined
+network of providers to which the beneficiary may seek treatment which
+will be covered at the ‘in-network’ rate, otherwise ‘out of network’
+terms and conditions apply.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage.contract">
+<code class="descname">contract</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.contract" title="Permalink to this definition">¶</a></dt>
+<dd><p>The policy(s) which constitute this insurance coverage.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Coverage.Coverage.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Coverage.html#Coverage.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Coverage.Coverage.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Coverage.</code><code class="descname">Coverage_Grouping</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Coverage.html#Coverage_Grouping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Financial instrument which may be used to reimburse or pay for health
+care products and services.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.group">
+<code class="descname">group</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies a style or collective of coverage issued by the
+underwriter, for example may be used to identify an employer group.
+May also be referred to as a Policy or Group ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.groupDisplay">
+<code class="descname">groupDisplay</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.groupDisplay" title="Permalink to this definition">¶</a></dt>
+<dd><p>A short description for the group.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.subGroup">
+<code class="descname">subGroup</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.subGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies a style or collective of coverage issued by the
+underwriter, for example may be used to identify a subset of an
+employer group.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.subGroupDisplay">
+<code class="descname">subGroupDisplay</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.subGroupDisplay" title="Permalink to this definition">¶</a></dt>
+<dd><p>A short description for the subgroup.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.plan">
+<code class="descname">plan</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.plan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies a style or collective of coverage issued by the
+underwriter, for example may be used to identify a collection of
+benefits provided to employees. May be referred to as a Section or
+Division ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.planDisplay">
+<code class="descname">planDisplay</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.planDisplay" title="Permalink to this definition">¶</a></dt>
+<dd><p>A short description for the plan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.subPlan">
+<code class="descname">subPlan</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.subPlan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies a sub-style or sub-collective of coverage issued
+by the underwriter, for example may be used to identify a subset of a
+collection of benefits provided to employees.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.subPlanDisplay">
+<code class="descname">subPlanDisplay</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.subPlanDisplay" title="Permalink to this definition">¶</a></dt>
+<dd><p>A short description for the subplan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.class">
+<code class="descname">class</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies a style or collective of coverage issues by the
+underwriter, for example may be used to identify a class of coverage
+such as a level of deductables or co-payment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.classDisplay">
+<code class="descname">classDisplay</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.classDisplay" title="Permalink to this definition">¶</a></dt>
+<dd><p>A short description for the class.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.subClass">
+<code class="descname">subClass</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.subClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies a sub-style or sub-collective of coverage issues
+by the underwriter, for example may be used to identify a subclass of
+coverage such as a sub-level of deductables or co-payment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Coverage.Coverage_Grouping.subClassDisplay">
+<code class="descname">subClassDisplay</code><a class="headerlink" href="#cardea.fhir.Coverage.Coverage_Grouping.subClassDisplay" title="Permalink to this definition">¶</a></dt>
+<dd><p>A short description for the subclass.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.fhir.DataElement.html" class="btn btn-neutral float-right" title="cardea.fhir.DataElement module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.fhir.Count.html" class="btn btn-neutral float-left" title="cardea.fhir.Count module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

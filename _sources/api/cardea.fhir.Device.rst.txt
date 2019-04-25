@@ -1,0 +1,7 @@
+cardea.fhir.Device module
+=========================
+
+.. automodule:: cardea.fhir.Device
+    :members:
+    :undoc-members:
+    :show-inheritance:

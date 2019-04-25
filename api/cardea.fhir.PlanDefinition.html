@@ -1,0 +1,1128 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.PlanDefinition module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.fhir.Practitioner module" href="cardea.fhir.Practitioner.html" />
+    <link rel="prev" title="cardea.fhir.Person module" href="cardea.fhir.Person.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
+        
+      <li>cardea.fhir.PlanDefinition module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.PlanDefinition.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.fhir.PlanDefinition">
+<span id="cardea-fhir-plandefinition-module"></span><h1>cardea.fhir.PlanDefinition module<a class="headerlink" href="#module-cardea.fhir.PlanDefinition" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition">
+<em class="property">class </em><code class="descclassname">cardea.fhir.PlanDefinition.</code><code class="descname">PlanDefinition</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>This resource allows for the definition of various types of plans as a
+sharable, consumable, and executable artifact. The resource is general
+enough to support the description of a broad range of clinical
+artifacts such as clinical decision support rules, order sets and
+protocols.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.resourceType">
+<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.resourceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a PlanDefinition resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.url">
+<code class="descname">url</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>An absolute URI that is used to identify this plan definition
+when it is referenced in a specification, model, design or an
+instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD
+be an address at which this plan definition is (or will be) published.
+The URL SHOULD include the major version of the plan definition. For
+more information see [Technical and Business
+Versions](resource.html#versions).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>A formal identifier that is used to identify this plan
+definition when it is represented in other formats, or referenced in a
+specification, model, design or an instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.version">
+<code class="descname">version</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>The identifier that is used to identify this version of the
+plan definition when it is referenced in a specification, model,
+design or instance. This is an arbitrary value managed by the plan
+definition author and is not expected to be globally unique. For
+example, it might be a timestamp (e.g. yyyymmdd) if a managed version
+is not available. There is also no expectation that versions can be
+placed in a lexicographical sequence. To provide a version consistent
+with the Decision Support Service specification, use the format
+Major.Minor.Revision (e.g. 1.0.0). For more information on versioning
+knowledge assets, refer to the Decision Support Service specification.
+Note that a version is required for non-experimental active artifacts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.name">
+<code class="descname">name</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A natural language name identifying the plan definition. This
+name should be usable as an identifier for the module by machine
+processing applications such as code generation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.title">
+<code class="descname">title</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>A short, descriptive, user-friendly title for the plan
+definition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.type">
+<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of asset the plan definition represents, e.g. an order
+set, protocol, or event-condition-action rule.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.status">
+<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of this plan definition. Enables tracking the
+life-cycle of the content.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.experimental">
+<code class="descname">experimental</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.experimental" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean value to indicate that this plan definition is
+authored for testing purposes (or education/evaluation/marketing), and
+is not intended to be used for genuine usage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.date">
+<code class="descname">date</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.date" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date  (and optionally time) when the plan definition was
+published. The date must change if and when the business version
+changes and it must change if the status code changes. In addition, it
+should change when the substantive content of the plan definition
+changes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.publisher">
+<code class="descname">publisher</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.publisher" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the individual or organization that published
+the plan definition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.description">
+<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A free text natural language description of the plan
+definition from a consumer’s perspective.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.purpose">
+<code class="descname">purpose</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.purpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Explaination of why this plan definition is needed and why it
+has been designed as it has.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.usage">
+<code class="descname">usage</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>A detailed description of how the asset is used from a clinical
+perspective.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.approvalDate">
+<code class="descname">approvalDate</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.approvalDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date on which the resource content was approved by
+the publisher. Approval happens once when the content is officially
+approved for usage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.lastReviewDate">
+<code class="descname">lastReviewDate</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.lastReviewDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date on which the resource content was last
+reviewed. Review happens periodically after approval, but doesn’t
+change the original approval date.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.effectivePeriod">
+<code class="descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.effectivePeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p>The period during which the plan definition content
+was or is planned to be in active use.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.useContext">
+<code class="descname">useContext</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.useContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>The content was developed with a focus and intent of
+supporting the contexts that are listed. These terms may be used to
+assist with indexing and searching for appropriate plan definition
+instances.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.jurisdiction">
+<code class="descname">jurisdiction</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.jurisdiction" title="Permalink to this definition">¶</a></dt>
+<dd><p>A legal or geographic region in which the plan
+definition is intended to be used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.topic">
+<code class="descname">topic</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Descriptive topics related to the content of the plan
+definition. Topics provide a high-level categorization of the
+definition that can be useful for filtering and searching.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.contributor">
+<code class="descname">contributor</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.contributor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A contributor to the content of the asset, including
+authors, editors, reviewers, and endorsers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.contact">
+<code class="descname">contact</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.contact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contact details to assist a user in finding and communicating
+with the publisher.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.copyright">
+<code class="descname">copyright</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.copyright" title="Permalink to this definition">¶</a></dt>
+<dd><p>A copyright statement relating to the plan definition
+and/or its contents. Copyright statements are generally legal
+restrictions on the use and publishing of the plan definition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.relatedArtifact">
+<code class="descname">relatedArtifact</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.relatedArtifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Related artifacts such as additional documentation,
+justification, or bibliographic references.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.library">
+<code class="descname">library</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.library" title="Permalink to this definition">¶</a></dt>
+<dd><p>A reference to a Library resource containing any formal logic
+used by the plan definition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.goal">
+<code class="descname">goal</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.goal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Goals that describe what the activities within the plan are
+intended to achieve. For example, weight loss, restoring an activity
+of daily living, obtaining herd immunity via immunization, meeting a
+process improvement objective, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.action">
+<code class="descname">action</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>An action to be taken as part of the plan.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.assert_type">
+<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.assert_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks class values follow set possible enumerations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – An error occurs if an attribute of the fhir class
+    does not match its possible enumerations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action">
+<em class="property">class </em><code class="descclassname">cardea.fhir.PlanDefinition.</code><code class="descname">PlanDefinition_Action</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>This resource allows for the definition of various types of plans as a
+sharable, consumable, and executable artifact. The resource is general
+enough to support the description of a broad range of clinical
+artifacts such as clinical decision support rules, order sets and
+protocols.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.label">
+<code class="descname">label</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>A user-visible label for the action.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.title">
+<code class="descname">title</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>The title of the action displayed to a user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.description">
+<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A short description of the action used to provide a
+summary to display to the user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.textEquivalent">
+<code class="descname">textEquivalent</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.textEquivalent" title="Permalink to this definition">¶</a></dt>
+<dd><p>A text equivalent of the action to be performed. This
+provides a human-interpretable description of the action when the
+definition is consumed by a system that may not be capable of
+interpreting it dynamically.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.code">
+<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>A code that provides meaning for the action or action group. For
+example, a section may have a LOINC code for a the section of a
+documentation template.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.reason">
+<code class="descname">reason</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>A description of why this action is necessary or appropriate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.documentation">
+<code class="descname">documentation</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.documentation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Didactic or other informational resources associated
+with the action that can be provided to the CDS recipient. Information
+resources can include inline text commentary and links to web
+resources.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.goalId">
+<code class="descname">goalId</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.goalId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies goals that this action supports. The reference must
+be to a goal element defined within this plan definition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.triggerDefinition">
+<code class="descname">triggerDefinition</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.triggerDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>A description of when the action should be
+triggered.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.condition">
+<code class="descname">condition</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.condition" title="Permalink to this definition">¶</a></dt>
+<dd><p>An expression that describes applicability criteria, or
+start/stop conditions for the action.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.input">
+<code class="descname">input</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines input data requirements for the action.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.output">
+<code class="descname">output</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the outputs of the action, if any.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.relatedAction">
+<code class="descname">relatedAction</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.relatedAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>A relationship to another action such as “before” or
+“30-60 minutes after start of”.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.timingDateTime">
+<code class="descname">timingDateTime</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.timingDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional value describing when the action should be
+performed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.timingPeriod">
+<code class="descname">timingPeriod</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.timingPeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional value describing when the action should be
+performed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.timingDuration">
+<code class="descname">timingDuration</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.timingDuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional value describing when the action should be
+performed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.timingRange">
+<code class="descname">timingRange</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.timingRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional value describing when the action should be
+performed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.timingTiming">
+<code class="descname">timingTiming</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.timingTiming" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional value describing when the action should be
+performed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.participant">
+<code class="descname">participant</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.participant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates who should participate in performing the action
+described.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.type">
+<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of action to perform (create, update, remove).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.groupingBehavior">
+<code class="descname">groupingBehavior</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.groupingBehavior" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the grouping behavior for the action and its
+children.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.selectionBehavior">
+<code class="descname">selectionBehavior</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.selectionBehavior" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the selection behavior for the action and
+its children.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.requiredBehavior">
+<code class="descname">requiredBehavior</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.requiredBehavior" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the requiredness behavior for the action.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.precheckBehavior">
+<code class="descname">precheckBehavior</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.precheckBehavior" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines whether the action should usually be
+preselected.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.cardinalityBehavior">
+<code class="descname">cardinalityBehavior</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.cardinalityBehavior" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines whether the action can be selected
+multiple times.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.definition">
+<code class="descname">definition</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.definition" title="Permalink to this definition">¶</a></dt>
+<dd><p>A reference to an ActivityDefinition that describes the
+action to be taken in detail, or a PlanDefinition that describes a
+series of actions to be taken.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.transform">
+<code class="descname">transform</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>A reference to a StructureMap resource that defines a
+transform that can be executed to produce the intent resource using
+the ActivityDefinition instance as the input.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.dynamicValue">
+<code class="descname">dynamicValue</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.dynamicValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Customizations that should be applied to the statically
+defined resource. For example, if the dosage of a medication must be
+computed based on the patient’s weight, a customization would be used
+to specify an expression that calculated the weight, and the path on
+the resource that would contain the result.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.action">
+<code class="descname">action</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sub actions that are contained within the action. The behavior
+of this action determines the functionality of the sub-actions. For
+example, a selection behavior of at-most-one indicates that of the
+sub-actions, at most one may be chosen as part of realizing the action
+definition.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.assert_type">
+<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Action.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.assert_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks class values follow set possible enumerations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – An error occurs if an attribute of the fhir class
+    does not match its possible enumerations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Action.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Action.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Action.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Condition">
+<em class="property">class </em><code class="descclassname">cardea.fhir.PlanDefinition.</code><code class="descname">PlanDefinition_Condition</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Condition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Condition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>This resource allows for the definition of various types of plans as a
+sharable, consumable, and executable artifact. The resource is general
+enough to support the description of a broad range of clinical
+artifacts such as clinical decision support rules, order sets and
+protocols.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Condition.kind">
+<code class="descname">kind</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Condition.kind" title="Permalink to this definition">¶</a></dt>
+<dd><p>The kind of condition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Condition.description">
+<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Condition.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A brief, natural language description of the condition
+that effectively communicates the intended semantics.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Condition.language">
+<code class="descname">language</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Condition.language" title="Permalink to this definition">¶</a></dt>
+<dd><p>The media type of the language for the expression.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Condition.expression">
+<code class="descname">expression</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Condition.expression" title="Permalink to this definition">¶</a></dt>
+<dd><p>An expression that returns true or false, indicating
+whether or not the condition is satisfied.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Condition.assert_type">
+<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Condition.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Condition.assert_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks class values follow set possible enumerations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – An error occurs if an attribute of the fhir class
+    does not match its possible enumerations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_DynamicValue">
+<em class="property">class </em><code class="descclassname">cardea.fhir.PlanDefinition.</code><code class="descname">PlanDefinition_DynamicValue</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_DynamicValue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_DynamicValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>This resource allows for the definition of various types of plans as a
+sharable, consumable, and executable artifact. The resource is general
+enough to support the description of a broad range of clinical
+artifacts such as clinical decision support rules, order sets and
+protocols.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_DynamicValue.description">
+<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_DynamicValue.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A brief, natural language description of the intended
+semantics of the dynamic value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_DynamicValue.path">
+<code class="descname">path</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_DynamicValue.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path to the element to be customized. This is the path on
+the resource that will hold the result of the calculation defined by
+the expression.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_DynamicValue.language">
+<code class="descname">language</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_DynamicValue.language" title="Permalink to this definition">¶</a></dt>
+<dd><p>The media type of the language for the expression.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_DynamicValue.expression">
+<code class="descname">expression</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_DynamicValue.expression" title="Permalink to this definition">¶</a></dt>
+<dd><p>An expression specifying the value of the customized
+element.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Goal">
+<em class="property">class </em><code class="descclassname">cardea.fhir.PlanDefinition.</code><code class="descname">PlanDefinition_Goal</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Goal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Goal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>This resource allows for the definition of various types of plans as a
+sharable, consumable, and executable artifact. The resource is general
+enough to support the description of a broad range of clinical
+artifacts such as clinical decision support rules, order sets and
+protocols.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Goal.category">
+<code class="descname">category</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Goal.category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates a category the goal falls within.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Goal.description">
+<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Goal.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human-readable and/or coded description of a specific
+desired objective of care, such as “control blood pressure” or
+“negotiate an obstacle course” or “dance with child at wedding”.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Goal.priority">
+<code class="descname">priority</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Goal.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the expected level of importance associated with
+reaching/sustaining the defined goal.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Goal.start">
+<code class="descname">start</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Goal.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event after which the goal should begin being pursued.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Goal.addresses">
+<code class="descname">addresses</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Goal.addresses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies problems, conditions, issues, or concerns the
+goal is intended to address.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Goal.documentation">
+<code class="descname">documentation</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Goal.documentation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Didactic or other informational resources associated
+with the goal that provide further supporting information about the
+goal. Information resources can include inline text commentary and
+links to web resources.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Goal.target">
+<code class="descname">target</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Goal.target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates what should be done and within what timeframe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Goal.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Goal.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Goal.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Participant">
+<em class="property">class </em><code class="descclassname">cardea.fhir.PlanDefinition.</code><code class="descname">PlanDefinition_Participant</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Participant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Participant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>This resource allows for the definition of various types of plans as a
+sharable, consumable, and executable artifact. The resource is general
+enough to support the description of a broad range of clinical
+artifacts such as clinical decision support rules, order sets and
+protocols.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Participant.type">
+<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Participant.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of participant in the action.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Participant.role">
+<code class="descname">role</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Participant.role" title="Permalink to this definition">¶</a></dt>
+<dd><p>The role the participant should play in performing the described
+action.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Participant.assert_type">
+<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Participant.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Participant.assert_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks class values follow set possible enumerations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – An error occurs if an attribute of the fhir class
+    does not match its possible enumerations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Participant.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Participant.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Participant.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction">
+<em class="property">class </em><code class="descclassname">cardea.fhir.PlanDefinition.</code><code class="descname">PlanDefinition_RelatedAction</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_RelatedAction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>This resource allows for the definition of various types of plans as a
+sharable, consumable, and executable artifact. The resource is general
+enough to support the description of a broad range of clinical
+artifacts such as clinical decision support rules, order sets and
+protocols.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.actionId">
+<code class="descname">actionId</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.actionId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The element id of the related action.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.relationship">
+<code class="descname">relationship</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.relationship" title="Permalink to this definition">¶</a></dt>
+<dd><p>The relationship of this action to the related action.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.offsetDuration">
+<code class="descname">offsetDuration</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.offsetDuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>A duration or range of durations to apply to the
+relationship. For example, 30-60 minutes before.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.offsetRange">
+<code class="descname">offsetRange</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.offsetRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>A duration or range of durations to apply to the
+relationship. For example, 30-60 minutes before.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.assert_type">
+<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_RelatedAction.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.assert_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks class values follow set possible enumerations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – An error occurs if an attribute of the fhir class
+    does not match its possible enumerations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_RelatedAction.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_RelatedAction.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Target">
+<em class="property">class </em><code class="descclassname">cardea.fhir.PlanDefinition.</code><code class="descname">PlanDefinition_Target</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>This resource allows for the definition of various types of plans as a
+sharable, consumable, and executable artifact. The resource is general
+enough to support the description of a broad range of clinical
+artifacts such as clinical decision support rules, order sets and
+protocols.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Target.measure">
+<code class="descname">measure</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Target.measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>The parameter whose value is to be tracked, e.g. body weigth,
+blood pressure, or hemoglobin A1c level.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Target.detailQuantity">
+<code class="descname">detailQuantity</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Target.detailQuantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The target value of the measure to be achieved to
+signify fulfillment of the goal, e.g. 150 pounds or 7.0%. Either the
+high or low or both values of the range can be specified. Whan a low
+value is missing, it indicates that the goal is achieved at any value
+at or below the high value. Similarly, if the high value is missing,
+it indicates that the goal is achieved at any value at or above the
+low value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Target.detailRange">
+<code class="descname">detailRange</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Target.detailRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>The target value of the measure to be achieved to signify
+fulfillment of the goal, e.g. 150 pounds or 7.0%. Either the high or
+low or both values of the range can be specified. Whan a low value is
+missing, it indicates that the goal is achieved at any value at or
+below the high value. Similarly, if the high value is missing, it
+indicates that the goal is achieved at any value at or above the low
+value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Target.detailCodeableConcept">
+<code class="descname">detailCodeableConcept</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Target.detailCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<dd><p>The target value of the measure to be achieved
+to signify fulfillment of the goal, e.g. 150 pounds or 7.0%. Either
+the high or low or both values of the range can be specified. Whan a
+low value is missing, it indicates that the goal is achieved at any
+value at or below the high value. Similarly, if the high value is
+missing, it indicates that the goal is achieved at any value at or
+above the low value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Target.due">
+<code class="descname">due</code><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Target.due" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the timeframe after the start of the goal in which the
+goal should be met.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.PlanDefinition.PlanDefinition_Target.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/PlanDefinition.html#PlanDefinition_Target.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.PlanDefinition.PlanDefinition_Target.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.fhir.Practitioner.html" class="btn btn-neutral float-right" title="cardea.fhir.Practitioner module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.fhir.Person.html" class="btn btn-neutral float-left" title="cardea.fhir.Person module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

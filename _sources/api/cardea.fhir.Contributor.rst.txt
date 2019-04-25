@@ -1,0 +1,7 @@
+cardea.fhir.Contributor module
+==============================
+
+.. automodule:: cardea.fhir.Contributor
+    :members:
+    :undoc-members:
+    :show-inheritance:

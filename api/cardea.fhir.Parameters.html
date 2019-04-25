@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.Parameters module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.fhir.Patient module" href="cardea.fhir.Patient.html" />
+    <link rel="prev" title="cardea.fhir.ParameterDefinition module" href="cardea.fhir.ParameterDefinition.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
+        
+      <li>cardea.fhir.Parameters module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Parameters.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.fhir.Parameters">
+<span id="cardea-fhir-parameters-module"></span><h1>cardea.fhir.Parameters module<a class="headerlink" href="#module-cardea.fhir.Parameters" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.Parameters.Parameters">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Parameters.</code><code class="descname">Parameters</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Parameters.html#Parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Parameters.Parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>This special resource type is used to represent an operation request
+and response (operations.html). It has no other use, and there is no
+RESTful endpoint associated with it.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters.parameter">
+<code class="descname">parameter</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters.parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>A parameter passed to or received from the operation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Parameters.Parameters.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Parameters.html#Parameters.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Parameters.Parameters.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Parameters.</code><code class="descname">Parameters_Parameter</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Parameters.html#Parameters_Parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>This special resource type is used to represent an operation request
+and response (operations.html). It has no other use, and there is no
+RESTful endpoint associated with it.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.name">
+<code class="descname">name</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the parameter (reference to the operation
+definition).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueBoolean">
+<code class="descname">valueBoolean</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueBoolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueInteger">
+<code class="descname">valueInteger</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueInteger" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueDecimal">
+<code class="descname">valueDecimal</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueDecimal" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueBase64Binary">
+<code class="descname">valueBase64Binary</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueBase64Binary" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueInstant">
+<code class="descname">valueInstant</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueInstant" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueString">
+<code class="descname">valueString</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueString" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueUri">
+<code class="descname">valueUri</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueUri" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueDate">
+<code class="descname">valueDate</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueDateTime">
+<code class="descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueTime">
+<code class="descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueCode">
+<code class="descname">valueCode</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueOid">
+<code class="descname">valueOid</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueOid" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueUuid">
+<code class="descname">valueUuid</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueUuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueId">
+<code class="descname">valueId</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueId" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueUnsignedInt">
+<code class="descname">valueUnsignedInt</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueUnsignedInt" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valuePositiveInt">
+<code class="descname">valuePositiveInt</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valuePositiveInt" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueMarkdown">
+<code class="descname">valueMarkdown</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueMarkdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueElement">
+<code class="descname">valueElement</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueExtension">
+<code class="descname">valueExtension</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueExtension" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueBackboneElement">
+<code class="descname">valueBackboneElement</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueBackboneElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueNarrative">
+<code class="descname">valueNarrative</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueNarrative" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueAnnotation">
+<code class="descname">valueAnnotation</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueAnnotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueAttachment">
+<code class="descname">valueAttachment</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueAttachment" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueIdentifier">
+<code class="descname">valueIdentifier</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueIdentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueCodeableConcept">
+<code class="descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueCoding">
+<code class="descname">valueCoding</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueCoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueQuantity">
+<code class="descname">valueQuantity</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueQuantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueDuration">
+<code class="descname">valueDuration</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueDuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueSimpleQuantity">
+<code class="descname">valueSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueSimpleQuantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueDistance">
+<code class="descname">valueDistance</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueDistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueCount">
+<code class="descname">valueCount</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueMoney">
+<code class="descname">valueMoney</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueMoney" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueAge">
+<code class="descname">valueAge</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueAge" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueRange">
+<code class="descname">valueRange</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valuePeriod">
+<code class="descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valuePeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueRatio">
+<code class="descname">valueRatio</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueReference">
+<code class="descname">valueReference</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueSampledData">
+<code class="descname">valueSampledData</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueSampledData" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueSignature">
+<code class="descname">valueSignature</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueSignature" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueHumanName">
+<code class="descname">valueHumanName</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueHumanName" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueAddress">
+<code class="descname">valueAddress</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueContactPoint">
+<code class="descname">valueContactPoint</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueContactPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueTiming">
+<code class="descname">valueTiming</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueTiming" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueMeta">
+<code class="descname">valueMeta</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueMeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueElementDefinition">
+<code class="descname">valueElementDefinition</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueElementDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueContactDetail">
+<code class="descname">valueContactDetail</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueContactDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueContributor">
+<code class="descname">valueContributor</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueContributor" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueDosage">
+<code class="descname">valueDosage</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueDosage" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueRelatedArtifact">
+<code class="descname">valueRelatedArtifact</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueRelatedArtifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueUsageContext">
+<code class="descname">valueUsageContext</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueUsageContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueDataRequirement">
+<code class="descname">valueDataRequirement</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueDataRequirement" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueParameterDefinition">
+<code class="descname">valueParameterDefinition</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueParameterDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.valueTriggerDefinition">
+<code class="descname">valueTriggerDefinition</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.valueTriggerDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a data type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.resource">
+<code class="descname">resource</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the parameter is a whole resource.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.part">
+<code class="descname">part</code><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>A named part of a multi-part parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Parameters.Parameters_Parameter.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Parameters.html#Parameters_Parameter.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Parameters.Parameters_Parameter.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.fhir.Patient.html" class="btn btn-neutral float-right" title="cardea.fhir.Patient module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.fhir.ParameterDefinition.html" class="btn btn-neutral float-left" title="cardea.fhir.ParameterDefinition module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

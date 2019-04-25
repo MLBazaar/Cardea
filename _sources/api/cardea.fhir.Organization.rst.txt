@@ -1,0 +1,7 @@
+cardea.fhir.Organization module
+===============================
+
+.. automodule:: cardea.fhir.Organization
+    :members:
+    :undoc-members:
+    :show-inheritance:

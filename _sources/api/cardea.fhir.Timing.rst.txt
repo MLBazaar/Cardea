@@ -1,0 +1,7 @@
+cardea.fhir.Timing module
+=========================
+
+.. automodule:: cardea.fhir.Timing
+    :members:
+    :undoc-members:
+    :show-inheritance:

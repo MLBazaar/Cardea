@@ -1,0 +1,7 @@
+cardea.fhir.ResearchSubject module
+==================================
+
+.. automodule:: cardea.fhir.ResearchSubject
+    :members:
+    :undoc-members:
+    :show-inheritance:

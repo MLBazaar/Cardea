@@ -1,0 +1,7 @@
+cardea.fhir.ParameterDefinition module
+======================================
+
+.. automodule:: cardea.fhir.ParameterDefinition
+    :members:
+    :undoc-members:
+    :show-inheritance:

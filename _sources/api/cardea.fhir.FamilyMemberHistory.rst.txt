@@ -1,0 +1,7 @@
+cardea.fhir.FamilyMemberHistory module
+======================================
+
+.. automodule:: cardea.fhir.FamilyMemberHistory
+    :members:
+    :undoc-members:
+    :show-inheritance:

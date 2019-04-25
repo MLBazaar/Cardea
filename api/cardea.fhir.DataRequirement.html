@@ -1,0 +1,506 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.DataRequirement module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.fhir.DetectedIssue module" href="cardea.fhir.DetectedIssue.html" />
+    <link rel="prev" title="cardea.fhir.DataElement module" href="cardea.fhir.DataElement.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
+        
+      <li>cardea.fhir.DataRequirement module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.DataRequirement.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.fhir.DataRequirement">
+<span id="cardea-fhir-datarequirement-module"></span><h1>cardea.fhir.DataRequirement module<a class="headerlink" href="#module-cardea.fhir.DataRequirement" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.DataRequirement.DataRequirement">
+<em class="property">class </em><code class="descclassname">cardea.fhir.DataRequirement.</code><code class="descname">DataRequirement</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DataRequirement.html#DataRequirement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Describes a required data item for evaluation in terms of the type of
+data, and optional code or date-based filters of the data.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement.type">
+<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of the required data, specified as the type name of a
+resource. For profiles, this value is set to the type of the base
+resource of the profile.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement.profile">
+<code class="descname">profile</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>The profile of the required data, specified as the uri of the
+profile definition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement.mustSupport">
+<code class="descname">mustSupport</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement.mustSupport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates that specific elements of the type are
+referenced by the knowledge module and must be supported by the
+consumer in order to obtain an effective evaluation. This does not
+mean that a value is required for this element, only that the
+consuming system must understand the element and be able to provide
+values for it if they are available. Note that the value for this
+element can be a path to allow references to nested elements. In that
+case, all the elements along the path must be supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement.codeFilter">
+<code class="descname">codeFilter</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement.codeFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code filters specify additional constraints on the data,
+specifying the value set of interest for a particular element of the
+data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement.dateFilter">
+<code class="descname">dateFilter</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement.dateFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date filters specify additional constraints on the data in
+terms of the applicable date range for specific elements.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DataRequirement.DataRequirement.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DataRequirement.html#DataRequirement.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_CodeFilter">
+<em class="property">class </em><code class="descclassname">cardea.fhir.DataRequirement.</code><code class="descname">DataRequirement_CodeFilter</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DataRequirement.html#DataRequirement_CodeFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_CodeFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Describes a required data item for evaluation in terms of the type of
+data, and optional code or date-based filters of the data.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_CodeFilter.path">
+<code class="descname">path</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_CodeFilter.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>The code-valued attribute of the filter. The specified path must
+be resolvable from the type of the required data. The path is allowed
+to contain qualifiers (.) to traverse sub-elements, as well as
+indexers ([x]) to traverse multiple-cardinality sub-elements. Note
+that the index must be an integer constant. The path must resolve to
+an element of type code, Coding, or CodeableConcept.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_CodeFilter.valueSetString">
+<code class="descname">valueSetString</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_CodeFilter.valueSetString" title="Permalink to this definition">¶</a></dt>
+<dd><p>The valueset for the code filter. The valueSet and
+value elements are exclusive. If valueSet is specified, the filter
+will return only those data items for which the value of the
+code-valued element specified in the path is a member of the specified
+valueset.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_CodeFilter.valueSetReference">
+<code class="descname">valueSetReference</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_CodeFilter.valueSetReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>The valueset for the code filter. The valueSet and
+value elements are exclusive. If valueSet is specified, the filter
+will return only those data items for which the value of the
+code-valued element specified in the path is a member of the specified
+valueset.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_CodeFilter.valueCode">
+<code class="descname">valueCode</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_CodeFilter.valueCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>The codes for the code filter. Only one of valueSet,
+valueCode, valueCoding, or valueCodeableConcept may be specified. If
+values are given, the filter will return only those data items for
+which the code-valued attribute specified by the path has a value that
+is one of the specified codes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_CodeFilter.valueCoding">
+<code class="descname">valueCoding</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_CodeFilter.valueCoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Codings for the code filter. Only one of valueSet,
+valueCode, valueConding, or valueCodeableConcept may be specified. If
+values are given, the filter will return only those data items for
+which the code-valued attribute specified by the path has a value that
+is one of the specified Codings.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_CodeFilter.valueCodeableConcept">
+<code class="descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_CodeFilter.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CodeableConcepts for the code filter. Only
+one of valueSet, valueCode, valueConding, or valueCodeableConcept may
+be specified. If values are given, the filter will return only those
+data items for which the code-valued attribute specified by the path
+has a value that is one of the specified CodeableConcepts.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_CodeFilter.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DataRequirement.html#DataRequirement_CodeFilter.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_CodeFilter.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_DateFilter">
+<em class="property">class </em><code class="descclassname">cardea.fhir.DataRequirement.</code><code class="descname">DataRequirement_DateFilter</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DataRequirement.html#DataRequirement_DateFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_DateFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Describes a required data item for evaluation in terms of the type of
+data, and optional code or date-based filters of the data.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_DateFilter.path">
+<code class="descname">path</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_DateFilter.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date-valued attribute of the filter. The specified path must
+be resolvable from the type of the required data. The path is allowed
+to contain qualifiers (.) to traverse sub-elements, as well as
+indexers ([x]) to traverse multiple-cardinality sub-elements. Note
+that the index must be an integer constant. The path must resolve to
+an element of type dateTime, Period, Schedule, or Timing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_DateFilter.valueDateTime">
+<code class="descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_DateFilter.valueDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the filter. If period is specified, the
+filter will return only those data items that fall within the bounds
+determined by the Period, inclusive of the period boundaries. If
+dateTime is specified, the filter will return only those data items
+that are equal to the specified dateTime. If a Duration is specified,
+the filter will return only those data items that fall within Duration
+from now.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_DateFilter.valuePeriod">
+<code class="descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_DateFilter.valuePeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the filter. If period is specified, the
+filter will return only those data items that fall within the bounds
+determined by the Period, inclusive of the period boundaries. If
+dateTime is specified, the filter will return only those data items
+that are equal to the specified dateTime. If a Duration is specified,
+the filter will return only those data items that fall within Duration
+from now.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_DateFilter.valueDuration">
+<code class="descname">valueDuration</code><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_DateFilter.valueDuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the filter. If period is specified, the
+filter will return only those data items that fall within the bounds
+determined by the Period, inclusive of the period boundaries. If
+dateTime is specified, the filter will return only those data items
+that are equal to the specified dateTime. If a Duration is specified,
+the filter will return only those data items that fall within Duration
+from now.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DataRequirement.DataRequirement_DateFilter.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DataRequirement.html#DataRequirement_DateFilter.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DataRequirement.DataRequirement_DateFilter.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.fhir.DetectedIssue.html" class="btn btn-neutral float-right" title="cardea.fhir.DetectedIssue module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.fhir.DataElement.html" class="btn btn-neutral float-left" title="cardea.fhir.DataElement module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

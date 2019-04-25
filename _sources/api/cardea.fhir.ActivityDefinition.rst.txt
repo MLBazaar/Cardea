@@ -1,0 +1,7 @@
+cardea.fhir.ActivityDefinition module
+=====================================
+
+.. automodule:: cardea.fhir.ActivityDefinition
+    :members:
+    :undoc-members:
+    :show-inheritance:

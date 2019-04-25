@@ -1,0 +1,7 @@
+cardea.fhir.Duration module
+===========================
+
+.. automodule:: cardea.fhir.Duration
+    :members:
+    :undoc-members:
+    :show-inheritance:

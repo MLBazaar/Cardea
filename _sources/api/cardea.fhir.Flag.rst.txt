@@ -1,0 +1,7 @@
+cardea.fhir.Flag module
+=======================
+
+.. automodule:: cardea.fhir.Flag
+    :members:
+    :undoc-members:
+    :show-inheritance:

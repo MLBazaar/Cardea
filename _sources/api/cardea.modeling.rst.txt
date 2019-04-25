@@ -1,0 +1,15 @@
+cardea.modeling package
+=======================
+
+.. automodule:: cardea.modeling
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   cardea.modeling.modeler
+

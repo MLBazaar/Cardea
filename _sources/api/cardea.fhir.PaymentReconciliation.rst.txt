@@ -1,0 +1,7 @@
+cardea.fhir.PaymentReconciliation module
+========================================
+
+.. automodule:: cardea.fhir.PaymentReconciliation
+    :members:
+    :undoc-members:
+    :show-inheritance:

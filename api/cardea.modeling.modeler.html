@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.modeling.modeler module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.problem_definition package" href="cardea.problem_definition.html" />
+    <link rel="prev" title="cardea.modeling package" href="cardea.modeling.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.modeling.html">cardea.modeling package</a> &raquo;</li>
+        
+      <li>cardea.modeling.modeler module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.modeling.modeler.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.modeling.modeler">
+<span id="cardea-modeling-modeler-module"></span><h1>cardea.modeling.modeler module<a class="headerlink" href="#module-cardea.modeling.modeler" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.modeling.modeler.Modeler">
+<em class="property">class </em><code class="descclassname">cardea.modeling.modeler.</code><code class="descname">Modeler</code><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class responsible for executing various Machine Learning Pipelines using MLBlocks.</p>
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.check_path">
+<code class="descname">check_path</code><span class="sig-paren">(</span><em>primitives</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.check_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.check_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the path of each primitive in the pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>primitives</strong> – A list of primitive.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of primitives after edition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.check_path_hyperparameters">
+<code class="descname">check_path_hyperparameters</code><span class="sig-paren">(</span><em>hyperparameters</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.check_path_hyperparameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.check_path_hyperparameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the path of each hyperparameters in the pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>hyperparameters</strong> – A list of hyperparameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of hyperparameters after edition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.classification_scoring_function">
+<code class="descname">classification_scoring_function</code><em class="property"> = {'accuracy': &lt;function accuracy_score&gt;, 'f1': &lt;function f1_score&gt;, 'precision': &lt;function precision_score&gt;, 'recall': &lt;function recall_score&gt;}</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.classification_scoring_function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.create_kfold">
+<code class="descname">create_kfold</code><span class="sig-paren">(</span><em>primitives</em>, <em>hyperparameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.create_kfold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.create_kfold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates Kfold cross-validation and predicts all the primitives within the pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>primitive</strong> – The name of the primitive.</p></li>
+<li><p><strong>primitives_names</strong> – A list of the names of all the primitives similar</p></li>
+<li><p><strong>the ones provided.</strong> (<em>to</em>) – </p></li>
+<li><p><strong>hyperparameters</strong> – A dictionary of hyperparameters for each primitives.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list consists of the fold number and the used pipeline and an array of
+the predicted values and an array of the actual values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.create_pipeline">
+<code class="descname">create_pipeline</code><span class="sig-paren">(</span><em>primitives</em>, <em>hyperparameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.create_pipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.create_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a pipeline of primitives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>primitives</strong> – A list of primitive.</p></li>
+<li><p><strong>hyperparameters</strong> – A dictionary of hyperparameters for each primitives.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A MLPipeline instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.create_space">
+<code class="descname">create_space</code><span class="sig-paren">(</span><em>pipeline</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.create_space"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.create_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the search space.
+:param pipeline: A MLPipeline instance.</p>
+<p>Raises:
+Exception: If the value of tunnable hyperparameters is empty.
+:returns: A dictionary of the space over which to search.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.data_frame">
+<code class="descname">data_frame</code><em class="property"> = None</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.data_frame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.execute_pipeline">
+<code class="descname">execute_pipeline</code><span class="sig-paren">(</span><em>data_frame</em>, <em>target</em>, <em>primitives_list</em>, <em>problem_type</em>, <em>optimize=False</em>, <em>max_evals=10</em>, <em>scoring=None</em>, <em>minimize_cost=False</em>, <em>hyperparameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.execute_pipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.execute_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes and predict all the pipelines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_frame</strong> – A dataframe, which encapsulates all the records of that entity.</p></li>
+<li><p><strong>target</strong> – An array of labels for the target variable.</p></li>
+<li><p><strong>primitives_list</strong> – A list of the primitives within a pipeline.</p></li>
+<li><p><strong>problem_type</strong> – A label to specify the type of problem whether</p></li>
+<li><p><strong>or classification.</strong> (<em>regression</em>) – </p></li>
+<li><p><strong>optimize</strong> – A boolean value which indicates whether to optimize the model or not.</p></li>
+<li><p><strong>max_evals</strong> – Maximum number of hyperparameter evaluations.</p></li>
+<li><p><strong>scoring</strong> – A label to specify the scoring function.</p></li>
+<li><p><strong>minimize_cost</strong> – A boolean value indicating whether to get minimum or maximum cost value.</p></li>
+<li><p><strong>hyperparameters</strong> – A dictionary of hyperparameters for each primitives.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the fold number, the used pipeline
+and an array of the predicted values and an array of the actual values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>A list for all the pipelines which consists of</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.fit_predict_model">
+<code class="descname">fit_predict_model</code><span class="sig-paren">(</span><em>X_train</em>, <em>y_train</em>, <em>X_test</em>, <em>pipeline</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.fit_predict_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.fit_predict_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits and predicts all the primitives within the pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_train</strong> – A ndarray of the training data.</p></li>
+<li><p><strong>y_train</strong> – An array of the training target variable.</p></li>
+<li><p><strong>X_test</strong> – A ndarray of the testing data.</p></li>
+<li><p><strong>pipeline</strong> – A MLPipeline instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list consists of the used pipeline and an array of the predicted values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.get_directory">
+<code class="descname">get_directory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.get_directory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.get_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the path of the directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The absolute path of MLplrimitive directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.hyperopt_train_test">
+<code class="descname">hyperopt_train_test</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.hyperopt_train_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.hyperopt_train_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the objective function to minimize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>params</strong> – The parameter for a specific pipleline.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The the model secore after K-fold corss-validation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.hyperparameter_tunning">
+<code class="descname">hyperparameter_tunning</code><span class="sig-paren">(</span><em>pipeline</em>, <em>max_evals</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.hyperparameter_tunning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.hyperparameter_tunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuens and optimize the models’ hyperparameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pipeline</strong> – A MLPipeline instance.</p></li>
+<li><p><strong>max_evals</strong> – Maximum number of hyperparameter evaluations.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of the tuned hyperparameter that best fits the model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.kfold_scoring">
+<code class="descname">kfold_scoring</code><span class="sig-paren">(</span><em>data_frame</em>, <em>target</em>, <em>pipeline</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.kfold_scoring"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.kfold_scoring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the average Kfold cross-validation score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_frame</strong> – A dataframe, which encapsulates all the records of that entity.</p></li>
+<li><p><strong>target</strong> – An array of labels for the target variable.</p></li>
+<li><p><strong>pipeline</strong> – A MLPipeline instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The average folds score.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.minimize_cost">
+<code class="descname">minimize_cost</code><em class="property"> = False</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.minimize_cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.objective">
+<code class="descname">objective</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.objective"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.objective" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.optimization">
+<code class="descname">optimization</code><span class="sig-paren">(</span><em>pipeline</em>, <em>max_evals</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.optimization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.optimization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuens and optimize the models’ hyperparameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pipeline</strong> – A MLPipeline instance.</p></li>
+<li><p><strong>max_evals</strong> – Maximum number of hyperparameter evaluations.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.pipeline_dict">
+<code class="descname">pipeline_dict</code><em class="property"> = {}</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.pipeline_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.primitive">
+<code class="descname">primitive</code><em class="property"> = []</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.primitive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.problem_type">
+<code class="descname">problem_type</code><em class="property"> = None</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.problem_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.regression_scoring_function">
+<code class="descname">regression_scoring_function</code><em class="property"> = {'explained_variance_score': &lt;function explained_variance_score&gt;, 'mean_absolute_error': &lt;function mean_absolute_error&gt;, 'mean_squared_error': &lt;function mean_squared_error&gt;, 'mean_squared_log_error': &lt;function mean_squared_log_error&gt;, 'median_absolute_error': &lt;function median_absolute_error&gt;, 'r2_score': &lt;function r2_score&gt;}</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.regression_scoring_function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.scoring">
+<code class="descname">scoring</code><em class="property"> = None</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.scoring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cardea.modeling.modeler.Modeler.search_all_possible_primitives">
+<code class="descname">search_all_possible_primitives</code><span class="sig-paren">(</span><em>primitives</em>, <em>hyperparameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/modeling/modeler.html#Modeler.search_all_possible_primitives"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.modeler.Modeler.search_all_possible_primitives" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches for all primitives similar to the ones provided.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>primitives</strong> – A list of primitive.</p></li>
+<li><p><strong>hyperparameters</strong> – A dictionary of hyperparameters for each primitives.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list that encapsulate a list consisting of the fold number and the used pipeline and
+an array of the predicted values and an array of the actual values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.modeling.modeler.Modeler.target">
+<code class="descname">target</code><em class="property"> = None</em><a class="headerlink" href="#cardea.modeling.modeler.Modeler.target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.problem_definition.html" class="btn btn-neutral float-right" title="cardea.problem_definition package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.modeling.html" class="btn btn-neutral float-left" title="cardea.modeling package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

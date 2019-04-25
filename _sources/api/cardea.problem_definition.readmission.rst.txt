@@ -1,0 +1,7 @@
+cardea.problem\_definition.readmission module
+=============================================
+
+.. automodule:: cardea.problem_definition.readmission
+    :members:
+    :undoc-members:
+    :show-inheritance:

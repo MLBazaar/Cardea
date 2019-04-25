@@ -1,0 +1,7 @@
+cardea.fhir.CapabilityStatement module
+======================================
+
+.. automodule:: cardea.fhir.CapabilityStatement
+    :members:
+    :undoc-members:
+    :show-inheritance:

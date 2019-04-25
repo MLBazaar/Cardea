@@ -1,0 +1,7 @@
+cardea.fhir.Range module
+========================
+
+.. automodule:: cardea.fhir.Range
+    :members:
+    :undoc-members:
+    :show-inheritance:

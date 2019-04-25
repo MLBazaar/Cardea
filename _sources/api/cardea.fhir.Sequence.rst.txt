@@ -1,0 +1,7 @@
+cardea.fhir.Sequence module
+===========================
+
+.. automodule:: cardea.fhir.Sequence
+    :members:
+    :undoc-members:
+    :show-inheritance:

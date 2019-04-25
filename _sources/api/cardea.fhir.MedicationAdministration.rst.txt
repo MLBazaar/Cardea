@@ -1,0 +1,7 @@
+cardea.fhir.MedicationAdministration module
+===========================================
+
+.. automodule:: cardea.fhir.MedicationAdministration
+    :members:
+    :undoc-members:
+    :show-inheritance:

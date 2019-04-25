@@ -1,0 +1,7 @@
+cardea.fhir.Schedule module
+===========================
+
+.. automodule:: cardea.fhir.Schedule
+    :members:
+    :undoc-members:
+    :show-inheritance:

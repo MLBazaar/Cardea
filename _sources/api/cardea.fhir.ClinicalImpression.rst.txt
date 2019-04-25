@@ -1,0 +1,7 @@
+cardea.fhir.ClinicalImpression module
+=====================================
+
+.. automodule:: cardea.fhir.ClinicalImpression
+    :members:
+    :undoc-members:
+    :show-inheritance:

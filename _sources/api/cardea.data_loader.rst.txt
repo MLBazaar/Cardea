@@ -1,0 +1,16 @@
+cardea.data\_loader package
+===========================
+
+.. automodule:: cardea.data_loader
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   cardea.data_loader.data_loader
+   cardea.data_loader.entityset_loader
+

@@ -1,0 +1,7 @@
+cardea.fhir.Basic module
+========================
+
+.. automodule:: cardea.fhir.Basic
+    :members:
+    :undoc-members:
+    :show-inheritance:

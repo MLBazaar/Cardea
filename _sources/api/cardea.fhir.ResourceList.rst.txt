@@ -1,0 +1,7 @@
+cardea.fhir.ResourceList module
+===============================
+
+.. automodule:: cardea.fhir.ResourceList
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,26 @@
+cardea package
+==============
+
+.. automodule:: cardea
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    cardea.data_loader
+    cardea.featurization
+    cardea.fhir
+    cardea.modeling
+    cardea.problem_definition
+
+Submodules
+----------
+
+.. toctree::
+
+   cardea.cardea
+

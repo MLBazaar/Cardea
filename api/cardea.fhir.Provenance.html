@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.Provenance module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.fhir.Quantity module" href="cardea.fhir.Quantity.html" />
+    <link rel="prev" title="cardea.fhir.ProcessResponse module" href="cardea.fhir.ProcessResponse.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
+        
+      <li>cardea.fhir.Provenance module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Provenance.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.fhir.Provenance">
+<span id="cardea-fhir-provenance-module"></span><h1>cardea.fhir.Provenance module<a class="headerlink" href="#module-cardea.fhir.Provenance" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.Provenance.Provenance">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Provenance.</code><code class="descname">Provenance</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Provenance.html#Provenance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Provenance.Provenance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Provenance of a resource is a record that describes entities and
+processes involved in producing and delivering or otherwise
+influencing that resource. Provenance provides a critical foundation
+for assessing authenticity, enabling trust, and allowing
+reproducibility. Provenance assertions are a form of contextual
+metadata and can themselves become important records with their own
+provenance. Provenance statement indicates clinical significance in
+terms of confidence in authenticity, reliability, and trustworthiness,
+integrity, and stage in lifecycle (e.g. Document Completion - has the
+artifact been legally authenticated), all of which may impact
+security, privacy, and trust policies.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance.resourceType">
+<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.resourceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a Provenance resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance.target">
+<code class="descname">target</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.target" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Reference(s) that were generated or updated by  the
+activity described in this resource. A provenance can point to more
+than one target if multiple resources were created/updated by the same
+activity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance.period">
+<code class="descname">period</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.period" title="Permalink to this definition">¶</a></dt>
+<dd><p>The period during which the activity occurred.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance.recorded">
+<code class="descname">recorded</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.recorded" title="Permalink to this definition">¶</a></dt>
+<dd><p>The instant of time at which the activity was recorded.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance.policy">
+<code class="descname">policy</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Policy or plan the activity was defined by. Typically, a
+single activity may have multiple applicable policy documents, such as
+patient consent, guarantor funding, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance.location">
+<code class="descname">location</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where the activity occurred, if relevant.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance.reason">
+<code class="descname">reason</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>The reason that the activity was taking place.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance.activity">
+<code class="descname">activity</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>An activity is something that occurs over a period of time
+and acts upon or with entities; it may include consuming, processing,
+transforming, modifying, relocating, using, or generating entities.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance.agent">
+<code class="descname">agent</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>An actor taking a role in an activity  for which it can be
+assigned some degree of responsibility for the activity taking place.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance.entity">
+<code class="descname">entity</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>An entity used in this activity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance.signature">
+<code class="descname">signature</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>A digital signature on the target Reference(s). The signer
+should match a Provenance.agent. The purpose of the signature is
+indicated.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Provenance.Provenance.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Provenance.html#Provenance.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Provenance.Provenance.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Provenance.Provenance_Agent">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Provenance.</code><code class="descname">Provenance_Agent</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Provenance.html#Provenance_Agent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Provenance of a resource is a record that describes entities and
+processes involved in producing and delivering or otherwise
+influencing that resource. Provenance provides a critical foundation
+for assessing authenticity, enabling trust, and allowing
+reproducibility. Provenance assertions are a form of contextual
+metadata and can themselves become important records with their own
+provenance. Provenance statement indicates clinical significance in
+terms of confidence in authenticity, reliability, and trustworthiness,
+integrity, and stage in lifecycle (e.g. Document Completion - has the
+artifact been legally authenticated), all of which may impact
+security, privacy, and trust policies.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance_Agent.role">
+<code class="descname">role</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Agent.role" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function of the agent with respect to the activity. The
+security role enabling the agent with respect to the activity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance_Agent.whoUri">
+<code class="descname">whoUri</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Agent.whoUri" title="Permalink to this definition">¶</a></dt>
+<dd><p>The individual, device or organization that participated in
+the event.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance_Agent.whoReference">
+<code class="descname">whoReference</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Agent.whoReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>The individual, device or organization that participated
+in the event.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance_Agent.onBehalfOfUri">
+<code class="descname">onBehalfOfUri</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Agent.onBehalfOfUri" title="Permalink to this definition">¶</a></dt>
+<dd><p>The individual, device, or organization for whom the
+change was made.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance_Agent.onBehalfOfReference">
+<code class="descname">onBehalfOfReference</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Agent.onBehalfOfReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>The individual, device, or organization for whom
+the change was made.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance_Agent.relatedAgentType">
+<code class="descname">relatedAgentType</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Agent.relatedAgentType" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of relationship between agents.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Provenance.Provenance_Agent.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Provenance.html#Provenance_Agent.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Agent.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Provenance.Provenance_Entity">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Provenance.</code><code class="descname">Provenance_Entity</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Provenance.html#Provenance_Entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Provenance of a resource is a record that describes entities and
+processes involved in producing and delivering or otherwise
+influencing that resource. Provenance provides a critical foundation
+for assessing authenticity, enabling trust, and allowing
+reproducibility. Provenance assertions are a form of contextual
+metadata and can themselves become important records with their own
+provenance. Provenance statement indicates clinical significance in
+terms of confidence in authenticity, reliability, and trustworthiness,
+integrity, and stage in lifecycle (e.g. Document Completion - has the
+artifact been legally authenticated), all of which may impact
+security, privacy, and trust policies.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance_Entity.role">
+<code class="descname">role</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Entity.role" title="Permalink to this definition">¶</a></dt>
+<dd><p>How the entity was used during the activity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance_Entity.whatUri">
+<code class="descname">whatUri</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Entity.whatUri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identity of the  Entity used. May be a logical or physical
+uri and maybe absolute or relative.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance_Entity.whatReference">
+<code class="descname">whatReference</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Entity.whatReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identity of the  Entity used. May be a logical or
+physical uri and maybe absolute or relative.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance_Entity.whatIdentifier">
+<code class="descname">whatIdentifier</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Entity.whatIdentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identity of the  Entity used. May be a logical or
+physical uri and maybe absolute or relative.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Provenance.Provenance_Entity.agent">
+<code class="descname">agent</code><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Entity.agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>The entity is attributed to an agent to express the agent’s
+responsibility for that entity, possibly along with other agents. This
+description can be understood as shorthand for saying that the agent
+was responsible for the activity which generated the entity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Provenance.Provenance_Entity.assert_type">
+<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Provenance.html#Provenance_Entity.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Entity.assert_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks class values follow set possible enumerations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – An error occurs if an attribute of the fhir class
+    does not match its possible enumerations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Provenance.Provenance_Entity.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Provenance.html#Provenance_Entity.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Provenance.Provenance_Entity.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.fhir.Quantity.html" class="btn btn-neutral float-right" title="cardea.fhir.Quantity module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.fhir.ProcessResponse.html" class="btn btn-neutral float-left" title="cardea.fhir.ProcessResponse module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

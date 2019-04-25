@@ -1,0 +1,7 @@
+cardea.fhir.Immunization module
+===============================
+
+.. automodule:: cardea.fhir.Immunization
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,641 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.Immunization module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.fhir.ImmunizationRecommendation module" href="cardea.fhir.ImmunizationRecommendation.html" />
+    <link rel="prev" title="cardea.fhir.ImagingStudy module" href="cardea.fhir.ImagingStudy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
+        
+      <li>cardea.fhir.Immunization module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Immunization.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.fhir.Immunization">
+<span id="cardea-fhir-immunization-module"></span><h1>cardea.fhir.Immunization module<a class="headerlink" href="#module-cardea.fhir.Immunization" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.Immunization.Immunization">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Immunization.</code><code class="descname">Immunization</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Immunization.html#Immunization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Immunization.Immunization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Describes the event of a patient being administered a vaccination or a
+record of a vaccination as reported by a patient, a clinician or
+another party and may include vaccine reaction information and what
+vaccination protocol was followed.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.resourceType">
+<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.resourceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a Immunization resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unique identifier assigned to this immunization record.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.status">
+<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the current status of the vaccination event.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.notGiven">
+<code class="descname">notGiven</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.notGiven" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if the vaccination was or was not given.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.vaccineCode">
+<code class="descname">vaccineCode</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.vaccineCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vaccine that was administered or was to be administered.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.patient">
+<code class="descname">patient</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.patient" title="Permalink to this definition">¶</a></dt>
+<dd><p>The patient who either received or did not receive the
+immunization.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.encounter">
+<code class="descname">encounter</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.encounter" title="Permalink to this definition">¶</a></dt>
+<dd><p>The visit or admission or other contact between patient and
+health care provider the immunization was performed as part of.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.date">
+<code class="descname">date</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date vaccine administered or was to be administered.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.primarySource">
+<code class="descname">primarySource</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.primarySource" title="Permalink to this definition">¶</a></dt>
+<dd><p>An indication that the content of the record is based
+on information from the person who administered the vaccine. This
+reflects the context under which the data was originally recorded.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.reportOrigin">
+<code class="descname">reportOrigin</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.reportOrigin" title="Permalink to this definition">¶</a></dt>
+<dd><p>The source of the data when the report of the
+immunization event is not based on information from the person who
+administered the vaccine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.location">
+<code class="descname">location</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>The service delivery location where the vaccine
+administration occurred.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.manufacturer">
+<code class="descname">manufacturer</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.manufacturer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of vaccine manufacturer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.lotNumber">
+<code class="descname">lotNumber</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.lotNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lot number of the  vaccine product.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.expirationDate">
+<code class="descname">expirationDate</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.expirationDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date vaccine batch expires.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.site">
+<code class="descname">site</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.site" title="Permalink to this definition">¶</a></dt>
+<dd><p>Body site where vaccine was administered.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.route">
+<code class="descname">route</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.route" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path by which the vaccine product is taken into the body.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.doseQuantity">
+<code class="descname">doseQuantity</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.doseQuantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The quantity of vaccine product that was administered.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.practitioner">
+<code class="descname">practitioner</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.practitioner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates who or what performed the event.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.note">
+<code class="descname">note</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.note" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extra information about the immunization that is not conveyed by
+the other attributes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.explanation">
+<code class="descname">explanation</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.explanation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reasons why a vaccine was or was not administered.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.reaction">
+<code class="descname">reaction</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Categorical data indicating that an adverse event is
+associated in time to an immunization.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization.vaccinationProtocol">
+<code class="descname">vaccinationProtocol</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.vaccinationProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains information about the protocol(s) under
+which the vaccine was administered.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Immunization.Immunization.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Immunization.html#Immunization.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Immunization.Immunization.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Immunization.Immunization_Explanation">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Immunization.</code><code class="descname">Immunization_Explanation</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Immunization.html#Immunization_Explanation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Explanation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Describes the event of a patient being administered a vaccination or a
+record of a vaccination as reported by a patient, a clinician or
+another party and may include vaccine reaction information and what
+vaccination protocol was followed.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_Explanation.reason">
+<code class="descname">reason</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Explanation.reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reasons why a vaccine was administered.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_Explanation.reasonNotGiven">
+<code class="descname">reasonNotGiven</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Explanation.reasonNotGiven" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reason why a vaccine was not administered.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Immunization.Immunization_Explanation.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Immunization.html#Immunization_Explanation.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Explanation.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Immunization.Immunization_Practitioner">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Immunization.</code><code class="descname">Immunization_Practitioner</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Immunization.html#Immunization_Practitioner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Practitioner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Describes the event of a patient being administered a vaccination or a
+record of a vaccination as reported by a patient, a clinician or
+another party and may include vaccine reaction information and what
+vaccination protocol was followed.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_Practitioner.role">
+<code class="descname">role</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Practitioner.role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes the type of performance (e.g. ordering provider,
+administering provider, etc.).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_Practitioner.actor">
+<code class="descname">actor</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Practitioner.actor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The device, practitioner, etc. who performed the action.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Immunization.Immunization_Practitioner.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Immunization.html#Immunization_Practitioner.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Practitioner.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Immunization.Immunization_Reaction">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Immunization.</code><code class="descname">Immunization_Reaction</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Immunization.html#Immunization_Reaction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Describes the event of a patient being administered a vaccination or a
+record of a vaccination as reported by a patient, a clinician or
+another party and may include vaccine reaction information and what
+vaccination protocol was followed.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_Reaction.date">
+<code class="descname">date</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Reaction.date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date of reaction to the immunization.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_Reaction.detail">
+<code class="descname">detail</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Reaction.detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Details of the reaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_Reaction.reported">
+<code class="descname">reported</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Reaction.reported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Self-reported indicator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Immunization.Immunization_Reaction.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Immunization.html#Immunization_Reaction.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_Reaction.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.Immunization.Immunization_VaccinationProtocol">
+<em class="property">class </em><code class="descclassname">cardea.fhir.Immunization.</code><code class="descname">Immunization_VaccinationProtocol</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Immunization.html#Immunization_VaccinationProtocol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_VaccinationProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>Describes the event of a patient being administered a vaccination or a
+record of a vaccination as reported by a patient, a clinician or
+another party and may include vaccine reaction information and what
+vaccination protocol was followed.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_VaccinationProtocol.doseSequence">
+<code class="descname">doseSequence</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_VaccinationProtocol.doseSequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nominal position in a series.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_VaccinationProtocol.description">
+<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_VaccinationProtocol.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains the description about the protocol under which
+the vaccine was administered.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_VaccinationProtocol.authority">
+<code class="descname">authority</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_VaccinationProtocol.authority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the authority who published the protocol.  E.g.
+ACIP.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_VaccinationProtocol.series">
+<code class="descname">series</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_VaccinationProtocol.series" title="Permalink to this definition">¶</a></dt>
+<dd><p>One possible path to achieve presumed immunity against a
+disease - within the context of an authority.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_VaccinationProtocol.seriesDoses">
+<code class="descname">seriesDoses</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_VaccinationProtocol.seriesDoses" title="Permalink to this definition">¶</a></dt>
+<dd><p>The recommended number of doses to achieve immunity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_VaccinationProtocol.targetDisease">
+<code class="descname">targetDisease</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_VaccinationProtocol.targetDisease" title="Permalink to this definition">¶</a></dt>
+<dd><p>The targeted disease.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_VaccinationProtocol.doseStatus">
+<code class="descname">doseStatus</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_VaccinationProtocol.doseStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if the immunization event should “count” against
+the protocol.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.Immunization.Immunization_VaccinationProtocol.doseStatusReason">
+<code class="descname">doseStatusReason</code><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_VaccinationProtocol.doseStatusReason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides an explanation as to why an immunization
+event should or should not count against the protocol.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.Immunization.Immunization_VaccinationProtocol.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Immunization.html#Immunization_VaccinationProtocol.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Immunization.Immunization_VaccinationProtocol.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.fhir.ImmunizationRecommendation.html" class="btn btn-neutral float-right" title="cardea.fhir.ImmunizationRecommendation module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.fhir.ImagingStudy.html" class="btn btn-neutral float-left" title="cardea.fhir.ImagingStudy module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

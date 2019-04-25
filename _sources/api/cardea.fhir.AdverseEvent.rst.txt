@@ -1,0 +1,7 @@
+cardea.fhir.AdverseEvent module
+===============================
+
+.. automodule:: cardea.fhir.AdverseEvent
+    :members:
+    :undoc-members:
+    :show-inheritance:

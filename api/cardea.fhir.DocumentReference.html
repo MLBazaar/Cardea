@@ -1,0 +1,636 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cardea.fhir.DocumentReference module &mdash; Cardea 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cardea.fhir.DomainResource module" href="cardea.fhir.DomainResource.html" />
+    <link rel="prev" title="cardea.fhir.DocumentManifest module" href="cardea.fhir.DocumentManifest.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cardea
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cardea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cardea.html">cardea package</a> &raquo;</li>
+        
+          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
+        
+      <li>cardea.fhir.DocumentReference module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.DocumentReference.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cardea.fhir.DocumentReference">
+<span id="cardea-fhir-documentreference-module"></span><h1>cardea.fhir.DocumentReference module<a class="headerlink" href="#module-cardea.fhir.DocumentReference" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.DocumentReference.DocumentReference">
+<em class="property">class </em><code class="descclassname">cardea.fhir.DocumentReference.</code><code class="descname">DocumentReference</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A reference to a document.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.resourceType">
+<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.resourceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a DocumentReference resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.masterIdentifier">
+<code class="descname">masterIdentifier</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.masterIdentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Document identifier as assigned by the source of the
+document. This identifier is specific to this version of the document.
+This unique identifier may be used elsewhere to identify this version
+of the document.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Other identifiers associated with the document, including
+version independent identifiers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.status">
+<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of this document reference.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.docStatus">
+<code class="descname">docStatus</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.docStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of the underlying document.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.type">
+<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the particular kind of document referenced  (e.g.
+History and Physical, Discharge Summary, Progress Note). This usually
+equates to the purpose of making the document referenced.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.class">
+<code class="descname">class</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.class" title="Permalink to this definition">¶</a></dt>
+<dd><p>A categorization for the type of document referenced - helps
+for indexing and searching. This may be implied by or derived from the
+code specified in the DocumentReference.type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.subject">
+<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Who or what the document is about. The document can be about
+a person, (patient or healthcare practitioner), a device (e.g. a
+machine) or even a group of subjects (such as a document about a herd
+of farm animals, or a set of patients that share a common exposure).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.created">
+<code class="descname">created</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.created" title="Permalink to this definition">¶</a></dt>
+<dd><p>When the document was created.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.indexed">
+<code class="descname">indexed</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.indexed" title="Permalink to this definition">¶</a></dt>
+<dd><p>When the document reference was created.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.author">
+<code class="descname">author</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.author" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies who is responsible for adding the information to
+the document.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.authenticator">
+<code class="descname">authenticator</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.authenticator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which person or organization authenticates that this
+document is valid.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.custodian">
+<code class="descname">custodian</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.custodian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the organization or group who is responsible for
+ongoing maintenance of and access to the document.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.relatesTo">
+<code class="descname">relatesTo</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.relatesTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relationships that this document has with other document
+references that already exist.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.description">
+<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human-readable description of the source document. This
+is sometimes known as the “title”.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.securityLabel">
+<code class="descname">securityLabel</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.securityLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of Security-Tag codes specifying the level of
+privacy/security of the Document. Note that
+DocumentReference.meta.security contains the security labels of the
+“reference” to the document, while DocumentReference.securityLabel
+contains a snapshot of the security labels on the document the
+reference refers to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.content">
+<code class="descname">content</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.content" title="Permalink to this definition">¶</a></dt>
+<dd><p>The document and format referenced. There may be multiple
+content element repetitions, each with a different format.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.context">
+<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.context" title="Permalink to this definition">¶</a></dt>
+<dd><p>The clinical context in which the document was prepared.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.assert_type">
+<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.assert_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks class values follow set possible enumerations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – An error occurs if an attribute of the fhir class
+    does not match its possible enumerations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DocumentReference.DocumentReference.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Content">
+<em class="property">class </em><code class="descclassname">cardea.fhir.DocumentReference.</code><code class="descname">DocumentReference_Content</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference_Content"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A reference to a document.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Content.attachment">
+<code class="descname">attachment</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Content.attachment" title="Permalink to this definition">¶</a></dt>
+<dd><p>The document or URL of the document along with critical
+metadata to prove content has integrity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Content.format">
+<code class="descname">format</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Content.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>An identifier of the document encoding, structure, and
+template that the document conforms to beyond the base format
+indicated in the mimeType.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Content.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference_Content.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Content.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Context">
+<em class="property">class </em><code class="descclassname">cardea.fhir.DocumentReference.</code><code class="descname">DocumentReference_Context</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference_Context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A reference to a document.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Context.encounter">
+<code class="descname">encounter</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Context.encounter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes the clinical encounter or type of care that the
+document content is associated with.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Context.event">
+<code class="descname">event</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Context.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>This list of codes represents the main clinical acts, such as a
+colonoscopy or an appendectomy, being documented. In some cases, the
+event is inherent in the typeCode, such as a “History and Physical
+Report” in which the procedure being documented is necessarily a
+“History and Physical” act.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Context.period">
+<code class="descname">period</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Context.period" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time period over which the service that is described by
+the document was provided.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Context.facilityType">
+<code class="descname">facilityType</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Context.facilityType" title="Permalink to this definition">¶</a></dt>
+<dd><p>The kind of facility where the patient was seen.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Context.practiceSetting">
+<code class="descname">practiceSetting</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Context.practiceSetting" title="Permalink to this definition">¶</a></dt>
+<dd><p>This property may convey specifics about the practice
+setting where the content was created, often reflecting the clinical
+specialty.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Context.sourcePatientInfo">
+<code class="descname">sourcePatientInfo</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Context.sourcePatientInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Patient Information as known when the document
+was published. May be a reference to a version specific, or contained.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Context.related">
+<code class="descname">related</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Context.related" title="Permalink to this definition">¶</a></dt>
+<dd><p>Related identifiers or resources associated with the
+DocumentReference.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Context.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference_Context.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Context.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Related">
+<em class="property">class </em><code class="descclassname">cardea.fhir.DocumentReference.</code><code class="descname">DocumentReference_Related</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference_Related"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Related" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A reference to a document.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Related.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Related.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Related identifier to this DocumentReference. If both id
+and ref are present they shall refer to the same thing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Related.ref">
+<code class="descname">ref</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Related.ref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Related Resource to this DocumentReference. If both id and ref
+are present they shall refer to the same thing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_Related.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference_Related.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_Related.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_RelatesTo">
+<em class="property">class </em><code class="descclassname">cardea.fhir.DocumentReference.</code><code class="descname">DocumentReference_RelatesTo</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference_RelatesTo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_RelatesTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
+<p>A reference to a document.</p>
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_RelatesTo.code">
+<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_RelatesTo.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of relationship that this document has with anther
+document.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_RelatesTo.target">
+<code class="descname">target</code><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_RelatesTo.target" title="Permalink to this definition">¶</a></dt>
+<dd><p>The target document of this relationship.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_RelatesTo.assert_type">
+<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference_RelatesTo.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_RelatesTo.assert_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks class values follow set possible enumerations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – An error occurs if an attribute of the fhir class
+    does not match its possible enumerations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cardea.fhir.DocumentReference.DocumentReference_RelatesTo.get_relationships">
+<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentReference.html#DocumentReference_RelatesTo.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentReference.DocumentReference_RelatesTo.get_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns class relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of the class’s associated relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cardea.fhir.DomainResource.html" class="btn btn-neutral float-right" title="cardea.fhir.DomainResource module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cardea.fhir.DocumentManifest.html" class="btn btn-neutral float-left" title="cardea.fhir.DocumentManifest module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

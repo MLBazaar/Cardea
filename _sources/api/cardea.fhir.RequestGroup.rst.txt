@@ -1,0 +1,7 @@
+cardea.fhir.RequestGroup module
+===============================
+
+.. automodule:: cardea.fhir.RequestGroup
+    :members:
+    :undoc-members:
+    :show-inheritance:
