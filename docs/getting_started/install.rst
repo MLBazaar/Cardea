@@ -27,17 +27,17 @@ From sources
 
 The sources for Cardea can be downloaded from the `Github repo`_.
 
-You can either clone the ``master`` branch form the public repository:
+You can either clone the ``stable`` branch form the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/D3-AI/Cardea
+    $ git clone --branch stable git://github.com/D3-AI/Cardea
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/D3-AI/Cardea/tarball/master
+    $ curl  -OL https://github.com/D3-AI/Cardea/tarball/stable
 
 Once you have a copy of the source, you can install it with this command:
 
@@ -73,4 +73,4 @@ These are the required steps:
        $ make install-develop
 
 .. _Github repo: https://github.com/D3-AI/Cardea
-.. _tarball: https://github.com/D3-AI/Cardea/tarball/master
+.. _tarball: https://github.com/D3-AI/Cardea/tarball/stable
