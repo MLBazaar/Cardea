@@ -70,11 +70,11 @@ lint: ## check style with flake8 and isort
 	isort -c --recursive cardea tests
 
 fixlint: ## fix lint issues using autoflake, autopep8, and isort
-	find cardea -name '*.py' | xargs autoflake --in-place --remove-all-unused-imports --remove-unused-variables
+	find cardea -name '*.py' | xargs autoflake --in-place --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports
 	autopep8 --in-place --recursive --aggressive cardea
 	isort --apply --atomic --recursive cardea
 
-	find tests -name '*.py' | xargs autoflake --in-place --remove-all-unused-imports --remove-unused-variables
+	find tests -name '*.py' | xargs autoflake --in-place --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports
 	autopep8 --in-place --recursive --aggressive tests
 	isort --apply --atomic --recursive tests
 
