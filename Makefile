@@ -27,7 +27,7 @@ BROWSER := python -c "$$BROWSER_PYSCRIPT"
 
 .PHONY: help
 help:
-    @python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
+	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 
 # CLEAN TARGETS
@@ -71,23 +71,23 @@ clean: clean-build clean-pyc clean-test clean-coverage clean-docs ## remove all 
 
 .PHONY: install
 install: clean-build clean-pyc ## install the package to the active Python's site-packages
-    pip install .
+	pip install .
 
 .PHONY: install-test
 install-test: clean-build clean-pyc ## install the package and test dependencies
-    pip install .[test]
+	pip install .[test]
 
 .PHONY: install-develop
 install-develop: clean-build clean-pyc ## install the package in editable mode and dependencies for development
-    pip install -e .[dev]
+	pip install -e .[dev]
 
 
 # LINT TARGETS
 
 .PHONY: lint
 lint: ## check style with flake8 and isort
-    flake8 cardea tests
-    isort -c --recursive cardea tests
+	flake8 cardea tests
+	isort -c --recursive cardea tests
 
 
 
@@ -148,9 +148,9 @@ servedocs: docs ## compile the docs watching for changes
 
 .PHONY: dist
 dist: clean ## builds source and wheel package
-    python setup.py sdist
-    python setup.py bdist_wheel
-    ls -l dist
+	python setup.py sdist
+	python setup.py bdist_wheel
+	ls -l dist
 
 .PHONY: test-publish
 test-publish: dist ## package and upload a release on TestPyPI
@@ -158,29 +158,29 @@ test-publish: dist ## package and upload a release on TestPyPI
 
 .PHONY: publish
 publish: dist ## package and upload a release
-    twine upload dist/*
+	twine upload dist/*
 
 .PHONY: bumpversion-release
 bumpversion-release: ## Merge master to stable and bumpversion release
-    git checkout stable
-    git merge --no-ff master -m"make release-tag: Merge branch 'master' into stable"
-    bumpversion release
-    git push --tags origin stable
+	git checkout stable
+	git merge --no-ff master -m"make release-tag: Merge branch 'master' into stable"
+	bumpversion release
+	git push --tags origin stable
 
 .PHONY: bumpversion-patch
 bumpversion-patch: ## Merge stable to master and bumpversion patch
-    git checkout master
-    git merge stable
-    bumpversion --no-tag patch
-    git push
+	git checkout master
+	git merge stable
+	bumpversion --no-tag patch
+	git push
 
 .PHONY: bumpversion-minor
 bumpversion-minor: ## Bump the version the next minor skipping the release
-    bumpversion --no-tag minor
+	bumpversion --no-tag minor
 
 .PHONY: bumpversion-major
 bumpversion-major: ## Bump the version the next major skipping the release
-    bumpversion --no-tag major
+	bumpversion --no-tag major
 
 CURRENT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 CHANGELOG_LINES := $(shell git diff HEAD..stable HISTORY.md | wc -l)
@@ -188,12 +188,12 @@ CHANGELOG_LINES := $(shell git diff HEAD..stable HISTORY.md | wc -l)
 .PHONY: check-release
 check-release: ## Check if the release can be made
 ifneq ($(CURRENT_BRANCH),master)
-    $(error Please make the release from master branch\n)
+	$(error Please make the release from master branch\n)
 endif
 ifeq ($(CHANGELOG_LINES),0)
-   $(error Please insert the release notes in HISTORY.md before releasing)
+	$(error Please insert the release notes in HISTORY.md before releasing)
 else
-   @echo "A new release can be made"
+	@echo "A new release can be made"
 endif
 
 .PHONY: release
