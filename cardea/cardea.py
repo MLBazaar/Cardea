@@ -182,8 +182,8 @@ class Cardea():
             target=target,
             primitives_list=primitives,
             problem_type=self.chosen_problem.prediction_type,
-            optimize=False,
-            hyperparameters=None
+            optimize=optimize,
+            hyperparameters=hyperparameters
         )
 
     def convert_to_json(dic):
