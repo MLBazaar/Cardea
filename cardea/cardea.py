@@ -162,7 +162,7 @@ class Cardea():
 
     def execute_model(self, feature_matrix, target, primitives,
                       optimize=False, hyperparameters=None):
-        """Executes and predict all the pipelines.
+        """Executes and predicts all of the pipelines.
 
         This method executes the given pipeline and returns a list for all the pipelines
         with the result of each fold with its associated predicted values and actual values.
@@ -171,7 +171,7 @@ class Cardea():
             data_frame: A dataframe, which encapsulates all the records of that entity.
             primitives_list: A list of the primitives within a pipeline.
             optimize: A boolean value which indicates whether to optimize the model or not.
-            hyperparameters: A dictionary of hyperparameters for each primitives.
+            hyperparameters: A dictionary of hyperparameters for each primitive.
 
         Returns:
             A list for all the executed pipelines and its result.
