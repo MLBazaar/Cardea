@@ -397,7 +397,7 @@
 
 <div class="viewcode-block" id="Cardea.execute_model"><a class="viewcode-back" href="../../api/cardea.cardea.html#cardea.cardea.Cardea.execute_model">[docs]</a>    <span class="k">def</span> <span class="nf">execute_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature_matrix</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">primitives</span><span class="p">,</span>
                       <span class="n">optimize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Executes and predict all the pipelines.</span>
+        <span class="sd">&quot;&quot;&quot;Executes and predicts all of the pipelines.</span>
 
 <span class="sd">        This method executes the given pipeline and returns a list for all the pipelines</span>
 <span class="sd">        with the result of each fold with its associated predicted values and actual values.</span>
@@ -406,7 +406,7 @@
 <span class="sd">            data_frame: A dataframe, which encapsulates all the records of that entity.</span>
 <span class="sd">            primitives_list: A list of the primitives within a pipeline.</span>
 <span class="sd">            optimize: A boolean value which indicates whether to optimize the model or not.</span>
-<span class="sd">            hyperparameters: A dictionary of hyperparameters for each primitives.</span>
+<span class="sd">            hyperparameters: A dictionary of hyperparameters for each primitive.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            A list for all the executed pipelines and its result.</span>
@@ -417,8 +417,8 @@
             <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
             <span class="n">primitives_list</span><span class="o">=</span><span class="n">primitives</span><span class="p">,</span>
             <span class="n">problem_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span><span class="o">.</span><span class="n">prediction_type</span><span class="p">,</span>
-            <span class="n">optimize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">hyperparameters</span><span class="o">=</span><span class="kc">None</span>
+            <span class="n">optimize</span><span class="o">=</span><span class="n">optimize</span><span class="p">,</span>
+            <span class="n">hyperparameters</span><span class="o">=</span><span class="n">hyperparameters</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Cardea.convert_to_json"><a class="viewcode-back" href="../../api/cardea.cardea.html#cardea.cardea.Cardea.convert_to_json">[docs]</a>    <span class="k">def</span> <span class="nf">convert_to_json</span><span class="p">(</span><span class="n">dic</span><span class="p">):</span>
