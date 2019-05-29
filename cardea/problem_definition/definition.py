@@ -84,16 +84,18 @@ class ProblemDefinition:
             ValueError: An error occurs if the cutoff variable does not exist.
         """
 
-        target_label_exists = DataLoader().check_column_existence(
+        loader = DataLoader()
+
+        target_label_exists = loader.check_column_existence(
             entity_set, self.target_entity, self.target_label_column_name
         )
 
-        target_label_has_missing_values = DataLoader().check_for_missing_values(
+        target_label_has_missing_values = loader.check_for_missing_values(
             entity_set, self.target_entity, self.target_label_column_name
         )
 
         if target_label_exists and not target_label_has_missing_values:
-            cutoff_time_label_exists = DataLoader().check_column_existence(
+            cutoff_time_label_exists = loader.check_column_existence(
                 entity_set, self.cutoff_entity, self.cutoff_time_label
             )
 
