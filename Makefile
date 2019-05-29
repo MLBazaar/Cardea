@@ -154,7 +154,7 @@ dist: clean ## builds source and wheel package
 
 .PHONY: test-publish
 test-publish: dist ## package and upload a release on TestPyPI
-    twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
 .PHONY: publish
 publish: dist ## package and upload a release
