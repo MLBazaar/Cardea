@@ -4,10 +4,11 @@ from cardea.data_loader import DataLoader
 from cardea.problem_definition import ProblemDefinition
 
 
-class Readmission (ProblemDefinition):
-    """Defines the problem of readmission.
+class Readmission(ProblemDefinition):
+    """Defines the problem of Readmission.
 
-    Predicting whether a patient will revisit the hospital within certain period of time.
+    It predicts whether a patient will revisit the hospital within
+    certain period of time.
 
     Note:
         The patient visit is considered a readmission if he/she visits
@@ -16,68 +17,28 @@ class Readmission (ProblemDefinition):
         The readmission diagnosis does not have to be the same as the initial visit diagnosis,
         (The patient could be diagnosed of something that is a complication
         of the initial diagnosis).
-
-    Attributes:
-        target_label_column_name: The target label of the prediction problem.
-        target_entity: Name of the entity containing the target label.
-        cutoff_time_label: The cutoff time label of the prediction problem.
-        cutoff_entity: Name of the entity containing the cutoff time label.
-        prediction_type: The type of the machine learning prediction.
     """
     __name__ = 'readmission'
-
-    updated_es = None
-    target_label_column_name = 'readmitted'
-    target_entity = 'Encounter'
-    cutoff_time_label = 'end'
-    cutoff_entity = 'Period'
-    prediction_type = 'classification'
-    conn = 'period'
 
     def __init__(self, t=30):
         self.readmission_threshold = t
 
+        super().__init__(
+            'readmitted',       # target_label_column_name
+            'Encounter',        # target_entity
+            'end',              # cutoff_time_label
+            'Period',           # cutoff_entity
+            'classification',   # prediction_type
+            conn='period'
+        )
+
     def generate_cutoff_times(self, es):
-        """Generates cutoff times for the predection problem.
-
-        Args:
-            es: fhir entityset.
-
-        Returns:
-            entity_set, target_entity, and a dataframe of cutoff_times and target_labels.
-
-        Raises:
-            ValueError: An error occurs if the cutoff variable does not exist.
-        """
-
+        # pre-processing step
         self.generate_target_label(es)
 
-        if DataLoader().check_column_existence(
-                es,
-                self.cutoff_entity,
-                self.cutoff_time_label):  # check the existance of the cutoff label
-
-            generated_cts = self.unify_cutoff_time_discharge_time(
-                es, self.cutoff_entity, self.cutoff_time_label)
-
-            es = es.entity_from_dataframe(entity_id=self.cutoff_entity,
-                                          dataframe=generated_cts,
-                                          index='object_id')
-            cutoff_times = es[self.cutoff_entity].df['ct'].to_frame()
-
-            label = es[self.target_entity].df[self.conn].values
-            instance_id = list(es[self.target_entity].df.index)
-            cutoff_times = cutoff_times.reindex(index=label)
-
-            cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
-
-            cutoff_times['instance_id'] = instance_id
-            cutoff_times.columns = ['cutoff_time', 'instance_id']
-            cutoff_times['label'] = list(es[self.target_entity].df[self.target_label_column_name])
-            return(es, self.target_entity, cutoff_times)
-        else:
-            raise ValueError('Cutoff time label {} in table {} does not exist'
-                             .format(self.cutoff_time_label, self.target_entity))
+        return super().generate_cutoff_times(
+            es, cutoff_time_unifier='unify_cutoff_time_discharge_time'
+        )
 
     def generate_target_label(self, es):
         """Generates target labels in the case of having missing label in the entityset.

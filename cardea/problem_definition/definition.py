@@ -4,9 +4,30 @@ from cardea.data_loader import DataLoader
 
 
 class ProblemDefinition:
-    """A class that defines the prediction problem
-    by specifying cutoff times and generating the target label if it does not exist.
+    """Base class that defines a prediction problem.
+
+    Attributes:
+        target_label_column_name: The target label of the prediction problem.
+        target_entity: Name of the entity containing the target label.
+        cutoff_time_label: The cutoff time label of the prediction problem.
+        cutoff_entity: Name of the entity containing the cutoff time label.
+        prediction_type: The type of the machine learning prediction.
     """
+
+    def __init__(self, target_label_column_name,
+                 target_entity, cutoff_time_label,
+                 cutoff_entity, prediction_type,
+                 updated_es=None, conn=None):
+
+        self.target_label_column_name = target_label_column_name
+        self.target_entity = target_entity
+        self.cutoff_time_label = cutoff_time_label
+        self.cutoff_entity = cutoff_entity
+        self.prediction_type = prediction_type
+
+        # optionals
+        self.conn = conn
+        self.updated_es = updated_es
 
     def check_target_label(self, entity_set, target_entity, target_label):
         """Checks if target label exists in the entity set.
@@ -49,11 +70,12 @@ class ProblemDefinition:
             Target entity with the generated label.
         """
 
-    def generate_cutoff_times(self, entity_set):
+    def generate_cutoff_times(self, entity_set,
+                              cutoff_time_unifier='unify_cutoff_time_admission_time'):
         """Generates cutoff times for the predection problem.
 
         Args:
-            entity_set: fhir entityset.
+            entity_set: the FHIR entityset.
 
         Returns:
             entity_set, target_entity, series of target_labels and a dataframe of cutoff_times.
@@ -61,6 +83,59 @@ class ProblemDefinition:
         Raises:
             ValueError: An error occurs if the cutoff variable does not exist.
         """
+
+        loader = DataLoader()
+
+        target_label_exists = loader.check_column_existence(
+            entity_set, self.target_entity, self.target_label_column_name
+        )
+
+        target_label_has_missing_values = loader.check_for_missing_values(
+            entity_set, self.target_entity, self.target_label_column_name
+        )
+
+        if target_label_exists and not target_label_has_missing_values:
+            cutoff_time_label_exists = loader.check_column_existence(
+                entity_set, self.cutoff_entity, self.cutoff_time_label
+            )
+
+            if not cutoff_time_label_exists:
+                raise ValueError(
+                    'Cutoff time label {} does not exist in table {}'.format(
+                        self.cutoff_time_label,
+                        self.cutoff_entity
+                    )
+                )
+
+            cutoff_time_unifier_func = getattr(self, cutoff_time_unifier)
+            generated_cts = cutoff_time_unifier_func(
+                entity_set, self.cutoff_entity, self.cutoff_time_label
+            )
+
+            # new entity set
+            es = entity_set.entity_from_dataframe(
+                entity_id=self.cutoff_entity, dataframe=generated_cts, index='object_id'
+            )
+
+            label = es[self.target_entity].df[self.conn].values
+
+            instance_id = list(es[self.target_entity].df.index)
+
+            # get cutoff_times
+            cutoff_times = es[self.cutoff_entity].df['ct'].to_frame()
+            cutoff_times = cutoff_times.reindex(index=label)
+            cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
+            cutoff_times['instance_id'] = instance_id
+            cutoff_times.columns = ['cutoff_time', 'instance_id']
+            cutoff_times['label'] = list(es[self.target_entity].df[self.target_label_column_name])
+
+            return (es, self.target_entity, cutoff_times)
+
+        # get a new entity set
+        self.updated_es = self.generate_target_label(entity_set)
+
+        # recursive call
+        return self.generate_cutoff_times(self.updated_es)
 
     def unify_cutoff_times_hours_admission_time(self, df, cutoff_time_label):
         """Unify records cutoff times based on shared time.
