@@ -79,7 +79,7 @@ def load_mimic_data(path=None):
             prop, key, arr_time = get_table_properties(table)
 
             # load table into a dataframe
-            df = pd.read_csv(path + file, nrows=10, dtype=prop, date_parser=pd.to_datetime)
+            df = pd.read_csv(path + file, dtype=prop, date_parser=pd.to_datetime)
             df.columns = [column.lower() for column in df.columns]
 
             # load dataframe into the entityset
