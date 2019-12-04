@@ -28,8 +28,6 @@ def get_table_properties(name):
 
         types[column.upper()] = d_type
 
-    arr_time = arr_time[0] if len(arr_time) > 0 else None
-
     return types, prim_key, arr_time
 
 
@@ -81,6 +79,12 @@ def load_mimic_data(path=None):
             # load table into a dataframe
             df = pd.read_csv(path + file, dtype=prop, date_parser=pd.to_datetime)
             df.columns = [column.lower() for column in df.columns]
+
+            # check if arr_time should be None (no time index)
+            arr_time = arr_time[0] if len(arr_time) > 0 else None
+
+            if arr_time and df[arr_time].isnull().all():
+                arr_time = None
 
             # load dataframe into the entityset
             es.entity_from_dataframe(entity_id=table,
