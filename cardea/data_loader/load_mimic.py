@@ -10,6 +10,16 @@ root = ET.parse(path + '/schema.xml').getroot()
 
 
 def get_table_properties(name):
+    """Returns a tuple containing the datatype of each column, the primary key of the table,
+        and the time indices.
+
+    Args:
+        name: The name of the table in the formal XML file.
+
+    Returns:
+        A tuple with three components, a list with the datatypes of each column, the primary key
+            of the table, and a list of columns that consider the time indices of the table.
+    """
 
     types = {}
     arr_time = []
@@ -32,6 +42,14 @@ def get_table_properties(name):
 
 
 def get_table_relationships(name):
+    """Returns a list of the relationships in the table.
+
+    Args:
+        name: The name of the table in the formal XML file.
+
+    Returns:
+        A list of the relationships in the table, formatted as a dictionary.
+    """
 
     relations = []
     x = root.find('.//table[@name="' + name + '"]')
@@ -59,6 +77,14 @@ def get_type(x):
 
 
 def load_mimic_data(path=None):
+    """Returns an entityset loaded with the dataframes in the received path.
+
+    Args:
+        path: The path of the data.
+
+    Returns:
+        An entityset with loaded data.
+    """
 
     es = ft.EntitySet(id="mimic")
 
