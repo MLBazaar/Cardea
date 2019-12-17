@@ -150,23 +150,23 @@ class ProblemDefinition:
 
             if i == 0:
 
-                if df.get_value(i, 'checked') is not True:
-                    df.at[i, 'ct'] = df.get_value(i, cutoff_time_label)
+                if df.at[i, 'checked'] is not True:
+                    df.at[i, 'ct'] = df.at[i, cutoff_time_label]
                     df.at[i, 'checked'] = True
 
-            elif df.get_value(i, 'checked') is not True:
+            elif df.at[i, 'checked'] is not True:
 
-                ct_val1 = df.get_value(i - 1, 'ct')
-                end_val1 = df.get_value(i - 1, 'end')
-                start_val2 = df.get_value(i, cutoff_time_label)
-                df.get_value(i, 'end')
+                ct_val1 = df.at[i - 1, 'ct']
+                end_val1 = df.at[i - 1, 'end']
+                start_val2 = df.at[i, cutoff_time_label]
+                df.at[i, 'end']
 
                 if ct_val1 < start_val2 < end_val1:
                     df.at[i - 1, 'ct'] = start_val2
                     df.at[i, 'ct'] = start_val2
                     df.at[i, 'checked'] = True
                 else:
-                    df.at[i, 'ct'] = df.get_value(i, cutoff_time_label)
+                    df.at[i, 'ct'] = df.at[i, cutoff_time_label]
                     df.at[i, 'checked'] = True
 
                 if i + 1 == len(df):
