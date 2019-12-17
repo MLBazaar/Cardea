@@ -151,8 +151,8 @@ class ProblemDefinition:
             if i == 0:
 
                 if df.get_value(i, 'checked') is not True:
-                    df.set_value(i, 'ct', df.get_value(i, cutoff_time_label))
-                    df.set_value(i, 'checked', True)
+                    df.at[i, 'ct'] = df.get_value(i, cutoff_time_label)
+                    df.at[i, 'checked'] = True
 
             elif df.get_value(i, 'checked') is not True:
 
@@ -162,13 +162,12 @@ class ProblemDefinition:
                 df.get_value(i, 'end')
 
                 if ct_val1 < start_val2 < end_val1:
-                    df.set_value(i - 1, 'ct', start_val2)
-                    df.set_value(i, 'ct', start_val2)
-                    df.set_value(i, 'checked', True)
-
+                    df.at[i - 1, 'ct'] = start_val2
+                    df.at[i, 'ct'] = start_val2
+                    df.at[i, 'checked'] = True
                 else:
-                    df.set_value(i, 'ct', df.get_value(i, cutoff_time_label))
-                    df.set_value(i, 'checked', True)
+                    df.at[i, 'ct'] = df.get_value(i, cutoff_time_label)
+                    df.at[i, 'checked'] = True
 
                 if i + 1 == len(df):
                     break
@@ -193,14 +192,14 @@ class ProblemDefinition:
                 final_date = sub_duration_greater.iloc[-1][cutoff_time_label]
 
                 for i in sub_duration_greater.index:
-                    sub_duration_greater.set_value(i, 'ct', final_date)
-                    sub_duration_greater.set_value(i, 'checked', True)
+                    sub_duration_greater.at[i, 'ct'] = final_date
+                    sub_duration_greater.at[i, 'checked'] = True
 
                 frames.append(sub_duration_greater)
 
                 for i in sub_duration_less.index:
-                    sub_duration_less.set_value(i, 'ct', pd.NaT)
-                    sub_duration_less.set_value(i, 'checked', False)
+                    sub_duration_less.at[i, 'ct'] = pd.NaT
+                    sub_duration_less.at[i, 'checked'] = False
 
                     frames.append(sub_duration_less)
 
@@ -256,13 +255,13 @@ class ProblemDefinition:
                 first_date = sub_duration_greater.iloc[0][cutoff_time_label]
 
                 for i in sub_duration_greater.index:
-                    sub_duration_greater.set_value(i, 'ct', first_date)
-                    sub_duration_greater.set_value(i, 'checked', True)
+                    sub_duration_greater.at[i, 'ct'] = first_date
+                    sub_duration_greater.at[i, 'checked'] = True
                 frames.append(sub_duration_greater)
 
                 for i in sub_duration_less.index:
-                    sub_duration_less.set_value(i, 'ct', pd.NaT)
-                    sub_duration_less.set_value(i, 'checked', False)
+                    sub_duration_less.at[i, 'ct'] = pd.NaT
+                    sub_duration_less.at[i, 'checked'] = False
                 frames.append(sub_duration_less)
 
         result = pd.concat(frames)
@@ -287,8 +286,8 @@ class ProblemDefinition:
                 if len(sub_hour) != 0:
                     first_date = sub_hour.iloc[0][cutoff_time_label]
                     for i in sub_hour.index:
-                        sub_hour.set_value(i, 'ct', first_date)
-                        sub_hour.set_value(i, 'checked', True)
+                        sub_hour.at[i, 'ct'] = first_date
+                        sub_hour.at[i, 'checked'] = True
 
                     frames.append(sub_hour)
 

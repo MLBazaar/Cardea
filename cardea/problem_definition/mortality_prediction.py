@@ -41,7 +41,7 @@ class MortalityPrediction(ProblemDefinition):
         # post-processing step
         for (idx, row) in cutoff_times.iterrows():
             new_val = row.loc['label'] in self.causes_of_death
-            cutoff_times.set_value(idx, 'label', new_val)
+            cutoff_times.at[idx, 'label'] = new_val
 
         return (entity_set, target_entity, cutoff_times)
 
