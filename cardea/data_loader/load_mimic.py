@@ -89,6 +89,7 @@ def load_mimic_data(path=None):
     es = ft.EntitySet(id="mimic")
 
     relationships = []
+    global_tables = []
     files = glob(path + '*.csv')
 
     for tag in root.findall('tables/table'):
@@ -96,6 +97,9 @@ def load_mimic_data(path=None):
         file = table.upper() + '.csv'
 
         if (path + file) in files:
+            # table name
+            global_tables.append(table)
+
             # get table relationships
             relationships = relationships + get_table_relationships(table)
 
@@ -119,9 +123,10 @@ def load_mimic_data(path=None):
                                      time_index=arr_time)
 
     for r in relationships:
-        new_relationship = ft.Relationship(es[r['parent']][r['primary_key']],
-                                           es[r['child']][r['foreign_key']])
+        if (r['parent'] in global_tables and r['child'] in global_tables):
+            new_relationship = ft.Relationship(es[r['parent']][r['primary_key']],
+                                               es[r['child']][r['foreign_key']])
 
-        es = es.add_relationship(new_relationship)
+            es = es.add_relationship(new_relationship)
 
     return es
