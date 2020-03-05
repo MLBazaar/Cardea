@@ -10,14 +10,16 @@ with open('HISTORY.md') as history_file:
     history = history_file.read()
 
 install_requires = [
-    'featuretools==0.6.1',
+    'featuretools>=0.6.1,<0.7',
     'networkx==2.2',
+    'numpy==1.16.0',
     'pandas>=0.23.4,<0.25',
     'mlblocks==0.3.0',
     'mlprimitives==0.1.6',
-    'sklearn',
+    'scikit-learn==0.20.0',
     'scipy>=1.1.0',
-    'hyperopt==0.1.2'
+    'docutils<0.16,>=0.10',
+    'hyperopt'
 ]
 
 setup_requires = [
