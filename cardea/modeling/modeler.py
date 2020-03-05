@@ -4,10 +4,12 @@ import os
 import hyperopt
 import mlblocks
 import numpy as np
-from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
+from hyperopt import STATUS_OK, Trials, base, fmin, hp, tpe
 from mlblocks import MLPipeline
 from sklearn import metrics
 from sklearn.model_selection import KFold
+
+base.have_bson = False
 
 
 class Modeler():
