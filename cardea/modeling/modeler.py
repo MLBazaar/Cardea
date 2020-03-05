@@ -4,10 +4,12 @@ import os
 import hyperopt
 import mlblocks
 import numpy as np
-from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
+from hyperopt import STATUS_OK, Trials, base, fmin, hp, tpe
 from mlblocks import MLPipeline
 from sklearn import metrics
 from sklearn.model_selection import KFold
+
+base.have_bson = False
 
 
 class Modeler():
@@ -264,10 +266,6 @@ class Modeler():
 
             tunable_hyperparameters = block.get_tunable_hyperparameters()
             primitive = str(block).split('MLBlock - ')[1]
-            if(tunable_hyperparameters == {}):
-                raise Exception(
-                    'Can not create the domain Space.\
-                     The value of tunnable hyperparameters is: {}')
 
             for hyperparameter in tunable_hyperparameters:
                 hp_type = list(tunable_hyperparameters[hyperparameter].keys())
@@ -294,6 +292,9 @@ class Modeler():
                     space[hyperparameter] = hp.choice(hyperparameter, [True, False])
 
             space_list[primitive] = space
+            if(space_list == {}):
+                raise Exception('Can not create the domain Space.\
+                    The value of tunnable hyperparameters is: {}')
         return space_list
 
     def hyperopt_train_test(self, params):
