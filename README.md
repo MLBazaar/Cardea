@@ -39,4 +39,4 @@ Cardea is a machine learning library built on top of the FHIR data schema. The l
 - Free software: MIT license
 
 ## Documentation
-- Documentation: https://D3-AI.github.io/Cardea
+- Documentation: https://dai-lab.github.io/Cardea
