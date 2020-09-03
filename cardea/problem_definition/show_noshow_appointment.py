@@ -3,24 +3,21 @@ from cardea.data_loader import DataLoader
 from cardea.problem_definition import ProblemDefinition
 
 
-class MissedAppointmentProblemDefinition (ProblemDefinition):
-    """Defines the problem of missed appointments,
-    whether the patient showed to the appointment or not.
+class MissedAppointmentProblemDefinition(ProblemDefinition):
+    """Defines the problem of Missed Appointments.
 
-    Attributes:
-        target_label: The target label of the prediction problem.
-        target_entity: The entity name which contains the target label.
-        cutoff_time_label: The cutoff time label of the prediction problem.
-        cutoff_entity: Name of the entity containing the cutoff time label.
-        prediction_type: The type of the machine learning prediction.
+    It preditcs whether the patient showed to the appointment or not.
     """
     __name__ = 'mapp'
 
-    target_label_column_name = 'status'
-    target_entity = 'Appointment'
-    prediction_type = 'classification'
-    cutoff_time_label = 'created'
-    cutoff_entity = target_entity
+    def __init__(self):
+        super().__init__(
+            'status',           # target_label_column_name
+            'Appointment',      # target_entity
+            'created',          # cutoff_time_label
+            'Appointment',      # cutoff_entity
+            'classification'    # prediction_type
+        )
 
     def generate_cutoff_times(self, entity_set):
         """Generates cutoff times for the predection problem.

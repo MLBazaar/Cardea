@@ -5,29 +5,25 @@ from cardea.data_loader import DataLoader
 from cardea.problem_definition import ProblemDefinition
 
 
-class ProlongedLengthOfStay (ProblemDefinition):
-    """Defines the problem of length of stay, predicting whether
-    a patient stayed in the hospital more or less than a week (Default).
+class ProlongedLengthOfStay(ProblemDefinition):
+    """Defines the problem of Prolonged Length of Stay.
 
-    Attributes:
-        target_label_column_name: The target label of the prediction problem.
-        target_entity: Name of the entity containing the target label.
-        cutoff_time_label: The cutoff time label of the prediction problem.
-        cutoff_entity: Name of the entity containing the cutoff time label.
-        prediction_type: The type of the machine learning prediction.
+    It predicts whether a patient stayed in the hospital more or
+    less than a week (default).
     """
     __name__ = 'plos'
 
-    updated_es = None
-    target_label_column_name = 'length'
-    target_entity = 'Encounter'
-    cutoff_time_label = 'start'
-    cutoff_entity = 'Period'
-    conn = 'period'
-    prediction_type = 'classification'
-
     def __init__(self, t=7):
         self.threshold = t
+
+        super().__init__(
+            'length',           # target_label_column_name
+            'Encounter',        # target_entity
+            'start',            # cutoff_time_label
+            'Period',           # cutoff_entity
+            'classification',   # prediction_type
+            conn='period'
+        )
 
     def generate_cutoff_times(self, es):
         """Generates cutoff times for the predection problem.

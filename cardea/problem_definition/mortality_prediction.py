@@ -3,11 +3,14 @@ import pandas as pd
 from cardea.data_loader import DataLoader
 from cardea.problem_definition import ProblemDefinition
 
+DEFAULT_CAUSES = ['X60', 'X84', 'Y87.0', 'X85', 'Y09', 'Y87.1',
+                  'V02', 'V04', 'V09.0', 'V09.2', 'V12', 'V14']
 
-class MortalityPrediction (ProblemDefinition):
-    """Defines the problem of diagnosis Prediction.
 
-    Finding whether a patient will be diagnosed with a specifed diagnosis.
+class MortalityPrediction(ProblemDefinition):
+    """Defines the problem of Diagnosis Prediction.
+
+    It finds whether a patient will be diagnosed with a specifed diagnosis.
 
     Note:
         The patient visit is considered a readmission if he visits
@@ -15,74 +18,32 @@ class MortalityPrediction (ProblemDefinition):
 
         The readmission diagnosis does not have to be the same as the initial visit diagnosis,
         (he could be diagnosed of something that is a complication of the initial diagnosis).
-
-    Attributes:
-
-        target_label_column_name: The target label of the prediction problem.
-        target_entity: Name of the entity containing the target label.
-        cutoff_time_label: The cutoff time label of the prediction problem.
-        cutoff_entity: Name of the entity containing the cutoff time label.
-        prediction_type: The type of the machine learning prediction.
     """
     __name__ = 'mortality'
 
-    updated_es = None
-    target_label_column_name = 'diagnosis'
-    target_entity = 'Encounter'
-    cutoff_time_label = 'start'
-    cutoff_entity = 'Period'
-    prediction_type = 'classification'
-    conn = 'period'
-    causes_of_death = ['X60', 'X84', 'Y87.0', 'X85', 'Y09',
-                       'Y87.1', 'V02', 'V04', 'V09.0', 'V09.2', 'V12', 'V14']
+    def __init__(self, causes_of_death=DEFAULT_CAUSES):
+        self.causes_of_death = causes_of_death
+
+        super().__init__(
+            'diagnosis',        # target_label_column_name
+            'Encounter',        # target_entity
+            'start',            # cutoff_time_label
+            'Period',           # cutoff_entity
+            'classification',   # prediction_type
+            conn='period'
+        )
 
     def generate_cutoff_times(self, es):
-        """Generates cutoff times for the predection problem.
-
-        Args:
-            es: fhir entityset.
-
-        Returns:
-            entity_set, target_entity, and a dataframe of cutoff_times and target_labels.
-
-        Raises:
-            ValueError: An error occurs if the cutoff variable does not exist.
-        """
-
         es = self.generate_target_label(es)
 
-        if DataLoader().check_column_existence(
-            es,
-            self.cutoff_entity,
-                self.cutoff_time_label):  # check the existance of the cutoff label
+        entity_set, target_entity, cutoff_times = super().generate_cutoff_times(es)
 
-            generated_cts = self.unify_cutoff_time_admission_time(
-                es, self.cutoff_entity, self.cutoff_time_label)
+        # post-processing step
+        for (idx, row) in cutoff_times.iterrows():
+            new_val = row.loc['label'] in self.causes_of_death
+            cutoff_times.at[idx, 'label'] = new_val
 
-            es = es.entity_from_dataframe(entity_id=self.cutoff_entity,
-                                          dataframe=generated_cts,
-                                          index='object_id')
-
-            cutoff_times = es[self.cutoff_entity].df['ct'].to_frame()
-
-            label = es[self.target_entity].df[self.conn].values
-            instance_id = list(es[self.target_entity].df.index)
-            cutoff_times = cutoff_times.reindex(index=label)
-
-            cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
-            cutoff_times['instance_id'] = instance_id
-            cutoff_times.columns = ['cutoff_time', 'instance_id']
-
-            cutoff_times['label'] = list(es[self.target_entity].df[self.target_label_column_name])
-
-            for (idx, row) in cutoff_times.iterrows():
-                new_val = row.loc['label'] in self.causes_of_death
-                cutoff_times.set_value(idx, 'label', new_val)
-
-            return(es, self.target_entity, cutoff_times)
-        else:
-            raise ValueError('Cutoff time label {} in table {} does not exist'
-                             .format(self.cutoff_time_label, self.target_entity))
+        return (entity_set, target_entity, cutoff_times)
 
     def generate_target_label(self, es):
         """Generates target labels in the case of having missing label in the entityset.
