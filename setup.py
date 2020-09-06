@@ -12,7 +12,7 @@ with open('HISTORY.md') as history_file:
 install_requires = [
     'featuretools>=0.6.1,<0.7',
     'networkx==2.2',
-    'numpy==1.16.0',
+    'numpy>=1.15.4,<1.17',
     'pandas>=0.23.4,<0.25',
     'mlblocks==0.3.0',
     'mlprimitives==0.1.6',
