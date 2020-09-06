@@ -34,32 +34,32 @@ tests_require = [
 
 development_requires = [
     # general
-    'bumpversion>=0.5.3',
+    'bumpversion>=0.5.3,<0.6',
     'pip>=10.0.1',
-    'watchdog>=0.8.3',
+    'watchdog>=0.8.3,<0.11',
     
     # build docs
-    'm2r>=0.2.0',
-    'Sphinx>=1.7.1',
-    'sphinx_rtd_theme>=0.2.4',
+    'm2r>=0.2.0,<0.3',
+    'Sphinx>=1.7.1,<3',
+    'sphinx_rtd_theme>=0.2.4,<0.5',
     'recommonmark>=0.4.0',
     'ipython==6.5.0',
 
     # style check
-    'flake8>=3.5.0',
+    'flake8>=3.5.0,<3.8',
     'isort>=4.3.4,<5',
     
     # automatically fix style issues
-    'autoflake>=1.3',
-    'autopep8>=1.3.5',
+    'autoflake>=1.3,<2',
+    'autopep8>=1.3.5,<2',
 
     # distribute on PyPI
-    'twine>=1.10.0',
+    'twine>=1.10.0,<4',
     'wheel>=0.30.0',
     
     # Advanced testing
-    'tox>=2.9.1',
-    'coverage>=4.5.1'
+    'tox>=2.9.1,<4',
+    'coverage>=4.5.1,<6'
 ]
 
 setup(
