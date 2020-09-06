@@ -82,8 +82,8 @@ class ProlongedLengthOfStay (ProblemDefinition):
                     es[self.target_entity].df[self.target_label_column_name])
                 return(es, self.target_entity, cutoff_times)
             else:
-                raise ValueError('Cutoff time label {} in table {} does not exist'
-                                 .format(self.cutoff_time_label, self.target_entity))
+                raise ValueError('Cutoff time label {} in table {} does not exist'.format(
+                    self.cutoff_time_label, self.target_entity))
 
         else:
             updated_es = self.generate_target_label(es)
@@ -147,11 +147,9 @@ class ProlongedLengthOfStay (ProblemDefinition):
 
             else:
                 raise ValueError(
-                    'Can not generate target label {} in table {}' +
-                    'beacuse start or end labels in table {} contain missing value.'
-                    .format(label_name,
-                            self.target_entity,
-                            generate_from))
+                    'Can not generate target label {} in table {} beacuse start or end labels in \
+                     table {} contain missing value.'.format(
+                        label_name, self.target_entity, generate_from))
 
         else:
             raise ValueError(

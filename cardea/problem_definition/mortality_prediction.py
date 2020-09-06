@@ -133,11 +133,9 @@ class MortalityPrediction (ProblemDefinition):
 
             else:
                 raise ValueError(
-                    'Can not generate target label {} in table {}' +
-                    ' beacuse end label in table {} contains missing value.'
-                    .format(self.target_label_column_name,
-                            self. target_entity,
-                            generate_from))
+                    'Can not generate target label {} in table {} beacuse end label in \
+                     table {} contains missing value.'.format(
+                        self.target_label_column_name, self.target_entity, generate_from))
 
         else:
             raise ValueError(

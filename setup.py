@@ -47,7 +47,7 @@ development_requires = [
 
     # style check
     'flake8>=3.5.0',
-    'isort>=4.3.4',
+    'isort>=4.3.4,<5',
     
     # automatically fix style issues
     'autoflake>=1.3',
