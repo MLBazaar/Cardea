@@ -14,7 +14,7 @@
 
 
 [![PyPi Shield](https://img.shields.io/pypi/v/cardea.svg)](https://pypi.python.org/pypi/cardea)
-[![Travis CI Shield](https://travis-ci.org/D3-AI/Cardea.svg?branch=master)](https://travis-ci.org/D3-AI/Cardea)
+[![Travis CI Shield](https://travis-ci.org/DAI-Lab/Cardea.svg?branch=master)](https://travis-ci.org/DAI-Lab/Cardea)
 
 
 # Cardea

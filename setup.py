@@ -92,7 +92,7 @@ setup(
     setup_requires=setup_requires,
     test_suite='tests',
     tests_require=tests_require,
-    url='https://github.com/D3-AI/Cardea',
+    url='https://github.com/DAI-Lab/Cardea',
     version='0.0.2',
     zip_safe=False,
 )
