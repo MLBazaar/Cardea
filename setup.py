@@ -19,7 +19,8 @@ install_requires = [
     'scikit-learn==0.20.0',
     'scipy>=1.1.0',
     'docutils<0.16,>=0.10',
-    'hyperopt'
+    'hyperopt',
+    'Keras>=2.1.6,<2.4'
 ]
 
 setup_requires = [

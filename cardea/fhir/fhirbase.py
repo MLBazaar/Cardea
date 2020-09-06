@@ -20,7 +20,7 @@ class fhirbase(object):
         for key in dict_values.keys():
             if key not in self.__dict__.keys():
                 logger.warning(
-                    "Attribute %s in %s could not be loaded.", (key, self.__name__))
+                    "Attribute {} in {} could not be loaded.".format(key, self.__name__))
             else:
                 self.__dict__[key] = dict_values[key]
 
