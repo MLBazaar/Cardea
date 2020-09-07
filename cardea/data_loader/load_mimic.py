@@ -76,11 +76,12 @@ def get_type(x):
     }.get(x, str)
 
 
-def load_mimic_data(path=None):
+def load_mimic_data(path=None, subset=None):
     """Returns an entityset loaded with the dataframes in the received path.
 
     Args:
         path: The path of the data.
+        subset: List of tables to include.
 
     Returns:
         An entityset with loaded data.
@@ -95,6 +96,9 @@ def load_mimic_data(path=None):
     for tag in root.findall('tables/table'):
         table = tag.get('name')
         file = table.upper() + '.csv'
+
+        if subset and table not in subset:
+            continue
 
         if (path + file) in files:
             # table name
