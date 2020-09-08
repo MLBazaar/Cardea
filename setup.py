@@ -15,9 +15,8 @@ install_requires = [
     'pandas>=0.23.4,<0.25',
     'mlblocks==0.3.0',
     'mlprimitives==0.1.6',
-    'sklearn',
-    'scipy>=1.1.0',
-    'hyperopt==0.1.2'
+    'hyperopt==0.1.2',
+    'Keras>=2.1.6,<2.4'
 ]
 
 setup_requires = [
@@ -32,7 +31,7 @@ tests_require = [
 development_requires = [
     # general
     'bumpversion>=0.5.3',
-    'pip>=10.0.1',
+    'pip>=9.0.1',
     'watchdog>=0.8.3',
     
     # build docs
@@ -43,8 +42,8 @@ development_requires = [
     'ipython==6.5.0',
 
     # style check
-    'flake8>=3.5.0',
-    'isort>=4.3.4',
+    'flake8>=3.5.0,<4',
+    'isort>=4.3.4,<5',
     
     # automatically fix style issues
     'autoflake>=1.3',
