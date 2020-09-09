@@ -501,10 +501,6 @@
 
             <span class="n">tunable_hyperparameters</span> <span class="o">=</span> <span class="n">block</span><span class="o">.</span><span class="n">get_tunable_hyperparameters</span><span class="p">()</span>
             <span class="n">primitive</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">block</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;MLBlock - &#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">tunable_hyperparameters</span> <span class="o">==</span> <span class="p">{}):</span>
-                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
-                    <span class="s1">&#39;Can not create the domain Space.</span><span class="se">\</span>
-<span class="s1">                     The value of tunnable hyperparameters is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span>
 
             <span class="k">for</span> <span class="n">hyperparameter</span> <span class="ow">in</span> <span class="n">tunable_hyperparameters</span><span class="p">:</span>
                 <span class="n">hp_type</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -531,6 +527,9 @@
                     <span class="n">space</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">hyperparameter</span><span class="p">,</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
 
             <span class="n">space_list</span><span class="p">[</span><span class="n">primitive</span><span class="p">]</span> <span class="o">=</span> <span class="n">space</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">space_list</span> <span class="o">==</span> <span class="p">{}):</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Can not create the domain Space.</span><span class="se">\</span>
+<span class="s1">                    The value of tunnable hyperparameters is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">space_list</span></div>
 
 <div class="viewcode-block" id="Modeler.hyperopt_train_test"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.hyperopt_train_test">[docs]</a>    <span class="k">def</span> <span class="nf">hyperopt_train_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>

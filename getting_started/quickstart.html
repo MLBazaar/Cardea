@@ -275,17 +275,17 @@ following command:</p>
 <span class="go">Built 13 features</span>
 
 <span class="go">Elapsed: 00:00 | Remaining: ? | Progress:   0%|          | Calculated: 0/10 chunks</span>
-<span class="go">Elapsed: 00:04 | Remaining: 00:43 | Progress:  10%|#         | Calculated: 1/10 chunks</span>
-<span class="go">Elapsed: 00:10 | Remaining: 00:40 | Progress:  20%|##        | Calculated: 2/10 chunks</span>
-<span class="go">Elapsed: 00:15 | Remaining: 00:36 | Progress:  30%|###       | Calculated: 3/10 chunks</span>
-<span class="go">Elapsed: 00:21 | Remaining: 00:31 | Progress:  40%|####      | Calculated: 4/10 chunks</span>
-<span class="go">Elapsed: 00:26 | Remaining: 00:26 | Progress:  50%|#####     | Calculated: 5/10 chunks</span>
-<span class="go">Elapsed: 00:32 | Remaining: 00:21 | Progress:  60%|######    | Calculated: 6/10 chunks</span>
-<span class="go">Elapsed: 00:37 | Remaining: 00:16 | Progress:  70%|#######   | Calculated: 7/10 chunks</span>
-<span class="go">Elapsed: 00:43 | Remaining: 00:10 | Progress:  80%|########  | Calculated: 8/10 chunks</span>
-<span class="go">Elapsed: 00:48 | Remaining: 00:05 | Progress:  90%|######### | Calculated: 9/10 chunks</span>
-<span class="go">Elapsed: 00:54 | Remaining: 00:00 | Progress: 100%|##########| Calculated: 10/10 chunks</span>
-<span class="go">Elapsed: 00:54 | Remaining: 00:00 | Progress: 100%|##########| Calculated: 10/10 chunks</span>
+<span class="go">Elapsed: 00:04 | Remaining: 00:39 | Progress:  10%|#         | Calculated: 1/10 chunks</span>
+<span class="go">Elapsed: 00:09 | Remaining: 00:36 | Progress:  20%|##        | Calculated: 2/10 chunks</span>
+<span class="go">Elapsed: 00:14 | Remaining: 00:32 | Progress:  30%|###       | Calculated: 3/10 chunks</span>
+<span class="go">Elapsed: 00:19 | Remaining: 00:28 | Progress:  40%|####      | Calculated: 4/10 chunks</span>
+<span class="go">Elapsed: 00:24 | Remaining: 00:24 | Progress:  50%|#####     | Calculated: 5/10 chunks</span>
+<span class="go">Elapsed: 00:29 | Remaining: 00:19 | Progress:  60%|######    | Calculated: 6/10 chunks</span>
+<span class="go">Elapsed: 00:34 | Remaining: 00:14 | Progress:  70%|#######   | Calculated: 7/10 chunks</span>
+<span class="go">Elapsed: 00:39 | Remaining: 00:09 | Progress:  80%|########  | Calculated: 8/10 chunks</span>
+<span class="go">Elapsed: 00:44 | Remaining: 00:04 | Progress:  90%|######### | Calculated: 9/10 chunks</span>
+<span class="go">Elapsed: 00:49 | Remaining: 00:00 | Progress: 100%|##########| Calculated: 10/10 chunks</span>
+<span class="go">Elapsed: 00:49 | Remaining: 00:00 | Progress: 100%|##########| Calculated: 10/10 chunks</span>
 
 <span class="gp">In [7]: </span><span class="n">feature_matrix</span> <span class="o">=</span> <span class="n">feature_matrix</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># shuffle</span>
 
@@ -325,11 +325,11 @@ following command:</p>
 <span class="g g-Whitespace">    </span><span class="mi">188</span> 
 
 <span class="nn">~/build/DAI-Lab/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">execute_pipeline</span><span class="nt">(self, data_frame, target, primitives_list, problem_type, optimize, max_evals, scoring, minimize_cost, hyperparameters)</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span>             <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span>                 <span class="n">list_of_executed_pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">400</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">search_all_possible_primitives</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span> 
-<span class="g g-Whitespace">    </span><span class="mi">402</span>                 <span class="k">for</span> <span class="n">fold</span> <span class="ow">in</span> <span class="n">list_of_executed_pipelines</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span>             <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>                 <span class="n">list_of_executed_pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">399</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">search_all_possible_primitives</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span> 
+<span class="g g-Whitespace">    </span><span class="mi">401</span>                 <span class="k">for</span> <span class="n">fold</span> <span class="ow">in</span> <span class="n">list_of_executed_pipelines</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
 
 <span class="nn">~/build/DAI-Lab/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">search_all_possible_primitives</span><span class="nt">(self, primitives, hyperparameters)</span>
 <span class="g g-Whitespace">    </span><span class="mi">146</span>         <span class="n">pipeline_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -394,7 +394,7 @@ following command:</p>
 <span class="g g-Whitespace">    </span><span class="mi">792</span><span class="s2"> </span>
 <span class="g g-Whitespace">    </span><span class="mi">793</span><span class="s2">             # push the new requirements onto the stack</span>
 
-<span class="ne">VersionConflict</span>: (scikit-learn 0.23.2 (/home/travis/build/DAI-Lab/Cardea/.tox/docs/lib/python3.6/site-packages), Requirement.parse(&#39;scikit-learn&lt;0.21,&gt;=0.20.0&#39;))
+<span class="ne">VersionConflict</span>: (numpy 1.19.1 (/home/travis/build/DAI-Lab/Cardea/.tox/docs/lib/python3.6/site-packages), Requirement.parse(&#39;numpy&lt;1.17,&gt;=1.15.2&#39;))
 </pre></div>
 </div>
 </li>
