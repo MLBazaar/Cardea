@@ -77,8 +77,8 @@ class DiagnosisPrediction (ProblemDefinition):
 
             return(es, self.target_entity, cutoff_times)
         else:
-            raise ValueError('Cutoff time label {} in table {} does not exist'
-                             .format(self.cutoff_time_label, self.target_entity))
+            raise ValueError('Cutoff time label {} in table {} does not exist'.format(
+                self.cutoff_time_label, self.target_entity))
 
     def generate_target_label(self, es):
         """Generates target labels in the case of having missing label in the entityset.
@@ -129,11 +129,9 @@ class DiagnosisPrediction (ProblemDefinition):
 
             else:
                 raise ValueError(
-                    'Can not generate target label {} in table {}' +
-                    ' beacuse end label in table {} contains missing value.'
-                    .format(self.target_label_column_name,
-                            self. target_entity,
-                            generate_from))
+                    'Can not generate target label {} in table {} beacuse end label in \
+                     table {} contains missing value.'.format(
+                        self.target_label_column_name, self. target_entity, generate_from))
 
         else:
             raise ValueError(
