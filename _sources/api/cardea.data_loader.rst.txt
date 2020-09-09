@@ -13,3 +13,4 @@ Submodules
 
    cardea.data_loader.data_loader
    cardea.data_loader.entityset_loader
+   cardea.data_loader.load_mimic

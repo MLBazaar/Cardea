@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>cardea.data_loader.entityset_loader module &mdash; Cardea 0.0.1 documentation</title>
+  <title>cardea.data_loader.load_mimic module &mdash; Cardea 0.0.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.data_loader.load_mimic module" href="cardea.data_loader.load_mimic.html" />
-    <link rel="prev" title="cardea.data_loader.data_loader module" href="cardea.data_loader.data_loader.html" /> 
+    <link rel="next" title="cardea.featurization package" href="cardea.featurization.html" />
+    <link rel="prev" title="cardea.data_loader.entityset_loader module" href="cardea.data_loader.entityset_loader.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -221,14 +221,14 @@
         
           <li><a href="cardea.data_loader.html">cardea.data_loader package</a> &raquo;</li>
         
-      <li>cardea.data_loader.entityset_loader module</li>
+      <li>cardea.data_loader.load_mimic module</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.data_loader.entityset_loader.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.data_loader.load_mimic.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -242,87 +242,63 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-cardea.data_loader.entityset_loader">
-<span id="cardea-data-loader-entityset-loader-module"></span><h1>cardea.data_loader.entityset_loader module<a class="headerlink" href="#module-cardea.data_loader.entityset_loader" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="cardea.data_loader.entityset_loader.EntitySetLoader">
-<em class="property">class </em><code class="sig-prename descclassname">cardea.data_loader.entityset_loader.</code><code class="sig-name descname">EntitySetLoader</code><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cardea.data_loader.data_loader.html#cardea.data_loader.data_loader.DataLoader" title="cardea.data_loader.data_loader.DataLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.data_loader.data_loader.DataLoader</span></code></a></p>
-<p>A class that loads fhir class objects to featuretools entityset.</p>
-<dl class="method">
-<dt id="cardea.data_loader.entityset_loader.EntitySetLoader.create_entity">
-<code class="sig-name descname">create_entity</code><span class="sig-paren">(</span><em class="sig-param">fhir</em>, <em class="sig-param">identifiers</em>, <em class="sig-param">entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.create_entity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates an entity from fhir dataframes and add it to entityset.</p>
+  <div class="section" id="module-cardea.data_loader.load_mimic">
+<span id="cardea-data-loader-load-mimic-module"></span><h1>cardea.data_loader.load_mimic module<a class="headerlink" href="#module-cardea.data_loader.load_mimic" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="cardea.data_loader.load_mimic.get_table_properties">
+<code class="sig-prename descclassname">cardea.data_loader.load_mimic.</code><code class="sig-name descname">get_table_properties</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/load_mimic.html#get_table_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.load_mimic.get_table_properties" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Returns a tuple containing the datatype of each column, the primary key of the table,</dt><dd><p>and the time indices.</p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fhir</strong> – A dictionary of fhir class dataframes.</p></li>
-<li><p><strong>entity_set</strong> – The global entityset that the entity will be added to.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>name</strong> – The name of the table in the formal XML file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A tuple with three components, a list with the datatypes of each column, the primary key</dt><dd><p>of the table, and a list of columns that consider the time indices of the table.</p>
+</dd>
+</dl>
+</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="cardea.data_loader.entityset_loader.EntitySetLoader.create_relationships">
-<code class="sig-name descname">create_relationships</code><span class="sig-paren">(</span><em class="sig-param">relationships</em>, <em class="sig-param">entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.create_relationships" title="Permalink to this definition">¶</a></dt>
-<dd><p>Binds entities in the entityset.</p>
+<dl class="function">
+<dt id="cardea.data_loader.load_mimic.get_table_relationships">
+<code class="sig-prename descclassname">cardea.data_loader.load_mimic.</code><code class="sig-name descname">get_table_relationships</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/load_mimic.html#get_table_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.load_mimic.get_table_relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of the relationships in the table.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>relationships</strong> – A dataframe of the relationships in fhir.</p></li>
-<li><p><strong>entity_set</strong> – The global entityset that the entity will be added to.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>name</strong> – The name of the table in the formal XML file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of the relationships in the table, formatted as a dictionary.</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset">
-<code class="sig-name descname">load_data_entityset</code><span class="sig-paren">(</span><em class="sig-param">folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an entityset loaded with .csv files in folder_path.</p>
-<p>Loads .csv files into pandas dataframes then loads them into featuretools’ entityset.</p>
+<dl class="function">
+<dt id="cardea.data_loader.load_mimic.get_type">
+<code class="sig-prename descclassname">cardea.data_loader.load_mimic.</code><code class="sig-name descname">get_type</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/load_mimic.html#get_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.load_mimic.get_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cardea.data_loader.load_mimic.load_mimic_data">
+<code class="sig-prename descclassname">cardea.data_loader.load_mimic.</code><code class="sig-name descname">load_mimic_data</code><span class="sig-paren">(</span><em class="sig-param">path=None</em>, <em class="sig-param">subset=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/load_mimic.html#load_mimic_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.load_mimic.load_mimic_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an entityset loaded with the dataframes in the received path.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>folder_path</strong> – A directory of all .csv files that should be loaded.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – The path of the data.</p></li>
+<li><p><strong>subset</strong> – List of tables to include.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An entityset with loaded data.</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cardea.data_loader.entityset_loader.EntitySetLoader.load_df_entityset">
-<code class="sig-name descname">load_df_entityset</code><span class="sig-paren">(</span><em class="sig-param">fhir</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_df_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.load_df_entityset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an entityset loaded with received dataframes in fhir.</p>
-<p>Loads the received dictionary of fhir resources into featuretools’ entityset, where
-the key is the resource name and the value is a pandas dataframe.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>fhir</strong> – A dictionary of fhir resources in pandas dataframe format.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An entityset with loaded data.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cardea.data_loader.entityset_loader.EntitySetLoader.read_csv_files">
-<code class="sig-name descname">read_csv_files</code><span class="sig-paren">(</span><em class="sig-param">folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.read_csv_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.read_csv_files" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a dictionary with loaded .csv files in folder_path.</p>
-<p>Loads .csv files into pandas dataframes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>folder_path</strong> – A dictionary of fhir resources in pandas dataframe format.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A dictionary of fhir resources in pandas dataframe format.</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -335,10 +311,10 @@ the key is the resource name and the value is a pandas dataframe.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cardea.data_loader.load_mimic.html" class="btn btn-neutral float-right" title="cardea.data_loader.load_mimic module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cardea.featurization.html" class="btn btn-neutral float-right" title="cardea.featurization package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cardea.data_loader.data_loader.html" class="btn btn-neutral float-left" title="cardea.data_loader.data_loader module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cardea.data_loader.entityset_loader.html" class="btn btn-neutral float-left" title="cardea.data_loader.entityset_loader module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
