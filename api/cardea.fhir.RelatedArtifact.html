@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,54 +246,54 @@
 <span id="cardea-fhir-relatedartifact-module"></span><h1>cardea.fhir.RelatedArtifact module<a class="headerlink" href="#module-cardea.fhir.RelatedArtifact" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.RelatedArtifact.RelatedArtifact">
-<em class="property">class </em><code class="descclassname">cardea.fhir.RelatedArtifact.</code><code class="descname">RelatedArtifact</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RelatedArtifact.html#RelatedArtifact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.RelatedArtifact.</code><code class="sig-name descname">RelatedArtifact</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RelatedArtifact.html#RelatedArtifact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Related artifacts such as additional documentation, justification, or
 bibliographic references.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.RelatedArtifact.RelatedArtifact.type">
-<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The type of relationship to the related artifact.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RelatedArtifact.RelatedArtifact.display">
-<code class="descname">display</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.display" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">display</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.display" title="Permalink to this definition">¶</a></dt>
 <dd><p>A brief description of the document or knowledge resource
 being referenced, suitable for display to a consumer.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RelatedArtifact.RelatedArtifact.citation">
-<code class="descname">citation</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.citation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">citation</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.citation" title="Permalink to this definition">¶</a></dt>
 <dd><p>A bibliographic citation for the related artifact. This text
 SHOULD be formatted according to an accepted citation format.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RelatedArtifact.RelatedArtifact.url">
-<code class="descname">url</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.url" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.url" title="Permalink to this definition">¶</a></dt>
 <dd><p>A url for the artifact that can be followed to access the actual
 content.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RelatedArtifact.RelatedArtifact.document">
-<code class="descname">document</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.document" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">document</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.document" title="Permalink to this definition">¶</a></dt>
 <dd><p>The document being referenced, represented as an attachment.
 This is exclusive with the resource element.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RelatedArtifact.RelatedArtifact.resource">
-<code class="descname">resource</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.resource" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resource</code><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>The related resource, such as a library, value set, profile,
 or other knowledge resource.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.RelatedArtifact.RelatedArtifact.assert_type">
-<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RelatedArtifact.html#RelatedArtifact.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.assert_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RelatedArtifact.html#RelatedArtifact.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.assert_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks class values follow set possible enumerations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -305,7 +305,7 @@ or other knowledge resource.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.RelatedArtifact.RelatedArtifact.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RelatedArtifact.html#RelatedArtifact.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RelatedArtifact.html#RelatedArtifact.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RelatedArtifact.RelatedArtifact.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

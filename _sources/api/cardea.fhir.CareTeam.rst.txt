@@ -2,6 +2,6 @@ cardea.fhir.CareTeam module
 ===========================
 
 .. automodule:: cardea.fhir.CareTeam
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

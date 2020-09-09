@@ -2,6 +2,6 @@ cardea.fhir.MedicationDispense module
 =====================================
 
 .. automodule:: cardea.fhir.MedicationDispense
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,7 +246,7 @@
 <span id="cardea-fhir-medicationstatement-module"></span><h1>cardea.fhir.MedicationStatement module<a class="headerlink" href="#module-cardea.fhir.MedicationStatement" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement">
-<em class="property">class </em><code class="descclassname">cardea.fhir.MedicationStatement.</code><code class="descname">MedicationStatement</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationStatement.html#MedicationStatement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.MedicationStatement.</code><code class="sig-name descname">MedicationStatement</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationStatement.html#MedicationStatement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A record of a medication that is being consumed by a patient.   A
 MedicationStatement may indicate that the patient may be taking the
@@ -274,13 +274,13 @@ Medication administration is more formal and is not missing detailed
 information.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a MedicationStatement resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>External identifier - FHIR will generate its own internal
 identifiers (probably URLs) which do not need to be explicitly managed
 by the resource.  The identifier here is one that would be used by
@@ -293,28 +293,28 @@ to be updated.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.basedOn">
-<code class="descname">basedOn</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.basedOn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">basedOn</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.basedOn" title="Permalink to this definition">¶</a></dt>
 <dd><p>A plan, proposal or order that is fulfilled in whole or in
 part by this event.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.partOf">
-<code class="descname">partOf</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.partOf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">partOf</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.partOf" title="Permalink to this definition">¶</a></dt>
 <dd><p>A larger event of which this particular event is a component
 or step.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.context">
-<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.context" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.context" title="Permalink to this definition">¶</a></dt>
 <dd><p>The encounter or episode of care that establishes the context
 for this MedicationStatement.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code representing the patient or other source’s judgment
 about the state of the medication used that this statement is about.
 Generally this will be active or completed.</p>
@@ -322,14 +322,14 @@ Generally this will be active or completed.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.category">
-<code class="descname">category</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.category" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.category" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates where type of medication statement and where the
 medication is expected to be consumed or administered.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.medicationCodeableConcept">
-<code class="descname">medicationCodeableConcept</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.medicationCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">medicationCodeableConcept</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.medicationCodeableConcept" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the medication being
 administered. This is either a link to a resource representing the
 details of the medication or a simple attribute carrying a code that
@@ -338,7 +338,7 @@ identifies the medication from a known list of medications.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.medicationReference">
-<code class="descname">medicationReference</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.medicationReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">medicationReference</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.medicationReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the medication being administered.
 This is either a link to a resource representing the details of the
 medication or a simple attribute carrying a code that identifies the
@@ -347,7 +347,7 @@ medication from a known list of medications.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.effectiveDateTime">
-<code class="descname">effectiveDateTime</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.effectiveDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">effectiveDateTime</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.effectiveDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The interval of time during which it is being
 asserted that the patient was taking the medication (or was not
 taking, when the wasNotGiven element is true).</p>
@@ -355,7 +355,7 @@ taking, when the wasNotGiven element is true).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.effectivePeriod">
-<code class="descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.effectivePeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.effectivePeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>The interval of time during which it is being
 asserted that the patient was taking the medication (or was not
 taking, when the wasNotGiven element is true).</p>
@@ -363,14 +363,14 @@ taking, when the wasNotGiven element is true).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.dateAsserted">
-<code class="descname">dateAsserted</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.dateAsserted" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dateAsserted</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.dateAsserted" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date when the medication statement was asserted by
 the information source.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.informationSource">
-<code class="descname">informationSource</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.informationSource" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">informationSource</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.informationSource" title="Permalink to this definition">¶</a></dt>
 <dd><p>The person or organization that provided the
 information about the taking of this medication. Note: Use derivedFrom
 when a MedicationStatement is derived from other resources, e.g Claim
@@ -379,13 +379,13 @@ or MedicationRequest.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.subject">
-<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.subject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>The person, animal or group who is/was taking the medication.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.derivedFrom">
-<code class="descname">derivedFrom</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.derivedFrom" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">derivedFrom</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.derivedFrom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allows linking the MedicationStatement to the underlying
 MedicationRequest, or to other information that supports or is used to
 derive the MedicationStatement.</p>
@@ -393,47 +393,47 @@ derive the MedicationStatement.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.taken">
-<code class="descname">taken</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.taken" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">taken</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.taken" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicator of the certainty of whether the medication was taken
 by the patient.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.reasonNotTaken">
-<code class="descname">reasonNotTaken</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.reasonNotTaken" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonNotTaken</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.reasonNotTaken" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code indicating why the medication was not taken.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.reasonCode">
-<code class="descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.reasonCode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.reasonCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reason for why the medication is being/was taken.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.reasonReference">
-<code class="descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.reasonReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.reasonReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Condition or observation that supports why the
 medication is being/was taken.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.note">
-<code class="descname">note</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.note" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.note" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides extra information about the medication statement that
 is not conveyed by the other attributes.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.dosage">
-<code class="descname">dosage</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.dosage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dosage</code><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.dosage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates how the medication is/was or should be taken by the
 patient.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.assert_type">
-<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationStatement.html#MedicationStatement.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.assert_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationStatement.html#MedicationStatement.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.assert_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks class values follow set possible enumerations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -445,7 +445,7 @@ patient.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.MedicationStatement.MedicationStatement.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationStatement.html#MedicationStatement.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationStatement.html#MedicationStatement.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationStatement.MedicationStatement.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

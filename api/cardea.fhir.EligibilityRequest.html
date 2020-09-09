@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,7 +246,7 @@
 <span id="cardea-fhir-eligibilityrequest-module"></span><h1>cardea.fhir.EligibilityRequest module<a class="headerlink" href="#module-cardea.fhir.EligibilityRequest" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest">
-<em class="property">class </em><code class="descclassname">cardea.fhir.EligibilityRequest.</code><code class="descname">EligibilityRequest</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/EligibilityRequest.html#EligibilityRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.EligibilityRequest.</code><code class="sig-name descname">EligibilityRequest</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/EligibilityRequest.html#EligibilityRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The EligibilityRequest provides patient and insurance coverage
 information to an insurer for them to respond, in the form of an
@@ -255,117 +255,117 @@ coverage is valid and in-force and optionally to provide the insurance
 details of the policy.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a EligibilityRequest resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Response business identifier.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The status of the resource instance.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.priority">
-<code class="descname">priority</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.priority" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">priority</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.priority" title="Permalink to this definition">¶</a></dt>
 <dd><p>Immediate (STAT), best effort (NORMAL), deferred (DEFER).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.patient">
-<code class="descname">patient</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.patient" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">patient</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.patient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Patient Resource.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.servicedDate">
-<code class="descname">servicedDate</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.servicedDate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">servicedDate</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.servicedDate" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date or dates when the enclosed suite of services
 were performed or completed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.servicedPeriod">
-<code class="descname">servicedPeriod</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.servicedPeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">servicedPeriod</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.servicedPeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date or dates when the enclosed suite of services
 were performed or completed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.created">
-<code class="descname">created</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.created" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">created</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.created" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date when this resource was created.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.enterer">
-<code class="descname">enterer</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.enterer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">enterer</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.enterer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Person who created the invoice/claim/pre-determination or
 pre-authorization.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.provider">
-<code class="descname">provider</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.provider" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">provider</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.provider" title="Permalink to this definition">¶</a></dt>
 <dd><p>The practitioner who is responsible for the services
 rendered to the patient.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.organization">
-<code class="descname">organization</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.organization" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">organization</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.organization" title="Permalink to this definition">¶</a></dt>
 <dd><p>The organization which is responsible for the services
 rendered to the patient.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.insurer">
-<code class="descname">insurer</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.insurer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">insurer</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.insurer" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Insurer who is target  of the request.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.facility">
-<code class="descname">facility</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.facility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">facility</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.facility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Facility where the services were provided.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.coverage">
-<code class="descname">coverage</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.coverage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">coverage</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.coverage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Financial instrument by which payment information for health
 care.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.businessArrangement">
-<code class="descname">businessArrangement</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.businessArrangement" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">businessArrangement</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.businessArrangement" title="Permalink to this definition">¶</a></dt>
 <dd><p>The contract number of a business agreement which
 describes the terms and conditions.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.benefitCategory">
-<code class="descname">benefitCategory</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.benefitCategory" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">benefitCategory</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.benefitCategory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dental, Vision, Medical, Pharmacy, Rehab etc.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.benefitSubCategory">
-<code class="descname">benefitSubCategory</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.benefitSubCategory" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">benefitSubCategory</code><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.benefitSubCategory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dental: basic, major, ortho; Vision exam, glasses,
 contacts; etc.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.EligibilityRequest.EligibilityRequest.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/EligibilityRequest.html#EligibilityRequest.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/EligibilityRequest.html#EligibilityRequest.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.EligibilityRequest.EligibilityRequest.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

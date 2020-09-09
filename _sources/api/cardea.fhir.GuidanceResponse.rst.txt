@@ -2,6 +2,6 @@ cardea.fhir.GuidanceResponse module
 ===================================
 
 .. automodule:: cardea.fhir.GuidanceResponse
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

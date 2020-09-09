@@ -2,6 +2,6 @@ cardea.fhir.HealthcareService module
 ====================================
 
 .. automodule:: cardea.fhir.HealthcareService
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -233,7 +233,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cardea.fhir.DocumentReference</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="k">import</span> <span class="n">fhirbase</span>
+<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="kn">import</span> <span class="n">fhirbase</span>
 
 
 <div class="viewcode-block" id="DocumentReference"><a class="viewcode-back" href="../../../api/cardea.fhir.DocumentReference.html#cardea.fhir.DocumentReference.DocumentReference">[docs]</a><span class="k">class</span> <span class="nc">DocumentReference</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
@@ -285,7 +285,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;DocumentReference&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;DocumentReference&#39;</span>
         <span class="c1"># type: str</span>
         <span class="c1"># possible values: DocumentReference</span>
@@ -437,7 +437,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;DocumentReference_RelatesTo&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: str</span>
         <span class="c1"># possible values: replaces, transforms, signs, appends</span>
@@ -485,7 +485,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;DocumentReference_Content&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">attachment</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Attachment</span>
 
@@ -539,7 +539,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;DocumentReference_Context&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">encounter</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Reference: identifier</span>
 
@@ -622,7 +622,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;DocumentReference_Related&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to Reference: identifier</span>
 

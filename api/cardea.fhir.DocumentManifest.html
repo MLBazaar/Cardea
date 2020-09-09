@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,19 +246,19 @@
 <span id="cardea-fhir-documentmanifest-module"></span><h1>cardea.fhir.DocumentManifest module<a class="headerlink" href="#module-cardea.fhir.DocumentManifest" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest">
-<em class="property">class </em><code class="descclassname">cardea.fhir.DocumentManifest.</code><code class="descname">DocumentManifest</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.DocumentManifest.</code><code class="sig-name descname">DocumentManifest</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A collection of documents compiled for a purpose together with
 metadata that applies to the collection.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a DocumentManifest resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.masterIdentifier">
-<code class="descname">masterIdentifier</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.masterIdentifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">masterIdentifier</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.masterIdentifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A single identifier that uniquely identifies this
 manifest. Principally used to refer to the manifest in non-FHIR
 contexts.</p>
@@ -266,20 +266,20 @@ contexts.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Other identifiers associated with the document manifest,
 including version independent  identifiers.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The status of this document manifest.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.type">
-<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies the kind of this set of documents (e.g. Patient
 Summary, Discharge Summary, Prescription, etc.). The type of a set of
 documents may be the same as one of the documents in it - especially
@@ -288,7 +288,7 @@ if there is only one - but it may be wider.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.subject">
-<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.subject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Who or what the set of documents is about. The documents can
 be about a person, (patient or healthcare practitioner), a device
 (i.e. machine) or even a group of subjects (such as a document about a
@@ -299,7 +299,7 @@ than one subject is allowed here (unusual use case).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.created">
-<code class="descname">created</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.created" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">created</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.created" title="Permalink to this definition">¶</a></dt>
 <dd><p>When the document manifest was created for submission to the
 server (not necessarily the same thing as the actual resource last
 modified time, since it may be modified, replicated, etc.).</p>
@@ -307,48 +307,48 @@ modified time, since it may be modified, replicated, etc.).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.author">
-<code class="descname">author</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.author" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">author</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.author" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies who is responsible for creating the manifest, and
 adding  documents to it.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.recipient">
-<code class="descname">recipient</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.recipient" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">recipient</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.recipient" title="Permalink to this definition">¶</a></dt>
 <dd><p>A patient, practitioner, or organization for which this set
 of documents is intended.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.source">
-<code class="descname">source</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.source" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">source</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.source" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the source system, application, or software that
 produced the document manifest.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.description">
-<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.description" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Human-readable description of the source document. This
 is sometimes known as the “title”.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.content">
-<code class="descname">content</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.content" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">content</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.content" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of Documents included in the manifest.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.related">
-<code class="descname">related</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.related" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">related</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.related" title="Permalink to this definition">¶</a></dt>
 <dd><p>Related identifiers or resources associated with the
 DocumentManifest.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.assert_type">
-<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.assert_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.assert_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks class values follow set possible enumerations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -360,7 +360,7 @@ DocumentManifest.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -373,13 +373,13 @@ DocumentManifest.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest_Content">
-<em class="property">class </em><code class="descclassname">cardea.fhir.DocumentManifest.</code><code class="descname">DocumentManifest_Content</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest_Content"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Content" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.DocumentManifest.</code><code class="sig-name descname">DocumentManifest_Content</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest_Content"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A collection of documents compiled for a purpose together with
 metadata that applies to the collection.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest_Content.pAttachment">
-<code class="descname">pAttachment</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Content.pAttachment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pAttachment</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Content.pAttachment" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of references to document content, or Attachment
 that consist of the parts of this document manifest. Usually, these
 would be document references, but direct references to Media or
@@ -388,7 +388,7 @@ Attachments are also allowed.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest_Content.pReference">
-<code class="descname">pReference</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Content.pReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pReference</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Content.pReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of references to document content, or Attachment
 that consist of the parts of this document manifest. Usually, these
 would be document references, but direct references to Media or
@@ -397,7 +397,7 @@ Attachments are also allowed.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest_Content.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest_Content.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Content.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest_Content.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Content.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -410,27 +410,27 @@ Attachments are also allowed.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest_Related">
-<em class="property">class </em><code class="descclassname">cardea.fhir.DocumentManifest.</code><code class="descname">DocumentManifest_Related</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest_Related"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Related" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.DocumentManifest.</code><code class="sig-name descname">DocumentManifest_Related</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest_Related"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Related" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A collection of documents compiled for a purpose together with
 metadata that applies to the collection.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest_Related.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Related.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Related.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Related identifier to this DocumentManifest.  For example,
 Order numbers, accession numbers, XDW workflow numbers.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest_Related.ref">
-<code class="descname">ref</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Related.ref" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ref</code><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Related.ref" title="Permalink to this definition">¶</a></dt>
 <dd><p>Related Resource to this DocumentManifest. For example, Order,
 ProcedureRequest,  Procedure, EligibilityRequest, etc.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.DocumentManifest.DocumentManifest_Related.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest_Related.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Related.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DocumentManifest.html#DocumentManifest_Related.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DocumentManifest.DocumentManifest_Related.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

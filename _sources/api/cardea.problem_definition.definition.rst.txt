@@ -2,6 +2,6 @@ cardea.problem\_definition.definition module
 ============================================
 
 .. automodule:: cardea.problem_definition.definition
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

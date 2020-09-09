@@ -2,6 +2,6 @@ cardea.fhir.MessageDefinition module
 ====================================
 
 .. automodule:: cardea.fhir.MessageDefinition
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

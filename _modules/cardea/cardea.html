@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -234,16 +234,16 @@
             
   <h1>Source code for cardea.cardea</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">inspect</span> <span class="k">import</span> <span class="n">isclass</span>
+<span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">isclass</span>
 
 <span class="kn">import</span> <span class="nn">featuretools</span> <span class="k">as</span> <span class="nn">ft</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="kn">import</span> <span class="nn">cardea</span>
-<span class="kn">from</span> <span class="nn">cardea.data_loader</span> <span class="k">import</span> <span class="n">EntitySetLoader</span>
-<span class="kn">from</span> <span class="nn">cardea.featurization</span> <span class="k">import</span> <span class="n">Featurization</span>
-<span class="kn">from</span> <span class="nn">cardea.modeling</span> <span class="k">import</span> <span class="n">Modeler</span>
-<span class="kn">from</span> <span class="nn">cardea.problem_definition</span> <span class="k">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">cardea.data_loader</span> <span class="kn">import</span> <span class="n">EntitySetLoader</span>
+<span class="kn">from</span> <span class="nn">cardea.featurization</span> <span class="kn">import</span> <span class="n">Featurization</span>
+<span class="kn">from</span> <span class="nn">cardea.modeling</span> <span class="kn">import</span> <span class="n">Modeler</span>
+<span class="kn">from</span> <span class="nn">cardea.problem_definition</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">DiagnosisPrediction</span><span class="p">,</span> <span class="n">LengthOfStay</span><span class="p">,</span> <span class="n">MissedAppointmentProblemDefinition</span><span class="p">,</span> <span class="n">MortalityPrediction</span><span class="p">,</span>
     <span class="n">ProlongedLengthOfStay</span><span class="p">,</span> <span class="n">Readmission</span><span class="p">)</span>
 
@@ -261,7 +261,7 @@
 <span class="sd">        target_entity: The target entity for featurization.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">es_loader</span> <span class="o">=</span> <span class="n">EntitySetLoader</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">featurization</span> <span class="o">=</span> <span class="n">Featurization</span><span class="p">()</span>

@@ -2,6 +2,6 @@ cardea.fhir.MessageHeader module
 ================================
 
 .. automodule:: cardea.fhir.MessageHeader
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

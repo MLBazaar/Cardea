@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,19 +246,19 @@
 <span id="cardea-fhir-coding-module"></span><h1>cardea.fhir.Coding module<a class="headerlink" href="#module-cardea.fhir.Coding" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Coding.Coding">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Coding.</code><code class="descname">Coding</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Coding.html#Coding"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Coding.Coding" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Coding.</code><code class="sig-name descname">Coding</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Coding.html#Coding"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Coding.Coding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A reference to a code defined by a terminology system.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Coding.Coding.system">
-<code class="descname">system</code><a class="headerlink" href="#cardea.fhir.Coding.Coding.system" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">system</code><a class="headerlink" href="#cardea.fhir.Coding.Coding.system" title="Permalink to this definition">¶</a></dt>
 <dd><p>The identification of the code system that defines the meaning
 of the symbol in the code.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Coding.Coding.version">
-<code class="descname">version</code><a class="headerlink" href="#cardea.fhir.Coding.Coding.version" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.Coding.Coding.version" title="Permalink to this definition">¶</a></dt>
 <dd><p>The version of the code system which was used when choosing
 this code. Note that a well-maintained code system does not need the
 version reported, because the meaning of codes is consistent across
@@ -269,7 +269,7 @@ exchanged.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Coding.Coding.code">
-<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.Coding.Coding.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Coding.Coding.code" title="Permalink to this definition">¶</a></dt>
 <dd><p>A symbol in syntax defined by the system. The symbol may be a
 predefined code or an expression in a syntax defined by the coding
 system (e.g. post-coordination).</p>
@@ -277,14 +277,14 @@ system (e.g. post-coordination).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Coding.Coding.display">
-<code class="descname">display</code><a class="headerlink" href="#cardea.fhir.Coding.Coding.display" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">display</code><a class="headerlink" href="#cardea.fhir.Coding.Coding.display" title="Permalink to this definition">¶</a></dt>
 <dd><p>A representation of the meaning of the code in the system,
 following the rules of the system.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Coding.Coding.userSelected">
-<code class="descname">userSelected</code><a class="headerlink" href="#cardea.fhir.Coding.Coding.userSelected" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">userSelected</code><a class="headerlink" href="#cardea.fhir.Coding.Coding.userSelected" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates that this coding was chosen by a user directly
 - i.e. off a pick list of available items (codes or displays).</p>
 </dd></dl>

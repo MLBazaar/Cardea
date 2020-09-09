@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -235,8 +235,8 @@
   <h1>Source code for cardea.problem_definition.mortality_prediction</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">cardea.data_loader</span> <span class="k">import</span> <span class="n">DataLoader</span>
-<span class="kn">from</span> <span class="nn">cardea.problem_definition</span> <span class="k">import</span> <span class="n">ProblemDefinition</span>
+<span class="kn">from</span> <span class="nn">cardea.data_loader</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span> <span class="nn">cardea.problem_definition</span> <span class="kn">import</span> <span class="n">ProblemDefinition</span>
 
 
 <div class="viewcode-block" id="MortalityPrediction"><a class="viewcode-back" href="../../../api/cardea.problem_definition.mortality_prediction.html#cardea.problem_definition.mortality_prediction.MortalityPrediction">[docs]</a><span class="k">class</span> <span class="nc">MortalityPrediction</span> <span class="p">(</span><span class="n">ProblemDefinition</span><span class="p">):</span>
@@ -316,8 +316,8 @@
 
             <span class="k">return</span><span class="p">(</span><span class="n">es</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_entity</span><span class="p">,</span> <span class="n">cutoff_times</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cutoff time label </span><span class="si">{}</span><span class="s1"> in table </span><span class="si">{}</span><span class="s1"> does not exist&#39;</span>
-                             <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cutoff_time_label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_entity</span><span class="p">))</span></div>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cutoff time label </span><span class="si">{}</span><span class="s1"> in table </span><span class="si">{}</span><span class="s1"> does not exist&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cutoff_time_label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_entity</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="MortalityPrediction.generate_target_label"><a class="viewcode-back" href="../../../api/cardea.problem_definition.mortality_prediction.html#cardea.problem_definition.mortality_prediction.MortalityPrediction.generate_target_label">[docs]</a>    <span class="k">def</span> <span class="nf">generate_target_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">es</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Generates target labels in the case of having missing label in the entityset.</span>
@@ -368,11 +368,9 @@
 
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s1">&#39;Can not generate target label </span><span class="si">{}</span><span class="s1"> in table </span><span class="si">{}</span><span class="s1">&#39;</span> <span class="o">+</span>
-                    <span class="s1">&#39; beacuse end label in table </span><span class="si">{}</span><span class="s1"> contains missing value.&#39;</span>
-                    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">target_label_column_name</span><span class="p">,</span>
-                            <span class="bp">self</span><span class="o">.</span> <span class="n">target_entity</span><span class="p">,</span>
-                            <span class="n">generate_from</span><span class="p">))</span>
+                    <span class="s1">&#39;Can not generate target label </span><span class="si">{}</span><span class="s1"> in table </span><span class="si">{}</span><span class="s1"> beacuse end label in </span><span class="se">\</span>
+<span class="s1">                     table </span><span class="si">{}</span><span class="s1"> contains missing value.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">target_label_column_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span> <span class="n">target_entity</span><span class="p">,</span> <span class="n">generate_from</span><span class="p">))</span>
 
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>

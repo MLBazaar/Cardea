@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,33 +246,33 @@
 <span id="cardea-fhir-imagingmanifest-module"></span><h1>cardea.fhir.ImagingManifest module<a class="headerlink" href="#module-cardea.fhir.ImagingManifest" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest">
-<em class="property">class </em><code class="descclassname">cardea.fhir.ImagingManifest.</code><code class="descname">ImagingManifest</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.ImagingManifest.</code><code class="sig-name descname">ImagingManifest</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A text description of the DICOM SOP instances selected in the
 ImagingManifest; or the reason for, or significance of, the selection.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a ImagingManifest resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unique identifier of the DICOM Key Object Selection (KOS)
 that this resource represents.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest.patient">
-<code class="descname">patient</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.patient" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">patient</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.patient" title="Permalink to this definition">¶</a></dt>
 <dd><p>A patient resource reference which is the patient subject of
 all DICOM SOP Instances in this ImagingManifest.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest.authoringTime">
-<code class="descname">authoringTime</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.authoringTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">authoringTime</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.authoringTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Date and time when the selection of the referenced
 instances were made. It is (typically) different from the creation
 date of the selection resource, and from dates associated with the
@@ -281,7 +281,7 @@ referenced instances (e.g. capture time of the referenced image).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest.author">
-<code class="descname">author</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.author" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">author</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.author" title="Permalink to this definition">¶</a></dt>
 <dd><p>Author of ImagingManifest. It can be a human author or a
 device which made the decision of the SOP instances selected. For
 example, a radiologist selected a set of imaging SOP instances to
@@ -292,7 +292,7 @@ conclusion.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest.description">
-<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.description" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Free text narrative description of the ImagingManifest.
 The value may be derived from the DICOM Standard Part 16, CID-7010
 descriptions (e.g. Best in Set, Complete Study Content). Note that
@@ -305,14 +305,14 @@ or not used.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest.study">
-<code class="descname">study</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.study" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">study</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.study" title="Permalink to this definition">¶</a></dt>
 <dd><p>Study identity and locating information of the DICOM SOP
 instances in the selection.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -325,19 +325,19 @@ instances in the selection.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Instance">
-<em class="property">class </em><code class="descclassname">cardea.fhir.ImagingManifest.</code><code class="descname">ImagingManifest_Instance</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest_Instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Instance" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.ImagingManifest.</code><code class="sig-name descname">ImagingManifest_Instance</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest_Instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A text description of the DICOM SOP instances selected in the
 ImagingManifest; or the reason for, or significance of, the selection.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Instance.sopClass">
-<code class="descname">sopClass</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Instance.sopClass" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sopClass</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Instance.sopClass" title="Permalink to this definition">¶</a></dt>
 <dd><p>SOP class UID of the selected instance.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Instance.uid">
-<code class="descname">uid</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Instance.uid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">uid</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Instance.uid" title="Permalink to this definition">¶</a></dt>
 <dd><p>SOP Instance UID of the selected instance.</p>
 </dd></dl>
 
@@ -345,19 +345,19 @@ ImagingManifest; or the reason for, or significance of, the selection.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Series">
-<em class="property">class </em><code class="descclassname">cardea.fhir.ImagingManifest.</code><code class="descname">ImagingManifest_Series</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest_Series"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Series" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.ImagingManifest.</code><code class="sig-name descname">ImagingManifest_Series</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest_Series"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Series" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A text description of the DICOM SOP instances selected in the
 ImagingManifest; or the reason for, or significance of, the selection.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Series.uid">
-<code class="descname">uid</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Series.uid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">uid</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Series.uid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Series instance UID of the SOP instances in the selection.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Series.endpoint">
-<code class="descname">endpoint</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Series.endpoint" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">endpoint</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Series.endpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>The network service providing access (e.g., query, view, or
 retrieval) for this series. See implementation notes for information
 about using DICOM endpoints. A series-level endpoint, if present, has
@@ -366,14 +366,14 @@ precedence over a study-level endpoint with the same Endpoint.type.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Series.instance">
-<code class="descname">instance</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Series.instance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">instance</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Series.instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identity and locating information of the selected DICOM SOP
 instances.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Series.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest_Series.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Series.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest_Series.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Series.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -386,25 +386,25 @@ instances.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Study">
-<em class="property">class </em><code class="descclassname">cardea.fhir.ImagingManifest.</code><code class="descname">ImagingManifest_Study</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest_Study"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.ImagingManifest.</code><code class="sig-name descname">ImagingManifest_Study</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest_Study"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A text description of the DICOM SOP instances selected in the
 ImagingManifest; or the reason for, or significance of, the selection.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Study.uid">
-<code class="descname">uid</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study.uid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">uid</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study.uid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Study instance UID of the SOP instances in the selection.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Study.imagingStudy">
-<code class="descname">imagingStudy</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study.imagingStudy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">imagingStudy</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study.imagingStudy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference to the Imaging Study in FHIR form.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Study.endpoint">
-<code class="descname">endpoint</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study.endpoint" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">endpoint</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study.endpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>The network service providing access (e.g., query, view, or
 retrieval) for the study. See implementation notes for information
 about using DICOM endpoints. A study-level endpoint applies to each
@@ -414,14 +414,14 @@ the same Endpoint.type.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Study.series">
-<code class="descname">series</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study.series" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">series</code><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study.series" title="Permalink to this definition">¶</a></dt>
 <dd><p>Series identity and locating information of the DICOM SOP
 instances in the selection.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.ImagingManifest.ImagingManifest_Study.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest_Study.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImagingManifest.html#ImagingManifest_Study.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImagingManifest.ImagingManifest_Study.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

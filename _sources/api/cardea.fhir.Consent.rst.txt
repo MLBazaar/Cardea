@@ -2,6 +2,6 @@ cardea.fhir.Consent module
 ==========================
 
 .. automodule:: cardea.fhir.Consent
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

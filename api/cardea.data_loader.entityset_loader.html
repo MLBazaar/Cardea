@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,12 +246,12 @@
 <span id="cardea-data-loader-entityset-loader-module"></span><h1>cardea.data_loader.entityset_loader module<a class="headerlink" href="#module-cardea.data_loader.entityset_loader" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.data_loader.entityset_loader.EntitySetLoader">
-<em class="property">class </em><code class="descclassname">cardea.data_loader.entityset_loader.</code><code class="descname">EntitySetLoader</code><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.data_loader.entityset_loader.</code><code class="sig-name descname">EntitySetLoader</code><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.data_loader.data_loader.html#cardea.data_loader.data_loader.DataLoader" title="cardea.data_loader.data_loader.DataLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.data_loader.data_loader.DataLoader</span></code></a></p>
 <p>A class that loads fhir class objects to featuretools entityset.</p>
 <dl class="method">
 <dt id="cardea.data_loader.entityset_loader.EntitySetLoader.create_entity">
-<code class="descname">create_entity</code><span class="sig-paren">(</span><em>fhir</em>, <em>identifiers</em>, <em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.create_entity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_entity</code><span class="sig-paren">(</span><em class="sig-param">fhir</em>, <em class="sig-param">identifiers</em>, <em class="sig-param">entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.create_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an entity from fhir dataframes and add it to entityset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -265,7 +265,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.entityset_loader.EntitySetLoader.create_relationships">
-<code class="descname">create_relationships</code><span class="sig-paren">(</span><em>relationships</em>, <em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.create_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_relationships</code><span class="sig-paren">(</span><em class="sig-param">relationships</em>, <em class="sig-param">entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.create_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.create_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Binds entities in the entityset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -279,7 +279,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset">
-<code class="descname">load_data_entityset</code><span class="sig-paren">(</span><em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">load_data_entityset</code><span class="sig-paren">(</span><em class="sig-param">folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_data_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.load_data_entityset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an entityset loaded with .csv files in folder_path.</p>
 <p>Loads .csv files into pandas dataframes then loads them into featuretools’ entityset.</p>
 <dl class="field-list simple">
@@ -294,7 +294,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.entityset_loader.EntitySetLoader.load_df_entityset">
-<code class="descname">load_df_entityset</code><span class="sig-paren">(</span><em>fhir</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_df_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.load_df_entityset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">load_df_entityset</code><span class="sig-paren">(</span><em class="sig-param">fhir</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.load_df_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.load_df_entityset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an entityset loaded with received dataframes in fhir.</p>
 <p>Loads the received dictionary of fhir resources into featuretools’ entityset, where
 the key is the resource name and the value is a pandas dataframe.</p>
@@ -310,7 +310,7 @@ the key is the resource name and the value is a pandas dataframe.</p>
 
 <dl class="method">
 <dt id="cardea.data_loader.entityset_loader.EntitySetLoader.read_csv_files">
-<code class="descname">read_csv_files</code><span class="sig-paren">(</span><em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.read_csv_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.read_csv_files" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">read_csv_files</code><span class="sig-paren">(</span><em class="sig-param">folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader.read_csv_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.entityset_loader.EntitySetLoader.read_csv_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary with loaded .csv files in folder_path.</p>
 <p>Loads .csv files into pandas dataframes.</p>
 <dl class="field-list simple">

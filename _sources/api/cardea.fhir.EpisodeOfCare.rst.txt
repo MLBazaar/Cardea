@@ -2,6 +2,6 @@ cardea.fhir.EpisodeOfCare module
 ================================
 
 .. automodule:: cardea.fhir.EpisodeOfCare
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

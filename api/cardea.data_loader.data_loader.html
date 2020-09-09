@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,12 +246,12 @@
 <span id="cardea-data-loader-data-loader-module"></span><h1>cardea.data_loader.data_loader module<a class="headerlink" href="#module-cardea.data_loader.data_loader" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.data_loader.data_loader.DataLoader">
-<em class="property">class </em><code class="descclassname">cardea.data_loader.data_loader.</code><code class="descname">DataLoader</code><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.data_loader.data_loader.</code><code class="sig-name descname">DataLoader</code><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class that loads data into fhir class objects.</p>
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.DataLoader.check_column_existence">
-<code class="descname">check_column_existence</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>column_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.check_column_existence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.check_column_existence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">check_column_existence</code><span class="sig-paren">(</span><em class="sig-param">entity_set</em>, <em class="sig-param">target_entity</em>, <em class="sig-param">column_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.check_column_existence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.check_column_existence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if a coulmn exists in the entity set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -269,7 +269,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.DataLoader.check_for_missing_values">
-<code class="descname">check_for_missing_values</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>column_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.check_for_missing_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.check_for_missing_values" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">check_for_missing_values</code><span class="sig-paren">(</span><em class="sig-param">entity_set</em>, <em class="sig-param">target_entity</em>, <em class="sig-param">column_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.check_for_missing_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.check_for_missing_values" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if there is a missing value in the given column.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -287,7 +287,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.DataLoader.create_object">
-<code class="descname">create_object</code><span class="sig-paren">(</span><em>df</em>, <em>file_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.create_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.create_object" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_object</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.create_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.create_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns fhir representation of pandas dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -307,7 +307,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.DataLoader.get_dataframes">
-<code class="descname">get_dataframes</code><span class="sig-paren">(</span><em>objects</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.get_dataframes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.get_dataframes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_dataframes</code><span class="sig-paren">(</span><em class="sig-param">objects</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.get_dataframes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.get_dataframes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns pandas dataframe of fhir objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -321,7 +321,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.DataLoader.get_object_ids">
-<code class="descname">get_object_ids</code><span class="sig-paren">(</span><em>objects</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.get_object_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.get_object_ids" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_object_ids</code><span class="sig-paren">(</span><em class="sig-param">objects</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.get_object_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.get_object_ids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns list of fhir object identifiers.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -335,7 +335,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.DataLoader.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><em>objects</em>, <em>names</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><em class="sig-param">objects</em>, <em class="sig-param">names</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#DataLoader.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.DataLoader.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns relationships of fhir objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -351,24 +351,24 @@
 
 <dl class="class">
 <dt id="cardea.data_loader.data_loader.Diamond">
-<em class="property">class </em><code class="descclassname">cardea.data_loader.data_loader.</code><code class="descname">Diamond</code><span class="sig-paren">(</span><em>objects</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.data_loader.data_loader.</code><code class="sig-name descname">Diamond</code><span class="sig-paren">(</span><em class="sig-param">objects</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cardea.data_loader.data_loader.DataLoader" title="cardea.data_loader.data_loader.DataLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.data_loader.data_loader.DataLoader</span></code></a></p>
 <p>This class serves as a post processing step to reading the data.</p>
 <dl class="attribute">
 <dt id="cardea.data_loader.data_loader.Diamond.fhir">
-<code class="descname">fhir</code><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.fhir" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fhir</code><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.fhir" title="Permalink to this definition">¶</a></dt>
 <dd><p>A dictionary with the correspondig fhir dataframes.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.data_loader.data_loader.Diamond.relationships">
-<code class="descname">relationships</code><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">relationships</code><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>A dataframe of present fhir Relationships.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.Diamond.get_fhir_dataframes">
-<code class="descname">get_fhir_dataframes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.get_fhir_dataframes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.get_fhir_dataframes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_fhir_dataframes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.get_fhir_dataframes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.get_fhir_dataframes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns fhir dataframes with their associated names.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -379,7 +379,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.Diamond.get_fhir_relationships">
-<code class="descname">get_fhir_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.get_fhir_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.get_fhir_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_fhir_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.get_fhir_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.get_fhir_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns fhir relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -390,7 +390,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.Diamond.get_relation">
-<code class="descname">get_relation</code><span class="sig-paren">(</span><em>source</em>, <em>target</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.get_relation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.get_relation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relation</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">target</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.get_relation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.get_relation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtains the record for the edge to break from relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -407,7 +407,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.Diamond.merge">
-<code class="descname">merge</code><span class="sig-paren">(</span><em>edge</em>, <em>remove=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.merge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param">edge</em>, <em class="sig-param">remove=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.merge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges dataframes that are in edge then removes it from relationships and updates the fhir.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -421,7 +421,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.Diamond.merge_cost">
-<code class="descname">merge_cost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.merge_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.merge_cost" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">merge_cost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.merge_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.merge_cost" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the merge cost of two dataframes.</p>
 <p>The equation is defined as the sum of the dataframe sizes.</p>
 <dl class="field-list simple">
@@ -433,7 +433,7 @@
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.Diamond.resolve_diamond">
-<code class="descname">resolve_diamond</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.resolve_diamond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.resolve_diamond" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resolve_diamond</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.resolve_diamond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.resolve_diamond" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resolve relationships that have a diamond graphs.</p>
 <p>This method is a pipline to solve diamond graphs by depending on MST to
 resolve the present cycles and maintains information by copying data from
@@ -442,7 +442,7 @@ the cut ties.</p>
 
 <dl class="method">
 <dt id="cardea.data_loader.data_loader.Diamond.resolve_reference">
-<code class="descname">resolve_reference</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.resolve_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.resolve_reference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resolve_reference</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/data_loader/data_loader.html#Diamond.resolve_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.data_loader.Diamond.resolve_reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Consolidates relationships that have a connection to References.</p>
 </dd></dl>
 

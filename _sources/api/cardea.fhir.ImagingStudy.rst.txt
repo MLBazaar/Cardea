@@ -2,6 +2,6 @@ cardea.fhir.ImagingStudy module
 ===============================
 
 .. automodule:: cardea.fhir.ImagingStudy
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

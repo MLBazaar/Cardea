@@ -2,6 +2,6 @@ cardea.fhir.Patient module
 ==========================
 
 .. automodule:: cardea.fhir.Patient
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

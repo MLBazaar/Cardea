@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,19 +246,19 @@
 <span id="cardea-fhir-appointmentresponse-module"></span><h1>cardea.fhir.AppointmentResponse module<a class="headerlink" href="#module-cardea.fhir.AppointmentResponse" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.AppointmentResponse.AppointmentResponse">
-<em class="property">class </em><code class="descclassname">cardea.fhir.AppointmentResponse.</code><code class="descname">AppointmentResponse</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/AppointmentResponse.html#AppointmentResponse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.AppointmentResponse.</code><code class="sig-name descname">AppointmentResponse</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/AppointmentResponse.html#AppointmentResponse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A reply to an appointment request for a patient and/or
 practitioner(s), such as a confirmation or rejection.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.AppointmentResponse.AppointmentResponse.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a AppointmentResponse resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.AppointmentResponse.AppointmentResponse.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>This records identifiers associated with this appointment
 response concern that are defined by business processes and/ or used
 to refer to it when a direct URL reference to the resource itself is
@@ -267,20 +267,20 @@ not appropriate.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.AppointmentResponse.AppointmentResponse.appointment">
-<code class="descname">appointment</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.appointment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">appointment</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.appointment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appointment that this response is replying to.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.AppointmentResponse.AppointmentResponse.start">
-<code class="descname">start</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.start" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">start</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>Date/Time that the appointment is to take place, or requested
 new start time.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.AppointmentResponse.AppointmentResponse.end">
-<code class="descname">end</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.end" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">end</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.end" title="Permalink to this definition">¶</a></dt>
 <dd><p>This may be either the same as the appointment request to confirm
 the details of the appointment, or alternately a new time to request a
 re-negotiation of the end time.</p>
@@ -288,20 +288,20 @@ re-negotiation of the end time.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.AppointmentResponse.AppointmentResponse.participantType">
-<code class="descname">participantType</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.participantType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">participantType</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.participantType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Role of participant in the appointment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.AppointmentResponse.AppointmentResponse.actor">
-<code class="descname">actor</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.actor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">actor</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.actor" title="Permalink to this definition">¶</a></dt>
 <dd><p>A Person, Location/HealthcareService or Device that is
 participating in the appointment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.AppointmentResponse.AppointmentResponse.participantStatus">
-<code class="descname">participantStatus</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.participantStatus" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">participantStatus</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.participantStatus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Participation status of the participant. When the
 status is declined or tentative if the start/end times are different
 to the appointment, then these times should be interpreted as a
@@ -312,13 +312,13 @@ or can be empty.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.AppointmentResponse.AppointmentResponse.comment">
-<code class="descname">comment</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.comment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">comment</code><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.comment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Additional comments about the appointment.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.AppointmentResponse.AppointmentResponse.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/AppointmentResponse.html#AppointmentResponse.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/AppointmentResponse.html#AppointmentResponse.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.AppointmentResponse.AppointmentResponse.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

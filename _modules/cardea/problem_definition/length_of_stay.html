@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -236,8 +236,8 @@
 <span></span><span class="kn">import</span> <span class="nn">featuretools</span> <span class="k">as</span> <span class="nn">ft</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">cardea.data_loader</span> <span class="k">import</span> <span class="n">DataLoader</span> <span class="k">as</span> <span class="n">DL</span>
-<span class="kn">from</span> <span class="nn">cardea.problem_definition</span> <span class="k">import</span> <span class="n">ProblemDefinition</span>
+<span class="kn">from</span> <span class="nn">cardea.data_loader</span> <span class="kn">import</span> <span class="n">DataLoader</span> <span class="k">as</span> <span class="n">DL</span>
+<span class="kn">from</span> <span class="nn">cardea.problem_definition</span> <span class="kn">import</span> <span class="n">ProblemDefinition</span>
 
 
 <div class="viewcode-block" id="LengthOfStay"><a class="viewcode-back" href="../../../api/cardea.problem_definition.length_of_stay.html#cardea.problem_definition.length_of_stay.LengthOfStay">[docs]</a><span class="k">class</span> <span class="nc">LengthOfStay</span> <span class="p">(</span><span class="n">ProblemDefinition</span><span class="p">):</span>
@@ -304,9 +304,8 @@
                     <span class="n">es</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">target_entity</span><span class="p">]</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">target_label_column_name</span><span class="p">])</span>
                 <span class="k">return</span><span class="p">(</span><span class="n">es</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_entity</span><span class="p">,</span> <span class="n">cutoff_times</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cutoff time label </span><span class="si">{}</span><span class="s1"> in table </span><span class="si">{}</span><span class="s1">&#39;</span> <span class="o">+</span>
-                                 <span class="s1">&#39;does not exist&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cutoff_time_label</span><span class="p">,</span>
-                                                         <span class="bp">self</span><span class="o">.</span><span class="n">target_entity</span><span class="p">))</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cutoff time label </span><span class="si">{}</span><span class="s1"> in table </span><span class="si">{}</span><span class="s1"> does not exist&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">cutoff_time_label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_entity</span><span class="p">))</span>
 
         <span class="k">else</span><span class="p">:</span>
             <span class="n">updated_es</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_target_label</span><span class="p">(</span><span class="n">es</span><span class="p">)</span>

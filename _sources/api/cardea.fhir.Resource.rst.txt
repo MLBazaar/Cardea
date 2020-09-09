@@ -2,6 +2,6 @@ cardea.fhir.Resource module
 ===========================
 
 .. automodule:: cardea.fhir.Resource
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

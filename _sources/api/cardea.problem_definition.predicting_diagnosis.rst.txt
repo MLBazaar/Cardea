@@ -2,6 +2,6 @@ cardea.problem\_definition.predicting\_diagnosis module
 =======================================================
 
 .. automodule:: cardea.problem_definition.predicting_diagnosis
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

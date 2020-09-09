@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,53 +246,53 @@
 <span id="cardea-fhir-schedule-module"></span><h1>cardea.fhir.Schedule module<a class="headerlink" href="#module-cardea.fhir.Schedule" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Schedule.Schedule">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Schedule.</code><code class="descname">Schedule</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Schedule.html#Schedule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Schedule.Schedule" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Schedule.</code><code class="sig-name descname">Schedule</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Schedule.html#Schedule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Schedule.Schedule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A container for slots of time that may be available for booking
 appointments.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Schedule.Schedule.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a Schedule resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Schedule.Schedule.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>External Ids for this item.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Schedule.Schedule.active">
-<code class="descname">active</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.active" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">active</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.active" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether this schedule record is in active use, or should not
 be used (such as was entered in error).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Schedule.Schedule.serviceCategory">
-<code class="descname">serviceCategory</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.serviceCategory" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">serviceCategory</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.serviceCategory" title="Permalink to this definition">¶</a></dt>
 <dd><p>A broad categorisation of the service that is to be
 performed during this appointment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Schedule.Schedule.serviceType">
-<code class="descname">serviceType</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.serviceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">serviceType</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.serviceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>The specific service that is to be performed during this
 appointment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Schedule.Schedule.specialty">
-<code class="descname">specialty</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.specialty" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">specialty</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.specialty" title="Permalink to this definition">¶</a></dt>
 <dd><p>The specialty of a practitioner that would be required to
 perform the service requested in this appointment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Schedule.Schedule.actor">
-<code class="descname">actor</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.actor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">actor</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.actor" title="Permalink to this definition">¶</a></dt>
 <dd><p>The resource this Schedule resource is providing availability
 information for. These are expected to usually be one of
 HealthcareService, Location, Practitioner, PractitionerRole, Device,
@@ -301,7 +301,7 @@ Patient or RelatedPerson.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Schedule.Schedule.planningHorizon">
-<code class="descname">planningHorizon</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.planningHorizon" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">planningHorizon</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.planningHorizon" title="Permalink to this definition">¶</a></dt>
 <dd><p>The period of time that the slots that are attached
 to this Schedule resource cover (even if none exist). These  cover the
 amount of time that an organization’s planning horizon; the interval
@@ -311,7 +311,7 @@ define a “template” for planning outside these dates.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Schedule.Schedule.comment">
-<code class="descname">comment</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.comment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">comment</code><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.comment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Comments on the availability to describe any extended
 information. Such as custom constraints on the slots that may be
 associated.</p>
@@ -319,7 +319,7 @@ associated.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.Schedule.Schedule.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Schedule.html#Schedule.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Schedule.html#Schedule.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Schedule.Schedule.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

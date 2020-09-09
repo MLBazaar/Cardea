@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -233,7 +233,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cardea.fhir.HealthcareService</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="k">import</span> <span class="n">fhirbase</span>
+<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="kn">import</span> <span class="n">fhirbase</span>
 
 
 <div class="viewcode-block" id="HealthcareService"><a class="viewcode-back" href="../../../api/cardea.fhir.HealthcareService.html#cardea.fhir.HealthcareService.HealthcareService">[docs]</a><span class="k">class</span> <span class="nc">HealthcareService</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
@@ -292,7 +292,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;HealthcareService&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;HealthcareService&#39;</span>
         <span class="c1"># type: str</span>
         <span class="c1"># possible values: HealthcareService</span>
@@ -487,7 +487,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;HealthcareService_AvailableTime&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">daysOfWeek</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: list</span>
         <span class="c1"># possible values: mon, tue, wed, thu, fri, sat, sun</span>
@@ -531,7 +531,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;HealthcareService_NotAvailable&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: str</span>
 

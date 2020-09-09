@@ -2,6 +2,6 @@ cardea.fhir.StructureMap module
 ===============================
 
 .. automodule:: cardea.fhir.StructureMap
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

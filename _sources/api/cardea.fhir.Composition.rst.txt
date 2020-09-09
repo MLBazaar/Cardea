@@ -2,6 +2,6 @@ cardea.fhir.Composition module
 ==============================
 
 .. automodule:: cardea.fhir.Composition
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

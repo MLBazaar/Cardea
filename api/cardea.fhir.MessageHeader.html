@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,7 +246,7 @@
 <span id="cardea-fhir-messageheader-module"></span><h1>cardea.fhir.MessageHeader module<a class="headerlink" href="#module-cardea.fhir.MessageHeader" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.MessageHeader.MessageHeader">
-<em class="property">class </em><code class="descclassname">cardea.fhir.MessageHeader.</code><code class="descname">MessageHeader</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.MessageHeader.</code><code class="sig-name descname">MessageHeader</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The header for a message exchange that is either requesting or
 responding to an action.  The reference(s) that are the subject of the
@@ -255,13 +255,13 @@ typically transmitted in a bundle in which the MessageHeader resource
 instance is the first resource in the bundle.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a MessageHeader resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.event">
-<code class="descname">event</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.event" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">event</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.event" title="Permalink to this definition">¶</a></dt>
 <dd><p>Code that identifies the event this message represents and
 connects it with its definition. Events defined as part of the FHIR
 specification have the system value
@@ -270,14 +270,14 @@ specification have the system value
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.destination">
-<code class="descname">destination</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.destination" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">destination</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.destination" title="Permalink to this definition">¶</a></dt>
 <dd><p>The destination application which the message is intended
 for.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.receiver">
-<code class="descname">receiver</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.receiver" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">receiver</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.receiver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allows data conveyed by a message to be addressed to a
 particular person or department when routing to a specific application
 isn’t sufficient.</p>
@@ -285,20 +285,20 @@ isn’t sufficient.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.sender">
-<code class="descname">sender</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.sender" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sender</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.sender" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the sending system to allow the use of a trust
 relationship.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.timestamp">
-<code class="descname">timestamp</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.timestamp" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">timestamp</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.timestamp" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time that the message was sent.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.enterer">
-<code class="descname">enterer</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.enterer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">enterer</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.enterer" title="Permalink to this definition">¶</a></dt>
 <dd><p>The person or device that performed the data entry leading to
 this message. When there is more than one candidate, pick the most
 proximal to the message. Can provide other enterers in extensions.</p>
@@ -306,7 +306,7 @@ proximal to the message. Can provide other enterers in extensions.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.author">
-<code class="descname">author</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.author" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">author</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.author" title="Permalink to this definition">¶</a></dt>
 <dd><p>The logical author of the message - the person or device that
 decided the described event should happen. When there is more than one
 candidate, pick the most proximal to the MessageHeader. Can provide
@@ -315,13 +315,13 @@ other authors in extensions.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.source">
-<code class="descname">source</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.source" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">source</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.source" title="Permalink to this definition">¶</a></dt>
 <dd><p>The source application from which this message originated.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.responsible">
-<code class="descname">responsible</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.responsible" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">responsible</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.responsible" title="Permalink to this definition">¶</a></dt>
 <dd><p>The person or organization that accepts overall
 responsibility for the contents of the message. The implication is
 that the message event happened under the policies of the responsible
@@ -330,7 +330,7 @@ party.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.reason">
-<code class="descname">reason</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.reason" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reason</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.reason" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coded indication of the cause for the event - indicates  a
 reason for the occurrence of the event that is a focus of this
 message.</p>
@@ -338,21 +338,21 @@ message.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.response">
-<code class="descname">response</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.response" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">response</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Information about the message that this message is a
 response to.  Only present if this message is a response.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.focus">
-<code class="descname">focus</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.focus" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">focus</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.focus" title="Permalink to this definition">¶</a></dt>
 <dd><p>The actual data of the message - a reference to the root/focus
 class of the event.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.MessageHeader.MessageHeader.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -365,7 +365,7 @@ class of the event.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Destination">
-<em class="property">class </em><code class="descclassname">cardea.fhir.MessageHeader.</code><code class="descname">MessageHeader_Destination</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Destination"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Destination" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.MessageHeader.</code><code class="sig-name descname">MessageHeader_Destination</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Destination"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Destination" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The header for a message exchange that is either requesting or
 responding to an action.  The reference(s) that are the subject of the
@@ -374,26 +374,26 @@ typically transmitted in a bundle in which the MessageHeader resource
 instance is the first resource in the bundle.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Destination.name">
-<code class="descname">name</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Destination.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Destination.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Human-readable name for the target system.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Destination.target">
-<code class="descname">target</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Destination.target" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">target</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Destination.target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the target end system in situations where the
 initial message transmission is to an intermediary system.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Destination.endpoint">
-<code class="descname">endpoint</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Destination.endpoint" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">endpoint</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Destination.endpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates where the message should be routed to.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Destination.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Destination.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Destination.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Destination.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Destination.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -406,7 +406,7 @@ initial message transmission is to an intermediary system.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Response">
-<em class="property">class </em><code class="descclassname">cardea.fhir.MessageHeader.</code><code class="descname">MessageHeader_Response</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.MessageHeader.</code><code class="sig-name descname">MessageHeader_Response</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The header for a message exchange that is either requesting or
 responding to an action.  The reference(s) that are the subject of the
@@ -415,14 +415,14 @@ typically transmitted in a bundle in which the MessageHeader resource
 instance is the first resource in the bundle.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Response.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>The MessageHeader.id of the message to which this message
 is a response.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Response.code">
-<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response.code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Code that identifies the type of response to the message -
 whether it was successful or not, and whether it should be resent or
 not.</p>
@@ -430,13 +430,13 @@ not.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Response.details">
-<code class="descname">details</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response.details" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">details</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response.details" title="Permalink to this definition">¶</a></dt>
 <dd><p>Full details of any issues found in the message.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Response.assert_type">
-<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Response.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response.assert_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Response.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response.assert_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks class values follow set possible enumerations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -448,7 +448,7 @@ not.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Response.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Response.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Response.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Response.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -461,7 +461,7 @@ not.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Source">
-<em class="property">class </em><code class="descclassname">cardea.fhir.MessageHeader.</code><code class="descname">MessageHeader_Source</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.MessageHeader.</code><code class="sig-name descname">MessageHeader_Source</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The header for a message exchange that is either requesting or
 responding to an action.  The reference(s) that are the subject of the
@@ -470,40 +470,40 @@ typically transmitted in a bundle in which the MessageHeader resource
 instance is the first resource in the bundle.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Source.name">
-<code class="descname">name</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Human-readable name for the source system.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Source.software">
-<code class="descname">software</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.software" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">software</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.software" title="Permalink to this definition">¶</a></dt>
 <dd><p>May include configuration or other information useful in
 debugging.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Source.version">
-<code class="descname">version</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.version" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Can convey versions of multiple systems in situations where a
 message passes through multiple hands.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Source.contact">
-<code class="descname">contact</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.contact" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">contact</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.contact" title="Permalink to this definition">¶</a></dt>
 <dd><p>An e-mail, phone, website or other contact point to use to
 resolve issues with message communications.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Source.endpoint">
-<code class="descname">endpoint</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.endpoint" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">endpoint</code><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.endpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the routing target to send acknowledgements to.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.MessageHeader.MessageHeader_Source.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Source.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageHeader.html#MessageHeader_Source.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageHeader.MessageHeader_Source.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

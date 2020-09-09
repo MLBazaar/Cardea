@@ -2,6 +2,6 @@ cardea.problem\_definition.mortality\_prediction module
 =======================================================
 
 .. automodule:: cardea.problem_definition.mortality_prediction
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

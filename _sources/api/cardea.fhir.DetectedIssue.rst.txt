@@ -2,6 +2,6 @@ cardea.fhir.DetectedIssue module
 ================================
 
 .. automodule:: cardea.fhir.DetectedIssue
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

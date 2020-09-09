@@ -2,6 +2,6 @@ cardea.fhir.EligibilityResponse module
 ======================================
 
 .. automodule:: cardea.fhir.EligibilityResponse
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

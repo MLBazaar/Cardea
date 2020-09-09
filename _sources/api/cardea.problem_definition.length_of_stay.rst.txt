@@ -2,6 +2,6 @@ cardea.problem\_definition.length\_of\_stay module
 ==================================================
 
 .. automodule:: cardea.problem_definition.length_of_stay
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

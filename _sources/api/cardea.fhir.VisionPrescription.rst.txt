@@ -2,6 +2,6 @@ cardea.fhir.VisionPrescription module
 =====================================
 
 .. automodule:: cardea.fhir.VisionPrescription
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

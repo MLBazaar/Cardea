@@ -2,6 +2,6 @@ cardea.fhir.TestReport module
 =============================
 
 .. automodule:: cardea.fhir.TestReport
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

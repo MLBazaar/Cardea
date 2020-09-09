@@ -2,6 +2,6 @@ cardea.fhir.DeviceMetric module
 ===============================
 
 .. automodule:: cardea.fhir.DeviceMetric
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

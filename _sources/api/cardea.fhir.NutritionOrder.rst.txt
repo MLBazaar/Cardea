@@ -2,6 +2,6 @@ cardea.fhir.NutritionOrder module
 =================================
 
 .. automodule:: cardea.fhir.NutritionOrder
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

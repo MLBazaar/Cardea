@@ -2,6 +2,6 @@ cardea.fhir.DeviceComponent module
 ==================================
 
 .. automodule:: cardea.fhir.DeviceComponent
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

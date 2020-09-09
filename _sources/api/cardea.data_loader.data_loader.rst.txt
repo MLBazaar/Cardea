@@ -2,6 +2,6 @@ cardea.data\_loader.data\_loader module
 =======================================
 
 .. automodule:: cardea.data_loader.data_loader
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -2,6 +2,6 @@ cardea.fhir.Identifier module
 =============================
 
 .. automodule:: cardea.fhir.Identifier
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -233,7 +233,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cardea.fhir.TestReport</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="k">import</span> <span class="n">fhirbase</span>
+<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="kn">import</span> <span class="n">fhirbase</span>
 
 
 <div class="viewcode-block" id="TestReport"><a class="viewcode-back" href="../../../api/cardea.fhir.TestReport.html#cardea.fhir.TestReport.TestReport">[docs]</a><span class="k">class</span> <span class="nc">TestReport</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
@@ -269,7 +269,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;TestReport&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;TestReport&#39;</span>
         <span class="c1"># type: str</span>
         <span class="c1"># possible values: TestReport</span>
@@ -383,7 +383,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;TestReport_Participant&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: str</span>
         <span class="c1"># possible values: test-engine, client, server</span>
@@ -422,7 +422,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;TestReport_Setup&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: list</span>
         <span class="c1"># reference to TestReport_Action</span>
@@ -456,7 +456,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;TestReport_Action&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">operation</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to TestReport_Operation</span>
 
@@ -497,7 +497,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;TestReport_Operation&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: str</span>
         <span class="c1"># possible values: pass, skip, fail, warning, error</span>
@@ -538,7 +538,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;TestReport_Assert&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: str</span>
         <span class="c1"># possible values: pass, skip, fail, warning, error</span>
@@ -581,7 +581,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;TestReport_Test&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: str</span>
 
@@ -621,7 +621,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;TestReport_Action1&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">operation</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to TestReport_Operation</span>
 
@@ -660,7 +660,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;TestReport_Teardown&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: list</span>
         <span class="c1"># reference to TestReport_Action2</span>
@@ -692,7 +692,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;TestReport_Action2&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">operation</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to TestReport_Operation</span>
 

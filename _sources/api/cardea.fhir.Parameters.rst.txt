@@ -2,6 +2,6 @@ cardea.fhir.Parameters module
 =============================
 
 .. automodule:: cardea.fhir.Parameters
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

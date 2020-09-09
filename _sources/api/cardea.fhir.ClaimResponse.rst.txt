@@ -2,6 +2,6 @@ cardea.fhir.ClaimResponse module
 ================================
 
 .. automodule:: cardea.fhir.ClaimResponse
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

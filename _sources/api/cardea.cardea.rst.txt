@@ -2,6 +2,6 @@ cardea.cardea module
 ====================
 
 .. automodule:: cardea.cardea
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

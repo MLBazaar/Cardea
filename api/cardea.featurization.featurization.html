@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,17 +246,17 @@
 <span id="cardea-featurization-featurization-module"></span><h1>cardea.featurization.featurization module<a class="headerlink" href="#module-cardea.featurization.featurization" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.featurization.featurization.Featurization">
-<em class="property">class </em><code class="descclassname">cardea.featurization.featurization.</code><code class="descname">Featurization</code><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.featurization.featurization.</code><code class="sig-name descname">Featurization</code><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class that generates a feature matrix from its attributes.</p>
-<dl class="staticmethod">
+<dl class="method">
 <dt id="cardea.featurization.featurization.Featurization.agg_prim">
-<em class="property">static </em><code class="descname">agg_prim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization.agg_prim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.agg_prim" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">agg_prim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization.agg_prim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.agg_prim" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="cardea.featurization.featurization.Featurization.generate_feature_matrix">
-<code class="descname">generate_feature_matrix</code><span class="sig-paren">(</span><em>es</em>, <em>target</em>, <em>cutoff</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization.generate_feature_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.generate_feature_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">generate_feature_matrix</code><span class="sig-paren">(</span><em class="sig-param">es</em>, <em class="sig-param">target</em>, <em class="sig-param">cutoff</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization.generate_feature_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.generate_feature_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a feature matrix and features given in Featurization object.
 Args:
 es: A featuretools entityset that holds injested data.
@@ -267,19 +267,19 @@ Returns:
 A pandas dataframe of the calculated matrix.</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="cardea.featurization.featurization.Featurization.max_depth">
-<em class="property">static </em><code class="descname">max_depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization.max_depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.max_depth" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">max_depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization.max_depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.max_depth" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="cardea.featurization.featurization.Featurization.n_jobs">
-<em class="property">static </em><code class="descname">n_jobs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization.n_jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.n_jobs" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">n_jobs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization.n_jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.n_jobs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="cardea.featurization.featurization.Featurization.trans_prim">
-<em class="property">static </em><code class="descname">trans_prim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization.trans_prim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.trans_prim" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">trans_prim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/featurization/featurization.html#Featurization.trans_prim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.featurization.Featurization.trans_prim" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

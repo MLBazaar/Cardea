@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -233,7 +233,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cardea.fhir.ClaimResponse</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="k">import</span> <span class="n">fhirbase</span>
+<span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="kn">import</span> <span class="n">fhirbase</span>
 
 
 <div class="viewcode-block" id="ClaimResponse"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse.ClaimResponse">[docs]</a><span class="k">class</span> <span class="nc">ClaimResponse</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
@@ -280,7 +280,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse&#39;</span>
         <span class="c1"># type: str</span>
         <span class="c1"># possible values: ClaimResponse</span>
@@ -484,7 +484,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse_Item&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sequenceLinkId</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 
@@ -536,7 +536,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse_Adjudication&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to CodeableConcept</span>
 
@@ -590,7 +590,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse_Detail&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sequenceLinkId</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 
@@ -639,7 +639,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse_SubDetail&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sequenceLinkId</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 
@@ -692,7 +692,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse_AddItem&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sequenceLinkId</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: list</span>
 
@@ -791,7 +791,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse_Detail1&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">revenue</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to CodeableConcept</span>
 
@@ -876,7 +876,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse_Error&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sequenceLinkId</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 
@@ -923,7 +923,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse_Payment&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># reference to CodeableConcept</span>
 
@@ -993,7 +993,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse_ProcessNote&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 
@@ -1048,7 +1048,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;ClaimResponse_Insurance&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># type: int</span>
 

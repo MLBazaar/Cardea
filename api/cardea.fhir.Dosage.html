@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,45 +246,45 @@
 <span id="cardea-fhir-dosage-module"></span><h1>cardea.fhir.Dosage module<a class="headerlink" href="#module-cardea.fhir.Dosage" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Dosage.Dosage">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Dosage.</code><code class="descname">Dosage</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Dosage.html#Dosage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Dosage.Dosage" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Dosage.</code><code class="sig-name descname">Dosage</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Dosage.html#Dosage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Dosage.Dosage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Indicates how the medication is/was taken or should be taken by the
 patient.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.sequence">
-<code class="descname">sequence</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.sequence" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sequence</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.sequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the order in which the dosage instructions should
 be applied or interpreted.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.text">
-<code class="descname">text</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.text" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">text</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Free text dosage instructions e.g. SIG.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.additionalInstruction">
-<code class="descname">additionalInstruction</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.additionalInstruction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">additionalInstruction</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.additionalInstruction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Supplemental instruction - e.g. “with meals”.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.patientInstruction">
-<code class="descname">patientInstruction</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.patientInstruction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">patientInstruction</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.patientInstruction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instructions in terms that are understood by the
 patient or consumer.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.timing">
-<code class="descname">timing</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.timing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">timing</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.timing" title="Permalink to this definition">¶</a></dt>
 <dd><p>When medication should be administered.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.asNeededBoolean">
-<code class="descname">asNeededBoolean</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.asNeededBoolean" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">asNeededBoolean</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.asNeededBoolean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates whether the Medication is only taken when
 needed within a specific dosing schedule (Boolean option), or it
 indicates the precondition for taking the Medication
@@ -293,7 +293,7 @@ indicates the precondition for taking the Medication
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.asNeededCodeableConcept">
-<code class="descname">asNeededCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.asNeededCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">asNeededCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.asNeededCodeableConcept" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates whether the Medication is only
 taken when needed within a specific dosing schedule (Boolean option),
 or it indicates the precondition for taking the Medication
@@ -302,75 +302,75 @@ or it indicates the precondition for taking the Medication
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.site">
-<code class="descname">site</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.site" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">site</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.site" title="Permalink to this definition">¶</a></dt>
 <dd><p>Body site to administer to.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.route">
-<code class="descname">route</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.route" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">route</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.route" title="Permalink to this definition">¶</a></dt>
 <dd><p>How drug should enter body.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.method">
-<code class="descname">method</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.method" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">method</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Technique for administering medication.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.doseRange">
-<code class="descname">doseRange</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.doseRange" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">doseRange</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.doseRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Amount of medication per dose.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.doseSimpleQuantity">
-<code class="descname">doseSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.doseSimpleQuantity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">doseSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.doseSimpleQuantity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Amount of medication per dose.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.maxDosePerPeriod">
-<code class="descname">maxDosePerPeriod</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.maxDosePerPeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">maxDosePerPeriod</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.maxDosePerPeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper limit on medication per unit of time.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.maxDosePerAdministration">
-<code class="descname">maxDosePerAdministration</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.maxDosePerAdministration" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">maxDosePerAdministration</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.maxDosePerAdministration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper limit on medication per
 administration.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.maxDosePerLifetime">
-<code class="descname">maxDosePerLifetime</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.maxDosePerLifetime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">maxDosePerLifetime</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.maxDosePerLifetime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper limit on medication per lifetime of the
 patient.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.rateRatio">
-<code class="descname">rateRatio</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.rateRatio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rateRatio</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.rateRatio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Amount of medication per unit of time.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.rateRange">
-<code class="descname">rateRange</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.rateRange" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rateRange</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.rateRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Amount of medication per unit of time.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Dosage.Dosage.rateSimpleQuantity">
-<code class="descname">rateSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.rateSimpleQuantity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rateSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.rateSimpleQuantity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Amount of medication per unit of time.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Dosage.Dosage.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Dosage.html#Dosage.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Dosage.html#Dosage.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Dosage.Dosage.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

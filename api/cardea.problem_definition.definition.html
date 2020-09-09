@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,13 +246,13 @@
 <span id="cardea-problem-definition-definition-module"></span><h1>cardea.problem_definition.definition module<a class="headerlink" href="#module-cardea.problem_definition.definition" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.problem_definition.definition.ProblemDefinition">
-<em class="property">class </em><code class="descclassname">cardea.problem_definition.definition.</code><code class="descname">ProblemDefinition</code><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.problem_definition.definition.</code><code class="sig-name descname">ProblemDefinition</code><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class that defines the prediction problem
 by specifying cutoff times and generating the target label if it does not exist.</p>
 <dl class="method">
 <dt id="cardea.problem_definition.definition.ProblemDefinition.check_for_missing_values_in_target_label">
-<code class="descname">check_for_missing_values_in_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label_column_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.check_for_missing_values_in_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.check_for_missing_values_in_target_label" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">check_for_missing_values_in_target_label</code><span class="sig-paren">(</span><em class="sig-param">entity_set</em>, <em class="sig-param">target_entity</em>, <em class="sig-param">target_label_column_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.check_for_missing_values_in_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.check_for_missing_values_in_target_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if there is a missing value in the target label.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -270,7 +270,7 @@ by specifying cutoff times and generating the target label if it does not exist.
 
 <dl class="method">
 <dt id="cardea.problem_definition.definition.ProblemDefinition.check_target_label">
-<code class="descname">check_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.check_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.check_target_label" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">check_target_label</code><span class="sig-paren">(</span><em class="sig-param">entity_set</em>, <em class="sig-param">target_entity</em>, <em class="sig-param">target_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.check_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.check_target_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if target label exists in the entity set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -288,7 +288,7 @@ by specifying cutoff times and generating the target label if it does not exist.
 
 <dl class="method">
 <dt id="cardea.problem_definition.definition.ProblemDefinition.generate_cutoff_times">
-<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">generate_cutoff_times</code><span class="sig-paren">(</span><em class="sig-param">entity_set</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates cutoff times for the predection problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -305,7 +305,7 @@ by specifying cutoff times and generating the target label if it does not exist.
 
 <dl class="method">
 <dt id="cardea.problem_definition.definition.ProblemDefinition.generate_target_label">
-<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>entity_set</em>, <em>target_entity</em>, <em>target_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">generate_target_label</code><span class="sig-paren">(</span><em class="sig-param">entity_set</em>, <em class="sig-param">target_entity</em>, <em class="sig-param">target_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.generate_target_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates target labels if the entityset is missing labels.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -323,7 +323,7 @@ by specifying cutoff times and generating the target label if it does not exist.
 
 <dl class="method">
 <dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_admission_time">
-<code class="descname">unify_cutoff_time_admission_time</code><span class="sig-paren">(</span><em>es</em>, <em>cutoff_entity</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_time_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_admission_time" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">unify_cutoff_time_admission_time</code><span class="sig-paren">(</span><em class="sig-param">es</em>, <em class="sig-param">cutoff_entity</em>, <em class="sig-param">cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_time_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_admission_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process records in the entity that contains cutoff times
 based on shared days and time.</p>
 <dl class="field-list simple">
@@ -338,7 +338,7 @@ based on shared days and time.</p>
 
 <dl class="method">
 <dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_discharge_time">
-<code class="descname">unify_cutoff_time_discharge_time</code><span class="sig-paren">(</span><em>es</em>, <em>cutoff_entity</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_time_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_discharge_time" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">unify_cutoff_time_discharge_time</code><span class="sig-paren">(</span><em class="sig-param">es</em>, <em class="sig-param">cutoff_entity</em>, <em class="sig-param">cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_time_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_time_discharge_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process records in the entity that contains cutoff times
 based on shared days and time.</p>
 <dl class="field-list simple">
@@ -353,7 +353,7 @@ based on shared days and time.</p>
 
 <dl class="method">
 <dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_admission_time">
-<code class="descname">unify_cutoff_times_days_admission_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_days_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_admission_time" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">unify_cutoff_times_days_admission_time</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_days_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_admission_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unify records cutoff times based on shared days.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -364,7 +364,7 @@ based on shared days and time.</p>
 
 <dl class="method">
 <dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_discharge_time">
-<code class="descname">unify_cutoff_times_days_discharge_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_days_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_discharge_time" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">unify_cutoff_times_days_discharge_time</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_days_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_days_discharge_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unify records cutoff times based on shared days.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -375,7 +375,7 @@ based on shared days and time.</p>
 
 <dl class="method">
 <dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_admission_time">
-<code class="descname">unify_cutoff_times_hours_admission_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_hours_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_admission_time" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">unify_cutoff_times_hours_admission_time</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_hours_admission_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_admission_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unify records cutoff times based on shared time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -386,7 +386,7 @@ based on shared days and time.</p>
 
 <dl class="method">
 <dt id="cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_discharge_time">
-<code class="descname">unify_cutoff_times_hours_discharge_time</code><span class="sig-paren">(</span><em>df</em>, <em>cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_hours_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_discharge_time" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">unify_cutoff_times_hours_discharge_time</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">cutoff_time_label</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/definition.html#ProblemDefinition.unify_cutoff_times_hours_discharge_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.definition.ProblemDefinition.unify_cutoff_times_hours_discharge_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unify records cutoff times based on shared time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

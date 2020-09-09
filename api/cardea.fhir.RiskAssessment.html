@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,136 +246,136 @@
 <span id="cardea-fhir-riskassessment-module"></span><h1>cardea.fhir.RiskAssessment module<a class="headerlink" href="#module-cardea.fhir.RiskAssessment" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment">
-<em class="property">class </em><code class="descclassname">cardea.fhir.RiskAssessment.</code><code class="descname">RiskAssessment</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RiskAssessment.html#RiskAssessment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.RiskAssessment.</code><code class="sig-name descname">RiskAssessment</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RiskAssessment.html#RiskAssessment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>An assessment of the likely outcome(s) for a patient or other subject
 as well as the likelihood of each outcome.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a RiskAssessment resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Business identifier assigned to the risk assessment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.basedOn">
-<code class="descname">basedOn</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.basedOn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">basedOn</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.basedOn" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to the request that is fulfilled by this risk
 assessment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.parent">
-<code class="descname">parent</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">parent</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to a resource that this risk assessment is part
 of, such as a Procedure.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The status of the RiskAssessment, using the same statuses as
 an Observation.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.method">
-<code class="descname">method</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.method" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">method</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.method" title="Permalink to this definition">¶</a></dt>
 <dd><p>The algorithm, process or mechanism used to evaluate the risk.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.code">
-<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.code" title="Permalink to this definition">¶</a></dt>
 <dd><p>The type of the risk assessment performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.subject">
-<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.subject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>The patient or group the risk assessment applies to.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.context">
-<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.context" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.context" title="Permalink to this definition">¶</a></dt>
 <dd><p>The encounter where the assessment was performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.occurrenceDateTime">
-<code class="descname">occurrenceDateTime</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.occurrenceDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">occurrenceDateTime</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.occurrenceDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date (and possibly time) the risk assessment
 was performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.occurrencePeriod">
-<code class="descname">occurrencePeriod</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.occurrencePeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">occurrencePeriod</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.occurrencePeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date (and possibly time) the risk assessment was
 performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.condition">
-<code class="descname">condition</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.condition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">condition</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.condition" title="Permalink to this definition">¶</a></dt>
 <dd><p>For assessments or prognosis specific to a particular
 condition, indicates the condition being assessed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.performer">
-<code class="descname">performer</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.performer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">performer</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.performer" title="Permalink to this definition">¶</a></dt>
 <dd><p>The provider or software application that performed the
 assessment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.reasonCodeableConcept">
-<code class="descname">reasonCodeableConcept</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.reasonCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonCodeableConcept</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.reasonCodeableConcept" title="Permalink to this definition">¶</a></dt>
 <dd><p>The reason the risk assessment was performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.reasonReference">
-<code class="descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.reasonReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.reasonReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>The reason the risk assessment was performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.basis">
-<code class="descname">basis</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.basis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">basis</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.basis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the source data considered as part of the assessment
 (FamilyHistory, Observations, Procedures, Conditions, etc.).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.prediction">
-<code class="descname">prediction</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.prediction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">prediction</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.prediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes the expected outcome for the subject.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.mitigation">
-<code class="descname">mitigation</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.mitigation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">mitigation</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.mitigation" title="Permalink to this definition">¶</a></dt>
 <dd><p>A description of the steps that might be taken to reduce
 the identified risk(s).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.comment">
-<code class="descname">comment</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.comment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">comment</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.comment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Additional comments about the risk assessment.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RiskAssessment.html#RiskAssessment.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RiskAssessment.html#RiskAssessment.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -388,41 +388,41 @@ the identified risk(s).</p>
 
 <dl class="class">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment_Prediction">
-<em class="property">class </em><code class="descclassname">cardea.fhir.RiskAssessment.</code><code class="descname">RiskAssessment_Prediction</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RiskAssessment.html#RiskAssessment_Prediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.RiskAssessment.</code><code class="sig-name descname">RiskAssessment_Prediction</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RiskAssessment.html#RiskAssessment_Prediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>An assessment of the likely outcome(s) for a patient or other subject
 as well as the likelihood of each outcome.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment_Prediction.outcome">
-<code class="descname">outcome</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.outcome" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">outcome</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.outcome" title="Permalink to this definition">¶</a></dt>
 <dd><p>One of the potential outcomes for the patient (e.g.
 remission, death,  a particular condition).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment_Prediction.probabilityDecimal">
-<code class="descname">probabilityDecimal</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.probabilityDecimal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">probabilityDecimal</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.probabilityDecimal" title="Permalink to this definition">¶</a></dt>
 <dd><p>How likely is the outcome (in the specified
 timeframe).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment_Prediction.probabilityRange">
-<code class="descname">probabilityRange</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.probabilityRange" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">probabilityRange</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.probabilityRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>How likely is the outcome (in the specified
 timeframe).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment_Prediction.qualitativeRisk">
-<code class="descname">qualitativeRisk</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.qualitativeRisk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">qualitativeRisk</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.qualitativeRisk" title="Permalink to this definition">¶</a></dt>
 <dd><p>How likely is the outcome (in the specified
 timeframe), expressed as a qualitative value (e.g. low, medium, high).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment_Prediction.relativeRisk">
-<code class="descname">relativeRisk</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.relativeRisk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">relativeRisk</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.relativeRisk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the risk for this particular subject (with
 their specific characteristics) divided by the risk of the population
 in general.  (Numbers greater than 1 = higher risk than the
@@ -431,28 +431,28 @@ population, numbers less than 1 = lower risk.).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment_Prediction.whenPeriod">
-<code class="descname">whenPeriod</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.whenPeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">whenPeriod</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.whenPeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the period of time or age range of the subject
 to which the specified probability applies.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment_Prediction.whenRange">
-<code class="descname">whenRange</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.whenRange" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">whenRange</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.whenRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the period of time or age range of the subject to
 which the specified probability applies.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment_Prediction.rationale">
-<code class="descname">rationale</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.rationale" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rationale</code><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.rationale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Additional information explaining the basis for the
 prediction.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.RiskAssessment.RiskAssessment_Prediction.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RiskAssessment.html#RiskAssessment_Prediction.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/RiskAssessment.html#RiskAssessment_Prediction.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.RiskAssessment.RiskAssessment_Prediction.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

@@ -2,6 +2,6 @@ cardea.fhir.MeasureReport module
 ================================
 
 .. automodule:: cardea.fhir.MeasureReport
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

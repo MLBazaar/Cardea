@@ -2,6 +2,6 @@ cardea.fhir.ReferralRequest module
 ==================================
 
 .. automodule:: cardea.fhir.ReferralRequest
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

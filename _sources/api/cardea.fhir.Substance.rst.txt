@@ -2,6 +2,6 @@ cardea.fhir.Substance module
 ============================
 
 .. automodule:: cardea.fhir.Substance
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

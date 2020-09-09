@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,20 +246,20 @@
 <span id="cardea-fhir-procedure-module"></span><h1>cardea.fhir.Procedure module<a class="headerlink" href="#module-cardea.fhir.Procedure" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Procedure.Procedure">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Procedure.</code><code class="descname">Procedure</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Procedure.</code><code class="sig-name descname">Procedure</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>An action that is or was performed on a patient. This can be a
 physical intervention like an operation, or less invasive like
 counseling or hypnotherapy.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a Procedure resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>This records identifiers associated with this procedure
 that are defined by business processes and/or used to refer to it when
 a direct URL reference to the resource itself is not appropriate (e.g.
@@ -268,55 +268,55 @@ in CDA documents, or in written / printed documentation).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.definition">
-<code class="descname">definition</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.definition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.definition" title="Permalink to this definition">¶</a></dt>
 <dd><p>A protocol, guideline, orderset or other definition that
 was adhered to in whole or in part by this procedure.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.basedOn">
-<code class="descname">basedOn</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.basedOn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">basedOn</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.basedOn" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to a resource that contains details of the
 request for this procedure.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.partOf">
-<code class="descname">partOf</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.partOf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">partOf</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.partOf" title="Permalink to this definition">¶</a></dt>
 <dd><p>A larger event of which this particular procedure is a
 component or step.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code specifying the state of the procedure. Generally this
 will be in-progress or completed state.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.notDone">
-<code class="descname">notDone</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.notDone" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">notDone</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.notDone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set this to true if the record is saying that the procedure
 was NOT performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.notDoneReason">
-<code class="descname">notDoneReason</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.notDoneReason" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">notDoneReason</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.notDoneReason" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code indicating why the procedure was not performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.category">
-<code class="descname">category</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.category" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.category" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code that classifies the procedure for searching, sorting
 and display purposes (e.g. “Surgical Procedure”).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.code">
-<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.code" title="Permalink to this definition">¶</a></dt>
 <dd><p>The specific procedure that is performed. Use text if the exact
 nature of the procedure cannot be coded (e.g. “Laparoscopic
 Appendectomy”).</p>
@@ -324,20 +324,20 @@ Appendectomy”).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.subject">
-<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.subject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>The person, animal or group on which the procedure was
 performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.context">
-<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.context" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.context" title="Permalink to this definition">¶</a></dt>
 <dd><p>The encounter during which the procedure was performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.performedDateTime">
-<code class="descname">performedDateTime</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.performedDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">performedDateTime</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.performedDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date(time)/period over which the procedure was
 performed. Allows a period to support complex procedures that span
 more than one date, and also allows for the length of the procedure to
@@ -346,7 +346,7 @@ be captured.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.performedPeriod">
-<code class="descname">performedPeriod</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.performedPeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">performedPeriod</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.performedPeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date(time)/period over which the procedure was
 performed. Allows a period to support complex procedures that span
 more than one date, and also allows for the length of the procedure to
@@ -355,34 +355,34 @@ be captured.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.performer">
-<code class="descname">performer</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.performer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">performer</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.performer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Limited to ‘real’ people rather than equipment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.location">
-<code class="descname">location</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.location" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">location</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.location" title="Permalink to this definition">¶</a></dt>
 <dd><p>The location where the procedure actually happened.  E.g. a
 newborn at home, a tracheostomy at a restaurant.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.reasonCode">
-<code class="descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.reasonCode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.reasonCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>The coded reason why the procedure was performed. This may
 be coded entity of some type, or may simply be present as text.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.reasonReference">
-<code class="descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.reasonReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.reasonReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>The condition that is the reason why the procedure
 was performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.bodySite">
-<code class="descname">bodySite</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.bodySite" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bodySite</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.bodySite" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detailed and structured anatomical location information.
 Multiple locations are allowed - e.g. multiple punch biopsies of a
 lesion.</p>
@@ -390,21 +390,21 @@ lesion.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.outcome">
-<code class="descname">outcome</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.outcome" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">outcome</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.outcome" title="Permalink to this definition">¶</a></dt>
 <dd><p>The outcome of the procedure - did it resolve reasons for the
 procedure being performed?</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.report">
-<code class="descname">report</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.report" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">report</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.report" title="Permalink to this definition">¶</a></dt>
 <dd><p>This could be a histology result, pathology report, surgical
 report, etc..</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.complication">
-<code class="descname">complication</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.complication" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">complication</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.complication" title="Permalink to this definition">¶</a></dt>
 <dd><p>Any complications that occurred during the procedure, or
 in the immediate post-performance period. These are generally tracked
 separately from the notes, which will typically describe the procedure
@@ -413,14 +413,14 @@ itself rather than any ‘post procedure’ issues.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.complicationDetail">
-<code class="descname">complicationDetail</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.complicationDetail" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">complicationDetail</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.complicationDetail" title="Permalink to this definition">¶</a></dt>
 <dd><p>Any complications that occurred during the
 procedure, or in the immediate post-performance period.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.followUp">
-<code class="descname">followUp</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.followUp" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">followUp</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.followUp" title="Permalink to this definition">¶</a></dt>
 <dd><p>If the procedure required specific follow up - e.g. removal
 of sutures. The followup may be represented as a simple note, or could
 potentially be more complex in which case the CarePlan resource can be
@@ -429,13 +429,13 @@ used.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.note">
-<code class="descname">note</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.note" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.note" title="Permalink to this definition">¶</a></dt>
 <dd><p>Any other notes about the procedure.  E.g. the operative notes.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.focalDevice">
-<code class="descname">focalDevice</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.focalDevice" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">focalDevice</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.focalDevice" title="Permalink to this definition">¶</a></dt>
 <dd><p>A device that is implanted, removed or otherwise
 manipulated (calibration, battery replacement, fitting a prosthesis,
 attaching a wound-vac, etc.) as a focal portion of the Procedure.</p>
@@ -443,21 +443,21 @@ attaching a wound-vac, etc.) as a focal portion of the Procedure.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.usedReference">
-<code class="descname">usedReference</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.usedReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">usedReference</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.usedReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies medications, devices and any other substance
 used as part of the procedure.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure.usedCode">
-<code class="descname">usedCode</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.usedCode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">usedCode</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.usedCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies coded items that were used as part of the
 procedure.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Procedure.Procedure.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -470,28 +470,28 @@ procedure.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.Procedure.Procedure_FocalDevice">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Procedure.</code><code class="descname">Procedure_FocalDevice</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure_FocalDevice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_FocalDevice" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Procedure.</code><code class="sig-name descname">Procedure_FocalDevice</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure_FocalDevice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_FocalDevice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>An action that is or was performed on a patient. This can be a
 physical intervention like an operation, or less invasive like
 counseling or hypnotherapy.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure_FocalDevice.action">
-<code class="descname">action</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_FocalDevice.action" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">action</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_FocalDevice.action" title="Permalink to this definition">¶</a></dt>
 <dd><p>The kind of change that happened to the device during the
 procedure.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure_FocalDevice.manipulated">
-<code class="descname">manipulated</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_FocalDevice.manipulated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">manipulated</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_FocalDevice.manipulated" title="Permalink to this definition">¶</a></dt>
 <dd><p>The device that was manipulated (changed) during the
 procedure.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Procedure.Procedure_FocalDevice.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure_FocalDevice.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_FocalDevice.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure_FocalDevice.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_FocalDevice.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -504,33 +504,33 @@ procedure.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.Procedure.Procedure_Performer">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Procedure.</code><code class="descname">Procedure_Performer</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure_Performer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_Performer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Procedure.</code><code class="sig-name descname">Procedure_Performer</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure_Performer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_Performer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>An action that is or was performed on a patient. This can be a
 physical intervention like an operation, or less invasive like
 counseling or hypnotherapy.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure_Performer.role">
-<code class="descname">role</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_Performer.role" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">role</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_Performer.role" title="Permalink to this definition">¶</a></dt>
 <dd><p>For example: surgeon, anaethetist, endoscopist.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure_Performer.actor">
-<code class="descname">actor</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_Performer.actor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">actor</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_Performer.actor" title="Permalink to this definition">¶</a></dt>
 <dd><p>The practitioner who was involved in the procedure.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Procedure.Procedure_Performer.onBehalfOf">
-<code class="descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_Performer.onBehalfOf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_Performer.onBehalfOf" title="Permalink to this definition">¶</a></dt>
 <dd><p>The organization the device or practitioner was acting on
 behalf of.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Procedure.Procedure_Performer.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure_Performer.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_Performer.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Procedure.html#Procedure_Performer.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Procedure.Procedure_Performer.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

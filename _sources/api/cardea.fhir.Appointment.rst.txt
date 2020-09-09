@@ -2,6 +2,6 @@ cardea.fhir.Appointment module
 ==============================
 
 .. automodule:: cardea.fhir.Appointment
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

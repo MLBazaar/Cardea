@@ -2,6 +2,6 @@ cardea.fhir.DiagnosticReport module
 ===================================
 
 .. automodule:: cardea.fhir.DiagnosticReport
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

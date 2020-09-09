@@ -2,6 +2,6 @@ cardea.fhir.DataRequirement module
 ==================================
 
 .. automodule:: cardea.fhir.DataRequirement
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

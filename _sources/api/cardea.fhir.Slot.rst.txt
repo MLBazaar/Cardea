@@ -2,6 +2,6 @@ cardea.fhir.Slot module
 =======================
 
 .. automodule:: cardea.fhir.Slot
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

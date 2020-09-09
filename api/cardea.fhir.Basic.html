@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,7 +246,7 @@
 <span id="cardea-fhir-basic-module"></span><h1>cardea.fhir.Basic module<a class="headerlink" href="#module-cardea.fhir.Basic" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Basic.Basic">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Basic.</code><code class="descname">Basic</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Basic.html#Basic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Basic.Basic" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Basic.</code><code class="sig-name descname">Basic</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Basic.html#Basic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Basic.Basic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Basic is used for handling concepts not yet defined in FHIR,
 narrative-only resources that don’t map to an existing resource, and
@@ -254,47 +254,47 @@ custom resources not appropriate for inclusion in the FHIR
 specification.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Basic.Basic.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a Basic resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Basic.Basic.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifier assigned to the resource for business purposes,
 outside the context of FHIR.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Basic.Basic.code">
-<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the ‘type’ of resource - equivalent to the resource
 name for other resources.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Basic.Basic.subject">
-<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.subject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the patient, practitioner, device or any other
 resource that is the “focus” of this resource.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Basic.Basic.created">
-<code class="descname">created</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.created" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">created</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.created" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies when the resource was first created.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Basic.Basic.author">
-<code class="descname">author</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.author" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">author</code><a class="headerlink" href="#cardea.fhir.Basic.Basic.author" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates who was responsible for creating the resource
 instance.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Basic.Basic.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Basic.html#Basic.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Basic.Basic.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Basic.html#Basic.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Basic.Basic.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

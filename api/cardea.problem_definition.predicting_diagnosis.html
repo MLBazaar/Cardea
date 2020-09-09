@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,7 +246,7 @@
 <span id="cardea-problem-definition-predicting-diagnosis-module"></span><h1>cardea.problem_definition.predicting_diagnosis module<a class="headerlink" href="#module-cardea.problem_definition.predicting_diagnosis" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction">
-<em class="property">class </em><code class="descclassname">cardea.problem_definition.predicting_diagnosis.</code><code class="descname">DiagnosisPrediction</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.problem_definition.predicting_diagnosis.</code><code class="sig-name descname">DiagnosisPrediction</code><span class="sig-paren">(</span><em class="sig-param">d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.problem_definition.definition.html#cardea.problem_definition.definition.ProblemDefinition" title="cardea.problem_definition.definition.ProblemDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.problem_definition.definition.ProblemDefinition</span></code></a></p>
 <p>Defines the problem of diagnosis Prediction.</p>
 <p>Finding whether a patient will be diagnosed with a specifed diagnosis.</p>
@@ -259,52 +259,52 @@ the hospital again within 30 days.</p>
 </div>
 <dl class="attribute">
 <dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.target_label_column_name">
-<code class="descname">target_label_column_name</code><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.target_label_column_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">target_label_column_name</code><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.target_label_column_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The target label of the prediction problem.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.target_entity">
-<code class="descname">target_entity</code><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.target_entity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">target_entity</code><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.target_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Name of the entity containing the target label.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.cutoff_time_label">
-<code class="descname">cutoff_time_label</code><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cutoff_time_label</code><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.cutoff_time_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>The cutoff time label of the prediction problem.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.cutoff_entity">
-<code class="descname">cutoff_entity</code><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.cutoff_entity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cutoff_entity</code><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.cutoff_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Name of the entity containing the cutoff time label.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.prediction_type">
-<code class="descname">prediction_type</code><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.prediction_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">prediction_type</code><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.prediction_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The type of the machine learning prediction.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.conn">
-<code class="descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.conn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">conn</code><em class="property"> = 'period'</em><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.conn" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt>
-<code class="descname">cutoff_entity</code><em class="property"> = 'Period'</em></dt>
+<code class="sig-name descname">cutoff_entity</code><em class="property"> = 'Period'</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt>
-<code class="descname">cutoff_time_label</code><em class="property"> = 'start'</em></dt>
+<code class="sig-name descname">cutoff_time_label</code><em class="property"> = 'start'</em></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.generate_cutoff_times">
-<code class="descname">generate_cutoff_times</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">generate_cutoff_times</code><span class="sig-paren">(</span><em class="sig-param">es</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction.generate_cutoff_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.generate_cutoff_times" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates cutoff times for the predection problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -321,7 +321,7 @@ the hospital again within 30 days.</p>
 
 <dl class="method">
 <dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.generate_target_label">
-<code class="descname">generate_target_label</code><span class="sig-paren">(</span><em>es</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.generate_target_label" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">generate_target_label</code><span class="sig-paren">(</span><em class="sig-param">es</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/problem_definition/predicting_diagnosis.html#DiagnosisPrediction.generate_target_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.generate_target_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates target labels in the case of having missing label in the entityset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -338,22 +338,22 @@ the hospital again within 30 days.</p>
 
 <dl class="attribute">
 <dt>
-<code class="descname">prediction_type</code><em class="property"> = 'classification'</em></dt>
+<code class="sig-name descname">prediction_type</code><em class="property"> = 'classification'</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt>
-<code class="descname">target_entity</code><em class="property"> = 'Encounter'</em></dt>
+<code class="sig-name descname">target_entity</code><em class="property"> = 'Encounter'</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt>
-<code class="descname">target_label_column_name</code><em class="property"> = 'diagnosis'</em></dt>
+<code class="sig-name descname">target_label_column_name</code><em class="property"> = 'diagnosis'</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.updated_es">
-<code class="descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.updated_es" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updated_es</code><em class="property"> = None</em><a class="headerlink" href="#cardea.problem_definition.predicting_diagnosis.DiagnosisPrediction.updated_es" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

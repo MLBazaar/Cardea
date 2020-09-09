@@ -2,6 +2,6 @@ cardea.fhir.PlanDefinition module
 =================================
 
 .. automodule:: cardea.fhir.PlanDefinition
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

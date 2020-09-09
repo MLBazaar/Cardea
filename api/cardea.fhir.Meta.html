@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,14 +246,14 @@
 <span id="cardea-fhir-meta-module"></span><h1>cardea.fhir.Meta module<a class="headerlink" href="#module-cardea.fhir.Meta" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Meta.Meta">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Meta.</code><code class="descname">Meta</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Meta.html#Meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Meta.Meta" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Meta.</code><code class="sig-name descname">Meta</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Meta.html#Meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Meta.Meta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The metadata about a resource. This is content in the resource that is
 maintained by the infrastructure. Changes to the content may not
 always be associated with version changes to the resource.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Meta.Meta.versionId">
-<code class="descname">versionId</code><a class="headerlink" href="#cardea.fhir.Meta.Meta.versionId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">versionId</code><a class="headerlink" href="#cardea.fhir.Meta.Meta.versionId" title="Permalink to this definition">¶</a></dt>
 <dd><p>The version specific identifier, as it appears in the
 version portion of the URL. This values changes when the resource is
 created, updated, or deleted.</p>
@@ -261,14 +261,14 @@ created, updated, or deleted.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Meta.Meta.lastUpdated">
-<code class="descname">lastUpdated</code><a class="headerlink" href="#cardea.fhir.Meta.Meta.lastUpdated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lastUpdated</code><a class="headerlink" href="#cardea.fhir.Meta.Meta.lastUpdated" title="Permalink to this definition">¶</a></dt>
 <dd><p>When the resource last changed - e.g. when the version
 changed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Meta.Meta.profile">
-<code class="descname">profile</code><a class="headerlink" href="#cardea.fhir.Meta.Meta.profile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">profile</code><a class="headerlink" href="#cardea.fhir.Meta.Meta.profile" title="Permalink to this definition">¶</a></dt>
 <dd><p>A list of profiles (references to [[[StructureDefinition]]]
 resources) that this resource claims to conform to. The URL is a
 reference to [[[StructureDefinition.url]]].</p>
@@ -276,14 +276,14 @@ reference to [[[StructureDefinition.url]]].</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Meta.Meta.security">
-<code class="descname">security</code><a class="headerlink" href="#cardea.fhir.Meta.Meta.security" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">security</code><a class="headerlink" href="#cardea.fhir.Meta.Meta.security" title="Permalink to this definition">¶</a></dt>
 <dd><p>Security labels applied to this resource. These tags connect
 specific resources to the overall security policy and infrastructure.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Meta.Meta.tag">
-<code class="descname">tag</code><a class="headerlink" href="#cardea.fhir.Meta.Meta.tag" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">tag</code><a class="headerlink" href="#cardea.fhir.Meta.Meta.tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tags applied to this resource. Tags are intended to be used to
 identify and relate resources to process and workflow, and
 applications are not required to consider the tags when interpreting
@@ -292,7 +292,7 @@ the meaning of a resource.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.Meta.Meta.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Meta.html#Meta.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Meta.Meta.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Meta.html#Meta.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Meta.Meta.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

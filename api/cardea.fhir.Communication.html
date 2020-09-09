@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,20 +246,20 @@
 <span id="cardea-fhir-communication-module"></span><h1>cardea.fhir.Communication module<a class="headerlink" href="#module-cardea.fhir.Communication" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Communication.Communication">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Communication.</code><code class="descname">Communication</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Communication.html#Communication"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Communication.Communication" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Communication.</code><code class="sig-name descname">Communication</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Communication.html#Communication"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Communication.Communication" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>An occurrence of information being transmitted; e.g. an alert that was
 sent to a responsible provider, a public health agency was notified
 about a reportable condition.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a Communication resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifiers associated with this Communication that are
 defined by business processes and/ or used to refer to it when a
 direct URL reference to the resource itself is not appropriate (e.g.
@@ -268,68 +268,68 @@ in CDA documents, or in written / printed documentation).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.definition">
-<code class="descname">definition</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.definition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.definition" title="Permalink to this definition">¶</a></dt>
 <dd><p>A protocol, guideline, or other definition that was
 adhered to in whole or in part by this communication event.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.basedOn">
-<code class="descname">basedOn</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.basedOn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">basedOn</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.basedOn" title="Permalink to this definition">¶</a></dt>
 <dd><p>An order, proposal or plan fulfilled in whole or in part by
 this Communication.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.partOf">
-<code class="descname">partOf</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.partOf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">partOf</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.partOf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Part of this action.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The status of the transmission.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.notDone">
-<code class="descname">notDone</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.notDone" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">notDone</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.notDone" title="Permalink to this definition">¶</a></dt>
 <dd><p>If true, indicates that the described communication event did
 not actually occur.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.notDoneReason">
-<code class="descname">notDoneReason</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.notDoneReason" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">notDoneReason</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.notDoneReason" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes why the communication event did not occur in
 coded and/or textual form.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.category">
-<code class="descname">category</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.category" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.category" title="Permalink to this definition">¶</a></dt>
 <dd><p>The type of message conveyed such as alert, notification,
 reminder, instruction, etc.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.medium">
-<code class="descname">medium</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.medium" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">medium</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.medium" title="Permalink to this definition">¶</a></dt>
 <dd><p>A channel that was used for this communication (e.g. email,
 fax).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.subject">
-<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.subject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>The patient or group that was the focus of this
 communication.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.recipient">
-<code class="descname">recipient</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.recipient" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">recipient</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.recipient" title="Permalink to this definition">¶</a></dt>
 <dd><p>The entity (e.g. person, organization, clinical information
 system, or device) which was the target of the communication. If
 receipts need to be tracked by individual, a separate resource
@@ -341,66 +341,66 @@ confirmed received by a particular time).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.topic">
-<code class="descname">topic</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.topic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">topic</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.topic" title="Permalink to this definition">¶</a></dt>
 <dd><p>The resources which were responsible for or related to
 producing this communication.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.context">
-<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.context" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.context" title="Permalink to this definition">¶</a></dt>
 <dd><p>The encounter within which the communication was sent.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.sent">
-<code class="descname">sent</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.sent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sent</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.sent" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time when this communication was sent.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.received">
-<code class="descname">received</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.received" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">received</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.received" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time when this communication arrived at the destination.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.sender">
-<code class="descname">sender</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.sender" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sender</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.sender" title="Permalink to this definition">¶</a></dt>
 <dd><p>The entity (e.g. person, organization, clinical information
 system, or device) which was the source of the communication.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.reasonCode">
-<code class="descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.reasonCode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.reasonCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>The reason or justification for the communication.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.reasonReference">
-<code class="descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.reasonReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.reasonReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates another resource whose existence justifies
 this communication.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.payload">
-<code class="descname">payload</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.payload" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">payload</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.payload" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text, attachment(s), or resource(s) that was communicated to
 the recipient.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication.note">
-<code class="descname">note</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.note" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.note" title="Permalink to this definition">¶</a></dt>
 <dd><p>Additional notes or commentary about the communication by the
 sender, receiver or other interested parties.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Communication.Communication.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Communication.html#Communication.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Communication.Communication.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Communication.html#Communication.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Communication.Communication.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -413,35 +413,35 @@ sender, receiver or other interested parties.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.Communication.Communication_Payload">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Communication.</code><code class="descname">Communication_Payload</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Communication.html#Communication_Payload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Communication.</code><code class="sig-name descname">Communication_Payload</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Communication.html#Communication_Payload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>An occurrence of information being transmitted; e.g. an alert that was
 sent to a responsible provider, a public health agency was notified
 about a reportable condition.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication_Payload.contentString">
-<code class="descname">contentString</code><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.contentString" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">contentString</code><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.contentString" title="Permalink to this definition">¶</a></dt>
 <dd><p>A communicated content (or for multi-part
 communications, one portion of the communication).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication_Payload.contentAttachment">
-<code class="descname">contentAttachment</code><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.contentAttachment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">contentAttachment</code><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.contentAttachment" title="Permalink to this definition">¶</a></dt>
 <dd><p>A communicated content (or for multi-part
 communications, one portion of the communication).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Communication.Communication_Payload.contentReference">
-<code class="descname">contentReference</code><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.contentReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">contentReference</code><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.contentReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>A communicated content (or for multi-part
 communications, one portion of the communication).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Communication.Communication_Payload.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Communication.html#Communication_Payload.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Communication.html#Communication_Payload.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

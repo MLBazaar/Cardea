@@ -2,6 +2,6 @@ cardea.fhir.Linkage module
 ==========================
 
 .. automodule:: cardea.fhir.Linkage
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

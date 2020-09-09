@@ -2,6 +2,6 @@ cardea.fhir.Library module
 ==========================
 
 .. automodule:: cardea.fhir.Library
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

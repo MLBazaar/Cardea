@@ -2,6 +2,6 @@ cardea.fhir.ContactDetail module
 ================================
 
 .. automodule:: cardea.fhir.ContactDetail
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

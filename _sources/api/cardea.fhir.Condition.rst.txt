@@ -2,6 +2,6 @@ cardea.fhir.Condition module
 ============================
 
 .. automodule:: cardea.fhir.Condition
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

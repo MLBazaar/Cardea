@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,24 +246,24 @@
 <span id="cardea-fhir-task-module"></span><h1>cardea.fhir.Task module<a class="headerlink" href="#module-cardea.fhir.Task" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Task.Task">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Task.</code><code class="descname">Task</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Task.</code><code class="sig-name descname">Task</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A task to be performed.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Task.Task.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Task.Task.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a Task resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Task.Task.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Task.Task.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>The business identifier for this task.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.definitionUri">
-<code class="descname">definitionUri</code><a class="headerlink" href="#cardea.fhir.Task.Task.definitionUri" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">definitionUri</code><a class="headerlink" href="#cardea.fhir.Task.Task.definitionUri" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to a formal or informal definition of the
 task.  For example, a protocol, a step within a defined workflow
 definition, etc.</p>
@@ -271,7 +271,7 @@ definition, etc.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.definitionReference">
-<code class="descname">definitionReference</code><a class="headerlink" href="#cardea.fhir.Task.Task.definitionReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">definitionReference</code><a class="headerlink" href="#cardea.fhir.Task.Task.definitionReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to a formal or informal definition of
 the task.  For example, a protocol, a step within a defined workflow
 definition, etc.</p>
@@ -279,7 +279,7 @@ definition, etc.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.basedOn">
-<code class="descname">basedOn</code><a class="headerlink" href="#cardea.fhir.Task.Task.basedOn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">basedOn</code><a class="headerlink" href="#cardea.fhir.Task.Task.basedOn" title="Permalink to this definition">¶</a></dt>
 <dd><p>BasedOn refers to a higher-level authorization that triggered
 the creation of the task.  It references a “request” resource such as
 a ProcedureRequest, MedicationRequest, ProcedureRequest, CarePlan,
@@ -292,40 +292,40 @@ patient.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.groupIdentifier">
-<code class="descname">groupIdentifier</code><a class="headerlink" href="#cardea.fhir.Task.Task.groupIdentifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">groupIdentifier</code><a class="headerlink" href="#cardea.fhir.Task.Task.groupIdentifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>An identifier that links together multiple tasks and
 other requests that were created in the same context.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.partOf">
-<code class="descname">partOf</code><a class="headerlink" href="#cardea.fhir.Task.Task.partOf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">partOf</code><a class="headerlink" href="#cardea.fhir.Task.Task.partOf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Task that this particular task is part of.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.Task.Task.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Task.Task.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The current status of the task.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.statusReason">
-<code class="descname">statusReason</code><a class="headerlink" href="#cardea.fhir.Task.Task.statusReason" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">statusReason</code><a class="headerlink" href="#cardea.fhir.Task.Task.statusReason" title="Permalink to this definition">¶</a></dt>
 <dd><p>An explanation as to why this task is held, failed, was
 refused, etc.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.businessStatus">
-<code class="descname">businessStatus</code><a class="headerlink" href="#cardea.fhir.Task.Task.businessStatus" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">businessStatus</code><a class="headerlink" href="#cardea.fhir.Task.Task.businessStatus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Contains business-specific nuances of the business
 state.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.intent">
-<code class="descname">intent</code><a class="headerlink" href="#cardea.fhir.Task.Task.intent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">intent</code><a class="headerlink" href="#cardea.fhir.Task.Task.intent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the “level” of actionability associated with the
 Task.  I.e. Is this a proposed task, a planned task, an actionable
 task, etc.</p>
@@ -333,48 +333,48 @@ task, etc.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.priority">
-<code class="descname">priority</code><a class="headerlink" href="#cardea.fhir.Task.Task.priority" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">priority</code><a class="headerlink" href="#cardea.fhir.Task.Task.priority" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates how quickly the Task should be addressed with
 respect to other requests.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.code">
-<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.Task.Task.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Task.Task.code" title="Permalink to this definition">¶</a></dt>
 <dd><p>A name or code (or both) briefly describing what the task
 involves.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.description">
-<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.Task.Task.description" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.Task.Task.description" title="Permalink to this definition">¶</a></dt>
 <dd><p>A free-text description of what is to be performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.focus">
-<code class="descname">focus</code><a class="headerlink" href="#cardea.fhir.Task.Task.focus" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">focus</code><a class="headerlink" href="#cardea.fhir.Task.Task.focus" title="Permalink to this definition">¶</a></dt>
 <dd><p>The request being actioned or the resource being manipulated by
 this task.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.for">
-<code class="descname">for</code><a class="headerlink" href="#cardea.fhir.Task.Task.for" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">for</code><a class="headerlink" href="#cardea.fhir.Task.Task.for" title="Permalink to this definition">¶</a></dt>
 <dd><p>The entity who benefits from the performance of the service
 specified in the task (e.g., the patient).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.context">
-<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.Task.Task.context" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.Task.Task.context" title="Permalink to this definition">¶</a></dt>
 <dd><p>The healthcare event  (e.g. a patient and healthcare provider
 interaction) during which this task was created.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.executionPeriod">
-<code class="descname">executionPeriod</code><a class="headerlink" href="#cardea.fhir.Task.Task.executionPeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">executionPeriod</code><a class="headerlink" href="#cardea.fhir.Task.Task.executionPeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the time action was first taken against
 the task (start) and/or the time final action was taken against the
 task prior to marking it as completed (end).</p>
@@ -382,51 +382,51 @@ task prior to marking it as completed (end).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.authoredOn">
-<code class="descname">authoredOn</code><a class="headerlink" href="#cardea.fhir.Task.Task.authoredOn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">authoredOn</code><a class="headerlink" href="#cardea.fhir.Task.Task.authoredOn" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date and time this task was created.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.lastModified">
-<code class="descname">lastModified</code><a class="headerlink" href="#cardea.fhir.Task.Task.lastModified" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lastModified</code><a class="headerlink" href="#cardea.fhir.Task.Task.lastModified" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date and time of last modification to this task.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.requester">
-<code class="descname">requester</code><a class="headerlink" href="#cardea.fhir.Task.Task.requester" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">requester</code><a class="headerlink" href="#cardea.fhir.Task.Task.requester" title="Permalink to this definition">¶</a></dt>
 <dd><p>The creator of the task.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.performerType">
-<code class="descname">performerType</code><a class="headerlink" href="#cardea.fhir.Task.Task.performerType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">performerType</code><a class="headerlink" href="#cardea.fhir.Task.Task.performerType" title="Permalink to this definition">¶</a></dt>
 <dd><p>The type of participant that can execute the task.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.owner">
-<code class="descname">owner</code><a class="headerlink" href="#cardea.fhir.Task.Task.owner" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">owner</code><a class="headerlink" href="#cardea.fhir.Task.Task.owner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Individual organization or Device currently responsible for
 task execution.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.reason">
-<code class="descname">reason</code><a class="headerlink" href="#cardea.fhir.Task.Task.reason" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reason</code><a class="headerlink" href="#cardea.fhir.Task.Task.reason" title="Permalink to this definition">¶</a></dt>
 <dd><p>A description or code indicating why this task needs to be
 performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.note">
-<code class="descname">note</code><a class="headerlink" href="#cardea.fhir.Task.Task.note" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.Task.Task.note" title="Permalink to this definition">¶</a></dt>
 <dd><p>Free-text information captured about the task as it progresses.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.relevantHistory">
-<code class="descname">relevantHistory</code><a class="headerlink" href="#cardea.fhir.Task.Task.relevantHistory" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">relevantHistory</code><a class="headerlink" href="#cardea.fhir.Task.Task.relevantHistory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Links to Provenance records for past versions of this
 Task that identify key state transitions or updates that are likely to
 be relevant to a user looking at the current version of the task.</p>
@@ -434,7 +434,7 @@ be relevant to a user looking at the current version of the task.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.restriction">
-<code class="descname">restriction</code><a class="headerlink" href="#cardea.fhir.Task.Task.restriction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">restriction</code><a class="headerlink" href="#cardea.fhir.Task.Task.restriction" title="Permalink to this definition">¶</a></dt>
 <dd><p>If the Task.focus is a request resource and the task is
 seeking fulfillment (i.e is asking for the request to be actioned),
 this element identifies any limitations on what parts of the
@@ -443,20 +443,20 @@ referenced request should be actioned.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.input">
-<code class="descname">input</code><a class="headerlink" href="#cardea.fhir.Task.Task.input" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">input</code><a class="headerlink" href="#cardea.fhir.Task.Task.input" title="Permalink to this definition">¶</a></dt>
 <dd><p>Additional information that may be needed in the execution of
 the task.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task.output">
-<code class="descname">output</code><a class="headerlink" href="#cardea.fhir.Task.Task.output" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">output</code><a class="headerlink" href="#cardea.fhir.Task.Task.output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Outputs produced by the Task.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Task.Task.assert_type">
-<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task.assert_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task.assert_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks class values follow set possible enumerations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -468,7 +468,7 @@ the task.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.Task.Task.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -481,344 +481,344 @@ the task.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.Task.Task_Input">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Task.</code><code class="descname">Task_Input</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Input" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Task.</code><code class="sig-name descname">Task_Input</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Input" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A task to be performed.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.type">
-<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.type" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code or description indicating how the input is intended to be
 used as part of the task execution.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueBoolean">
-<code class="descname">valueBoolean</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueBoolean" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueBoolean</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueBoolean" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueInteger">
-<code class="descname">valueInteger</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueInteger" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueInteger</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueInteger" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueDecimal">
-<code class="descname">valueDecimal</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDecimal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDecimal</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDecimal" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueBase64Binary">
-<code class="descname">valueBase64Binary</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueBase64Binary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueBase64Binary</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueBase64Binary" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueInstant">
-<code class="descname">valueInstant</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueInstant" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueInstant</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueInstant" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueString">
-<code class="descname">valueString</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueString" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueString</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueString" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueUri">
-<code class="descname">valueUri</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUri" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueUri</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUri" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueDate">
-<code class="descname">valueDate</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDate</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDate" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueDateTime">
-<code class="descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueTime">
-<code class="descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueCode">
-<code class="descname">valueCode</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueCode</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueOid">
-<code class="descname">valueOid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueOid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueOid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueOid" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueUuid">
-<code class="descname">valueUuid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUuid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueUuid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUuid" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueId">
-<code class="descname">valueId</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueId</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueId" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueUnsignedInt">
-<code class="descname">valueUnsignedInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUnsignedInt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueUnsignedInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUnsignedInt" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valuePositiveInt">
-<code class="descname">valuePositiveInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valuePositiveInt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valuePositiveInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valuePositiveInt" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueMarkdown">
-<code class="descname">valueMarkdown</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueMarkdown" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueMarkdown</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueMarkdown" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueElement">
-<code class="descname">valueElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueElement" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueExtension">
-<code class="descname">valueExtension</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueExtension" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueExtension</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueExtension" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueBackboneElement">
-<code class="descname">valueBackboneElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueBackboneElement" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueBackboneElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueBackboneElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueNarrative">
-<code class="descname">valueNarrative</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueNarrative" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueNarrative</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueNarrative" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueAnnotation">
-<code class="descname">valueAnnotation</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAnnotation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueAnnotation</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAnnotation" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueAttachment">
-<code class="descname">valueAttachment</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAttachment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueAttachment</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAttachment" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueIdentifier">
-<code class="descname">valueIdentifier</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueIdentifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueIdentifier</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueIdentifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueCodeableConcept">
-<code class="descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueCoding">
-<code class="descname">valueCoding</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCoding" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueCoding</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCoding" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueQuantity">
-<code class="descname">valueQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueQuantity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueQuantity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueDuration">
-<code class="descname">valueDuration</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDuration" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDuration</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDuration" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueSimpleQuantity">
-<code class="descname">valueSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueSimpleQuantity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueSimpleQuantity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueDistance">
-<code class="descname">valueDistance</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDistance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDistance</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDistance" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueCount">
-<code class="descname">valueCount</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCount" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueCount</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCount" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueMoney">
-<code class="descname">valueMoney</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueMoney" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueMoney</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueMoney" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueAge">
-<code class="descname">valueAge</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueAge</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAge" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueRange">
-<code class="descname">valueRange</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueRange" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueRange</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valuePeriod">
-<code class="descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valuePeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valuePeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueRatio">
-<code class="descname">valueRatio</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueRatio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueRatio</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueRatio" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueReference">
-<code class="descname">valueReference</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueReference</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueSampledData">
-<code class="descname">valueSampledData</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueSampledData" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueSampledData</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueSampledData" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueSignature">
-<code class="descname">valueSignature</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueSignature" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueSignature</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueSignature" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueHumanName">
-<code class="descname">valueHumanName</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueHumanName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueHumanName</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueHumanName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueAddress">
-<code class="descname">valueAddress</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAddress" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueAddress</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAddress" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueContactPoint">
-<code class="descname">valueContactPoint</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueContactPoint" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueContactPoint</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueContactPoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueTiming">
-<code class="descname">valueTiming</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueTiming" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueTiming</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueTiming" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueMeta">
-<code class="descname">valueMeta</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueMeta" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueMeta</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueMeta" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueElementDefinition">
-<code class="descname">valueElementDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueElementDefinition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueElementDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueElementDefinition" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueContactDetail">
-<code class="descname">valueContactDetail</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueContactDetail" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueContactDetail</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueContactDetail" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueContributor">
-<code class="descname">valueContributor</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueContributor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueContributor</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueContributor" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueDosage">
-<code class="descname">valueDosage</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDosage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDosage</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDosage" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueRelatedArtifact">
-<code class="descname">valueRelatedArtifact</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueRelatedArtifact" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueRelatedArtifact</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueRelatedArtifact" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueUsageContext">
-<code class="descname">valueUsageContext</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUsageContext" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueUsageContext</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUsageContext" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueDataRequirement">
-<code class="descname">valueDataRequirement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDataRequirement" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDataRequirement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDataRequirement" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueParameterDefinition">
-<code class="descname">valueParameterDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueParameterDefinition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueParameterDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueParameterDefinition" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Input.valueTriggerDefinition">
-<code class="descname">valueTriggerDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueTriggerDefinition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueTriggerDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueTriggerDefinition" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the input parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Task.Task_Input.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Input.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Input.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Input.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Input.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -831,344 +831,344 @@ type.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.Task.Task_Output">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Task.</code><code class="descname">Task_Output</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Output" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Task.</code><code class="sig-name descname">Task_Output</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A task to be performed.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.type">
-<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the Output parameter.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueBoolean">
-<code class="descname">valueBoolean</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueBoolean" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueBoolean</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueBoolean" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueInteger">
-<code class="descname">valueInteger</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueInteger" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueInteger</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueInteger" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueDecimal">
-<code class="descname">valueDecimal</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDecimal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDecimal</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDecimal" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueBase64Binary">
-<code class="descname">valueBase64Binary</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueBase64Binary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueBase64Binary</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueBase64Binary" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueInstant">
-<code class="descname">valueInstant</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueInstant" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueInstant</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueInstant" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueString">
-<code class="descname">valueString</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueString" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueString</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueString" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueUri">
-<code class="descname">valueUri</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUri" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueUri</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUri" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueDate">
-<code class="descname">valueDate</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDate</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDate" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueDateTime">
-<code class="descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueTime">
-<code class="descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueCode">
-<code class="descname">valueCode</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueCode</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueOid">
-<code class="descname">valueOid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueOid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueOid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueOid" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueUuid">
-<code class="descname">valueUuid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUuid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueUuid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUuid" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueId">
-<code class="descname">valueId</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueId</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueId" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueUnsignedInt">
-<code class="descname">valueUnsignedInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUnsignedInt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueUnsignedInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUnsignedInt" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valuePositiveInt">
-<code class="descname">valuePositiveInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valuePositiveInt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valuePositiveInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valuePositiveInt" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueMarkdown">
-<code class="descname">valueMarkdown</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueMarkdown" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueMarkdown</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueMarkdown" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueElement">
-<code class="descname">valueElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueElement" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueExtension">
-<code class="descname">valueExtension</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueExtension" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueExtension</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueExtension" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueBackboneElement">
-<code class="descname">valueBackboneElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueBackboneElement" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueBackboneElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueBackboneElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueNarrative">
-<code class="descname">valueNarrative</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueNarrative" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueNarrative</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueNarrative" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueAnnotation">
-<code class="descname">valueAnnotation</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAnnotation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueAnnotation</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAnnotation" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueAttachment">
-<code class="descname">valueAttachment</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAttachment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueAttachment</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAttachment" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueIdentifier">
-<code class="descname">valueIdentifier</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueIdentifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueIdentifier</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueIdentifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueCodeableConcept">
-<code class="descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueCoding">
-<code class="descname">valueCoding</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCoding" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueCoding</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCoding" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueQuantity">
-<code class="descname">valueQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueQuantity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueQuantity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueDuration">
-<code class="descname">valueDuration</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDuration" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDuration</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDuration" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueSimpleQuantity">
-<code class="descname">valueSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueSimpleQuantity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueSimpleQuantity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueDistance">
-<code class="descname">valueDistance</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDistance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDistance</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDistance" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueCount">
-<code class="descname">valueCount</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCount" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueCount</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCount" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueMoney">
-<code class="descname">valueMoney</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueMoney" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueMoney</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueMoney" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueAge">
-<code class="descname">valueAge</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueAge</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAge" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueRange">
-<code class="descname">valueRange</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueRange" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueRange</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valuePeriod">
-<code class="descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valuePeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valuePeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueRatio">
-<code class="descname">valueRatio</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueRatio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueRatio</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueRatio" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueReference">
-<code class="descname">valueReference</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueReference</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueSampledData">
-<code class="descname">valueSampledData</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueSampledData" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueSampledData</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueSampledData" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueSignature">
-<code class="descname">valueSignature</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueSignature" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueSignature</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueSignature" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueHumanName">
-<code class="descname">valueHumanName</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueHumanName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueHumanName</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueHumanName" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueAddress">
-<code class="descname">valueAddress</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAddress" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueAddress</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAddress" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueContactPoint">
-<code class="descname">valueContactPoint</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueContactPoint" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueContactPoint</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueContactPoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueTiming">
-<code class="descname">valueTiming</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueTiming" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueTiming</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueTiming" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueMeta">
-<code class="descname">valueMeta</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueMeta" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueMeta</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueMeta" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueElementDefinition">
-<code class="descname">valueElementDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueElementDefinition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueElementDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueElementDefinition" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueContactDetail">
-<code class="descname">valueContactDetail</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueContactDetail" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueContactDetail</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueContactDetail" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueContributor">
-<code class="descname">valueContributor</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueContributor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueContributor</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueContributor" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueDosage">
-<code class="descname">valueDosage</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDosage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDosage</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDosage" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueRelatedArtifact">
-<code class="descname">valueRelatedArtifact</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueRelatedArtifact" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueRelatedArtifact</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueRelatedArtifact" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueUsageContext">
-<code class="descname">valueUsageContext</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUsageContext" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueUsageContext</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUsageContext" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueDataRequirement">
-<code class="descname">valueDataRequirement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDataRequirement" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDataRequirement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDataRequirement" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueParameterDefinition">
-<code class="descname">valueParameterDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueParameterDefinition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueParameterDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueParameterDefinition" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Output.valueTriggerDefinition">
-<code class="descname">valueTriggerDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueTriggerDefinition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueTriggerDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueTriggerDefinition" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the Output parameter as a basic
 type.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Task.Task_Output.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Output.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Output.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Output.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Output.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1181,25 +1181,25 @@ type.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.Task.Task_Requester">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Task.</code><code class="descname">Task_Requester</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Requester"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Requester" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Task.</code><code class="sig-name descname">Task_Requester</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Requester"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Requester" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A task to be performed.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Requester.agent">
-<code class="descname">agent</code><a class="headerlink" href="#cardea.fhir.Task.Task_Requester.agent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">agent</code><a class="headerlink" href="#cardea.fhir.Task.Task_Requester.agent" title="Permalink to this definition">¶</a></dt>
 <dd><p>The device, practitioner, etc. who initiated the task.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Requester.onBehalfOf">
-<code class="descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.Task.Task_Requester.onBehalfOf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.Task.Task_Requester.onBehalfOf" title="Permalink to this definition">¶</a></dt>
 <dd><p>The organization the device or practitioner was acting on
 behalf of when they initiated the task.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Task.Task_Requester.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Requester.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Requester.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Requester.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Requester.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1212,32 +1212,32 @@ behalf of when they initiated the task.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.Task.Task_Restriction">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Task.</code><code class="descname">Task_Restriction</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Restriction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Task.</code><code class="sig-name descname">Task_Restriction</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Restriction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A task to be performed.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Restriction.repetitions">
-<code class="descname">repetitions</code><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.repetitions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">repetitions</code><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.repetitions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the number of times the requested action should
 occur.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Restriction.period">
-<code class="descname">period</code><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.period" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.period" title="Permalink to this definition">¶</a></dt>
 <dd><p>Over what time-period is fulfillment sought.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Task.Task_Restriction.recipient">
-<code class="descname">recipient</code><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.recipient" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">recipient</code><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.recipient" title="Permalink to this definition">¶</a></dt>
 <dd><p>For requests that are targeted to more than on potential
 recipient/target, for whom is fulfillment sought?</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Task.Task_Restriction.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Restriction.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Restriction.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

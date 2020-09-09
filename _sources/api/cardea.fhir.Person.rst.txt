@@ -2,6 +2,6 @@ cardea.fhir.Person module
 =========================
 
 .. automodule:: cardea.fhir.Person
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

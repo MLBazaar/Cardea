@@ -2,6 +2,6 @@ cardea.fhir.ConceptMap module
 =============================
 
 .. automodule:: cardea.fhir.ConceptMap
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -2,6 +2,6 @@ cardea.fhir.List module
 =======================
 
 .. automodule:: cardea.fhir.List
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

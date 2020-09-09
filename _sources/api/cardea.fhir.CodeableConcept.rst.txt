@@ -2,6 +2,6 @@ cardea.fhir.CodeableConcept module
 ==================================
 
 .. automodule:: cardea.fhir.CodeableConcept
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

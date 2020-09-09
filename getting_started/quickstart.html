@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -275,16 +275,17 @@ following command:</p>
 <span class="go">Built 13 features</span>
 
 <span class="go">Elapsed: 00:00 | Remaining: ? | Progress:   0%|          | Calculated: 0/10 chunks</span>
-<span class="go">Elapsed: 00:05 | Remaining: 00:52 | Progress:  10%|#         | Calculated: 1/10 chunks</span>
-<span class="go">Elapsed: 00:12 | Remaining: 00:48 | Progress:  20%|##        | Calculated: 2/10 chunks</span>
-<span class="go">Elapsed: 00:19 | Remaining: 00:43 | Progress:  30%|###       | Calculated: 3/10 chunks</span>
-<span class="go">Elapsed: 00:25 | Remaining: 00:38 | Progress:  40%|####      | Calculated: 4/10 chunks</span>
-<span class="go">Elapsed: 00:32 | Remaining: 00:32 | Progress:  50%|#####     | Calculated: 5/10 chunks</span>
-<span class="go">Elapsed: 00:38 | Remaining: 00:26 | Progress:  60%|######    | Calculated: 6/10 chunks</span>
-<span class="go">Elapsed: 00:45 | Remaining: 00:19 | Progress:  70%|#######   | Calculated: 7/10 chunks</span>
-<span class="go">Elapsed: 00:52 | Remaining: 00:13 | Progress:  80%|########  | Calculated: 8/10 chunks</span>
-<span class="go">Elapsed: 00:59 | Remaining: 00:06 | Progress:  90%|######### | Calculated: 9/10 chunks</span>
-<span class="go">Elapsed: 01:06 | Remaining: 00:00 | Progress: 100%|##########| Calculated: 10/10 chunks</span>
+<span class="go">Elapsed: 00:05 | Remaining: 00:45 | Progress:  10%|#         | Calculated: 1/10 chunks</span>
+<span class="go">Elapsed: 00:10 | Remaining: 00:42 | Progress:  20%|##        | Calculated: 2/10 chunks</span>
+<span class="go">Elapsed: 00:16 | Remaining: 00:38 | Progress:  30%|###       | Calculated: 3/10 chunks</span>
+<span class="go">Elapsed: 00:22 | Remaining: 00:33 | Progress:  40%|####      | Calculated: 4/10 chunks</span>
+<span class="go">Elapsed: 00:28 | Remaining: 00:28 | Progress:  50%|#####     | Calculated: 5/10 chunks</span>
+<span class="go">Elapsed: 00:34 | Remaining: 00:22 | Progress:  60%|######    | Calculated: 6/10 chunks</span>
+<span class="go">Elapsed: 00:40 | Remaining: 00:17 | Progress:  70%|#######   | Calculated: 7/10 chunks</span>
+<span class="go">Elapsed: 00:45 | Remaining: 00:11 | Progress:  80%|########  | Calculated: 8/10 chunks</span>
+<span class="go">Elapsed: 00:51 | Remaining: 00:05 | Progress:  90%|######### | Calculated: 9/10 chunks</span>
+<span class="go">Elapsed: 00:57 | Remaining: 00:00 | Progress: 100%|##########| Calculated: 10/10 chunks</span>
+<span class="go">Elapsed: 00:57 | Remaining: 00:00 | Progress: 100%|##########| Calculated: 10/10 chunks</span>
 
 <span class="gp">In [7]: </span><span class="n">feature_matrix</span> <span class="o">=</span> <span class="n">feature_matrix</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># shuffle</span>
 
@@ -316,90 +317,90 @@ following command:</p>
 <span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">primitives</span><span class="o">=</span><span class="n">pipeline</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="p">)</span>
 
-<span class="nn">~/build/D3-AI/Cardea/cardea/cardea.py</span> in <span class="ni">execute_model</span><span class="nt">(self, feature_matrix, target, primitives, optimize, hyperparameters)</span>
+<span class="nn">~/build/DAI-Lab/Cardea/cardea/cardea.py</span> in <span class="ni">execute_model</span><span class="nt">(self, feature_matrix, target, primitives, optimize, hyperparameters)</span>
 <span class="g g-Whitespace">    </span><span class="mi">184</span>             <span class="n">problem_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chosen_problem</span><span class="o">.</span><span class="n">prediction_type</span><span class="p">,</span>
 <span class="g g-Whitespace">    </span><span class="mi">185</span>             <span class="n">optimize</span><span class="o">=</span><span class="n">optimize</span><span class="p">,</span>
 <span class="ne">--&gt; </span><span class="mi">186</span>             <span class="n">hyperparameters</span><span class="o">=</span><span class="n">hyperparameters</span>
 <span class="g g-Whitespace">    </span><span class="mi">187</span>         <span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">188</span> 
 
-<span class="nn">~/build/D3-AI/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">execute_pipeline</span><span class="nt">(self, data_frame, target, primitives_list, problem_type, optimize, max_evals, scoring, minimize_cost, hyperparameters)</span>
-<span class="g g-Whitespace">    </span><span class="mi">396</span>             <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span>                 <span class="n">list_of_executed_pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">398</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">search_all_possible_primitives</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span> 
-<span class="g g-Whitespace">    </span><span class="mi">400</span>                 <span class="k">for</span> <span class="n">fold</span> <span class="ow">in</span> <span class="n">list_of_executed_pipelines</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+<span class="nn">~/build/DAI-Lab/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">execute_pipeline</span><span class="nt">(self, data_frame, target, primitives_list, problem_type, optimize, max_evals, scoring, minimize_cost, hyperparameters)</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>             <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span>                 <span class="n">list_of_executed_pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">400</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">search_all_possible_primitives</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span> 
+<span class="g g-Whitespace">    </span><span class="mi">402</span>                 <span class="k">for</span> <span class="n">fold</span> <span class="ow">in</span> <span class="n">list_of_executed_pipelines</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
 
-<span class="nn">~/build/D3-AI/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">search_all_possible_primitives</span><span class="nt">(self, primitives, hyperparameters)</span>
-<span class="g g-Whitespace">    </span><span class="mi">144</span>         <span class="n">pipeline_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="n">pipeline_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">146</span>             <span class="bp">self</span><span class="o">.</span><span class="n">create_kfold</span><span class="p">(</span><span class="n">primitives</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">147</span> 
-<span class="g g-Whitespace">    </span><span class="mi">148</span>         <span class="k">return</span> <span class="n">pipeline_list</span>
+<span class="nn">~/build/DAI-Lab/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">search_all_possible_primitives</span><span class="nt">(self, primitives, hyperparameters)</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>         <span class="n">pipeline_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>         <span class="n">pipeline_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">148</span>             <span class="bp">self</span><span class="o">.</span><span class="n">create_kfold</span><span class="p">(</span><span class="n">primitives</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span> 
+<span class="g g-Whitespace">    </span><span class="mi">150</span>         <span class="k">return</span> <span class="n">pipeline_list</span>
 
-<span class="nn">~/build/D3-AI/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">create_kfold</span><span class="nt">(self, primitives, hyperparameters)</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span>                 <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">181</span>                 <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">(</span><span class="n">primitives</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span> 
-<span class="g g-Whitespace">    </span><span class="mi">183</span>             <span class="c1"># Append the primitive name.</span>
+<span class="nn">~/build/DAI-Lab/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">create_kfold</span><span class="nt">(self, primitives, hyperparameters)</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span>                 <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span>             <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">183</span>                 <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">(</span><span class="n">primitives</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span> 
+<span class="g g-Whitespace">    </span><span class="mi">185</span>             <span class="c1"># Append the primitive name.</span>
 
-<span class="nn">~/build/D3-AI/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">create_pipeline</span><span class="nt">(self, primitives, hyperparameters)</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span>         <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span><span class="sd"> </span>
-<span class="ne">--&gt; </span><span class="mi">105</span><span class="sd">         self.primitive = self.check_path(primitives)</span>
+<span class="nn">~/build/DAI-Lab/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">create_pipeline</span><span class="nt">(self, primitives, hyperparameters)</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="sd">&quot;&quot;&quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">106</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span><span class="sd">         if hyperparameters is not None:</span>
+<span class="ne">--&gt; </span><span class="mi">107</span><span class="sd">         self.primitive = self.check_path(primitives)</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span><span class="sd">         if hyperparameters is not None:</span>
 
-<span class="nn">~/build/D3-AI/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">check_path</span><span class="nt">(self, primitives)</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span><span class="sd">         &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span>         <span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="ne">---&gt; </span><span class="mi">55</span>         <span class="n">mypath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_directory</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span> 
-<span class="g g-Whitespace">     </span><span class="mi">57</span>         <span class="k">for</span> <span class="n">primitive</span> <span class="ow">in</span> <span class="n">primitives</span><span class="p">:</span>
+<span class="nn">~/build/DAI-Lab/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">check_path</span><span class="nt">(self, primitives)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span>         <span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">---&gt; </span><span class="mi">57</span>         <span class="n">mypath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_directory</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span> 
+<span class="g g-Whitespace">     </span><span class="mi">59</span>         <span class="k">for</span> <span class="n">primitive</span> <span class="ow">in</span> <span class="n">primitives</span><span class="p">:</span>
 
-<span class="nn">~/build/D3-AI/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">get_directory</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>             <span class="n">The</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">MLplrimitive</span> <span class="n">directory</span><span class="o">.</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">42</span><span class="s2">         mypath = mlblocks.get_primitives_paths()[-1]</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span><span class="s2">         return mypath</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span><span class="s2"> </span>
+<span class="nn">~/build/DAI-Lab/Cardea/cardea/modeling/modeler.py</span> in <span class="ni">get_directory</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>             <span class="n">The</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">MLplrimitive</span> <span class="n">directory</span><span class="o">.</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">44</span><span class="s2">         mypath = mlblocks.get_primitives_paths()[-1]</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span><span class="s2">         return mypath</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span><span class="s2"> </span>
 
-<span class="nn">~/build/D3-AI/Cardea/.tox/docs/lib/python3.6/site-packages/mlblocks/primitives.py</span> in <span class="ni">get_primitives_paths</span><span class="nt">()</span>
+<span class="nn">~/build/DAI-Lab/Cardea/.tox/docs/lib/python3.6/site-packages/mlblocks/primitives.py</span> in <span class="ni">get_primitives_paths</span><span class="nt">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2">     for entry_point in entry_points:</span>
 <span class="g g-Whitespace">     </span><span class="mi">75</span><span class="s2">         if entry_point.name == &#39;jsons_path&#39;:</span>
 <span class="ne">---&gt; </span><span class="mi">76</span><span class="s2">             path = entry_point.load()</span>
 <span class="g g-Whitespace">     </span><span class="mi">77</span><span class="s2">             primitives_paths.append(path)</span>
 <span class="g g-Whitespace">     </span><span class="mi">78</span><span class="s2"> </span>
 
-<span class="nn">~/build/D3-AI/Cardea/.tox/docs/lib/python3.6/site-packages/pkg_resources/__init__.py</span> in <span class="ni">load</span><span class="nt">(self, require, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2431</span><span class="s2">             )</span>
-<span class="g g-Whitespace">   </span><span class="mi">2432</span><span class="s2">         if require:</span>
-<span class="ne">-&gt; </span><span class="mi">2433</span><span class="s2">             self.require(*args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2434</span><span class="s2">         return self.resolve()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2435</span><span class="s2"> </span>
+<span class="nn">~/build/DAI-Lab/Cardea/.tox/docs/lib/python3.6/site-packages/pkg_resources/__init__.py</span> in <span class="ni">load</span><span class="nt">(self, require, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2440</span><span class="s2">             )</span>
+<span class="g g-Whitespace">   </span><span class="mi">2441</span><span class="s2">         if require:</span>
+<span class="ne">-&gt; </span><span class="mi">2442</span><span class="s2">             self.require(*args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2443</span><span class="s2">         return self.resolve()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2444</span><span class="s2"> </span>
 
-<span class="nn">~/build/D3-AI/Cardea/.tox/docs/lib/python3.6/site-packages/pkg_resources/__init__.py</span> in <span class="ni">require</span><span class="nt">(self, env, installer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2454</span><span class="s2">         # requirements for that extra are purely optional and skip over them.</span>
-<span class="g g-Whitespace">   </span><span class="mi">2455</span><span class="s2">         reqs = self.dist.requires(self.extras)</span>
-<span class="ne">-&gt; </span><span class="mi">2456</span><span class="s2">         items = working_set.resolve(reqs, env, installer, extras=self.extras)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2457</span><span class="s2">         list(map(working_set.add, items))</span>
-<span class="g g-Whitespace">   </span><span class="mi">2458</span><span class="s2"> </span>
+<span class="nn">~/build/DAI-Lab/Cardea/.tox/docs/lib/python3.6/site-packages/pkg_resources/__init__.py</span> in <span class="ni">require</span><span class="nt">(self, env, installer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2463</span><span class="s2">         # requirements for that extra are purely optional and skip over them.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2464</span><span class="s2">         reqs = self.dist.requires(self.extras)</span>
+<span class="ne">-&gt; </span><span class="mi">2465</span><span class="s2">         items = working_set.resolve(reqs, env, installer, extras=self.extras)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2466</span><span class="s2">         list(map(working_set.add, items))</span>
+<span class="g g-Whitespace">   </span><span class="mi">2467</span><span class="s2"> </span>
 
-<span class="nn">~/build/D3-AI/Cardea/.tox/docs/lib/python3.6/site-packages/pkg_resources/__init__.py</span> in <span class="ni">resolve</span><span class="nt">(self, requirements, env, installer, replace_conflicting, extras)</span>
+<span class="nn">~/build/DAI-Lab/Cardea/.tox/docs/lib/python3.6/site-packages/pkg_resources/__init__.py</span> in <span class="ni">resolve</span><span class="nt">(self, requirements, env, installer, replace_conflicting, extras)</span>
 <span class="g g-Whitespace">    </span><span class="mi">789</span><span class="s2">                 # Oops, the &quot;best&quot; so far conflicts with a dependency</span>
 <span class="g g-Whitespace">    </span><span class="mi">790</span><span class="s2">                 dependent_req = required_by[req]</span>
 <span class="ne">--&gt; </span><span class="mi">791</span><span class="s2">                 raise VersionConflict(dist, req).with_context(dependent_req)</span>
 <span class="g g-Whitespace">    </span><span class="mi">792</span><span class="s2"> </span>
 <span class="g g-Whitespace">    </span><span class="mi">793</span><span class="s2">             # push the new requirements onto the stack</span>
 
-<span class="ne">VersionConflict</span>: (scikit-learn 0.21.2 (/home/travis/build/D3-AI/Cardea/.tox/docs/lib/python3.6/site-packages), Requirement.parse(&#39;scikit-learn&lt;0.21,&gt;=0.20.0&#39;))
+<span class="ne">VersionConflict</span>: (numpy 1.19.1 (/home/travis/build/DAI-Lab/Cardea/.tox/docs/lib/python3.6/site-packages), Requirement.parse(&#39;numpy&lt;1.17,&gt;=1.15.2&#39;))
 </pre></div>
 </div>
 </li>
 </ol>
 <p>Finally, you can see accuracy results using the following commands:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="gp">In [13]: </span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
 

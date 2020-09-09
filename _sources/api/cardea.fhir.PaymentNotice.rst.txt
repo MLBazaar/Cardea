@@ -2,6 +2,6 @@ cardea.fhir.PaymentNotice module
 ================================
 
 .. automodule:: cardea.fhir.PaymentNotice
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

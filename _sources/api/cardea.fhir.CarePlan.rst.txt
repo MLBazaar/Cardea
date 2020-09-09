@@ -2,6 +2,6 @@ cardea.fhir.CarePlan module
 ===========================
 
 .. automodule:: cardea.fhir.CarePlan
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

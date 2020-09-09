@@ -2,6 +2,6 @@ cardea.fhir.ExpansionProfile module
 ===================================
 
 .. automodule:: cardea.fhir.ExpansionProfile
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

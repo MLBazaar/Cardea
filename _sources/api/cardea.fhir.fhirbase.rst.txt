@@ -2,6 +2,6 @@ cardea.fhir.fhirbase module
 ===========================
 
 .. automodule:: cardea.fhir.fhirbase
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

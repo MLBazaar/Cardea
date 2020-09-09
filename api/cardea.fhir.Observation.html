@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,52 +246,52 @@
 <span id="cardea-fhir-observation-module"></span><h1>cardea.fhir.Observation module<a class="headerlink" href="#module-cardea.fhir.Observation" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Observation.Observation">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Observation.</code><code class="descname">Observation</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Observation.</code><code class="sig-name descname">Observation</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Measurements and simple assertions made about a patient, device or
 other subject.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a Observation resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A unique identifier assigned to this observation.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.basedOn">
-<code class="descname">basedOn</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.basedOn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">basedOn</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.basedOn" title="Permalink to this definition">¶</a></dt>
 <dd><p>A plan, proposal or order that is fulfilled in whole or in
 part by this event.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The status of the result value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.category">
-<code class="descname">category</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.category" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.category" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code that classifies the general type of observation being
 made.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.code">
-<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes what was observed. Sometimes this is called the
 observation “name”.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.subject">
-<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.subject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>The patient, or group of patients, location, or device whose
 characteristics (direct or indirect) are described by the observation
 and into whose record the observation is placed.  Comments: Indirect
@@ -302,14 +302,14 @@ about the subject.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.context">
-<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.context" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.context" title="Permalink to this definition">¶</a></dt>
 <dd><p>The healthcare event  (e.g. a patient and healthcare provider
 interaction) during which this observation is made.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.effectiveDateTime">
-<code class="descname">effectiveDateTime</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.effectiveDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">effectiveDateTime</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.effectiveDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time or time-period the observed value is
 asserted as being true. For biological subjects - e.g. human patients
 - this is usually called the “physiologically relevant time”. This is
@@ -320,7 +320,7 @@ date/time itself.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.effectivePeriod">
-<code class="descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.effectivePeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.effectivePeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>The time or time-period the observed value is
 asserted as being true. For biological subjects - e.g. human patients
 - this is usually called the “physiologically relevant time”. This is
@@ -331,7 +331,7 @@ date/time itself.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.issued">
-<code class="descname">issued</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.issued" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">issued</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.issued" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date and time this observation was made available to
 providers, typically after the results have been reviewed and
 verified.</p>
@@ -339,98 +339,98 @@ verified.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.performer">
-<code class="descname">performer</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.performer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">performer</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.performer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Who was responsible for asserting the observed value as
 “true”.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.valueQuantity">
-<code class="descname">valueQuantity</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueQuantity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueQuantity</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueQuantity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.valueCodeableConcept">
-<code class="descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making
 the observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.valueString">
-<code class="descname">valueString</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueString" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueString</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueString" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.valueBoolean">
-<code class="descname">valueBoolean</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueBoolean" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueBoolean</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueBoolean" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.valueRange">
-<code class="descname">valueRange</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueRange" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueRange</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.valueRatio">
-<code class="descname">valueRatio</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueRatio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueRatio</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueRatio" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.valueSampledData">
-<code class="descname">valueSampledData</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueSampledData" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueSampledData</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueSampledData" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.valueAttachment">
-<code class="descname">valueAttachment</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueAttachment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueAttachment</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueAttachment" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.valueTime">
-<code class="descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.valueDateTime">
-<code class="descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valueDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.valuePeriod">
-<code class="descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valuePeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.valuePeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.dataAbsentReason">
-<code class="descname">dataAbsentReason</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.dataAbsentReason" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dataAbsentReason</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.dataAbsentReason" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a reason why the expected value in the
 element Observation.value[x] is missing.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.interpretation">
-<code class="descname">interpretation</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.interpretation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">interpretation</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.interpretation" title="Permalink to this definition">¶</a></dt>
 <dd><p>The assessment made based on the result of the
 observation.  Intended as a simple compact code often placed adjacent
 to the result value in reports and flow sheets to signal the
@@ -440,7 +440,7 @@ flag.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.comment">
-<code class="descname">comment</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.comment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">comment</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.comment" title="Permalink to this definition">¶</a></dt>
 <dd><p>May include statements about significant, unexpected or
 unreliable values, or information about the source of the value where
 this may be relevant to the interpretation of the result.</p>
@@ -448,39 +448,39 @@ this may be relevant to the interpretation of the result.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.bodySite">
-<code class="descname">bodySite</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.bodySite" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bodySite</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.bodySite" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the site on the subject’s body where the
 observation was made (i.e. the target site).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.method">
-<code class="descname">method</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.method" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">method</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the mechanism used to perform the observation.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.specimen">
-<code class="descname">specimen</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.specimen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">specimen</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.specimen" title="Permalink to this definition">¶</a></dt>
 <dd><p>The specimen that was used when this observation was made.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.device">
-<code class="descname">device</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.device" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">device</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.device" title="Permalink to this definition">¶</a></dt>
 <dd><p>The device used to generate the observation data.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.referenceRange">
-<code class="descname">referenceRange</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.referenceRange" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">referenceRange</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.referenceRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Guidance on how to interpret the value by comparison
 to a normal or recommended range.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.related">
-<code class="descname">related</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.related" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">related</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.related" title="Permalink to this definition">¶</a></dt>
 <dd><p>A  reference to another resource (usually another
 Observation) whose relationship is defined by the relationship type
 code.</p>
@@ -488,7 +488,7 @@ code.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation.component">
-<code class="descname">component</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.component" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">component</code><a class="headerlink" href="#cardea.fhir.Observation.Observation.component" title="Permalink to this definition">¶</a></dt>
 <dd><p>Some observations have multiple component observations.
 These component observations are expressed as separate code value
 pairs that share the same attributes.  Examples include systolic and
@@ -498,7 +498,7 @@ multiple component observations for genetics observations.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.Observation.Observation.assert_type">
-<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation.assert_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation.assert_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks class values follow set possible enumerations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -510,7 +510,7 @@ multiple component observations for genetics observations.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.Observation.Observation.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -523,97 +523,97 @@ multiple component observations for genetics observations.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.Observation.Observation_Component">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Observation.</code><code class="descname">Observation_Component</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_Component"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Observation.</code><code class="sig-name descname">Observation_Component</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_Component"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Measurements and simple assertions made about a patient, device or
 other subject.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.code">
-<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes what was observed. Sometimes this is called the
 observation “code”.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.valueQuantity">
-<code class="descname">valueQuantity</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueQuantity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueQuantity</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueQuantity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.valueCodeableConcept">
-<code class="descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making
 the observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.valueString">
-<code class="descname">valueString</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueString" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueString</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueString" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.valueRange">
-<code class="descname">valueRange</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueRange" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueRange</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.valueRatio">
-<code class="descname">valueRatio</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueRatio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueRatio</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueRatio" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.valueSampledData">
-<code class="descname">valueSampledData</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueSampledData" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueSampledData</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueSampledData" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.valueAttachment">
-<code class="descname">valueAttachment</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueAttachment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueAttachment</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueAttachment" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.valueTime">
-<code class="descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.valueDateTime">
-<code class="descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valueDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.valuePeriod">
-<code class="descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valuePeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.valuePeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>The information determined as a result of making the
 observation, if the information has a simple value.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.dataAbsentReason">
-<code class="descname">dataAbsentReason</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.dataAbsentReason" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dataAbsentReason</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.dataAbsentReason" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a reason why the expected value in the
 element Observation.value[x] is missing.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.interpretation">
-<code class="descname">interpretation</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.interpretation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">interpretation</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.interpretation" title="Permalink to this definition">¶</a></dt>
 <dd><p>The assessment made based on the result of the
 observation.  Intended as a simple compact code often placed adjacent
 to the result value in reports and flow sheets to signal the
@@ -623,14 +623,14 @@ flag.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Component.referenceRange">
-<code class="descname">referenceRange</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.referenceRange" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">referenceRange</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.referenceRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Guidance on how to interpret the value by comparison
 to a normal or recommended range.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Observation.Observation_Component.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_Component.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_Component.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_Component.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -643,13 +643,13 @@ to a normal or recommended range.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.Observation.Observation_ReferenceRange">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Observation.</code><code class="descname">Observation_ReferenceRange</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_ReferenceRange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Observation.</code><code class="sig-name descname">Observation_ReferenceRange</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_ReferenceRange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Measurements and simple assertions made about a patient, device or
 other subject.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_ReferenceRange.low">
-<code class="descname">low</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.low" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">low</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.low" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the low bound of the reference range.  The low bound
 of the reference range endpoint is inclusive of the value (e.g.
 reference range is &gt;=5 - &lt;=9).   If the low bound is omitted,  it is
@@ -658,7 +658,7 @@ assumed to be meaningless (e.g. reference range is &lt;=2.3).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_ReferenceRange.high">
-<code class="descname">high</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.high" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">high</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.high" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the high bound of the reference range.  The high
 bound of the reference range endpoint is inclusive of the value (e.g.
 reference range is &gt;=5 - &lt;=9).   If the high bound is omitted,  it is
@@ -667,7 +667,7 @@ assumed to be meaningless (e.g. reference range is &gt;= 2.3).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_ReferenceRange.type">
-<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Codes to indicate the what part of the targeted reference
 population it applies to. For example, the normal or therapeutic
 range.</p>
@@ -675,7 +675,7 @@ range.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_ReferenceRange.appliesTo">
-<code class="descname">appliesTo</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.appliesTo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">appliesTo</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.appliesTo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Codes to indicate the target population this reference
 range applies to.  For example, a reference range may be based on the
 normal population or a particular sex or race.</p>
@@ -683,14 +683,14 @@ normal population or a particular sex or race.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_ReferenceRange.age">
-<code class="descname">age</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.age" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">age</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.age" title="Permalink to this definition">¶</a></dt>
 <dd><p>The age at which this reference range is applicable. This is a
 neonatal age (e.g. number of weeks at term) if the meaning says so.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_ReferenceRange.text">
-<code class="descname">text</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.text" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">text</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text based reference range in an observation which may be used
 when a quantitative range is not appropriate for an observation.  An
 example would be a reference value of “Negative” or a list or table of
@@ -699,7 +699,7 @@ example would be a reference value of “Negative” or a list or table of
 
 <dl class="method">
 <dt id="cardea.fhir.Observation.Observation_ReferenceRange.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_ReferenceRange.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_ReferenceRange.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_ReferenceRange.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -712,27 +712,27 @@ example would be a reference value of “Negative” or a list or table of
 
 <dl class="class">
 <dt id="cardea.fhir.Observation.Observation_Related">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Observation.</code><code class="descname">Observation_Related</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_Related"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_Related" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Observation.</code><code class="sig-name descname">Observation_Related</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_Related"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_Related" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Measurements and simple assertions made about a patient, device or
 other subject.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Related.type">
-<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Related.type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Related.type" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code specifying the kind of relationship that exists with the
 target resource.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Observation.Observation_Related.target">
-<code class="descname">target</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Related.target" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">target</code><a class="headerlink" href="#cardea.fhir.Observation.Observation_Related.target" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to the observation or [[[QuestionnaireResponse]]]
 resource that is related to this observation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Observation.Observation_Related.assert_type">
-<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_Related.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_Related.assert_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_Related.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_Related.assert_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks class values follow set possible enumerations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -744,7 +744,7 @@ resource that is related to this observation.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.Observation.Observation_Related.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_Related.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_Related.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Observation.html#Observation_Related.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Observation.Observation_Related.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

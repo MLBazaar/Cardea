@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,45 +246,45 @@
 <span id="cardea-fhir-procedurerequest-module"></span><h1>cardea.fhir.ProcedureRequest module<a class="headerlink" href="#module-cardea.fhir.ProcedureRequest" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest">
-<em class="property">class </em><code class="descclassname">cardea.fhir.ProcedureRequest.</code><code class="descname">ProcedureRequest</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcedureRequest.html#ProcedureRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.ProcedureRequest.</code><code class="sig-name descname">ProcedureRequest</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcedureRequest.html#ProcedureRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A record of a request for diagnostic investigations, treatments, or
 operations to be performed.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a ProcedureRequest resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifiers assigned to this order instance by the orderer
 and/or the receiver and/or order fulfiller.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.definition">
-<code class="descname">definition</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.definition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.definition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Protocol or definition followed by this request.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.basedOn">
-<code class="descname">basedOn</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.basedOn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">basedOn</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.basedOn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plan/proposal/order fulfilled by this request.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.replaces">
-<code class="descname">replaces</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.replaces" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">replaces</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.replaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>The request takes the place of the referenced completed or
 terminated request(s).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.requisition">
-<code class="descname">requisition</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.requisition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">requisition</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.requisition" title="Permalink to this definition">¶</a></dt>
 <dd><p>A shared identifier common to all procedure or diagnostic
 requests that were authorized more or less simultaneously by a single
 author, representing the composite or group identifier.</p>
@@ -292,48 +292,48 @@ author, representing the composite or group identifier.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The status of the order.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.intent">
-<code class="descname">intent</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.intent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">intent</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.intent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the request is a proposal, plan, an original order or
 a reflex order.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.priority">
-<code class="descname">priority</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.priority" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">priority</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.priority" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates how quickly the ProcedureRequest should be
 addressed with respect to other requests.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.doNotPerform">
-<code class="descname">doNotPerform</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.doNotPerform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">doNotPerform</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.doNotPerform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set this to true if the record is saying that the
 procedure should NOT be performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.category">
-<code class="descname">category</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.category" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.category" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code that classifies the procedure for searching, sorting
 and display purposes (e.g. “Surgical Procedure”).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.code">
-<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.code" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code that identifies a particular procedure, diagnostic
 investigation, or panel of investigations, that have been requested.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.subject">
-<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.subject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>On whom or what the procedure or diagnostic is to be
 performed. This is usually a human patient, but can also be requested
 on animals, groups of humans or animals, devices such as dialysis
@@ -342,7 +342,7 @@ machines, or even locations (typically for environmental scans).</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.context">
-<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.context" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.context" title="Permalink to this definition">¶</a></dt>
 <dd><p>An encounter or episode of care that provides additional
 information about the healthcare context in which this request is
 made.</p>
@@ -350,28 +350,28 @@ made.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.occurrenceDateTime">
-<code class="descname">occurrenceDateTime</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.occurrenceDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">occurrenceDateTime</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.occurrenceDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date/time at which the diagnostic testing
 should occur.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.occurrencePeriod">
-<code class="descname">occurrencePeriod</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.occurrencePeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">occurrencePeriod</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.occurrencePeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date/time at which the diagnostic testing should
 occur.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.occurrenceTiming">
-<code class="descname">occurrenceTiming</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.occurrenceTiming" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">occurrenceTiming</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.occurrenceTiming" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date/time at which the diagnostic testing should
 occur.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.asNeededBoolean">
-<code class="descname">asNeededBoolean</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.asNeededBoolean" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">asNeededBoolean</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.asNeededBoolean" title="Permalink to this definition">¶</a></dt>
 <dd><p>If a CodeableConcept is present, it indicates the
 pre-condition for performing the procedure.  For example “pain”, “on
 flare-up”, etc.</p>
@@ -379,7 +379,7 @@ flare-up”, etc.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.asNeededCodeableConcept">
-<code class="descname">asNeededCodeableConcept</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.asNeededCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">asNeededCodeableConcept</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.asNeededCodeableConcept" title="Permalink to this definition">¶</a></dt>
 <dd><p>If a CodeableConcept is present, it indicates
 the pre-condition for performing the procedure.  For example “pain”,
 “on flare-up”, etc.</p>
@@ -387,34 +387,34 @@ the pre-condition for performing the procedure.  For example “pain”,
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.authoredOn">
-<code class="descname">authoredOn</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.authoredOn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">authoredOn</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.authoredOn" title="Permalink to this definition">¶</a></dt>
 <dd><p>When the request transitioned to being actionable.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.requester">
-<code class="descname">requester</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.requester" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">requester</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.requester" title="Permalink to this definition">¶</a></dt>
 <dd><p>The individual who initiated the request and has
 responsibility for its activation.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.performerType">
-<code class="descname">performerType</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.performerType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">performerType</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.performerType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Desired type of performer for doing the diagnostic
 testing.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.performer">
-<code class="descname">performer</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.performer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">performer</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.performer" title="Permalink to this definition">¶</a></dt>
 <dd><p>The desired perfomer for doing the diagnostic testing.  For
 example, the surgeon, dermatopathologist, endoscopist, etc.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.reasonCode">
-<code class="descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.reasonCode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.reasonCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>An explanation or justification for why this diagnostic
 investigation is being requested in coded or textual form.   This is
 often for billing purposes.  May relate to the resources referred to
@@ -423,7 +423,7 @@ in supportingInformation.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.reasonReference">
-<code class="descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.reasonReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.reasonReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates another resource that provides a
 justification for why this diagnostic investigation is being
 requested.   May relate to the resources referred to in
@@ -432,7 +432,7 @@ supportingInformation.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.supportingInfo">
-<code class="descname">supportingInfo</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.supportingInfo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">supportingInfo</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.supportingInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Additional clinical information about the patient or
 specimen that may influence the procedure or diagnostics or their
 interpretations.     This information includes diagnosis, clinical
@@ -446,21 +446,21 @@ gas measurements.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.specimen">
-<code class="descname">specimen</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.specimen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">specimen</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.specimen" title="Permalink to this definition">¶</a></dt>
 <dd><p>One or more specimens that the laboratory procedure will
 use.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.bodySite">
-<code class="descname">bodySite</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.bodySite" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bodySite</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.bodySite" title="Permalink to this definition">¶</a></dt>
 <dd><p>Anatomic location where the procedure should be performed.
 This is the target site.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.note">
-<code class="descname">note</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.note" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.note" title="Permalink to this definition">¶</a></dt>
 <dd><p>Any other notes and comments made about the service request. For
 example, letting provider know that “patient hates needles” or other
 provider instructions.</p>
@@ -468,13 +468,13 @@ provider instructions.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.relevantHistory">
-<code class="descname">relevantHistory</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.relevantHistory" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">relevantHistory</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.relevantHistory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Key events in the history of the request.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcedureRequest.html#ProcedureRequest.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcedureRequest.html#ProcedureRequest.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -487,27 +487,27 @@ provider instructions.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest_Requester">
-<em class="property">class </em><code class="descclassname">cardea.fhir.ProcedureRequest.</code><code class="descname">ProcedureRequest_Requester</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcedureRequest.html#ProcedureRequest_Requester"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest_Requester" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.ProcedureRequest.</code><code class="sig-name descname">ProcedureRequest_Requester</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcedureRequest.html#ProcedureRequest_Requester"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest_Requester" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A record of a request for diagnostic investigations, treatments, or
 operations to be performed.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.agent">
-<code class="descname">agent</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.agent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">agent</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.agent" title="Permalink to this definition">¶</a></dt>
 <dd><p>The device, practitioner or organization who initiated the
 request.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.onBehalfOf">
-<code class="descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.onBehalfOf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.onBehalfOf" title="Permalink to this definition">¶</a></dt>
 <dd><p>The organization the device or practitioner was acting on
 behalf of.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcedureRequest.html#ProcedureRequest_Requester.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcedureRequest.html#ProcedureRequest_Requester.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

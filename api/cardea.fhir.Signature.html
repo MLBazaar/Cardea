@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,7 +246,7 @@
 <span id="cardea-fhir-signature-module"></span><h1>cardea.fhir.Signature module<a class="headerlink" href="#module-cardea.fhir.Signature" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Signature.Signature">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Signature.</code><code class="descname">Signature</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Signature.html#Signature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Signature.Signature" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Signature.</code><code class="sig-name descname">Signature</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Signature.html#Signature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Signature.Signature" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A digital signature along with supporting context. The signature may
 be electronic/cryptographic in nature, or a graphical image
@@ -254,7 +254,7 @@ representing a hand-written signature, or a signature process.
 Different signature approaches have different utilities.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Signature.Signature.type">
-<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.type" title="Permalink to this definition">¶</a></dt>
 <dd><p>An indication of the reason that the entity signed this
 document. This may be explicitly included as part of the signature
 information and can be used when determining accountability for
@@ -263,41 +263,41 @@ various actions concerning the document.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Signature.Signature.when">
-<code class="descname">when</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.when" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">when</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.when" title="Permalink to this definition">¶</a></dt>
 <dd><p>When the digital signature was signed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Signature.Signature.whoUri">
-<code class="descname">whoUri</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.whoUri" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">whoUri</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.whoUri" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to an application-usable description of the
 identity that signed  (e.g. the signature used their private key).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Signature.Signature.whoReference">
-<code class="descname">whoReference</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.whoReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">whoReference</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.whoReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to an application-usable description of the
 identity that signed  (e.g. the signature used their private key).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Signature.Signature.onBehalfOfUri">
-<code class="descname">onBehalfOfUri</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.onBehalfOfUri" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">onBehalfOfUri</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.onBehalfOfUri" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to an application-usable description of the
 identity that is represented by the signature.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Signature.Signature.onBehalfOfReference">
-<code class="descname">onBehalfOfReference</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.onBehalfOfReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">onBehalfOfReference</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.onBehalfOfReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to an application-usable description
 of the identity that is represented by the signature.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Signature.Signature.contentType">
-<code class="descname">contentType</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.contentType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">contentType</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.contentType" title="Permalink to this definition">¶</a></dt>
 <dd><p>A mime type that indicates the technical format of the
 signature. Important mime types are application/signature+xml for X ML
 DigSig, application/jwt for JWT, and image/* for a graphical image of
@@ -306,14 +306,14 @@ a signature, etc.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Signature.Signature.blob">
-<code class="descname">blob</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.blob" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">blob</code><a class="headerlink" href="#cardea.fhir.Signature.Signature.blob" title="Permalink to this definition">¶</a></dt>
 <dd><p>The base64 encoding of the Signature content. When signature is
 not recorded electronically this element would be empty.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Signature.Signature.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Signature.html#Signature.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Signature.Signature.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Signature.html#Signature.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Signature.Signature.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

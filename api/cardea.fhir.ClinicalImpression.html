@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,7 +246,7 @@
 <span id="cardea-fhir-clinicalimpression-module"></span><h1>cardea.fhir.ClinicalImpression module<a class="headerlink" href="#module-cardea.fhir.ClinicalImpression" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression">
-<em class="property">class </em><code class="descclassname">cardea.fhir.ClinicalImpression.</code><code class="descname">ClinicalImpression</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.ClinicalImpression.</code><code class="sig-name descname">ClinicalImpression</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A record of a clinical assessment performed to determine what
 problem(s) may affect the patient and before planning the treatments
@@ -258,13 +258,13 @@ workflow. This resource is called “ClinicalImpression” rather than
 assessment tools such as Apgar score.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a ClinicalImpression resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A unique identifier assigned to the clinical impression
 that remains consistent regardless of what server the impression is
 stored on.</p>
@@ -272,19 +272,19 @@ stored on.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the workflow status of the assessment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.code">
-<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Categorizes the type of clinical assessment performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.description">
-<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.description" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.description" title="Permalink to this definition">¶</a></dt>
 <dd><p>A summary of the context and/or cause of the assessment -
 why / where was it performed, and what patient events/status prompted
 it.</p>
@@ -292,47 +292,47 @@ it.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.subject">
-<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.subject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>The patient or group of individuals assessed as part of this
 record.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.context">
-<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.context" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.context" title="Permalink to this definition">¶</a></dt>
 <dd><p>The encounter or episode of care this impression was created
 as part of.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.effectiveDateTime">
-<code class="descname">effectiveDateTime</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.effectiveDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">effectiveDateTime</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.effectiveDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>The point in time or period over which the subject
 was assessed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.effectivePeriod">
-<code class="descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.effectivePeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.effectivePeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>The point in time or period over which the subject
 was assessed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.date">
-<code class="descname">date</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.date" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates when the documentation of the assessment was complete.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.assessor">
-<code class="descname">assessor</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.assessor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assessor</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.assessor" title="Permalink to this definition">¶</a></dt>
 <dd><p>The clinician performing the assessment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.previous">
-<code class="descname">previous</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.previous" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">previous</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.previous" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to the last assesment that was conducted bon
 this patient. Assessments are often/usually ongoing in nature; a care
 provider (practitioner or team) will make new assessments on an
@@ -341,14 +341,14 @@ ongoing basis as new data arises or the patient’s conditions changes.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.problem">
-<code class="descname">problem</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.problem" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">problem</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.problem" title="Permalink to this definition">¶</a></dt>
 <dd><p>This a list of the relevant problems/conditions for a
 patient.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.investigation">
-<code class="descname">investigation</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.investigation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">investigation</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.investigation" title="Permalink to this definition">¶</a></dt>
 <dd><p>One or more sets of investigations (signs, symptions,
 etc.). The actual grouping of investigations vary greatly depending on
 the type and context of the assessment. These investigations may
@@ -358,7 +358,7 @@ previously generated and recorded that is pertinent to the outcomes.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.protocol">
-<code class="descname">protocol</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.protocol" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">protocol</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.protocol" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference to a specific published clinical protocol that was
 followed during this assessment, and/or that provides evidence in
 support of the diagnosis.</p>
@@ -366,38 +366,38 @@ support of the diagnosis.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.summary">
-<code class="descname">summary</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.summary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">summary</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>A text summary of the investigations and the diagnosis.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.finding">
-<code class="descname">finding</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.finding" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">finding</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.finding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specific findings or diagnoses that was considered likely or
 relevant to ongoing treatment.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.prognosisCodeableConcept">
-<code class="descname">prognosisCodeableConcept</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.prognosisCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">prognosisCodeableConcept</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.prognosisCodeableConcept" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimate of likely outcome.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.prognosisReference">
-<code class="descname">prognosisReference</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.prognosisReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">prognosisReference</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.prognosisReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>RiskAssessment expressing likely outcome.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.action">
-<code class="descname">action</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.action" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">action</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.action" title="Permalink to this definition">¶</a></dt>
 <dd><p>Action taken as part of assessment procedure.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.note">
-<code class="descname">note</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.note" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.note" title="Permalink to this definition">¶</a></dt>
 <dd><p>Commentary about the impression, typically recorded after the
 impression itself was made, though supplemental notes by the original
 author could also appear.</p>
@@ -405,7 +405,7 @@ author could also appear.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.assert_type">
-<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.assert_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.assert_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks class values follow set possible enumerations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -417,7 +417,7 @@ author could also appear.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -430,7 +430,7 @@ author could also appear.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression_Finding">
-<em class="property">class </em><code class="descclassname">cardea.fhir.ClinicalImpression.</code><code class="descname">ClinicalImpression_Finding</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression_Finding"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.ClinicalImpression.</code><code class="sig-name descname">ClinicalImpression_Finding</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression_Finding"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A record of a clinical assessment performed to determine what
 problem(s) may affect the patient and before planning the treatments
@@ -442,27 +442,27 @@ workflow. This resource is called “ClinicalImpression” rather than
 assessment tools such as Apgar score.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.itemCodeableConcept">
-<code class="descname">itemCodeableConcept</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.itemCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">itemCodeableConcept</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.itemCodeableConcept" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specific text, code or reference for finding or
 diagnosis, which may include ruled-out or resolved conditions.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.itemReference">
-<code class="descname">itemReference</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.itemReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">itemReference</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.itemReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specific text, code or reference for finding or
 diagnosis, which may include ruled-out or resolved conditions.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.basis">
-<code class="descname">basis</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.basis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">basis</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.basis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Which investigations support finding or diagnosis.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression_Finding.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression_Finding.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Finding.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -475,7 +475,7 @@ diagnosis, which may include ruled-out or resolved conditions.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation">
-<em class="property">class </em><code class="descclassname">cardea.fhir.ClinicalImpression.</code><code class="descname">ClinicalImpression_Investigation</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression_Investigation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.ClinicalImpression.</code><code class="sig-name descname">ClinicalImpression_Investigation</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression_Investigation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A record of a clinical assessment performed to determine what
 problem(s) may affect the patient and before planning the treatments
@@ -487,7 +487,7 @@ workflow. This resource is called “ClinicalImpression” rather than
 assessment tools such as Apgar score.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation.code">
-<code class="descname">code</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation.code" title="Permalink to this definition">¶</a></dt>
 <dd><p>A name/code for the group (“set”) of investigations. Typically,
 this will be something like “signs”, “symptoms”, “clinical”,
 “diagnostic”, but the list is not constrained, and others such groups
@@ -496,13 +496,13 @@ such as (exposure|family|travel|nutitirional) history may be used.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation.item">
-<code class="descname">item</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation.item" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">item</code><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation.item" title="Permalink to this definition">¶</a></dt>
 <dd><p>A record of a specific investigation that was undertaken.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression_Investigation.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClinicalImpression.html#ClinicalImpression_Investigation.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClinicalImpression.ClinicalImpression_Investigation.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,7 +246,7 @@
 <span id="cardea-fhir-medicationadministration-module"></span><h1>cardea.fhir.MedicationAdministration module<a class="headerlink" href="#module-cardea.fhir.MedicationAdministration" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration">
-<em class="property">class </em><code class="descclassname">cardea.fhir.MedicationAdministration.</code><code class="descname">MedicationAdministration</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.MedicationAdministration.</code><code class="sig-name descname">MedicationAdministration</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Describes the event of a patient consuming or otherwise being
 administered a medication.  This may be as simple as swallowing a
@@ -255,13 +255,13 @@ this event to the authorizing prescription, and the specific encounter
 between patient and health care practitioner.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a MedicationAdministration resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>External identifier - FHIR will generate its own internal
 identifiers (probably URLs) which do not need to be explicitly managed
 by the resource.  The identifier here is one that would be used by
@@ -274,21 +274,21 @@ to be updated.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.definition">
-<code class="descname">definition</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.definition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.definition" title="Permalink to this definition">¶</a></dt>
 <dd><p>A protocol, guideline, orderset or other definition that
 was adhered to in whole or in part by this event.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.partOf">
-<code class="descname">partOf</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.partOf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">partOf</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.partOf" title="Permalink to this definition">¶</a></dt>
 <dd><p>A larger event of which this particular event is a component
 or step.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Will generally be set to show that the administration has been
 completed.  For some long running administrations such as infusions it
 is possible for an administration to be started but not completed or
@@ -297,14 +297,14 @@ it may be paused while some other process is under way.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.category">
-<code class="descname">category</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.category" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.category" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the type of medication administration and where
 the medication is expected to be consumed or administered.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.medicationCodeableConcept">
-<code class="descname">medicationCodeableConcept</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.medicationCodeableConcept" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">medicationCodeableConcept</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.medicationCodeableConcept" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the medication that was
 administered. This is either a link to a resource representing the
 details of the medication or a simple attribute carrying a code that
@@ -313,7 +313,7 @@ identifies the medication from a known list of medications.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.medicationReference">
-<code class="descname">medicationReference</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.medicationReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">medicationReference</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.medicationReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the medication that was administered.
 This is either a link to a resource representing the details of the
 medication or a simple attribute carrying a code that identifies the
@@ -322,13 +322,13 @@ medication from a known list of medications.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.subject">
-<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.subject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>The person or animal or group receiving the medication.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.context">
-<code class="descname">context</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.context" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.context" title="Permalink to this definition">¶</a></dt>
 <dd><p>The visit, admission or other contact between patient and
 health care provider the medication administration was performed as
 part of.</p>
@@ -336,14 +336,14 @@ part of.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.supportingInformation">
-<code class="descname">supportingInformation</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.supportingInformation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">supportingInformation</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.supportingInformation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Additional information (for example, patient
 height and weight) that supports the administration of the medication.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.effectiveDateTime">
-<code class="descname">effectiveDateTime</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.effectiveDateTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">effectiveDateTime</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.effectiveDateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A specific date/time or interval of time during
 which the administration took place (or did not take place, when the
 ‘notGiven’ attribute is true). For many administrations, such as
@@ -352,7 +352,7 @@ swallowing a tablet the use of dateTime is more appropriate.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.effectivePeriod">
-<code class="descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.effectivePeriod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.effectivePeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>A specific date/time or interval of time during which
 the administration took place (or did not take place, when the
 ‘notGiven’ attribute is true). For many administrations, such as
@@ -361,76 +361,76 @@ swallowing a tablet the use of dateTime is more appropriate.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.performer">
-<code class="descname">performer</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.performer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">performer</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.performer" title="Permalink to this definition">¶</a></dt>
 <dd><p>The individual who was responsible for giving the
 medication to the patient.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.notGiven">
-<code class="descname">notGiven</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.notGiven" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">notGiven</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.notGiven" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set this to true if the record is saying that the medication
 was NOT administered.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.reasonNotGiven">
-<code class="descname">reasonNotGiven</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.reasonNotGiven" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonNotGiven</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.reasonNotGiven" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code indicating why the administration was not
 performed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.reasonCode">
-<code class="descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.reasonCode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.reasonCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code indicating why the medication was given.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.reasonReference">
-<code class="descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.reasonReference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.reasonReference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Condition or observation that supports why the
 medication was administered.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.prescription">
-<code class="descname">prescription</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.prescription" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">prescription</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.prescription" title="Permalink to this definition">¶</a></dt>
 <dd><p>The original request, instruction or authority to
 perform the administration.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.device">
-<code class="descname">device</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.device" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">device</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.device" title="Permalink to this definition">¶</a></dt>
 <dd><p>The device used in administering the medication to the
 patient.  For example, a particular infusion pump.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.note">
-<code class="descname">note</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.note" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.note" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extra information about the medication administration that is
 not conveyed by the other attributes.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.dosage">
-<code class="descname">dosage</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.dosage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dosage</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.dosage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes the medication dosage information details e.g. dose,
 rate, site, route, etc.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.eventHistory">
-<code class="descname">eventHistory</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.eventHistory" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">eventHistory</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.eventHistory" title="Permalink to this definition">¶</a></dt>
 <dd><p>A summary of the events of interest that have occurred,
 such as when the administration was verified.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.assert_type">
-<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.assert_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.assert_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks class values follow set possible enumerations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -442,7 +442,7 @@ such as when the administration was verified.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -455,7 +455,7 @@ such as when the administration was verified.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage">
-<em class="property">class </em><code class="descclassname">cardea.fhir.MedicationAdministration.</code><code class="descname">MedicationAdministration_Dosage</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration_Dosage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.MedicationAdministration.</code><code class="sig-name descname">MedicationAdministration_Dosage</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration_Dosage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Describes the event of a patient consuming or otherwise being
 administered a medication.  This may be as simple as swallowing a
@@ -464,7 +464,7 @@ this event to the authorizing prescription, and the specific encounter
 between patient and health care practitioner.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.text">
-<code class="descname">text</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.text" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">text</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Free text dosage can be used for cases where the dosage
 administered is too complex to code. When coded dosage is present, the
 free text dosage may still be present for display to humans.  The
@@ -474,14 +474,14 @@ was administered.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.site">
-<code class="descname">site</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.site" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">site</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.site" title="Permalink to this definition">¶</a></dt>
 <dd><p>A coded specification of the anatomic site where the medication
 first entered the body.  For example, “left arm”.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.route">
-<code class="descname">route</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.route" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">route</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.route" title="Permalink to this definition">¶</a></dt>
 <dd><p>A code specifying the route or physiological path of
 administration of a therapeutic agent into or onto the patient.  For
 example, topical, intravenous, etc.</p>
@@ -489,7 +489,7 @@ example, topical, intravenous, etc.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.method">
-<code class="descname">method</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.method" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">method</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.method" title="Permalink to this definition">¶</a></dt>
 <dd><p>A coded value indicating the method by which the medication is
 intended to be or was introduced into or on the body.  This attribute
 will most often NOT be populated.  It is most commonly used for
@@ -498,7 +498,7 @@ injections.  For example, Slow Push, Deep IV.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.dose">
-<code class="descname">dose</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.dose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dose</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.dose" title="Permalink to this definition">¶</a></dt>
 <dd><p>The amount of the medication given at one administration event.
 Use this value when the administration is essentially an instantaneous
 event such as a swallowing a tablet or giving an injection.</p>
@@ -506,7 +506,7 @@ event such as a swallowing a tablet or giving an injection.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.rateRatio">
-<code class="descname">rateRatio</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.rateRatio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rateRatio</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.rateRatio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the speed with which the medication was or will
 be introduced into the patient.  Typically the rate for an infusion
 e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate
@@ -516,7 +516,7 @@ mcg/min or 200 mcg/1 minute; 1 liter/8 hours.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.rateSimpleQuantity">
-<code class="descname">rateSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.rateSimpleQuantity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rateSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.rateSimpleQuantity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the speed with which the medication was
 or will be introduced into the patient.  Typically the rate for an
 infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed
@@ -526,7 +526,7 @@ as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:
 
 <dl class="method">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration_Dosage.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration_Dosage.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -539,7 +539,7 @@ as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:
 
 <dl class="class">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Performer">
-<em class="property">class </em><code class="descclassname">cardea.fhir.MedicationAdministration.</code><code class="descname">MedicationAdministration_Performer</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration_Performer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Performer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.MedicationAdministration.</code><code class="sig-name descname">MedicationAdministration_Performer</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration_Performer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Performer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Describes the event of a patient consuming or otherwise being
 administered a medication.  This may be as simple as swallowing a
@@ -548,20 +548,20 @@ this event to the authorizing prescription, and the specific encounter
 between patient and health care practitioner.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.actor">
-<code class="descname">actor</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.actor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">actor</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.actor" title="Permalink to this definition">¶</a></dt>
 <dd><p>The device, practitioner, etc. who performed the action.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.onBehalfOf">
-<code class="descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.onBehalfOf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.onBehalfOf" title="Permalink to this definition">¶</a></dt>
 <dd><p>The organization the device or practitioner was acting on
 behalf of.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration_Performer.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration_Performer.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

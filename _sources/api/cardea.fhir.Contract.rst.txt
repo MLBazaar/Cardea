@@ -2,6 +2,6 @@ cardea.fhir.Contract module
 ===========================
 
 .. automodule:: cardea.fhir.Contract
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

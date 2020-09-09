@@ -2,6 +2,6 @@ cardea.fhir.SupplyRequest module
 ================================
 
 .. automodule:: cardea.fhir.SupplyRequest
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

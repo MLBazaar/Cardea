@@ -2,6 +2,6 @@ cardea.fhir.DataElement module
 ==============================
 
 .. automodule:: cardea.fhir.DataElement
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -2,6 +2,6 @@ cardea.fhir.DomainResource module
 =================================
 
 .. automodule:: cardea.fhir.DomainResource
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

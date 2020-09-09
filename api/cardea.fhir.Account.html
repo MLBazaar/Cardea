@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,60 +246,60 @@
 <span id="cardea-fhir-account-module"></span><h1>cardea.fhir.Account module<a class="headerlink" href="#module-cardea.fhir.Account" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Account.Account">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Account.</code><code class="descname">Account</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Account.</code><code class="sig-name descname">Account</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A financial tool for tracking value accrued for a particular purpose.
 In the healthcare field, used to track charges for a patient, cost
 centers, etc.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Account.Account.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Account.Account.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a Account resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.Account.Account.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Account.Account.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unique identifier used to reference the account.  May or
 may not be intended for human use (e.g. credit card number).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.Account.Account.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Account.Account.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates whether the account is presently used/usable or not.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.type">
-<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.Account.Account.type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Account.Account.type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Categorizes the account for reporting and searching purposes.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.name">
-<code class="descname">name</code><a class="headerlink" href="#cardea.fhir.Account.Account.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.Account.Account.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Name used for the account when displaying it to humans in
 reports, etc.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.subject">
-<code class="descname">subject</code><a class="headerlink" href="#cardea.fhir.Account.Account.subject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.Account.Account.subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the patient, device, practitioner, location or
 other object the account is associated with.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.period">
-<code class="descname">period</code><a class="headerlink" href="#cardea.fhir.Account.Account.period" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Account.Account.period" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the period of time the account applies to; e.g.
 accounts created per fiscal year, quarter, etc.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.active">
-<code class="descname">active</code><a class="headerlink" href="#cardea.fhir.Account.Account.active" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">active</code><a class="headerlink" href="#cardea.fhir.Account.Account.active" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the period of time over which the account is allowed
 to have transactions posted to it. This period may be different to the
 coveragePeriod which is the duration of time that services may occur.</p>
@@ -307,41 +307,41 @@ coveragePeriod which is the duration of time that services may occur.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.balance">
-<code class="descname">balance</code><a class="headerlink" href="#cardea.fhir.Account.Account.balance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">balance</code><a class="headerlink" href="#cardea.fhir.Account.Account.balance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents the sum of all credits less all debits associated
 with the account.  Might be positive, zero or negative.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.coverage">
-<code class="descname">coverage</code><a class="headerlink" href="#cardea.fhir.Account.Account.coverage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">coverage</code><a class="headerlink" href="#cardea.fhir.Account.Account.coverage" title="Permalink to this definition">¶</a></dt>
 <dd><p>The party(s) that are responsible for covering the payment
 of this account, and what order should they be applied to the account.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.owner">
-<code class="descname">owner</code><a class="headerlink" href="#cardea.fhir.Account.Account.owner" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">owner</code><a class="headerlink" href="#cardea.fhir.Account.Account.owner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the organization, department, etc. with
 responsibility for the account.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.description">
-<code class="descname">description</code><a class="headerlink" href="#cardea.fhir.Account.Account.description" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.Account.Account.description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides additional information about what the account
 tracks and how it is used.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account.guarantor">
-<code class="descname">guarantor</code><a class="headerlink" href="#cardea.fhir.Account.Account.guarantor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">guarantor</code><a class="headerlink" href="#cardea.fhir.Account.Account.guarantor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parties financially responsible for the account.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Account.Account.assert_type">
-<code class="descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account.assert_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account.assert_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks class values follow set possible enumerations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -353,7 +353,7 @@ tracks and how it is used.</p>
 
 <dl class="method">
 <dt id="cardea.fhir.Account.Account.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -366,14 +366,14 @@ tracks and how it is used.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.Account.Account_Coverage">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Account.</code><code class="descname">Account_Coverage</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account_Coverage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account_Coverage" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Account.</code><code class="sig-name descname">Account_Coverage</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account_Coverage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account_Coverage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A financial tool for tracking value accrued for a particular purpose.
 In the healthcare field, used to track charges for a patient, cost
 centers, etc.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account_Coverage.coverage">
-<code class="descname">coverage</code><a class="headerlink" href="#cardea.fhir.Account.Account_Coverage.coverage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">coverage</code><a class="headerlink" href="#cardea.fhir.Account.Account_Coverage.coverage" title="Permalink to this definition">¶</a></dt>
 <dd><p>The party(s) that are responsible for payment (or part of)
 of charges applied to this account (including self-pay).  A coverage
 may only be resposible for specific types of charges, and the sequence
@@ -383,13 +383,13 @@ billing.</p>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account_Coverage.priority">
-<code class="descname">priority</code><a class="headerlink" href="#cardea.fhir.Account.Account_Coverage.priority" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">priority</code><a class="headerlink" href="#cardea.fhir.Account.Account_Coverage.priority" title="Permalink to this definition">¶</a></dt>
 <dd><p>The priority of the coverage in the context of this account.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Account.Account_Coverage.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account_Coverage.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account_Coverage.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account_Coverage.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account_Coverage.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -402,34 +402,34 @@ billing.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.Account.Account_Guarantor">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Account.</code><code class="descname">Account_Guarantor</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account_Guarantor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account_Guarantor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Account.</code><code class="sig-name descname">Account_Guarantor</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account_Guarantor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account_Guarantor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A financial tool for tracking value accrued for a particular purpose.
 In the healthcare field, used to track charges for a patient, cost
 centers, etc.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account_Guarantor.party">
-<code class="descname">party</code><a class="headerlink" href="#cardea.fhir.Account.Account_Guarantor.party" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">party</code><a class="headerlink" href="#cardea.fhir.Account.Account_Guarantor.party" title="Permalink to this definition">¶</a></dt>
 <dd><p>The entity who is responsible.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account_Guarantor.onHold">
-<code class="descname">onHold</code><a class="headerlink" href="#cardea.fhir.Account.Account_Guarantor.onHold" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">onHold</code><a class="headerlink" href="#cardea.fhir.Account.Account_Guarantor.onHold" title="Permalink to this definition">¶</a></dt>
 <dd><p>A guarantor may be placed on credit hold or otherwise have
 their role temporarily suspended.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Account.Account_Guarantor.period">
-<code class="descname">period</code><a class="headerlink" href="#cardea.fhir.Account.Account_Guarantor.period" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Account.Account_Guarantor.period" title="Permalink to this definition">¶</a></dt>
 <dd><p>The timeframe during which the guarantor accepts
 responsibility for the account.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.Account.Account_Guarantor.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account_Guarantor.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account_Guarantor.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Account.html#Account_Guarantor.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Account.Account_Guarantor.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

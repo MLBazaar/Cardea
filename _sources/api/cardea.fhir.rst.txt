@@ -2,9 +2,9 @@ cardea.fhir package
 ===================
 
 .. automodule:: cardea.fhir
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 Submodules
 ----------
@@ -167,4 +167,3 @@ Submodules
    cardea.fhir.ValueSet
    cardea.fhir.VisionPrescription
    cardea.fhir.fhirbase
-

@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,18 +246,18 @@
 <span id="cardea-fhir-period-module"></span><h1>cardea.fhir.Period module<a class="headerlink" href="#module-cardea.fhir.Period" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.Period.Period">
-<em class="property">class </em><code class="descclassname">cardea.fhir.Period.</code><code class="descname">Period</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Period.html#Period"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Period.Period" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Period.</code><code class="sig-name descname">Period</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Period.html#Period"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Period.Period" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A time period defined by a start and end date and optionally time.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.Period.Period.start">
-<code class="descname">start</code><a class="headerlink" href="#cardea.fhir.Period.Period.start" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">start</code><a class="headerlink" href="#cardea.fhir.Period.Period.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>The start of the period. The boundary is inclusive.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.Period.Period.end">
-<code class="descname">end</code><a class="headerlink" href="#cardea.fhir.Period.Period.end" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">end</code><a class="headerlink" href="#cardea.fhir.Period.Period.end" title="Permalink to this definition">¶</a></dt>
 <dd><p>The end of the period. If the end of the period is missing, it
 means that the period is ongoing. The start may be in the past, and
 the end date in the future, which means that period is

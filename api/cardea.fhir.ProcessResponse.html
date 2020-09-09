@@ -23,10 +23,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -246,103 +246,103 @@
 <span id="cardea-fhir-processresponse-module"></span><h1>cardea.fhir.ProcessResponse module<a class="headerlink" href="#module-cardea.fhir.ProcessResponse" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse">
-<em class="property">class </em><code class="descclassname">cardea.fhir.ProcessResponse.</code><code class="descname">ProcessResponse</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcessResponse.html#ProcessResponse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.ProcessResponse.</code><code class="sig-name descname">ProcessResponse</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcessResponse.html#ProcessResponse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides processing status, errors and notes from the
 processing of a resource.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.resourceType">
-<code class="descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.resourceType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.resourceType" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a ProcessResponse resource</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.identifier">
-<code class="descname">identifier</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.identifier" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.identifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Response business identifier.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.status">
-<code class="descname">status</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>The status of the resource instance.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.created">
-<code class="descname">created</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.created" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">created</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.created" title="Permalink to this definition">¶</a></dt>
 <dd><p>The date when the enclosed suite of services were performed
 or completed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.organization">
-<code class="descname">organization</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.organization" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">organization</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.organization" title="Permalink to this definition">¶</a></dt>
 <dd><p>The organization who produced this adjudicated response.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.request">
-<code class="descname">request</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.request" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">request</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Original request resource reference.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.outcome">
-<code class="descname">outcome</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.outcome" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">outcome</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.outcome" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transaction status: error, complete, held.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.disposition">
-<code class="descname">disposition</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.disposition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">disposition</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.disposition" title="Permalink to this definition">¶</a></dt>
 <dd><p>A description of the status of the adjudication or
 processing.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.requestProvider">
-<code class="descname">requestProvider</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.requestProvider" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">requestProvider</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.requestProvider" title="Permalink to this definition">¶</a></dt>
 <dd><p>The practitioner who is responsible for the services
 rendered to the patient.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.requestOrganization">
-<code class="descname">requestOrganization</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.requestOrganization" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">requestOrganization</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.requestOrganization" title="Permalink to this definition">¶</a></dt>
 <dd><p>The organization which is responsible for the
 services rendered to the patient.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.form">
-<code class="descname">form</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.form" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">form</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.form" title="Permalink to this definition">¶</a></dt>
 <dd><p>The form to be used for printing the content.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.processNote">
-<code class="descname">processNote</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.processNote" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">processNote</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.processNote" title="Permalink to this definition">¶</a></dt>
 <dd><p>Suite of processing notes or additional requirements if
 the processing has been held.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.error">
-<code class="descname">error</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.error" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">error</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Processing errors.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.communicationRequest">
-<code class="descname">communicationRequest</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.communicationRequest" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">communicationRequest</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.communicationRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request for additional supporting or authorizing
 information, such as: documents, images or resources.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcessResponse.html#ProcessResponse.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcessResponse.html#ProcessResponse.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -355,25 +355,25 @@ information, such as: documents, images or resources.</p>
 
 <dl class="class">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote">
-<em class="property">class </em><code class="descclassname">cardea.fhir.ProcessResponse.</code><code class="descname">ProcessResponse_ProcessNote</code><span class="sig-paren">(</span><em>dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcessResponse.html#ProcessResponse_ProcessNote"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.ProcessResponse.</code><code class="sig-name descname">ProcessResponse_ProcessNote</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcessResponse.html#ProcessResponse_ProcessNote"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides processing status, errors and notes from the
 processing of a resource.</p>
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote.type">
-<code class="descname">type</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote.type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote.type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The note purpose: Print/Display.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote.text">
-<code class="descname">text</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote.text" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">text</code><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote.text" title="Permalink to this definition">¶</a></dt>
 <dd><p>The note text.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote.get_relationships">
-<code class="descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcessResponse.html#ProcessResponse_ProcessNote.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote.get_relationships" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcessResponse.html#ProcessResponse_ProcessNote.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcessResponse.ProcessResponse_ProcessNote.get_relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns class relationships.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
