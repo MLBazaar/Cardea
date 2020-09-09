@@ -1,4 +1,5 @@
 # Config file for automatic testing at travis-ci.org
+dist: bionic
 language: python
 python:
   - 3.6
@@ -8,7 +9,7 @@ python:
 install: pip install -U tox-travis
 
 # Command to run tests
-script: tox
+script: travis_wait 30 tox # wait before termination
 
 deploy:
 
