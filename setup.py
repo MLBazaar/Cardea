@@ -12,12 +12,13 @@ with open('HISTORY.md') as history_file:
 install_requires = [
     'featuretools==0.6.1',
     'networkx==2.2',
+    'numpy>=1.15.2,<1.17',
     'pandas>=0.23.4,<0.25',
+    'scikit-learn>=0.20.0,<0.21',
     'mlblocks==0.3.0',
     'mlprimitives==0.1.6',
-    'sklearn',
-    'scipy>=1.1.0',
-    'hyperopt==0.1.2'
+    'hyperopt==0.1.2',
+    'Keras>=2.1.6,<2.4'
 ]
 
 setup_requires = [
@@ -32,22 +33,24 @@ tests_require = [
 development_requires = [
     # general
     'bumpversion>=0.5.3',
-    'pip>=10.0.1',
+    'pip>=9.0.1',
     'watchdog>=0.8.3',
     
     # build docs
-    'm2r>=0.2.0',
-    'Sphinx>=1.7.1',
-    'sphinx_rtd_theme>=0.2.4',
+    'm2r>=0.2.0,<0.3',
+    'nbsphinx>=0.5.0,<0.7',
+    'Sphinx>=1.7.1,<3',
+    'sphinx_rtd_theme>=0.2.4,<0.5',
+    'autodocsumm>=0.1.10,<1',
     'recommonmark>=0.4.0',
     'ipython==6.5.0',
 
     # style check
-    'flake8>=3.5.0',
-    'isort>=4.3.4',
+    'flake8>=3.5.0,<4',
+    'isort>=4.3.4,<5',
     
     # automatically fix style issues
-    'autoflake>=1.1',
+    'autoflake>=1.3',
     'autopep8>=1.3.5',
 
     # distribute on PyPI
@@ -90,6 +93,6 @@ setup(
     test_suite='tests',
     tests_require=tests_require,
     url='https://github.com/D3-AI/Cardea',
-    version='0.0.2',
+    version='0.1.0.dev3',
     zip_safe=False,
 )

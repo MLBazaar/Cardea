@@ -4,6 +4,8 @@ include HISTORY.md
 include LICENSE
 include README.md
 
+recursive-include cardea *.xml
+
 recursive-include tests *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]

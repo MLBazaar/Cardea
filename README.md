@@ -2,20 +2,20 @@
 <img width=20% src="https://dai.lids.mit.edu/wp-content/uploads/2018/08/cardea.png" alt=“Cardea” />
 </p>
 
-<p align="center"> 
+<p align="left"> 
 <i>Cardea is a machine learning library built on top of FHIR schema. </I>
 </p>
 
-<p align="center"> 
+<p align="left"> 
 <i>An open source project from Data to AI Lab at MIT </I>
 </p>
 
 
 
-
+[![Development Status](https://img.shields.io/badge/Development%20Status-2%20--%20Pre--Alpha-yellow)](https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha)
 [![PyPi Shield](https://img.shields.io/pypi/v/cardea.svg)](https://pypi.python.org/pypi/cardea)
-[![Travis CI Shield](https://travis-ci.org/D3-AI/Cardea.svg?branch=master)](https://travis-ci.org/D3-AI/Cardea)
-
+[![Travis CI Shield](https://travis-ci.org/DAI-Lab/Cardea.svg?branch=master)](https://travis-ci.org/DAI-Lab/Cardea)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/DAI-Lab/Cardea/master?filepath=notebooks)
 
 # Cardea
 
@@ -39,4 +39,4 @@ Cardea is a machine learning library built on top of the FHIR data schema. The l
 - Free software: MIT license
 
 ## Documentation
-- Documentation: https://D3-AI.github.io/Cardea
+- Documentation: https://dai-lab.github.io/Cardea

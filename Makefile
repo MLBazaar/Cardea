@@ -1,4 +1,3 @@
-.PHONY: clean clean-test clean-pyc clean-build clean-docs docs help
 .DEFAULT_GOAL := help
 
 define BROWSER_PYSCRIPT
@@ -26,15 +25,14 @@ export PRINT_HELP_PYSCRIPT
 
 BROWSER := python -c "$$BROWSER_PYSCRIPT"
 
+.PHONY: help
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 
 # CLEAN TARGETS
 
-
-clean: clean-build clean-pyc clean-coverage clean-test clean-docs ## remove all build, test, coverage, docs and Python artifacts
-
+.PHONY: clean-build
 clean-build: ## remove build artifacts
 	rm -fr build/
 	rm -fr dist/
@@ -42,52 +40,86 @@ clean-build: ## remove build artifacts
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
 
+.PHONY: clean-pyc
 clean-pyc: ## remove Python file artifacts
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
 
+.PHONY: clean-docs
 clean-docs: ## remove previously built docs
 	rm -f docs/api/*.rst
 	$(MAKE) -C docs clean
 
+.PHONY: clean-coverage
 clean-coverage: ## remove coverage artifacts
 	rm -f .coverage
 	rm -f .coverage.*
 	rm -fr htmlcov/
 
+.PHONY: clean-test
 clean-test: ## remove test and coverage artifacts
 	rm -fr .tox/
 	rm -fr .pytest_cache
 
+.PHONY: clean
+clean: clean-build clean-pyc clean-test clean-coverage clean-docs ## remove all build, test, coverage, docs and Python artifacts
+
+
+# INSTALL TARGETS
+
+.PHONY: install
+install: clean-build clean-pyc ## install the package to the active Python's site-packages
+	pip install .
+
+.PHONY: install-test
+install-test: clean-build clean-pyc ## install the package and test dependencies
+	pip install .[test]
+
+.PHONY: install-develop
+install-develop: clean-build clean-pyc ## install the package in editable mode and dependencies for development
+	pip install -e .[dev]
+
 
 # LINT TARGETS
 
-
+.PHONY: lint
 lint: ## check style with flake8 and isort
 	flake8 cardea tests
 	isort -c --recursive cardea tests
 
+
+
+.PHONY: fix-lint
 fixlint: ## fix lint issues using autoflake, autopep8, and isort
-	find cardea -name '*.py' | xargs autoflake --in-place --remove-all-unused-imports --remove-unused-variables
+	find cardea -name '*.py' | xargs autoflake --in-place --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports
 	autopep8 --in-place --recursive --aggressive cardea
 	isort --apply --atomic --recursive cardea
 
-	find tests -name '*.py' | xargs autoflake --in-place --remove-all-unused-imports --remove-unused-variables
+	find tests -name '*.py' | xargs autoflake --in-place --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports
 	autopep8 --in-place --recursive --aggressive tests
 	isort --apply --atomic --recursive tests
 
 
+
+
+
 # TEST TARGETS
 
-
+.PHONY: test
 test: ## run tests quickly with the default Python
 	pytest
 
+.PHONY: test-all
 test-all: ## run tests on every Python version with tox
 	tox
 
+
+
+
+
+.PHONY: coverage
 coverage: clean-coverage ## check code coverage quickly with the default Python
 	coverage run --source cardea -m pytest
 	coverage report -m
@@ -97,42 +129,90 @@ coverage: clean-coverage ## check code coverage quickly with the default Python
 
 # DOCS TARGETS
 
-
+.PHONY: docs
 docs: clean-docs ## generate Sphinx HTML documentation, including API docs
 	sphinx-apidoc --module-first --separate --no-toc --output-dir docs/api/ cardea
 	$(MAKE) -C docs html
 	touch docs/_build/html/.nojekyll
 
+.PHONY: viewdocs
 viewdocs: docs ## view docs in browser
 	$(BROWSER) docs/_build/html/index.html
 
+.PHONY: servedocs
 servedocs: docs ## compile the docs watching for changes
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
 
 # RELEASE TARGETS
 
-
-release: dist ## package and upload a release
-	twine upload dist/*
-
-test-release: dist ## package and upload a release on TestPyPI
-	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
-
+.PHONY: dist
 dist: clean ## builds source and wheel package
 	python setup.py sdist
 	python setup.py bdist_wheel
 	ls -l dist
 
+.PHONY: test-publish
+test-publish: dist ## package and upload a release on TestPyPI
+    twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
-# INSTALL TARGETS
+.PHONY: publish
+publish: dist ## package and upload a release
+	twine upload dist/*
 
+.PHONY: bumpversion-release
+bumpversion-release: ## Merge master to stable and bumpversion release
+	git checkout stable
+	git merge --no-ff master -m"make release-tag: Merge branch 'master' into stable"
+	bumpversion release
+	git push --tags origin stable
 
-install: clean-build clean-pyc ## install the package to the active Python's site-packages
-	pip install .
+.PHONY: bumpversion-patch
+bumpversion-patch: ## Merge stable to master and bumpversion patch
+	git checkout master
+	git merge stable
+	bumpversion --no-tag patch
+	git push
 
-install-test: clean-build clean-pyc ## install the package and test dependencies
-	pip install .[test]
+.PHONY: bumpversion-candidate
+bumpversion-candidate: ## Bump the version to the next candidate
+	bumpversion candidate --no-tag
+	
+.PHONY: bumpversion-minor
+bumpversion-minor: ## Bump the version the next minor skipping the release
+	bumpversion --no-tag minor
 
-install-develop: clean-build clean-pyc ## install the package in editable mode and dependencies for development
-	pip install -e .[dev]
+.PHONY: bumpversion-major
+bumpversion-major: ## Bump the version the next major skipping the release
+	bumpversion --no-tag major
+
+CURRENT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
+CHANGELOG_LINES := $(shell git diff HEAD..stable HISTORY.md | wc -l)
+
+.PHONY: check-master
+check-master: ## Check if we are in master branch
+ifneq ($(CURRENT_BRANCH),master)
+	$(error Please make the release from master branch\n)
+endif
+
+.PHONY: check-history
+check-history: ## Check if HISTORY.md has been modified
+ifeq ($(CHANGELOG_LINES),0)
+	$(error Please insert the release notes in HISTORY.md before releasing)
+endif
+
+.PHONY: check-release
+check-release: check-master check-history ## Check if the release can be made
+	@echo "A new release can be made"
+
+.PHONY: release
+release: check-release bumpversion-release publish bumpversion-patch
+
+.PHONY: release-candidate
+release-candidate: check-master publish bumpversion-candidate
+
+.PHONY: release-minor
+release-minor: check-release bumpversion-minor release
+
+.PHONY: release-major
+release-major: check-release bumpversion-major release
