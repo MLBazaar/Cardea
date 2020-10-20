@@ -1,10 +1,11 @@
-import numpy as np
-import pandas as pd
 import logging
 from datetime import datetime
-from cardea.modeling.modeler import Modeler
 
+import numpy as np
+import pandas as pd
 import sklearn
+
+from cardea.modeling.modeler import Modeler
 
 LOGGER = logging.getLogger(__name__)
 
