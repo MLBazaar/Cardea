@@ -10,8 +10,10 @@ LOGGER = logging.getLogger(__name__)
 
 CLASSIFICATION_METRICS = {
     'F1 Macro': lambda *args, **kwargs: sklearn.metrics.f1_score(*args, **kwargs, average="macro"),
-    'Recall': lambda *args, **kwargs: sklearn.metrics.recall_score(*args, **kwargs, average="macro"),
-    'Precision': lambda *args, **kwargs: sklearn.metrics.precision_score(*args, **kwargs, average="macro"),
+    'Recall': lambda *args, **kwargs: sklearn.metrics.recall_score(*args, **kwargs,
+                                                                   average="macro"),
+    'Precision': lambda *args, **kwargs: sklearn.metrics.precision_score(*args, **kwargs,
+                                                                         average="macro"),
     'Accuracy': sklearn.metrics.accuracy_score,
     'Confusion Matrix': sklearn.metrics.confusion_matrix
 }
@@ -31,17 +33,19 @@ def _scoring_folds(folds, metrics):
     Args:
         folds: dict, records from the prediction results of a fold of data.
             The keys must include "Actual" and "predicted".
-        metrics: dict, keys are the name of the metrics and the values are metrics frunctions: func(target, pred).
+        metrics: dict, keys are the name of the metrics and the values are metrics functions.
 
     Returns:
-        scores: dict, keys are the name of the metrics and the values are scores from the corresponding metrics.
+        scores: dict, keys are the name of the metrics and the values are scores
+            from the corresponding metrics.
     """
     if isinstance(folds, dict):
         folds = [v for k, v in folds.items()]
 
     fold_tuples = [(f['Actual'], f['predicted']) for f in folds]
     scores = pd.DataFrame(
-        [{item: func(para[0], para[1]) for item, func in metrics.items()} for para in fold_tuples]).mean().to_dict()
+        [{item: func(para[0], para[1]) for item, func in metrics.items()} for para in
+         fold_tuples]).mean().to_dict()
 
     return scores
 
@@ -72,14 +76,15 @@ def _evaluate_pipeline(name, primitives, dataset, problem, hyperparameters=None,
         primitives: list, a list of primitives that make up the pipeline.
         dataset: pd.DataFrame, dataset for evaluation.
         problem: str, the name of the problem
-        hyperparameters: dict, the hyperparameter setting of the pipeline. If hyperparameters is None,
-            the pipeline will be initialized with default values.
+        hyperparameters: dict, the hyperparameter setting of the pipeline.
+            If hyperparameters is None, the pipeline will be initialized with default values.
         optimize: boolean, whether to optimize the hyperparameters used in the pipeline.
-        metrics: dict, keys are the name of the metrics and the values are metrics frunctions: func(target, pred).
+        metrics: dict, keys are the name of the metrics and the values are metrics functions.
         target_name: str, the name of the target column in the dataset.
 
     Returns:
-        scores: dict, keys include "Pipeline", "Problem", "Tuned", "Elapsed Time(s)", "Status", and metric names .
+        scores: dict, keys include "Pipeline", "Problem", "Tuned", "Elapsed Time(s)", "Status",
+            and metric names.
     """
     X, y = _split_feature_label(dataset, target_name)
     modeler = Modeler()
@@ -88,8 +93,10 @@ def _evaluate_pipeline(name, primitives, dataset, problem, hyperparameters=None,
 
     try:
         start = datetime.utcnow()
-        pipelines_res = modeler.execute_pipeline(X, y, [primitives], PROBLEM_TYPE[problem], optimize=optimize,
-                                                 hyperparameters=hyperparameters, minimize_cost=False, scoring='f1',
+        pipelines_res = modeler.execute_pipeline(X, y, [primitives], PROBLEM_TYPE[problem],
+                                                 optimize=optimize,
+                                                 hyperparameters=hyperparameters,
+                                                 minimize_cost=False, scoring='f1',
                                                  max_evals=10)
         elapsed = datetime.utcnow() - start
         scores = _scoring_folds(pipelines_res['pipeline0']['folds'], metrics)
@@ -97,7 +104,8 @@ def _evaluate_pipeline(name, primitives, dataset, problem, hyperparameters=None,
         scores['Status'] = 'OK'
 
     except Exception as ex:
-        LOGGER.exception("Exception scoring pipeline {} in problem {}, exception {}".format(name, problem, ex))
+        LOGGER.exception(
+            "Exception scoring pipeline {} in problem {}, exception {}".format(name, problem, ex))
         elapsed = datetime.utcnow() - start
         scores = {
             name: 0 for name in metrics.keys()
@@ -120,10 +128,10 @@ def _evaluate_pipelines(pipelines, dataset, problem, hyperparameters=None, optim
         pipelines: list, a lisf of pipelines.
         dataset: pd.DataFrame, dataset for evaluation.
         problem: str, the name of the problem
-        hyperparameters: dict, the hyperparameter setting of the pipeline. If hyperparameters is None,
-            the pipeline will be initialized with default values.
+        hyperparameters: dict, the hyperparameter setting of the pipeline.
+            If hyperparameters is None, the pipeline will be initialized with default values.
         optimize: boolean, whether to optimize the hyperparameters used in the pipeline.
-        metrics: dict, keys are the name of the metrics and the values are metrics frunctions: func(target, pred).
+        metrics: dict, keys are the name of the metrics and the values are metrics functions.
         target_name: str, the name of the target column in the dataset.
         runs: int, the number of runs of the each pipeline.
 
@@ -137,12 +145,14 @@ def _evaluate_pipelines(pipelines, dataset, problem, hyperparameters=None, optim
     if hyperparameters is None:
         hyperparameters = {k: None for k in pipelines.keys()}
     elif isinstance(hyperparameters, list):
-        hyperparameters = {"pipeline_{}".format(i): hyper for i, hyper in enumerate(hyperparameters)}
+        hyperparameters = {"pipeline_{}".format(i): hyper for i, hyper in
+                           enumerate(hyperparameters)}
 
     for name, pipeline in pipelines.items():
         for _ in range(runs):
             score_list.append(
-                _evaluate_pipeline(name, pipeline, dataset, problem, hyperparameters[name], optimize, metrics,
+                _evaluate_pipeline(name, pipeline, dataset, problem, hyperparameters[name],
+                                   optimize, metrics,
                                    target_name))
 
     return score_list
@@ -156,7 +166,8 @@ def aggregate_results_by_pipeline(df, metric):
         metric: str, the name of the metric for aggregation.
 
     Returns:
-        aggr_df, pd.DataFrame, each row records the aggregated scores of all pipelines on a dataset (problem).
+        aggr_df, pd.DataFrame, each row records the aggregated scores of all pipelines
+            on a dataset (problem).
     """
     if 'Status' in df.columns:
         df = df[df['Status'] == 'OK']
@@ -171,7 +182,8 @@ def aggregate_results_by_pipeline(df, metric):
             runs = _select_runs(df, problem, pipeline)
             problem_dict["{}_Average {}".format(pipeline, metric)] = runs[metric].mean()
             problem_dict["{}_Best {}".format(pipeline, metric)] = runs[metric].max()
-            problem_dict["{}_Average Elapsed Time(s)".format(pipeline)] = runs["Elapsed Time(s)"].mean()
+            problem_dict["{}_Average Elapsed Time(s)".format(pipeline)] = runs[
+                "Elapsed Time(s)"].mean()
         aggr_results.append(problem_dict)
     aggr_df = pd.DataFrame(aggr_results, index=problems)
     aggr_df.columns = aggr_df.columns.str.split('_', expand=True)
@@ -215,17 +227,19 @@ def _select_runs(df, problem=None, pipeline=None):
 
 
 def benchmark(pipelines, datasets, problems, hyperparameters=None, optimize=False,
-              metrics=CLASSIFICATION_METRICS, target_name='TARGET', runs=1, from_fm=True, output_path=None):
+              metrics=CLASSIFICATION_METRICS, target_name='TARGET', runs=1, from_fm=True,
+              output_path=None):
     """Evalutate pipelines on a set of datasets (problems) with given metrics.
 
     Args:
         pipelines: list, a lisf of pipelines.
-        datasets: dict, keys are the name of the problem (str), values are the dataset for evaluation (pd.DataFrame).
-        problem: str, the name of the problem
-        hyperparameters: dict, the hyperparameter setting of the pipeline. If hyperparameters is None,
-            the pipeline will be initialized with default values.
+        datasets: dict, keys are the name of the problem (str), values are the dataset
+            for evaluation (pd.DataFrame).
+        problems: list, a list of problem names (str).
+        hyperparameters: dict, the hyperparameter setting of the pipeline.
+            If hyperparameters is None, the pipeline will be initialized with default values.
         optimize: boolean, whether to optimize the hyperparameters used in the pipeline.
-        metrics: dict, keys are the name of the metrics and the values are metrics frunctions: func(target, pred).
+        metrics: dict, keys are the name of the metrics and the values are metrics functions.
         target_name: str, the name of the target column in the dataset.
         runs: int, the number of runs of the each pipeline.
         from_fm: boolean, whether the datasets are feature matrix data.
@@ -243,7 +257,8 @@ def benchmark(pipelines, datasets, problems, hyperparameters=None, optimize=Fals
     score_list = []
     for problem, dataset in datasets.items():
         score_list.extend(
-            _evaluate_pipelines(pipelines, dataset, problem, hyperparameters, optimize, metrics, target_name, runs))
+            _evaluate_pipelines(pipelines, dataset, problem, hyperparameters, optimize, metrics,
+                                target_name, runs))
     result_df = pd.DataFrame.from_records(score_list)
 
     if output_path:
