@@ -1,0 +1,43 @@
+{
+    "name": "cardea.primitives.processing.split_feature_matrix",
+    "contributors": [
+        "Sarah Alnegheimish <smish@mit.edu>"
+    ],
+    "description": "Split the feature matrix dataframe into machine ready format.",
+    "classifiers": {
+        "type": "postprocessor",
+        "subtype": "feature_extractor"
+    },
+    "modalities": [],
+    "primitive": "cardea.primitives.processing.split_feature_matrix",
+    "produce": {
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "problem": {
+                "type": "str",
+                "default": null
+            },
+            "categorize": {
+                "type": "bool",
+                "default": false
+            }
+        }
+    }
+}

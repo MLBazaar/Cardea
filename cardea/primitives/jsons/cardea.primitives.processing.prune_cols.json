@@ -1,0 +1,27 @@
+{
+    "name": "cardea.primitives.processing.prune_cols",
+    "contributors": [
+        "Sarah Alnegheimish <smish@mit.edu>"
+    ],
+    "description": "remove some columns from the feature matrix.",
+    "classifiers": {
+        "type": "postprocessor",
+        "subtype": "feature_extractor"
+    },
+    "modalities": [],
+    "primitive": "cardea.primitives.processing.prune_cols",
+    "produce": {
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    }
+}
