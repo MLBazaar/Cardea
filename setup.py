@@ -76,6 +76,12 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     description="Cardea",
+    entry_points={
+        'mlblocks': [
+            'primitives=cardea:MLBLOCKS_PRIMITIVES',
+            'pipelines=cardea:MLBLOCKS_PIPELINES'
+        ]
+    },
     extras_require={
         'dev': development_requires + tests_require,
         'test': tests_require
@@ -92,7 +98,7 @@ setup(
     setup_requires=setup_requires,
     test_suite='tests',
     tests_require=tests_require,
-    url='https://github.com/D3-AI/Cardea',
+    url='https://github.com/DAI-Lab/Cardea',
     version='0.1.1.dev0',
-    zip_safe=False,
+    zip_safe=False
 )
