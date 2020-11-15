@@ -1,15 +1,15 @@
 {
-    "name": "cardea.primitives.processing.prune_cols",
+    "name": "cardea.primitives.processing.preprocess_features",
     "contributors": [
-        "Sarah Alnegheimish <smish@mit.edu>"
+        "Furui Cheng <furui@mit.edu>"
     ],
-    "description": "remove some columns from the feature matrix.",
+    "description": "Preprocess feature columns with a series of operations.",
     "classifiers": {
-        "type": "postprocessor",
-        "subtype": "feature_extractor"
+        "type": "preprocessor",
+        "subtype": "transformer"
     },
     "modalities": [],
-    "primitive": "cardea.primitives.processing.prune_cols",
+    "primitive": "cardea.primitives.processing.preprocess_features",
     "produce": {
         "args": [
             {

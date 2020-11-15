@@ -1,0 +1,11 @@
+{
+    "primitives": [
+        "cardea.primitives.processing.prune_cols",
+        "cardea.primitives.processing.Imputer",
+        "sklearn.preprocessing.OneHotEncoder",
+        "sklearn.preprocessing.MinMaxScaler",
+        "cardea.primitives.processing.categorize",
+        "sklearn.ensemble.RandomForestClassifier",
+        "cardea.primitives.processing.decategorize"
+    ]
+}

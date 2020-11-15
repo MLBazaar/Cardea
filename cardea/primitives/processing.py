@@ -40,3 +40,31 @@ def split_feature_matrix(X, problem=None, categorize=False):
         y = pd.Categorical(y).codes
 
     return fm.reset_index(drop=True).values, y
+
+
+def digitize_los(y):
+    if y is None:
+        return None
+    bins = [y.min(), 7, y.max() + 1]
+    return np.digitize(y, bins)
+
+
+def categorize(y):
+    if y is None:
+        return y
+    dtype = pd.Categorical(y, ordered=True)
+    y = dtype.codes
+    return y, dtype
+
+
+def from_codes(y, dtype):
+    if y is None or dtype is None:
+        return y
+    return pd.Categorical.from_codes(y, dtype=dtype)
+
+
+def preprocess_features(X):
+    X = remove_low_information_features(X)
+    X = X.fillna(0)
+    X = pd.get_dummies(X)
+    return X.values
