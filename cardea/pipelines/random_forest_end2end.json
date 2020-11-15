@@ -5,7 +5,7 @@
         "cardea.primitives.processing.OneHotEncoder",
         "sklearn.preprocessing.MinMaxScaler",
         "cardea.primitives.processing.Categorizer",
-        "sklearn.linear_model.LogisticRegression",
+        "sklearn.ensemble.RandomForestClassifier",
         "cardea.primitives.processing.Decategorizer"
     ],
     "input_names": {
