@@ -48,5 +48,5 @@ class Imputer(TransformerMixin):
         X = X.fillna(self.fill)
         for column in X.columns:
             if X[column].dtype == np.dtype('O'):
-                X[column].astype('str')
+                X[column] = X[column].apply(lambda x: str(x))
         return X

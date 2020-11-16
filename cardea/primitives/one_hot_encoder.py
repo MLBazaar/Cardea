@@ -16,5 +16,5 @@ class OneHotEncoder(TransformerMixin):
         return self
 
     def transform(self, X):
-        X = pd.get_dummies(X)
-        return X.reindex(columns=self.dummy_columns, fill_value=0)
+        dummies = pd.get_dummies(X)
+        return dummies.reindex(columns=self.dummy_columns, fill_value=0)
