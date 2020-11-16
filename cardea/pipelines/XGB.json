@@ -1,0 +1,21 @@
+{
+    "primitives": [
+        "cardea.primitives.processing.Pruner",
+        "cardea.primitives.processing.Imputer",
+        "cardea.primitives.processing.OneHotEncoder",
+        "sklearn.preprocessing.MinMaxScaler",
+        "cardea.primitives.processing.Categorizer",
+        "xgboost.XGBClassifier",
+        "cardea.primitives.processing.Decategorizer"
+    ],
+    "input_names": {
+        "xgboost.XGBClassifier#1": {
+            "y": "y_codes"
+        }
+    },
+    "output_names": {
+        "xgboost.XGBClassifier#1": {
+            "y": "y_codes"
+        }
+    }
+}
