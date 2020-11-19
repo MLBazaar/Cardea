@@ -1,8 +1,11 @@
+import copy
 import os
 
+import cloudpickle
 import hyperopt
 import mlblocks
 import numpy as np
+
 from hyperopt import STATUS_OK, Trials, base, fmin, hp, tpe
 from mlblocks import MLPipeline
 from sklearn import metrics
@@ -124,7 +127,6 @@ class Modeler():
         Returns:
             A list consists of the used pipeline and an array of the predicted values.
         """
-
         pipeline.fit(X_train, y_train)
         y_pred = pipeline.predict(X_test)
         return y_pred
@@ -221,11 +223,13 @@ class Modeler():
             y_test = target[test_index]
             number_of_folds = number_of_folds + 1
             # Append the predicted labels.
-            y_predict = self.fit_predict_model(X_train, y_train, X_test, pipeline)
+            fold_pipeline = copy.deepcopy(pipeline)
+            y_predict = self.fit_predict_model(X_train, y_train, X_test, fold_pipeline)
 
             Folds[str(number_of_folds)] = {
                 "predicted": y_predict,
-                "Actual": y_test
+                "Actual": y_test,
+                "pipeline": cloudpickle.dumps(fold_pipeline)
             }
 
             if self.problem_type == 'regression':
@@ -296,7 +300,7 @@ class Modeler():
                     The value of tunnable hyperparameters is: {}')
         return space_list
 
-    def hyperopt_train_test(self, params):
+    def hyperopt_train_test(self, params, pipeline=None):
         """Creates the objective function to minimize.
 
         Args:
@@ -305,14 +309,14 @@ class Modeler():
         Returns:
             The the model secore after K-fold corss-validation.
         """
-
-        pipeline = self.create_pipeline(self.primitive, params)
+        if pipeline is None:
+            pipeline = self.create_pipeline(self.primitive, params)
 
         return self.kfold_scoring(self.data_frame, self.target, pipeline)
 
-    def objective(self, params):
+    def objective(self, params, pipeline=None):
 
-        accuracy = self.hyperopt_train_test(params)
+        accuracy = self.hyperopt_train_test(params, pipeline)
         if not self.minimize_cost:
             accuracy = -accuracy
         return {'loss': accuracy, 'status': STATUS_OK}
@@ -331,7 +335,7 @@ class Modeler():
 
         trials = Trials()
         best = fmin(
-            self.objective,
+            lambda param: self.objective(param, pipeline),
             space,
             algo=tpe.suggest,
             max_evals=max_evals,
@@ -410,6 +414,33 @@ class Modeler():
             self.pipeline_dict = {}
         return all_pipeline_dict
 
+    def create_kfold_from_pipeline(self, pipeline):
+        """Creates Kfold cross-validation and predicts all the primitives within the pipeline.
+
+        Args:
+            pipeline: A MLPipeline instance.
+
+        Returns:
+
+        """
+        fold_dict = {}
+        kf = KFold(n_splits=10, random_state=None, shuffle=True)
+
+        for i, (train_index, test_index) in enumerate(kf.split(self.data_frame)):
+            fold_pipeline = copy.deepcopy(pipeline)
+
+            X_train = self.data_frame.loc[train_index]
+            X_test = self.data_frame.loc[test_index]
+            y_train = self.target[train_index]
+            y_test = self.target[test_index]
+
+            # Append the predicted labels.
+            y_predict = self.fit_predict_model(X_train, y_train, X_test, fold_pipeline)
+            fold_dict[str(i)] = {"predicted": y_predict, "Actual": y_test,
+                                 "pipeline": cloudpickle.dumps(fold_pipeline)}
+
+        return fold_dict
+
     def execute_pipeline_from_pipeline(self, data_frame, target, pipelines, problem_type,
                                        optimize=False, max_evals=10, scoring=None,
                                        minimize_cost=False):
@@ -444,13 +475,17 @@ class Modeler():
 
             if optimize:
                 self.optimization(pipeline, max_evals)
+                # TODO: Pass training results in function returns instead of class attributes
+                pipeline_dict = self.pipeline_dict
 
             else:
-                # TODO: Pass training results in function returns instead of object attributes
-                self.kfold_scoring(data_frame, target, pipeline)
-                self.pipeline_dict = {'folds': self.pipeline_dict['folds'],
-                                      'hyperparameter': None}
+                fold_dict = self.create_kfold_from_pipeline(pipeline)
+                pipeline_dict = {
+                    'primitives': pipeline.primitives,
+                    'folds': fold_dict,
+                    'hyperparameters': None
+                }
 
-            all_pipeline_dict[pipleline_order] = self.pipeline_dict
+            all_pipeline_dict[pipleline_order] = pipeline_dict
             self.pipeline_dict = {}
         return all_pipeline_dict
