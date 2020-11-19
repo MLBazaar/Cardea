@@ -166,28 +166,11 @@ def create_tasks(pipeline_names=None, problem_names=None, dataset_name='MIMIC-II
             task_num += 1
 
     if output_dir is not None:
-        if os.path.exists(output_dir):
-            shutil.rmtree(output_dir)
-        os.mkdir(output_dir)
+        if not os.path.exists(output_dir):
+            os.mkdir(output_dir)
         for task in tasks:
             task_path = os.path.join(output_dir, task.task_id)
             os.mkdir(task_path)
             task.save_as(os.path.join(task_path, 'meta.json', 'json'))
 
-    return tasks
-
-
-def load_tasks(root_folder=None):
-    """
-    Args:
-        root_folder: str, the path where the task configurations are stored.
-
-    Returns:
-         a list of Task objects that store the configurations of the tasks.
-    """
-    task_folders = [f for f in os.listdir(root_folder) if os.path.isdir(f)]
-    tasks = []
-    for folder in task_folders:
-        with open(os.path.join(folder, 'config.pkl'), 'rb') as f:
-            tasks.append(pickle.load(f))
     return tasks

@@ -1,6 +1,7 @@
 import json
 import os
 import logging
+import pickle
 import shutil
 from datetime import datetime
 
@@ -114,14 +115,14 @@ def aggregate_results_by_problem(performance, metric, record_time=True, output_p
     if 'Status' in performance.columns:
         performance = performance[performance['Status'] == 'OK']
 
-    problems = performance['Problem'].unique()
+    problems = performance['Problem Name'].unique()
     aggr_results = []
     for problem in problems:
         runs = _select_runs(performance, problem)
         problem_dict = {
             "Average {}".format(metric): runs[metric].mean(),
             "Best {}".format(metric): runs[metric].max(),
-            "Best Pipeline": runs.loc[runs[metric].idxmax(), 'Pipeline']
+            "Best Pipeline": runs.loc[runs[metric].idxmax(), 'Pipeline Name']
         }
         if record_time:
             problem_dict["Average Elapsed Time(s)"] = runs["Elapsed Time(s)"].mean()
@@ -142,8 +143,8 @@ def _select_runs(df, problem=None, pipeline=None):
     return df
 
 
-def benchmark_from_tasks(tasks, metrics=None, results_output_path=None, tasks_output_dir=None,
-                         save_model=True, save_intermedia_data=True, save_hyperparameters=True):
+def benchmark(tasks, metrics=None, results_output_path=None, tasks_output_dir=None,
+              save_model=True, save_intermedia_data=True, save_hyperparameters=True):
     """
     Args:
         tasks: list, a list of task instances storing meta information of each task.
@@ -167,6 +168,8 @@ def benchmark_from_tasks(tasks, metrics=None, results_output_path=None, tasks_ou
     performance = []
     for task in tasks:
         if tasks_output_dir is not None:
+            if not os.path.exists(tasks_output_dir):
+                os.mkdir(tasks_output_dir)
             output_path = os.path.join(tasks_output_dir, task.task_id)
         else:
             output_path = None
@@ -216,7 +219,7 @@ def evaluate_task(task, metrics=None, output_path=None, save_intermedia_data=Tru
         raise NotImplementedError
 
     elif task.beginning_stage == "featurization":
-        feature_matrix = pd.read_csv(task.path_to_dataset)
+        feature_matrix = pd.read_csv(task.path_to_dataset, index_col=0)
 
     else:
         raise ValueError("Beginning stage should be either \"data_loader\", "
@@ -224,18 +227,42 @@ def evaluate_task(task, metrics=None, output_path=None, save_intermedia_data=Tru
 
     # Run the pipeline for #task.run_num times and record each run.
     results = []
+    records = []  # Records include (pipeline models (pickle), hyperparameters) of each run.
     for i in range(task.run_num):
-        scores, _, hyperparameters = _evaluate_pipeline(i, pipeline, feature_matrix,
-                                                        task.pipeline_name,
-                                                        task.problem_name,
-                                                        task.dataset_name,
-                                                        task.beginning_stage,
-                                                        task.tuned, metrics)
+        scores, models, hyperparameters = _evaluate_pipeline(i, pipeline, feature_matrix,
+                                                             task.pipeline_name,
+                                                             task.problem_name,
+                                                             task.dataset_name,
+                                                             task.beginning_stage,
+                                                             task.tuned, metrics)
         results.append(scores)
+        records.append((models, hyperparameters))
 
     # Store the output results.
     if output_path is not None:
-        ...
+        # Ensure that the output directory exists.
+        if not os.path.exists(output_path):
+            os.mkdir(output_path)
+
+        # Save task meta information
+        task.save_as(os.path.join(output_path, "meta.json"), "json")
+        matrix = 'F1 Macro'
+        best_index = np.argmax([scores[matrix] for scores in results])
+        best_record = records[best_index]
+
+        # Save pipeline models if required
+        if save_model:
+            model_path = os.path.join(output_path, "models")
+            if not os.path.exists(model_path):
+                os.mkdir(model_path)
+            for fold_name, model in best_record[0].items():
+                with open(os.path.join(model_path, "{}_model.pkl".format(fold_name)), 'wb') as f:
+                    f.write(model)
+
+        # Save pipeline hyperparameters if required
+        if save_hyperparameters:
+            with open(os.path.join(output_path, "hyperparameters.pkl"), 'wb') as f:
+                pickle.dump(best_record[1], f)
 
     return results
 
@@ -261,12 +288,13 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name, problem_
         A tuple includes performance stored in a dictionary, a pipeline model,
             and hyperparameters.
     """
-    # features, target = _split_feature_label(feature_matrix, TARGET_NAME[problem_name])
     features = feature_matrix.copy()
     features = features.sample(3000).reset_index(drop=True)
+    if problem_name.lower() in features.columns:
+        features.pop(problem_name.lower())
     target = features.pop(TARGET_NAME[problem_name])
 
-    if problem_name == 'LOS' and dataset_name == 'mimic-iii-ft':
+    if problem_name == 'LOS' and dataset_name == 'mimic-iii':
         target = np.digitize(target, [0, 7])
 
     if metrics is None:
@@ -284,8 +312,9 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name, problem_
                                                                minimize_cost=False, scoring='f1',
                                                                max_evals=10)
         elapsed = datetime.utcnow() - start
-        hyperparameters = pipelines_res['pipeline0']['hyperparameter']
-        # model = pipelines_res['pipeline0']['model']
+        hyperparameters = pipelines_res['pipeline0'].get('hyperparameter', None)
+        models = {fold_name: fold['pipeline']
+                  for fold_name, fold in pipelines_res['pipeline0']['folds'].items()}
         scores = _scoring_folds(pipelines_res['pipeline0']['folds'], metrics)
         scores['Elapsed Time(s)'] = elapsed.total_seconds()
         scores['Status'] = 'OK'
@@ -296,6 +325,7 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name, problem_
                                                                                problem_name, ex))
         elapsed = datetime.utcnow() - start
         hyperparameters = None
+        models = None
         scores = {
             name: 0 for name in metrics.keys()
         }
@@ -309,4 +339,4 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name, problem_
     scores['Beginning Stage'] = beginning_stage
     scores['Tuned'] = optimize
 
-    return scores, None, hyperparameters
+    return scores, models, hyperparameters
