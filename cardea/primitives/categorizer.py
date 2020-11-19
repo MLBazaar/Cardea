@@ -22,7 +22,5 @@ class Categorizer(TransformerMixin):
         return pd.Categorical(y, dtype=self.categorical_dtype).codes
 
     def inverse_transform(self, y_codes):
-        if y_codes is None:
-            return y_codes
         return np.array(pd.Categorical.from_codes(y_codes, dtype=self.categorical_dtype))\
             .astype(self.dtype)

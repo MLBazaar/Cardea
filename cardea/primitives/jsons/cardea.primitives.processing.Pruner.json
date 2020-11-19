@@ -1,7 +1,7 @@
 {
     "name": "cardea.primitives.processing.Pruner",
     "contributors": ["Furui Cheng <furui@csail.mit.edu>"],
-    "description": "Prune identifier columns and columns with numerous tokens (>100).",
+    "description": "Prune identifier columns, columns with numerous tokens (>100) and columns with low information.",
     "classifiers": {
         "type": "preprocessor",
         "subtype": "transformer"

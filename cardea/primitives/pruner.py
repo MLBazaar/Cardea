@@ -1,18 +1,9 @@
-import numpy as np
-import pandas as pd
-
 from sklearn.base import TransformerMixin
 
 
 class Pruner(TransformerMixin):
-    """Impute missing values. Columns of dtype object are imputed with the most frequent value
-    in column. Columns of other types are imputed with mean of column.
-
-    Args:
-        strategy: str, the imputation strategy for numerical columns, should be either "mean",
-        "median", and "most_frequent".
-
-    """
+    """Prune identifier columns, columns with numerous tokens (>100) and columns
+    with low information."""
 
     def __init__(self):
         self.pruned_columns = ['subjuct_id', 'row_id', 'hadm_id', 'cgid', 'itemid', 'icustay_id']
@@ -21,6 +12,8 @@ class Pruner(TransformerMixin):
         for col in X.columns:
             num = X[col].nunique()
             if X[col].dtype == object and num > 100:
+                self.pruned_columns.append(col)
+            elif num <= 1 or X[col].dropna().shape[0] == 0:
                 self.pruned_columns.append(col)
         return self
 

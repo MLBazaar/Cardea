@@ -33,7 +33,7 @@
         ]
     },
     "hyperparameters": {
-        "tunable": {
+        "fixed": {
             "strategy": {
                 "type": "str",
                 "default": "mean",
