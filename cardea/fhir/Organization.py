@@ -8,7 +8,7 @@ class Organization(fhirbase):
     collective action.  Includes companies, institutions, corporations,
     departments, community groups, healthcare practice groups, etc.
 
-    Attributes:
+    Args:
         resourceType: This is a Organization resource
         identifier: Identifier for the organization that is used to identify
             the organization across multiple disparate systems.
@@ -119,7 +119,7 @@ class Organization_Contact(fhirbase):
     collective action.  Includes companies, institutions, corporations,
     departments, community groups, healthcare practice groups, etc.
 
-    Attributes:
+    Args:
         purpose: Indicates a purpose for which the contact can be reached.
         name: A name associated with the contact.
         telecom: A contact detail (e.g. a telephone number or an email

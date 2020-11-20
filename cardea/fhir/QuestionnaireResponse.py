@@ -7,7 +7,7 @@ class QuestionnaireResponse(fhirbase):
     ordered and grouped into coherent subsets, corresponding to the
     structure of the grouping of the questionnaire being responded to.
 
-    Attributes:
+    Args:
         resourceType: This is a QuestionnaireResponse resource
         identifier: A business identifier assigned to a particular completed
             (or partially completed) questionnaire.
@@ -151,7 +151,7 @@ class QuestionnaireResponse_Item(fhirbase):
     ordered and grouped into coherent subsets, corresponding to the
     structure of the grouping of the questionnaire being responded to.
 
-    Attributes:
+    Args:
         linkId: The item from the Questionnaire that corresponds to this item
             in the QuestionnaireResponse resource.
         definition: A reference to an [[[ElementDefinition]]] that provides
@@ -219,7 +219,7 @@ class QuestionnaireResponse_Answer(fhirbase):
     ordered and grouped into coherent subsets, corresponding to the
     structure of the grouping of the questionnaire being responded to.
 
-    Attributes:
+    Args:
         valueBoolean: The answer (or one of the answers) provided by the
             respondent to the question.
         valueDecimal: The answer (or one of the answers) provided by the

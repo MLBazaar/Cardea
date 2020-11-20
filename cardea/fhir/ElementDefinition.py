@@ -6,7 +6,7 @@ class ElementDefinition(fhirbase):
     Captures constraints on each element within the resource, profile, or
     extension.
 
-    Attributes:
+    Args:
         path: The path identifies the element and is expressed as a
             "."-separated list of ancestor elements, beginning with the name of
             the resource or extension.
@@ -2119,7 +2119,7 @@ class ElementDefinition_Slicing(fhirbase):
     Captures constraints on each element within the resource, profile, or
     extension.
 
-    Attributes:
+    Args:
         discriminator: Designates which child elements are used to
             discriminate between the slices when processing an instance. If one or
             more discriminators are provided, the value of the child elements in
@@ -2185,7 +2185,7 @@ class ElementDefinition_Discriminator(fhirbase):
     Captures constraints on each element within the resource, profile, or
     extension.
 
-    Attributes:
+    Args:
         type: How the element value is interpreted when discrimination is
             evaluated.
         path: A FHIRPath expression, using a restricted subset of FHIRPath,
@@ -2224,7 +2224,7 @@ class ElementDefinition_Base(fhirbase):
     Captures constraints on each element within the resource, profile, or
     extension.
 
-    Attributes:
+    Args:
         path: The Path that identifies the base element - this matches the
             ElementDefinition.path for that element. Across FHIR, there is only
             one base definition of any element - that is, an element definition on
@@ -2257,7 +2257,7 @@ class ElementDefinition_Type(fhirbase):
     Captures constraints on each element within the resource, profile, or
     extension.
 
-    Attributes:
+    Args:
         code: URL of Data type or Resource that is a(or the) type used for
             this element. References are URLs that are relative to
             http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference
@@ -2333,7 +2333,7 @@ class ElementDefinition_Example(fhirbase):
     Captures constraints on each element within the resource, profile, or
     extension.
 
-    Attributes:
+    Args:
         label: Describes the purpose of this example amoung the set of
             examples.
         valueBoolean: The actual value for the element, which must be one of
@@ -2799,7 +2799,7 @@ class ElementDefinition_Constraint(fhirbase):
     Captures constraints on each element within the resource, profile, or
     extension.
 
-    Attributes:
+    Args:
         key: Allows identification of which elements have their cardinalities
             impacted by the constraint.  Will not be referenced for constraints
             that do not affect cardinality.
@@ -2864,7 +2864,7 @@ class ElementDefinition_Binding(fhirbase):
     Captures constraints on each element within the resource, profile, or
     extension.
 
-    Attributes:
+    Args:
         strength: Indicates the degree of conformance expectations associated
             with this binding - that is, the degree to which the provided value
             set must be adhered to in the instances.
@@ -2933,7 +2933,7 @@ class ElementDefinition_Mapping(fhirbase):
     Captures constraints on each element within the resource, profile, or
     extension.
 
-    Attributes:
+    Args:
         identity: An internal reference to the definition of a mapping.
         language: Identifies the computable language in which mapping.map is
             expressed.

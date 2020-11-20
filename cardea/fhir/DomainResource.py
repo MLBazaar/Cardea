@@ -6,7 +6,7 @@ class DomainResource(fhirbase):
     A resource that includes narrative, extensions, and contained
     resources.
 
-    Attributes:
+    Args:
         text: A human-readable narrative that contains a summary of the
             resource, and may be used to represent the content of the resource to
             a human. The narrative need not encode all the structured data, but is

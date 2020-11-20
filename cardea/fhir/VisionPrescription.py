@@ -6,7 +6,7 @@ class VisionPrescription(fhirbase):
     An authorization for the supply of glasses and/or contact lenses to a
     patient.
 
-    Attributes:
+    Args:
         resourceType: This is a VisionPrescription resource
         identifier: Business identifier which may be used by other parties to
             reference or identify the prescription.
@@ -112,7 +112,7 @@ class VisionPrescription_Dispense(fhirbase):
     An authorization for the supply of glasses and/or contact lenses to a
     patient.
 
-    Attributes:
+    Args:
         product: Identifies the type of vision correction product which is
             required for the patient.
         eye: The eye for which the lens applies.

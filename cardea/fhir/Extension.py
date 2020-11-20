@@ -5,7 +5,7 @@ class Extension(fhirbase):
     """
     Optional Extension Element - found in all resources.
 
-    Attributes:
+    Args:
         url: Source of the definition for the extension code - a logical name
             or a URL.
         valueBoolean: Value of extension - may be a resource or one of a

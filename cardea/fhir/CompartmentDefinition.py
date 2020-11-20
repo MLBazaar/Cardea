@@ -6,7 +6,7 @@ class CompartmentDefinition(fhirbase):
     A compartment definition that defines how resources are accessed on a
     server.
 
-    Attributes:
+    Args:
         resourceType: This is a CompartmentDefinition resource
         url: An absolute URI that is used to identify this compartment
             definition when it is referenced in a specification, model, design or
@@ -163,7 +163,7 @@ class CompartmentDefinition_Resource(fhirbase):
     A compartment definition that defines how resources are accessed on a
     server.
 
-    Attributes:
+    Args:
         code: The name of a resource supported by the server.
         param: The name of a search parameter that represents the link to the
             compartment. More than one may be listed because a resource may be

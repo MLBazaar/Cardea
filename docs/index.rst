@@ -93,3 +93,7 @@ Explore Cardea
     api_reference/index
     community/index
     Release Notes <history>
+
+.. _FHIR: https://www.hl7.org/fhir/
+.. _The Human Data Interaction Project: https://github.com/HDI-Project
+.. _Data to AI Lab at MIT: https://dai.lids.mit.edu/

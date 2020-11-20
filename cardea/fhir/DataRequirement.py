@@ -6,7 +6,7 @@ class DataRequirement(fhirbase):
     Describes a required data item for evaluation in terms of the type of
     data, and optional code or date-based filters of the data.
 
-    Attributes:
+    Args:
         type: The type of the required data, specified as the type name of a
             resource. For profiles, this value is set to the type of the base
             resource of the profile.
@@ -73,7 +73,7 @@ class DataRequirement_CodeFilter(fhirbase):
     Describes a required data item for evaluation in terms of the type of
     data, and optional code or date-based filters of the data.
 
-    Attributes:
+    Args:
         path: The code-valued attribute of the filter. The specified path must
             be resolvable from the type of the required data. The path is allowed
             to contain qualifiers (.) to traverse sub-elements, as well as
@@ -161,7 +161,7 @@ class DataRequirement_DateFilter(fhirbase):
     Describes a required data item for evaluation in terms of the type of
     data, and optional code or date-based filters of the data.
 
-    Attributes:
+    Args:
         path: The date-valued attribute of the filter. The specified path must
             be resolvable from the type of the required data. The path is allowed
             to contain qualifiers (.) to traverse sub-elements, as well as

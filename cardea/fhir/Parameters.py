@@ -7,7 +7,7 @@ class Parameters(fhirbase):
     and response (operations.html). It has no other use, and there is no
     RESTful endpoint associated with it.
 
-    Attributes:
+    Args:
         parameter: A parameter passed to or received from the operation.
     """
 
@@ -40,7 +40,7 @@ class Parameters_Parameter(fhirbase):
     and response (operations.html). It has no other use, and there is no
     RESTful endpoint associated with it.
 
-    Attributes:
+    Args:
         name: The name of the parameter (reference to the operation
             definition).
         valueBoolean: If the parameter is a data type.

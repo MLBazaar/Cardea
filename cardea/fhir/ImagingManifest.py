@@ -6,7 +6,7 @@ class ImagingManifest(fhirbase):
     A text description of the DICOM SOP instances selected in the
     ImagingManifest; or the reason for, or significance of, the selection.
 
-    Attributes:
+    Args:
         resourceType: This is a ImagingManifest resource
         identifier: Unique identifier of the DICOM Key Object Selection (KOS)
             that this resource represents.
@@ -94,7 +94,7 @@ class ImagingManifest_Study(fhirbase):
     A text description of the DICOM SOP instances selected in the
     ImagingManifest; or the reason for, or significance of, the selection.
 
-    Attributes:
+    Args:
         uid: Study instance UID of the SOP instances in the selection.
         imagingStudy: Reference to the Imaging Study in FHIR form.
         endpoint: The network service providing access (e.g., query, view, or
@@ -154,7 +154,7 @@ class ImagingManifest_Series(fhirbase):
     A text description of the DICOM SOP instances selected in the
     ImagingManifest; or the reason for, or significance of, the selection.
 
-    Attributes:
+    Args:
         uid: Series instance UID of the SOP instances in the selection.
         endpoint: The network service providing access (e.g., query, view, or
             retrieval) for this series. See implementation notes for information
@@ -204,7 +204,7 @@ class ImagingManifest_Instance(fhirbase):
     A text description of the DICOM SOP instances selected in the
     ImagingManifest; or the reason for, or significance of, the selection.
 
-    Attributes:
+    Args:
         sopClass: SOP class UID of the selected instance.
         uid: SOP Instance UID of the selected instance.
     """

@@ -6,7 +6,7 @@ class Annotation(fhirbase):
     A  text note which also  contains information about who made the
     statement and when.
 
-    Attributes:
+    Args:
         authorReference: The individual responsible for making the annotation.
         authorString: The individual responsible for making the annotation.
         time: Indicates when this particular annotation was made.

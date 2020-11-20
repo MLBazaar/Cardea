@@ -5,7 +5,7 @@ class Period(fhirbase):
     """
     A time period defined by a start and end date and optionally time.
 
-    Attributes:
+    Args:
         start: The start of the period. The boundary is inclusive.
         end: The end of the period. If the end of the period is missing, it
             means that the period is ongoing. The start may be in the past, and

@@ -6,7 +6,7 @@ class ValueSet(fhirbase):
     A value set specifies a set of codes drawn from one or more code
     systems.
 
-    Attributes:
+    Args:
         resourceType: This is a ValueSet resource
         url: An absolute URI that is used to identify this value set when it
             is referenced in a specification, model, design or an instance. This
@@ -191,7 +191,7 @@ class ValueSet_Compose(fhirbase):
     A value set specifies a set of codes drawn from one or more code
     systems.
 
-    Attributes:
+    Args:
         lockedDate: If a locked date is defined, then the Content Logical
             Definition must be evaluated using the current version as of the
             locked date for referenced code system(s) and value set instances
@@ -252,7 +252,7 @@ class ValueSet_Include(fhirbase):
     A value set specifies a set of codes drawn from one or more code
     systems.
 
-    Attributes:
+    Args:
         system: An absolute URI which is the code system from which the
             selected codes come from.
         version: The version of the code system that the codes are selected
@@ -311,7 +311,7 @@ class ValueSet_Concept(fhirbase):
     A value set specifies a set of codes drawn from one or more code
     systems.
 
-    Attributes:
+    Args:
         code: Specifies a code for the concept to be included or excluded.
         display: The text to display to the user for this concept in the
             context of this valueset. If no display is provided, then applications
@@ -356,7 +356,7 @@ class ValueSet_Designation(fhirbase):
     A value set specifies a set of codes drawn from one or more code
     systems.
 
-    Attributes:
+    Args:
         language: The language this designation is defined for.
         use: A code that details how this designation would be used.
         value: The text value for this designation.
@@ -395,7 +395,7 @@ class ValueSet_Filter(fhirbase):
     A value set specifies a set of codes drawn from one or more code
     systems.
 
-    Attributes:
+    Args:
         property: A code that identifies a property defined in the code
             system.
         op: The kind of operation to perform as a part of the filter criteria.
@@ -443,7 +443,7 @@ class ValueSet_Expansion(fhirbase):
     A value set specifies a set of codes drawn from one or more code
     systems.
 
-    Attributes:
+    Args:
         identifier: An identifier that uniquely identifies this expansion of
             the valueset. Systems may re-use the same identifier as long as the
             expansion and the definition remain the same, but are not required to
@@ -509,7 +509,7 @@ class ValueSet_Parameter(fhirbase):
     A value set specifies a set of codes drawn from one or more code
     systems.
 
-    Attributes:
+    Args:
         name: The name of the parameter.
         valueString: The value of the parameter.
         valueBoolean: The value of the parameter.
@@ -555,7 +555,7 @@ class ValueSet_Contains(fhirbase):
     A value set specifies a set of codes drawn from one or more code
     systems.
 
-    Attributes:
+    Args:
         system: An absolute URI which is the code system in which the code for
             this item in the expansion is defined.
         abstract: If true, this entry is included in the expansion for

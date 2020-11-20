@@ -7,7 +7,7 @@ class MessageDefinition(fhirbase):
     systems, including the type of event that initiates the message, the
     content to be transmitted and what response(s), if any, are permitted.
 
-    Attributes:
+    Args:
         resourceType: This is a MessageDefinition resource
         url: An absolute URI that is used to identify this message definition
             when it is referenced in a specification, model, design or an
@@ -232,7 +232,7 @@ class MessageDefinition_Focus(fhirbase):
     systems, including the type of event that initiates the message, the
     content to be transmitted and what response(s), if any, are permitted.
 
-    Attributes:
+    Args:
         code: The kind of resource that must be the focus for this message.
         profile: A profile that reflects constraints for the focal resource
             (and potentially for related resources).
@@ -281,7 +281,7 @@ class MessageDefinition_AllowedResponse(fhirbase):
     systems, including the type of event that initiates the message, the
     content to be transmitted and what response(s), if any, are permitted.
 
-    Attributes:
+    Args:
         message: A reference to the message definition that must be adhered to
             by this supported response.
         situation: Provides a description of the circumstances in which this

@@ -6,7 +6,7 @@ class StructureMap(fhirbase):
     A Map of relationships between 2 structures that can be used to
     transform data.
 
-    Attributes:
+    Args:
         resourceType: This is a StructureMap resource
         url: An absolute URI that is used to identify this structure map when
             it is referenced in a specification, model, design or an instance.
@@ -186,7 +186,7 @@ class StructureMap_Structure(fhirbase):
     A Map of relationships between 2 structures that can be used to
     transform data.
 
-    Attributes:
+    Args:
         url: The canonical URL that identifies the structure.
         mode: How the referenced structure is used in this mapping.
         alias: The name used for this type in the map.
@@ -232,7 +232,7 @@ class StructureMap_Group(fhirbase):
     A Map of relationships between 2 structures that can be used to
     transform data.
 
-    Attributes:
+    Args:
         name: A unique name for the group for the convenience of human
             readers.
         extends: Another group that this group adds rules to.
@@ -305,7 +305,7 @@ class StructureMap_Input(fhirbase):
     A Map of relationships between 2 structures that can be used to
     transform data.
 
-    Attributes:
+    Args:
         name: Name for this instance of data.
         type: Type for this instance of data.
         mode: Mode for this instance of data.
@@ -350,7 +350,7 @@ class StructureMap_Rule(fhirbase):
     A Map of relationships between 2 structures that can be used to
     transform data.
 
-    Attributes:
+    Args:
         name: Name of the rule for internal references.
         source: Source inputs to the mapping.
         target: Content to create because of this mapping rule.
@@ -420,7 +420,7 @@ class StructureMap_Source(fhirbase):
     A Map of relationships between 2 structures that can be used to
     transform data.
 
-    Attributes:
+    Args:
         context: Type or variable this rule applies to.
         min: Specified minimum cardinality for the element. This is optional;
             if present, it acts an implicit check on the input content.
@@ -941,7 +941,7 @@ class StructureMap_Target(fhirbase):
     A Map of relationships between 2 structures that can be used to
     transform data.
 
-    Attributes:
+    Args:
         context: Type or variable this rule applies to.
         contextType: How to interpret the context.
         element: Field to create in the context.
@@ -1058,7 +1058,7 @@ class StructureMap_Parameter(fhirbase):
     A Map of relationships between 2 structures that can be used to
     transform data.
 
-    Attributes:
+    Args:
         valueId: Parameter value - variable or literal.
         valueString: Parameter value - variable or literal.
         valueBoolean: Parameter value - variable or literal.
@@ -1096,7 +1096,7 @@ class StructureMap_Dependent(fhirbase):
     A Map of relationships between 2 structures that can be used to
     transform data.
 
-    Attributes:
+    Args:
         name: Name of a rule or group to apply.
         variable: Variable to pass to the rule or group.
     """

@@ -7,7 +7,7 @@ class CommunicationRequest(fhirbase):
     alert be sent to a responsible provider, the CDS system proposes that
     the public health agency be notified about a reportable condition.
 
-    Attributes:
+    Args:
         resourceType: This is a CommunicationRequest resource
         identifier: A unique ID of this request for reference purposes. It
             must be provided if user wants it returned as part of any output,
@@ -237,7 +237,7 @@ class CommunicationRequest_Payload(fhirbase):
     alert be sent to a responsible provider, the CDS system proposes that
     the public health agency be notified about a reportable condition.
 
-    Attributes:
+    Args:
         contentString: The communicated content (or for multi-part
             communications, one portion of the communication).
         contentAttachment: The communicated content (or for multi-part
@@ -285,7 +285,7 @@ class CommunicationRequest_Requester(fhirbase):
     alert be sent to a responsible provider, the CDS system proposes that
     the public health agency be notified about a reportable condition.
 
-    Attributes:
+    Args:
         agent: The device, practitioner, etc. who initiated the request.
         onBehalfOf: The organization the device or practitioner was acting on
             behalf of.

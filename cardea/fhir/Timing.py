@@ -10,7 +10,7 @@ class Timing(fhirbase):
     and may be used for reporting the schedule to which past regular
     activities were carried out.
 
-    Attributes:
+    Args:
         event: Identifies specific times when the event occurs.
         repeat: A set of rules that describe when the event is scheduled.
         code: A code for the timing schedule. Some codes such as BID are
@@ -64,7 +64,7 @@ class Timing_Repeat(fhirbase):
     and may be used for reporting the schedule to which past regular
     activities were carried out.
 
-    Attributes:
+    Args:
         boundsDuration: Either a duration for the length of the timing
             schedule, a range of possible length, or outer bounds for start and/or
             end limits of the timing schedule.

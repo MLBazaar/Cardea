@@ -80,11 +80,14 @@ def load_mimic_data(path=None, subset=None):
     """Returns an entityset loaded with the dataframes in the received path.
 
     Args:
-        path: The path of the data.
-        subset: List of tables to include.
+        path (str):
+            The folder path that contains the data.
+        subset (str):
+            List of tables to include.
 
     Returns:
-        An entityset with loaded data.
+        featuretools.EntitySet:
+            An entityset with loaded data.
     """
 
     es = ft.EntitySet(id="mimic")

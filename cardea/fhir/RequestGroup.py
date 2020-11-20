@@ -7,7 +7,7 @@ class RequestGroup(fhirbase):
     activities that have inter-dependencies such as "give this medication
     after that one".
 
-    Attributes:
+    Args:
         resourceType: This is a RequestGroup resource
         identifier: Allows a service to provide a unique, business identifier
             for the request.
@@ -183,7 +183,7 @@ class RequestGroup_Action(fhirbase):
     activities that have inter-dependencies such as "give this medication
     after that one".
 
-    Attributes:
+    Args:
         label: A user-visible label for the action.
         title: The title of the action displayed to a user.
         description: A short description of the action used to provide a
@@ -382,7 +382,7 @@ class RequestGroup_Condition(fhirbase):
     activities that have inter-dependencies such as "give this medication
     after that one".
 
-    Attributes:
+    Args:
         kind: The kind of condition.
         description: A brief, natural language description of the condition
             that effectively communicates the intended semantics.
@@ -419,7 +419,7 @@ class RequestGroup_RelatedAction(fhirbase):
     activities that have inter-dependencies such as "give this medication
     after that one".
 
-    Attributes:
+    Args:
         actionId: The element id of the action this is related to.
         relationship: The relationship of this action to the related action.
         offsetDuration: A duration or range of durations to apply to the

@@ -15,8 +15,10 @@ class EntitySetLoader(DataLoader):
         """Creates an entity from fhir dataframes and add it to entityset.
 
         Args:
-            fhir: A dictionary of fhir class dataframes.
-            entity_set: The global entityset that the entity will be added to.
+            fhir (dict):
+                A dictionary of fhir class dataframes.
+            entity_set (featuretools.EntitySet):
+                The global entityset that the entity will be added to.
         """
 
         for object_name, df in fhir.items():
@@ -58,10 +60,12 @@ class EntitySetLoader(DataLoader):
         Loads .csv files into pandas dataframes then loads them into featuretools' entityset.
 
         Args:
-            folder_path: A directory of all .csv files that should be loaded.
+            folder_path (dict):
+                A directory of all .csv files that should be loaded.
 
         Returns:
-            An entityset with loaded data.
+            featuretools.EntitySet:
+                An entityset with loaded data.
         """
 
         fhir = self.read_csv_files(folder_path=folder_path)

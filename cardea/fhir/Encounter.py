@@ -7,7 +7,7 @@ class Encounter(fhirbase):
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
 
-    Attributes:
+    Args:
         resourceType: This is a Encounter resource
         identifier: Identifier(s) by which this encounter is known.
         status: planned | arrived | triaged | in-progress | onleave | finished
@@ -270,7 +270,7 @@ class Encounter_StatusHistory(fhirbase):
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
 
-    Attributes:
+    Args:
         status: planned | arrived | triaged | in-progress | onleave | finished
             | cancelled +.
         period: The time that the episode was in the specified status.
@@ -321,7 +321,7 @@ class Encounter_ClassHistory(fhirbase):
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
 
-    Attributes:
+    Args:
         class: inpatient | outpatient | ambulatory | emergency +.
         period: The time that the episode was in the specified class.
     """
@@ -362,7 +362,7 @@ class Encounter_Participant(fhirbase):
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
 
-    Attributes:
+    Args:
         type: Role of participant in encounter.
         period: The period of time that the specified participant participated
             in the encounter. These can overlap or be sub-sets of the overall
@@ -415,7 +415,7 @@ class Encounter_Diagnosis(fhirbase):
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
 
-    Attributes:
+    Args:
         condition: Reason the encounter takes place, as specified using
             information from another resource. For admissions, this is the
             admission diagnosis. The indication will typically be a Condition
@@ -465,7 +465,7 @@ class Encounter_Hospitalization(fhirbase):
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
 
-    Attributes:
+    Args:
         preAdmissionIdentifier: Pre-admission identifier.
         origin: The location from which the patient came before admission.
         admitSource: From where patient was admitted (physician referral,
@@ -576,7 +576,7 @@ class Encounter_Location(fhirbase):
     purpose of providing healthcare service(s) or assessing the health
     status of a patient.
 
-    Attributes:
+    Args:
         location: The location where the encounter takes place.
         status: The status of the participants' presence at the specified
             location during the period specified. If the participant is is no

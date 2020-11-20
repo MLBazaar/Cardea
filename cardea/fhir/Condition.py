@@ -6,7 +6,7 @@ class Condition(fhirbase):
     A clinical condition, problem, diagnosis, or other event, situation,
     issue, or clinical concept that has risen to a level of concern.
 
-    Attributes:
+    Args:
         resourceType: This is a Condition resource
         identifier: This records identifiers associated with this condition
             that are defined by business processes and/or used to refer to it when
@@ -273,7 +273,7 @@ class Condition_Stage(fhirbase):
     A clinical condition, problem, diagnosis, or other event, situation,
     issue, or clinical concept that has risen to a level of concern.
 
-    Attributes:
+    Args:
         summary: A simple summary of the stage such as "Stage 3". The
             determination of the stage is disease-specific.
         assessment: Reference to a formal record of the evidence on which the
@@ -316,7 +316,7 @@ class Condition_Evidence(fhirbase):
     A clinical condition, problem, diagnosis, or other event, situation,
     issue, or clinical concept that has risen to a level of concern.
 
-    Attributes:
+    Args:
         code: A manifestation or symptom that led to the recording of this
             condition.
         detail: Links to other relevant information, including pathology

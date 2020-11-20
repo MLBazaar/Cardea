@@ -11,7 +11,7 @@ class ResearchSubject(fhirbase):
     ResearchStudy involves the gathering of information about human or
     animal subjects.
 
-    Attributes:
+    Args:
         resourceType: This is a ResearchSubject resource
         identifier: Identifiers assigned to this research study by the sponsor
             or other systems.

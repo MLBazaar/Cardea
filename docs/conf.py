@@ -49,7 +49,14 @@ extensions = [
     'IPython.sphinxext.ipython_directive',
 ]
 
-ipython_execlines = ["import pandas as pd", "pd.set_option('display.width', 1000000)"]
+ipython_execlines = [
+    "import pandas as pd",
+    "pd.set_option('display.width', 1000000)",
+    "pd.set_option('max_columns', 1000)",
+]
+
+autosummary_generate = True
+autodoc_typehints = "none"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -65,10 +72,26 @@ source_suffix = ['.rst', '.md', '.ipynb']
 # The master toctree document.
 master_doc = 'index'
 
+# Jupyter Notebooks
+nbsphinx_execute = 'never'
+nbsphinx_prolog = """
+.. raw:: html
+    <style>
+        .nbinput .prompt,
+        .nboutput .prompt {
+            display: none;
+        }
+    </style>
+"""
+
 # General information about the project.
 project = u'Cardea'
+slug = u'cardea'
+title = project + ' Documentation'
 copyright = u"2018, MIT Data To AI Lab"
 author = u"MIT Data To AI Lab"
+description = 'Automated Machine Learning on Electronic Health Records'
+user = 'DAI-Lab'
 
 # The version info for the project you're documenting, acts as replacement
 # for |version| and |release|, also used in various other places throughout
@@ -109,8 +132,8 @@ html_theme = 'pydata_sphinx_theme'
 # Readthedocs additions
 html_context = {
     'display_github': True,
-    'github_user': 'DAI-Lab',
-    'github_repo': 'cardea',
+    'github_user': user,
+    'github_repo': project,
     'github_version': 'master',
     'conf_py_path': '/docs/',
 }
@@ -140,7 +163,7 @@ html_favicon = 'images/favicon.ico'
 # -- Options for HTMLHelp output ---------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'cardeadoc'
+htmlhelp_basename = slug + 'doc'
 
 
 # -- Options for LaTeX output ------------------------------------------
@@ -168,10 +191,10 @@ latex_elements = {
 # [howto, manual, or own class]).
 latex_documents = [(
     master_doc,
-     'cardea.tex',
-     u'Cardea Documentation',
-     u'MIT Data To AI Lab',
-     'manual'
+    slug + '.tex',
+    title,
+    author,
+    'manual'
 )]
 
 
@@ -181,8 +204,8 @@ latex_documents = [(
 # (source start file, name, description, authors, manual section).
 man_pages = [(
     master_doc,
-    'cardea',
-    u'Cardea Documentation',
+    slug,
+    title,
     [author],
     1
 )]
@@ -195,10 +218,10 @@ man_pages = [(
 #  dir menu entry, description, category)
 texinfo_documents = [(
     master_doc,
-    'cardea',
-    u'Cardea Documentation',
+    slug,
+    title,
     author,
-    'cardea',
-    'One line description of project.',
+    slug,
+    description,
     'Miscellaneous'
 )]

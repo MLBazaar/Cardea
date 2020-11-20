@@ -358,20 +358,29 @@ class Modeler():
         """Executes and predict all the pipelines.
 
         Args:
-            data_frame: A dataframe, which encapsulates all the records of that entity.
-            target: An array of labels for the target variable.
-            primitives_list: A list of the primitives within a pipeline.
-            problem_type: A label to specify the type of problem whether
-            regression or classification.
-            optimize: A boolean value which indicates whether to optimize the model or not.
-            max_evals: Maximum number of hyperparameter evaluations.
-            scoring: A label to specify the scoring function.
-            minimize_cost: A boolean value indicating whether to get minimum or maximum cost value.
-            hyperparameters: A dictionary of hyperparameters for each primitives.
+            data_frame (pandas.DataFrame or ndarray):
+                A dataframe which holds the feature matrix.
+            target (ndarray):
+                An array of labels for the target variable.
+            primitives_list (list):
+                A list of the primitives within a pipeline.
+            problem_type (str):
+                A label to specify the type of problem whether regression or classification.
+            optimize (bool):
+                A boolean value which indicates whether to optimize the model or not.
+            max_evals (int):
+                Maximum number of hyperparameter evaluations.
+            scoring (str):
+                A label to specify the scoring function.
+            minimize_cost (bool):
+                A boolean value indicating whether to get minimum or maximum cost value.
+            hyperparameters (dict):
+                A dictionary of hyperparameters for each primitives.
 
         Returns:
-            A list for all the pipelines which consists of: the fold number, the used pipeline
-            and an array of the predicted values and an array of the actual values.
+            dict:
+                A dictionary for all the pipelines which consists of: the fold number, the used
+                pipeline and an array of the predicted values and an array of the actual values.
         """
         all_pipeline_dict = {}
         Folds = {}

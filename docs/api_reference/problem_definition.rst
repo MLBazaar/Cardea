@@ -5,17 +5,6 @@ cardea.problem_definition
 
 .. currentmodule:: cardea.problem_definition
 
-Problem Definition
-~~~~~~~~~~~~~~~~~~
-
-.. autosummary::
-   :toctree: api/
-
-   ProblemDefinition
-   ProblemDefinition.check_target_label
-   ProblemDefinition.generate_target_label
-   ProblemDefinition.generate_cutoff_times
-
 Prolonged Length of Stay
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -23,7 +12,6 @@ Prolonged Length of Stay
    :toctree: api/
 
    ProlongedLengthOfStay
-   ProlongedLengthOfStay.generate_target_label
    ProlongedLengthOfStay.generate_cutoff_times
 
 Length of Stay
@@ -33,7 +21,6 @@ Length of Stay
    :toctree: api/
 
    LengthOfStay
-   LengthOfStay.generate_target_label
    LengthOfStay.generate_cutoff_times
 
 Readmission
@@ -43,7 +30,6 @@ Readmission
    :toctree: api/
 
    Readmission
-   Readmission.generate_target_label
    Readmission.generate_cutoff_times
 
 MortalityPrediction
@@ -53,7 +39,6 @@ MortalityPrediction
    :toctree: api/
 
    MortalityPrediction
-   MortalityPrediction.generate_target_label
    MortalityPrediction.generate_cutoff_times
 
 DiagnosisPrediction
@@ -63,7 +48,6 @@ DiagnosisPrediction
    :toctree: api/
 
    DiagnosisPrediction
-   DiagnosisPrediction.generate_target_label
    DiagnosisPrediction.generate_cutoff_times
 
 MissedAppointmentProblemDefinition

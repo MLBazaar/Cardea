@@ -8,7 +8,7 @@ class CarePlan(fhirbase):
     of time, possibly limited to care for a specific condition or set of
     conditions.
 
-    Attributes:
+    Args:
         resourceType: This is a CarePlan resource
         identifier: This records identifiers associated with this care plan
             that are defined by business processes and/or used to refer to it when
@@ -254,7 +254,7 @@ class CarePlan_Activity(fhirbase):
     of time, possibly limited to care for a specific condition or set of
     conditions.
 
-    Attributes:
+    Args:
         outcomeCodeableConcept: Identifies the outcome at the point when the
             status of the activity is assessed.  For example, the outcome of an
             education activity could be patient understands (or not).
@@ -336,7 +336,7 @@ class CarePlan_Detail(fhirbase):
     of time, possibly limited to care for a specific condition or set of
     conditions.
 
-    Attributes:
+    Args:
         category: High-level categorization of the type of activity in a care
             plan.
         definition: Identifies the protocol, questionnaire, guideline or other

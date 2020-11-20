@@ -8,7 +8,7 @@ class Quantity(fhirbase):
     quantified, including amounts involving arbitrary units and floating
     currencies.
 
-    Attributes:
+    Args:
         value: The value of the measured amount. The value includes an
             implicit precision in the presentation of the value.
         comparator: How the value should be understood and represented -

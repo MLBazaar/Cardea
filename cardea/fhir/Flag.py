@@ -6,7 +6,7 @@ class Flag(fhirbase):
     Prospective warnings of potential issues when providing care to the
     patient.
 
-    Attributes:
+    Args:
         resourceType: This is a Flag resource
         identifier: Identifier assigned to the flag for external use (outside
             the FHIR environment).

@@ -5,7 +5,7 @@ class Narrative(fhirbase):
     """
     A human-readable formatted text, including images.
 
-    Attributes:
+    Args:
         status: The status of the narrative - whether it's entirely generated
             (from just the defined data or the extensions too), or whether a human
             authored it and it may contain additional data.

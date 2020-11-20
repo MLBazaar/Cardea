@@ -9,19 +9,17 @@ class DiagnosisPrediction (ProblemDefinition):
 
     Finding whether a patient will be diagnosed with a specifed diagnosis.
 
-    Note:
-        The patient visit is considered a readmission if he visits
-        the hospital again within 30 days.
-
-        The readmission diagnosis does not have to be the same as the initial visit diagnosis,
-        (he could be diagnosed of something that is a complication of the initial diagnosis).
-
-    Attributes:
-        target_label_column_name: The target label of the prediction problem.
-        target_entity: Name of the entity containing the target label.
-        cutoff_time_label: The cutoff time label of the prediction problem.
-        cutoff_entity: Name of the entity containing the cutoff time label.
-        prediction_type: The type of the machine learning prediction.
+    Args:
+        target_label_column_name (str):
+            The target label of the prediction problem.
+        target_entity (str):
+            Name of the entity containing the target label.
+        cutoff_time_label (str):
+            The cutoff time label of the prediction problem.
+        cutoff_entity (str):
+            Name of the entity containing the cutoff time label.
+        prediction_type (str):
+            The type of the machine learning prediction.
     """
     __name__ = 'diagnosis'
 
@@ -37,13 +35,17 @@ class DiagnosisPrediction (ProblemDefinition):
         self.diagnosis = d
 
     def generate_cutoff_times(self, es):
-        """Generates cutoff times for the predection problem.
+        """Generates cutoff times for the prediction problem.
 
         Args:
-            es: fhir entityset.
+            es (featuretools.EntitySet):
+                An EntitySet with the loaded data.
 
         Returns:
-            entity_set, target_entity, and a dataframe of cutoff_times and target_labels.
+            featuretools.EntitySet, str, pandas.DataFrame:
+                * An updated EntitySet if a new column is generated.
+                * A string indicating the selected target entity.
+                * A dataframe of cutoff times and their target labels.
 
         Raises:
             ValueError: An error occurs if the cutoff variable does not exist.

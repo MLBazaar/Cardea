@@ -7,7 +7,7 @@ class Claim(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         resourceType: This is a Claim resource
         identifier: The business identifier for the instance: claim number,
             pre-determination or pre-authorization number.
@@ -340,7 +340,7 @@ class Claim_Related(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         claim: Other claims which are related to this claim such as prior
             claim versions or for related services.
         relationship: For example prior or umbrella.
@@ -393,7 +393,7 @@ class Claim_Payee(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         type: Type of Party to be reimbursed: Subscriber, provider, other.
         resourceType: organization | patient | practitioner | relatedperson.
         party: Party to be reimbursed: Subscriber, provider, other.
@@ -443,7 +443,7 @@ class Claim_CareTeam(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         sequence: Sequence of the careTeam which serves to order and provide a
             link.
         provider: Member of the team who provided the overall service.
@@ -504,7 +504,7 @@ class Claim_Information(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         sequence: Sequence of the information element which serves to provide
             a link.
         category: The general class of the information supplied: information;
@@ -617,7 +617,7 @@ class Claim_Diagnosis(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         sequence: Sequence of diagnosis which serves to provide a link.
         diagnosisCodeableConcept: The diagnosis.
         diagnosisReference: The diagnosis.
@@ -683,7 +683,7 @@ class Claim_Procedure(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         sequence: Sequence of procedures which serves to order and provide a
             link.
         date: Date and optionally time the procedure was performed .
@@ -733,7 +733,7 @@ class Claim_Insurance(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         sequence: Sequence of coverage which serves to provide a link and
             convey coordination of benefit order.
         focal: A flag to indicate that this Coverage is the focus for
@@ -796,7 +796,7 @@ class Claim_Accident(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         date: Date of an accident which these services are addressing.
         type: Type of accident: work, auto, etc.
         locationAddress: Accident Place.
@@ -850,7 +850,7 @@ class Claim_Item(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         sequence: A service line number.
         careTeamLinkId: CareTeam applicable for this service or product line.
         diagnosisLinkId: Diagnosis applicable for this service or product
@@ -1084,7 +1084,7 @@ class Claim_Detail(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         sequence: A service line number.
         revenue: The type of reveneu or cost center providing the product
             and/or service.
@@ -1226,7 +1226,7 @@ class Claim_SubDetail(fhirbase):
     provided, to a patient which is provided to an insurer for payment
     recovery.
 
-    Attributes:
+    Args:
         sequence: A service line number.
         revenue: The type of reveneu or cost center providing the product
             and/or service.
