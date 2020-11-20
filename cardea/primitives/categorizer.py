@@ -1,12 +1,12 @@
 import numpy as np
 import pandas as pd
-
 from sklearn.base import TransformerMixin
 
 
 class Categorizer(TransformerMixin):
     """Transform categorical values into numerical codes.
     """
+
     def __init__(self):
         self.categorical_dtype = None
         self.dtype = None
