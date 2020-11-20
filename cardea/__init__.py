@@ -10,3 +10,7 @@ import logging
 from cardea.cardea import Cardea
 
 logging.getLogger('cardea').addHandler(logging.NullHandler())
+
+__all__ = (
+    "Cardea"
+)

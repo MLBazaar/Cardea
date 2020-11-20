@@ -21,8 +21,8 @@
 # import os
 # import sys
 
-import sphinx_rtd_theme # For read the docs theme
-from recommonmark.parser import CommonMarkParser
+# import sphinx_rtd_theme # For read the docs theme
+# from recommonmark.parser import CommonMarkParser
 # from recommonmark.transform import AutoStructify
 
 # sys.path.insert(0, os.path.abspath('..'))
@@ -38,8 +38,10 @@ import cardea
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
-    'm2r',
+    'm2r2',
+    'nbsphinx',
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
     'sphinx.ext.githubpages',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
@@ -101,13 +103,13 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+html_theme = 'pydata_sphinx_theme'
+# html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # Readthedocs additions
 html_context = {
     'display_github': True,
-    'github_user': 'D3-AI',
+    'github_user': 'DAI-Lab',
     'github_repo': 'cardea',
     'github_version': 'master',
     'conf_py_path': '/docs/',
@@ -116,9 +118,13 @@ html_context = {
 # Theme options are theme-specific and customize the look and feel of a
 # theme further.  For a list of options available for each theme, see the
 # documentation.
+# html_theme_options = {
+#     'collapse_navigation': False,
+#     'display_version': False,
+# }
 html_theme_options = {
-    'collapse_navigation': False,
-    'display_version': False,
+    "github_url": "https://github.com/DAI-Lab/Cardea",
+    "show_prev_next": True,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,

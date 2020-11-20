@@ -1,11 +1,28 @@
-Welcome to Cardea!
+.. raw:: html
+
+   <p align="left">
+   <img width=15% src="https://dai.lids.mit.edu/wp-content/uploads/2018/06/Logo_DAI_highres.png" alt="DAI-Lab" />
+   <i>An open source project from Data to AI Lab at MIT.</i>
+   </p>
+
+|Development Status| |PyPi Shield| |Travis CI Shield| |Downloads| |Binder|
+
+Welcome to Cardea
 ==================
 
 .. figure:: images/cardea-logo.png
-   :width: 300 px
+   :width: 200 px
    :alt: Cardea Logo
 
    An open source project from Data to AI Lab at MIT.
+
+**Date**: |today| **Version**: |version|
+
+-  License: `MIT <https://github.com/DAI-Lab/Cardea/blob/master/LICENSE>`__
+-  Development Status:
+   `Pre-Alpha <https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha>`__
+-  Documentation: https://dai-lab.github.io/Cardea/
+-  Homepage: https://github.com/DAI-Lab/Cardea
 
 Overview
 --------
@@ -43,47 +60,36 @@ electronic health records. A typical usage of this library will involve:
 
 * Preparing and deploying the models
 
-.. toctree::
-   :caption: Getting Started
-   :maxdepth: 2
+Explore Cardea
+-----------
 
-   Welcome <self>
-   getting_started/install
-   getting_started/quickstart
+* `Getting Started <getting_started/index.html>`_
+* `Basic Concepts <basic_concepts/index.html>`_
+* `API Reference <api_reference/index.html>`_
+* `Community <community/index.html>`_
+* `Release Notes <history.html>`_
 
-.. toctree::
-   :caption: Basic Concepts
-   :maxdepth: 2
+--------------
 
-   Welcome <basic_concepts/concepts>
-   Data Loading <basic_concepts/data_loading>
-   Machine Learning Tasks <basic_concepts/machine_learning_tasks>
-   Auto - Featurization <basic_concepts/auto_featurization>
-   Auto - ML <basic_concepts/auto_ml>
-   Auditing <basic_concepts/auditing>
-   Advanced Use <basic_concepts/advanced_use>
+.. |Development Status| image:: https://img.shields.io/badge/Development%20Status-2%20--%20Pre--Alpha-yellow
+   :target: https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha
+.. |PyPi Shield| image:: https://img.shields.io/pypi/v/cardea.svg
+   :target: https://pypi.python.org/pypi/cardea
+.. |Travis CI Shield| image:: https://travis-ci.org/DAI-Lab/Cardea.svg?branch=master
+   :target: https://travis-ci.org/DAI-Lab/Cardea
+.. |Downloads| image:: https://pepy.tech/badge/cardea
+   :target: https://pepy.tech/project/cardea
+.. |Binder| image:: https://mybinder.org/badge_logo.svg
+   :target: https://mybinder.org/v2/gh/DAI-Lab/Cardea/master?filepath=notebooks
 
-.. toctree::
-   :caption: Community
-   :maxdepth: 2
-
-   Community <community/welcome>
-   Contributing <community/contributing>
 
 .. toctree::
-   :caption: Resources
-   :hidden:
+    :maxdepth: 3
+    :hidden:
+    :titlesonly:
 
-   API Reference <api/cardea>
-   authors
-   history
-
-Indices and tables
-==================
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-.. _FHIR: https://www.hl7.org/fhir/
-.. _The Human Data Interaction Project: https://github.com/HDI-Project
-.. _Data to AI Lab at MIT: https://dai.lids.mit.edu/
+    getting_started/index
+    basic_concepts/index
+    api_reference/index
+    community/index
+    Release Notes <history>

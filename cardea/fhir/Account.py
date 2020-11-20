@@ -7,7 +7,7 @@ class Account(fhirbase):
     In the healthcare field, used to track charges for a patient, cost
     centers, etc.
 
-    Attributes:
+    Args:
         resourceType: This is a Account resource
         identifier: Unique identifier used to reference the account.  May or
             may not be intended for human use (e.g. credit card number).
@@ -149,7 +149,7 @@ class Account_Coverage(fhirbase):
     In the healthcare field, used to track charges for a patient, cost
     centers, etc.
 
-    Attributes:
+    Args:
         coverage: The party(s) that are responsible for payment (or part of)
             of charges applied to this account (including self-pay).  A coverage
             may only be resposible for specific types of charges, and the sequence
@@ -189,7 +189,7 @@ class Account_Guarantor(fhirbase):
     In the healthcare field, used to track charges for a patient, cost
     centers, etc.
 
-    Attributes:
+    Args:
         party: The entity who is responsible.
         onHold: A guarantor may be placed on credit hold or otherwise have
             their role temporarily suspended.

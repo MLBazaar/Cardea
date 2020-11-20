@@ -16,7 +16,7 @@ from cardea.problem_definition import (
 class Cardea():
     """An interface class that ties the end-to-end system together.
 
-    Attributes:
+    Args:
         es_loader: An entityset loader.
         featurization: A featurization class.
         modeler: A modeling class.
