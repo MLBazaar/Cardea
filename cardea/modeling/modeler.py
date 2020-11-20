@@ -5,7 +5,6 @@ import cloudpickle
 import hyperopt
 import mlblocks
 import numpy as np
-
 from hyperopt import STATUS_OK, Trials, base, fmin, hp, tpe
 from mlblocks import MLPipeline
 from sklearn import metrics
@@ -132,7 +131,7 @@ class Modeler():
         return y_pred
 
     def search_all_possible_primitives(
-        self, primitives, hyperparameters=None):
+            self, primitives, hyperparameters=None):
         """Searches for all primitives similar to the ones provided.
 
         Args:
@@ -421,7 +420,7 @@ class Modeler():
             pipeline: A MLPipeline instance.
 
         Returns:
-
+            Prediction results and trained models of each fold stored in a dictionary.
         """
         fold_dict = {}
         kf = KFold(n_splits=10, random_state=None, shuffle=True)

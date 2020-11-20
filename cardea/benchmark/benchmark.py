@@ -1,6 +1,6 @@
 import json
-import os
 import logging
+import os
 import pickle
 import shutil
 from datetime import datetime
@@ -8,8 +8,8 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 import sklearn
-
 from mlblocks import MLPipeline
+
 from cardea.modeling.modeler import Modeler
 
 LOGGER = logging.getLogger(__name__)
@@ -285,11 +285,9 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name, problem_
         metrics: dict, a dictionary in which metric functions are indexed by names.
 
     Returns:
-        A tuple includes performance stored in a dictionary, a pipeline model,
-            and hyperparameters.
+        Pipeline evaluation results in a tuple: (performance, models, hyperparameters).
     """
-    features = feature_matrix.copy()
-    features = features.sample(3000).reset_index(drop=True)
+    features = feature_matrix.copy().reset_index(drop=True)
     if problem_name.lower() in features.columns:
         features.pop(problem_name.lower())
     target = features.pop(TARGET_NAME[problem_name])

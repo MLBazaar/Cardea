@@ -1,10 +1,6 @@
 import json
 import os
 import pickle
-import shutil
-import logging
-
-from collections import OrderedDict
 
 PIPELINES = ['Logistic Regression', 'K-Nearest Neightbors', 'Random Forest',
              'Gaussian Naive Bayes', 'Multinomial Naive Bayes', 'XGB',
@@ -21,6 +17,21 @@ class Task:
     def __init__(self, task_id=None, pipeline_name=None, path_to_pipeline=None,
                  beginning_stage=None, dataset_name=None, problem_name=None, path_to_dataset=None,
                  init_hyperparameters=None, tuned=None, run_num=None, ):
+        """A class that stores the configurations to a prediction task.
+
+        Args:
+            task_id: str, an identifier to the task.
+            pipeline_name: str, the name to identify the pipeline, e.g., Logistic Regression.
+            path_to_pipeline: str, the path where the pipeline .json file is stored
+            beginning_stage: enumerate, enumerate, the stage in which the benchmarking are applied,
+                should be either "data_loader", "problem_definition", "featurization".
+            dataset_name: str, the name to identify the dataset, e.g., mimic-iii.
+            problem_name: str, the name to identify the problem, e.g., Readmission.
+            path_to_dataset: str, the path where the dataset is stored.
+            init_hyperparameters: dict, the initial hyperparameters
+            tuned: boolean, whether the hyperparameters will be tuned
+            run_num: int, the number of runs for each pipeline on each problem.
+        """
         self._task_id = task_id
         self._pipeline_name = pipeline_name
         self._beginning_stage = beginning_stage
@@ -47,6 +58,13 @@ class Task:
         return description_str
 
     def save_as(self, file_path, file_type='pkl'):
+        """Save the task configurations to the given address.
+
+        Args:
+            file_path: str, the path to store the configurations.
+            file_type: enumerate, the file type of the configuration. "pkl" is for a binary pickle
+                file and "json" is for a readable json file.
+        """
         if file_type == 'pkl':
             with open(file_path, 'wb') as f:
                 pickle.dump(self, f)
@@ -54,7 +72,7 @@ class Task:
             with open(file_path, 'w') as f:
                 json.dump(self.__dict__, f)
         else:
-            raise NotImplementedError
+            raise ValueError("file_type should be either \"pkl\" or \"json\"")
 
     @staticmethod
     def load(file_path):
@@ -119,7 +137,7 @@ class Task:
         return self._run_num
 
 
-def create_tasks(pipeline_names=None, problem_names=None, dataset_name='MIMIC-III',
+def create_tasks(pipeline_names=None, problem_names=None, dataset_name='mimic-iii',
                  beginning_stage='data_loader', optimize=False, run_num=1, output_dir=None):
     """
     Args:
@@ -129,7 +147,7 @@ def create_tasks(pipeline_names=None, problem_names=None, dataset_name='MIMIC-II
         beginning_stage: enumerate, the stage in which the benchmarking are applied, should be
             either "data_loader", "problem_definition", "featurization".
         optimize: boolean, whether to optimize the hyper-parameters of the pipeline.
-        run_num: int, the number of executions to each pipeline on each problem.
+        run_num: int, the number of runs for each pipeline on each problem.
         output_dir: str, the path to store the task configurations.
 
     Returns:
@@ -157,7 +175,7 @@ def create_tasks(pipeline_names=None, problem_names=None, dataset_name='MIMIC-II
                 task.path_to_dataset = os.path.join(VERIFIED_DIR, 'Raw', task.dataset_name)
             elif beginning_stage == 'problem_definition':
                 task.path_to_dataset = os.path.join(VERIFIED_DIR, 'EntitySet',
-                                                    '.pkl'.format(task.dataset_name))
+                                                    '{}.pkl'.format(task.dataset_name))
             elif beginning_stage == 'featurization':
                 task.path_to_dataset = os.path.join(VERIFIED_DIR, 'Problems', task.problem_name,
                                                     'FeatureMatrix',
