@@ -23,6 +23,7 @@ class Imputer(TransformerMixin):
 
     def fit(self, X):
         fill = []
+        X = pd.DataFrame(X)
         for column in X.columns:
             if X[column].dropna().shape[0] > 0:
                 if X[column].dtype == np.dtype('O'):
@@ -44,6 +45,7 @@ class Imputer(TransformerMixin):
         return self
 
     def transform(self, X):
+        X = pd.DataFrame(X)
         X = X.fillna(self.fill)
         for column in X.columns:
             if X[column].dtype == np.dtype('O'):

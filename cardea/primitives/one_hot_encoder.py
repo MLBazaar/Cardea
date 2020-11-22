@@ -10,10 +10,12 @@ class OneHotEncoder(TransformerMixin):
         self.dummy_columns = None
 
     def fit(self, X):
+        X = pd.DataFrame(X)
         dummies = pd.get_dummies(X)
         self.dummy_columns = dummies.columns
         return self
 
     def transform(self, X):
+        X = pd.DataFrame(X)
         dummies = pd.get_dummies(X)
         return dummies.reindex(columns=self.dummy_columns, fill_value=0)
