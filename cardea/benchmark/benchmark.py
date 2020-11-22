@@ -2,7 +2,6 @@ import json
 import logging
 import os
 import pickle
-import shutil
 from datetime import datetime
 
 import numpy as np
@@ -59,6 +58,27 @@ def _scoring_folds(folds, metrics):
     scores = performance.mean().to_dict()
 
     return scores
+
+
+def _split_features_target(feature_matrix, problem_name):
+    """Split the features and labels.
+    Args:
+        feature_matrix: pd.DataFrame, a dataframe consists of both feature values
+            and target values.
+        problem_name: str, the name of the problem.
+    Returns:
+        A tuple of features (2-D np.array) and target (1-D np.array).
+    """
+    features = feature_matrix.copy().reset_index(drop=True)
+
+    # TODO: ensure that there are not duplicated label columns in the feature matrix before
+    #  running the modeling
+    if problem_name.lower() in features.columns:
+        features.pop(problem_name.lower())
+
+    target = features.pop(TARGET_NAME[problem_name]).values
+    features = features.values
+    return features, target
 
 
 def aggregate_results_by_pipeline(performance, metric, record_time=True, output_path=None):
@@ -161,9 +181,8 @@ def benchmark(tasks, metrics=None, results_output_path=None, tasks_output_dir=No
         A pd.DataFrame object that stores the benchmarking results in detail.
     """
     if tasks_output_dir is not None:
-        if os.path.exists(tasks_output_dir):
-            shutil.rmtree(tasks_output_dir)
-        os.mkdir(tasks_output_dir)
+        if not os.path.exists(tasks_output_dir):
+            os.mkdir(tasks_output_dir)
 
     performance = []
     for task in tasks:
@@ -185,12 +204,14 @@ def benchmark(tasks, metrics=None, results_output_path=None, tasks_output_dir=No
     return result_df
 
 
-def evaluate_task(task, metrics=None, output_path=None, save_intermedia_data=True,
-                  save_model=True, save_hyperparameters=True):
+def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
+                  save_intermedia_data=True, save_model=True, save_hyperparameters=True):
     """
     Args:
         task: Task, a task instance storing meta information of the task.
         metrics: dict, a dictionary of metric functions indexed by metric names.
+        feature_matrix: pd.DataFrame, a dataframe consists of both feature values
+            and target values.
         output_path: str, a dir path to store the intermedia data, model and hyperparametes.
         save_intermedia_data: boolean, whether to store the intermedia data including an entity set
             and a feature matrix if the beginning stage is "data_loader" or "problem_definition".
@@ -212,14 +233,15 @@ def evaluate_task(task, metrics=None, output_path=None, save_intermedia_data=Tru
         pipeline.set_hyperparameters(task.init_hyperparameters)
 
     # Load Dataset.
-    if task.beginning_stage == "data_loader":
-        raise NotImplementedError
+    if feature_matrix is None:
+        if task.beginning_stage == "data_loader":
+            raise NotImplementedError
 
-    elif task.beginning_stage == "problem_definition":
-        raise NotImplementedError
+        elif task.beginning_stage == "problem_definition":
+            raise NotImplementedError
 
-    elif task.beginning_stage == "featurization":
-        feature_matrix = pd.read_csv(task.path_to_dataset, index_col=0)
+        elif task.beginning_stage == "featurization":
+            feature_matrix = pd.read_csv(task.path_to_dataset, index_col=0)
 
     else:
         raise ValueError("Beginning stage should be either \"data_loader\", "
@@ -267,8 +289,8 @@ def evaluate_task(task, metrics=None, output_path=None, save_intermedia_data=Tru
     return results
 
 
-def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name, problem_name,
-                       dataset_name, beginning_stage, optimize=False, metrics=None):
+def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, problem_name=None,
+                       dataset_name=None, beginning_stage=None, optimize=False, metrics=None):
     """Evaluate a pipeline's performance on a target dataset with the given metrics.
 
     Args:
@@ -287,11 +309,9 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name, problem_
     Returns:
         Pipeline evaluation results in a tuple: (performance, models, hyperparameters).
     """
-    features = feature_matrix.copy().reset_index(drop=True)
-    if problem_name.lower() in features.columns:
-        features.pop(problem_name.lower())
-    target = features.pop(TARGET_NAME[problem_name])
+    features, target = _split_features_target(feature_matrix, problem_name)
 
+    # TODO: digitize the labels for classifications before modeling.
     if problem_name == 'LOS' and dataset_name == 'mimic-iii':
         target = np.digitize(target, [0, 7])
 
