@@ -216,8 +216,8 @@ class Modeler():
         kf = KFold(n_splits=10, random_state=None, shuffle=True)
 
         for train_index, test_index in kf.split(data_frame):
-            X_train = data_frame.loc[train_index]
-            X_test = data_frame.loc[test_index]
+            X_train = data_frame[train_index]
+            X_test = data_frame[test_index]
             y_train = target[train_index]
             y_test = target[test_index]
             number_of_folds = number_of_folds + 1
@@ -428,8 +428,8 @@ class Modeler():
         for i, (train_index, test_index) in enumerate(kf.split(self.data_frame)):
             fold_pipeline = copy.deepcopy(pipeline)
 
-            X_train = self.data_frame.loc[train_index]
-            X_test = self.data_frame.loc[test_index]
+            X_train = self.data_frame[train_index]
+            X_test = self.data_frame[test_index]
             y_train = self.target[train_index]
             y_test = self.target[test_index]
 
