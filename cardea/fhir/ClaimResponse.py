@@ -6,7 +6,7 @@ class ClaimResponse(fhirbase):
     This resource provides the adjudication details from the processing of
     a Claim resource.
 
-    Attributes:
+    Args:
         resourceType: This is a ClaimResponse resource
         identifier: The Response business identifier.
         status: The status of the resource instance.
@@ -240,7 +240,7 @@ class ClaimResponse_Item(fhirbase):
     This resource provides the adjudication details from the processing of
     a Claim resource.
 
-    Attributes:
+    Args:
         sequenceLinkId: A service line number.
         noteNumber: A list of note references to the notes provided below.
         adjudication: The adjudication results.
@@ -290,7 +290,7 @@ class ClaimResponse_Adjudication(fhirbase):
     This resource provides the adjudication details from the processing of
     a Claim resource.
 
-    Attributes:
+    Args:
         category: Code indicating: Co-Pay, deductible, eligible, benefit, tax,
             etc.
         reason: Adjudication reason such as limit reached.
@@ -345,7 +345,7 @@ class ClaimResponse_Detail(fhirbase):
     This resource provides the adjudication details from the processing of
     a Claim resource.
 
-    Attributes:
+    Args:
         sequenceLinkId: A service line number.
         noteNumber: A list of note references to the notes provided below.
         adjudication: The adjudications results.
@@ -396,7 +396,7 @@ class ClaimResponse_SubDetail(fhirbase):
     This resource provides the adjudication details from the processing of
     a Claim resource.
 
-    Attributes:
+    Args:
         sequenceLinkId: A service line number.
         noteNumber: A list of note references to the notes provided below.
         adjudication: The adjudications results.
@@ -436,7 +436,7 @@ class ClaimResponse_AddItem(fhirbase):
     This resource provides the adjudication details from the processing of
     a Claim resource.
 
-    Attributes:
+    Args:
         sequenceLinkId: List of input service items which this service line is
             intended to replace.
         revenue: The type of reveneu or cost center providing the product
@@ -539,7 +539,7 @@ class ClaimResponse_Detail1(fhirbase):
     This resource provides the adjudication details from the processing of
     a Claim resource.
 
-    Attributes:
+    Args:
         revenue: The type of reveneu or cost center providing the product
             and/or service.
         category: Health Care Service Type Codes  to identify the
@@ -626,7 +626,7 @@ class ClaimResponse_Error(fhirbase):
     This resource provides the adjudication details from the processing of
     a Claim resource.
 
-    Attributes:
+    Args:
         sequenceLinkId: The sequence number of the line item submitted which
             contains the error. This value is omitted when the error is elsewhere.
         detailSequenceLinkId: The sequence number of the addition within the
@@ -675,7 +675,7 @@ class ClaimResponse_Payment(fhirbase):
     This resource provides the adjudication details from the processing of
     a Claim resource.
 
-    Attributes:
+    Args:
         type: Whether this represents partial or complete payment of the
             claim.
         adjustment: Adjustment to the payment of this transaction which is not
@@ -745,7 +745,7 @@ class ClaimResponse_ProcessNote(fhirbase):
     This resource provides the adjudication details from the processing of
     a Claim resource.
 
-    Attributes:
+    Args:
         number: An integer associated with each note which may be referred to
             from each service line item.
         type: The note purpose: Print/Display.
@@ -797,7 +797,7 @@ class ClaimResponse_Insurance(fhirbase):
     This resource provides the adjudication details from the processing of
     a Claim resource.
 
-    Attributes:
+    Args:
         sequence: A service line item.
         focal: The instance number of the Coverage which is the focus for
             adjudication. The Coverage against which the claim is to be

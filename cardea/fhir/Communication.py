@@ -7,7 +7,7 @@ class Communication(fhirbase):
     sent to a responsible provider, a public health agency was notified
     about a reportable condition.
 
-    Attributes:
+    Args:
         resourceType: This is a Communication resource
         identifier: Identifiers associated with this Communication that are
             defined by business processes and/ or used to refer to it when a
@@ -226,7 +226,7 @@ class Communication_Payload(fhirbase):
     sent to a responsible provider, a public health agency was notified
     about a reportable condition.
 
-    Attributes:
+    Args:
         contentString: A communicated content (or for multi-part
             communications, one portion of the communication).
         contentAttachment: A communicated content (or for multi-part

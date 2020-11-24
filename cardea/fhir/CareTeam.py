@@ -6,7 +6,7 @@ class CareTeam(fhirbase):
     The Care Team includes all the people and organizations who plan to
     participate in the coordination and delivery of care for a patient.
 
-    Attributes:
+    Args:
         resourceType: This is a CareTeam resource
         identifier: This records identifiers associated with this care team
             that are defined by business processes and/or used to refer to it when
@@ -156,7 +156,7 @@ class CareTeam_Participant(fhirbase):
     The Care Team includes all the people and organizations who plan to
     participate in the coordination and delivery of care for a patient.
 
-    Attributes:
+    Args:
         role: Indicates specific responsibility of an individual within the
             care team, such as "Primary care physician", "Trained social worker
             counselor", "Caregiver", etc.

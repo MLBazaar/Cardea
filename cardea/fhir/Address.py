@@ -9,7 +9,7 @@ class Address(fhirbase):
     locations which might not be valid for mail delivery.  There are a
     variety of postal address formats defined around the world.
 
-    Attributes:
+    Args:
         use: The purpose of this address.
         type: Distinguishes between physical addresses (those you can visit)
             and mailing addresses (e.g. PO Boxes and care-of addresses). Most

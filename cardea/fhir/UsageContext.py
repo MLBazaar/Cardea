@@ -9,7 +9,7 @@ class UsageContext(fhirbase):
     specific context of care (e.g., venue, care setting, provider of
     care).
 
-    Attributes:
+    Args:
         code: A code that identifies the type of context being specified by
             this usage context.
         valueCodeableConcept: A value that defines the context specified in

@@ -6,7 +6,7 @@ class ProcedureRequest(fhirbase):
     A record of a request for diagnostic investigations, treatments, or
     operations to be performed.
 
-    Attributes:
+    Args:
         resourceType: This is a ProcedureRequest resource
         identifier: Identifiers assigned to this order instance by the orderer
             and/or the receiver and/or order fulfiller.
@@ -311,7 +311,7 @@ class ProcedureRequest_Requester(fhirbase):
     A record of a request for diagnostic investigations, treatments, or
     operations to be performed.
 
-    Attributes:
+    Args:
         agent: The device, practitioner or organization who initiated the
             request.
         onBehalfOf: The organization the device or practitioner was acting on

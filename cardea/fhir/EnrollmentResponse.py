@@ -6,7 +6,7 @@ class EnrollmentResponse(fhirbase):
     This resource provides enrollment and plan details from the processing
     of an Enrollment resource.
 
-    Attributes:
+    Args:
         resourceType: This is a EnrollmentResponse resource
         identifier: The Response business identifier.
         status: The status of the resource instance.

@@ -6,7 +6,7 @@ class CodeSystem(fhirbase):
     A code system resource specifies a set of codes drawn from one or more
     code systems.
 
-    Attributes:
+    Args:
         resourceType: This is a CodeSystem resource
         url: An absolute URI that is used to identify this code system when it
             is referenced in a specification, model, design or an instance. This
@@ -242,7 +242,7 @@ class CodeSystem_Filter(fhirbase):
     A code system resource specifies a set of codes drawn from one or more
     code systems.
 
-    Attributes:
+    Args:
         code: The code that identifies this filter when it is used in the
             instance.
         description: A description of how or why the filter is used.
@@ -277,7 +277,7 @@ class CodeSystem_Property(fhirbase):
     A code system resource specifies a set of codes drawn from one or more
     code systems.
 
-    Attributes:
+    Args:
         code: A code that is used to identify the property. The code is used
             internally (in CodeSystem.concept.property.code) and also externally,
             such as in property filters.
@@ -330,7 +330,7 @@ class CodeSystem_Concept(fhirbase):
     A code system resource specifies a set of codes drawn from one or more
     code systems.
 
-    Attributes:
+    Args:
         code: A code - a text symbol - that uniquely identifies the concept
             within the code system.
         display: A human readable string that is the recommended default way
@@ -403,7 +403,7 @@ class CodeSystem_Designation(fhirbase):
     A code system resource specifies a set of codes drawn from one or more
     code systems.
 
-    Attributes:
+    Args:
         language: The language this designation is defined for.
         use: A code that details how this designation would be used.
         value: The text value for this designation.
@@ -442,7 +442,7 @@ class CodeSystem_Property1(fhirbase):
     A code system resource specifies a set of codes drawn from one or more
     code systems.
 
-    Attributes:
+    Args:
         code: A code that is a reference to CodeSystem.property.code.
         valueCode: The value of this property.
         valueCoding: The value of this property.

@@ -5,7 +5,7 @@ class DocumentReference(fhirbase):
     """
     A reference to a document.
 
-    Attributes:
+    Args:
         resourceType: This is a DocumentReference resource
         masterIdentifier: Document identifier as assigned by the source of the
             document. This identifier is specific to this version of the document.
@@ -194,7 +194,7 @@ class DocumentReference_RelatesTo(fhirbase):
     """
     A reference to a document.
 
-    Attributes:
+    Args:
         code: The type of relationship that this document has with anther
             document.
         target: The target document of this relationship.
@@ -240,7 +240,7 @@ class DocumentReference_Content(fhirbase):
     """
     A reference to a document.
 
-    Attributes:
+    Args:
         attachment: The document or URL of the document along with critical
             metadata to prove content has integrity.
         format: An identifier of the document encoding, structure, and
@@ -282,7 +282,7 @@ class DocumentReference_Context(fhirbase):
     """
     A reference to a document.
 
-    Attributes:
+    Args:
         encounter: Describes the clinical encounter or type of care that the
             document content is associated with.
         event: This list of codes represents the main clinical acts, such as a
@@ -378,7 +378,7 @@ class DocumentReference_Related(fhirbase):
     """
     A reference to a document.
 
-    Attributes:
+    Args:
         identifier: Related identifier to this DocumentReference. If both id
             and ref are present they shall refer to the same thing.
         ref: Related Resource to this DocumentReference. If both id and ref

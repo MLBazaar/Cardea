@@ -7,7 +7,7 @@ class Meta(fhirbase):
     maintained by the infrastructure. Changes to the content may not
     always be associated with version changes to the resource.
 
-    Attributes:
+    Args:
         versionId: The version specific identifier, as it appears in the
             version portion of the URL. This values changes when the resource is
             created, updated, or deleted.

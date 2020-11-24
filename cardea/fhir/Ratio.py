@@ -6,7 +6,7 @@ class Ratio(fhirbase):
     A relationship of two Quantity values - expressed as a numerator and a
     denominator.
 
-    Attributes:
+    Args:
         numerator: The value of the numerator.
         denominator: The value of the denominator.
     """

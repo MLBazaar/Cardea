@@ -28,7 +28,7 @@ class MedicationStatement(fhirbase):
     Medication administration is more formal and is not missing detailed
     information.
 
-    Attributes:
+    Args:
         resourceType: This is a MedicationStatement resource
         identifier: External identifier - FHIR will generate its own internal
             identifiers (probably URLs) which do not need to be explicitly managed

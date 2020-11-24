@@ -6,7 +6,7 @@ class EnrollmentRequest(fhirbase):
     This resource provides the insurance enrollment details to the insurer
     regarding a specified coverage.
 
-    Attributes:
+    Args:
         resourceType: This is a EnrollmentRequest resource
         identifier: The Response business identifier.
         status: The status of the resource instance.

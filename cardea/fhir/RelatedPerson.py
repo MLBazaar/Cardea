@@ -7,7 +7,7 @@ class RelatedPerson(fhirbase):
     but who is not the target of healthcare, nor has a formal
     responsibility in the care process.
 
-    Attributes:
+    Args:
         resourceType: This is a RelatedPerson resource
         identifier: Identifier for a person within a particular scope.
         active: Whether this related person record is in active use.

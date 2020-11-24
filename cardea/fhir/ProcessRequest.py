@@ -7,7 +7,7 @@ class ProcessRequest(fhirbase):
     details for an action to be performed by the target on or about
     existing resources.
 
-    Attributes:
+    Args:
         resourceType: This is a ProcessRequest resource
         identifier: The ProcessRequest business identifier.
         status: The status of the resource instance.
@@ -152,7 +152,7 @@ class ProcessRequest_Item(fhirbase):
     details for an action to be performed by the target on or about
     existing resources.
 
-    Attributes:
+    Args:
         sequenceLinkId: A service line number.
     """
 

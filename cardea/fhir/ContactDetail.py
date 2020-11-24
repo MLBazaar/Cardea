@@ -5,7 +5,7 @@ class ContactDetail(fhirbase):
     """
     Specifies contact information for a person or organization.
 
-    Attributes:
+    Args:
         name: The name of an individual to contact.
         telecom: The contact details for the individual (if a name was
             provided) or the organization.
