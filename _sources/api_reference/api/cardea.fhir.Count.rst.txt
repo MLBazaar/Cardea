@@ -1,0 +1,28 @@
+cardea.fhir.Count
+=================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Count
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Count.__init__
+      ~Count.assert_type
+      ~Count.get_dataframe
+      ~Count.get_eligible_relationships
+      ~Count.get_id
+      ~Count.get_relationships
+      ~Count.set_attributes
+   
+   
+
+   
+   
+   

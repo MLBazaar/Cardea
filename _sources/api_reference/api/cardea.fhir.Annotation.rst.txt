@@ -1,0 +1,28 @@
+cardea.fhir.Annotation
+======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Annotation
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Annotation.__init__
+      ~Annotation.assert_type
+      ~Annotation.get_dataframe
+      ~Annotation.get_eligible_relationships
+      ~Annotation.get_id
+      ~Annotation.get_relationships
+      ~Annotation.set_attributes
+   
+   
+
+   
+   
+   

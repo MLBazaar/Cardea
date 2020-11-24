@@ -1,0 +1,28 @@
+cardea.fhir.Attachment
+======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Attachment
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Attachment.__init__
+      ~Attachment.assert_type
+      ~Attachment.get_dataframe
+      ~Attachment.get_eligible_relationships
+      ~Attachment.get_id
+      ~Attachment.get_relationships
+      ~Attachment.set_attributes
+   
+   
+
+   
+   
+   

@@ -1,0 +1,28 @@
+cardea.fhir.Binary
+==================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Binary
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Binary.__init__
+      ~Binary.assert_type
+      ~Binary.get_dataframe
+      ~Binary.get_eligible_relationships
+      ~Binary.get_id
+      ~Binary.get_relationships
+      ~Binary.set_attributes
+   
+   
+
+   
+   
+   

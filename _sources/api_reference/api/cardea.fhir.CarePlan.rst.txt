@@ -1,0 +1,28 @@
+cardea.fhir.CarePlan
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: CarePlan
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CarePlan.__init__
+      ~CarePlan.assert_type
+      ~CarePlan.get_dataframe
+      ~CarePlan.get_eligible_relationships
+      ~CarePlan.get_id
+      ~CarePlan.get_relationships
+      ~CarePlan.set_attributes
+   
+   
+
+   
+   
+   

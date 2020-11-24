@@ -1,0 +1,28 @@
+cardea.fhir.RiskAssessment
+==========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: RiskAssessment
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~RiskAssessment.__init__
+      ~RiskAssessment.assert_type
+      ~RiskAssessment.get_dataframe
+      ~RiskAssessment.get_eligible_relationships
+      ~RiskAssessment.get_id
+      ~RiskAssessment.get_relationships
+      ~RiskAssessment.set_attributes
+   
+   
+
+   
+   
+   

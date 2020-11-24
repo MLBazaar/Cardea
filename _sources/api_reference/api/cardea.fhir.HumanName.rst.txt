@@ -1,0 +1,28 @@
+cardea.fhir.HumanName
+=====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: HumanName
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~HumanName.__init__
+      ~HumanName.assert_type
+      ~HumanName.get_dataframe
+      ~HumanName.get_eligible_relationships
+      ~HumanName.get_id
+      ~HumanName.get_relationships
+      ~HumanName.set_attributes
+   
+   
+
+   
+   
+   

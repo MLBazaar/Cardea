@@ -1,0 +1,28 @@
+cardea.fhir.ImagingManifest
+===========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ImagingManifest
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ImagingManifest.__init__
+      ~ImagingManifest.assert_type
+      ~ImagingManifest.get_dataframe
+      ~ImagingManifest.get_eligible_relationships
+      ~ImagingManifest.get_id
+      ~ImagingManifest.get_relationships
+      ~ImagingManifest.set_attributes
+   
+   
+
+   
+   
+   

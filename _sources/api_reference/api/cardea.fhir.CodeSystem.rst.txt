@@ -1,0 +1,28 @@
+cardea.fhir.CodeSystem
+======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: CodeSystem
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CodeSystem.__init__
+      ~CodeSystem.assert_type
+      ~CodeSystem.get_dataframe
+      ~CodeSystem.get_eligible_relationships
+      ~CodeSystem.get_id
+      ~CodeSystem.get_relationships
+      ~CodeSystem.set_attributes
+   
+   
+
+   
+   
+   

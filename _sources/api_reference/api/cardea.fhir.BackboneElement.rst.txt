@@ -1,0 +1,28 @@
+cardea.fhir.BackboneElement
+===========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: BackboneElement
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~BackboneElement.__init__
+      ~BackboneElement.assert_type
+      ~BackboneElement.get_dataframe
+      ~BackboneElement.get_eligible_relationships
+      ~BackboneElement.get_id
+      ~BackboneElement.get_relationships
+      ~BackboneElement.set_attributes
+   
+   
+
+   
+   
+   

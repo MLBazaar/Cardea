@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.ClaimResponse module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.ClaimResponse module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.ClinicalImpression module" href="cardea.fhir.ClinicalImpression.html" />
-    <link rel="prev" title="cardea.fhir.Claim module" href="cardea.fhir.Claim.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.ClaimResponse module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.ClaimResponse.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.ClaimResponse">
 <span id="cardea-fhir-claimresponse-module"></span><h1>cardea.fhir.ClaimResponse module<a class="headerlink" href="#module-cardea.fhir.ClaimResponse" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -250,160 +158,46 @@
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides the adjudication details from the processing of
 a Claim resource.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a ClaimResponse resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Response business identifier.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of the resource instance.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.patient">
-<code class="sig-name descname">patient</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.patient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Patient Resource.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.created">
-<code class="sig-name descname">created</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.created" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date when the enclosed suite of services were performed
-or completed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.insurer">
-<code class="sig-name descname">insurer</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.insurer" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Insurer who produced this adjudicated response.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.requestProvider">
-<code class="sig-name descname">requestProvider</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.requestProvider" title="Permalink to this definition">¶</a></dt>
-<dd><p>The practitioner who is responsible for the services
-rendered to the patient.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.requestOrganization">
-<code class="sig-name descname">requestOrganization</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.requestOrganization" title="Permalink to this definition">¶</a></dt>
-<dd><p>The organization which is responsible for the
-services rendered to the patient.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.request">
-<code class="sig-name descname">request</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Original request resource referrence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.outcome">
-<code class="sig-name descname">outcome</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.outcome" title="Permalink to this definition">¶</a></dt>
-<dd><p>Processing outcome errror, partial or complete processing.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.disposition">
-<code class="sig-name descname">disposition</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.disposition" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description of the status of the adjudication.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.payeeType">
-<code class="sig-name descname">payeeType</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.payeeType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Party to be reimbursed: Subscriber, provider, other.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.item">
-<code class="sig-name descname">item</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.item" title="Permalink to this definition">¶</a></dt>
-<dd><p>The first tier service adjudications for submitted services.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.addItem">
-<code class="sig-name descname">addItem</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.addItem" title="Permalink to this definition">¶</a></dt>
-<dd><p>The first tier service adjudications for payor added
-services.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.error">
-<code class="sig-name descname">error</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.error" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mutually exclusive with Services Provided (Item).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.totalCost">
-<code class="sig-name descname">totalCost</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.totalCost" title="Permalink to this definition">¶</a></dt>
-<dd><p>The total cost of the services reported.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.unallocDeductable">
-<code class="sig-name descname">unallocDeductable</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.unallocDeductable" title="Permalink to this definition">¶</a></dt>
-<dd><p>The amount of deductible applied which was not
-allocated to any particular service line.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.totalBenefit">
-<code class="sig-name descname">totalBenefit</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.totalBenefit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Total amount of benefit payable (Equal to sum of the
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a ClaimResponse resource</p></li>
+<li><p><strong>identifier</strong> – The Response business identifier.</p></li>
+<li><p><strong>status</strong> – The status of the resource instance.</p></li>
+<li><p><strong>patient</strong> – Patient Resource.</p></li>
+<li><p><strong>created</strong> – The date when the enclosed suite of services were performed
+or completed.</p></li>
+<li><p><strong>insurer</strong> – The Insurer who produced this adjudicated response.</p></li>
+<li><p><strong>requestProvider</strong> – The practitioner who is responsible for the services
+rendered to the patient.</p></li>
+<li><p><strong>requestOrganization</strong> – The organization which is responsible for the
+services rendered to the patient.</p></li>
+<li><p><strong>request</strong> – Original request resource referrence.</p></li>
+<li><p><strong>outcome</strong> – Processing outcome errror, partial or complete processing.</p></li>
+<li><p><strong>disposition</strong> – A description of the status of the adjudication.</p></li>
+<li><p><strong>payeeType</strong> – Party to be reimbursed: Subscriber, provider, other.</p></li>
+<li><p><strong>item</strong> – The first tier service adjudications for submitted services.</p></li>
+<li><p><strong>addItem</strong> – The first tier service adjudications for payor added
+services.</p></li>
+<li><p><strong>error</strong> – Mutually exclusive with Services Provided (Item).</p></li>
+<li><p><strong>totalCost</strong> – The total cost of the services reported.</p></li>
+<li><p><strong>unallocDeductable</strong> – The amount of deductible applied which was not
+allocated to any particular service line.</p></li>
+<li><p><strong>totalBenefit</strong> – Total amount of benefit payable (Equal to sum of the
 Benefit amounts from all detail lines and additions less the
-Unallocated Deductible).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.payment">
-<code class="sig-name descname">payment</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.payment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Payment details for the claim if the claim has been paid.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.reserved">
-<code class="sig-name descname">reserved</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.reserved" title="Permalink to this definition">¶</a></dt>
-<dd><p>Status of funds reservation (For provider, for Patient,
-None).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.form">
-<code class="sig-name descname">form</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.form" title="Permalink to this definition">¶</a></dt>
-<dd><p>The form to be used for printing the content.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.processNote">
-<code class="sig-name descname">processNote</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.processNote" title="Permalink to this definition">¶</a></dt>
-<dd><p>Note text.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.communicationRequest">
-<code class="sig-name descname">communicationRequest</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.communicationRequest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Request for additional supporting or authorizing
-information, such as: documents, images or resources.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse.insurance">
-<code class="sig-name descname">insurance</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.insurance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Financial instrument by which payment information for
-health care.</p>
-</dd></dl>
-
+Unallocated Deductible).</p></li>
+<li><p><strong>payment</strong> – Payment details for the claim if the claim has been paid.</p></li>
+<li><p><strong>reserved</strong> – Status of funds reservation (For provider, for Patient,
+None).</p></li>
+<li><p><strong>form</strong> – The form to be used for printing the content.</p></li>
+<li><p><strong>processNote</strong> – Note text.</p></li>
+<li><p><strong>communicationRequest</strong> – Request for additional supporting or authorizing
+information, such as: documents, images or resources.</p></li>
+<li><p><strong>insurance</strong> – Financial instrument by which payment information for
+health care.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ClaimResponse.ClaimResponse.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClaimResponse.html#ClaimResponse.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -423,67 +217,28 @@ health care.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides the adjudication details from the processing of
 a Claim resource.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_AddItem.sequenceLinkId">
-<code class="sig-name descname">sequenceLinkId</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_AddItem.sequenceLinkId" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of input service items which this service line is
-intended to replace.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_AddItem.revenue">
-<code class="sig-name descname">revenue</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_AddItem.revenue" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of reveneu or cost center providing the product
-and/or service.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_AddItem.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_AddItem.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>Health Care Service Type Codes  to identify the
-classification of service or benefits.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_AddItem.service">
-<code class="sig-name descname">service</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_AddItem.service" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code to indicate the Professional Service or Product
-supplied.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_AddItem.modifier">
-<code class="sig-name descname">modifier</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_AddItem.modifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Item typification or modifiers codes, eg for Oral whether
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequenceLinkId</strong> – List of input service items which this service line is
+intended to replace.</p></li>
+<li><p><strong>revenue</strong> – The type of reveneu or cost center providing the product
+and/or service.</p></li>
+<li><p><strong>category</strong> – Health Care Service Type Codes  to identify the
+classification of service or benefits.</p></li>
+<li><p><strong>service</strong> – A code to indicate the Professional Service or Product
+supplied.</p></li>
+<li><p><strong>modifier</strong> – Item typification or modifiers codes, eg for Oral whether
 the treatment is cosmetic or associated with TMJ, or for medical
-whether the treatment was outside the clinic or out of office hours.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_AddItem.fee">
-<code class="sig-name descname">fee</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_AddItem.fee" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fee charged for the professional service or product..</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_AddItem.noteNumber">
-<code class="sig-name descname">noteNumber</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_AddItem.noteNumber" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of note references to the notes provided below.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_AddItem.adjudication">
-<code class="sig-name descname">adjudication</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_AddItem.adjudication" title="Permalink to this definition">¶</a></dt>
-<dd><p>The adjudications results.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_AddItem.detail">
-<code class="sig-name descname">detail</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_AddItem.detail" title="Permalink to this definition">¶</a></dt>
-<dd><p>The second tier service adjudications for payor added
-services.</p>
-</dd></dl>
-
+whether the treatment was outside the clinic or out of office hours.</p></li>
+<li><p><strong>fee</strong> – The fee charged for the professional service or product..</p></li>
+<li><p><strong>noteNumber</strong> – A list of note references to the notes provided below.</p></li>
+<li><p><strong>adjudication</strong> – The adjudications results.</p></li>
+<li><p><strong>detail</strong> – The second tier service adjudications for payor added
+services.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ClaimResponse.ClaimResponse_AddItem.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClaimResponse.html#ClaimResponse_AddItem.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_AddItem.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -503,32 +258,18 @@ services.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides the adjudication details from the processing of
 a Claim resource.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Adjudication.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Adjudication.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>Code indicating: Co-Pay, deductible, eligible, benefit, tax,
-etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Adjudication.reason">
-<code class="sig-name descname">reason</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Adjudication.reason" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adjudication reason such as limit reached.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Adjudication.amount">
-<code class="sig-name descname">amount</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Adjudication.amount" title="Permalink to this definition">¶</a></dt>
-<dd><p>Monetary amount associated with the code.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Adjudication.value">
-<code class="sig-name descname">value</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Adjudication.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>A non-monetary value for example a percentage. Mutually
-exclusive to the amount element above.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>category</strong> – Code indicating: Co-Pay, deductible, eligible, benefit, tax,
+etc.</p></li>
+<li><p><strong>reason</strong> – Adjudication reason such as limit reached.</p></li>
+<li><p><strong>amount</strong> – Monetary amount associated with the code.</p></li>
+<li><p><strong>value</strong> – A non-monetary value for example a percentage. Mutually
+exclusive to the amount element above.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ClaimResponse.ClaimResponse_Adjudication.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClaimResponse.html#ClaimResponse_Adjudication.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Adjudication.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -548,31 +289,17 @@ exclusive to the amount element above.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides the adjudication details from the processing of
 a Claim resource.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail.sequenceLinkId">
-<code class="sig-name descname">sequenceLinkId</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail.sequenceLinkId" title="Permalink to this definition">¶</a></dt>
-<dd><p>A service line number.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail.noteNumber">
-<code class="sig-name descname">noteNumber</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail.noteNumber" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of note references to the notes provided below.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail.adjudication">
-<code class="sig-name descname">adjudication</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail.adjudication" title="Permalink to this definition">¶</a></dt>
-<dd><p>The adjudications results.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail.subDetail">
-<code class="sig-name descname">subDetail</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail.subDetail" title="Permalink to this definition">¶</a></dt>
-<dd><p>The third tier service adjudications for submitted
-services.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequenceLinkId</strong> – A service line number.</p></li>
+<li><p><strong>noteNumber</strong> – A list of note references to the notes provided below.</p></li>
+<li><p><strong>adjudication</strong> – The adjudications results.</p></li>
+<li><p><strong>subDetail</strong> – The third tier service adjudications for submitted
+services.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClaimResponse.html#ClaimResponse_Detail.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -592,53 +319,24 @@ services.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides the adjudication details from the processing of
 a Claim resource.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail1.revenue">
-<code class="sig-name descname">revenue</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail1.revenue" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of reveneu or cost center providing the product
-and/or service.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail1.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail1.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>Health Care Service Type Codes  to identify the
-classification of service or benefits.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail1.service">
-<code class="sig-name descname">service</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail1.service" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code to indicate the Professional Service or Product
-supplied.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail1.modifier">
-<code class="sig-name descname">modifier</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail1.modifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Item typification or modifiers codes, eg for Oral whether
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>revenue</strong> – The type of reveneu or cost center providing the product
+and/or service.</p></li>
+<li><p><strong>category</strong> – Health Care Service Type Codes  to identify the
+classification of service or benefits.</p></li>
+<li><p><strong>service</strong> – A code to indicate the Professional Service or Product
+supplied.</p></li>
+<li><p><strong>modifier</strong> – Item typification or modifiers codes, eg for Oral whether
 the treatment is cosmetic or associated with TMJ, or for medical
-whether the treatment was outside the clinic or out of office hours.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail1.fee">
-<code class="sig-name descname">fee</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail1.fee" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fee charged for the professional service or product..</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail1.noteNumber">
-<code class="sig-name descname">noteNumber</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail1.noteNumber" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of note references to the notes provided below.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail1.adjudication">
-<code class="sig-name descname">adjudication</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail1.adjudication" title="Permalink to this definition">¶</a></dt>
-<dd><p>The adjudications results.</p>
-</dd></dl>
-
+whether the treatment was outside the clinic or out of office hours.</p></li>
+<li><p><strong>fee</strong> – The fee charged for the professional service or product..</p></li>
+<li><p><strong>noteNumber</strong> – A list of note references to the notes provided below.</p></li>
+<li><p><strong>adjudication</strong> – The adjudications results.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ClaimResponse.ClaimResponse_Detail1.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClaimResponse.html#ClaimResponse_Detail1.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Detail1.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -658,36 +356,22 @@ whether the treatment was outside the clinic or out of office hours.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides the adjudication details from the processing of
 a Claim resource.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Error.sequenceLinkId">
-<code class="sig-name descname">sequenceLinkId</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Error.sequenceLinkId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The sequence number of the line item submitted which
-contains the error. This value is omitted when the error is elsewhere.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Error.detailSequenceLinkId">
-<code class="sig-name descname">detailSequenceLinkId</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Error.detailSequenceLinkId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The sequence number of the addition within the
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequenceLinkId</strong> – The sequence number of the line item submitted which
+contains the error. This value is omitted when the error is elsewhere.</p></li>
+<li><p><strong>detailSequenceLinkId</strong> – The sequence number of the addition within the
 line item submitted which contains the error. This value is omitted
-when the error is not related to an Addition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Error.subdetailSequenceLinkId">
-<code class="sig-name descname">subdetailSequenceLinkId</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Error.subdetailSequenceLinkId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The sequence number of the addition within
+when the error is not related to an Addition.</p></li>
+<li><p><strong>subdetailSequenceLinkId</strong> – The sequence number of the addition within
 the line item submitted which contains the error. This value is
-omitted when the error is not related to an Addition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Error.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Error.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>An error code,from a specified code system, which details why
-the claim could not be adjudicated.</p>
-</dd></dl>
-
+omitted when the error is not related to an Addition.</p></li>
+<li><p><strong>code</strong> – An error code,from a specified code system, which details why
+the claim could not be adjudicated.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ClaimResponse.ClaimResponse_Error.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClaimResponse.html#ClaimResponse_Error.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Error.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -707,47 +391,23 @@ the claim could not be adjudicated.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides the adjudication details from the processing of
 a Claim resource.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Insurance.sequence">
-<code class="sig-name descname">sequence</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Insurance.sequence" title="Permalink to this definition">¶</a></dt>
-<dd><p>A service line item.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Insurance.focal">
-<code class="sig-name descname">focal</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Insurance.focal" title="Permalink to this definition">¶</a></dt>
-<dd><p>The instance number of the Coverage which is the focus for
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequence</strong> – A service line item.</p></li>
+<li><p><strong>focal</strong> – The instance number of the Coverage which is the focus for
 adjudication. The Coverage against which the claim is to be
-adjudicated.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Insurance.coverage">
-<code class="sig-name descname">coverage</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Insurance.coverage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reference to the program or plan identification, underwriter
-or payor.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Insurance.businessArrangement">
-<code class="sig-name descname">businessArrangement</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Insurance.businessArrangement" title="Permalink to this definition">¶</a></dt>
-<dd><p>The contract number of a business agreement which
-describes the terms and conditions.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Insurance.preAuthRef">
-<code class="sig-name descname">preAuthRef</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Insurance.preAuthRef" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of references from the Insurer to which these
-services pertain.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Insurance.claimResponse">
-<code class="sig-name descname">claimResponse</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Insurance.claimResponse" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Coverages adjudication details.</p>
-</dd></dl>
-
+adjudicated.</p></li>
+<li><p><strong>coverage</strong> – Reference to the program or plan identification, underwriter
+or payor.</p></li>
+<li><p><strong>businessArrangement</strong> – The contract number of a business agreement which
+describes the terms and conditions.</p></li>
+<li><p><strong>preAuthRef</strong> – A list of references from the Insurer to which these
+services pertain.</p></li>
+<li><p><strong>claimResponse</strong> – The Coverages adjudication details.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ClaimResponse.ClaimResponse_Insurance.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClaimResponse.html#ClaimResponse_Insurance.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Insurance.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -767,30 +427,16 @@ services pertain.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides the adjudication details from the processing of
 a Claim resource.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Item.sequenceLinkId">
-<code class="sig-name descname">sequenceLinkId</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Item.sequenceLinkId" title="Permalink to this definition">¶</a></dt>
-<dd><p>A service line number.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Item.noteNumber">
-<code class="sig-name descname">noteNumber</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Item.noteNumber" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of note references to the notes provided below.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Item.adjudication">
-<code class="sig-name descname">adjudication</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Item.adjudication" title="Permalink to this definition">¶</a></dt>
-<dd><p>The adjudication results.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Item.detail">
-<code class="sig-name descname">detail</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Item.detail" title="Permalink to this definition">¶</a></dt>
-<dd><p>The second tier service adjudications for submitted services.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequenceLinkId</strong> – A service line number.</p></li>
+<li><p><strong>noteNumber</strong> – A list of note references to the notes provided below.</p></li>
+<li><p><strong>adjudication</strong> – The adjudication results.</p></li>
+<li><p><strong>detail</strong> – The second tier service adjudications for submitted services.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ClaimResponse.ClaimResponse_Item.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClaimResponse.html#ClaimResponse_Item.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Item.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -810,44 +456,20 @@ a Claim resource.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides the adjudication details from the processing of
 a Claim resource.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Payment.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Payment.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether this represents partial or complete payment of the
-claim.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Payment.adjustment">
-<code class="sig-name descname">adjustment</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Payment.adjustment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adjustment to the payment of this transaction which is not
-related to adjudication of this transaction.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Payment.adjustmentReason">
-<code class="sig-name descname">adjustmentReason</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Payment.adjustmentReason" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reason for the payment adjustment.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Payment.date">
-<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Payment.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Estimated payment data.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Payment.amount">
-<code class="sig-name descname">amount</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Payment.amount" title="Permalink to this definition">¶</a></dt>
-<dd><p>Payable less any payment adjustment.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_Payment.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Payment.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Payment identifier.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – Whether this represents partial or complete payment of the
+claim.</p></li>
+<li><p><strong>adjustment</strong> – Adjustment to the payment of this transaction which is not
+related to adjudication of this transaction.</p></li>
+<li><p><strong>adjustmentReason</strong> – Reason for the payment adjustment.</p></li>
+<li><p><strong>date</strong> – Estimated payment data.</p></li>
+<li><p><strong>amount</strong> – Payable less any payment adjustment.</p></li>
+<li><p><strong>identifier</strong> – Payment identifier.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ClaimResponse.ClaimResponse_Payment.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClaimResponse.html#ClaimResponse_Payment.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_Payment.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -867,34 +489,20 @@ related to adjudication of this transaction.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides the adjudication details from the processing of
 a Claim resource.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_ProcessNote.number">
-<code class="sig-name descname">number</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_ProcessNote.number" title="Permalink to this definition">¶</a></dt>
-<dd><p>An integer associated with each note which may be referred to
-from each service line item.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_ProcessNote.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_ProcessNote.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>The note purpose: Print/Display.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_ProcessNote.text">
-<code class="sig-name descname">text</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_ProcessNote.text" title="Permalink to this definition">¶</a></dt>
-<dd><p>The note text.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_ProcessNote.language">
-<code class="sig-name descname">language</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_ProcessNote.language" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ISO-639-1 alpha 2 code in lower case for the language,
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number</strong> – An integer associated with each note which may be referred to
+from each service line item.</p></li>
+<li><p><strong>type</strong> – The note purpose: Print/Display.</p></li>
+<li><p><strong>text</strong> – The note text.</p></li>
+<li><p><strong>language</strong> – The ISO-639-1 alpha 2 code in lower case for the language,
 optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for
 the region in upper case; e.g. “en” for English, or “en-US” for
-American English versus “en-EN” for England English.</p>
-</dd></dl>
-
+American English versus “en-EN” for England English.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ClaimResponse.ClaimResponse_ProcessNote.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClaimResponse.html#ClaimResponse_ProcessNote.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_ProcessNote.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -914,24 +522,15 @@ American English versus “en-EN” for England English.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>This resource provides the adjudication details from the processing of
 a Claim resource.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_SubDetail.sequenceLinkId">
-<code class="sig-name descname">sequenceLinkId</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_SubDetail.sequenceLinkId" title="Permalink to this definition">¶</a></dt>
-<dd><p>A service line number.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_SubDetail.noteNumber">
-<code class="sig-name descname">noteNumber</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_SubDetail.noteNumber" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of note references to the notes provided below.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ClaimResponse.ClaimResponse_SubDetail.adjudication">
-<code class="sig-name descname">adjudication</code><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_SubDetail.adjudication" title="Permalink to this definition">¶</a></dt>
-<dd><p>The adjudications results.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequenceLinkId</strong> – A service line number.</p></li>
+<li><p><strong>noteNumber</strong> – A list of note references to the notes provided below.</p></li>
+<li><p><strong>adjudication</strong> – The adjudications results.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ClaimResponse.ClaimResponse_SubDetail.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ClaimResponse.html#ClaimResponse_SubDetail.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ClaimResponse.ClaimResponse_SubDetail.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -948,52 +547,31 @@ a Claim resource.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.ClinicalImpression.html" class="btn btn-neutral float-right" title="cardea.fhir.ClinicalImpression module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Claim.html" class="btn btn-neutral float-left" title="cardea.fhir.Claim module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

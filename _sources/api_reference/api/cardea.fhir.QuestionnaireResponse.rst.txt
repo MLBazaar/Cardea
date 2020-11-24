@@ -1,0 +1,28 @@
+cardea.fhir.QuestionnaireResponse
+=================================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: QuestionnaireResponse
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~QuestionnaireResponse.__init__
+      ~QuestionnaireResponse.assert_type
+      ~QuestionnaireResponse.get_dataframe
+      ~QuestionnaireResponse.get_eligible_relationships
+      ~QuestionnaireResponse.get_id
+      ~QuestionnaireResponse.get_relationships
+      ~QuestionnaireResponse.set_attributes
+   
+   
+
+   
+   
+   

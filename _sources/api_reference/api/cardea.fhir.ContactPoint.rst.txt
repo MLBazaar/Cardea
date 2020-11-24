@@ -1,0 +1,28 @@
+cardea.fhir.ContactPoint
+========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ContactPoint
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ContactPoint.__init__
+      ~ContactPoint.assert_type
+      ~ContactPoint.get_dataframe
+      ~ContactPoint.get_eligible_relationships
+      ~ContactPoint.get_id
+      ~ContactPoint.get_relationships
+      ~ContactPoint.set_attributes
+   
+   
+
+   
+   
+   

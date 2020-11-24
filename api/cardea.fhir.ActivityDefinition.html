@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.ActivityDefinition module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.ActivityDefinition module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.Address module" href="cardea.fhir.Address.html" />
-    <link rel="prev" title="cardea.fhir.Account module" href="cardea.fhir.Account.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.ActivityDefinition module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.ActivityDefinition.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.ActivityDefinition">
 <span id="cardea-fhir-activitydefinition-module"></span><h1>cardea.fhir.ActivityDefinition module<a class="headerlink" href="#module-cardea.fhir.ActivityDefinition" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -251,36 +159,21 @@
 <p>This resource allows for the definition of some activity to be
 performed, independent of a particular patient, practitioner, or other
 performance context.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a ActivityDefinition resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute URI that is used to identify this activity definition
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a ActivityDefinition resource</p></li>
+<li><p><strong>url</strong> – An absolute URI that is used to identify this activity definition
 when it is referenced in a specification, model, design or an
 instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD
 be an address at which this activity definition is (or will be)
 published. The URL SHOULD include the major version of the activity
 definition. For more information see [Technical and Business
-Versions](resource.html#versions).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A formal identifier that is used to identify this activity
+Versions](resource.html#versions).</p></li>
+<li><p><strong>identifier</strong> – A formal identifier that is used to identify this activity
 definition when it is represented in other formats, or referenced in a
-specification, model, design or an instance.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier that is used to identify this version of the
+specification, model, design or an instance.</p></li>
+<li><p><strong>version</strong> – The identifier that is used to identify this version of the
 activity definition when it is referenced in a specification, model,
 design or instance. This is an arbitrary value managed by the activity
 definition author and is not expected to be globally unique. For
@@ -290,273 +183,99 @@ placed in a lexicographical sequence. To provide a version consistent
 with the Decision Support Service specification, use the format
 Major.Minor.Revision (e.g. 1.0.0). For more information on versioning
 knowledge assets, refer to the Decision Support Service specification.
-Note that a version is required for non-experimental active assets.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>A natural language name identifying the activity definition.
+Note that a version is required for non-experimental active assets.</p></li>
+<li><p><strong>name</strong> – A natural language name identifying the activity definition.
 This name should be usable as an identifier for the module by machine
-processing applications such as code generation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.title">
-<code class="sig-name descname">title</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short, descriptive, user-friendly title for the activity
-definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of this activity definition. Enables tracking the
-life-cycle of the content.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.experimental">
-<code class="sig-name descname">experimental</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.experimental" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean value to indicate that this activity
+processing applications such as code generation.</p></li>
+<li><p><strong>title</strong> – A short, descriptive, user-friendly title for the activity
+definition.</p></li>
+<li><p><strong>status</strong> – The status of this activity definition. Enables tracking the
+life-cycle of the content.</p></li>
+<li><p><strong>experimental</strong> – A boolean value to indicate that this activity
 definition is authored for testing purposes (or
 education/evaluation/marketing), and is not intended to be used for
-genuine usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.date">
-<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date  (and optionally time) when the activity definition was
+genuine usage.</p></li>
+<li><p><strong>date</strong> – The date  (and optionally time) when the activity definition was
 published. The date must change if and when the business version
 changes and it must change if the status code changes. In addition, it
 should change when the substantive content of the activity definition
-changes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.publisher">
-<code class="sig-name descname">publisher</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.publisher" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the individual or organization that published
-the activity definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A free text natural language description of the activity
-definition from a consumer’s perspective.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.purpose">
-<code class="sig-name descname">purpose</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.purpose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Explaination of why this activity definition is needed and
-why it has been designed as it has.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.usage">
-<code class="sig-name descname">usage</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.usage" title="Permalink to this definition">¶</a></dt>
-<dd><p>A detailed description of how the asset is used from a clinical
-perspective.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.approvalDate">
-<code class="sig-name descname">approvalDate</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.approvalDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date on which the resource content was approved by
+changes.</p></li>
+<li><p><strong>publisher</strong> – The name of the individual or organization that published
+the activity definition.</p></li>
+<li><p><strong>description</strong> – A free text natural language description of the activity
+definition from a consumer’s perspective.</p></li>
+<li><p><strong>purpose</strong> – Explaination of why this activity definition is needed and
+why it has been designed as it has.</p></li>
+<li><p><strong>usage</strong> – A detailed description of how the asset is used from a clinical
+perspective.</p></li>
+<li><p><strong>approvalDate</strong> – The date on which the resource content was approved by
 the publisher. Approval happens once when the content is officially
-approved for usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.lastReviewDate">
-<code class="sig-name descname">lastReviewDate</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.lastReviewDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date on which the resource content was last
+approved for usage.</p></li>
+<li><p><strong>lastReviewDate</strong> – The date on which the resource content was last
 reviewed. Review happens periodically after approval, but doesn’t
-change the original approval date.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.effectivePeriod">
-<code class="sig-name descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.effectivePeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>The period during which the activity definition
-content was or is planned to be in active use.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.useContext">
-<code class="sig-name descname">useContext</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.useContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content was developed with a focus and intent of
+change the original approval date.</p></li>
+<li><p><strong>effectivePeriod</strong> – The period during which the activity definition
+content was or is planned to be in active use.</p></li>
+<li><p><strong>useContext</strong> – The content was developed with a focus and intent of
 supporting the contexts that are listed. These terms may be used to
 assist with indexing and searching for appropriate activity definition
-instances.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.jurisdiction">
-<code class="sig-name descname">jurisdiction</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.jurisdiction" title="Permalink to this definition">¶</a></dt>
-<dd><p>A legal or geographic region in which the activity
-definition is intended to be used.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.topic">
-<code class="sig-name descname">topic</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.topic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Descriptive topics related to the content of the activity.
+instances.</p></li>
+<li><p><strong>jurisdiction</strong> – A legal or geographic region in which the activity
+definition is intended to be used.</p></li>
+<li><p><strong>topic</strong> – Descriptive topics related to the content of the activity.
 Topics provide a high-level categorization of the activity that can be
-useful for filtering and searching.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.contributor">
-<code class="sig-name descname">contributor</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.contributor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A contributor to the content of the asset, including
-authors, editors, reviewers, and endorsers.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.contact">
-<code class="sig-name descname">contact</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.contact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Contact details to assist a user in finding and communicating
-with the publisher.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.copyright">
-<code class="sig-name descname">copyright</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.copyright" title="Permalink to this definition">¶</a></dt>
-<dd><p>A copyright statement relating to the activity definition
+useful for filtering and searching.</p></li>
+<li><p><strong>contributor</strong> – A contributor to the content of the asset, including
+authors, editors, reviewers, and endorsers.</p></li>
+<li><p><strong>contact</strong> – Contact details to assist a user in finding and communicating
+with the publisher.</p></li>
+<li><p><strong>copyright</strong> – A copyright statement relating to the activity definition
 and/or its contents. Copyright statements are generally legal
-restrictions on the use and publishing of the activity definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.relatedArtifact">
-<code class="sig-name descname">relatedArtifact</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.relatedArtifact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Related artifacts such as additional documentation,
-justification, or bibliographic references.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.library">
-<code class="sig-name descname">library</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.library" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to a Library resource containing any formal logic
-used by the asset.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.kind">
-<code class="sig-name descname">kind</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.kind" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description of the kind of resource the activity definition is
+restrictions on the use and publishing of the activity definition.</p></li>
+<li><p><strong>relatedArtifact</strong> – Related artifacts such as additional documentation,
+justification, or bibliographic references.</p></li>
+<li><p><strong>library</strong> – A reference to a Library resource containing any formal logic
+used by the asset.</p></li>
+<li><p><strong>kind</strong> – A description of the kind of resource the activity definition is
 representing. For example, a MedicationRequest, a ProcedureRequest, or
 a CommunicationRequest. Typically, but not always, this is a Request
-resource.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>Detailed description of the type of activity; e.g. What lab
-test, what procedure, what kind of encounter.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.timingTiming">
-<code class="sig-name descname">timingTiming</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.timingTiming" title="Permalink to this definition">¶</a></dt>
-<dd><p>The period, timing or frequency upon which the described
-activity is to occur.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.timingDateTime">
-<code class="sig-name descname">timingDateTime</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.timingDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The period, timing or frequency upon which the
-described activity is to occur.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.timingPeriod">
-<code class="sig-name descname">timingPeriod</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.timingPeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>The period, timing or frequency upon which the described
-activity is to occur.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.timingRange">
-<code class="sig-name descname">timingRange</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.timingRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>The period, timing or frequency upon which the described
-activity is to occur.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.location">
-<code class="sig-name descname">location</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.location" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the facility where the activity will occur; e.g.
-home, hospital, specific clinic, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.participant">
-<code class="sig-name descname">participant</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.participant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates who should participate in performing the action
-described.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.productReference">
-<code class="sig-name descname">productReference</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.productReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the food, drug or other product being
-consumed or supplied in the activity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.productCodeableConcept">
-<code class="sig-name descname">productCodeableConcept</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.productCodeableConcept" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the food, drug or other product
-being consumed or supplied in the activity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.quantity">
-<code class="sig-name descname">quantity</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.quantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the quantity expected to be consumed at once (per
-dose, per meal, etc.).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.dosage">
-<code class="sig-name descname">dosage</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.dosage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides detailed dosage instructions in the same way that
-they are described for MedicationRequest resources.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.bodySite">
-<code class="sig-name descname">bodySite</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.bodySite" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates the sites on the subject’s body where the
-procedure should be performed (I.e. the target sites).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.transform">
-<code class="sig-name descname">transform</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to a StructureMap resource that defines a
+resource.</p></li>
+<li><p><strong>code</strong> – Detailed description of the type of activity; e.g. What lab
+test, what procedure, what kind of encounter.</p></li>
+<li><p><strong>timingTiming</strong> – The period, timing or frequency upon which the described
+activity is to occur.</p></li>
+<li><p><strong>timingDateTime</strong> – The period, timing or frequency upon which the
+described activity is to occur.</p></li>
+<li><p><strong>timingPeriod</strong> – The period, timing or frequency upon which the described
+activity is to occur.</p></li>
+<li><p><strong>timingRange</strong> – The period, timing or frequency upon which the described
+activity is to occur.</p></li>
+<li><p><strong>location</strong> – Identifies the facility where the activity will occur; e.g.
+home, hospital, specific clinic, etc.</p></li>
+<li><p><strong>participant</strong> – Indicates who should participate in performing the action
+described.</p></li>
+<li><p><strong>productReference</strong> – Identifies the food, drug or other product being
+consumed or supplied in the activity.</p></li>
+<li><p><strong>productCodeableConcept</strong> – Identifies the food, drug or other product
+being consumed or supplied in the activity.</p></li>
+<li><p><strong>quantity</strong> – Identifies the quantity expected to be consumed at once (per
+dose, per meal, etc.).</p></li>
+<li><p><strong>dosage</strong> – Provides detailed dosage instructions in the same way that
+they are described for MedicationRequest resources.</p></li>
+<li><p><strong>bodySite</strong> – Indicates the sites on the subject’s body where the
+procedure should be performed (I.e. the target sites).</p></li>
+<li><p><strong>transform</strong> – A reference to a StructureMap resource that defines a
 transform that can be executed to produce the intent resource using
-the ActivityDefinition instance as the input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.dynamicValue">
-<code class="sig-name descname">dynamicValue</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.dynamicValue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dynamic values that will be evaluated to produce values
+the ActivityDefinition instance as the input.</p></li>
+<li><p><strong>dynamicValue</strong> – Dynamic values that will be evaluated to produce values
 for elements of the resulting resource. For example, if the dosage of
 a medication must be computed based on the patient’s weight, a dynamic
 value would be used to specify an expression that calculated the
 weight, and the path on the intent resource that would contain the
-result.</p>
-</dd></dl>
-
+result.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ActivityDefinition.ActivityDefinition.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ActivityDefinition.html#ActivityDefinition.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -589,34 +308,20 @@ result.</p>
 <p>This resource allows for the definition of some activity to be
 performed, independent of a particular patient, practitioner, or other
 performance context.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition_DynamicValue.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition_DynamicValue.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A brief, natural language description of the intended
-semantics of the dynamic value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition_DynamicValue.path">
-<code class="sig-name descname">path</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition_DynamicValue.path" title="Permalink to this definition">¶</a></dt>
-<dd><p>The path to the element to be customized. This is the path on
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>description</strong> – A brief, natural language description of the intended
+semantics of the dynamic value.</p></li>
+<li><p><strong>path</strong> – The path to the element to be customized. This is the path on
 the resource that will hold the result of the calculation defined by
-the expression.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition_DynamicValue.language">
-<code class="sig-name descname">language</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition_DynamicValue.language" title="Permalink to this definition">¶</a></dt>
-<dd><p>The media type of the language for the expression.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition_DynamicValue.expression">
-<code class="sig-name descname">expression</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition_DynamicValue.expression" title="Permalink to this definition">¶</a></dt>
-<dd><p>An expression specifying the value of the customized
-element.</p>
-</dd></dl>
-
+the expression.</p></li>
+<li><p><strong>language</strong> – The media type of the language for the expression.</p></li>
+<li><p><strong>expression</strong> – An expression specifying the value of the customized
+element.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -626,19 +331,15 @@ element.</p>
 <p>This resource allows for the definition of some activity to be
 performed, independent of a particular patient, practitioner, or other
 performance context.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition_Participant.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition_Participant.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of participant in the action.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ActivityDefinition.ActivityDefinition_Participant.role">
-<code class="sig-name descname">role</code><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition_Participant.role" title="Permalink to this definition">¶</a></dt>
-<dd><p>The role the participant should play in performing the described
-action.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – The type of participant in the action.</p></li>
+<li><p><strong>role</strong> – The role the participant should play in performing the described
+action.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ActivityDefinition.ActivityDefinition_Participant.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ActivityDefinition.html#ActivityDefinition_Participant.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ActivityDefinition.ActivityDefinition_Participant.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -655,52 +356,31 @@ action.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.Address.html" class="btn btn-neutral float-right" title="cardea.fhir.Address module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Account.html" class="btn btn-neutral float-left" title="cardea.fhir.Account module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.Consent module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.Consent module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.ContactDetail module" href="cardea.fhir.ContactDetail.html" />
-    <link rel="prev" title="cardea.fhir.Condition module" href="cardea.fhir.Condition.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.Consent module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Consent.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.Consent">
 <span id="cardea-fhir-consent-module"></span><h1>cardea.fhir.Consent module<a class="headerlink" href="#module-cardea.fhir.Consent" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -252,158 +160,59 @@
 denies identified recipient(s) or recipient role(s) to perform one or
 more actions within a given policy context, for specific purposes and
 periods of time.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a Consent resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unique identifier for this copy of the Consent Statement.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates the current state of this consent.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>A classification of the type of consents found in the
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a Consent resource</p></li>
+<li><p><strong>identifier</strong> – Unique identifier for this copy of the Consent Statement.</p></li>
+<li><p><strong>status</strong> – Indicates the current state of this consent.</p></li>
+<li><p><strong>category</strong> – A classification of the type of consents found in the
 statement. This element supports indexing and retrieval of consent
-statements.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.patient">
-<code class="sig-name descname">patient</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.patient" title="Permalink to this definition">¶</a></dt>
-<dd><p>The patient/healthcare consumer to whom this consent applies.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.period">
-<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.period" title="Permalink to this definition">¶</a></dt>
-<dd><p>Relevant time or time-period when this Consent is applicable.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.dateTime">
-<code class="sig-name descname">dateTime</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.dateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>When this  Consent was issued / created / indexed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.consentingParty">
-<code class="sig-name descname">consentingParty</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.consentingParty" title="Permalink to this definition">¶</a></dt>
-<dd><p>Either the Grantor, which is the entity responsible
+statements.</p></li>
+<li><p><strong>patient</strong> – The patient/healthcare consumer to whom this consent applies.</p></li>
+<li><p><strong>period</strong> – Relevant time or time-period when this Consent is applicable.</p></li>
+<li><p><strong>dateTime</strong> – When this  Consent was issued / created / indexed.</p></li>
+<li><p><strong>consentingParty</strong> – Either the Grantor, which is the entity responsible
 for granting the rights listed in a Consent Directive or the Grantee,
 which is the entity responsible for complying with the Consent
 Directive, including any obligations or limitations on authorizations
-and enforcement of prohibitions.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.actor">
-<code class="sig-name descname">actor</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.actor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Who or what is controlled by this consent. Use group to
+and enforcement of prohibitions.</p></li>
+<li><p><strong>actor</strong> – Who or what is controlled by this consent. Use group to
 identify a set of actors by some property they share (e.g. ‘admitting
-officers’).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.action">
-<code class="sig-name descname">action</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.action" title="Permalink to this definition">¶</a></dt>
-<dd><p>Actions controlled by this consent.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.organization">
-<code class="sig-name descname">organization</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.organization" title="Permalink to this definition">¶</a></dt>
-<dd><p>The organization that manages the consent, and the
-framework within which it is executed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.sourceAttachment">
-<code class="sig-name descname">sourceAttachment</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.sourceAttachment" title="Permalink to this definition">¶</a></dt>
-<dd><p>The source on which this consent statement is based.
+officers’).</p></li>
+<li><p><strong>action</strong> – Actions controlled by this consent.</p></li>
+<li><p><strong>organization</strong> – The organization that manages the consent, and the
+framework within which it is executed.</p></li>
+<li><p><strong>sourceAttachment</strong> – The source on which this consent statement is based.
 The source might be a scanned original paper form, or a reference to a
 consent that links back to such a source, a reference to a document
-repository (e.g. XDS) that stores the original consent document.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.sourceIdentifier">
-<code class="sig-name descname">sourceIdentifier</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.sourceIdentifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>The source on which this consent statement is based.
+repository (e.g. XDS) that stores the original consent document.</p></li>
+<li><p><strong>sourceIdentifier</strong> – The source on which this consent statement is based.
 The source might be a scanned original paper form, or a reference to a
 consent that links back to such a source, a reference to a document
-repository (e.g. XDS) that stores the original consent document.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.sourceReference">
-<code class="sig-name descname">sourceReference</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.sourceReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>The source on which this consent statement is based.
+repository (e.g. XDS) that stores the original consent document.</p></li>
+<li><p><strong>sourceReference</strong> – The source on which this consent statement is based.
 The source might be a scanned original paper form, or a reference to a
 consent that links back to such a source, a reference to a document
-repository (e.g. XDS) that stores the original consent document.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.policy">
-<code class="sig-name descname">policy</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.policy" title="Permalink to this definition">¶</a></dt>
-<dd><p>The references to the policies that are included in this
+repository (e.g. XDS) that stores the original consent document.</p></li>
+<li><p><strong>policy</strong> – The references to the policies that are included in this
 consent scope. Policies may be organizational, but are often defined
-jurisdictionally, or in law.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.policyRule">
-<code class="sig-name descname">policyRule</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.policyRule" title="Permalink to this definition">¶</a></dt>
-<dd><p>A referece to the specific computable policy.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.securityLabel">
-<code class="sig-name descname">securityLabel</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.securityLabel" title="Permalink to this definition">¶</a></dt>
-<dd><p>A set of security labels that define which resources
+jurisdictionally, or in law.</p></li>
+<li><p><strong>policyRule</strong> – A referece to the specific computable policy.</p></li>
+<li><p><strong>securityLabel</strong> – A set of security labels that define which resources
 are controlled by this consent. If more than one label is specified,
-all resources must have all the specified labels.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.purpose">
-<code class="sig-name descname">purpose</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.purpose" title="Permalink to this definition">¶</a></dt>
-<dd><p>The context of the activities a user is taking - why the user
-is accessing the data - that are controlled by this consent.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.dataPeriod">
-<code class="sig-name descname">dataPeriod</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.dataPeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clinical or Operational Relevant period of time that
-bounds the data controlled by this consent.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.data">
-<code class="sig-name descname">data</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>The resources controlled by this consent, if specific resources
-are referenced.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent.except">
-<code class="sig-name descname">except</code><a class="headerlink" href="#cardea.fhir.Consent.Consent.except" title="Permalink to this definition">¶</a></dt>
-<dd><p>An exception to the base policy of this consent. An exception
-can be an addition or removal of access permissions.</p>
-</dd></dl>
-
+all resources must have all the specified labels.</p></li>
+<li><p><strong>purpose</strong> – The context of the activities a user is taking - why the user
+is accessing the data - that are controlled by this consent.</p></li>
+<li><p><strong>dataPeriod</strong> – Clinical or Operational Relevant period of time that
+bounds the data controlled by this consent.</p></li>
+<li><p><strong>data</strong> – The resources controlled by this consent, if specific resources
+are referenced.</p></li>
+<li><p><strong>except</strong> – An exception to the base policy of this consent. An exception
+can be an addition or removal of access permissions.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Consent.Consent.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Consent.html#Consent.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Consent.Consent.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -437,21 +246,17 @@ can be an addition or removal of access permissions.</p>
 denies identified recipient(s) or recipient role(s) to perform one or
 more actions within a given policy context, for specific purposes and
 periods of time.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Actor.role">
-<code class="sig-name descname">role</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Actor.role" title="Permalink to this definition">¶</a></dt>
-<dd><p>How the individual is involved in the resources content that is
-described in the consent.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Actor.reference">
-<code class="sig-name descname">reference</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Actor.reference" title="Permalink to this definition">¶</a></dt>
-<dd><p>The resource that identifies the actor. To identify a
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>role</strong> – How the individual is involved in the resources content that is
+described in the consent.</p></li>
+<li><p><strong>reference</strong> – The resource that identifies the actor. To identify a
 actors by type, use group to identify a set of actors by some property
-they share (e.g. ‘admitting officers’).</p>
-</dd></dl>
-
+they share (e.g. ‘admitting officers’).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Consent.Consent_Actor.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Consent.html#Consent_Actor.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Consent.Consent_Actor.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -473,21 +278,17 @@ they share (e.g. ‘admitting officers’).</p>
 denies identified recipient(s) or recipient role(s) to perform one or
 more actions within a given policy context, for specific purposes and
 periods of time.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Actor1.role">
-<code class="sig-name descname">role</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Actor1.role" title="Permalink to this definition">¶</a></dt>
-<dd><p>How the individual is involved in the resources content that is
-described in the exception.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Actor1.reference">
-<code class="sig-name descname">reference</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Actor1.reference" title="Permalink to this definition">¶</a></dt>
-<dd><p>The resource that identifies the actor. To identify a
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>role</strong> – How the individual is involved in the resources content that is
+described in the exception.</p></li>
+<li><p><strong>reference</strong> – The resource that identifies the actor. To identify a
 actors by type, use group to identify a set of actors by some property
-they share (e.g. ‘admitting officers’).</p>
-</dd></dl>
-
+they share (e.g. ‘admitting officers’).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Consent.Consent_Actor1.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Consent.html#Consent_Actor1.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Consent.Consent_Actor1.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -509,20 +310,16 @@ they share (e.g. ‘admitting officers’).</p>
 denies identified recipient(s) or recipient role(s) to perform one or
 more actions within a given policy context, for specific purposes and
 periods of time.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Data.meaning">
-<code class="sig-name descname">meaning</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Data.meaning" title="Permalink to this definition">¶</a></dt>
-<dd><p>How the resource reference is interpreted when testing
-consent restrictions.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Data.reference">
-<code class="sig-name descname">reference</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Data.reference" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to a specific resource that defines which
-resources are covered by this consent.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>meaning</strong> – How the resource reference is interpreted when testing
+consent restrictions.</p></li>
+<li><p><strong>reference</strong> – A reference to a specific resource that defines which
+resources are covered by this consent.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Consent.Consent_Data.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Consent.html#Consent_Data.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Consent.Consent_Data.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -556,20 +353,16 @@ resources are covered by this consent.</p>
 denies identified recipient(s) or recipient role(s) to perform one or
 more actions within a given policy context, for specific purposes and
 periods of time.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Data1.meaning">
-<code class="sig-name descname">meaning</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Data1.meaning" title="Permalink to this definition">¶</a></dt>
-<dd><p>How the resource reference is interpreted when testing
-consent restrictions.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Data1.reference">
-<code class="sig-name descname">reference</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Data1.reference" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to a specific resource that defines which
-resources are covered by this consent.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>meaning</strong> – How the resource reference is interpreted when testing
+consent restrictions.</p></li>
+<li><p><strong>reference</strong> – A reference to a specific resource that defines which
+resources are covered by this consent.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Consent.Consent_Data1.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Consent.html#Consent_Data1.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Consent.Consent_Data1.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -603,78 +396,34 @@ resources are covered by this consent.</p>
 denies identified recipient(s) or recipient role(s) to perform one or
 more actions within a given policy context, for specific purposes and
 periods of time.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Except.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Except.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Action  to take - permit or deny - when the exception conditions
-are met.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Except.period">
-<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Except.period" title="Permalink to this definition">¶</a></dt>
-<dd><p>The timeframe in this exception is valid.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Except.actor">
-<code class="sig-name descname">actor</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Except.actor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Who or what is controlled by this Exception. Use group to
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – Action  to take - permit or deny - when the exception conditions
+are met.</p></li>
+<li><p><strong>period</strong> – The timeframe in this exception is valid.</p></li>
+<li><p><strong>actor</strong> – Who or what is controlled by this Exception. Use group to
 identify a set of actors by some property they share (e.g. ‘admitting
-officers’).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Except.action">
-<code class="sig-name descname">action</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Except.action" title="Permalink to this definition">¶</a></dt>
-<dd><p>Actions controlled by this Exception.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Except.securityLabel">
-<code class="sig-name descname">securityLabel</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Except.securityLabel" title="Permalink to this definition">¶</a></dt>
-<dd><p>A set of security labels that define which resources
+officers’).</p></li>
+<li><p><strong>action</strong> – Actions controlled by this Exception.</p></li>
+<li><p><strong>securityLabel</strong> – A set of security labels that define which resources
 are controlled by this exception. If more than one label is specified,
-all resources must have all the specified labels.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Except.purpose">
-<code class="sig-name descname">purpose</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Except.purpose" title="Permalink to this definition">¶</a></dt>
-<dd><p>The context of the activities a user is taking - why the user
-is accessing the data - that are controlled by this exception.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Except.class">
-<code class="sig-name descname">class</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Except.class" title="Permalink to this definition">¶</a></dt>
-<dd><p>The class of information covered by this exception. The type
+all resources must have all the specified labels.</p></li>
+<li><p><strong>purpose</strong> – The context of the activities a user is taking - why the user
+is accessing the data - that are controlled by this exception.</p></li>
+<li><p><strong>class</strong> – The class of information covered by this exception. The type
 can be a FHIR resource type, a profile on a type, or a CDA document,
 or some other type that indicates what sort of information the consent
-relates to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Except.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Except.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>If this code is found in an instance, then the exception
-applies.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Except.dataPeriod">
-<code class="sig-name descname">dataPeriod</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Except.dataPeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clinical or Operational Relevant period of time that
-bounds the data controlled by this exception.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Except.data">
-<code class="sig-name descname">data</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Except.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>The resources controlled by this exception, if specific
-resources are referenced.</p>
-</dd></dl>
-
+relates to.</p></li>
+<li><p><strong>code</strong> – If this code is found in an instance, then the exception
+applies.</p></li>
+<li><p><strong>dataPeriod</strong> – Clinical or Operational Relevant period of time that
+bounds the data controlled by this exception.</p></li>
+<li><p><strong>data</strong> – The resources controlled by this exception, if specific
+resources are referenced.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Consent.Consent_Except.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Consent.html#Consent_Except.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Consent.Consent_Except.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -708,73 +457,48 @@ resources are referenced.</p>
 denies identified recipient(s) or recipient role(s) to perform one or
 more actions within a given policy context, for specific purposes and
 periods of time.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Policy.authority">
-<code class="sig-name descname">authority</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Policy.authority" title="Permalink to this definition">¶</a></dt>
-<dd><p>Entity or Organization having regulatory jurisdiction or
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>authority</strong> – Entity or Organization having regulatory jurisdiction or
 accountability for  enforcing policies pertaining to Consent
-Directives.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Consent.Consent_Policy.uri">
-<code class="sig-name descname">uri</code><a class="headerlink" href="#cardea.fhir.Consent.Consent_Policy.uri" title="Permalink to this definition">¶</a></dt>
-<dd><p>The references to the policies that are included in this consent
+Directives.</p></li>
+<li><p><strong>uri</strong> – The references to the policies that are included in this consent
 scope. Policies may be organizational, but are often defined
-jurisdictionally, or in law.</p>
-</dd></dl>
-
+jurisdictionally, or in law.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.ContactDetail.html" class="btn btn-neutral float-right" title="cardea.fhir.ContactDetail module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Condition.html" class="btn btn-neutral float-left" title="cardea.fhir.Condition module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

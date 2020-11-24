@@ -1,0 +1,28 @@
+cardea.fhir.ImplementationGuide
+===============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ImplementationGuide
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ImplementationGuide.__init__
+      ~ImplementationGuide.assert_type
+      ~ImplementationGuide.get_dataframe
+      ~ImplementationGuide.get_eligible_relationships
+      ~ImplementationGuide.get_id
+      ~ImplementationGuide.get_relationships
+      ~ImplementationGuide.set_attributes
+   
+   
+
+   
+   
+   

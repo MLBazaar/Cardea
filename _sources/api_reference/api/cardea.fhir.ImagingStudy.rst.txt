@@ -1,0 +1,28 @@
+cardea.fhir.ImagingStudy
+========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ImagingStudy
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ImagingStudy.__init__
+      ~ImagingStudy.assert_type
+      ~ImagingStudy.get_dataframe
+      ~ImagingStudy.get_eligible_relationships
+      ~ImagingStudy.get_id
+      ~ImagingStudy.get_relationships
+      ~ImagingStudy.set_attributes
+   
+   
+
+   
+   
+   

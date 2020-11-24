@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.StructureMap module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.StructureMap module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.Subscription module" href="cardea.fhir.Subscription.html" />
-    <link rel="prev" title="cardea.fhir.StructureDefinition module" href="cardea.fhir.StructureDefinition.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.StructureMap module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.StructureMap.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.StructureMap">
 <span id="cardea-fhir-structuremap-module"></span><h1>cardea.fhir.StructureMap module<a class="headerlink" href="#module-cardea.fhir.StructureMap" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -250,157 +158,68 @@
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A Map of relationships between 2 structures that can be used to
 transform data.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a StructureMap resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute URI that is used to identify this structure map when
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a StructureMap resource</p></li>
+<li><p><strong>url</strong> – An absolute URI that is used to identify this structure map when
 it is referenced in a specification, model, design or an instance.
 This SHALL be a URL, SHOULD be globally unique, and SHOULD be an
 address at which this structure map is (or will be) published. The URL
 SHOULD include the major version of the structure map. For more
 information see [Technical and Business
-Versions](resource.html#versions).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A formal identifier that is used to identify this
+Versions](resource.html#versions).</p></li>
+<li><p><strong>identifier</strong> – A formal identifier that is used to identify this
 structure map when it is represented in other formats, or referenced
-in a specification, model, design or an instance.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier that is used to identify this version of the
+in a specification, model, design or an instance.</p></li>
+<li><p><strong>version</strong> – The identifier that is used to identify this version of the
 structure map when it is referenced in a specification, model, design
 or instance. This is an arbitrary value managed by the structure map
 author and is not expected to be globally unique. For example, it
 might be a timestamp (e.g. yyyymmdd) if a managed version is not
 available. There is also no expectation that versions can be placed in
-a lexicographical sequence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>A natural language name identifying the structure map. This name
+a lexicographical sequence.</p></li>
+<li><p><strong>name</strong> – A natural language name identifying the structure map. This name
 should be usable as an identifier for the module by machine processing
-applications such as code generation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.title">
-<code class="sig-name descname">title</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short, descriptive, user-friendly title for the structure
-map.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of this structure map. Enables tracking the
-life-cycle of the content.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.experimental">
-<code class="sig-name descname">experimental</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.experimental" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean value to indicate that this structure map is
+applications such as code generation.</p></li>
+<li><p><strong>title</strong> – A short, descriptive, user-friendly title for the structure
+map.</p></li>
+<li><p><strong>status</strong> – The status of this structure map. Enables tracking the
+life-cycle of the content.</p></li>
+<li><p><strong>experimental</strong> – A boolean value to indicate that this structure map is
 authored for testing purposes (or education/evaluation/marketing), and
-is not intended to be used for genuine usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.date">
-<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date  (and optionally time) when the structure map was
+is not intended to be used for genuine usage.</p></li>
+<li><p><strong>date</strong> – The date  (and optionally time) when the structure map was
 published. The date must change if and when the business version
 changes and it must change if the status code changes. In addition, it
 should change when the substantive content of the structure map
-changes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.publisher">
-<code class="sig-name descname">publisher</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.publisher" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the individual or organization that published
-the structure map.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.contact">
-<code class="sig-name descname">contact</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.contact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Contact details to assist a user in finding and communicating
-with the publisher.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A free text natural language description of the structure
-map from a consumer’s perspective.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.useContext">
-<code class="sig-name descname">useContext</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.useContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content was developed with a focus and intent of
+changes.</p></li>
+<li><p><strong>publisher</strong> – The name of the individual or organization that published
+the structure map.</p></li>
+<li><p><strong>contact</strong> – Contact details to assist a user in finding and communicating
+with the publisher.</p></li>
+<li><p><strong>description</strong> – A free text natural language description of the structure
+map from a consumer’s perspective.</p></li>
+<li><p><strong>useContext</strong> – The content was developed with a focus and intent of
 supporting the contexts that are listed. These terms may be used to
 assist with indexing and searching for appropriate structure map
-instances.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.jurisdiction">
-<code class="sig-name descname">jurisdiction</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.jurisdiction" title="Permalink to this definition">¶</a></dt>
-<dd><p>A legal or geographic region in which the structure map
-is intended to be used.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.purpose">
-<code class="sig-name descname">purpose</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.purpose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Explaination of why this structure map is needed and why it
-has been designed as it has.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.copyright">
-<code class="sig-name descname">copyright</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.copyright" title="Permalink to this definition">¶</a></dt>
-<dd><p>A copyright statement relating to the structure map and/or
+instances.</p></li>
+<li><p><strong>jurisdiction</strong> – A legal or geographic region in which the structure map
+is intended to be used.</p></li>
+<li><p><strong>purpose</strong> – Explaination of why this structure map is needed and why it
+has been designed as it has.</p></li>
+<li><p><strong>copyright</strong> – A copyright statement relating to the structure map and/or
 its contents. Copyright statements are generally legal restrictions on
-the use and publishing of the structure map.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.structure">
-<code class="sig-name descname">structure</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.structure" title="Permalink to this definition">¶</a></dt>
-<dd><p>A structure definition used by this map. The structure
+the use and publishing of the structure map.</p></li>
+<li><p><strong>structure</strong> – A structure definition used by this map. The structure
 definition may describe instances that are converted, or the instances
-that are produced.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.import">
-<code class="sig-name descname">import</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.import" title="Permalink to this definition">¶</a></dt>
-<dd><p>Other maps used by this map (canonical URLs).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap.group">
-<code class="sig-name descname">group</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.group" title="Permalink to this definition">¶</a></dt>
-<dd><p>Organizes the mapping into managable chunks for human
-review/ease of maintenance.</p>
-</dd></dl>
-
+that are produced.</p></li>
+<li><p><strong>import</strong> – Other maps used by this map (canonical URLs).</p></li>
+<li><p><strong>group</strong> – Organizes the mapping into managable chunks for human
+review/ease of maintenance.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.StructureMap.StructureMap.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/StructureMap.html#StructureMap.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -432,18 +251,14 @@ review/ease of maintenance.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A Map of relationships between 2 structures that can be used to
 transform data.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Dependent.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Dependent.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of a rule or group to apply.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Dependent.variable">
-<code class="sig-name descname">variable</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Dependent.variable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Variable to pass to the rule or group.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of a rule or group to apply.</p></li>
+<li><p><strong>variable</strong> – Variable to pass to the rule or group.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -452,46 +267,22 @@ transform data.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A Map of relationships between 2 structures that can be used to
 transform data.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Group.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Group.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>A unique name for the group for the convenience of human
-readers.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Group.extends">
-<code class="sig-name descname">extends</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Group.extends" title="Permalink to this definition">¶</a></dt>
-<dd><p>Another group that this group adds rules to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Group.typeMode">
-<code class="sig-name descname">typeMode</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Group.typeMode" title="Permalink to this definition">¶</a></dt>
-<dd><p>If this is the default rule set to apply for thie source
-type, or this combination of types.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Group.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Group.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Additional supporting documentation that explains the
-purpose of the group and the types of mappings within it.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Group.input">
-<code class="sig-name descname">input</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Group.input" title="Permalink to this definition">¶</a></dt>
-<dd><p>A name assigned to an instance of data. The instance must be
-provided when the mapping is invoked.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Group.rule">
-<code class="sig-name descname">rule</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Group.rule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transform Rule from source to target.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – A unique name for the group for the convenience of human
+readers.</p></li>
+<li><p><strong>extends</strong> – Another group that this group adds rules to.</p></li>
+<li><p><strong>typeMode</strong> – If this is the default rule set to apply for thie source
+type, or this combination of types.</p></li>
+<li><p><strong>documentation</strong> – Additional supporting documentation that explains the
+purpose of the group and the types of mappings within it.</p></li>
+<li><p><strong>input</strong> – A name assigned to an instance of data. The instance must be
+provided when the mapping is invoked.</p></li>
+<li><p><strong>rule</strong> – Transform Rule from source to target.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.StructureMap.StructureMap_Group.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/StructureMap.html#StructureMap_Group.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Group.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -523,30 +314,16 @@ provided when the mapping is invoked.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A Map of relationships between 2 structures that can be used to
 transform data.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Input.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Input.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name for this instance of data.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Input.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Input.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type for this instance of data.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Input.mode">
-<code class="sig-name descname">mode</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Input.mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mode for this instance of data.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Input.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Input.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Documentation for this instance of data.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name for this instance of data.</p></li>
+<li><p><strong>type</strong> – Type for this instance of data.</p></li>
+<li><p><strong>mode</strong> – Mode for this instance of data.</p></li>
+<li><p><strong>documentation</strong> – Documentation for this instance of data.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.StructureMap.StructureMap_Input.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/StructureMap.html#StructureMap_Input.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Input.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -567,36 +344,17 @@ transform data.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A Map of relationships between 2 structures that can be used to
 transform data.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Parameter.valueId">
-<code class="sig-name descname">valueId</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Parameter.valueId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parameter value - variable or literal.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Parameter.valueString">
-<code class="sig-name descname">valueString</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Parameter.valueString" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parameter value - variable or literal.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Parameter.valueBoolean">
-<code class="sig-name descname">valueBoolean</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Parameter.valueBoolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parameter value - variable or literal.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Parameter.valueInteger">
-<code class="sig-name descname">valueInteger</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Parameter.valueInteger" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parameter value - variable or literal.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Parameter.valueDecimal">
-<code class="sig-name descname">valueDecimal</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Parameter.valueDecimal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parameter value - variable or literal.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>valueId</strong> – Parameter value - variable or literal.</p></li>
+<li><p><strong>valueString</strong> – Parameter value - variable or literal.</p></li>
+<li><p><strong>valueBoolean</strong> – Parameter value - variable or literal.</p></li>
+<li><p><strong>valueInteger</strong> – Parameter value - variable or literal.</p></li>
+<li><p><strong>valueDecimal</strong> – Parameter value - variable or literal.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -605,42 +363,18 @@ transform data.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A Map of relationships between 2 structures that can be used to
 transform data.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Rule.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Rule.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of the rule for internal references.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Rule.source">
-<code class="sig-name descname">source</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Rule.source" title="Permalink to this definition">¶</a></dt>
-<dd><p>Source inputs to the mapping.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Rule.target">
-<code class="sig-name descname">target</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Rule.target" title="Permalink to this definition">¶</a></dt>
-<dd><p>Content to create because of this mapping rule.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Rule.rule">
-<code class="sig-name descname">rule</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Rule.rule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rules contained in this rule.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Rule.dependent">
-<code class="sig-name descname">dependent</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Rule.dependent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Which other rules to apply in the context of this rule.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Rule.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Rule.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Documentation for this instance of data.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the rule for internal references.</p></li>
+<li><p><strong>source</strong> – Source inputs to the mapping.</p></li>
+<li><p><strong>target</strong> – Content to create because of this mapping rule.</p></li>
+<li><p><strong>rule</strong> – Rules contained in this rule.</p></li>
+<li><p><strong>dependent</strong> – Which other rules to apply in the context of this rule.</p></li>
+<li><p><strong>documentation</strong> – Documentation for this instance of data.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.StructureMap.StructureMap_Rule.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/StructureMap.html#StructureMap_Rule.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Rule.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -660,438 +394,134 @@ transform data.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A Map of relationships between 2 structures that can be used to
 transform data.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.context">
-<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.context" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type or variable this rule applies to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.min">
-<code class="sig-name descname">min</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.min" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specified minimum cardinality for the element. This is optional;
-if present, it acts an implicit check on the input content.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.max">
-<code class="sig-name descname">max</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.max" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specified maximum cardinality for the element - a number or a
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> – Type or variable this rule applies to.</p></li>
+<li><p><strong>min</strong> – Specified minimum cardinality for the element. This is optional;
+if present, it acts an implicit check on the input content.</p></li>
+<li><p><strong>max</strong> – Specified maximum cardinality for the element - a number or a
 “*”. This is optional; if present, it acts an implicit check on the
 input content (* just serves as documentation; it’s the default
-value).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specified type for the element. This works as a condition on the
-mapping - use for polymorphic elements.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueBoolean">
-<code class="sig-name descname">defaultValueBoolean</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueBoolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueInteger">
-<code class="sig-name descname">defaultValueInteger</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueInteger" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueDecimal">
-<code class="sig-name descname">defaultValueDecimal</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueDecimal" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueBase64Binary">
-<code class="sig-name descname">defaultValueBase64Binary</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueBase64Binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value
-in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueInstant">
-<code class="sig-name descname">defaultValueInstant</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueInstant" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueString">
-<code class="sig-name descname">defaultValueString</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueString" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueUri">
-<code class="sig-name descname">defaultValueUri</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueUri" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueDate">
-<code class="sig-name descname">defaultValueDate</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueDateTime">
-<code class="sig-name descname">defaultValueDateTime</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueTime">
-<code class="sig-name descname">defaultValueTime</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueCode">
-<code class="sig-name descname">defaultValueCode</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueCode" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueOid">
-<code class="sig-name descname">defaultValueOid</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueOid" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueUuid">
-<code class="sig-name descname">defaultValueUuid</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueUuid" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueId">
-<code class="sig-name descname">defaultValueId</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueId" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueUnsignedInt">
-<code class="sig-name descname">defaultValueUnsignedInt</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueUnsignedInt" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value
-in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValuePositiveInt">
-<code class="sig-name descname">defaultValuePositiveInt</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValuePositiveInt" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value
-in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueMarkdown">
-<code class="sig-name descname">defaultValueMarkdown</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueMarkdown" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueElement">
-<code class="sig-name descname">defaultValueElement</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueExtension">
-<code class="sig-name descname">defaultValueExtension</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueExtension" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueBackboneElement">
-<code class="sig-name descname">defaultValueBackboneElement</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueBackboneElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing
-value in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueNarrative">
-<code class="sig-name descname">defaultValueNarrative</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueNarrative" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueAnnotation">
-<code class="sig-name descname">defaultValueAnnotation</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueAnnotation" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value
-in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueAttachment">
-<code class="sig-name descname">defaultValueAttachment</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueAttachment" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value
-in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueIdentifier">
-<code class="sig-name descname">defaultValueIdentifier</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueIdentifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value
-in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueCodeableConcept">
-<code class="sig-name descname">defaultValueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueCodeableConcept" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing
-value in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueCoding">
-<code class="sig-name descname">defaultValueCoding</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueCoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueQuantity">
-<code class="sig-name descname">defaultValueQuantity</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueDuration">
-<code class="sig-name descname">defaultValueDuration</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueDuration" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueSimpleQuantity">
-<code class="sig-name descname">defaultValueSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueSimpleQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing
-value in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueDistance">
-<code class="sig-name descname">defaultValueDistance</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueDistance" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueCount">
-<code class="sig-name descname">defaultValueCount</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueCount" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueMoney">
-<code class="sig-name descname">defaultValueMoney</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueMoney" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueAge">
-<code class="sig-name descname">defaultValueAge</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueAge" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueRange">
-<code class="sig-name descname">defaultValueRange</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValuePeriod">
-<code class="sig-name descname">defaultValuePeriod</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValuePeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueRatio">
-<code class="sig-name descname">defaultValueRatio</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueReference">
-<code class="sig-name descname">defaultValueReference</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueSampledData">
-<code class="sig-name descname">defaultValueSampledData</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueSampledData" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value
-in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueSignature">
-<code class="sig-name descname">defaultValueSignature</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueSignature" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueHumanName">
-<code class="sig-name descname">defaultValueHumanName</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueHumanName" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueAddress">
-<code class="sig-name descname">defaultValueAddress</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueAddress" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueContactPoint">
-<code class="sig-name descname">defaultValueContactPoint</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueContactPoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value
-in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueTiming">
-<code class="sig-name descname">defaultValueTiming</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueTiming" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueMeta">
-<code class="sig-name descname">defaultValueMeta</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueMeta" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in the
-source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueElementDefinition">
-<code class="sig-name descname">defaultValueElementDefinition</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueElementDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing
-value in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueContactDetail">
-<code class="sig-name descname">defaultValueContactDetail</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueContactDetail" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing
-value in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueContributor">
-<code class="sig-name descname">defaultValueContributor</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueContributor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value
-in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueDosage">
-<code class="sig-name descname">defaultValueDosage</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueDosage" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value in
-the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueRelatedArtifact">
-<code class="sig-name descname">defaultValueRelatedArtifact</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueRelatedArtifact" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing
-value in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueUsageContext">
-<code class="sig-name descname">defaultValueUsageContext</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueUsageContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing value
-in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueDataRequirement">
-<code class="sig-name descname">defaultValueDataRequirement</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueDataRequirement" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing
-value in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueParameterDefinition">
-<code class="sig-name descname">defaultValueParameterDefinition</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueParameterDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no
-existing value in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.defaultValueTriggerDefinition">
-<code class="sig-name descname">defaultValueTriggerDefinition</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.defaultValueTriggerDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>A value to use if there is no existing
-value in the source object.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.element">
-<code class="sig-name descname">element</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.element" title="Permalink to this definition">¶</a></dt>
-<dd><p>Optional field for this source.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.listMode">
-<code class="sig-name descname">listMode</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.listMode" title="Permalink to this definition">¶</a></dt>
-<dd><p>How to handle the list mode for this element.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.variable">
-<code class="sig-name descname">variable</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.variable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Named context for field, if a field is specified.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.condition">
-<code class="sig-name descname">condition</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.condition" title="Permalink to this definition">¶</a></dt>
-<dd><p>FHIRPath expression  - must be true or the rule does not
-apply.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Source.check">
-<code class="sig-name descname">check</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.check" title="Permalink to this definition">¶</a></dt>
-<dd><p>FHIRPath expression  - must be true or the mapping engine
-throws an error instead of completing.</p>
-</dd></dl>
-
+value).</p></li>
+<li><p><strong>type</strong> – Specified type for the element. This works as a condition on the
+mapping - use for polymorphic elements.</p></li>
+<li><p><strong>defaultValueBoolean</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueInteger</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueDecimal</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueBase64Binary</strong> – A value to use if there is no existing value
+in the source object.</p></li>
+<li><p><strong>defaultValueInstant</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueString</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueUri</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueDate</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueDateTime</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueTime</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueCode</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueOid</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueUuid</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueId</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueUnsignedInt</strong> – A value to use if there is no existing value
+in the source object.</p></li>
+<li><p><strong>defaultValuePositiveInt</strong> – A value to use if there is no existing value
+in the source object.</p></li>
+<li><p><strong>defaultValueMarkdown</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueElement</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueExtension</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueBackboneElement</strong> – A value to use if there is no existing
+value in the source object.</p></li>
+<li><p><strong>defaultValueNarrative</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueAnnotation</strong> – A value to use if there is no existing value
+in the source object.</p></li>
+<li><p><strong>defaultValueAttachment</strong> – A value to use if there is no existing value
+in the source object.</p></li>
+<li><p><strong>defaultValueIdentifier</strong> – A value to use if there is no existing value
+in the source object.</p></li>
+<li><p><strong>defaultValueCodeableConcept</strong> – A value to use if there is no existing
+value in the source object.</p></li>
+<li><p><strong>defaultValueCoding</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueQuantity</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueDuration</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueSimpleQuantity</strong> – A value to use if there is no existing
+value in the source object.</p></li>
+<li><p><strong>defaultValueDistance</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueCount</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueMoney</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueAge</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueRange</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValuePeriod</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueRatio</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueReference</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueSampledData</strong> – A value to use if there is no existing value
+in the source object.</p></li>
+<li><p><strong>defaultValueSignature</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueHumanName</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueAddress</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueContactPoint</strong> – A value to use if there is no existing value
+in the source object.</p></li>
+<li><p><strong>defaultValueTiming</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueMeta</strong> – A value to use if there is no existing value in the
+source object.</p></li>
+<li><p><strong>defaultValueElementDefinition</strong> – A value to use if there is no existing
+value in the source object.</p></li>
+<li><p><strong>defaultValueContactDetail</strong> – A value to use if there is no existing
+value in the source object.</p></li>
+<li><p><strong>defaultValueContributor</strong> – A value to use if there is no existing value
+in the source object.</p></li>
+<li><p><strong>defaultValueDosage</strong> – A value to use if there is no existing value in
+the source object.</p></li>
+<li><p><strong>defaultValueRelatedArtifact</strong> – A value to use if there is no existing
+value in the source object.</p></li>
+<li><p><strong>defaultValueUsageContext</strong> – A value to use if there is no existing value
+in the source object.</p></li>
+<li><p><strong>defaultValueDataRequirement</strong> – A value to use if there is no existing
+value in the source object.</p></li>
+<li><p><strong>defaultValueParameterDefinition</strong> – A value to use if there is no
+existing value in the source object.</p></li>
+<li><p><strong>defaultValueTriggerDefinition</strong> – A value to use if there is no existing
+value in the source object.</p></li>
+<li><p><strong>element</strong> – Optional field for this source.</p></li>
+<li><p><strong>listMode</strong> – How to handle the list mode for this element.</p></li>
+<li><p><strong>variable</strong> – Named context for field, if a field is specified.</p></li>
+<li><p><strong>condition</strong> – FHIRPath expression  - must be true or the rule does not
+apply.</p></li>
+<li><p><strong>check</strong> – FHIRPath expression  - must be true or the mapping engine
+throws an error instead of completing.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.StructureMap.StructureMap_Source.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/StructureMap.html#StructureMap_Source.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Source.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -1123,31 +553,17 @@ throws an error instead of completing.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A Map of relationships between 2 structures that can be used to
 transform data.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Structure.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Structure.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>The canonical URL that identifies the structure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Structure.mode">
-<code class="sig-name descname">mode</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Structure.mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>How the referenced structure is used in this mapping.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Structure.alias">
-<code class="sig-name descname">alias</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Structure.alias" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name used for this type in the map.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Structure.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Structure.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Documentation that describes how the structure is used
-in the mapping.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> – The canonical URL that identifies the structure.</p></li>
+<li><p><strong>mode</strong> – How the referenced structure is used in this mapping.</p></li>
+<li><p><strong>alias</strong> – The name used for this type in the map.</p></li>
+<li><p><strong>documentation</strong> – Documentation that describes how the structure is used
+in the mapping.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.StructureMap.StructureMap_Structure.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/StructureMap.html#StructureMap_Structure.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Structure.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -1168,55 +584,21 @@ in the mapping.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A Map of relationships between 2 structures that can be used to
 transform data.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Target.context">
-<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Target.context" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type or variable this rule applies to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Target.contextType">
-<code class="sig-name descname">contextType</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Target.contextType" title="Permalink to this definition">¶</a></dt>
-<dd><p>How to interpret the context.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Target.element">
-<code class="sig-name descname">element</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Target.element" title="Permalink to this definition">¶</a></dt>
-<dd><p>Field to create in the context.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Target.variable">
-<code class="sig-name descname">variable</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Target.variable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Named context for field, if desired, and a field is
-specified.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Target.listMode">
-<code class="sig-name descname">listMode</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Target.listMode" title="Permalink to this definition">¶</a></dt>
-<dd><p>If field is a list, how to manage the list.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Target.listRuleId">
-<code class="sig-name descname">listRuleId</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Target.listRuleId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Internal rule reference for shared list items.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Target.transform">
-<code class="sig-name descname">transform</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Target.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>How the data is copied / created.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.StructureMap.StructureMap_Target.parameter">
-<code class="sig-name descname">parameter</code><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Target.parameter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parameters to the transform.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> – Type or variable this rule applies to.</p></li>
+<li><p><strong>contextType</strong> – How to interpret the context.</p></li>
+<li><p><strong>element</strong> – Field to create in the context.</p></li>
+<li><p><strong>variable</strong> – Named context for field, if desired, and a field is
+specified.</p></li>
+<li><p><strong>listMode</strong> – If field is a list, how to manage the list.</p></li>
+<li><p><strong>listRuleId</strong> – Internal rule reference for shared list items.</p></li>
+<li><p><strong>transform</strong> – How the data is copied / created.</p></li>
+<li><p><strong>parameter</strong> – Parameters to the transform.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.StructureMap.StructureMap_Target.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/StructureMap.html#StructureMap_Target.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.StructureMap.StructureMap_Target.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -1245,52 +627,31 @@ specified.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.Subscription.html" class="btn btn-neutral float-right" title="cardea.fhir.Subscription module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.StructureDefinition.html" class="btn btn-neutral float-left" title="cardea.fhir.StructureDefinition module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

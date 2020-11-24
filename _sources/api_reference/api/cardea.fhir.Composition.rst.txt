@@ -1,0 +1,28 @@
+cardea.fhir.Composition
+=======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Composition
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Composition.__init__
+      ~Composition.assert_type
+      ~Composition.get_dataframe
+      ~Composition.get_eligible_relationships
+      ~Composition.get_id
+      ~Composition.get_relationships
+      ~Composition.set_attributes
+   
+   
+
+   
+   
+   

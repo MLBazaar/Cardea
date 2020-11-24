@@ -1,0 +1,6 @@
+cardea.problem\_definition.DiagnosisPrediction.generate\_cutoff\_times
+======================================================================
+
+.. currentmodule:: cardea.problem_definition
+
+.. automethod:: DiagnosisPrediction.generate_cutoff_times

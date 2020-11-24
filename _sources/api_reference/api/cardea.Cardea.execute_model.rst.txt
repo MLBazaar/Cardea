@@ -1,0 +1,6 @@
+cardea.Cardea.execute\_model
+============================
+
+.. currentmodule:: cardea
+
+.. automethod:: Cardea.execute_model

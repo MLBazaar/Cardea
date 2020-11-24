@@ -1,0 +1,33 @@
+cardea.data\_loader.EntitySetLoader
+===================================
+
+.. currentmodule:: cardea.data_loader
+
+.. autoclass:: EntitySetLoader
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~EntitySetLoader.__init__
+      ~EntitySetLoader.check_column_existence
+      ~EntitySetLoader.check_for_missing_values
+      ~EntitySetLoader.create_entity
+      ~EntitySetLoader.create_object
+      ~EntitySetLoader.create_relationships
+      ~EntitySetLoader.get_dataframes
+      ~EntitySetLoader.get_object_ids
+      ~EntitySetLoader.get_relationships
+      ~EntitySetLoader.load_data_entityset
+      ~EntitySetLoader.load_df_entityset
+      ~EntitySetLoader.read_csv_files
+   
+   
+
+   
+   
+   

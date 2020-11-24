@@ -1,0 +1,28 @@
+cardea.fhir.TestReport
+======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: TestReport
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TestReport.__init__
+      ~TestReport.assert_type
+      ~TestReport.get_dataframe
+      ~TestReport.get_eligible_relationships
+      ~TestReport.get_id
+      ~TestReport.get_relationships
+      ~TestReport.set_attributes
+   
+   
+
+   
+   
+   

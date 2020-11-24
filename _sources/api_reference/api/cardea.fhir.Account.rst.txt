@@ -1,0 +1,28 @@
+cardea.fhir.Account
+===================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Account
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Account.__init__
+      ~Account.assert_type
+      ~Account.get_dataframe
+      ~Account.get_eligible_relationships
+      ~Account.get_id
+      ~Account.get_relationships
+      ~Account.set_attributes
+   
+   
+
+   
+   
+   

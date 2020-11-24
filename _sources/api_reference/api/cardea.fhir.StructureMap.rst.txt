@@ -1,0 +1,28 @@
+cardea.fhir.StructureMap
+========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: StructureMap
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~StructureMap.__init__
+      ~StructureMap.assert_type
+      ~StructureMap.get_dataframe
+      ~StructureMap.get_eligible_relationships
+      ~StructureMap.get_id
+      ~StructureMap.get_relationships
+      ~StructureMap.set_attributes
+   
+   
+
+   
+   
+   

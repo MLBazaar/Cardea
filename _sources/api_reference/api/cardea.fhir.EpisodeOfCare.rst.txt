@@ -1,0 +1,28 @@
+cardea.fhir.EpisodeOfCare
+=========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: EpisodeOfCare
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~EpisodeOfCare.__init__
+      ~EpisodeOfCare.assert_type
+      ~EpisodeOfCare.get_dataframe
+      ~EpisodeOfCare.get_eligible_relationships
+      ~EpisodeOfCare.get_id
+      ~EpisodeOfCare.get_relationships
+      ~EpisodeOfCare.set_attributes
+   
+   
+
+   
+   
+   

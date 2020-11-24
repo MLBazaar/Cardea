@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.NutritionOrder module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.NutritionOrder module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.Observation module" href="cardea.fhir.Observation.html" />
-    <link rel="prev" title="cardea.fhir.Narrative module" href="cardea.fhir.Narrative.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.NutritionOrder module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.NutritionOrder.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.NutritionOrder">
 <span id="cardea-fhir-nutritionorder-module"></span><h1>cardea.fhir.NutritionOrder module<a class="headerlink" href="#module-cardea.fhir.NutritionOrder" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -250,74 +158,29 @@
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A request to supply a diet, formula feeding (enteral) or oral
 nutritional supplement to a patient/resident.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a NutritionOrder resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifiers assigned to this order by the order sender or
-by the order receiver.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The workflow status of the nutrition order/request.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.patient">
-<code class="sig-name descname">patient</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.patient" title="Permalink to this definition">¶</a></dt>
-<dd><p>The person (patient) who needs the nutrition order for an
-oral diet, nutritional supplement and/or enteral or formula feeding.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.encounter">
-<code class="sig-name descname">encounter</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.encounter" title="Permalink to this definition">¶</a></dt>
-<dd><p>An encounter that provides additional information about the
-healthcare context in which this request is made.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.dateTime">
-<code class="sig-name descname">dateTime</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.dateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date and time that this nutrition order was requested.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.orderer">
-<code class="sig-name descname">orderer</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.orderer" title="Permalink to this definition">¶</a></dt>
-<dd><p>The practitioner that holds legal responsibility for ordering
-the diet, nutritional supplement, or formula feedings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.allergyIntolerance">
-<code class="sig-name descname">allergyIntolerance</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.allergyIntolerance" title="Permalink to this definition">¶</a></dt>
-<dd><p>A link to a record of allergies or intolerances
-which should be included in the nutrition order.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.foodPreferenceModifier">
-<code class="sig-name descname">foodPreferenceModifier</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.foodPreferenceModifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>This modifier is used to convey order-specific
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a NutritionOrder resource</p></li>
+<li><p><strong>identifier</strong> – Identifiers assigned to this order by the order sender or
+by the order receiver.</p></li>
+<li><p><strong>status</strong> – The workflow status of the nutrition order/request.</p></li>
+<li><p><strong>patient</strong> – The person (patient) who needs the nutrition order for an
+oral diet, nutritional supplement and/or enteral or formula feeding.</p></li>
+<li><p><strong>encounter</strong> – An encounter that provides additional information about the
+healthcare context in which this request is made.</p></li>
+<li><p><strong>dateTime</strong> – The date and time that this nutrition order was requested.</p></li>
+<li><p><strong>orderer</strong> – The practitioner that holds legal responsibility for ordering
+the diet, nutritional supplement, or formula feedings.</p></li>
+<li><p><strong>allergyIntolerance</strong> – A link to a record of allergies or intolerances
+which should be included in the nutrition order.</p></li>
+<li><p><strong>foodPreferenceModifier</strong> – This modifier is used to convey order-specific
 modifiers about the type of food that should be given. These can be
 derived from patient allergies, intolerances, or preferences such as
 Halal, Vegan or Kosher. This modifier applies to the entire nutrition
 order inclusive of the oral diet, nutritional supplements and enteral
-formula feedings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.excludeFoodModifier">
-<code class="sig-name descname">excludeFoodModifier</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.excludeFoodModifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>This modifier is used to convey order-specific
+formula feedings.</p></li>
+<li><p><strong>excludeFoodModifier</strong> – This modifier is used to convey order-specific
 modifiers about the type of food that should NOT be given. These can
 be derived from patient allergies, intolerances, or preferences such
 as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should
@@ -327,30 +190,16 @@ excludeFoodModifier, this element may be used to convey additional
 specificity related to foods that should be eliminated from the
 patient’s diet for any reason.  This modifier applies to the entire
 nutrition order inclusive of the oral diet, nutritional supplements
-and enteral formula feedings.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.oralDiet">
-<code class="sig-name descname">oralDiet</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.oralDiet" title="Permalink to this definition">¶</a></dt>
-<dd><p>Diet given orally in contrast to enteral (tube) feeding.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.supplement">
-<code class="sig-name descname">supplement</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.supplement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Oral nutritional products given in order to add further
-nutritional value to the patient’s diet.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder.enteralFormula">
-<code class="sig-name descname">enteralFormula</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.enteralFormula" title="Permalink to this definition">¶</a></dt>
-<dd><p>Feeding provided through the gastrointestinal tract
+and enteral formula feedings.</p></li>
+<li><p><strong>oralDiet</strong> – Diet given orally in contrast to enteral (tube) feeding.</p></li>
+<li><p><strong>supplement</strong> – Oral nutritional products given in order to add further
+nutritional value to the patient’s diet.</p></li>
+<li><p><strong>enteralFormula</strong> – Feeding provided through the gastrointestinal tract
 via a tube, catheter, or stoma that delivers nutrition distal to the
-oral cavity.</p>
-</dd></dl>
-
+oral cavity.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.NutritionOrder.NutritionOrder.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/NutritionOrder.html#NutritionOrder.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -382,35 +231,21 @@ oral cavity.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A request to supply a diet, formula feeding (enteral) or oral
 nutritional supplement to a patient/resident.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Administration.schedule">
-<code class="sig-name descname">schedule</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Administration.schedule" title="Permalink to this definition">¶</a></dt>
-<dd><p>The time period and frequency at which the enteral formula
-should be delivered to the patient.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Administration.quantity">
-<code class="sig-name descname">quantity</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Administration.quantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The volume of formula to provide to the patient per the
-specified administration schedule.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Administration.rateSimpleQuantity">
-<code class="sig-name descname">rateSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Administration.rateSimpleQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The rate of administration of formula via a
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schedule</strong> – The time period and frequency at which the enteral formula
+should be delivered to the patient.</p></li>
+<li><p><strong>quantity</strong> – The volume of formula to provide to the patient per the
+specified administration schedule.</p></li>
+<li><p><strong>rateSimpleQuantity</strong> – The rate of administration of formula via a
 feeding pump, e.g. 60 mL per hour, according to the specified
-schedule.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Administration.rateRatio">
-<code class="sig-name descname">rateRatio</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Administration.rateRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>The rate of administration of formula via a feeding pump,
-e.g. 60 mL per hour, according to the specified schedule.</p>
-</dd></dl>
-
+schedule.</p></li>
+<li><p><strong>rateRatio</strong> – The rate of administration of formula via a feeding pump,
+e.g. 60 mL per hour, according to the specified schedule.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.NutritionOrder.NutritionOrder_Administration.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/NutritionOrder.html#NutritionOrder_Administration.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Administration.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -430,78 +265,39 @@ e.g. 60 mL per hour, according to the specified schedule.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A request to supply a diet, formula feeding (enteral) or oral
 nutritional supplement to a patient/resident.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.baseFormulaType">
-<code class="sig-name descname">baseFormulaType</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.baseFormulaType" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of enteral or infant formula such as an
-adult standard formula with fiber or a soy-based infant formula.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.baseFormulaProductName">
-<code class="sig-name descname">baseFormulaProductName</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.baseFormulaProductName" title="Permalink to this definition">¶</a></dt>
-<dd><p>The product or brand name of the enteral or
-infant formula product such as “ACME Adult Standard Formula”.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.additiveType">
-<code class="sig-name descname">additiveType</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.additiveType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates the type of modular component such as protein,
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>baseFormulaType</strong> – The type of enteral or infant formula such as an
+adult standard formula with fiber or a soy-based infant formula.</p></li>
+<li><p><strong>baseFormulaProductName</strong> – The product or brand name of the enteral or
+infant formula product such as “ACME Adult Standard Formula”.</p></li>
+<li><p><strong>additiveType</strong> – Indicates the type of modular component such as protein,
 carbohydrate, fat or fiber to be provided in addition to or mixed with
-the base formula.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.additiveProductName">
-<code class="sig-name descname">additiveProductName</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.additiveProductName" title="Permalink to this definition">¶</a></dt>
-<dd><p>The product or brand name of the type of modular
-component to be added to the formula.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.caloricDensity">
-<code class="sig-name descname">caloricDensity</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.caloricDensity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The amount of energy (calories) that the formula
+the base formula.</p></li>
+<li><p><strong>additiveProductName</strong> – The product or brand name of the type of modular
+component to be added to the formula.</p></li>
+<li><p><strong>caloricDensity</strong> – The amount of energy (calories) that the formula
 should provide per specified volume, typically per mL or fluid oz.
 For example, an infant may require a formula that provides 24 calories
 per fluid ounce or an adult may require an enteral formula that
-provides 1.5 calorie/mL.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.routeofAdministration">
-<code class="sig-name descname">routeofAdministration</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.routeofAdministration" title="Permalink to this definition">¶</a></dt>
-<dd><p>The route or physiological path of
+provides 1.5 calorie/mL.</p></li>
+<li><p><strong>routeofAdministration</strong> – The route or physiological path of
 administration into the patient’s gastrointestinal  tract for purposes
-of providing the formula feeding, e.g. nasogastric tube.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.administration">
-<code class="sig-name descname">administration</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.administration" title="Permalink to this definition">¶</a></dt>
-<dd><p>Formula administration instructions as structured
+of providing the formula feeding, e.g. nasogastric tube.</p></li>
+<li><p><strong>administration</strong> – Formula administration instructions as structured
 data.  This repeating structure allows for changing the administration
 rate or volume over time for both bolus and continuous feeding.  An
 example of this would be an instruction to increase the rate of
-continuous feeding every 2 hours.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.maxVolumeToDeliver">
-<code class="sig-name descname">maxVolumeToDeliver</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.maxVolumeToDeliver" title="Permalink to this definition">¶</a></dt>
-<dd><p>The maximum total quantity of formula that may be
+continuous feeding every 2 hours.</p></li>
+<li><p><strong>maxVolumeToDeliver</strong> – The maximum total quantity of formula that may be
 administered to a subject over the period of time, e.g. 1440 mL over
-24 hours.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.administrationInstruction">
-<code class="sig-name descname">administrationInstruction</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.administrationInstruction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Free text formula administration, feeding
-instructions or additional instructions or information.</p>
-</dd></dl>
-
+24 hours.</p></li>
+<li><p><strong>administrationInstruction</strong> – Free text formula administration, feeding
+instructions or additional instructions or information.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/NutritionOrder.html#NutritionOrder_EnteralFormula.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_EnteralFormula.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -521,19 +317,15 @@ instructions or additional instructions or information.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A request to supply a diet, formula feeding (enteral) or oral
 nutritional supplement to a patient/resident.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Nutrient.modifier">
-<code class="sig-name descname">modifier</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Nutrient.modifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>The nutrient that is being modified such as carbohydrate or
-sodium.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Nutrient.amount">
-<code class="sig-name descname">amount</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Nutrient.amount" title="Permalink to this definition">¶</a></dt>
-<dd><p>The quantity of the specified nutrient to include in diet.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modifier</strong> – The nutrient that is being modified such as carbohydrate or
+sodium.</p></li>
+<li><p><strong>amount</strong> – The quantity of the specified nutrient to include in diet.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.NutritionOrder.NutritionOrder_Nutrient.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/NutritionOrder.html#NutritionOrder_Nutrient.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Nutrient.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -553,51 +345,27 @@ sodium.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A request to supply a diet, formula feeding (enteral) or oral
 nutritional supplement to a patient/resident.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>The kind of diet or dietary restriction such as fiber restricted
-diet or diabetic diet.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.schedule">
-<code class="sig-name descname">schedule</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.schedule" title="Permalink to this definition">¶</a></dt>
-<dd><p>The time period and frequency at which the diet should be
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – The kind of diet or dietary restriction such as fiber restricted
+diet or diabetic diet.</p></li>
+<li><p><strong>schedule</strong> – The time period and frequency at which the diet should be
 given.  The diet should be given for the combination of all schedules
-if more than one schedule is present.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.nutrient">
-<code class="sig-name descname">nutrient</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.nutrient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class that defines the quantity and type of nutrient
+if more than one schedule is present.</p></li>
+<li><p><strong>nutrient</strong> – Class that defines the quantity and type of nutrient
 modifications (for example carbohydrate, fiber or sodium) required for
-the oral diet.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.texture">
-<code class="sig-name descname">texture</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.texture" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class that describes any texture modifications required for
-the patient to safely consume various types of solid foods.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.fluidConsistencyType">
-<code class="sig-name descname">fluidConsistencyType</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.fluidConsistencyType" title="Permalink to this definition">¶</a></dt>
-<dd><p>The required consistency (e.g. honey-thick,
+the oral diet.</p></li>
+<li><p><strong>texture</strong> – Class that describes any texture modifications required for
+the patient to safely consume various types of solid foods.</p></li>
+<li><p><strong>fluidConsistencyType</strong> – The required consistency (e.g. honey-thick,
 nectar-thick, thin, thickened.) of liquids or fluids served to the
-patient.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.instruction">
-<code class="sig-name descname">instruction</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.instruction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Free text or additional instructions or information
-pertaining to the oral diet.</p>
-</dd></dl>
-
+patient.</p></li>
+<li><p><strong>instruction</strong> – Free text or additional instructions or information
+pertaining to the oral diet.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/NutritionOrder.html#NutritionOrder_OralDiet.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_OralDiet.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -617,41 +385,22 @@ pertaining to the oral diet.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A request to supply a diet, formula feeding (enteral) or oral
 nutritional supplement to a patient/resident.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Supplement.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Supplement.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>The kind of nutritional supplement product required such as a
-high protein or pediatric clear liquid supplement.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Supplement.productName">
-<code class="sig-name descname">productName</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Supplement.productName" title="Permalink to this definition">¶</a></dt>
-<dd><p>The product or brand name of the nutritional supplement
-such as “Acme Protein Shake”.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Supplement.schedule">
-<code class="sig-name descname">schedule</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Supplement.schedule" title="Permalink to this definition">¶</a></dt>
-<dd><p>The time period and frequency at which the supplement(s)
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – The kind of nutritional supplement product required such as a
+high protein or pediatric clear liquid supplement.</p></li>
+<li><p><strong>productName</strong> – The product or brand name of the nutritional supplement
+such as “Acme Protein Shake”.</p></li>
+<li><p><strong>schedule</strong> – The time period and frequency at which the supplement(s)
 should be given.  The supplement should be given for the combination
-of all schedules if more than one schedule is present.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Supplement.quantity">
-<code class="sig-name descname">quantity</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Supplement.quantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The amount of the nutritional supplement to be given.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Supplement.instruction">
-<code class="sig-name descname">instruction</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Supplement.instruction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Free text or additional instructions or information
-pertaining to the oral supplement.</p>
-</dd></dl>
-
+of all schedules if more than one schedule is present.</p></li>
+<li><p><strong>quantity</strong> – The amount of the nutritional supplement to be given.</p></li>
+<li><p><strong>instruction</strong> – Free text or additional instructions or information
+pertaining to the oral supplement.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.NutritionOrder.NutritionOrder_Supplement.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/NutritionOrder.html#NutritionOrder_Supplement.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Supplement.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -671,20 +420,16 @@ pertaining to the oral supplement.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A request to supply a diet, formula feeding (enteral) or oral
 nutritional supplement to a patient/resident.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Texture.modifier">
-<code class="sig-name descname">modifier</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Texture.modifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Any texture modifications (for solid foods) that should be
-made, e.g. easy to chew, chopped, ground, and pureed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.NutritionOrder.NutritionOrder_Texture.foodType">
-<code class="sig-name descname">foodType</code><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Texture.foodType" title="Permalink to this definition">¶</a></dt>
-<dd><p>The food type(s) (e.g. meats, all foods)  that the texture
-modification applies to.  This could be all foods types.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modifier</strong> – Any texture modifications (for solid foods) that should be
+made, e.g. easy to chew, chopped, ground, and pureed.</p></li>
+<li><p><strong>foodType</strong> – The food type(s) (e.g. meats, all foods)  that the texture
+modification applies to.  This could be all foods types.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.NutritionOrder.NutritionOrder_Texture.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/NutritionOrder.html#NutritionOrder_Texture.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.NutritionOrder.NutritionOrder_Texture.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -701,52 +446,31 @@ modification applies to.  This could be all foods types.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.Observation.html" class="btn btn-neutral float-right" title="cardea.fhir.Observation module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Narrative.html" class="btn btn-neutral float-left" title="cardea.fhir.Narrative module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

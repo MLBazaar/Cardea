@@ -1,0 +1,28 @@
+cardea.fhir.ContactDetail
+=========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ContactDetail
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ContactDetail.__init__
+      ~ContactDetail.assert_type
+      ~ContactDetail.get_dataframe
+      ~ContactDetail.get_eligible_relationships
+      ~ContactDetail.get_id
+      ~ContactDetail.get_relationships
+      ~ContactDetail.set_attributes
+   
+   
+
+   
+   
+   

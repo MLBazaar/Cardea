@@ -1,0 +1,28 @@
+cardea.fhir.MessageDefinition
+=============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: MessageDefinition
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MessageDefinition.__init__
+      ~MessageDefinition.assert_type
+      ~MessageDefinition.get_dataframe
+      ~MessageDefinition.get_eligible_relationships
+      ~MessageDefinition.get_id
+      ~MessageDefinition.get_relationships
+      ~MessageDefinition.set_attributes
+   
+   
+
+   
+   
+   

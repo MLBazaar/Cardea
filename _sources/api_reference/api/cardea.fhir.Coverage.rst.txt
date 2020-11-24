@@ -1,0 +1,28 @@
+cardea.fhir.Coverage
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Coverage
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Coverage.__init__
+      ~Coverage.assert_type
+      ~Coverage.get_dataframe
+      ~Coverage.get_eligible_relationships
+      ~Coverage.get_id
+      ~Coverage.get_relationships
+      ~Coverage.set_attributes
+   
+   
+
+   
+   
+   

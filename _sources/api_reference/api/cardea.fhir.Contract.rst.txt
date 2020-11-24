@@ -1,0 +1,28 @@
+cardea.fhir.Contract
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Contract
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Contract.__init__
+      ~Contract.assert_type
+      ~Contract.get_dataframe
+      ~Contract.get_eligible_relationships
+      ~Contract.get_id
+      ~Contract.get_relationships
+      ~Contract.set_attributes
+   
+   
+
+   
+   
+   

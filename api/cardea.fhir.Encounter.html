@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.Encounter module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.Encounter module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.Endpoint module" href="cardea.fhir.Endpoint.html" />
-    <link rel="prev" title="cardea.fhir.EligibilityResponse module" href="cardea.fhir.EligibilityResponse.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.Encounter module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Encounter.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.Encounter">
 <span id="cardea-fhir-encounter-module"></span><h1>cardea.fhir.Encounter module<a class="headerlink" href="#module-cardea.fhir.Encounter" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -251,167 +159,63 @@
 <p>An interaction between a patient and healthcare provider(s) for the
 purpose of providing healthcare service(s) or assessing the health
 status of a patient.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a Encounter resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifier(s) by which this encounter is known.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>planned | arrived | triaged | in-progress | onleave | finished
-| cancelled +.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.statusHistory">
-<code class="sig-name descname">statusHistory</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.statusHistory" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status history permits the encounter resource to
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a Encounter resource</p></li>
+<li><p><strong>identifier</strong> – Identifier(s) by which this encounter is known.</p></li>
+<li><p><strong>status</strong> – planned | arrived | triaged | in-progress | onleave | finished
+| cancelled +.</p></li>
+<li><p><strong>statusHistory</strong> – The status history permits the encounter resource to
 contain the status history without needing to read through the
 historical versions of the resource, or even have the server store
-them.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.class">
-<code class="sig-name descname">class</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.class" title="Permalink to this definition">¶</a></dt>
-<dd><p>inpatient | outpatient | ambulatory | emergency +.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.classHistory">
-<code class="sig-name descname">classHistory</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.classHistory" title="Permalink to this definition">¶</a></dt>
-<dd><p>The class history permits the tracking of the encounters
+them.</p></li>
+<li><p><strong>class</strong> – inpatient | outpatient | ambulatory | emergency +.</p></li>
+<li><p><strong>classHistory</strong> – The class history permits the tracking of the encounters
 transitions without needing to go  through the resource history.  This
 would be used for a case where an admission starts of as an emergency
 encounter, then transisions into an inpatient scenario. Doing this and
 not restarting a new encounter ensures that any lab/diagnostic results
 can more easily follow the patient and not require re-processing and
 not get lost or cancelled during a kindof discharge from emergency to
-inpatient.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specific type of encounter (e.g. e-mail consultation, surgical
-day-care, skilled nursing, rehabilitation).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.priority">
-<code class="sig-name descname">priority</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.priority" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates the urgency of the encounter.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.subject">
-<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.subject" title="Permalink to this definition">¶</a></dt>
-<dd><p>The patient ro group present at the encounter.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.episodeOfCare">
-<code class="sig-name descname">episodeOfCare</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.episodeOfCare" title="Permalink to this definition">¶</a></dt>
-<dd><p>Where a specific encounter should be classified as a
+inpatient.</p></li>
+<li><p><strong>type</strong> – Specific type of encounter (e.g. e-mail consultation, surgical
+day-care, skilled nursing, rehabilitation).</p></li>
+<li><p><strong>priority</strong> – Indicates the urgency of the encounter.</p></li>
+<li><p><strong>subject</strong> – The patient ro group present at the encounter.</p></li>
+<li><p><strong>episodeOfCare</strong> – Where a specific encounter should be classified as a
 part of a specific episode(s) of care this field should be used. This
 association can facilitate grouping of related encounters together for
 a specific purpose, such as government reporting, issue tracking,
 association via a common problem.  The association is recorded on the
 encounter as these are typically created after the episode of care,
 and grouped on entry rather than editing the episode of care to append
-another encounter to it (the episode of care could span years).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.incomingReferral">
-<code class="sig-name descname">incomingReferral</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.incomingReferral" title="Permalink to this definition">¶</a></dt>
-<dd><p>The referral request this encounter satisfies
-(incoming referral).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.participant">
-<code class="sig-name descname">participant</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.participant" title="Permalink to this definition">¶</a></dt>
-<dd><p>The list of people responsible for providing the service.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.appointment">
-<code class="sig-name descname">appointment</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.appointment" title="Permalink to this definition">¶</a></dt>
-<dd><p>The appointment that scheduled this encounter.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.period">
-<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.period" title="Permalink to this definition">¶</a></dt>
-<dd><p>The start and end time of the encounter.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.length">
-<code class="sig-name descname">length</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.length" title="Permalink to this definition">¶</a></dt>
-<dd><p>Quantity of time the encounter lasted. This excludes the time
-during leaves of absence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.reason">
-<code class="sig-name descname">reason</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.reason" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reason the encounter takes place, expressed as a code. For
-admissions, this can be used for a coded admission diagnosis.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.diagnosis">
-<code class="sig-name descname">diagnosis</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.diagnosis" title="Permalink to this definition">¶</a></dt>
-<dd><p>The list of diagnosis relevant to this encounter.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.account">
-<code class="sig-name descname">account</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.account" title="Permalink to this definition">¶</a></dt>
-<dd><p>The set of accounts that may be used for billing for this
-Encounter.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.hospitalization">
-<code class="sig-name descname">hospitalization</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.hospitalization" title="Permalink to this definition">¶</a></dt>
-<dd><p>Details about the admission to a healthcare service.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.location">
-<code class="sig-name descname">location</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.location" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of locations where  the patient has been during this
-encounter.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.serviceProvider">
-<code class="sig-name descname">serviceProvider</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.serviceProvider" title="Permalink to this definition">¶</a></dt>
-<dd><p>An organization that is in charge of maintaining the
+another encounter to it (the episode of care could span years).</p></li>
+<li><p><strong>incomingReferral</strong> – The referral request this encounter satisfies
+(incoming referral).</p></li>
+<li><p><strong>participant</strong> – The list of people responsible for providing the service.</p></li>
+<li><p><strong>appointment</strong> – The appointment that scheduled this encounter.</p></li>
+<li><p><strong>period</strong> – The start and end time of the encounter.</p></li>
+<li><p><strong>length</strong> – Quantity of time the encounter lasted. This excludes the time
+during leaves of absence.</p></li>
+<li><p><strong>reason</strong> – Reason the encounter takes place, expressed as a code. For
+admissions, this can be used for a coded admission diagnosis.</p></li>
+<li><p><strong>diagnosis</strong> – The list of diagnosis relevant to this encounter.</p></li>
+<li><p><strong>account</strong> – The set of accounts that may be used for billing for this
+Encounter.</p></li>
+<li><p><strong>hospitalization</strong> – Details about the admission to a healthcare service.</p></li>
+<li><p><strong>location</strong> – List of locations where  the patient has been during this
+encounter.</p></li>
+<li><p><strong>serviceProvider</strong> – An organization that is in charge of maintaining the
 information of this Encounter (e.g. who maintains the report or the
 master service catalog item, etc.). This MAY be the same as the
 organization on the Patient record, however it could be different.
-This MAY not be not the Service Delivery Location’s Organization.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter.partOf">
-<code class="sig-name descname">partOf</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.partOf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Another Encounter of which this encounter is a part of
-(administratively or in time).</p>
-</dd></dl>
-
+This MAY not be not the Service Delivery Location’s Organization.</p></li>
+<li><p><strong>partOf</strong> – Another Encounter of which this encounter is a part of
+(administratively or in time).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Encounter.Encounter.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Encounter.html#Encounter.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Encounter.Encounter.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -444,18 +248,14 @@ This MAY not be not the Service Delivery Location’s Organization.</p>
 <p>An interaction between a patient and healthcare provider(s) for the
 purpose of providing healthcare service(s) or assessing the health
 status of a patient.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_ClassHistory.class">
-<code class="sig-name descname">class</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_ClassHistory.class" title="Permalink to this definition">¶</a></dt>
-<dd><p>inpatient | outpatient | ambulatory | emergency +.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_ClassHistory.period">
-<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_ClassHistory.period" title="Permalink to this definition">¶</a></dt>
-<dd><p>The time that the episode was in the specified class.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>class</strong> – inpatient | outpatient | ambulatory | emergency +.</p></li>
+<li><p><strong>period</strong> – The time that the episode was in the specified class.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Encounter.Encounter_ClassHistory.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Encounter.html#Encounter_ClassHistory.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_ClassHistory.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -476,29 +276,20 @@ status of a patient.</p>
 <p>An interaction between a patient and healthcare provider(s) for the
 purpose of providing healthcare service(s) or assessing the health
 status of a patient.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Diagnosis.condition">
-<code class="sig-name descname">condition</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Diagnosis.condition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reason the encounter takes place, as specified using
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>condition</strong> – Reason the encounter takes place, as specified using
 information from another resource. For admissions, this is the
 admission diagnosis. The indication will typically be a Condition
 (with other resources referenced in the evidence.detail), or a
-Procedure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Diagnosis.role">
-<code class="sig-name descname">role</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Diagnosis.role" title="Permalink to this definition">¶</a></dt>
-<dd><p>Role that this diagnosis has within the encounter (e.g.
-admission, billing, discharge …).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Diagnosis.rank">
-<code class="sig-name descname">rank</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Diagnosis.rank" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ranking of the diagnosis (for each role type).</p>
-</dd></dl>
-
+Procedure.</p></li>
+<li><p><strong>role</strong> – Role that this diagnosis has within the encounter (e.g.
+admission, billing, discharge …).</p></li>
+<li><p><strong>rank</strong> – Ranking of the diagnosis (for each role type).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Encounter.Encounter_Diagnosis.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Encounter.html#Encounter_Diagnosis.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Diagnosis.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -519,64 +310,25 @@ admission, billing, discharge …).</p>
 <p>An interaction between a patient and healthcare provider(s) for the
 purpose of providing healthcare service(s) or assessing the health
 status of a patient.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Hospitalization.preAdmissionIdentifier">
-<code class="sig-name descname">preAdmissionIdentifier</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Hospitalization.preAdmissionIdentifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pre-admission identifier.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Hospitalization.origin">
-<code class="sig-name descname">origin</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Hospitalization.origin" title="Permalink to this definition">¶</a></dt>
-<dd><p>The location from which the patient came before admission.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Hospitalization.admitSource">
-<code class="sig-name descname">admitSource</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Hospitalization.admitSource" title="Permalink to this definition">¶</a></dt>
-<dd><p>From where patient was admitted (physician referral,
-transfer).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Hospitalization.reAdmission">
-<code class="sig-name descname">reAdmission</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Hospitalization.reAdmission" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether this hospitalization is a readmission and why if
-known.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Hospitalization.dietPreference">
-<code class="sig-name descname">dietPreference</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Hospitalization.dietPreference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Diet preferences reported by the patient.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Hospitalization.specialCourtesy">
-<code class="sig-name descname">specialCourtesy</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Hospitalization.specialCourtesy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Special courtesies (VIP, board member).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Hospitalization.specialArrangement">
-<code class="sig-name descname">specialArrangement</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Hospitalization.specialArrangement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Any special requests that have been made for this
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preAdmissionIdentifier</strong> – Pre-admission identifier.</p></li>
+<li><p><strong>origin</strong> – The location from which the patient came before admission.</p></li>
+<li><p><strong>admitSource</strong> – From where patient was admitted (physician referral,
+transfer).</p></li>
+<li><p><strong>reAdmission</strong> – Whether this hospitalization is a readmission and why if
+known.</p></li>
+<li><p><strong>dietPreference</strong> – Diet preferences reported by the patient.</p></li>
+<li><p><strong>specialCourtesy</strong> – Special courtesies (VIP, board member).</p></li>
+<li><p><strong>specialArrangement</strong> – Any special requests that have been made for this
 hospitalization encounter, such as the provision of specific equipment
-or other things.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Hospitalization.destination">
-<code class="sig-name descname">destination</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Hospitalization.destination" title="Permalink to this definition">¶</a></dt>
-<dd><p>Location to which the patient is discharged.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Hospitalization.dischargeDisposition">
-<code class="sig-name descname">dischargeDisposition</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Hospitalization.dischargeDisposition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Category or kind of location after discharge.</p>
-</dd></dl>
-
+or other things.</p></li>
+<li><p><strong>destination</strong> – Location to which the patient is discharged.</p></li>
+<li><p><strong>dischargeDisposition</strong> – Category or kind of location after discharge.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Encounter.Encounter_Hospitalization.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Encounter.html#Encounter_Hospitalization.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Hospitalization.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -597,27 +349,18 @@ or other things.</p>
 <p>An interaction between a patient and healthcare provider(s) for the
 purpose of providing healthcare service(s) or assessing the health
 status of a patient.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Location.location">
-<code class="sig-name descname">location</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Location.location" title="Permalink to this definition">¶</a></dt>
-<dd><p>The location where the encounter takes place.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Location.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Location.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of the participants’ presence at the specified
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>location</strong> – The location where the encounter takes place.</p></li>
+<li><p><strong>status</strong> – The status of the participants’ presence at the specified
 location during the period specified. If the participant is is no
-longer at the location, then the period will have an end date/time.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Location.period">
-<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Location.period" title="Permalink to this definition">¶</a></dt>
-<dd><p>Time period during which the patient was present at the
-location.</p>
-</dd></dl>
-
+longer at the location, then the period will have an end date/time.</p></li>
+<li><p><strong>period</strong> – Time period during which the patient was present at the
+location.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Encounter.Encounter_Location.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Encounter.html#Encounter_Location.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Location.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -650,26 +393,17 @@ location.</p>
 <p>An interaction between a patient and healthcare provider(s) for the
 purpose of providing healthcare service(s) or assessing the health
 status of a patient.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Participant.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Participant.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Role of participant in encounter.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Participant.period">
-<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Participant.period" title="Permalink to this definition">¶</a></dt>
-<dd><p>The period of time that the specified participant participated
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – Role of participant in encounter.</p></li>
+<li><p><strong>period</strong> – The period of time that the specified participant participated
 in the encounter. These can overlap or be sub-sets of the overall
-encounter’s period.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_Participant.individual">
-<code class="sig-name descname">individual</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Participant.individual" title="Permalink to this definition">¶</a></dt>
-<dd><p>Persons involved in the encounter other than the patient.</p>
-</dd></dl>
-
+encounter’s period.</p></li>
+<li><p><strong>individual</strong> – Persons involved in the encounter other than the patient.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Encounter.Encounter_Participant.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Encounter.html#Encounter_Participant.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_Participant.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -690,19 +424,15 @@ encounter’s period.</p>
 <p>An interaction between a patient and healthcare provider(s) for the
 purpose of providing healthcare service(s) or assessing the health
 status of a patient.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_StatusHistory.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_StatusHistory.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>planned | arrived | triaged | in-progress | onleave | finished
-| cancelled +.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Encounter.Encounter_StatusHistory.period">
-<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_StatusHistory.period" title="Permalink to this definition">¶</a></dt>
-<dd><p>The time that the episode was in the specified status.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – planned | arrived | triaged | in-progress | onleave | finished
+| cancelled +.</p></li>
+<li><p><strong>period</strong> – The time that the episode was in the specified status.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Encounter.Encounter_StatusHistory.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Encounter.html#Encounter_StatusHistory.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Encounter.Encounter_StatusHistory.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -731,52 +461,31 @@ status of a patient.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.Endpoint.html" class="btn btn-neutral float-right" title="cardea.fhir.Endpoint module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.EligibilityResponse.html" class="btn btn-neutral float-left" title="cardea.fhir.EligibilityResponse module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

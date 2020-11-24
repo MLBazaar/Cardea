@@ -1,0 +1,42 @@
+cardea.problem\_definition.MissedAppointmentProblemDefinition
+=============================================================
+
+.. currentmodule:: cardea.problem_definition
+
+.. autoclass:: MissedAppointmentProblemDefinition
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MissedAppointmentProblemDefinition.__init__
+      ~MissedAppointmentProblemDefinition.check_for_missing_values_in_target_label
+      ~MissedAppointmentProblemDefinition.check_target_label
+      ~MissedAppointmentProblemDefinition.generate_cutoff_times
+      ~MissedAppointmentProblemDefinition.generate_target_label
+      ~MissedAppointmentProblemDefinition.unify_cutoff_time_admission_time
+      ~MissedAppointmentProblemDefinition.unify_cutoff_time_discharge_time
+      ~MissedAppointmentProblemDefinition.unify_cutoff_times_days_admission_time
+      ~MissedAppointmentProblemDefinition.unify_cutoff_times_days_discharge_time
+      ~MissedAppointmentProblemDefinition.unify_cutoff_times_hours_admission_time
+      ~MissedAppointmentProblemDefinition.unify_cutoff_times_hours_discharge_time
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MissedAppointmentProblemDefinition.cutoff_entity
+      ~MissedAppointmentProblemDefinition.cutoff_time_label
+      ~MissedAppointmentProblemDefinition.prediction_type
+      ~MissedAppointmentProblemDefinition.target_entity
+      ~MissedAppointmentProblemDefinition.target_label_column_name
+   
+   

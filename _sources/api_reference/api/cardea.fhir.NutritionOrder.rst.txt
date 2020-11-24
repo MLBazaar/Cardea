@@ -1,0 +1,28 @@
+cardea.fhir.NutritionOrder
+==========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: NutritionOrder
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~NutritionOrder.__init__
+      ~NutritionOrder.assert_type
+      ~NutritionOrder.get_dataframe
+      ~NutritionOrder.get_eligible_relationships
+      ~NutritionOrder.get_id
+      ~NutritionOrder.get_relationships
+      ~NutritionOrder.set_attributes
+   
+   
+
+   
+   
+   

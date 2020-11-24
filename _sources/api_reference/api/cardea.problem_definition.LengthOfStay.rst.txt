@@ -1,0 +1,44 @@
+cardea.problem\_definition.LengthOfStay
+=======================================
+
+.. currentmodule:: cardea.problem_definition
+
+.. autoclass:: LengthOfStay
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~LengthOfStay.__init__
+      ~LengthOfStay.check_for_missing_values_in_target_label
+      ~LengthOfStay.check_target_label
+      ~LengthOfStay.generate_cutoff_times
+      ~LengthOfStay.generate_target_label
+      ~LengthOfStay.unify_cutoff_time_admission_time
+      ~LengthOfStay.unify_cutoff_time_discharge_time
+      ~LengthOfStay.unify_cutoff_times_days_admission_time
+      ~LengthOfStay.unify_cutoff_times_days_discharge_time
+      ~LengthOfStay.unify_cutoff_times_hours_admission_time
+      ~LengthOfStay.unify_cutoff_times_hours_discharge_time
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~LengthOfStay.conn
+      ~LengthOfStay.cutoff_entity
+      ~LengthOfStay.cutoff_time_label
+      ~LengthOfStay.prediction_type
+      ~LengthOfStay.target_entity
+      ~LengthOfStay.target_label_column_name
+      ~LengthOfStay.updated_es
+   
+   

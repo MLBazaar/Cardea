@@ -1,0 +1,45 @@
+cardea.problem\_definition.MortalityPrediction
+==============================================
+
+.. currentmodule:: cardea.problem_definition
+
+.. autoclass:: MortalityPrediction
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MortalityPrediction.__init__
+      ~MortalityPrediction.check_for_missing_values_in_target_label
+      ~MortalityPrediction.check_target_label
+      ~MortalityPrediction.generate_cutoff_times
+      ~MortalityPrediction.generate_target_label
+      ~MortalityPrediction.unify_cutoff_time_admission_time
+      ~MortalityPrediction.unify_cutoff_time_discharge_time
+      ~MortalityPrediction.unify_cutoff_times_days_admission_time
+      ~MortalityPrediction.unify_cutoff_times_days_discharge_time
+      ~MortalityPrediction.unify_cutoff_times_hours_admission_time
+      ~MortalityPrediction.unify_cutoff_times_hours_discharge_time
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MortalityPrediction.causes_of_death
+      ~MortalityPrediction.conn
+      ~MortalityPrediction.cutoff_entity
+      ~MortalityPrediction.cutoff_time_label
+      ~MortalityPrediction.prediction_type
+      ~MortalityPrediction.target_entity
+      ~MortalityPrediction.target_label_column_name
+      ~MortalityPrediction.updated_es
+   
+   

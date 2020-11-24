@@ -1,0 +1,28 @@
+cardea.fhir.RequestGroup
+========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: RequestGroup
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~RequestGroup.__init__
+      ~RequestGroup.assert_type
+      ~RequestGroup.get_dataframe
+      ~RequestGroup.get_eligible_relationships
+      ~RequestGroup.get_id
+      ~RequestGroup.get_relationships
+      ~RequestGroup.set_attributes
+   
+   
+
+   
+   
+   

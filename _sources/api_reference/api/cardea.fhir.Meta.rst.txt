@@ -1,0 +1,28 @@
+cardea.fhir.Meta
+================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Meta
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Meta.__init__
+      ~Meta.assert_type
+      ~Meta.get_dataframe
+      ~Meta.get_eligible_relationships
+      ~Meta.get_id
+      ~Meta.get_relationships
+      ~Meta.set_attributes
+   
+   
+
+   
+   
+   

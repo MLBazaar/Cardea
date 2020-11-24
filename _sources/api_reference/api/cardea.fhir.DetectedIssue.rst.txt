@@ -1,0 +1,28 @@
+cardea.fhir.DetectedIssue
+=========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: DetectedIssue
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DetectedIssue.__init__
+      ~DetectedIssue.assert_type
+      ~DetectedIssue.get_dataframe
+      ~DetectedIssue.get_eligible_relationships
+      ~DetectedIssue.get_id
+      ~DetectedIssue.get_relationships
+      ~DetectedIssue.set_attributes
+   
+   
+
+   
+   
+   

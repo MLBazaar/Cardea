@@ -1,0 +1,28 @@
+cardea.fhir.Address
+===================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Address
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Address.__init__
+      ~Address.assert_type
+      ~Address.get_dataframe
+      ~Address.get_eligible_relationships
+      ~Address.get_id
+      ~Address.get_relationships
+      ~Address.set_attributes
+   
+   
+
+   
+   
+   

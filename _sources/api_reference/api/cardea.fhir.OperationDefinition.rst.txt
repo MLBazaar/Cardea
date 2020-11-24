@@ -1,0 +1,28 @@
+cardea.fhir.OperationDefinition
+===============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: OperationDefinition
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~OperationDefinition.__init__
+      ~OperationDefinition.assert_type
+      ~OperationDefinition.get_dataframe
+      ~OperationDefinition.get_eligible_relationships
+      ~OperationDefinition.get_id
+      ~OperationDefinition.get_relationships
+      ~OperationDefinition.set_attributes
+   
+   
+
+   
+   
+   

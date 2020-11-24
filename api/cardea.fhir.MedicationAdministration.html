@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.MedicationAdministration module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.MedicationAdministration module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.MedicationDispense module" href="cardea.fhir.MedicationDispense.html" />
-    <link rel="prev" title="cardea.fhir.Medication module" href="cardea.fhir.Medication.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.MedicationAdministration module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.MedicationAdministration.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.MedicationAdministration">
 <span id="cardea-fhir-medicationadministration-module"></span><h1>cardea.fhir.MedicationAdministration module<a class="headerlink" href="#module-cardea.fhir.MedicationAdministration" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -253,181 +161,72 @@ administered a medication.  This may be as simple as swallowing a
 tablet or it may be a long running infusion.  Related resources tie
 this event to the authorizing prescription, and the specific encounter
 between patient and health care practitioner.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a MedicationAdministration resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>External identifier - FHIR will generate its own internal
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a MedicationAdministration resource</p></li>
+<li><p><strong>identifier</strong> – External identifier - FHIR will generate its own internal
 identifiers (probably URLs) which do not need to be explicitly managed
 by the resource.  The identifier here is one that would be used by
 another non-FHIR system - for example an automated medication pump
 would provide a record each time it operated; an administration while
 the patient was off the ward might be made with a different system and
 entered after the event.  Particularly important if these records have
-to be updated.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.definition">
-<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.definition" title="Permalink to this definition">¶</a></dt>
-<dd><p>A protocol, guideline, orderset or other definition that
-was adhered to in whole or in part by this event.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.partOf">
-<code class="sig-name descname">partOf</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.partOf" title="Permalink to this definition">¶</a></dt>
-<dd><p>A larger event of which this particular event is a component
-or step.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Will generally be set to show that the administration has been
+to be updated.</p></li>
+<li><p><strong>definition</strong> – A protocol, guideline, orderset or other definition that
+was adhered to in whole or in part by this event.</p></li>
+<li><p><strong>partOf</strong> – A larger event of which this particular event is a component
+or step.</p></li>
+<li><p><strong>status</strong> – Will generally be set to show that the administration has been
 completed.  For some long running administrations such as infusions it
 is possible for an administration to be started but not completed or
-it may be paused while some other process is under way.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates the type of medication administration and where
-the medication is expected to be consumed or administered.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.medicationCodeableConcept">
-<code class="sig-name descname">medicationCodeableConcept</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.medicationCodeableConcept" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the medication that was
+it may be paused while some other process is under way.</p></li>
+<li><p><strong>category</strong> – Indicates the type of medication administration and where
+the medication is expected to be consumed or administered.</p></li>
+<li><p><strong>medicationCodeableConcept</strong> – Identifies the medication that was
 administered. This is either a link to a resource representing the
 details of the medication or a simple attribute carrying a code that
-identifies the medication from a known list of medications.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.medicationReference">
-<code class="sig-name descname">medicationReference</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.medicationReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the medication that was administered.
+identifies the medication from a known list of medications.</p></li>
+<li><p><strong>medicationReference</strong> – Identifies the medication that was administered.
 This is either a link to a resource representing the details of the
 medication or a simple attribute carrying a code that identifies the
-medication from a known list of medications.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.subject">
-<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.subject" title="Permalink to this definition">¶</a></dt>
-<dd><p>The person or animal or group receiving the medication.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.context">
-<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.context" title="Permalink to this definition">¶</a></dt>
-<dd><p>The visit, admission or other contact between patient and
+medication from a known list of medications.</p></li>
+<li><p><strong>subject</strong> – The person or animal or group receiving the medication.</p></li>
+<li><p><strong>context</strong> – The visit, admission or other contact between patient and
 health care provider the medication administration was performed as
-part of.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.supportingInformation">
-<code class="sig-name descname">supportingInformation</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.supportingInformation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Additional information (for example, patient
-height and weight) that supports the administration of the medication.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.effectiveDateTime">
-<code class="sig-name descname">effectiveDateTime</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.effectiveDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>A specific date/time or interval of time during
+part of.</p></li>
+<li><p><strong>supportingInformation</strong> – Additional information (for example, patient
+height and weight) that supports the administration of the medication.</p></li>
+<li><p><strong>effectiveDateTime</strong> – A specific date/time or interval of time during
 which the administration took place (or did not take place, when the
 ‘notGiven’ attribute is true). For many administrations, such as
-swallowing a tablet the use of dateTime is more appropriate.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.effectivePeriod">
-<code class="sig-name descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.effectivePeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>A specific date/time or interval of time during which
+swallowing a tablet the use of dateTime is more appropriate.</p></li>
+<li><p><strong>effectivePeriod</strong> – A specific date/time or interval of time during which
 the administration took place (or did not take place, when the
 ‘notGiven’ attribute is true). For many administrations, such as
-swallowing a tablet the use of dateTime is more appropriate.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.performer">
-<code class="sig-name descname">performer</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.performer" title="Permalink to this definition">¶</a></dt>
-<dd><p>The individual who was responsible for giving the
-medication to the patient.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.notGiven">
-<code class="sig-name descname">notGiven</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.notGiven" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set this to true if the record is saying that the medication
-was NOT administered.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.reasonNotGiven">
-<code class="sig-name descname">reasonNotGiven</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.reasonNotGiven" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code indicating why the administration was not
-performed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.reasonCode">
-<code class="sig-name descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.reasonCode" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code indicating why the medication was given.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.reasonReference">
-<code class="sig-name descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.reasonReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Condition or observation that supports why the
-medication was administered.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.prescription">
-<code class="sig-name descname">prescription</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.prescription" title="Permalink to this definition">¶</a></dt>
-<dd><p>The original request, instruction or authority to
-perform the administration.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.device">
-<code class="sig-name descname">device</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.device" title="Permalink to this definition">¶</a></dt>
-<dd><p>The device used in administering the medication to the
-patient.  For example, a particular infusion pump.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.note">
-<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.note" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extra information about the medication administration that is
-not conveyed by the other attributes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.dosage">
-<code class="sig-name descname">dosage</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.dosage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Describes the medication dosage information details e.g. dose,
-rate, site, route, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.eventHistory">
-<code class="sig-name descname">eventHistory</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.eventHistory" title="Permalink to this definition">¶</a></dt>
-<dd><p>A summary of the events of interest that have occurred,
-such as when the administration was verified.</p>
-</dd></dl>
-
+swallowing a tablet the use of dateTime is more appropriate.</p></li>
+<li><p><strong>performer</strong> – The individual who was responsible for giving the
+medication to the patient.</p></li>
+<li><p><strong>notGiven</strong> – Set this to true if the record is saying that the medication
+was NOT administered.</p></li>
+<li><p><strong>reasonNotGiven</strong> – A code indicating why the administration was not
+performed.</p></li>
+<li><p><strong>reasonCode</strong> – A code indicating why the medication was given.</p></li>
+<li><p><strong>reasonReference</strong> – Condition or observation that supports why the
+medication was administered.</p></li>
+<li><p><strong>prescription</strong> – The original request, instruction or authority to
+perform the administration.</p></li>
+<li><p><strong>device</strong> – The device used in administering the medication to the
+patient.  For example, a particular infusion pump.</p></li>
+<li><p><strong>note</strong> – Extra information about the medication administration that is
+not conveyed by the other attributes.</p></li>
+<li><p><strong>dosage</strong> – Describes the medication dosage information details e.g. dose,
+rate, site, route, etc.</p></li>
+<li><p><strong>eventHistory</strong> – A summary of the events of interest that have occurred,
+such as when the administration was verified.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -462,68 +261,39 @@ administered a medication.  This may be as simple as swallowing a
 tablet or it may be a long running infusion.  Related resources tie
 this event to the authorizing prescription, and the specific encounter
 between patient and health care practitioner.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.text">
-<code class="sig-name descname">text</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Free text dosage can be used for cases where the dosage
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> – Free text dosage can be used for cases where the dosage
 administered is too complex to code. When coded dosage is present, the
 free text dosage may still be present for display to humans.  The
 dosage instructions should reflect the dosage of the medication that
-was administered.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.site">
-<code class="sig-name descname">site</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.site" title="Permalink to this definition">¶</a></dt>
-<dd><p>A coded specification of the anatomic site where the medication
-first entered the body.  For example, “left arm”.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.route">
-<code class="sig-name descname">route</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.route" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code specifying the route or physiological path of
+was administered.</p></li>
+<li><p><strong>site</strong> – A coded specification of the anatomic site where the medication
+first entered the body.  For example, “left arm”.</p></li>
+<li><p><strong>route</strong> – A code specifying the route or physiological path of
 administration of a therapeutic agent into or onto the patient.  For
-example, topical, intravenous, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.method">
-<code class="sig-name descname">method</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.method" title="Permalink to this definition">¶</a></dt>
-<dd><p>A coded value indicating the method by which the medication is
+example, topical, intravenous, etc.</p></li>
+<li><p><strong>method</strong> – A coded value indicating the method by which the medication is
 intended to be or was introduced into or on the body.  This attribute
 will most often NOT be populated.  It is most commonly used for
-injections.  For example, Slow Push, Deep IV.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.dose">
-<code class="sig-name descname">dose</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.dose" title="Permalink to this definition">¶</a></dt>
-<dd><p>The amount of the medication given at one administration event.
+injections.  For example, Slow Push, Deep IV.</p></li>
+<li><p><strong>dose</strong> – The amount of the medication given at one administration event.
 Use this value when the administration is essentially an instantaneous
-event such as a swallowing a tablet or giving an injection.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.rateRatio">
-<code class="sig-name descname">rateRatio</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.rateRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the speed with which the medication was or will
+event such as a swallowing a tablet or giving an injection.</p></li>
+<li><p><strong>rateRatio</strong> – Identifies the speed with which the medication was or will
 be introduced into the patient.  Typically the rate for an infusion
 e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate
 per unit of time e.g. 500 ml per 2 hours.  Other examples:  200
-mcg/min or 200 mcg/1 minute; 1 liter/8 hours.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.rateSimpleQuantity">
-<code class="sig-name descname">rateSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.rateSimpleQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the speed with which the medication was
+mcg/min or 200 mcg/1 minute; 1 liter/8 hours.</p></li>
+<li><p><strong>rateSimpleQuantity</strong> – Identifies the speed with which the medication was
 or will be introduced into the patient.  Typically the rate for an
 infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed
 as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:
-200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.</p>
-</dd></dl>
-
+200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration_Dosage.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Dosage.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -546,19 +316,15 @@ administered a medication.  This may be as simple as swallowing a
 tablet or it may be a long running infusion.  Related resources tie
 this event to the authorizing prescription, and the specific encounter
 between patient and health care practitioner.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.actor">
-<code class="sig-name descname">actor</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.actor" title="Permalink to this definition">¶</a></dt>
-<dd><p>The device, practitioner, etc. who performed the action.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.onBehalfOf">
-<code class="sig-name descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.onBehalfOf" title="Permalink to this definition">¶</a></dt>
-<dd><p>The organization the device or practitioner was acting on
-behalf of.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actor</strong> – The device, practitioner, etc. who performed the action.</p></li>
+<li><p><strong>onBehalfOf</strong> – The organization the device or practitioner was acting on
+behalf of.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MedicationAdministration.html#MedicationAdministration_Performer.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MedicationAdministration.MedicationAdministration_Performer.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -575,52 +341,31 @@ behalf of.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.MedicationDispense.html" class="btn btn-neutral float-right" title="cardea.fhir.MedicationDispense module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Medication.html" class="btn btn-neutral float-left" title="cardea.fhir.Medication module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

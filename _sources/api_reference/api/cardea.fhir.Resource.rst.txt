@@ -1,0 +1,28 @@
+cardea.fhir.Resource
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Resource
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Resource.__init__
+      ~Resource.assert_type
+      ~Resource.get_dataframe
+      ~Resource.get_eligible_relationships
+      ~Resource.get_id
+      ~Resource.get_relationships
+      ~Resource.set_attributes
+   
+   
+
+   
+   
+   

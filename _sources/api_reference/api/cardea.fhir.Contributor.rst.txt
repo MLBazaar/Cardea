@@ -1,0 +1,28 @@
+cardea.fhir.Contributor
+=======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Contributor
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Contributor.__init__
+      ~Contributor.assert_type
+      ~Contributor.get_dataframe
+      ~Contributor.get_eligible_relationships
+      ~Contributor.get_id
+      ~Contributor.get_relationships
+      ~Contributor.set_attributes
+   
+   
+
+   
+   
+   

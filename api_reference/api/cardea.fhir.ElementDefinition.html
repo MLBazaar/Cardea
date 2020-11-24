@@ -1,0 +1,1777 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.ElementDefinition &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="cardea.fhir.EligibilityRequest" href="cardea.fhir.EligibilityRequest.html" />
+    <link rel="prev" title="cardea.fhir.Element" href="cardea.fhir.Element.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+          
+            
+                <li class="">
+                    <a href="../cardea.html">cardea</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../data_loader.html">cardea.data_loader</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../problem_definition.html">cardea.problem_definition</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../featurization.html">cardea.featurization</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../modeling.html">cardea.modeling</a>
+                </li>
+            
+          
+            
+  
+                <li class="active">
+                    <a href="../fhir.html">cardea.fhir</a>
+                    <ul>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.fhirbase.html">cardea.fhir.fhirbase</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Account.html">cardea.fhir.Account</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ActivityDefinition.html">cardea.fhir.ActivityDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Address.html">cardea.fhir.Address</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.AdverseEvent.html">cardea.fhir.AdverseEvent</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Age.html">cardea.fhir.Age</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.AllergyIntolerance.html">cardea.fhir.AllergyIntolerance</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Annotation.html">cardea.fhir.Annotation</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Appointment.html">cardea.fhir.Appointment</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.AppointmentResponse.html">cardea.fhir.AppointmentResponse</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Attachment.html">cardea.fhir.Attachment</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.AuditEvent.html">cardea.fhir.AuditEvent</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.BackboneElement.html">cardea.fhir.BackboneElement</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Basic.html">cardea.fhir.Basic</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Binary.html">cardea.fhir.Binary</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.BodySite.html">cardea.fhir.BodySite</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Bundle.html">cardea.fhir.Bundle</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.CapabilityStatement.html">cardea.fhir.CapabilityStatement</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.CarePlan.html">cardea.fhir.CarePlan</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.CareTeam.html">cardea.fhir.CareTeam</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ChargeItem.html">cardea.fhir.ChargeItem</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Claim.html">cardea.fhir.Claim</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ClaimResponse.html">cardea.fhir.ClaimResponse</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ClinicalImpression.html">cardea.fhir.ClinicalImpression</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.CodeableConcept.html">cardea.fhir.CodeableConcept</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.CodeSystem.html">cardea.fhir.CodeSystem</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Coding.html">cardea.fhir.Coding</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Communication.html">cardea.fhir.Communication</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.CommunicationRequest.html">cardea.fhir.CommunicationRequest</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.CompartmentDefinition.html">cardea.fhir.CompartmentDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Composition.html">cardea.fhir.Composition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ConceptMap.html">cardea.fhir.ConceptMap</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Condition.html">cardea.fhir.Condition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Consent.html">cardea.fhir.Consent</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ContactDetail.html">cardea.fhir.ContactDetail</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ContactPoint.html">cardea.fhir.ContactPoint</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Contract.html">cardea.fhir.Contract</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Contributor.html">cardea.fhir.Contributor</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Count.html">cardea.fhir.Count</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Coverage.html">cardea.fhir.Coverage</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.DataElement.html">cardea.fhir.DataElement</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.DataRequirement.html">cardea.fhir.DataRequirement</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.DetectedIssue.html">cardea.fhir.DetectedIssue</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Device.html">cardea.fhir.Device</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.DeviceComponent.html">cardea.fhir.DeviceComponent</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.DeviceMetric.html">cardea.fhir.DeviceMetric</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.DeviceRequest.html">cardea.fhir.DeviceRequest</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.DeviceUseStatement.html">cardea.fhir.DeviceUseStatement</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.DiagnosticReport.html">cardea.fhir.DiagnosticReport</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Distance.html">cardea.fhir.Distance</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.DocumentManifest.html">cardea.fhir.DocumentManifest</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.DocumentReference.html">cardea.fhir.DocumentReference</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.DomainResource.html">cardea.fhir.DomainResource</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Dosage.html">cardea.fhir.Dosage</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Duration.html">cardea.fhir.Duration</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Element.html">cardea.fhir.Element</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="">cardea.fhir.ElementDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.EligibilityRequest.html">cardea.fhir.EligibilityRequest</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.EligibilityResponse.html">cardea.fhir.EligibilityResponse</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Encounter.html">cardea.fhir.Encounter</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Endpoint.html">cardea.fhir.Endpoint</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.EnrollmentRequest.html">cardea.fhir.EnrollmentRequest</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.EnrollmentResponse.html">cardea.fhir.EnrollmentResponse</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.EpisodeOfCare.html">cardea.fhir.EpisodeOfCare</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ExpansionProfile.html">cardea.fhir.ExpansionProfile</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ExplanationOfBenefit.html">cardea.fhir.ExplanationOfBenefit</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Extension.html">cardea.fhir.Extension</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.FamilyMemberHistory.html">cardea.fhir.FamilyMemberHistory</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Flag.html">cardea.fhir.Flag</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Goal.html">cardea.fhir.Goal</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.GraphDefinition.html">cardea.fhir.GraphDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Group.html">cardea.fhir.Group</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.GuidanceResponse.html">cardea.fhir.GuidanceResponse</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.HealthcareService.html">cardea.fhir.HealthcareService</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.HumanName.html">cardea.fhir.HumanName</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Identifier.html">cardea.fhir.Identifier</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ImagingManifest.html">cardea.fhir.ImagingManifest</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ImagingStudy.html">cardea.fhir.ImagingStudy</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Immunization.html">cardea.fhir.Immunization</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ImmunizationRecommendation.html">cardea.fhir.ImmunizationRecommendation</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ImplementationGuide.html">cardea.fhir.ImplementationGuide</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Library.html">cardea.fhir.Library</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Linkage.html">cardea.fhir.Linkage</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.List.html">cardea.fhir.List</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Location.html">cardea.fhir.Location</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Measure.html">cardea.fhir.Measure</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.MeasureReport.html">cardea.fhir.MeasureReport</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Media.html">cardea.fhir.Media</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Medication.html">cardea.fhir.Medication</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.MedicationAdministration.html">cardea.fhir.MedicationAdministration</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.MedicationDispense.html">cardea.fhir.MedicationDispense</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.MedicationRequest.html">cardea.fhir.MedicationRequest</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.MedicationStatement.html">cardea.fhir.MedicationStatement</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.MessageDefinition.html">cardea.fhir.MessageDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.MessageHeader.html">cardea.fhir.MessageHeader</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Meta.html">cardea.fhir.Meta</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Money.html">cardea.fhir.Money</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.NamingSystem.html">cardea.fhir.NamingSystem</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Narrative.html">cardea.fhir.Narrative</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.NutritionOrder.html">cardea.fhir.NutritionOrder</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Observation.html">cardea.fhir.Observation</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.OperationDefinition.html">cardea.fhir.OperationDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.OperationOutcome.html">cardea.fhir.OperationOutcome</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Organization.html">cardea.fhir.Organization</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ParameterDefinition.html">cardea.fhir.ParameterDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Parameters.html">cardea.fhir.Parameters</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Patient.html">cardea.fhir.Patient</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.PaymentNotice.html">cardea.fhir.PaymentNotice</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.PaymentReconciliation.html">cardea.fhir.PaymentReconciliation</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Period.html">cardea.fhir.Period</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Person.html">cardea.fhir.Person</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.PlanDefinition.html">cardea.fhir.PlanDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Practitioner.html">cardea.fhir.Practitioner</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.PractitionerRole.html">cardea.fhir.PractitionerRole</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Procedure.html">cardea.fhir.Procedure</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ProcedureRequest.html">cardea.fhir.ProcedureRequest</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ProcessRequest.html">cardea.fhir.ProcessRequest</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ProcessResponse.html">cardea.fhir.ProcessResponse</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Provenance.html">cardea.fhir.Provenance</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Quantity.html">cardea.fhir.Quantity</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Questionnaire.html">cardea.fhir.Questionnaire</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.QuestionnaireResponse.html">cardea.fhir.QuestionnaireResponse</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Range.html">cardea.fhir.Range</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Ratio.html">cardea.fhir.Ratio</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Reference.html">cardea.fhir.Reference</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ReferralRequest.html">cardea.fhir.ReferralRequest</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.RelatedArtifact.html">cardea.fhir.RelatedArtifact</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.RelatedPerson.html">cardea.fhir.RelatedPerson</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.RequestGroup.html">cardea.fhir.RequestGroup</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ResearchStudy.html">cardea.fhir.ResearchStudy</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ResearchSubject.html">cardea.fhir.ResearchSubject</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Resource.html">cardea.fhir.Resource</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ResourceList.html">cardea.fhir.ResourceList</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.RiskAssessment.html">cardea.fhir.RiskAssessment</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.SampledData.html">cardea.fhir.SampledData</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Schedule.html">cardea.fhir.Schedule</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.SearchParameter.html">cardea.fhir.SearchParameter</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Sequence.html">cardea.fhir.Sequence</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ServiceDefinition.html">cardea.fhir.ServiceDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Signature.html">cardea.fhir.Signature</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Slot.html">cardea.fhir.Slot</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Specimen.html">cardea.fhir.Specimen</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.StructureDefinition.html">cardea.fhir.StructureDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.StructureMap.html">cardea.fhir.StructureMap</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Subscription.html">cardea.fhir.Subscription</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Substance.html">cardea.fhir.Substance</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.SupplyDelivery.html">cardea.fhir.SupplyDelivery</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.SupplyRequest.html">cardea.fhir.SupplyRequest</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Task.html">cardea.fhir.Task</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.TestReport.html">cardea.fhir.TestReport</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.TestScript.html">cardea.fhir.TestScript</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.Timing.html">cardea.fhir.Timing</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.TriggerDefinition.html">cardea.fhir.TriggerDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.UsageContext.html">cardea.fhir.UsageContext</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.ValueSet.html">cardea.fhir.ValueSet</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.fhir.VisionPrescription.html">cardea.fhir.VisionPrescription</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+          
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="cardea-fhir-elementdefinition">
+<h1>cardea.fhir.ElementDefinition<a class="headerlink" href="#cardea-fhir-elementdefinition" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.fhir.ElementDefinition">
+<em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.</code><code class="sig-name descname">ElementDefinition</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/fhir/ElementDefinition.html#ElementDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ElementDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Captures constraints on each element within the resource, profile, or
+extension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – The path identifies the element and is expressed as a
+“.”-separated list of ancestor elements, beginning with the name of
+the resource or extension.</p></li>
+<li><p><strong>representation</strong> – Codes that define how this element is represented in
+instances, when the deviation varies from the normal case.</p></li>
+<li><p><strong>sliceName</strong> – The name of this element definition slice, when slicing is
+working. The name must be a token with no dots or spaces. This is a
+unique name referring to a specific set of constraints applied to this
+element, used to provide a name to different slices of the same
+element.</p></li>
+<li><p><strong>label</strong> – A single preferred label which is the text to display beside
+the element indicating its meaning or to use to prompt for the element
+in a user display or form.</p></li>
+<li><p><strong>code</strong> – A code that has the same meaning as the element in a particular
+terminology.</p></li>
+<li><p><strong>slicing</strong> – Indicates that the element is sliced into a set of
+alternative definitions (i.e. in a structure definition, there are
+multiple different constraints on a single element in the base
+resource). Slicing can be used in any resource that has cardinality
+..* on the base resource, or any resource with a choice of types. The
+set of slices is any elements that come after this in the element
+sequence that have the same path, until a shorter path occurs (the
+shorter path terminates the set).</p></li>
+<li><p><strong>short</strong> – A concise description of what this element means (e.g. for use
+in autogenerated summaries).</p></li>
+<li><p><strong>definition</strong> – Provides a complete explanation of the meaning of the data
+element for human readability.  For the case of elements derived from
+existing elements (e.g. constraints), the definition SHALL be
+consistent with the base definition, but convey the meaning of the
+element in the particular context of use of the resource.</p></li>
+<li><p><strong>comment</strong> – Explanatory notes and implementation guidance about the data
+element, including notes about how to use the data properly,
+exceptions to proper use, etc.</p></li>
+<li><p><strong>requirements</strong> – This element is for traceability of why the element was
+created and why the constraints exist as they do. This may be used to
+point to source materials or specifications that drove the structure
+of this element.</p></li>
+<li><p><strong>alias</strong> – Identifies additional names by which this element might also be
+known.</p></li>
+<li><p><strong>min</strong> – The minimum number of times this element SHALL appear in the
+instance.</p></li>
+<li><p><strong>max</strong> – The maximum number of times this element is permitted to appear
+in the instance.</p></li>
+<li><p><strong>base</strong> – Information about the base definition of the element, provided
+to make it unnecessary for tools to trace the deviation of the element
+through the derived and related profiles. This information is provided
+when the element definition is not the original definition of an
+element - i.g. either in a constraint on another type, or for elements
+from a super type in a snap shot.</p></li>
+<li><p><strong>contentReference</strong> – Identifies the identity of an element defined
+elsewhere in the profile whose content rules should be applied to the
+current element.</p></li>
+<li><p><strong>type</strong> – The data type or resource that the value of this element is
+permitted to be.</p></li>
+<li><p><strong>defaultValueBoolean</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueInteger</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueDecimal</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueBase64Binary</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueInstant</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueString</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueUri</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueDate</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueDateTime</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueTime</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueCode</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueOid</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueUuid</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueId</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueUnsignedInt</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValuePositiveInt</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueMarkdown</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueElement</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueExtension</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueBackboneElement</strong> – The value that should be used if there is
+no value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueNarrative</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueAnnotation</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueAttachment</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueIdentifier</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueCodeableConcept</strong> – The value that should be used if there is
+no value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueCoding</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueQuantity</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueDuration</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueSimpleQuantity</strong> – The value that should be used if there is
+no value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueDistance</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueCount</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueMoney</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueAge</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueRange</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValuePeriod</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueRatio</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueReference</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueSampledData</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueSignature</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueHumanName</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueAddress</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueContactPoint</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueTiming</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueMeta</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueElementDefinition</strong> – The value that should be used if there
+is no value stated in the instance (e.g. ‘if not otherwise specified,
+the abstract is false’).</p></li>
+<li><p><strong>defaultValueContactDetail</strong> – The value that should be used if there is
+no value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueContributor</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueDosage</strong> – The value that should be used if there is no value
+stated in the instance (e.g. ‘if not otherwise specified, the abstract
+is false’).</p></li>
+<li><p><strong>defaultValueRelatedArtifact</strong> – The value that should be used if there is
+no value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueUsageContext</strong> – The value that should be used if there is no
+value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueDataRequirement</strong> – The value that should be used if there is
+no value stated in the instance (e.g. ‘if not otherwise specified, the
+abstract is false’).</p></li>
+<li><p><strong>defaultValueParameterDefinition</strong> – The value that should be used if
+there is no value stated in the instance (e.g. ‘if not otherwise
+specified, the abstract is false’).</p></li>
+<li><p><strong>defaultValueTriggerDefinition</strong> – The value that should be used if there
+is no value stated in the instance (e.g. ‘if not otherwise specified,
+the abstract is false’).</p></li>
+<li><p><strong>meaningWhenMissing</strong> – The Implicit meaning that is to be understood when
+this element is missing (e.g. ‘when this element is missing, the
+period is ongoing’.</p></li>
+<li><p><strong>orderMeaning</strong> – If present, indicates that the order of the repeating
+element has meaning and describes what that meaning is.  If absent, it
+means that the order of the element has no meaning.</p></li>
+<li><p><strong>fixedBoolean</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedInteger</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedDecimal</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedBase64Binary</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedInstant</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedString</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedUri</strong> – Specifies a value that SHALL be exactly the value  for this
+element in the instance. For purposes of comparison, non-significant
+whitespace is ignored, and all values must be an exact match (case and
+accent sensitive). Missing elements/attributes must also be missing.</p></li>
+<li><p><strong>fixedDate</strong> – Specifies a value that SHALL be exactly the value  for this
+element in the instance. For purposes of comparison, non-significant
+whitespace is ignored, and all values must be an exact match (case and
+accent sensitive). Missing elements/attributes must also be missing.</p></li>
+<li><p><strong>fixedDateTime</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedTime</strong> – Specifies a value that SHALL be exactly the value  for this
+element in the instance. For purposes of comparison, non-significant
+whitespace is ignored, and all values must be an exact match (case and
+accent sensitive). Missing elements/attributes must also be missing.</p></li>
+<li><p><strong>fixedCode</strong> – Specifies a value that SHALL be exactly the value  for this
+element in the instance. For purposes of comparison, non-significant
+whitespace is ignored, and all values must be an exact match (case and
+accent sensitive). Missing elements/attributes must also be missing.</p></li>
+<li><p><strong>fixedOid</strong> – Specifies a value that SHALL be exactly the value  for this
+element in the instance. For purposes of comparison, non-significant
+whitespace is ignored, and all values must be an exact match (case and
+accent sensitive). Missing elements/attributes must also be missing.</p></li>
+<li><p><strong>fixedUuid</strong> – Specifies a value that SHALL be exactly the value  for this
+element in the instance. For purposes of comparison, non-significant
+whitespace is ignored, and all values must be an exact match (case and
+accent sensitive). Missing elements/attributes must also be missing.</p></li>
+<li><p><strong>fixedId</strong> – Specifies a value that SHALL be exactly the value  for this
+element in the instance. For purposes of comparison, non-significant
+whitespace is ignored, and all values must be an exact match (case and
+accent sensitive). Missing elements/attributes must also be missing.</p></li>
+<li><p><strong>fixedUnsignedInt</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedPositiveInt</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedMarkdown</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedElement</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedExtension</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedBackboneElement</strong> – Specifies a value that SHALL be exactly the
+value  for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedNarrative</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedAnnotation</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedAttachment</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedIdentifier</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedCodeableConcept</strong> – Specifies a value that SHALL be exactly the
+value  for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedCoding</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedQuantity</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedDuration</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedSimpleQuantity</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedDistance</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedCount</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedMoney</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedAge</strong> – Specifies a value that SHALL be exactly the value  for this
+element in the instance. For purposes of comparison, non-significant
+whitespace is ignored, and all values must be an exact match (case and
+accent sensitive). Missing elements/attributes must also be missing.</p></li>
+<li><p><strong>fixedRange</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedPeriod</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedRatio</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedReference</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedSampledData</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedSignature</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedHumanName</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedAddress</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedContactPoint</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedTiming</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedMeta</strong> – Specifies a value that SHALL be exactly the value  for this
+element in the instance. For purposes of comparison, non-significant
+whitespace is ignored, and all values must be an exact match (case and
+accent sensitive). Missing elements/attributes must also be missing.</p></li>
+<li><p><strong>fixedElementDefinition</strong> – Specifies a value that SHALL be exactly the
+value  for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedContactDetail</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedContributor</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedDosage</strong> – Specifies a value that SHALL be exactly the value  for
+this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedRelatedArtifact</strong> – Specifies a value that SHALL be exactly the
+value  for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedUsageContext</strong> – Specifies a value that SHALL be exactly the value
+for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedDataRequirement</strong> – Specifies a value that SHALL be exactly the
+value  for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedParameterDefinition</strong> – Specifies a value that SHALL be exactly the
+value  for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>fixedTriggerDefinition</strong> – Specifies a value that SHALL be exactly the
+value  for this element in the instance. For purposes of comparison,
+non-significant whitespace is ignored, and all values must be an exact
+match (case and accent sensitive). Missing elements/attributes must
+also be missing.</p></li>
+<li><p><strong>patternBoolean</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternInteger</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternDecimal</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternBase64Binary</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternInstant</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternString</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternUri</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternDate</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternDateTime</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternTime</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternCode</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternOid</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternUuid</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternId</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternUnsignedInt</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternPositiveInt</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternMarkdown</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternElement</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternExtension</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternBackboneElement</strong> – Specifies a value that the value in the
+instance SHALL follow - that is, any value in the pattern must be
+found in the instance. Other additional values may be found too. This
+is effectively constraint by example.  The values of elements present
+in the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternNarrative</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternAnnotation</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternAttachment</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternIdentifier</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternCodeableConcept</strong> – Specifies a value that the value in the
+instance SHALL follow - that is, any value in the pattern must be
+found in the instance. Other additional values may be found too. This
+is effectively constraint by example.  The values of elements present
+in the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternCoding</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternQuantity</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternDuration</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternSimpleQuantity</strong> – Specifies a value that the value in the
+instance SHALL follow - that is, any value in the pattern must be
+found in the instance. Other additional values may be found too. This
+is effectively constraint by example.  The values of elements present
+in the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternDistance</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternCount</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternMoney</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternAge</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternRange</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternPeriod</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternRatio</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternReference</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternSampledData</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternSignature</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternHumanName</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternAddress</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternContactPoint</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternTiming</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternMeta</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternElementDefinition</strong> – Specifies a value that the value in the
+instance SHALL follow - that is, any value in the pattern must be
+found in the instance. Other additional values may be found too. This
+is effectively constraint by example.  The values of elements present
+in the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternContactDetail</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternContributor</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternDosage</strong> – Specifies a value that the value in the instance SHALL
+follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternRelatedArtifact</strong> – Specifies a value that the value in the
+instance SHALL follow - that is, any value in the pattern must be
+found in the instance. Other additional values may be found too. This
+is effectively constraint by example.  The values of elements present
+in the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternUsageContext</strong> – Specifies a value that the value in the instance
+SHALL follow - that is, any value in the pattern must be found in the
+instance. Other additional values may be found too. This is
+effectively constraint by example.  The values of elements present in
+the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternDataRequirement</strong> – Specifies a value that the value in the
+instance SHALL follow - that is, any value in the pattern must be
+found in the instance. Other additional values may be found too. This
+is effectively constraint by example.  The values of elements present
+in the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternParameterDefinition</strong> – Specifies a value that the value in the
+instance SHALL follow - that is, any value in the pattern must be
+found in the instance. Other additional values may be found too. This
+is effectively constraint by example.  The values of elements present
+in the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>patternTriggerDefinition</strong> – Specifies a value that the value in the
+instance SHALL follow - that is, any value in the pattern must be
+found in the instance. Other additional values may be found too. This
+is effectively constraint by example.  The values of elements present
+in the pattern must match exactly (case-sensitive, accent-sensitive,
+etc.).</p></li>
+<li><p><strong>example</strong> – A sample value for this element demonstrating the type of
+information that would typically be found in the element.</p></li>
+<li><p><strong>minValueDate</strong> – The minimum allowed value for the element. The value is
+inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>minValueDateTime</strong> – The minimum allowed value for the element. The value
+is inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>minValueInstant</strong> – The minimum allowed value for the element. The value
+is inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>minValueTime</strong> – The minimum allowed value for the element. The value is
+inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>minValueDecimal</strong> – The minimum allowed value for the element. The value
+is inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>minValueInteger</strong> – The minimum allowed value for the element. The value
+is inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>minValuePositiveInt</strong> – The minimum allowed value for the element. The
+value is inclusive. This is allowed for the types date, dateTime,
+instant, time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>minValueUnsignedInt</strong> – The minimum allowed value for the element. The
+value is inclusive. This is allowed for the types date, dateTime,
+instant, time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>minValueQuantity</strong> – The minimum allowed value for the element. The value
+is inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>maxValueDate</strong> – The maximum allowed value for the element. The value is
+inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>maxValueDateTime</strong> – The maximum allowed value for the element. The value
+is inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>maxValueInstant</strong> – The maximum allowed value for the element. The value
+is inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>maxValueTime</strong> – The maximum allowed value for the element. The value is
+inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>maxValueDecimal</strong> – The maximum allowed value for the element. The value
+is inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>maxValueInteger</strong> – The maximum allowed value for the element. The value
+is inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>maxValuePositiveInt</strong> – The maximum allowed value for the element. The
+value is inclusive. This is allowed for the types date, dateTime,
+instant, time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>maxValueUnsignedInt</strong> – The maximum allowed value for the element. The
+value is inclusive. This is allowed for the types date, dateTime,
+instant, time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>maxValueQuantity</strong> – The maximum allowed value for the element. The value
+is inclusive. This is allowed for the types date, dateTime, instant,
+time, decimal, integer, and Quantity.</p></li>
+<li><p><strong>maxLength</strong> – Indicates the maximum length in characters that is
+permitted to be present in conformant instances and which is expected
+to be supported by conformant consumers that support the element.</p></li>
+<li><p><strong>condition</strong> – A reference to an invariant that may make additional
+statements about the cardinality or value in the instance.</p></li>
+<li><p><strong>constraint</strong> – Formal constraints such as co-occurrence and other
+constraints that can be computationally evaluated within the context
+of the instance.</p></li>
+<li><p><strong>mustSupport</strong> – If true, implementations that produce or consume
+resources SHALL provide “support” for the element in some meaningful
+way.  If false, the element may be ignored and not supported.</p></li>
+<li><p><strong>isModifier</strong> – If true, the value of this element affects the
+interpretation of the element or resource that contains it, and the
+value of the element cannot be ignored. Typically, this is used for
+status, negation and qualification codes. The effect of this is that
+the element cannot be ignored by systems: they SHALL either recognize
+the element and process it, and/or a pre-determination has been made
+that it is not relevant to their particular system.</p></li>
+<li><p><strong>isSummary</strong> – Whether the element should be included if a client requests
+a search with the parameter _summary=true.</p></li>
+<li><p><strong>binding</strong> – Binds to a value set if this element is coded (code, Coding,
+CodeableConcept, Quantity), or the data types (string, uri).</p></li>
+<li><p><strong>mapping</strong> – Identifies a concept from an external specification that
+roughly corresponds to this element.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="cardea.fhir.ElementDefinition.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/fhir/ElementDefinition.html#ElementDefinition.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ElementDefinition.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>([dict_values])</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition.ElementDefinition.assert_type" title="cardea.fhir.ElementDefinition.ElementDefinition.assert_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assert_type</span></code></a>()</p></td>
+<td><p>Checks class values follow set possible enumerations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataframe</span></code>()</p></td>
+<td><p>Returns dataframe from class attribute values.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_eligible_relationships</span></code>()</p></td>
+<td><p>Returns class relationships for attributes that are used.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_id</span></code>()</p></td>
+<td><p>Returns fhir class identifier.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition.ElementDefinition.get_relationships" title="cardea.fhir.ElementDefinition.ElementDefinition.get_relationships"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_relationships</span></code></a>()</p></td>
+<td><p>Returns class relationships.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_attributes</span></code>(dict_values)</p></td>
+<td><p>Sets values to class attributes.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="cardea.fhir.Element.html" title="previous page">cardea.fhir.Element</a>
+    <a class='right-next' id="next-link" href="cardea.fhir.EligibilityRequest.html" title="next page">cardea.fhir.EligibilityRequest</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

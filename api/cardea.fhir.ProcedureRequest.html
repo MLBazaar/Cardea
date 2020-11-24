@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.ProcedureRequest module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.ProcedureRequest module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.ProcessRequest module" href="cardea.fhir.ProcessRequest.html" />
-    <link rel="prev" title="cardea.fhir.Procedure module" href="cardea.fhir.Procedure.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.ProcedureRequest module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.ProcedureRequest.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.ProcedureRequest">
 <span id="cardea-fhir-procedurerequest-module"></span><h1>cardea.fhir.ProcedureRequest module<a class="headerlink" href="#module-cardea.fhir.ProcedureRequest" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -250,190 +158,65 @@
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A record of a request for diagnostic investigations, treatments, or
 operations to be performed.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a ProcedureRequest resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifiers assigned to this order instance by the orderer
-and/or the receiver and/or order fulfiller.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.definition">
-<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.definition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Protocol or definition followed by this request.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.basedOn">
-<code class="sig-name descname">basedOn</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.basedOn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plan/proposal/order fulfilled by this request.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.replaces">
-<code class="sig-name descname">replaces</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.replaces" title="Permalink to this definition">¶</a></dt>
-<dd><p>The request takes the place of the referenced completed or
-terminated request(s).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.requisition">
-<code class="sig-name descname">requisition</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.requisition" title="Permalink to this definition">¶</a></dt>
-<dd><p>A shared identifier common to all procedure or diagnostic
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a ProcedureRequest resource</p></li>
+<li><p><strong>identifier</strong> – Identifiers assigned to this order instance by the orderer
+and/or the receiver and/or order fulfiller.</p></li>
+<li><p><strong>definition</strong> – Protocol or definition followed by this request.</p></li>
+<li><p><strong>basedOn</strong> – Plan/proposal/order fulfilled by this request.</p></li>
+<li><p><strong>replaces</strong> – The request takes the place of the referenced completed or
+terminated request(s).</p></li>
+<li><p><strong>requisition</strong> – A shared identifier common to all procedure or diagnostic
 requests that were authorized more or less simultaneously by a single
-author, representing the composite or group identifier.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of the order.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.intent">
-<code class="sig-name descname">intent</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.intent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether the request is a proposal, plan, an original order or
-a reflex order.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.priority">
-<code class="sig-name descname">priority</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.priority" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates how quickly the ProcedureRequest should be
-addressed with respect to other requests.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.doNotPerform">
-<code class="sig-name descname">doNotPerform</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.doNotPerform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set this to true if the record is saying that the
-procedure should NOT be performed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code that classifies the procedure for searching, sorting
-and display purposes (e.g. “Surgical Procedure”).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code that identifies a particular procedure, diagnostic
-investigation, or panel of investigations, that have been requested.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.subject">
-<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.subject" title="Permalink to this definition">¶</a></dt>
-<dd><p>On whom or what the procedure or diagnostic is to be
+author, representing the composite or group identifier.</p></li>
+<li><p><strong>status</strong> – The status of the order.</p></li>
+<li><p><strong>intent</strong> – Whether the request is a proposal, plan, an original order or
+a reflex order.</p></li>
+<li><p><strong>priority</strong> – Indicates how quickly the ProcedureRequest should be
+addressed with respect to other requests.</p></li>
+<li><p><strong>doNotPerform</strong> – Set this to true if the record is saying that the
+procedure should NOT be performed.</p></li>
+<li><p><strong>category</strong> – A code that classifies the procedure for searching, sorting
+and display purposes (e.g. “Surgical Procedure”).</p></li>
+<li><p><strong>code</strong> – A code that identifies a particular procedure, diagnostic
+investigation, or panel of investigations, that have been requested.</p></li>
+<li><p><strong>subject</strong> – On whom or what the procedure or diagnostic is to be
 performed. This is usually a human patient, but can also be requested
 on animals, groups of humans or animals, devices such as dialysis
-machines, or even locations (typically for environmental scans).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.context">
-<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.context" title="Permalink to this definition">¶</a></dt>
-<dd><p>An encounter or episode of care that provides additional
+machines, or even locations (typically for environmental scans).</p></li>
+<li><p><strong>context</strong> – An encounter or episode of care that provides additional
 information about the healthcare context in which this request is
-made.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.occurrenceDateTime">
-<code class="sig-name descname">occurrenceDateTime</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.occurrenceDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date/time at which the diagnostic testing
-should occur.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.occurrencePeriod">
-<code class="sig-name descname">occurrencePeriod</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.occurrencePeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date/time at which the diagnostic testing should
-occur.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.occurrenceTiming">
-<code class="sig-name descname">occurrenceTiming</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.occurrenceTiming" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date/time at which the diagnostic testing should
-occur.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.asNeededBoolean">
-<code class="sig-name descname">asNeededBoolean</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.asNeededBoolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>If a CodeableConcept is present, it indicates the
+made.</p></li>
+<li><p><strong>occurrenceDateTime</strong> – The date/time at which the diagnostic testing
+should occur.</p></li>
+<li><p><strong>occurrencePeriod</strong> – The date/time at which the diagnostic testing should
+occur.</p></li>
+<li><p><strong>occurrenceTiming</strong> – The date/time at which the diagnostic testing should
+occur.</p></li>
+<li><p><strong>asNeededBoolean</strong> – If a CodeableConcept is present, it indicates the
 pre-condition for performing the procedure.  For example “pain”, “on
-flare-up”, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.asNeededCodeableConcept">
-<code class="sig-name descname">asNeededCodeableConcept</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.asNeededCodeableConcept" title="Permalink to this definition">¶</a></dt>
-<dd><p>If a CodeableConcept is present, it indicates
+flare-up”, etc.</p></li>
+<li><p><strong>asNeededCodeableConcept</strong> – If a CodeableConcept is present, it indicates
 the pre-condition for performing the procedure.  For example “pain”,
-“on flare-up”, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.authoredOn">
-<code class="sig-name descname">authoredOn</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.authoredOn" title="Permalink to this definition">¶</a></dt>
-<dd><p>When the request transitioned to being actionable.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.requester">
-<code class="sig-name descname">requester</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.requester" title="Permalink to this definition">¶</a></dt>
-<dd><p>The individual who initiated the request and has
-responsibility for its activation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.performerType">
-<code class="sig-name descname">performerType</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.performerType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Desired type of performer for doing the diagnostic
-testing.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.performer">
-<code class="sig-name descname">performer</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.performer" title="Permalink to this definition">¶</a></dt>
-<dd><p>The desired perfomer for doing the diagnostic testing.  For
-example, the surgeon, dermatopathologist, endoscopist, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.reasonCode">
-<code class="sig-name descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.reasonCode" title="Permalink to this definition">¶</a></dt>
-<dd><p>An explanation or justification for why this diagnostic
+“on flare-up”, etc.</p></li>
+<li><p><strong>authoredOn</strong> – When the request transitioned to being actionable.</p></li>
+<li><p><strong>requester</strong> – The individual who initiated the request and has
+responsibility for its activation.</p></li>
+<li><p><strong>performerType</strong> – Desired type of performer for doing the diagnostic
+testing.</p></li>
+<li><p><strong>performer</strong> – The desired perfomer for doing the diagnostic testing.  For
+example, the surgeon, dermatopathologist, endoscopist, etc.</p></li>
+<li><p><strong>reasonCode</strong> – An explanation or justification for why this diagnostic
 investigation is being requested in coded or textual form.   This is
 often for billing purposes.  May relate to the resources referred to
-in supportingInformation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.reasonReference">
-<code class="sig-name descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.reasonReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates another resource that provides a
+in supportingInformation.</p></li>
+<li><p><strong>reasonReference</strong> – Indicates another resource that provides a
 justification for why this diagnostic investigation is being
 requested.   May relate to the resources referred to in
-supportingInformation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.supportingInfo">
-<code class="sig-name descname">supportingInfo</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.supportingInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Additional clinical information about the patient or
+supportingInformation.</p></li>
+<li><p><strong>supportingInfo</strong> – Additional clinical information about the patient or
 specimen that may influence the procedure or diagnostics or their
 interpretations.     This information includes diagnosis, clinical
 findings and other observations.  In laboratory ordering these are
@@ -441,37 +224,18 @@ typically referred to as “ask at order entry questions (AOEs)”.  This
 includes observations explicitly requested by the producer (filler) to
 provide context or supporting information needed to complete the
 order. For example,  reporting the amount of inspired oxygen for blood
-gas measurements.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.specimen">
-<code class="sig-name descname">specimen</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.specimen" title="Permalink to this definition">¶</a></dt>
-<dd><p>One or more specimens that the laboratory procedure will
-use.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.bodySite">
-<code class="sig-name descname">bodySite</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.bodySite" title="Permalink to this definition">¶</a></dt>
-<dd><p>Anatomic location where the procedure should be performed.
-This is the target site.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.note">
-<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.note" title="Permalink to this definition">¶</a></dt>
-<dd><p>Any other notes and comments made about the service request. For
+gas measurements.</p></li>
+<li><p><strong>specimen</strong> – One or more specimens that the laboratory procedure will
+use.</p></li>
+<li><p><strong>bodySite</strong> – Anatomic location where the procedure should be performed.
+This is the target site.</p></li>
+<li><p><strong>note</strong> – Any other notes and comments made about the service request. For
 example, letting provider know that “patient hates needles” or other
-provider instructions.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.relevantHistory">
-<code class="sig-name descname">relevantHistory</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.relevantHistory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Key events in the history of the request.</p>
-</dd></dl>
-
+provider instructions.</p></li>
+<li><p><strong>relevantHistory</strong> – Key events in the history of the request.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcedureRequest.html#ProcedureRequest.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -491,20 +255,16 @@ provider instructions.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A record of a request for diagnostic investigations, treatments, or
 operations to be performed.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.agent">
-<code class="sig-name descname">agent</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.agent" title="Permalink to this definition">¶</a></dt>
-<dd><p>The device, practitioner or organization who initiated the
-request.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.onBehalfOf">
-<code class="sig-name descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.onBehalfOf" title="Permalink to this definition">¶</a></dt>
-<dd><p>The organization the device or practitioner was acting on
-behalf of.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>agent</strong> – The device, practitioner or organization who initiated the
+request.</p></li>
+<li><p><strong>onBehalfOf</strong> – The organization the device or practitioner was acting on
+behalf of.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ProcedureRequest.html#ProcedureRequest_Requester.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ProcedureRequest.ProcedureRequest_Requester.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -521,52 +281,31 @@ behalf of.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.ProcessRequest.html" class="btn btn-neutral float-right" title="cardea.fhir.ProcessRequest module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Procedure.html" class="btn btn-neutral float-left" title="cardea.fhir.Procedure module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

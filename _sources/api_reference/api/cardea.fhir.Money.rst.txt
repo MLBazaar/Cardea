@@ -1,0 +1,28 @@
+cardea.fhir.Money
+=================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Money
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Money.__init__
+      ~Money.assert_type
+      ~Money.get_dataframe
+      ~Money.get_eligible_relationships
+      ~Money.get_id
+      ~Money.get_relationships
+      ~Money.set_attributes
+   
+   
+
+   
+   
+   

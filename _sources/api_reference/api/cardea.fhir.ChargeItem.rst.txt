@@ -1,0 +1,28 @@
+cardea.fhir.ChargeItem
+======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ChargeItem
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ChargeItem.__init__
+      ~ChargeItem.assert_type
+      ~ChargeItem.get_dataframe
+      ~ChargeItem.get_eligible_relationships
+      ~ChargeItem.get_id
+      ~ChargeItem.get_relationships
+      ~ChargeItem.set_attributes
+   
+   
+
+   
+   
+   

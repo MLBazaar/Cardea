@@ -1,247 +1,165 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.Contract &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.Contract &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../../../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../../../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/cardea.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/cardea.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/cardea.fhir.html">cardea.fhir package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">Cardea</a>
-        
-      </nav>
 
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
 
-      <div class="wy-nav-content">
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
         
-        <div class="rst-content">
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
           
 
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-      <li>cardea.fhir.Contract</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
+    </ul>
+</nav>
 
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <h1>Source code for cardea.fhir.Contract</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.fhirbase</span> <span class="kn">import</span> <span class="n">fhirbase</span>
 
 
-<div class="viewcode-block" id="Contract"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract">[docs]</a><span class="k">class</span> <span class="nc">Contract</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract"><a class="viewcode-back" href="../../../api_reference/api/cardea.fhir.Contract.html#cardea.fhir.Contract">[docs]</a><span class="k">class</span> <span class="nc">Contract</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A formal agreement between parties regarding the conduct of business,</span>
 <span class="sd">    exchange of information or other matters.</span>
 
-<span class="sd">    Attributes:</span>
+<span class="sd">    Args:</span>
 <span class="sd">        resourceType: This is a Contract resource</span>
 <span class="sd">        identifier: Unique identifier for this Contract.</span>
 <span class="sd">        status: The status of the resource instance.</span>
@@ -307,7 +225,7 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Contract&#39;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract.__init__"><a class="viewcode-back" href="../../../api_reference/api/cardea.fhir.Contract.html#cardea.fhir.Contract.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resourceType</span> <span class="o">=</span> <span class="s1">&#39;Contract&#39;</span>
         <span class="c1"># type: str</span>
         <span class="c1"># possible values: Contract</span>
@@ -401,9 +319,9 @@
 
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Contract.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Contract_Term&#39;</span><span class="p">,</span>
@@ -518,12 +436,12 @@
         <span class="p">]</span></div></div>
 
 
-<div class="viewcode-block" id="Contract_Agent"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Agent">[docs]</a><span class="k">class</span> <span class="nc">Contract_Agent</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Agent"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Agent">[docs]</a><span class="k">class</span> <span class="nc">Contract_Agent</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A formal agreement between parties regarding the conduct of business,</span>
 <span class="sd">    exchange of information or other matters.</span>
 
-<span class="sd">    Attributes:</span>
+<span class="sd">    Args:</span>
 <span class="sd">        actor: Who or what parties are assigned roles in this Contract.</span>
 <span class="sd">        role: Role type of agent assigned roles in this Contract.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -544,7 +462,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Contract_Agent.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Agent.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Agent.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Agent.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
@@ -559,12 +477,12 @@
         <span class="p">]</span></div></div>
 
 
-<div class="viewcode-block" id="Contract_Signer"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Signer">[docs]</a><span class="k">class</span> <span class="nc">Contract_Signer</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Signer"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Signer">[docs]</a><span class="k">class</span> <span class="nc">Contract_Signer</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A formal agreement between parties regarding the conduct of business,</span>
 <span class="sd">    exchange of information or other matters.</span>
 
-<span class="sd">    Attributes:</span>
+<span class="sd">    Args:</span>
 <span class="sd">        type: Role of this Contract signer, e.g. notary, grantee.</span>
 <span class="sd">        party: Party which is a signator to this Contract.</span>
 <span class="sd">        signature: Legally binding Contract DSIG signature contents in Base64.</span>
@@ -589,7 +507,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Contract_Signer.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Signer.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Signer.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Signer.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Coding&#39;</span><span class="p">,</span>
@@ -609,12 +527,12 @@
         <span class="p">]</span></div></div>
 
 
-<div class="viewcode-block" id="Contract_ValuedItem"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_ValuedItem">[docs]</a><span class="k">class</span> <span class="nc">Contract_ValuedItem</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_ValuedItem"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_ValuedItem">[docs]</a><span class="k">class</span> <span class="nc">Contract_ValuedItem</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A formal agreement between parties regarding the conduct of business,</span>
 <span class="sd">    exchange of information or other matters.</span>
 
-<span class="sd">    Attributes:</span>
+<span class="sd">    Args:</span>
 <span class="sd">        entityCodeableConcept: Specific type of Contract Valued Item that may</span>
 <span class="sd">            be priced.</span>
 <span class="sd">        entityReference: Specific type of Contract Valued Item that may be</span>
@@ -674,7 +592,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Contract_ValuedItem.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_ValuedItem.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_ValuedItem.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_ValuedItem.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Identifier&#39;</span><span class="p">,</span>
@@ -709,12 +627,12 @@
         <span class="p">]</span></div></div>
 
 
-<div class="viewcode-block" id="Contract_Term"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Term">[docs]</a><span class="k">class</span> <span class="nc">Contract_Term</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Term"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Term">[docs]</a><span class="k">class</span> <span class="nc">Contract_Term</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A formal agreement between parties regarding the conduct of business,</span>
 <span class="sd">    exchange of information or other matters.</span>
 
-<span class="sd">    Attributes:</span>
+<span class="sd">    Args:</span>
 <span class="sd">        identifier: Unique identifier for this particular Contract Provision.</span>
 <span class="sd">        issued: When this Contract Provision was issued.</span>
 <span class="sd">        applies: Relevant time or time-period when this Contract Provision is</span>
@@ -791,7 +709,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Contract_Term.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Term.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Term.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Term.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Contract_Agent1&#39;</span><span class="p">,</span>
@@ -851,12 +769,12 @@
         <span class="p">]</span></div></div>
 
 
-<div class="viewcode-block" id="Contract_Agent1"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Agent1">[docs]</a><span class="k">class</span> <span class="nc">Contract_Agent1</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Agent1"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Agent1">[docs]</a><span class="k">class</span> <span class="nc">Contract_Agent1</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A formal agreement between parties regarding the conduct of business,</span>
 <span class="sd">    exchange of information or other matters.</span>
 
-<span class="sd">    Attributes:</span>
+<span class="sd">    Args:</span>
 <span class="sd">        actor: The agent assigned a role in this Contract Provision.</span>
 <span class="sd">        role: Role played by the agent assigned this role in the execution of</span>
 <span class="sd">            this Contract Provision.</span>
@@ -878,7 +796,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Contract_Agent1.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Agent1.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Agent1.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Agent1.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
@@ -893,12 +811,12 @@
         <span class="p">]</span></div></div>
 
 
-<div class="viewcode-block" id="Contract_ValuedItem1"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_ValuedItem1">[docs]</a><span class="k">class</span> <span class="nc">Contract_ValuedItem1</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_ValuedItem1"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_ValuedItem1">[docs]</a><span class="k">class</span> <span class="nc">Contract_ValuedItem1</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A formal agreement between parties regarding the conduct of business,</span>
 <span class="sd">    exchange of information or other matters.</span>
 
-<span class="sd">    Attributes:</span>
+<span class="sd">    Args:</span>
 <span class="sd">        entityCodeableConcept: Specific type of Contract Provision Valued Item</span>
 <span class="sd">            that may be priced.</span>
 <span class="sd">        entityReference: Specific type of Contract Provision Valued Item that</span>
@@ -959,7 +877,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Contract_ValuedItem1.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_ValuedItem1.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_ValuedItem1.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_ValuedItem1.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
@@ -994,12 +912,12 @@
         <span class="p">]</span></div></div>
 
 
-<div class="viewcode-block" id="Contract_Friendly"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Friendly">[docs]</a><span class="k">class</span> <span class="nc">Contract_Friendly</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Friendly"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Friendly">[docs]</a><span class="k">class</span> <span class="nc">Contract_Friendly</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A formal agreement between parties regarding the conduct of business,</span>
 <span class="sd">    exchange of information or other matters.</span>
 
-<span class="sd">    Attributes:</span>
+<span class="sd">    Args:</span>
 <span class="sd">        contentAttachment: Human readable rendering of this Contract in a</span>
 <span class="sd">            format and representation intended to enhance comprehension and ensure</span>
 <span class="sd">            understandability.</span>
@@ -1023,7 +941,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Contract_Friendly.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Friendly.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Friendly.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Friendly.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Attachment&#39;</span><span class="p">,</span>
@@ -1038,12 +956,12 @@
         <span class="p">]</span></div></div>
 
 
-<div class="viewcode-block" id="Contract_Legal"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Legal">[docs]</a><span class="k">class</span> <span class="nc">Contract_Legal</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Legal"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Legal">[docs]</a><span class="k">class</span> <span class="nc">Contract_Legal</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A formal agreement between parties regarding the conduct of business,</span>
 <span class="sd">    exchange of information or other matters.</span>
 
-<span class="sd">    Attributes:</span>
+<span class="sd">    Args:</span>
 <span class="sd">        contentAttachment: Contract legal text in human renderable form.</span>
 <span class="sd">        contentReference: Contract legal text in human renderable form.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1063,7 +981,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Contract_Legal.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Legal.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Legal.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Legal.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Attachment&#39;</span><span class="p">,</span>
@@ -1078,12 +996,12 @@
         <span class="p">]</span></div></div>
 
 
-<div class="viewcode-block" id="Contract_Rule"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Rule">[docs]</a><span class="k">class</span> <span class="nc">Contract_Rule</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Rule"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Rule">[docs]</a><span class="k">class</span> <span class="nc">Contract_Rule</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A formal agreement between parties regarding the conduct of business,</span>
 <span class="sd">    exchange of information or other matters.</span>
 
-<span class="sd">    Attributes:</span>
+<span class="sd">    Args:</span>
 <span class="sd">        contentAttachment: Computable Contract conveyed using a policy rule</span>
 <span class="sd">            language (e.g. XACML, DKAL, SecPal).</span>
 <span class="sd">        contentReference: Computable Contract conveyed using a policy rule</span>
@@ -1105,7 +1023,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Contract_Rule.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract.Contract_Rule.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Contract_Rule.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Contract.html#cardea.fhir.Contract_Rule.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Attachment&#39;</span><span class="p">,</span>
@@ -1120,43 +1038,31 @@
         <span class="p">]</span></div></div>
 </pre></div>
 
-           </div>
-           
-          </div>
-          <footer>
-  
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
 
-  <hr/>
+              </div>
+              
+          </main>
+          
 
-  <div role="contentinfo">
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

@@ -1,0 +1,6 @@
+cardea.Cardea.select\_problem
+=============================
+
+.. currentmodule:: cardea
+
+.. automethod:: Cardea.select_problem

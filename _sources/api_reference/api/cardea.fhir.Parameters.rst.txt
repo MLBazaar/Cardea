@@ -1,0 +1,28 @@
+cardea.fhir.Parameters
+======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Parameters
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Parameters.__init__
+      ~Parameters.assert_type
+      ~Parameters.get_dataframe
+      ~Parameters.get_eligible_relationships
+      ~Parameters.get_id
+      ~Parameters.get_relationships
+      ~Parameters.set_attributes
+   
+   
+
+   
+   
+   

@@ -1,0 +1,28 @@
+cardea.fhir.Organization
+========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Organization
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Organization.__init__
+      ~Organization.assert_type
+      ~Organization.get_dataframe
+      ~Organization.get_eligible_relationships
+      ~Organization.get_id
+      ~Organization.get_relationships
+      ~Organization.set_attributes
+   
+   
+
+   
+   
+   

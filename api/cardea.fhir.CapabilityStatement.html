@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.CapabilityStatement module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.CapabilityStatement module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.CarePlan module" href="cardea.fhir.CarePlan.html" />
-    <link rel="prev" title="cardea.fhir.Bundle module" href="cardea.fhir.Bundle.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.CapabilityStatement module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.CapabilityStatement.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.CapabilityStatement">
 <span id="cardea-fhir-capabilitystatement-module"></span><h1>cardea.fhir.CapabilityStatement module<a class="headerlink" href="#module-cardea.fhir.CapabilityStatement" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -252,235 +160,101 @@
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a CapabilityStatement resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute URI that is used to identify this capability
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a CapabilityStatement resource</p></li>
+<li><p><strong>url</strong> – An absolute URI that is used to identify this capability
 statement when it is referenced in a specification, model, design or
 an instance. This SHALL be a URL, SHOULD be globally unique, and
 SHOULD be an address at which this capability statement is (or will
 be) published. The URL SHOULD include the major version of the
 capability statement. For more information see [Technical and Business
-Versions](resource.html#versions).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier that is used to identify this version of the
+Versions](resource.html#versions).</p></li>
+<li><p><strong>version</strong> – The identifier that is used to identify this version of the
 capability statement when it is referenced in a specification, model,
 design or instance. This is an arbitrary value managed by the
 capability statement author and is not expected to be globally unique.
 For example, it might be a timestamp (e.g. yyyymmdd) if a managed
 version is not available. There is also no expectation that versions
-can be placed in a lexicographical sequence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>A natural language name identifying the capability statement.
+can be placed in a lexicographical sequence.</p></li>
+<li><p><strong>name</strong> – A natural language name identifying the capability statement.
 This name should be usable as an identifier for the module by machine
-processing applications such as code generation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.title">
-<code class="sig-name descname">title</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short, descriptive, user-friendly title for the capability
-statement.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of this capability statement. Enables tracking the
-life-cycle of the content.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.experimental">
-<code class="sig-name descname">experimental</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.experimental" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean value to indicate that this capability
+processing applications such as code generation.</p></li>
+<li><p><strong>title</strong> – A short, descriptive, user-friendly title for the capability
+statement.</p></li>
+<li><p><strong>status</strong> – The status of this capability statement. Enables tracking the
+life-cycle of the content.</p></li>
+<li><p><strong>experimental</strong> – A boolean value to indicate that this capability
 statement is authored for testing purposes (or
 education/evaluation/marketing), and is not intended to be used for
-genuine usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.date">
-<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date  (and optionally time) when the capability statement
+genuine usage.</p></li>
+<li><p><strong>date</strong> – The date  (and optionally time) when the capability statement
 was published. The date must change if and when the business version
 changes and it must change if the status code changes. In addition, it
 should change when the substantive content of the capability statement
-changes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.publisher">
-<code class="sig-name descname">publisher</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.publisher" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the individual or organization that published
-the capability statement.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.contact">
-<code class="sig-name descname">contact</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.contact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Contact details to assist a user in finding and communicating
-with the publisher.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A free text natural language description of the
+changes.</p></li>
+<li><p><strong>publisher</strong> – The name of the individual or organization that published
+the capability statement.</p></li>
+<li><p><strong>contact</strong> – Contact details to assist a user in finding and communicating
+with the publisher.</p></li>
+<li><p><strong>description</strong> – A free text natural language description of the
 capability statement from a consumer’s perspective. Typically, this is
 used when the capability statement describes a desired rather than an
 actual solution, for example as a formal expression of requirements as
-part of an RFP.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.useContext">
-<code class="sig-name descname">useContext</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.useContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content was developed with a focus and intent of
+part of an RFP.</p></li>
+<li><p><strong>useContext</strong> – The content was developed with a focus and intent of
 supporting the contexts that are listed. These terms may be used to
 assist with indexing and searching for appropriate capability
-statement instances.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.jurisdiction">
-<code class="sig-name descname">jurisdiction</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.jurisdiction" title="Permalink to this definition">¶</a></dt>
-<dd><p>A legal or geographic region in which the capability
-statement is intended to be used.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.purpose">
-<code class="sig-name descname">purpose</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.purpose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Explaination of why this capability statement is needed and
-why it has been designed as it has.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.copyright">
-<code class="sig-name descname">copyright</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.copyright" title="Permalink to this definition">¶</a></dt>
-<dd><p>A copyright statement relating to the capability statement
+statement instances.</p></li>
+<li><p><strong>jurisdiction</strong> – A legal or geographic region in which the capability
+statement is intended to be used.</p></li>
+<li><p><strong>purpose</strong> – Explaination of why this capability statement is needed and
+why it has been designed as it has.</p></li>
+<li><p><strong>copyright</strong> – A copyright statement relating to the capability statement
 and/or its contents. Copyright statements are generally legal
-restrictions on the use and publishing of the capability statement.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.kind">
-<code class="sig-name descname">kind</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.kind" title="Permalink to this definition">¶</a></dt>
-<dd><p>The way that this statement is intended to be used, to describe
+restrictions on the use and publishing of the capability statement.</p></li>
+<li><p><strong>kind</strong> – The way that this statement is intended to be used, to describe
 an actual running instance of software, a particular product (kind not
 instance of software) or a class of implementation (e.g. a desired
-purchase).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.instantiates">
-<code class="sig-name descname">instantiates</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.instantiates" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reference to a canonical URL of another
+purchase).</p></li>
+<li><p><strong>instantiates</strong> – Reference to a canonical URL of another
 CapabilityStatement that this software implements or uses. This
 capability statement is a published API description that corresponds
 to a business service. The rest of the capability statement does not
-need to repeat the details of the referenced resource, but can do so.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.software">
-<code class="sig-name descname">software</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.software" title="Permalink to this definition">¶</a></dt>
-<dd><p>Software that is covered by this capability statement.  It
+need to repeat the details of the referenced resource, but can do so.</p></li>
+<li><p><strong>software</strong> – Software that is covered by this capability statement.  It
 is used when the capability statement describes the capabilities of a
-particular software version, independent of an installation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.implementation">
-<code class="sig-name descname">implementation</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.implementation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies a specific implementation instance that is
+particular software version, independent of an installation.</p></li>
+<li><p><strong>implementation</strong> – Identifies a specific implementation instance that is
 described by the capability statement - i.e. a particular
-installation, rather than the capabilities of a software program.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.fhirVersion">
-<code class="sig-name descname">fhirVersion</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.fhirVersion" title="Permalink to this definition">¶</a></dt>
-<dd><p>The version of the FHIR specification on which this
-capability statement is based.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.acceptUnknown">
-<code class="sig-name descname">acceptUnknown</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.acceptUnknown" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code that indicates whether the application accepts
-unknown elements or extensions when reading resources.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.format">
-<code class="sig-name descname">format</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.format" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of the formats supported by this implementation using
-their content types.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.patchFormat">
-<code class="sig-name descname">patchFormat</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.patchFormat" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of the patch formats supported by this
-implementation using their content types.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.implementationGuide">
-<code class="sig-name descname">implementationGuide</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.implementationGuide" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of implementation guides that the server
-does (or should) support in their entirety.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.profile">
-<code class="sig-name descname">profile</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.profile" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of profiles that represent different use cases
+installation, rather than the capabilities of a software program.</p></li>
+<li><p><strong>fhirVersion</strong> – The version of the FHIR specification on which this
+capability statement is based.</p></li>
+<li><p><strong>acceptUnknown</strong> – A code that indicates whether the application accepts
+unknown elements or extensions when reading resources.</p></li>
+<li><p><strong>format</strong> – A list of the formats supported by this implementation using
+their content types.</p></li>
+<li><p><strong>patchFormat</strong> – A list of the patch formats supported by this
+implementation using their content types.</p></li>
+<li><p><strong>implementationGuide</strong> – A list of implementation guides that the server
+does (or should) support in their entirety.</p></li>
+<li><p><strong>profile</strong> – A list of profiles that represent different use cases
 supported by the system. For a server, “supported by the system” means
 the system hosts/produces a set of resources that are conformant to a
 particular profile, and allows clients that use its services to search
 using this profile and to find appropriate data. For a client, it
 means the system will search by this profile and process data
 according to the guidance implicit in the profile. See further
-discussion in [Using Profiles](profiling.html#profile-uses).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.rest">
-<code class="sig-name descname">rest</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.rest" title="Permalink to this definition">¶</a></dt>
-<dd><p>A definition of the restful capabilities of the solution, if
-any.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.messaging">
-<code class="sig-name descname">messaging</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.messaging" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description of the messaging capabilities of the
-solution.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.document">
-<code class="sig-name descname">document</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.document" title="Permalink to this definition">¶</a></dt>
-<dd><p>A document definition.</p>
-</dd></dl>
-
+discussion in [Using Profiles](profiling.html#profile-uses).</p></li>
+<li><p><strong>rest</strong> – A definition of the restful capabilities of the solution, if
+any.</p></li>
+<li><p><strong>messaging</strong> – A description of the messaging capabilities of the
+solution.</p></li>
+<li><p><strong>document</strong> – A document definition.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -514,18 +288,14 @@ solution.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Certificate.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Certificate.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mime type for a certificate.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Certificate.blob">
-<code class="sig-name descname">blob</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Certificate.blob" title="Permalink to this definition">¶</a></dt>
-<dd><p>Actual certificate.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – Mime type for a certificate.</p></li>
+<li><p><strong>blob</strong> – Actual certificate.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -536,27 +306,18 @@ implementation.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Document.mode">
-<code class="sig-name descname">mode</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Document.mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mode of this document declaration - whether an application is a
-producer or consumer.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Document.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Document.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description of how the application supports or uses
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> – Mode of this document declaration - whether an application is a
+producer or consumer.</p></li>
+<li><p><strong>documentation</strong> – A description of how the application supports or uses
 the specified document profile.  For example, when documents are
-created, what action is taken with consumed documents, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Document.profile">
-<code class="sig-name descname">profile</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Document.profile" title="Permalink to this definition">¶</a></dt>
-<dd><p>A constraint on a resource used in the document.</p>
-</dd></dl>
-
+created, what action is taken with consumed documents, etc.</p></li>
+<li><p><strong>profile</strong> – A constraint on a resource used in the document.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Document.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_Document.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Document.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -590,20 +351,16 @@ created, what action is taken with consumed documents, etc.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Endpoint.protocol">
-<code class="sig-name descname">protocol</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Endpoint.protocol" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of the messaging transport protocol(s) identifiers,
-supported by this endpoint.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Endpoint.address">
-<code class="sig-name descname">address</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Endpoint.address" title="Permalink to this definition">¶</a></dt>
-<dd><p>The network address of the end-point. For solutions that do
-not use network addresses for routing, it can be just an identifier.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> – A list of the messaging transport protocol(s) identifiers,
+supported by this endpoint.</p></li>
+<li><p><strong>address</strong> – The network address of the end-point. For solutions that do
+not use network addresses for routing, it can be just an identifier.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Endpoint.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_Endpoint.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Endpoint.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -625,51 +382,22 @@ not use network addresses for routing, it can be just an identifier.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Event.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Event.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>A coded identifier of a supported messaging event.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Event.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Event.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>The impact of the content of the message.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Event.mode">
-<code class="sig-name descname">mode</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Event.mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>The mode of this event declaration - whether an application is a
-sender or receiver.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Event.focus">
-<code class="sig-name descname">focus</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Event.focus" title="Permalink to this definition">¶</a></dt>
-<dd><p>A resource associated with the event.  This is the resource
-that defines the event.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Event.request">
-<code class="sig-name descname">request</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Event.request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the request for this event.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Event.response">
-<code class="sig-name descname">response</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Event.response" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the response for this event.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Event.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Event.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Guidance on how this event is handled, such as internal
-system trigger points, business rules, etc.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> – A coded identifier of a supported messaging event.</p></li>
+<li><p><strong>category</strong> – The impact of the content of the message.</p></li>
+<li><p><strong>mode</strong> – The mode of this event declaration - whether an application is a
+sender or receiver.</p></li>
+<li><p><strong>focus</strong> – A resource associated with the event.  This is the resource
+that defines the event.</p></li>
+<li><p><strong>request</strong> – Information about the request for this event.</p></li>
+<li><p><strong>response</strong> – Information about the response for this event.</p></li>
+<li><p><strong>documentation</strong> – Guidance on how this event is handled, such as internal
+system trigger points, business rules, etc.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Event.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_Event.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Event.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -703,20 +431,16 @@ system trigger points, business rules, etc.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Implementation.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Implementation.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the specific installation that this
-capability statement relates to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Implementation.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Implementation.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute base URL for the implementation.  This forms the base
-for REST interfaces as well as the mailbox and document interfaces.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>description</strong> – Information about the specific installation that this
+capability statement relates to.</p></li>
+<li><p><strong>url</strong> – An absolute base URL for the implementation.  This forms the base
+for REST interfaces as well as the mailbox and document interfaces.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -727,22 +451,18 @@ for REST interfaces as well as the mailbox and document interfaces.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>Coded identifier of the operation, supported by the system
-resource.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Guidance specific to the implementation of this
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> – Coded identifier of the operation, supported by the system
+resource.</p></li>
+<li><p><strong>documentation</strong> – Guidance specific to the implementation of this
 operation, such as ‘delete is a logical delete’ or ‘updates are only
 allowed with version id’ or ‘creates permitted from pre-authorized
-certificates only’.</p>
-</dd></dl>
-
+certificates only’.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_Interaction.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -765,20 +485,16 @@ certificates only’.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction1.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction1.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>A coded identifier of the operation, supported by the system.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction1.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction1.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Guidance specific to the implementation of this
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> – A coded identifier of the operation, supported by the system.</p></li>
+<li><p><strong>documentation</strong> – Guidance specific to the implementation of this
 operation, such as limitations on the kind of transactions allowed, or
-information about system wide search is implemented.</p>
-</dd></dl>
-
+information about system wide search is implemented.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction1.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_Interaction1.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Interaction1.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -801,44 +517,25 @@ information about system wide search is implemented.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.endpoint">
-<code class="sig-name descname">endpoint</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.endpoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>An endpoint (network accessible address) to which messages
-and/or replies are to be sent.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.reliableCache">
-<code class="sig-name descname">reliableCache</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.reliableCache" title="Permalink to this definition">¶</a></dt>
-<dd><p>Length if the receiver’s reliable messaging cache in
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>endpoint</strong> – An endpoint (network accessible address) to which messages
+and/or replies are to be sent.</p></li>
+<li><p><strong>reliableCache</strong> – Length if the receiver’s reliable messaging cache in
 minutes (if a receiver) or how long the cache length on the receiver
-should be (if a sender).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Documentation about the system’s messaging capabilities
+should be (if a sender).</p></li>
+<li><p><strong>documentation</strong> – Documentation about the system’s messaging capabilities
 for this endpoint not otherwise documented by the capability
 statement.  For example, the process for becoming an authorized
-messaging exchange partner.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.supportedMessage">
-<code class="sig-name descname">supportedMessage</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.supportedMessage" title="Permalink to this definition">¶</a></dt>
-<dd><p>References to message definitions for messages this
-system can send or receive.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.event">
-<code class="sig-name descname">event</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.event" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description of the solution’s support for an event at this
-end-point.</p>
-</dd></dl>
-
+messaging exchange partner.</p></li>
+<li><p><strong>supportedMessage</strong> – References to message definitions for messages this
+system can send or receive.</p></li>
+<li><p><strong>event</strong> – A description of the solution’s support for an event at this
+end-point.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_Messaging.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Messaging.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -860,20 +557,16 @@ end-point.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Operation.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Operation.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the operation or query. For an operation, this is
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of the operation or query. For an operation, this is
 the name  prefixed with $ and used in the URL. For a query, this is
-the name used in the _query parameter when the query is called.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Operation.definition">
-<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Operation.definition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Where the formal definition can be found.</p>
-</dd></dl>
-
+the name used in the _query parameter when the query is called.</p></li>
+<li><p><strong>definition</strong> – Where the formal definition can be found.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Operation.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_Operation.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Operation.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -895,119 +588,50 @@ the name used in the _query parameter when the query is called.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>A type of resource exposed via the restful interface.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.profile">
-<code class="sig-name descname">profile</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.profile" title="Permalink to this definition">¶</a></dt>
-<dd><p>A specification of the profile that describes the solution’s
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – A type of resource exposed via the restful interface.</p></li>
+<li><p><strong>profile</strong> – A specification of the profile that describes the solution’s
 overall support for the resource, including any constraints on
 cardinality, bindings, lengths or other limitations. See further
-discussion in [Using Profiles](profiling.html#profile-uses).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Additional information about the resource type used by
-the system.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.interaction">
-<code class="sig-name descname">interaction</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.interaction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies a restful operation supported by the solution.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.versioning">
-<code class="sig-name descname">versioning</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.versioning" title="Permalink to this definition">¶</a></dt>
-<dd><p>This field is set to no-version to specify that the system
+discussion in [Using Profiles](profiling.html#profile-uses).</p></li>
+<li><p><strong>documentation</strong> – Additional information about the resource type used by
+the system.</p></li>
+<li><p><strong>interaction</strong> – Identifies a restful operation supported by the solution.</p></li>
+<li><p><strong>versioning</strong> – This field is set to no-version to specify that the system
 does not support (server) or use (client) versioning for this resource
 type. If this has some other value, the server must at least correctly
 track and populate the versionId meta-property on resources. If the
 value is ‘versioned-update’, then the server supports all the
 versioning features, including using e-tags for version integrity in
-the API.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.readHistory">
-<code class="sig-name descname">readHistory</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.readHistory" title="Permalink to this definition">¶</a></dt>
-<dd><p>A flag for whether the server is able to return past
-versions as part of the vRead operation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.updateCreate">
-<code class="sig-name descname">updateCreate</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.updateCreate" title="Permalink to this definition">¶</a></dt>
-<dd><p>A flag to indicate that the server allows or needs to
+the API.</p></li>
+<li><p><strong>readHistory</strong> – A flag for whether the server is able to return past
+versions as part of the vRead operation.</p></li>
+<li><p><strong>updateCreate</strong> – A flag to indicate that the server allows or needs to
 allow the client to create new identities on the server (e.g. that is,
 the client PUTs to a location where there is no existing resource).
 Allowing this operation means that the server allows the client to
-create new identities on the server.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.conditionalCreate">
-<code class="sig-name descname">conditionalCreate</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.conditionalCreate" title="Permalink to this definition">¶</a></dt>
-<dd><p>A flag that indicates that the server supports
-conditional create.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.conditionalRead">
-<code class="sig-name descname">conditionalRead</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.conditionalRead" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code that indicates how the server supports
-conditional read.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.conditionalUpdate">
-<code class="sig-name descname">conditionalUpdate</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.conditionalUpdate" title="Permalink to this definition">¶</a></dt>
-<dd><p>A flag that indicates that the server supports
-conditional update.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.conditionalDelete">
-<code class="sig-name descname">conditionalDelete</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.conditionalDelete" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code that indicates how the server supports
-conditional delete.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.referencePolicy">
-<code class="sig-name descname">referencePolicy</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.referencePolicy" title="Permalink to this definition">¶</a></dt>
-<dd><p>A set of flags that defines how references are
-supported.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.searchInclude">
-<code class="sig-name descname">searchInclude</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.searchInclude" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of _include values supported by the server.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.searchRevInclude">
-<code class="sig-name descname">searchRevInclude</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.searchRevInclude" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of _revinclude (reverse include) values
-supported by the server.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.searchParam">
-<code class="sig-name descname">searchParam</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.searchParam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Search parameters for implementations to support and/or
+create new identities on the server.</p></li>
+<li><p><strong>conditionalCreate</strong> – A flag that indicates that the server supports
+conditional create.</p></li>
+<li><p><strong>conditionalRead</strong> – A code that indicates how the server supports
+conditional read.</p></li>
+<li><p><strong>conditionalUpdate</strong> – A flag that indicates that the server supports
+conditional update.</p></li>
+<li><p><strong>conditionalDelete</strong> – A code that indicates how the server supports
+conditional delete.</p></li>
+<li><p><strong>referencePolicy</strong> – A set of flags that defines how references are
+supported.</p></li>
+<li><p><strong>searchInclude</strong> – A list of _include values supported by the server.</p></li>
+<li><p><strong>searchRevInclude</strong> – A list of _revinclude (reverse include) values
+supported by the server.</p></li>
+<li><p><strong>searchParam</strong> – Search parameters for implementations to support and/or
 make use of - either references to ones defined in the specification,
-or additional ones defined for/by the implementation.</p>
-</dd></dl>
-
+or additional ones defined for/by the implementation.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_Resource.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Resource.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -1041,65 +665,31 @@ or additional ones defined for/by the implementation.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.mode">
-<code class="sig-name descname">mode</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies whether this portion of the statement is describing
-the ability to initiate or receive restful operations.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the system’s restful capabilities
-that apply across all applications, such as security.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.security">
-<code class="sig-name descname">security</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.security" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about security implementation from an interface
-perspective - what a client needs to know.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.resource">
-<code class="sig-name descname">resource</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.resource" title="Permalink to this definition">¶</a></dt>
-<dd><p>A specification of the restful capabilities of the solution
-for a specific resource type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.interaction">
-<code class="sig-name descname">interaction</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.interaction" title="Permalink to this definition">¶</a></dt>
-<dd><p>A specification of restful operations supported by the
-system.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.searchParam">
-<code class="sig-name descname">searchParam</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.searchParam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Search parameters that are supported for searching all
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> – Identifies whether this portion of the statement is describing
+the ability to initiate or receive restful operations.</p></li>
+<li><p><strong>documentation</strong> – Information about the system’s restful capabilities
+that apply across all applications, such as security.</p></li>
+<li><p><strong>security</strong> – Information about security implementation from an interface
+perspective - what a client needs to know.</p></li>
+<li><p><strong>resource</strong> – A specification of the restful capabilities of the solution
+for a specific resource type.</p></li>
+<li><p><strong>interaction</strong> – A specification of restful operations supported by the
+system.</p></li>
+<li><p><strong>searchParam</strong> – Search parameters that are supported for searching all
 resources for implementations to support and/or make use of - either
 references to ones defined in the specification, or additional ones
-defined for/by the implementation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.operation">
-<code class="sig-name descname">operation</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.operation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Definition of an operation or a named query together with
-its parameters and their meaning and type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.compartment">
-<code class="sig-name descname">compartment</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.compartment" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute URI which is a reference to the definition of
+defined for/by the implementation.</p></li>
+<li><p><strong>operation</strong> – Definition of an operation or a named query together with
+its parameters and their meaning and type.</p></li>
+<li><p><strong>compartment</strong> – An absolute URI which is a reference to the definition of
 a compartment that the system supports. The reference is to a
-CompartmentDefinition resource by its canonical URL .</p>
-</dd></dl>
-
+CompartmentDefinition resource by its canonical URL .</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_Rest.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Rest.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -1133,36 +723,22 @@ CompartmentDefinition resource by its canonical URL .</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_SearchParam.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_SearchParam.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the search parameter used in the interface.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_SearchParam.definition">
-<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_SearchParam.definition" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute URI that is a formal reference to where this
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of the search parameter used in the interface.</p></li>
+<li><p><strong>definition</strong> – An absolute URI that is a formal reference to where this
 parameter was first defined, so that a client can be confident of the
 meaning of the search parameter (a reference to
-[[[SearchParameter.url]]]).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_SearchParam.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_SearchParam.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of value a search parameter refers to, and how the
-content is interpreted.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_SearchParam.documentation">
-<code class="sig-name descname">documentation</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_SearchParam.documentation" title="Permalink to this definition">¶</a></dt>
-<dd><p>This allows documentation of any distinct behaviors
+[[[SearchParameter.url]]]).</p></li>
+<li><p><strong>type</strong> – The type of value a search parameter refers to, and how the
+content is interpreted.</p></li>
+<li><p><strong>documentation</strong> – This allows documentation of any distinct behaviors
 about how the search parameter is used.  For example, text matching
-algorithms.</p>
-</dd></dl>
-
+algorithms.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_SearchParam.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_SearchParam.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_SearchParam.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -1185,32 +761,18 @@ algorithms.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Security.cors">
-<code class="sig-name descname">cors</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Security.cors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Server adds CORS headers when responding to requests - this
-enables javascript applications to use the server.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Security.service">
-<code class="sig-name descname">service</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Security.service" title="Permalink to this definition">¶</a></dt>
-<dd><p>Types of security services that are supported/required by the
-system.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Security.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Security.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>General description of how security works.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Security.certificate">
-<code class="sig-name descname">certificate</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Security.certificate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Certificates associated with security profiles.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cors</strong> – Server adds CORS headers when responding to requests - this
+enables javascript applications to use the server.</p></li>
+<li><p><strong>service</strong> – Types of security services that are supported/required by the
+system.</p></li>
+<li><p><strong>description</strong> – General description of how security works.</p></li>
+<li><p><strong>certificate</strong> – Certificates associated with security profiles.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Security.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_Security.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Security.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1232,25 +794,16 @@ system.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Software.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Software.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name software is known by.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Software.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Software.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The version identifier for the software covered by this
-statement.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_Software.releaseDate">
-<code class="sig-name descname">releaseDate</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_Software.releaseDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Date this version of the software was released.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name software is known by.</p></li>
+<li><p><strong>version</strong> – The version identifier for the software covered by this
+statement.</p></li>
+<li><p><strong>releaseDate</strong> – Date this version of the software was released.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -1261,20 +814,16 @@ statement.</p>
 a FHIR Server that may be used as a statement of actual server
 functionality or a statement of required or desired server
 implementation.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_SupportedMessage.mode">
-<code class="sig-name descname">mode</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_SupportedMessage.mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>The mode of this event declaration - whether application is
-sender or receiver.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_SupportedMessage.definition">
-<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_SupportedMessage.definition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Points to a message definition that identifies the
-messaging event, message structure, allowed responses, etc.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> – The mode of this event declaration - whether application is
+sender or receiver.</p></li>
+<li><p><strong>definition</strong> – Points to a message definition that identifies the
+messaging event, message structure, allowed responses, etc.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.CapabilityStatement.CapabilityStatement_SupportedMessage.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/CapabilityStatement.html#CapabilityStatement_SupportedMessage.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.CapabilityStatement.CapabilityStatement_SupportedMessage.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -1303,52 +852,31 @@ messaging event, message structure, allowed responses, etc.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.CarePlan.html" class="btn btn-neutral float-right" title="cardea.fhir.CarePlan module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Bundle.html" class="btn btn-neutral float-left" title="cardea.fhir.Bundle module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

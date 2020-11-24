@@ -1,0 +1,28 @@
+cardea.fhir.ExplanationOfBenefit
+================================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ExplanationOfBenefit
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ExplanationOfBenefit.__init__
+      ~ExplanationOfBenefit.assert_type
+      ~ExplanationOfBenefit.get_dataframe
+      ~ExplanationOfBenefit.get_eligible_relationships
+      ~ExplanationOfBenefit.get_id
+      ~ExplanationOfBenefit.get_relationships
+      ~ExplanationOfBenefit.set_attributes
+   
+   
+
+   
+   
+   

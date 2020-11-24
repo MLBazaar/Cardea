@@ -1,0 +1,28 @@
+cardea.fhir.Consent
+===================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Consent
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Consent.__init__
+      ~Consent.assert_type
+      ~Consent.get_dataframe
+      ~Consent.get_eligible_relationships
+      ~Consent.get_id
+      ~Consent.get_relationships
+      ~Consent.set_attributes
+   
+   
+
+   
+   
+   

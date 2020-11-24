@@ -1,0 +1,28 @@
+cardea.fhir.DiagnosticReport
+============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: DiagnosticReport
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DiagnosticReport.__init__
+      ~DiagnosticReport.assert_type
+      ~DiagnosticReport.get_dataframe
+      ~DiagnosticReport.get_eligible_relationships
+      ~DiagnosticReport.get_id
+      ~DiagnosticReport.get_relationships
+      ~DiagnosticReport.set_attributes
+   
+   
+
+   
+   
+   

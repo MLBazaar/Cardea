@@ -1,0 +1,30 @@
+cardea.Cardea
+=============
+
+.. currentmodule:: cardea
+
+.. autoclass:: Cardea
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Cardea.__init__
+      ~Cardea.convert_from_json
+      ~Cardea.convert_to_json
+      ~Cardea.execute_model
+      ~Cardea.generate_features
+      ~Cardea.list_feature_primitives
+      ~Cardea.list_problems
+      ~Cardea.load_data_entityset
+      ~Cardea.select_problem
+   
+   
+
+   
+   
+   

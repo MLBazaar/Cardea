@@ -1,0 +1,28 @@
+cardea.fhir.Provenance
+======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Provenance
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Provenance.__init__
+      ~Provenance.assert_type
+      ~Provenance.get_dataframe
+      ~Provenance.get_eligible_relationships
+      ~Provenance.get_id
+      ~Provenance.get_relationships
+      ~Provenance.set_attributes
+   
+   
+
+   
+   
+   

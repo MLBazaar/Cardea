@@ -1,0 +1,28 @@
+cardea.fhir.CodeableConcept
+===========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: CodeableConcept
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CodeableConcept.__init__
+      ~CodeableConcept.assert_type
+      ~CodeableConcept.get_dataframe
+      ~CodeableConcept.get_eligible_relationships
+      ~CodeableConcept.get_id
+      ~CodeableConcept.get_relationships
+      ~CodeableConcept.set_attributes
+   
+   
+
+   
+   
+   

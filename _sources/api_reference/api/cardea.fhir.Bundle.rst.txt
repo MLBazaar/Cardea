@@ -1,0 +1,28 @@
+cardea.fhir.Bundle
+==================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Bundle
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Bundle.__init__
+      ~Bundle.assert_type
+      ~Bundle.get_dataframe
+      ~Bundle.get_eligible_relationships
+      ~Bundle.get_id
+      ~Bundle.get_relationships
+      ~Bundle.set_attributes
+   
+   
+
+   
+   
+   

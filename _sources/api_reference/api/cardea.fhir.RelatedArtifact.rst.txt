@@ -1,0 +1,28 @@
+cardea.fhir.RelatedArtifact
+===========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: RelatedArtifact
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~RelatedArtifact.__init__
+      ~RelatedArtifact.assert_type
+      ~RelatedArtifact.get_dataframe
+      ~RelatedArtifact.get_eligible_relationships
+      ~RelatedArtifact.get_id
+      ~RelatedArtifact.get_relationships
+      ~RelatedArtifact.set_attributes
+   
+   
+
+   
+   
+   

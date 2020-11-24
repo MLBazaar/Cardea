@@ -1,0 +1,28 @@
+cardea.fhir.Schedule
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Schedule
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Schedule.__init__
+      ~Schedule.assert_type
+      ~Schedule.get_dataframe
+      ~Schedule.get_eligible_relationships
+      ~Schedule.get_id
+      ~Schedule.get_relationships
+      ~Schedule.set_attributes
+   
+   
+
+   
+   
+   

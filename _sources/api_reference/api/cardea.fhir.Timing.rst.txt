@@ -1,0 +1,28 @@
+cardea.fhir.Timing
+==================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Timing
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Timing.__init__
+      ~Timing.assert_type
+      ~Timing.get_dataframe
+      ~Timing.get_eligible_relationships
+      ~Timing.get_id
+      ~Timing.get_relationships
+      ~Timing.set_attributes
+   
+   
+
+   
+   
+   

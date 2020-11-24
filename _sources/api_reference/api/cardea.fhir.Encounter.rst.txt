@@ -1,0 +1,28 @@
+cardea.fhir.Encounter
+=====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Encounter
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Encounter.__init__
+      ~Encounter.assert_type
+      ~Encounter.get_dataframe
+      ~Encounter.get_eligible_relationships
+      ~Encounter.get_id
+      ~Encounter.get_relationships
+      ~Encounter.set_attributes
+   
+   
+
+   
+   
+   

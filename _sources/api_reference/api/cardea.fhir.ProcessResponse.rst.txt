@@ -1,0 +1,28 @@
+cardea.fhir.ProcessResponse
+===========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ProcessResponse
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ProcessResponse.__init__
+      ~ProcessResponse.assert_type
+      ~ProcessResponse.get_dataframe
+      ~ProcessResponse.get_eligible_relationships
+      ~ProcessResponse.get_id
+      ~ProcessResponse.get_relationships
+      ~ProcessResponse.set_attributes
+   
+   
+
+   
+   
+   

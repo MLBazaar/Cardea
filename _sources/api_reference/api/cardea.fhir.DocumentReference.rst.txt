@@ -1,0 +1,28 @@
+cardea.fhir.DocumentReference
+=============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: DocumentReference
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DocumentReference.__init__
+      ~DocumentReference.assert_type
+      ~DocumentReference.get_dataframe
+      ~DocumentReference.get_eligible_relationships
+      ~DocumentReference.get_id
+      ~DocumentReference.get_relationships
+      ~DocumentReference.set_attributes
+   
+   
+
+   
+   
+   

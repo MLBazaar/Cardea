@@ -1,0 +1,28 @@
+cardea.fhir.PaymentReconciliation
+=================================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: PaymentReconciliation
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~PaymentReconciliation.__init__
+      ~PaymentReconciliation.assert_type
+      ~PaymentReconciliation.get_dataframe
+      ~PaymentReconciliation.get_eligible_relationships
+      ~PaymentReconciliation.get_id
+      ~PaymentReconciliation.get_relationships
+      ~PaymentReconciliation.set_attributes
+   
+   
+
+   
+   
+   

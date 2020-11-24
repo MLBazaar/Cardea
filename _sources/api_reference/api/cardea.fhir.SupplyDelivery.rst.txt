@@ -1,0 +1,28 @@
+cardea.fhir.SupplyDelivery
+==========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: SupplyDelivery
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SupplyDelivery.__init__
+      ~SupplyDelivery.assert_type
+      ~SupplyDelivery.get_dataframe
+      ~SupplyDelivery.get_eligible_relationships
+      ~SupplyDelivery.get_id
+      ~SupplyDelivery.get_relationships
+      ~SupplyDelivery.set_attributes
+   
+   
+
+   
+   
+   

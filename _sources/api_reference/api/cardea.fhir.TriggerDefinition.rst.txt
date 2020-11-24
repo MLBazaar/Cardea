@@ -1,0 +1,28 @@
+cardea.fhir.TriggerDefinition
+=============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: TriggerDefinition
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TriggerDefinition.__init__
+      ~TriggerDefinition.assert_type
+      ~TriggerDefinition.get_dataframe
+      ~TriggerDefinition.get_eligible_relationships
+      ~TriggerDefinition.get_id
+      ~TriggerDefinition.get_relationships
+      ~TriggerDefinition.set_attributes
+   
+   
+
+   
+   
+   

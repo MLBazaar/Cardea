@@ -1,0 +1,28 @@
+cardea.fhir.TestScript
+======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: TestScript
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TestScript.__init__
+      ~TestScript.assert_type
+      ~TestScript.get_dataframe
+      ~TestScript.get_eligible_relationships
+      ~TestScript.get_id
+      ~TestScript.get_relationships
+      ~TestScript.set_attributes
+   
+   
+
+   
+   
+   

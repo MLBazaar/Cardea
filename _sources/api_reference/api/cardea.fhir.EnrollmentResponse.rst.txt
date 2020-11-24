@@ -1,0 +1,28 @@
+cardea.fhir.EnrollmentResponse
+==============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: EnrollmentResponse
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~EnrollmentResponse.__init__
+      ~EnrollmentResponse.assert_type
+      ~EnrollmentResponse.get_dataframe
+      ~EnrollmentResponse.get_eligible_relationships
+      ~EnrollmentResponse.get_id
+      ~EnrollmentResponse.get_relationships
+      ~EnrollmentResponse.set_attributes
+   
+   
+
+   
+   
+   

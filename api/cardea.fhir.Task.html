@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.Task module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.Task module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.TestReport module" href="cardea.fhir.TestReport.html" />
-    <link rel="prev" title="cardea.fhir.SupplyRequest module" href="cardea.fhir.SupplyRequest.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.Task module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Task.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.Task">
 <span id="cardea-fhir-task-module"></span><h1>cardea.fhir.Task module<a class="headerlink" href="#module-cardea.fhir.Task" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -249,211 +157,72 @@
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Task.</code><code class="sig-name descname">Task</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A task to be performed.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Task.Task.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a Task resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Task.Task.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>The business identifier for this task.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.definitionUri">
-<code class="sig-name descname">definitionUri</code><a class="headerlink" href="#cardea.fhir.Task.Task.definitionUri" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to a formal or informal definition of the
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a Task resource</p></li>
+<li><p><strong>identifier</strong> – The business identifier for this task.</p></li>
+<li><p><strong>definitionUri</strong> – A reference to a formal or informal definition of the
 task.  For example, a protocol, a step within a defined workflow
-definition, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.definitionReference">
-<code class="sig-name descname">definitionReference</code><a class="headerlink" href="#cardea.fhir.Task.Task.definitionReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to a formal or informal definition of
+definition, etc.</p></li>
+<li><p><strong>definitionReference</strong> – A reference to a formal or informal definition of
 the task.  For example, a protocol, a step within a defined workflow
-definition, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.basedOn">
-<code class="sig-name descname">basedOn</code><a class="headerlink" href="#cardea.fhir.Task.Task.basedOn" title="Permalink to this definition">¶</a></dt>
-<dd><p>BasedOn refers to a higher-level authorization that triggered
+definition, etc.</p></li>
+<li><p><strong>basedOn</strong> – BasedOn refers to a higher-level authorization that triggered
 the creation of the task.  It references a “request” resource such as
 a ProcedureRequest, MedicationRequest, ProcedureRequest, CarePlan,
 etc. which is distinct from the “request” resource the task is seeking
 to fulfil.  This latter resource is referenced by FocusOn.  For
 example, based on a ProcedureRequest (= BasedOn), a task is created to
 fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a
-patient.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.groupIdentifier">
-<code class="sig-name descname">groupIdentifier</code><a class="headerlink" href="#cardea.fhir.Task.Task.groupIdentifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>An identifier that links together multiple tasks and
-other requests that were created in the same context.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.partOf">
-<code class="sig-name descname">partOf</code><a class="headerlink" href="#cardea.fhir.Task.Task.partOf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Task that this particular task is part of.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Task.Task.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The current status of the task.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.statusReason">
-<code class="sig-name descname">statusReason</code><a class="headerlink" href="#cardea.fhir.Task.Task.statusReason" title="Permalink to this definition">¶</a></dt>
-<dd><p>An explanation as to why this task is held, failed, was
-refused, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.businessStatus">
-<code class="sig-name descname">businessStatus</code><a class="headerlink" href="#cardea.fhir.Task.Task.businessStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Contains business-specific nuances of the business
-state.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.intent">
-<code class="sig-name descname">intent</code><a class="headerlink" href="#cardea.fhir.Task.Task.intent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates the “level” of actionability associated with the
+patient.</p></li>
+<li><p><strong>groupIdentifier</strong> – An identifier that links together multiple tasks and
+other requests that were created in the same context.</p></li>
+<li><p><strong>partOf</strong> – Task that this particular task is part of.</p></li>
+<li><p><strong>status</strong> – The current status of the task.</p></li>
+<li><p><strong>statusReason</strong> – An explanation as to why this task is held, failed, was
+refused, etc.</p></li>
+<li><p><strong>businessStatus</strong> – Contains business-specific nuances of the business
+state.</p></li>
+<li><p><strong>intent</strong> – Indicates the “level” of actionability associated with the
 Task.  I.e. Is this a proposed task, a planned task, an actionable
-task, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.priority">
-<code class="sig-name descname">priority</code><a class="headerlink" href="#cardea.fhir.Task.Task.priority" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates how quickly the Task should be addressed with
-respect to other requests.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Task.Task.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>A name or code (or both) briefly describing what the task
-involves.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.Task.Task.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A free-text description of what is to be performed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.focus">
-<code class="sig-name descname">focus</code><a class="headerlink" href="#cardea.fhir.Task.Task.focus" title="Permalink to this definition">¶</a></dt>
-<dd><p>The request being actioned or the resource being manipulated by
-this task.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.for">
-<code class="sig-name descname">for</code><a class="headerlink" href="#cardea.fhir.Task.Task.for" title="Permalink to this definition">¶</a></dt>
-<dd><p>The entity who benefits from the performance of the service
-specified in the task (e.g., the patient).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.context">
-<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.Task.Task.context" title="Permalink to this definition">¶</a></dt>
-<dd><p>The healthcare event  (e.g. a patient and healthcare provider
-interaction) during which this task was created.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.executionPeriod">
-<code class="sig-name descname">executionPeriod</code><a class="headerlink" href="#cardea.fhir.Task.Task.executionPeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the time action was first taken against
+task, etc.</p></li>
+<li><p><strong>priority</strong> – Indicates how quickly the Task should be addressed with
+respect to other requests.</p></li>
+<li><p><strong>code</strong> – A name or code (or both) briefly describing what the task
+involves.</p></li>
+<li><p><strong>description</strong> – A free-text description of what is to be performed.</p></li>
+<li><p><strong>focus</strong> – The request being actioned or the resource being manipulated by
+this task.</p></li>
+<li><p><strong>for</strong> – The entity who benefits from the performance of the service
+specified in the task (e.g., the patient).</p></li>
+<li><p><strong>context</strong> – The healthcare event  (e.g. a patient and healthcare provider
+interaction) during which this task was created.</p></li>
+<li><p><strong>executionPeriod</strong> – Identifies the time action was first taken against
 the task (start) and/or the time final action was taken against the
-task prior to marking it as completed (end).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.authoredOn">
-<code class="sig-name descname">authoredOn</code><a class="headerlink" href="#cardea.fhir.Task.Task.authoredOn" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date and time this task was created.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.lastModified">
-<code class="sig-name descname">lastModified</code><a class="headerlink" href="#cardea.fhir.Task.Task.lastModified" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date and time of last modification to this task.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.requester">
-<code class="sig-name descname">requester</code><a class="headerlink" href="#cardea.fhir.Task.Task.requester" title="Permalink to this definition">¶</a></dt>
-<dd><p>The creator of the task.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.performerType">
-<code class="sig-name descname">performerType</code><a class="headerlink" href="#cardea.fhir.Task.Task.performerType" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of participant that can execute the task.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.owner">
-<code class="sig-name descname">owner</code><a class="headerlink" href="#cardea.fhir.Task.Task.owner" title="Permalink to this definition">¶</a></dt>
-<dd><p>Individual organization or Device currently responsible for
-task execution.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.reason">
-<code class="sig-name descname">reason</code><a class="headerlink" href="#cardea.fhir.Task.Task.reason" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description or code indicating why this task needs to be
-performed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.note">
-<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.Task.Task.note" title="Permalink to this definition">¶</a></dt>
-<dd><p>Free-text information captured about the task as it progresses.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.relevantHistory">
-<code class="sig-name descname">relevantHistory</code><a class="headerlink" href="#cardea.fhir.Task.Task.relevantHistory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Links to Provenance records for past versions of this
+task prior to marking it as completed (end).</p></li>
+<li><p><strong>authoredOn</strong> – The date and time this task was created.</p></li>
+<li><p><strong>lastModified</strong> – The date and time of last modification to this task.</p></li>
+<li><p><strong>requester</strong> – The creator of the task.</p></li>
+<li><p><strong>performerType</strong> – The type of participant that can execute the task.</p></li>
+<li><p><strong>owner</strong> – Individual organization or Device currently responsible for
+task execution.</p></li>
+<li><p><strong>reason</strong> – A description or code indicating why this task needs to be
+performed.</p></li>
+<li><p><strong>note</strong> – Free-text information captured about the task as it progresses.</p></li>
+<li><p><strong>relevantHistory</strong> – Links to Provenance records for past versions of this
 Task that identify key state transitions or updates that are likely to
-be relevant to a user looking at the current version of the task.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.restriction">
-<code class="sig-name descname">restriction</code><a class="headerlink" href="#cardea.fhir.Task.Task.restriction" title="Permalink to this definition">¶</a></dt>
-<dd><p>If the Task.focus is a request resource and the task is
+be relevant to a user looking at the current version of the task.</p></li>
+<li><p><strong>restriction</strong> – If the Task.focus is a request resource and the task is
 seeking fulfillment (i.e is asking for the request to be actioned),
 this element identifies any limitations on what parts of the
-referenced request should be actioned.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.input">
-<code class="sig-name descname">input</code><a class="headerlink" href="#cardea.fhir.Task.Task.input" title="Permalink to this definition">¶</a></dt>
-<dd><p>Additional information that may be needed in the execution of
-the task.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task.output">
-<code class="sig-name descname">output</code><a class="headerlink" href="#cardea.fhir.Task.Task.output" title="Permalink to this definition">¶</a></dt>
-<dd><p>Outputs produced by the Task.</p>
-</dd></dl>
-
+referenced request should be actioned.</p></li>
+<li><p><strong>input</strong> – Additional information that may be needed in the execution of
+the task.</p></li>
+<li><p><strong>output</strong> – Outputs produced by the Task.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Task.Task.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -484,338 +253,74 @@ the task.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Task.</code><code class="sig-name descname">Task_Input</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Input" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A task to be performed.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code or description indicating how the input is intended to be
-used as part of the task execution.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueBoolean">
-<code class="sig-name descname">valueBoolean</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueBoolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueInteger">
-<code class="sig-name descname">valueInteger</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueInteger" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueDecimal">
-<code class="sig-name descname">valueDecimal</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDecimal" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueBase64Binary">
-<code class="sig-name descname">valueBase64Binary</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueBase64Binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueInstant">
-<code class="sig-name descname">valueInstant</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueInstant" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueString">
-<code class="sig-name descname">valueString</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueString" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueUri">
-<code class="sig-name descname">valueUri</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUri" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueDate">
-<code class="sig-name descname">valueDate</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueDateTime">
-<code class="sig-name descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueTime">
-<code class="sig-name descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueCode">
-<code class="sig-name descname">valueCode</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCode" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueOid">
-<code class="sig-name descname">valueOid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueOid" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueUuid">
-<code class="sig-name descname">valueUuid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUuid" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueId">
-<code class="sig-name descname">valueId</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueUnsignedInt">
-<code class="sig-name descname">valueUnsignedInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUnsignedInt" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valuePositiveInt">
-<code class="sig-name descname">valuePositiveInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valuePositiveInt" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueMarkdown">
-<code class="sig-name descname">valueMarkdown</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueMarkdown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueElement">
-<code class="sig-name descname">valueElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueExtension">
-<code class="sig-name descname">valueExtension</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueExtension" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueBackboneElement">
-<code class="sig-name descname">valueBackboneElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueBackboneElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueNarrative">
-<code class="sig-name descname">valueNarrative</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueNarrative" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueAnnotation">
-<code class="sig-name descname">valueAnnotation</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAnnotation" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueAttachment">
-<code class="sig-name descname">valueAttachment</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAttachment" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueIdentifier">
-<code class="sig-name descname">valueIdentifier</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueIdentifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueCodeableConcept">
-<code class="sig-name descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueCoding">
-<code class="sig-name descname">valueCoding</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueQuantity">
-<code class="sig-name descname">valueQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueDuration">
-<code class="sig-name descname">valueDuration</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDuration" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueSimpleQuantity">
-<code class="sig-name descname">valueSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueSimpleQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueDistance">
-<code class="sig-name descname">valueDistance</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDistance" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueCount">
-<code class="sig-name descname">valueCount</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueCount" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueMoney">
-<code class="sig-name descname">valueMoney</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueMoney" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueAge">
-<code class="sig-name descname">valueAge</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAge" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueRange">
-<code class="sig-name descname">valueRange</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valuePeriod">
-<code class="sig-name descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valuePeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueRatio">
-<code class="sig-name descname">valueRatio</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueReference">
-<code class="sig-name descname">valueReference</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueSampledData">
-<code class="sig-name descname">valueSampledData</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueSampledData" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueSignature">
-<code class="sig-name descname">valueSignature</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueSignature" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueHumanName">
-<code class="sig-name descname">valueHumanName</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueHumanName" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueAddress">
-<code class="sig-name descname">valueAddress</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueAddress" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueContactPoint">
-<code class="sig-name descname">valueContactPoint</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueContactPoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueTiming">
-<code class="sig-name descname">valueTiming</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueTiming" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueMeta">
-<code class="sig-name descname">valueMeta</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueMeta" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueElementDefinition">
-<code class="sig-name descname">valueElementDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueElementDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueContactDetail">
-<code class="sig-name descname">valueContactDetail</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueContactDetail" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueContributor">
-<code class="sig-name descname">valueContributor</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueContributor" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueDosage">
-<code class="sig-name descname">valueDosage</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDosage" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueRelatedArtifact">
-<code class="sig-name descname">valueRelatedArtifact</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueRelatedArtifact" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueUsageContext">
-<code class="sig-name descname">valueUsageContext</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueUsageContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueDataRequirement">
-<code class="sig-name descname">valueDataRequirement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueDataRequirement" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueParameterDefinition">
-<code class="sig-name descname">valueParameterDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueParameterDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Input.valueTriggerDefinition">
-<code class="sig-name descname">valueTriggerDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Input.valueTriggerDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the input parameter as a basic
-type.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – A code or description indicating how the input is intended to be
+used as part of the task execution.</p></li>
+<li><p><strong>valueBoolean</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueInteger</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueDecimal</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueBase64Binary</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueInstant</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueString</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueUri</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueDate</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueDateTime</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueTime</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueCode</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueOid</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueUuid</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueId</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueUnsignedInt</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valuePositiveInt</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueMarkdown</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueElement</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueExtension</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueBackboneElement</strong> – The value of the input parameter as a basic
+type.</p></li>
+<li><p><strong>valueNarrative</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueAnnotation</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueAttachment</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueIdentifier</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueCodeableConcept</strong> – The value of the input parameter as a basic
+type.</p></li>
+<li><p><strong>valueCoding</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueQuantity</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueDuration</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueSimpleQuantity</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueDistance</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueCount</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueMoney</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueAge</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueRange</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valuePeriod</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueRatio</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueReference</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueSampledData</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueSignature</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueHumanName</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueAddress</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueContactPoint</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueTiming</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueMeta</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueElementDefinition</strong> – The value of the input parameter as a basic
+type.</p></li>
+<li><p><strong>valueContactDetail</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueContributor</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueDosage</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueRelatedArtifact</strong> – The value of the input parameter as a basic
+type.</p></li>
+<li><p><strong>valueUsageContext</strong> – The value of the input parameter as a basic type.</p></li>
+<li><p><strong>valueDataRequirement</strong> – The value of the input parameter as a basic
+type.</p></li>
+<li><p><strong>valueParameterDefinition</strong> – The value of the input parameter as a basic
+type.</p></li>
+<li><p><strong>valueTriggerDefinition</strong> – The value of the input parameter as a basic
+type.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Task.Task_Input.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Input.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Input.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -834,338 +339,74 @@ type.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Task.</code><code class="sig-name descname">Task_Output</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A task to be performed.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the Output parameter.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueBoolean">
-<code class="sig-name descname">valueBoolean</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueBoolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueInteger">
-<code class="sig-name descname">valueInteger</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueInteger" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueDecimal">
-<code class="sig-name descname">valueDecimal</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDecimal" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueBase64Binary">
-<code class="sig-name descname">valueBase64Binary</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueBase64Binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueInstant">
-<code class="sig-name descname">valueInstant</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueInstant" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueString">
-<code class="sig-name descname">valueString</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueString" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueUri">
-<code class="sig-name descname">valueUri</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUri" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueDate">
-<code class="sig-name descname">valueDate</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueDateTime">
-<code class="sig-name descname">valueDateTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueTime">
-<code class="sig-name descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueCode">
-<code class="sig-name descname">valueCode</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCode" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueOid">
-<code class="sig-name descname">valueOid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueOid" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueUuid">
-<code class="sig-name descname">valueUuid</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUuid" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueId">
-<code class="sig-name descname">valueId</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueUnsignedInt">
-<code class="sig-name descname">valueUnsignedInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUnsignedInt" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valuePositiveInt">
-<code class="sig-name descname">valuePositiveInt</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valuePositiveInt" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueMarkdown">
-<code class="sig-name descname">valueMarkdown</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueMarkdown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueElement">
-<code class="sig-name descname">valueElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueExtension">
-<code class="sig-name descname">valueExtension</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueExtension" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueBackboneElement">
-<code class="sig-name descname">valueBackboneElement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueBackboneElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueNarrative">
-<code class="sig-name descname">valueNarrative</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueNarrative" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueAnnotation">
-<code class="sig-name descname">valueAnnotation</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAnnotation" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueAttachment">
-<code class="sig-name descname">valueAttachment</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAttachment" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueIdentifier">
-<code class="sig-name descname">valueIdentifier</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueIdentifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueCodeableConcept">
-<code class="sig-name descname">valueCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCodeableConcept" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueCoding">
-<code class="sig-name descname">valueCoding</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueQuantity">
-<code class="sig-name descname">valueQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueDuration">
-<code class="sig-name descname">valueDuration</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDuration" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueSimpleQuantity">
-<code class="sig-name descname">valueSimpleQuantity</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueSimpleQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueDistance">
-<code class="sig-name descname">valueDistance</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDistance" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueCount">
-<code class="sig-name descname">valueCount</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueCount" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueMoney">
-<code class="sig-name descname">valueMoney</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueMoney" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueAge">
-<code class="sig-name descname">valueAge</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAge" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueRange">
-<code class="sig-name descname">valueRange</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valuePeriod">
-<code class="sig-name descname">valuePeriod</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valuePeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueRatio">
-<code class="sig-name descname">valueRatio</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueReference">
-<code class="sig-name descname">valueReference</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueSampledData">
-<code class="sig-name descname">valueSampledData</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueSampledData" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueSignature">
-<code class="sig-name descname">valueSignature</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueSignature" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueHumanName">
-<code class="sig-name descname">valueHumanName</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueHumanName" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueAddress">
-<code class="sig-name descname">valueAddress</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueAddress" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueContactPoint">
-<code class="sig-name descname">valueContactPoint</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueContactPoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueTiming">
-<code class="sig-name descname">valueTiming</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueTiming" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueMeta">
-<code class="sig-name descname">valueMeta</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueMeta" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueElementDefinition">
-<code class="sig-name descname">valueElementDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueElementDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueContactDetail">
-<code class="sig-name descname">valueContactDetail</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueContactDetail" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueContributor">
-<code class="sig-name descname">valueContributor</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueContributor" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueDosage">
-<code class="sig-name descname">valueDosage</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDosage" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueRelatedArtifact">
-<code class="sig-name descname">valueRelatedArtifact</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueRelatedArtifact" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueUsageContext">
-<code class="sig-name descname">valueUsageContext</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueUsageContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueDataRequirement">
-<code class="sig-name descname">valueDataRequirement</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueDataRequirement" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueParameterDefinition">
-<code class="sig-name descname">valueParameterDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueParameterDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic
-type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Output.valueTriggerDefinition">
-<code class="sig-name descname">valueTriggerDefinition</code><a class="headerlink" href="#cardea.fhir.Task.Task_Output.valueTriggerDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the Output parameter as a basic
-type.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – The name of the Output parameter.</p></li>
+<li><p><strong>valueBoolean</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueInteger</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueDecimal</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueBase64Binary</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueInstant</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueString</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueUri</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueDate</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueDateTime</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueTime</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueCode</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueOid</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueUuid</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueId</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueUnsignedInt</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valuePositiveInt</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueMarkdown</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueElement</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueExtension</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueBackboneElement</strong> – The value of the Output parameter as a basic
+type.</p></li>
+<li><p><strong>valueNarrative</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueAnnotation</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueAttachment</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueIdentifier</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueCodeableConcept</strong> – The value of the Output parameter as a basic
+type.</p></li>
+<li><p><strong>valueCoding</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueQuantity</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueDuration</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueSimpleQuantity</strong> – The value of the Output parameter as a basic
+type.</p></li>
+<li><p><strong>valueDistance</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueCount</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueMoney</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueAge</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueRange</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valuePeriod</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueRatio</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueReference</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueSampledData</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueSignature</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueHumanName</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueAddress</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueContactPoint</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueTiming</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueMeta</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueElementDefinition</strong> – The value of the Output parameter as a basic
+type.</p></li>
+<li><p><strong>valueContactDetail</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueContributor</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueDosage</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueRelatedArtifact</strong> – The value of the Output parameter as a basic
+type.</p></li>
+<li><p><strong>valueUsageContext</strong> – The value of the Output parameter as a basic type.</p></li>
+<li><p><strong>valueDataRequirement</strong> – The value of the Output parameter as a basic
+type.</p></li>
+<li><p><strong>valueParameterDefinition</strong> – The value of the Output parameter as a basic
+type.</p></li>
+<li><p><strong>valueTriggerDefinition</strong> – The value of the Output parameter as a basic
+type.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Task.Task_Output.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Output.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Output.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1184,19 +425,15 @@ type.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Task.</code><code class="sig-name descname">Task_Requester</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Requester"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Requester" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A task to be performed.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Requester.agent">
-<code class="sig-name descname">agent</code><a class="headerlink" href="#cardea.fhir.Task.Task_Requester.agent" title="Permalink to this definition">¶</a></dt>
-<dd><p>The device, practitioner, etc. who initiated the task.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Requester.onBehalfOf">
-<code class="sig-name descname">onBehalfOf</code><a class="headerlink" href="#cardea.fhir.Task.Task_Requester.onBehalfOf" title="Permalink to this definition">¶</a></dt>
-<dd><p>The organization the device or practitioner was acting on
-behalf of when they initiated the task.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>agent</strong> – The device, practitioner, etc. who initiated the task.</p></li>
+<li><p><strong>onBehalfOf</strong> – The organization the device or practitioner was acting on
+behalf of when they initiated the task.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Task.Task_Requester.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Requester.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Requester.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1215,26 +452,17 @@ behalf of when they initiated the task.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Task.</code><code class="sig-name descname">Task_Restriction</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Restriction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A task to be performed.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Restriction.repetitions">
-<code class="sig-name descname">repetitions</code><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.repetitions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates the number of times the requested action should
-occur.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Restriction.period">
-<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.period" title="Permalink to this definition">¶</a></dt>
-<dd><p>Over what time-period is fulfillment sought.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Task.Task_Restriction.recipient">
-<code class="sig-name descname">recipient</code><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.recipient" title="Permalink to this definition">¶</a></dt>
-<dd><p>For requests that are targeted to more than on potential
-recipient/target, for whom is fulfillment sought?</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>repetitions</strong> – Indicates the number of times the requested action should
+occur.</p></li>
+<li><p><strong>period</strong> – Over what time-period is fulfillment sought.</p></li>
+<li><p><strong>recipient</strong> – For requests that are targeted to more than on potential
+recipient/target, for whom is fulfillment sought?</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Task.Task_Restriction.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Task.html#Task_Restriction.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Task.Task_Restriction.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1251,52 +479,31 @@ recipient/target, for whom is fulfillment sought?</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.TestReport.html" class="btn btn-neutral float-right" title="cardea.fhir.TestReport module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.SupplyRequest.html" class="btn btn-neutral float-left" title="cardea.fhir.SupplyRequest module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

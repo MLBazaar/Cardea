@@ -1,0 +1,28 @@
+cardea.fhir.GuidanceResponse
+============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: GuidanceResponse
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~GuidanceResponse.__init__
+      ~GuidanceResponse.assert_type
+      ~GuidanceResponse.get_dataframe
+      ~GuidanceResponse.get_eligible_relationships
+      ~GuidanceResponse.get_id
+      ~GuidanceResponse.get_relationships
+      ~GuidanceResponse.set_attributes
+   
+   
+
+   
+   
+   

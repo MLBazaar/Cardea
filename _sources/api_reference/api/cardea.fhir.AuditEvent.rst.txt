@@ -1,0 +1,28 @@
+cardea.fhir.AuditEvent
+======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: AuditEvent
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AuditEvent.__init__
+      ~AuditEvent.assert_type
+      ~AuditEvent.get_dataframe
+      ~AuditEvent.get_eligible_relationships
+      ~AuditEvent.get_id
+      ~AuditEvent.get_relationships
+      ~AuditEvent.set_attributes
+   
+   
+
+   
+   
+   

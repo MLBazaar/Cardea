@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.DiagnosticReport module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.DiagnosticReport module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.Distance module" href="cardea.fhir.Distance.html" />
-    <link rel="prev" title="cardea.fhir.DeviceUseStatement module" href="cardea.fhir.DeviceUseStatement.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.DiagnosticReport module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.DiagnosticReport.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.DiagnosticReport">
 <span id="cardea-fhir-diagnosticreport-module"></span><h1>cardea.fhir.DiagnosticReport module<a class="headerlink" href="#module-cardea.fhir.DiagnosticReport" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -254,150 +162,61 @@ derived from these. The report includes clinical context such as
 requesting and provider information, and some mix of atomic results,
 images, textual and coded interpretations, and formatted
 representation of diagnostic reports.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a DiagnosticReport resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifiers assigned to this report by the performer or
-other systems.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.basedOn">
-<code class="sig-name descname">basedOn</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.basedOn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Details concerning a test or procedure requested.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of the diagnostic report as a whole.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code that classifies the clinical discipline, department
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a DiagnosticReport resource</p></li>
+<li><p><strong>identifier</strong> – Identifiers assigned to this report by the performer or
+other systems.</p></li>
+<li><p><strong>basedOn</strong> – Details concerning a test or procedure requested.</p></li>
+<li><p><strong>status</strong> – The status of the diagnostic report as a whole.</p></li>
+<li><p><strong>category</strong> – A code that classifies the clinical discipline, department
 or diagnostic service that created the report (e.g. cardiology,
 biochemistry, hematology, MRI). This is used for searching, sorting
-and display purposes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code or name that describes this diagnostic report.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.subject">
-<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.subject" title="Permalink to this definition">¶</a></dt>
-<dd><p>The subject of the report. Usually, but not always, this is a
+and display purposes.</p></li>
+<li><p><strong>code</strong> – A code or name that describes this diagnostic report.</p></li>
+<li><p><strong>subject</strong> – The subject of the report. Usually, but not always, this is a
 patient. However diagnostic services also perform analyses on
-specimens collected from a variety of other sources.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.context">
-<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.context" title="Permalink to this definition">¶</a></dt>
-<dd><p>The healthcare event  (e.g. a patient and healthcare provider
-interaction) which this DiagnosticReport per is about.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.effectiveDateTime">
-<code class="sig-name descname">effectiveDateTime</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.effectiveDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The time or time-period the observed values are
+specimens collected from a variety of other sources.</p></li>
+<li><p><strong>context</strong> – The healthcare event  (e.g. a patient and healthcare provider
+interaction) which this DiagnosticReport per is about.</p></li>
+<li><p><strong>effectiveDateTime</strong> – The time or time-period the observed values are
 related to. When the subject of the report is a patient, this is
 usually either the time of the procedure or of specimen collection(s),
 but very often the source of the date/time is not known, only the
-date/time itself.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.effectivePeriod">
-<code class="sig-name descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.effectivePeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>The time or time-period the observed values are
+date/time itself.</p></li>
+<li><p><strong>effectivePeriod</strong> – The time or time-period the observed values are
 related to. When the subject of the report is a patient, this is
 usually either the time of the procedure or of specimen collection(s),
 but very often the source of the date/time is not known, only the
-date/time itself.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.issued">
-<code class="sig-name descname">issued</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.issued" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date and time that this version of the report was released
-from the source diagnostic service.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.performer">
-<code class="sig-name descname">performer</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.performer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates who or what participated in producing the report.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.specimen">
-<code class="sig-name descname">specimen</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.specimen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Details about the specimens on which this diagnostic report
-is based.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.result">
-<code class="sig-name descname">result</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.result" title="Permalink to this definition">¶</a></dt>
-<dd><p>Observations that are part of this diagnostic report.
+date/time itself.</p></li>
+<li><p><strong>issued</strong> – The date and time that this version of the report was released
+from the source diagnostic service.</p></li>
+<li><p><strong>performer</strong> – Indicates who or what participated in producing the report.</p></li>
+<li><p><strong>specimen</strong> – Details about the specimens on which this diagnostic report
+is based.</p></li>
+<li><p><strong>result</strong> – Observations that are part of this diagnostic report.
 Observations can be simple name/value pairs (e.g. “atomic” results),
 or they can be grouping observations that include references to other
-members of the group (e.g. “panels”).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.imagingStudy">
-<code class="sig-name descname">imagingStudy</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.imagingStudy" title="Permalink to this definition">¶</a></dt>
-<dd><p>One or more links to full details of any imaging
+members of the group (e.g. “panels”).</p></li>
+<li><p><strong>imagingStudy</strong> – One or more links to full details of any imaging
 performed during the diagnostic investigation. Typically, this is
 imaging performed by DICOM enabled modalities, but this is not
 required. A fully enabled PACS viewer can use this information to
-provide views of the source images.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.image">
-<code class="sig-name descname">image</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.image" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of key images associated with this report. The images
+provide views of the source images.</p></li>
+<li><p><strong>image</strong> – A list of key images associated with this report. The images
 are generally created during the diagnostic process, and may be
 directly of the patient, or of treated specimens (i.e. slides of
-interest).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.conclusion">
-<code class="sig-name descname">conclusion</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.conclusion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Concise and clinically contextualized impression / summary
-of the diagnostic report.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.codedDiagnosis">
-<code class="sig-name descname">codedDiagnosis</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.codedDiagnosis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Codes for the conclusion.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.presentedForm">
-<code class="sig-name descname">presentedForm</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.presentedForm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rich text representation of the entire result as issued
+interest).</p></li>
+<li><p><strong>conclusion</strong> – Concise and clinically contextualized impression / summary
+of the diagnostic report.</p></li>
+<li><p><strong>codedDiagnosis</strong> – Codes for the conclusion.</p></li>
+<li><p><strong>presentedForm</strong> – Rich text representation of the entire result as issued
 by the diagnostic service. Multiple formats are allowed but they SHALL
-be semantically equivalent.</p>
-</dd></dl>
-
+be semantically equivalent.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.DiagnosticReport.DiagnosticReport.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DiagnosticReport.html#DiagnosticReport.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -433,20 +252,16 @@ derived from these. The report includes clinical context such as
 requesting and provider information, and some mix of atomic results,
 images, textual and coded interpretations, and formatted
 representation of diagnostic reports.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport_Image.comment">
-<code class="sig-name descname">comment</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport_Image.comment" title="Permalink to this definition">¶</a></dt>
-<dd><p>A comment about the image. Typically, this is used to provide
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>comment</strong> – A comment about the image. Typically, this is used to provide
 an explanation for why the image is included, or to draw the viewer’s
-attention to important features.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport_Image.link">
-<code class="sig-name descname">link</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport_Image.link" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reference to the image source.</p>
-</dd></dl>
-
+attention to important features.</p></li>
+<li><p><strong>link</strong> – Reference to the image source.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.DiagnosticReport.DiagnosticReport_Image.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DiagnosticReport.html#DiagnosticReport_Image.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport_Image.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -470,21 +285,17 @@ derived from these. The report includes clinical context such as
 requesting and provider information, and some mix of atomic results,
 images, textual and coded interpretations, and formatted
 representation of diagnostic reports.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport_Performer.role">
-<code class="sig-name descname">role</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport_Performer.role" title="Permalink to this definition">¶</a></dt>
-<dd><p>Describes the type of participation (e.g.  a responsible party,
-author, or verifier).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.DiagnosticReport.DiagnosticReport_Performer.actor">
-<code class="sig-name descname">actor</code><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport_Performer.actor" title="Permalink to this definition">¶</a></dt>
-<dd><p>The reference to the  practitioner or organization involved in
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>role</strong> – Describes the type of participation (e.g.  a responsible party,
+author, or verifier).</p></li>
+<li><p><strong>actor</strong> – The reference to the  practitioner or organization involved in
 producing the report. For example, the diagnostic service that is
-responsible for issuing the report.</p>
-</dd></dl>
-
+responsible for issuing the report.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.DiagnosticReport.DiagnosticReport_Performer.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/DiagnosticReport.html#DiagnosticReport_Performer.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.DiagnosticReport.DiagnosticReport_Performer.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -501,52 +312,31 @@ responsible for issuing the report.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.Distance.html" class="btn btn-neutral float-right" title="cardea.fhir.Distance module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.DeviceUseStatement.html" class="btn btn-neutral float-left" title="cardea.fhir.DeviceUseStatement module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

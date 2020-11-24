@@ -1,0 +1,28 @@
+cardea.fhir.Media
+=================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Media
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Media.__init__
+      ~Media.assert_type
+      ~Media.get_dataframe
+      ~Media.get_eligible_relationships
+      ~Media.get_id
+      ~Media.get_relationships
+      ~Media.set_attributes
+   
+   
+
+   
+   
+   

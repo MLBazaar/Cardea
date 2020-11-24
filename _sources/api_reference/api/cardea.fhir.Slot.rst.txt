@@ -1,0 +1,28 @@
+cardea.fhir.Slot
+================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Slot
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Slot.__init__
+      ~Slot.assert_type
+      ~Slot.get_dataframe
+      ~Slot.get_eligible_relationships
+      ~Slot.get_id
+      ~Slot.get_relationships
+      ~Slot.set_attributes
+   
+   
+
+   
+   
+   

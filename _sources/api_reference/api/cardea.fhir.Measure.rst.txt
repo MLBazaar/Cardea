@@ -1,0 +1,28 @@
+cardea.fhir.Measure
+===================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Measure
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Measure.__init__
+      ~Measure.assert_type
+      ~Measure.get_dataframe
+      ~Measure.get_eligible_relationships
+      ~Measure.get_id
+      ~Measure.get_relationships
+      ~Measure.set_attributes
+   
+   
+
+   
+   
+   

@@ -1,0 +1,28 @@
+cardea.fhir.ClaimResponse
+=========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ClaimResponse
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ClaimResponse.__init__
+      ~ClaimResponse.assert_type
+      ~ClaimResponse.get_dataframe
+      ~ClaimResponse.get_eligible_relationships
+      ~ClaimResponse.get_id
+      ~ClaimResponse.get_relationships
+      ~ClaimResponse.set_attributes
+   
+   
+
+   
+   
+   

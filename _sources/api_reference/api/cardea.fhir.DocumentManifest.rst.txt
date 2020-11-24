@@ -1,0 +1,28 @@
+cardea.fhir.DocumentManifest
+============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: DocumentManifest
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DocumentManifest.__init__
+      ~DocumentManifest.assert_type
+      ~DocumentManifest.get_dataframe
+      ~DocumentManifest.get_eligible_relationships
+      ~DocumentManifest.get_id
+      ~DocumentManifest.get_relationships
+      ~DocumentManifest.set_attributes
+   
+   
+
+   
+   
+   

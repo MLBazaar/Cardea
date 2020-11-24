@@ -1,0 +1,28 @@
+cardea.fhir.Specimen
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Specimen
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Specimen.__init__
+      ~Specimen.assert_type
+      ~Specimen.get_dataframe
+      ~Specimen.get_eligible_relationships
+      ~Specimen.get_id
+      ~Specimen.get_relationships
+      ~Specimen.set_attributes
+   
+   
+
+   
+   
+   

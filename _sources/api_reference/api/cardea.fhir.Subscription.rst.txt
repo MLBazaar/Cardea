@@ -1,0 +1,28 @@
+cardea.fhir.Subscription
+========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Subscription
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Subscription.__init__
+      ~Subscription.assert_type
+      ~Subscription.get_dataframe
+      ~Subscription.get_eligible_relationships
+      ~Subscription.get_id
+      ~Subscription.get_relationships
+      ~Subscription.set_attributes
+   
+   
+
+   
+   
+   

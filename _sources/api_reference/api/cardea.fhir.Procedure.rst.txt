@@ -1,0 +1,28 @@
+cardea.fhir.Procedure
+=====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Procedure
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Procedure.__init__
+      ~Procedure.assert_type
+      ~Procedure.get_dataframe
+      ~Procedure.get_eligible_relationships
+      ~Procedure.get_id
+      ~Procedure.get_relationships
+      ~Procedure.set_attributes
+   
+   
+
+   
+   
+   

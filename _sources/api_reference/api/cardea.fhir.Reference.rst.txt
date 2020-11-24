@@ -1,0 +1,28 @@
+cardea.fhir.Reference
+=====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Reference
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Reference.__init__
+      ~Reference.assert_type
+      ~Reference.get_dataframe
+      ~Reference.get_eligible_relationships
+      ~Reference.get_id
+      ~Reference.get_relationships
+      ~Reference.set_attributes
+   
+   
+
+   
+   
+   

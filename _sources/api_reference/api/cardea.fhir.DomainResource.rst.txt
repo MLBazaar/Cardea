@@ -1,0 +1,28 @@
+cardea.fhir.DomainResource
+==========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: DomainResource
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DomainResource.__init__
+      ~DomainResource.assert_type
+      ~DomainResource.get_dataframe
+      ~DomainResource.get_eligible_relationships
+      ~DomainResource.get_id
+      ~DomainResource.get_relationships
+      ~DomainResource.set_attributes
+   
+   
+
+   
+   
+   

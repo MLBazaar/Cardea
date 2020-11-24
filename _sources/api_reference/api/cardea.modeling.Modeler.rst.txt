@@ -1,0 +1,50 @@
+cardea.modeling.Modeler
+=======================
+
+.. currentmodule:: cardea.modeling
+
+.. autoclass:: Modeler
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Modeler.__init__
+      ~Modeler.check_path
+      ~Modeler.check_path_hyperparameters
+      ~Modeler.create_kfold
+      ~Modeler.create_pipeline
+      ~Modeler.create_space
+      ~Modeler.execute_pipeline
+      ~Modeler.fit_predict_model
+      ~Modeler.get_directory
+      ~Modeler.hyperopt_train_test
+      ~Modeler.hyperparameter_tunning
+      ~Modeler.kfold_scoring
+      ~Modeler.objective
+      ~Modeler.optimization
+      ~Modeler.search_all_possible_primitives
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Modeler.classification_scoring_function
+      ~Modeler.data_frame
+      ~Modeler.minimize_cost
+      ~Modeler.pipeline_dict
+      ~Modeler.primitive
+      ~Modeler.problem_type
+      ~Modeler.regression_scoring_function
+      ~Modeler.scoring
+      ~Modeler.target
+   
+   

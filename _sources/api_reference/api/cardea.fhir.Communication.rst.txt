@@ -1,0 +1,28 @@
+cardea.fhir.Communication
+=========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Communication
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Communication.__init__
+      ~Communication.assert_type
+      ~Communication.get_dataframe
+      ~Communication.get_eligible_relationships
+      ~Communication.get_id
+      ~Communication.get_relationships
+      ~Communication.set_attributes
+   
+   
+
+   
+   
+   

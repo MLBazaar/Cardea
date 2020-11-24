@@ -1,0 +1,28 @@
+cardea.fhir.ValueSet
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ValueSet
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ValueSet.__init__
+      ~ValueSet.assert_type
+      ~ValueSet.get_dataframe
+      ~ValueSet.get_eligible_relationships
+      ~ValueSet.get_id
+      ~ValueSet.get_relationships
+      ~ValueSet.set_attributes
+   
+   
+
+   
+   
+   

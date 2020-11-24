@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.Questionnaire module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.Questionnaire module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.QuestionnaireResponse module" href="cardea.fhir.QuestionnaireResponse.html" />
-    <link rel="prev" title="cardea.fhir.Quantity module" href="cardea.fhir.Quantity.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.Questionnaire module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Questionnaire.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.Questionnaire">
 <span id="cardea-fhir-questionnaire-module"></span><h1>cardea.fhir.Questionnaire module<a class="headerlink" href="#module-cardea.fhir.Questionnaire" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -252,180 +160,76 @@
 answers from end-users. Questionnaires provide detailed control over
 order, presentation, phraseology and grouping to allow coherent,
 consistent data collection.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a Questionnaire resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute URI that is used to identify this questionnaire when
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a Questionnaire resource</p></li>
+<li><p><strong>url</strong> – An absolute URI that is used to identify this questionnaire when
 it is referenced in a specification, model, design or an instance.
 This SHALL be a URL, SHOULD be globally unique, and SHOULD be an
 address at which this questionnaire is (or will be) published. The URL
 SHOULD include the major version of the questionnaire. For more
 information see [Technical and Business
-Versions](resource.html#versions).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A formal identifier that is used to identify this
+Versions](resource.html#versions).</p></li>
+<li><p><strong>identifier</strong> – A formal identifier that is used to identify this
 questionnaire when it is represented in other formats, or referenced
-in a specification, model, design or an instance.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier that is used to identify this version of the
+in a specification, model, design or an instance.</p></li>
+<li><p><strong>version</strong> – The identifier that is used to identify this version of the
 questionnaire when it is referenced in a specification, model, design
 or instance. This is an arbitrary value managed by the questionnaire
 author and is not expected to be globally unique. For example, it
 might be a timestamp (e.g. yyyymmdd) if a managed version is not
 available. There is also no expectation that versions can be placed in
-a lexicographical sequence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>A natural language name identifying the questionnaire. This name
+a lexicographical sequence.</p></li>
+<li><p><strong>name</strong> – A natural language name identifying the questionnaire. This name
 should be usable as an identifier for the module by machine processing
-applications such as code generation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.title">
-<code class="sig-name descname">title</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short, descriptive, user-friendly title for the
-questionnaire.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of this questionnaire. Enables tracking the
-life-cycle of the content.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.experimental">
-<code class="sig-name descname">experimental</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.experimental" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean value to indicate that this questionnaire is
+applications such as code generation.</p></li>
+<li><p><strong>title</strong> – A short, descriptive, user-friendly title for the
+questionnaire.</p></li>
+<li><p><strong>status</strong> – The status of this questionnaire. Enables tracking the
+life-cycle of the content.</p></li>
+<li><p><strong>experimental</strong> – A boolean value to indicate that this questionnaire is
 authored for testing purposes (or education/evaluation/marketing), and
-is not intended to be used for genuine usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.date">
-<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date  (and optionally time) when the questionnaire was
+is not intended to be used for genuine usage.</p></li>
+<li><p><strong>date</strong> – The date  (and optionally time) when the questionnaire was
 published. The date must change if and when the business version
 changes and it must change if the status code changes. In addition, it
 should change when the substantive content of the questionnaire
-changes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.publisher">
-<code class="sig-name descname">publisher</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.publisher" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the individual or organization that published
-the questionnaire.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A free text natural language description of the
-questionnaire from a consumer’s perspective.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.purpose">
-<code class="sig-name descname">purpose</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.purpose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Explaination of why this questionnaire is needed and why it
-has been designed as it has.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.approvalDate">
-<code class="sig-name descname">approvalDate</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.approvalDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date on which the resource content was approved by
+changes.</p></li>
+<li><p><strong>publisher</strong> – The name of the individual or organization that published
+the questionnaire.</p></li>
+<li><p><strong>description</strong> – A free text natural language description of the
+questionnaire from a consumer’s perspective.</p></li>
+<li><p><strong>purpose</strong> – Explaination of why this questionnaire is needed and why it
+has been designed as it has.</p></li>
+<li><p><strong>approvalDate</strong> – The date on which the resource content was approved by
 the publisher. Approval happens once when the content is officially
-approved for usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.lastReviewDate">
-<code class="sig-name descname">lastReviewDate</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.lastReviewDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date on which the resource content was last
+approved for usage.</p></li>
+<li><p><strong>lastReviewDate</strong> – The date on which the resource content was last
 reviewed. Review happens periodically after approval, but doesn’t
-change the original approval date.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.effectivePeriod">
-<code class="sig-name descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.effectivePeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>The period during which the questionnaire content was
-or is planned to be in active use.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.useContext">
-<code class="sig-name descname">useContext</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.useContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content was developed with a focus and intent of
+change the original approval date.</p></li>
+<li><p><strong>effectivePeriod</strong> – The period during which the questionnaire content was
+or is planned to be in active use.</p></li>
+<li><p><strong>useContext</strong> – The content was developed with a focus and intent of
 supporting the contexts that are listed. These terms may be used to
 assist with indexing and searching for appropriate questionnaire
-instances.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.jurisdiction">
-<code class="sig-name descname">jurisdiction</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.jurisdiction" title="Permalink to this definition">¶</a></dt>
-<dd><p>A legal or geographic region in which the questionnaire
-is intended to be used.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.contact">
-<code class="sig-name descname">contact</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.contact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Contact details to assist a user in finding and communicating
-with the publisher.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.copyright">
-<code class="sig-name descname">copyright</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.copyright" title="Permalink to this definition">¶</a></dt>
-<dd><p>A copyright statement relating to the questionnaire and/or
+instances.</p></li>
+<li><p><strong>jurisdiction</strong> – A legal or geographic region in which the questionnaire
+is intended to be used.</p></li>
+<li><p><strong>contact</strong> – Contact details to assist a user in finding and communicating
+with the publisher.</p></li>
+<li><p><strong>copyright</strong> – A copyright statement relating to the questionnaire and/or
 its contents. Copyright statements are generally legal restrictions on
-the use and publishing of the questionnaire.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>An identifier for this question or group of questions in a
-particular terminology such as LOINC.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.subjectType">
-<code class="sig-name descname">subjectType</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.subjectType" title="Permalink to this definition">¶</a></dt>
-<dd><p>The types of subjects that can be the subject of
-responses created for the questionnaire.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire.item">
-<code class="sig-name descname">item</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.item" title="Permalink to this definition">¶</a></dt>
-<dd><p>A particular question, question grouping or display text that is
-part of the questionnaire.</p>
-</dd></dl>
-
+the use and publishing of the questionnaire.</p></li>
+<li><p><strong>code</strong> – An identifier for this question or group of questions in a
+particular terminology such as LOINC.</p></li>
+<li><p><strong>subjectType</strong> – The types of subjects that can be the subject of
+responses created for the questionnaire.</p></li>
+<li><p><strong>item</strong> – A particular question, question grouping or display text that is
+part of the questionnaire.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Questionnaire.Questionnaire.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Questionnaire.html#Questionnaire.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -459,105 +263,41 @@ part of the questionnaire.</p>
 answers from end-users. Questionnaires provide detailed control over
 order, presentation, phraseology and grouping to allow coherent,
 consistent data collection.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.question">
-<code class="sig-name descname">question</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.question" title="Permalink to this definition">¶</a></dt>
-<dd><p>The linkId for the question whose answer (or lack of answer)
-governs whether this item is enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.hasAnswer">
-<code class="sig-name descname">hasAnswer</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.hasAnswer" title="Permalink to this definition">¶</a></dt>
-<dd><p>An indication that this item should be enabled only if the
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>question</strong> – The linkId for the question whose answer (or lack of answer)
+governs whether this item is enabled.</p></li>
+<li><p><strong>hasAnswer</strong> – An indication that this item should be enabled only if the
 specified question is answered (hasAnswer=true) or not answered
-(hasAnswer=false).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerBoolean">
-<code class="sig-name descname">answerBoolean</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerBoolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in
-order for the item to be enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerDecimal">
-<code class="sig-name descname">answerDecimal</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerDecimal" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in
-order for the item to be enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerInteger">
-<code class="sig-name descname">answerInteger</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerInteger" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in
-order for the item to be enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerDate">
-<code class="sig-name descname">answerDate</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in order
-for the item to be enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerDateTime">
-<code class="sig-name descname">answerDateTime</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in
-order for the item to be enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerTime">
-<code class="sig-name descname">answerTime</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in order
-for the item to be enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerString">
-<code class="sig-name descname">answerString</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerString" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in
-order for the item to be enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerUri">
-<code class="sig-name descname">answerUri</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerUri" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in order
-for the item to be enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerAttachment">
-<code class="sig-name descname">answerAttachment</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerAttachment" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in
-order for the item to be enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerCoding">
-<code class="sig-name descname">answerCoding</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerCoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in
-order for the item to be enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerQuantity">
-<code class="sig-name descname">answerQuantity</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in
-order for the item to be enabled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerReference">
-<code class="sig-name descname">answerReference</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.answerReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>An answer that the referenced question must match in
-order for the item to be enabled.</p>
-</dd></dl>
-
+(hasAnswer=false).</p></li>
+<li><p><strong>answerBoolean</strong> – An answer that the referenced question must match in
+order for the item to be enabled.</p></li>
+<li><p><strong>answerDecimal</strong> – An answer that the referenced question must match in
+order for the item to be enabled.</p></li>
+<li><p><strong>answerInteger</strong> – An answer that the referenced question must match in
+order for the item to be enabled.</p></li>
+<li><p><strong>answerDate</strong> – An answer that the referenced question must match in order
+for the item to be enabled.</p></li>
+<li><p><strong>answerDateTime</strong> – An answer that the referenced question must match in
+order for the item to be enabled.</p></li>
+<li><p><strong>answerTime</strong> – An answer that the referenced question must match in order
+for the item to be enabled.</p></li>
+<li><p><strong>answerString</strong> – An answer that the referenced question must match in
+order for the item to be enabled.</p></li>
+<li><p><strong>answerUri</strong> – An answer that the referenced question must match in order
+for the item to be enabled.</p></li>
+<li><p><strong>answerAttachment</strong> – An answer that the referenced question must match in
+order for the item to be enabled.</p></li>
+<li><p><strong>answerCoding</strong> – An answer that the referenced question must match in
+order for the item to be enabled.</p></li>
+<li><p><strong>answerQuantity</strong> – An answer that the referenced question must match in
+order for the item to be enabled.</p></li>
+<li><p><strong>answerReference</strong> – An answer that the referenced question must match in
+order for the item to be enabled.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Questionnaire.Questionnaire_EnableWhen.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Questionnaire.html#Questionnaire_EnableWhen.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_EnableWhen.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -579,200 +319,76 @@ order for the item to be enabled.</p>
 answers from end-users. Questionnaires provide detailed control over
 order, presentation, phraseology and grouping to allow coherent,
 consistent data collection.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.linkId">
-<code class="sig-name descname">linkId</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.linkId" title="Permalink to this definition">¶</a></dt>
-<dd><p>An identifier that is unique within the Questionnaire allowing
-linkage to the equivalent item in a QuestionnaireResponse resource.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.definition">
-<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.definition" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to an [[[ElementDefinition]]] that provides
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>linkId</strong> – An identifier that is unique within the Questionnaire allowing
+linkage to the equivalent item in a QuestionnaireResponse resource.</p></li>
+<li><p><strong>definition</strong> – A reference to an [[[ElementDefinition]]] that provides
 the details for the item. If a definition is provided, then the
 following element values can be inferred from the definition:   * code
 (ElementDefinition.code) * type (ElementDefinition.type) * required
 (ElementDefinition.min) * repeats (ElementDefinition.max) * maxLength
 (ElementDefinition.maxLength) * options (ElementDefinition.binding)
 Any information provided in these elements on a Questionnaire Item
-overrides the information from the definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>A terminology code that corresponds to this group or question
-(e.g. a code from LOINC, which defines many questions and answers).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.prefix">
-<code class="sig-name descname">prefix</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.prefix" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short label for a particular group, question or set of
+overrides the information from the definition.</p></li>
+<li><p><strong>code</strong> – A terminology code that corresponds to this group or question
+(e.g. a code from LOINC, which defines many questions and answers).</p></li>
+<li><p><strong>prefix</strong> – A short label for a particular group, question or set of
 display text within the questionnaire used for reference by the
-individual completing the questionnaire.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.text">
-<code class="sig-name descname">text</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.text" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of a section, the text of a question or text content
-for a display item.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of questionnaire item this is - whether text for
+individual completing the questionnaire.</p></li>
+<li><p><strong>text</strong> – The name of a section, the text of a question or text content
+for a display item.</p></li>
+<li><p><strong>type</strong> – The type of questionnaire item this is - whether text for
 display, a grouping of other items or a particular type of data to be
-captured (string, integer, coded choice, etc.).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.enableWhen">
-<code class="sig-name descname">enableWhen</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.enableWhen" title="Permalink to this definition">¶</a></dt>
-<dd><p>A constraint indicating that this item should only be
+captured (string, integer, coded choice, etc.).</p></li>
+<li><p><strong>enableWhen</strong> – A constraint indicating that this item should only be
 enabled (displayed/allow answers to be captured) when the specified
-condition is true.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.required">
-<code class="sig-name descname">required</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.required" title="Permalink to this definition">¶</a></dt>
-<dd><p>An indication, if true, that the item must be present in a
+condition is true.</p></li>
+<li><p><strong>required</strong> – An indication, if true, that the item must be present in a
 “completed” QuestionnaireResponse.  If false, the item may be skipped
-when answering the questionnaire.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.repeats">
-<code class="sig-name descname">repeats</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.repeats" title="Permalink to this definition">¶</a></dt>
-<dd><p>An indication, if true, that the item may occur multiple
+when answering the questionnaire.</p></li>
+<li><p><strong>repeats</strong> – An indication, if true, that the item may occur multiple
 times in the response, collecting multiple answers answers for
-questions or multiple sets of answers for groups.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.readOnly">
-<code class="sig-name descname">readOnly</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.readOnly" title="Permalink to this definition">¶</a></dt>
-<dd><p>An indication, when true, that the value cannot be changed
-by a human respondent to the Questionnaire.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.maxLength">
-<code class="sig-name descname">maxLength</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.maxLength" title="Permalink to this definition">¶</a></dt>
-<dd><p>The maximum number of characters that are permitted in the
-answer to be considered a “valid” QuestionnaireResponse.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.options">
-<code class="sig-name descname">options</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.options" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to a value set containing a list of codes
+questions or multiple sets of answers for groups.</p></li>
+<li><p><strong>readOnly</strong> – An indication, when true, that the value cannot be changed
+by a human respondent to the Questionnaire.</p></li>
+<li><p><strong>maxLength</strong> – The maximum number of characters that are permitted in the
+answer to be considered a “valid” QuestionnaireResponse.</p></li>
+<li><p><strong>options</strong> – A reference to a value set containing a list of codes
 representing permitted answers for a “choice” or “open-choice”
-question.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.option">
-<code class="sig-name descname">option</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.option" title="Permalink to this definition">¶</a></dt>
-<dd><p>One of the permitted answers for a “choice” or “open-choice”
-question.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialBoolean">
-<code class="sig-name descname">initialBoolean</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialBoolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialDecimal">
-<code class="sig-name descname">initialDecimal</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialDecimal" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialInteger">
-<code class="sig-name descname">initialInteger</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialInteger" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialDate">
-<code class="sig-name descname">initialDate</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialDateTime">
-<code class="sig-name descname">initialDateTime</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialTime">
-<code class="sig-name descname">initialTime</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialString">
-<code class="sig-name descname">initialString</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialString" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialUri">
-<code class="sig-name descname">initialUri</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialUri" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialAttachment">
-<code class="sig-name descname">initialAttachment</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialAttachment" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialCoding">
-<code class="sig-name descname">initialCoding</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialCoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialQuantity">
-<code class="sig-name descname">initialQuantity</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.initialReference">
-<code class="sig-name descname">initialReference</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.initialReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value that should be defaulted when initially
-rendering the questionnaire for user input.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Item.item">
-<code class="sig-name descname">item</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.item" title="Permalink to this definition">¶</a></dt>
-<dd><p>Text, questions and other groups to be nested beneath a question
-or group.</p>
-</dd></dl>
-
+question.</p></li>
+<li><p><strong>option</strong> – One of the permitted answers for a “choice” or “open-choice”
+question.</p></li>
+<li><p><strong>initialBoolean</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>initialDecimal</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>initialInteger</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>initialDate</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>initialDateTime</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>initialTime</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>initialString</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>initialUri</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>initialAttachment</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>initialCoding</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>initialQuantity</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>initialReference</strong> – The value that should be defaulted when initially
+rendering the questionnaire for user input.</p></li>
+<li><p><strong>item</strong> – Text, questions and other groups to be nested beneath a question
+or group.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Questionnaire.Questionnaire_Item.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Questionnaire.html#Questionnaire_Item.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Item.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -806,41 +422,22 @@ or group.</p>
 answers from end-users. Questionnaires provide detailed control over
 order, presentation, phraseology and grouping to allow coherent,
 consistent data collection.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Option.valueInteger">
-<code class="sig-name descname">valueInteger</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Option.valueInteger" title="Permalink to this definition">¶</a></dt>
-<dd><p>A potential answer that’s allowed as the answer to this
-question.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Option.valueDate">
-<code class="sig-name descname">valueDate</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Option.valueDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>A potential answer that’s allowed as the answer to this
-question.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Option.valueTime">
-<code class="sig-name descname">valueTime</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Option.valueTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>A potential answer that’s allowed as the answer to this
-question.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Option.valueString">
-<code class="sig-name descname">valueString</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Option.valueString" title="Permalink to this definition">¶</a></dt>
-<dd><p>A potential answer that’s allowed as the answer to this
-question.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Questionnaire.Questionnaire_Option.valueCoding">
-<code class="sig-name descname">valueCoding</code><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Option.valueCoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>A potential answer that’s allowed as the answer to this
-question.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>valueInteger</strong> – A potential answer that’s allowed as the answer to this
+question.</p></li>
+<li><p><strong>valueDate</strong> – A potential answer that’s allowed as the answer to this
+question.</p></li>
+<li><p><strong>valueTime</strong> – A potential answer that’s allowed as the answer to this
+question.</p></li>
+<li><p><strong>valueString</strong> – A potential answer that’s allowed as the answer to this
+question.</p></li>
+<li><p><strong>valueCoding</strong> – A potential answer that’s allowed as the answer to this
+question.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Questionnaire.Questionnaire_Option.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Questionnaire.html#Questionnaire_Option.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Questionnaire.Questionnaire_Option.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -857,52 +454,31 @@ question.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.QuestionnaireResponse.html" class="btn btn-neutral float-right" title="cardea.fhir.QuestionnaireResponse module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Quantity.html" class="btn btn-neutral float-left" title="cardea.fhir.Quantity module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

@@ -1,0 +1,28 @@
+cardea.fhir.StructureDefinition
+===============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: StructureDefinition
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~StructureDefinition.__init__
+      ~StructureDefinition.assert_type
+      ~StructureDefinition.get_dataframe
+      ~StructureDefinition.get_eligible_relationships
+      ~StructureDefinition.get_id
+      ~StructureDefinition.get_relationships
+      ~StructureDefinition.set_attributes
+   
+   
+
+   
+   
+   

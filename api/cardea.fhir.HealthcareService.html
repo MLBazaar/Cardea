@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.HealthcareService module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.HealthcareService module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.HumanName module" href="cardea.fhir.HumanName.html" />
-    <link rel="prev" title="cardea.fhir.GuidanceResponse module" href="cardea.fhir.GuidanceResponse.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.HealthcareService module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.HealthcareService.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.HealthcareService">
 <span id="cardea-fhir-healthcareservice-module"></span><h1>cardea.fhir.HealthcareService module<a class="headerlink" href="#module-cardea.fhir.HealthcareService" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -249,178 +157,59 @@
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.HealthcareService.</code><code class="sig-name descname">HealthcareService</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/HealthcareService.html#HealthcareService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The details of a healthcare service available at a location.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a HealthcareService resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>External identifiers for this item.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.active">
-<code class="sig-name descname">active</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.active" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether this healthcareservice record is in active use.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.providedBy">
-<code class="sig-name descname">providedBy</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.providedBy" title="Permalink to this definition">¶</a></dt>
-<dd><p>The organization that provides this healthcare service.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the broad category of service being performed or
-delivered.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>The specific type of service that may be delivered or performed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.specialty">
-<code class="sig-name descname">specialty</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.specialty" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collection of specialties handled by the service site. This
-is more of a medical term.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.location">
-<code class="sig-name descname">location</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.location" title="Permalink to this definition">¶</a></dt>
-<dd><p>The location(s) where this healthcare service may be
-provided.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Further description of the service as it would be presented to a
-consumer while searching.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.comment">
-<code class="sig-name descname">comment</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.comment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Any additional description of the service and/or any specific
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a HealthcareService resource</p></li>
+<li><p><strong>identifier</strong> – External identifiers for this item.</p></li>
+<li><p><strong>active</strong> – Whether this healthcareservice record is in active use.</p></li>
+<li><p><strong>providedBy</strong> – The organization that provides this healthcare service.</p></li>
+<li><p><strong>category</strong> – Identifies the broad category of service being performed or
+delivered.</p></li>
+<li><p><strong>type</strong> – The specific type of service that may be delivered or performed.</p></li>
+<li><p><strong>specialty</strong> – Collection of specialties handled by the service site. This
+is more of a medical term.</p></li>
+<li><p><strong>location</strong> – The location(s) where this healthcare service may be
+provided.</p></li>
+<li><p><strong>name</strong> – Further description of the service as it would be presented to a
+consumer while searching.</p></li>
+<li><p><strong>comment</strong> – Any additional description of the service and/or any specific
 issues not covered by the other attributes, which can be displayed as
-further detail under the serviceName.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.extraDetails">
-<code class="sig-name descname">extraDetails</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.extraDetails" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extra details about the service that can’t be placed in
-the other fields.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.photo">
-<code class="sig-name descname">photo</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.photo" title="Permalink to this definition">¶</a></dt>
-<dd><p>If there is a photo/symbol associated with this
+further detail under the serviceName.</p></li>
+<li><p><strong>extraDetails</strong> – Extra details about the service that can’t be placed in
+the other fields.</p></li>
+<li><p><strong>photo</strong> – If there is a photo/symbol associated with this
 HealthcareService, it may be included here to facilitate quick
-identification of the service in a list.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.telecom">
-<code class="sig-name descname">telecom</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.telecom" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of contacts related to this specific healthcare service.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.coverageArea">
-<code class="sig-name descname">coverageArea</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.coverageArea" title="Permalink to this definition">¶</a></dt>
-<dd><p>The location(s) that this service is available to (not
-where the service is provided).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.serviceProvisionCode">
-<code class="sig-name descname">serviceProvisionCode</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.serviceProvisionCode" title="Permalink to this definition">¶</a></dt>
-<dd><p>The code(s) that detail the conditions under
-which the healthcare service is available/offered.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.eligibility">
-<code class="sig-name descname">eligibility</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.eligibility" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does this service have specific eligibility requirements
-that need to be met in order to use the service?</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.eligibilityNote">
-<code class="sig-name descname">eligibilityNote</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.eligibilityNote" title="Permalink to this definition">¶</a></dt>
-<dd><p>Describes the eligibility conditions for the service.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.programName">
-<code class="sig-name descname">programName</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.programName" title="Permalink to this definition">¶</a></dt>
-<dd><p>Program Names that can be used to categorize the service.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.characteristic">
-<code class="sig-name descname">characteristic</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.characteristic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collection of characteristics (attributes).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.referralMethod">
-<code class="sig-name descname">referralMethod</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.referralMethod" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ways that the service accepts referrals, if this is
-not provided then it is implied that no referral is required.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.appointmentRequired">
-<code class="sig-name descname">appointmentRequired</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.appointmentRequired" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates whether or not a prospective consumer
+identification of the service in a list.</p></li>
+<li><p><strong>telecom</strong> – List of contacts related to this specific healthcare service.</p></li>
+<li><p><strong>coverageArea</strong> – The location(s) that this service is available to (not
+where the service is provided).</p></li>
+<li><p><strong>serviceProvisionCode</strong> – The code(s) that detail the conditions under
+which the healthcare service is available/offered.</p></li>
+<li><p><strong>eligibility</strong> – Does this service have specific eligibility requirements
+that need to be met in order to use the service?</p></li>
+<li><p><strong>eligibilityNote</strong> – Describes the eligibility conditions for the service.</p></li>
+<li><p><strong>programName</strong> – Program Names that can be used to categorize the service.</p></li>
+<li><p><strong>characteristic</strong> – Collection of characteristics (attributes).</p></li>
+<li><p><strong>referralMethod</strong> – Ways that the service accepts referrals, if this is
+not provided then it is implied that no referral is required.</p></li>
+<li><p><strong>appointmentRequired</strong> – Indicates whether or not a prospective consumer
 will require an appointment for a particular service at a site to be
 provided by the Organization. Indicates if an appointment is required
-for access to this service.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.availableTime">
-<code class="sig-name descname">availableTime</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.availableTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>A collection of times that the Service Site is
-available.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.notAvailable">
-<code class="sig-name descname">notAvailable</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.notAvailable" title="Permalink to this definition">¶</a></dt>
-<dd><p>The HealthcareService is not available during this
-period of time due to the provided reason.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.availabilityExceptions">
-<code class="sig-name descname">availabilityExceptions</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.availabilityExceptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description of site availability exceptions,
+for access to this service.</p></li>
+<li><p><strong>availableTime</strong> – A collection of times that the Service Site is
+available.</p></li>
+<li><p><strong>notAvailable</strong> – The HealthcareService is not available during this
+period of time due to the provided reason.</p></li>
+<li><p><strong>availabilityExceptions</strong> – A description of site availability exceptions,
 e.g. public holiday availability. Succinctly describing all possible
 exceptions to normal site availability as details in the available
-Times and not available Times.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService.endpoint">
-<code class="sig-name descname">endpoint</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.endpoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Technical endpoints providing access to services operated
-for the specific healthcare services defined at this resource.</p>
-</dd></dl>
-
+Times and not available Times.</p></li>
+<li><p><strong>endpoint</strong> – Technical endpoints providing access to services operated
+for the specific healthcare services defined at this resource.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.HealthcareService.HealthcareService.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/HealthcareService.html#HealthcareService.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -439,34 +228,20 @@ for the specific healthcare services defined at this resource.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.HealthcareService.</code><code class="sig-name descname">HealthcareService_AvailableTime</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/HealthcareService.html#HealthcareService_AvailableTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService_AvailableTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The details of a healthcare service available at a location.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService_AvailableTime.daysOfWeek">
-<code class="sig-name descname">daysOfWeek</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService_AvailableTime.daysOfWeek" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates which days of the week are available between the
-start and end Times.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService_AvailableTime.allDay">
-<code class="sig-name descname">allDay</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService_AvailableTime.allDay" title="Permalink to this definition">¶</a></dt>
-<dd><p>Is this always available? (hence times are irrelevant) e.g. 24
-hour service.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService_AvailableTime.availableStartTime">
-<code class="sig-name descname">availableStartTime</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService_AvailableTime.availableStartTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The opening time of day. Note: If the AllDay flag
-is set, then this time is ignored.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService_AvailableTime.availableEndTime">
-<code class="sig-name descname">availableEndTime</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService_AvailableTime.availableEndTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>The closing time of day. Note: If the AllDay flag is
-set, then this time is ignored.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>daysOfWeek</strong> – Indicates which days of the week are available between the
+start and end Times.</p></li>
+<li><p><strong>allDay</strong> – Is this always available? (hence times are irrelevant) e.g. 24
+hour service.</p></li>
+<li><p><strong>availableStartTime</strong> – The opening time of day. Note: If the AllDay flag
+is set, then this time is ignored.</p></li>
+<li><p><strong>availableEndTime</strong> – The closing time of day. Note: If the AllDay flag is
+set, then this time is ignored.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.HealthcareService.HealthcareService_AvailableTime.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/HealthcareService.html#HealthcareService_AvailableTime.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService_AvailableTime.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -486,20 +261,16 @@ set, then this time is ignored.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.HealthcareService.</code><code class="sig-name descname">HealthcareService_NotAvailable</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/HealthcareService.html#HealthcareService_NotAvailable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService_NotAvailable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The details of a healthcare service available at a location.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService_NotAvailable.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService_NotAvailable.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>The reason that can be presented to the user as to why
-this time is not available.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.HealthcareService.HealthcareService_NotAvailable.during">
-<code class="sig-name descname">during</code><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService_NotAvailable.during" title="Permalink to this definition">¶</a></dt>
-<dd><p>Service is not available (seasonally or for a public holiday)
-from this date.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>description</strong> – The reason that can be presented to the user as to why
+this time is not available.</p></li>
+<li><p><strong>during</strong> – Service is not available (seasonally or for a public holiday)
+from this date.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.HealthcareService.HealthcareService_NotAvailable.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/HealthcareService.html#HealthcareService_NotAvailable.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.HealthcareService.HealthcareService_NotAvailable.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -516,52 +287,31 @@ from this date.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.HumanName.html" class="btn btn-neutral float-right" title="cardea.fhir.HumanName module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.GuidanceResponse.html" class="btn btn-neutral float-left" title="cardea.fhir.GuidanceResponse module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

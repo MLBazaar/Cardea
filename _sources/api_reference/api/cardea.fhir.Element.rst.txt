@@ -1,0 +1,28 @@
+cardea.fhir.Element
+===================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Element
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Element.__init__
+      ~Element.assert_type
+      ~Element.get_dataframe
+      ~Element.get_eligible_relationships
+      ~Element.get_id
+      ~Element.get_relationships
+      ~Element.set_attributes
+   
+   
+
+   
+   
+   

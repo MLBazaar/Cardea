@@ -1,0 +1,28 @@
+cardea.fhir.Linkage
+===================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Linkage
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Linkage.__init__
+      ~Linkage.assert_type
+      ~Linkage.get_dataframe
+      ~Linkage.get_eligible_relationships
+      ~Linkage.get_id
+      ~Linkage.get_relationships
+      ~Linkage.set_attributes
+   
+   
+
+   
+   
+   

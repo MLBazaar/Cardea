@@ -1,0 +1,28 @@
+cardea.fhir.Basic
+=================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Basic
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Basic.__init__
+      ~Basic.assert_type
+      ~Basic.get_dataframe
+      ~Basic.get_eligible_relationships
+      ~Basic.get_id
+      ~Basic.get_relationships
+      ~Basic.set_attributes
+   
+   
+
+   
+   
+   

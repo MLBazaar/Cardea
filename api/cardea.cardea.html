@@ -1,245 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.cardea module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.cardea module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Credits" href="../authors.html" />
-    <link rel="prev" title="cardea.problem_definition.show_noshow_appointment module" href="cardea.problem_definition.show_noshow_appointment.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-      <li>cardea.cardea module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.cardea.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.cardea">
 <span id="cardea-cardea-module"></span><h1>cardea.cardea module<a class="headerlink" href="#module-cardea.cardea" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -247,58 +157,32 @@
 <em class="property">class </em><code class="sig-prename descclassname">cardea.cardea.</code><code class="sig-name descname">Cardea</code><a class="reference internal" href="../_modules/cardea/cardea.html#Cardea"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.cardea.Cardea" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>An interface class that ties the end-to-end system together.</p>
-<dl class="attribute">
-<dt id="cardea.cardea.Cardea.es_loader">
-<code class="sig-name descname">es_loader</code><a class="headerlink" href="#cardea.cardea.Cardea.es_loader" title="Permalink to this definition">¶</a></dt>
-<dd><p>An entityset loader.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.cardea.Cardea.featurization">
-<code class="sig-name descname">featurization</code><a class="headerlink" href="#cardea.cardea.Cardea.featurization" title="Permalink to this definition">¶</a></dt>
-<dd><p>A featurization class.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.cardea.Cardea.modeler">
-<code class="sig-name descname">modeler</code><a class="headerlink" href="#cardea.cardea.Cardea.modeler" title="Permalink to this definition">¶</a></dt>
-<dd><p>A modeling class.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.cardea.Cardea.problems">
-<code class="sig-name descname">problems</code><a class="headerlink" href="#cardea.cardea.Cardea.problems" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of currently available prediction problems.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.cardea.Cardea.chosen_problem">
-<code class="sig-name descname">chosen_problem</code><a class="headerlink" href="#cardea.cardea.Cardea.chosen_problem" title="Permalink to this definition">¶</a></dt>
-<dd><p>The selected prediction problem or regression.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.cardea.Cardea.es">
-<code class="sig-name descname">es</code><a class="headerlink" href="#cardea.cardea.Cardea.es" title="Permalink to this definition">¶</a></dt>
-<dd><p>The loaded entityset.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.cardea.Cardea.target_entity">
-<code class="sig-name descname">target_entity</code><a class="headerlink" href="#cardea.cardea.Cardea.target_entity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The target entity for featurization.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>es_loader</strong> (<a class="reference internal" href="../api_reference/api/cardea.data_loader.EntitySetLoader.html#cardea.data_loader.EntitySetLoader" title="cardea.data_loader.EntitySetLoader"><em>EntitySetLoader</em></a>) – An entityset loader.</p></li>
+<li><p><strong>featurization</strong> (<a class="reference internal" href="cardea.featurization.featurization.html#cardea.featurization.featurization.Featurization" title="cardea.featurization.featurization.Featurization"><em>Featurization</em></a>) – A featurization class.</p></li>
+<li><p><strong>modeler</strong> (<a class="reference internal" href="cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler" title="cardea.modeling.modeler.Modeler"><em>Modeler</em></a>) – A modeling class.</p></li>
+<li><p><strong>problems</strong> (<em>list</em>) – A list of currently available prediction problems.</p></li>
+<li><p><strong>chosen_problem</strong> (<em>str</em>) – The selected prediction problem or regression.</p></li>
+<li><p><strong>es</strong> (<em>featuretools.EntitySet</em>) – The loaded entityset.</p></li>
+<li><p><strong>target_entity</strong> (<em>str</em>) – The target entity for featurization.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.cardea.Cardea.convert_from_json">
 <code class="sig-name descname">convert_from_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/cardea.html#Cardea.convert_from_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.cardea.Cardea.convert_from_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a given json string to dictionary format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>json</strong> – A dictionary of values to be coverted.</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>str</em>) – A string of values to be coverted to json.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A parsed dictionary.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -309,10 +193,13 @@
 <dd><p>Converts a given dictionary to json format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dict</strong> – A dictionary of values to be coverted.</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>dict</em>) – A dictionary of values to be coverted.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A string in json format.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -326,14 +213,18 @@ with the result of each fold with its associated predicted values and actual val
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data_frame</strong> – A dataframe, which encapsulates all the records of that entity.</p></li>
-<li><p><strong>primitives_list</strong> – A list of the primitives within a pipeline.</p></li>
-<li><p><strong>optimize</strong> – A boolean value which indicates whether to optimize the model or not.</p></li>
-<li><p><strong>hyperparameters</strong> – A dictionary of hyperparameters for each primitive.</p></li>
+<li><p><strong>data_frame</strong> (<em>pandas.DataFrame</em><em> or </em><em>ndarray</em>) – A dataframe which encapsulates all the feature matrix.</p></li>
+<li><p><strong>target</strong> (<em>ndarray</em>) – An array of labels for the target variable.</p></li>
+<li><p><strong>primitives_list</strong> (<em>list</em>) – A list of the primitives within a pipeline.</p></li>
+<li><p><strong>optimize</strong> (<em>bool</em>) – A boolean value which indicates whether to optimize the model or not.</p></li>
+<li><p><strong>hyperparameters</strong> (<em>dict</em>) – A dictionary of hyperparameters for each primitive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list for all the executed pipelines and its result.</p>
+<dd class="field-even"><p>A dictionary for all the executed pipelines and its result.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -345,12 +236,19 @@ with the result of each fold with its associated predicted values and actual val
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>es</strong> – A featuretools entityset that holds data.</p></li>
-<li><p><strong>cutoff</strong> – A pandas dataframe that indicates cutoff_time for each instance.</p></li>
+<li><p><strong>es</strong> (<em>featuretools.EntitySet</em>) – An entityset that holds data.</p></li>
+<li><p><strong>cutoff</strong> (<em>pandas.DataFrame</em>) – A dataframe that indicates cutoff time for each instance.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Encoded feature_matrix, encoded features.</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p>The generated feature matrix.</p></li>
+<li><p>List of feature definitions in the feature matrix.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame, list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -361,7 +259,10 @@ with the result of each fold with its associated predicted values and actual val
 <dd><p>Returns built-in primitive in Featuretools.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A pandas dataframe that lists and describes each built-in primitives.</p>
+<dd class="field-odd"><p>A dataframe that lists and describes each built-in primitives.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
@@ -372,7 +273,10 @@ with the result of each fold with its associated predicted values and actual val
 <dd><p>Returns a list of the currently available problems.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A set of the available problems.</p>
+<dd class="field-odd"><p>A list of the available problems.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -386,10 +290,13 @@ must be in a FHIR structure format. If no folder_path is not passed, the
 function will automatically load kaggle’s missed appointment dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>folder_path</strong> – A directory of all .csv files that should be loaded.</p>
+<dd class="field-odd"><p><strong>folder_path</strong> (<em>str</em>) – A directory of all .csv files that should be loaded.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An entityset with loaded data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>featuretools.EntitySet</p>
 </dd>
 </dl>
 </dd></dl>
@@ -403,13 +310,20 @@ the target entity and update the entityset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>selection</strong> – Name of the chosen prediction problem.</p></li>
-<li><p><strong>data</strong> – Entityset representation of the data.</p></li>
-<li><p><strong>parameters</strong> – A variable to change the default parameters, if any.</p></li>
+<li><p><strong>selection</strong> (<em>str</em>) – Name of the chosen prediction problem.</p></li>
+<li><p><strong>parameters</strong> (<em>dict</em>) – Variables to change the default parameters, if any.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The updated version of the entityset and cutoff time label.</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p>An updated EntitySet if a new column is generated.</p></li>
+<li><p>A string indicating the selected target entity.</p></li>
+<li><p>A dataframe of cutoff times and their target labels.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>featuretools.EntitySet, str, pandas.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
@@ -419,52 +333,31 @@ the target entity and update the entityset.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../authors.html" class="btn btn-neutral float-right" title="Credits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.problem_definition.show_noshow_appointment.html" class="btn btn-neutral float-left" title="cardea.problem_definition.show_noshow_appointment module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

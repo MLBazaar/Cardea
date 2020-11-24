@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.Measure module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.Measure module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.MeasureReport module" href="cardea.fhir.MeasureReport.html" />
-    <link rel="prev" title="cardea.fhir.Location module" href="cardea.fhir.Location.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.Measure module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Measure.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.Measure">
 <span id="cardea-fhir-measure-module"></span><h1>cardea.fhir.Measure module<a class="headerlink" href="#module-cardea.fhir.Measure" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -249,35 +157,20 @@
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Measure.</code><code class="sig-name descname">Measure</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Measure.html#Measure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Measure.Measure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The Measure resource provides the definition of a quality measure.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a Measure resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute URI that is used to identify this measure when it is
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a Measure resource</p></li>
+<li><p><strong>url</strong> – An absolute URI that is used to identify this measure when it is
 referenced in a specification, model, design or an instance. This
 SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at
 which this measure is (or will be) published. The URL SHOULD include
 the major version of the measure. For more information see [Technical
-and Business Versions](resource.html#versions).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A formal identifier that is used to identify this measure
+and Business Versions](resource.html#versions).</p></li>
+<li><p><strong>identifier</strong> – A formal identifier that is used to identify this measure
 when it is represented in other formats, or referenced in a
-specification, model, design or an instance.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier that is used to identify this version of the
+specification, model, design or an instance.</p></li>
+<li><p><strong>version</strong> – The identifier that is used to identify this version of the
 measure when it is referenced in a specification, model, design or
 instance. This is an arbitrary value managed by the measure author and
 is not expected to be globally unique. For example, it might be a
@@ -287,265 +180,96 @@ lexicographical sequence. To provide a version consistent with the
 Decision Support Service specification, use the format
 Major.Minor.Revision (e.g. 1.0.0). For more information on versioning
 knowledge assets, refer to the Decision Support Service specification.
-Note that a version is required for non-experimental active artifacts.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>A natural language name identifying the measure. This name
+Note that a version is required for non-experimental active artifacts.</p></li>
+<li><p><strong>name</strong> – A natural language name identifying the measure. This name
 should be usable as an identifier for the module by machine processing
-applications such as code generation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.title">
-<code class="sig-name descname">title</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short, descriptive, user-friendly title for the measure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of this measure. Enables tracking the life-cycle of
-the content.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.experimental">
-<code class="sig-name descname">experimental</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.experimental" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean value to indicate that this measure is
+applications such as code generation.</p></li>
+<li><p><strong>title</strong> – A short, descriptive, user-friendly title for the measure.</p></li>
+<li><p><strong>status</strong> – The status of this measure. Enables tracking the life-cycle of
+the content.</p></li>
+<li><p><strong>experimental</strong> – A boolean value to indicate that this measure is
 authored for testing purposes (or education/evaluation/marketing), and
-is not intended to be used for genuine usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.date">
-<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date  (and optionally time) when the measure was published.
+is not intended to be used for genuine usage.</p></li>
+<li><p><strong>date</strong> – The date  (and optionally time) when the measure was published.
 The date must change if and when the business version changes and it
 must change if the status code changes. In addition, it should change
-when the substantive content of the measure changes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.publisher">
-<code class="sig-name descname">publisher</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.publisher" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the individual or organization that published
-the measure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A free text natural language description of the measure
-from a consumer’s perspective.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.purpose">
-<code class="sig-name descname">purpose</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.purpose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Explaination of why this measure is needed and why it has
-been designed as it has.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.usage">
-<code class="sig-name descname">usage</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.usage" title="Permalink to this definition">¶</a></dt>
-<dd><p>A detailed description of how the measure is used from a
-clinical perspective.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.approvalDate">
-<code class="sig-name descname">approvalDate</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.approvalDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date on which the resource content was approved by
+when the substantive content of the measure changes.</p></li>
+<li><p><strong>publisher</strong> – The name of the individual or organization that published
+the measure.</p></li>
+<li><p><strong>description</strong> – A free text natural language description of the measure
+from a consumer’s perspective.</p></li>
+<li><p><strong>purpose</strong> – Explaination of why this measure is needed and why it has
+been designed as it has.</p></li>
+<li><p><strong>usage</strong> – A detailed description of how the measure is used from a
+clinical perspective.</p></li>
+<li><p><strong>approvalDate</strong> – The date on which the resource content was approved by
 the publisher. Approval happens once when the content is officially
-approved for usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.lastReviewDate">
-<code class="sig-name descname">lastReviewDate</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.lastReviewDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date on which the resource content was last
+approved for usage.</p></li>
+<li><p><strong>lastReviewDate</strong> – The date on which the resource content was last
 reviewed. Review happens periodically after approval, but doesn’t
-change the original approval date.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.effectivePeriod">
-<code class="sig-name descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.effectivePeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>The period during which the measure content was or is
-planned to be in active use.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.useContext">
-<code class="sig-name descname">useContext</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.useContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content was developed with a focus and intent of
+change the original approval date.</p></li>
+<li><p><strong>effectivePeriod</strong> – The period during which the measure content was or is
+planned to be in active use.</p></li>
+<li><p><strong>useContext</strong> – The content was developed with a focus and intent of
 supporting the contexts that are listed. These terms may be used to
-assist with indexing and searching for appropriate measure instances.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.jurisdiction">
-<code class="sig-name descname">jurisdiction</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.jurisdiction" title="Permalink to this definition">¶</a></dt>
-<dd><p>A legal or geographic region in which the measure is
-intended to be used.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.topic">
-<code class="sig-name descname">topic</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.topic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Descriptive topics related to the content of the measure.
+assist with indexing and searching for appropriate measure instances.</p></li>
+<li><p><strong>jurisdiction</strong> – A legal or geographic region in which the measure is
+intended to be used.</p></li>
+<li><p><strong>topic</strong> – Descriptive topics related to the content of the measure.
 Topics provide a high-level categorization of the type of the measure
-that can be useful for filtering and searching.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.contributor">
-<code class="sig-name descname">contributor</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.contributor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A contributor to the content of the measure, including
-authors, editors, reviewers, and endorsers.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.contact">
-<code class="sig-name descname">contact</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.contact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Contact details to assist a user in finding and communicating
-with the publisher.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.copyright">
-<code class="sig-name descname">copyright</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.copyright" title="Permalink to this definition">¶</a></dt>
-<dd><p>A copyright statement relating to the measure and/or its
+that can be useful for filtering and searching.</p></li>
+<li><p><strong>contributor</strong> – A contributor to the content of the measure, including
+authors, editors, reviewers, and endorsers.</p></li>
+<li><p><strong>contact</strong> – Contact details to assist a user in finding and communicating
+with the publisher.</p></li>
+<li><p><strong>copyright</strong> – A copyright statement relating to the measure and/or its
 contents. Copyright statements are generally legal restrictions on the
-use and publishing of the measure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.relatedArtifact">
-<code class="sig-name descname">relatedArtifact</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.relatedArtifact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Related artifacts such as additional documentation,
-justification, or bibliographic references.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.library">
-<code class="sig-name descname">library</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.library" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to a Library resource containing the formal logic
-used by the measure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.disclaimer">
-<code class="sig-name descname">disclaimer</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.disclaimer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Notices and disclaimers regarding the use of the measure,
+use and publishing of the measure.</p></li>
+<li><p><strong>relatedArtifact</strong> – Related artifacts such as additional documentation,
+justification, or bibliographic references.</p></li>
+<li><p><strong>library</strong> – A reference to a Library resource containing the formal logic
+used by the measure.</p></li>
+<li><p><strong>disclaimer</strong> – Notices and disclaimers regarding the use of the measure,
 or related to intellectual property (such as code systems) referenced
-by the measure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.scoring">
-<code class="sig-name descname">scoring</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.scoring" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates how the calculation is performed for the measure,
+by the measure.</p></li>
+<li><p><strong>scoring</strong> – Indicates how the calculation is performed for the measure,
 including proportion, ratio, continuous variable, and cohort. The
 value set is extensible, allowing additional measure scoring types to
-be represented.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.compositeScoring">
-<code class="sig-name descname">compositeScoring</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.compositeScoring" title="Permalink to this definition">¶</a></dt>
-<dd><p>If this is a composite measure, the scoring method
+be represented.</p></li>
+<li><p><strong>compositeScoring</strong> – If this is a composite measure, the scoring method
 used to combine the component measures to determine the composite
-score.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates whether the measure is used to examine a process, an
+score.</p></li>
+<li><p><strong>type</strong> – Indicates whether the measure is used to examine a process, an
 outcome over time, a patient-reported outcome, or a structure measure
-such as utilization.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.riskAdjustment">
-<code class="sig-name descname">riskAdjustment</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.riskAdjustment" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description of the risk adjustment factors that may
+such as utilization.</p></li>
+<li><p><strong>riskAdjustment</strong> – A description of the risk adjustment factors that may
 impact the resulting score for the measure and how they may be
-accounted for when computing and reporting measure results.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.rateAggregation">
-<code class="sig-name descname">rateAggregation</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.rateAggregation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Describes how to combine the information calculated,
+accounted for when computing and reporting measure results.</p></li>
+<li><p><strong>rateAggregation</strong> – Describes how to combine the information calculated,
 based on logic in each of several populations, into one summarized
-result.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.rationale">
-<code class="sig-name descname">rationale</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.rationale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides a succint statement of the need for the measure.
+result.</p></li>
+<li><p><strong>rationale</strong> – Provides a succint statement of the need for the measure.
 Usually includes statements pertaining to importance criterion:
-impact, gap in care, and evidence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.clinicalRecommendationStatement">
-<code class="sig-name descname">clinicalRecommendationStatement</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.clinicalRecommendationStatement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides a summary of relevant
+impact, gap in care, and evidence.</p></li>
+<li><p><strong>clinicalRecommendationStatement</strong> – Provides a summary of relevant
 clinical guidelines or other clinical recommendations supporting the
-measure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.improvementNotation">
-<code class="sig-name descname">improvementNotation</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.improvementNotation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information on whether an increase or decrease in
+measure.</p></li>
+<li><p><strong>improvementNotation</strong> – Information on whether an increase or decrease in
 score is the preferred result (e.g., a higher score indicates better
 quality OR a lower score indicates better quality OR quality is whthin
-a range).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.definition">
-<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.definition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides a description of an individual term used within
-the measure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.guidance">
-<code class="sig-name descname">guidance</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.guidance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Additional guidance for the measure including how it can be
-used in a clinical context, and the intent of the measure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.set">
-<code class="sig-name descname">set</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.set" title="Permalink to this definition">¶</a></dt>
-<dd><p>The measure set, e.g. Preventive Care and Screening.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.group">
-<code class="sig-name descname">group</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.group" title="Permalink to this definition">¶</a></dt>
-<dd><p>A group of population criteria for the measure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure.supplementalData">
-<code class="sig-name descname">supplementalData</code><a class="headerlink" href="#cardea.fhir.Measure.Measure.supplementalData" title="Permalink to this definition">¶</a></dt>
-<dd><p>The supplemental data criteria for the measure
+a range).</p></li>
+<li><p><strong>definition</strong> – Provides a description of an individual term used within
+the measure.</p></li>
+<li><p><strong>guidance</strong> – Additional guidance for the measure including how it can be
+used in a clinical context, and the intent of the measure.</p></li>
+<li><p><strong>set</strong> – The measure set, e.g. Preventive Care and Screening.</p></li>
+<li><p><strong>group</strong> – A group of population criteria for the measure.</p></li>
+<li><p><strong>supplementalData</strong> – The supplemental data criteria for the measure
 report, specified as either the name of a valid CQL expression within
-a referenced library, or a valid FHIR Resource Path.</p>
-</dd></dl>
-
+a referenced library, or a valid FHIR Resource Path.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Measure.Measure.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Measure.html#Measure.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Measure.Measure.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -576,39 +300,20 @@ a referenced library, or a valid FHIR Resource Path.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Measure.</code><code class="sig-name descname">Measure_Group</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Measure.html#Measure_Group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Measure.Measure_Group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The Measure resource provides the definition of a quality measure.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Group.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Group.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A unique identifier for the group. This identifier will
-used to report data for the group in the measure report.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Group.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Group.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Optional name or short description of this group.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Group.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Group.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>The human readable description of this population group.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Group.population">
-<code class="sig-name descname">population</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Group.population" title="Permalink to this definition">¶</a></dt>
-<dd><p>A population criteria for the measure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Group.stratifier">
-<code class="sig-name descname">stratifier</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Group.stratifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>The stratifier criteria for the measure report, specified
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identifier</strong> – A unique identifier for the group. This identifier will
+used to report data for the group in the measure report.</p></li>
+<li><p><strong>name</strong> – Optional name or short description of this group.</p></li>
+<li><p><strong>description</strong> – The human readable description of this population group.</p></li>
+<li><p><strong>population</strong> – A population criteria for the measure.</p></li>
+<li><p><strong>stratifier</strong> – The stratifier criteria for the measure report, specified
 as either the name of a valid CQL expression defined within a
-referenced library, or a valid FHIR Resource Path.</p>
-</dd></dl>
-
+referenced library, or a valid FHIR Resource Path.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Measure.Measure_Group.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Measure.html#Measure_Group.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Measure.Measure_Group.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -627,40 +332,21 @@ referenced library, or a valid FHIR Resource Path.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Measure.</code><code class="sig-name descname">Measure_Population</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Measure.html#Measure_Population"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Measure.Measure_Population" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The Measure resource provides the definition of a quality measure.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Population.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Population.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A unique identifier for the population criteria. This
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identifier</strong> – A unique identifier for the population criteria. This
 identifier is used to report data against this criteria within the
-measure report.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Population.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Population.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of population criteria.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Population.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Population.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Optional name or short description of this population.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Population.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Population.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>The human readable description of this population
-criteria.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Population.criteria">
-<code class="sig-name descname">criteria</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Population.criteria" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of a valid referenced CQL expression (may be
-namespaced) that defines this population criteria.</p>
-</dd></dl>
-
+measure report.</p></li>
+<li><p><strong>code</strong> – The type of population criteria.</p></li>
+<li><p><strong>name</strong> – Optional name or short description of this population.</p></li>
+<li><p><strong>description</strong> – The human readable description of this population
+criteria.</p></li>
+<li><p><strong>criteria</strong> – The name of a valid referenced CQL expression (may be
+namespaced) that defines this population criteria.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Measure.Measure_Population.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Measure.html#Measure_Population.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Measure.Measure_Population.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -679,27 +365,18 @@ namespaced) that defines this population criteria.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Measure.</code><code class="sig-name descname">Measure_Stratifier</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Measure.html#Measure_Stratifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Measure.Measure_Stratifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The Measure resource provides the definition of a quality measure.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Stratifier.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Stratifier.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier for the stratifier used to coordinate the
-reported data back to this stratifier.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Stratifier.criteria">
-<code class="sig-name descname">criteria</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Stratifier.criteria" title="Permalink to this definition">¶</a></dt>
-<dd><p>The criteria for the stratifier. This must be the name of an
-expression defined within a referenced library.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_Stratifier.path">
-<code class="sig-name descname">path</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_Stratifier.path" title="Permalink to this definition">¶</a></dt>
-<dd><p>The path to an element that defines the stratifier, specified as
-a valid FHIR resource path.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identifier</strong> – The identifier for the stratifier used to coordinate the
+reported data back to this stratifier.</p></li>
+<li><p><strong>criteria</strong> – The criteria for the stratifier. This must be the name of an
+expression defined within a referenced library.</p></li>
+<li><p><strong>path</strong> – The path to an element that defines the stratifier, specified as
+a valid FHIR resource path.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Measure.Measure_Stratifier.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Measure.html#Measure_Stratifier.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Measure.Measure_Stratifier.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -718,38 +395,24 @@ a valid FHIR resource path.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Measure.</code><code class="sig-name descname">Measure_SupplementalData</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Measure.html#Measure_SupplementalData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Measure.Measure_SupplementalData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>The Measure resource provides the definition of a quality measure.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_SupplementalData.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_SupplementalData.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>An identifier for the supplemental data.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_SupplementalData.usage">
-<code class="sig-name descname">usage</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_SupplementalData.usage" title="Permalink to this definition">¶</a></dt>
-<dd><p>An indicator of the intended usage for the supplemental data
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identifier</strong> – An identifier for the supplemental data.</p></li>
+<li><p><strong>usage</strong> – An indicator of the intended usage for the supplemental data
 element. Supplemental data indicates the data is additional
 information requested to augment the measure information. Risk
 adjustment factor indicates the data is additional information used to
 calculate risk adjustment factors when applying a risk model to the
-measure calculation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_SupplementalData.criteria">
-<code class="sig-name descname">criteria</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_SupplementalData.criteria" title="Permalink to this definition">¶</a></dt>
-<dd><p>The criteria for the supplemental data. This must be the
+measure calculation.</p></li>
+<li><p><strong>criteria</strong> – The criteria for the supplemental data. This must be the
 name of a valid expression defined within a referenced library, and
-defines the data to be returned for this element.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Measure.Measure_SupplementalData.path">
-<code class="sig-name descname">path</code><a class="headerlink" href="#cardea.fhir.Measure.Measure_SupplementalData.path" title="Permalink to this definition">¶</a></dt>
-<dd><p>The supplemental data to be supplied as part of the measure
-response, specified as a valid FHIR Resource Path.</p>
-</dd></dl>
-
+defines the data to be returned for this element.</p></li>
+<li><p><strong>path</strong> – The supplemental data to be supplied as part of the measure
+response, specified as a valid FHIR Resource Path.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Measure.Measure_SupplementalData.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Measure.html#Measure_SupplementalData.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Measure.Measure_SupplementalData.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -766,52 +429,31 @@ response, specified as a valid FHIR Resource Path.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.MeasureReport.html" class="btn btn-neutral float-right" title="cardea.fhir.MeasureReport module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Location.html" class="btn btn-neutral float-left" title="cardea.fhir.Location module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

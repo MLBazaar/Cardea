@@ -1,0 +1,27 @@
+cardea.featurization.Featurization
+==================================
+
+.. currentmodule:: cardea.featurization
+
+.. autoclass:: Featurization
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Featurization.__init__
+      ~Featurization.agg_prim
+      ~Featurization.generate_feature_matrix
+      ~Featurization.max_depth
+      ~Featurization.n_jobs
+      ~Featurization.trans_prim
+   
+   
+
+   
+   
+   

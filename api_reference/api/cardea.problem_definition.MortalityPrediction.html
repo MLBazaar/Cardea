@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.problem_definition.MortalityPrediction &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="cardea.problem_definition.MortalityPrediction.generate_cutoff_times" href="cardea.problem_definition.MortalityPrediction.generate_cutoff_times.html" />
+    <link rel="prev" title="cardea.problem_definition.Readmission.generate_cutoff_times" href="cardea.problem_definition.Readmission.generate_cutoff_times.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+          
+            
+                <li class="">
+                    <a href="../cardea.html">cardea</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../data_loader.html">cardea.data_loader</a>
+                </li>
+            
+          
+            
+  
+                <li class="active">
+                    <a href="../problem_definition.html">cardea.problem_definition</a>
+                    <ul>
+                    
+                        <li class="">
+                            <a href="cardea.problem_definition.ProlongedLengthOfStay.html">cardea.problem_definition.ProlongedLengthOfStay</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.problem_definition.ProlongedLengthOfStay.generate_cutoff_times.html">cardea.problem_definition.ProlongedLengthOfStay.generate_cutoff_times</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.problem_definition.LengthOfStay.html">cardea.problem_definition.LengthOfStay</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.problem_definition.LengthOfStay.generate_cutoff_times.html">cardea.problem_definition.LengthOfStay.generate_cutoff_times</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.problem_definition.Readmission.html">cardea.problem_definition.Readmission</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.problem_definition.Readmission.generate_cutoff_times.html">cardea.problem_definition.Readmission.generate_cutoff_times</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="">cardea.problem_definition.MortalityPrediction</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.problem_definition.MortalityPrediction.generate_cutoff_times.html">cardea.problem_definition.MortalityPrediction.generate_cutoff_times</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.problem_definition.DiagnosisPrediction.html">cardea.problem_definition.DiagnosisPrediction</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.problem_definition.DiagnosisPrediction.generate_cutoff_times.html">cardea.problem_definition.DiagnosisPrediction.generate_cutoff_times</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.problem_definition.MissedAppointmentProblemDefinition.html">cardea.problem_definition.MissedAppointmentProblemDefinition</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.problem_definition.MissedAppointmentProblemDefinition.generate_cutoff_times.html">cardea.problem_definition.MissedAppointmentProblemDefinition.generate_cutoff_times</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../featurization.html">cardea.featurization</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../modeling.html">cardea.modeling</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../fhir.html">cardea.fhir</a>
+                </li>
+            
+          
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="cardea-problem-definition-mortalityprediction">
+<h1>cardea.problem_definition.MortalityPrediction<a class="headerlink" href="#cardea-problem-definition-mortalityprediction" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cardea.problem_definition.MortalityPrediction">
+<em class="property">class </em><code class="sig-prename descclassname">cardea.problem_definition.</code><code class="sig-name descname">MortalityPrediction</code><a class="reference internal" href="../../_modules/cardea/problem_definition/mortality_prediction.html#MortalityPrediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the problem of diagnosis Prediction.</p>
+<p>Finding whether a patient will be diagnosed with a specifed diagnosis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_label_column_name</strong> (<em>str</em>) – The target label of the prediction problem.</p></li>
+<li><p><strong>target_entity</strong> (<em>str</em>) – Name of the entity containing the target label.</p></li>
+<li><p><strong>cutoff_time_label</strong> (<em>str</em>) – The cutoff time label of the prediction problem.</p></li>
+<li><p><strong>cutoff_entity</strong> (<em>str</em>) – Name of the entity containing the cutoff time label.</p></li>
+<li><p><strong>prediction_type</strong> (<em>str</em>) – The type of the machine learning prediction.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="cardea.problem_definition.MortalityPrediction.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cardea.problem_definition.MortalityPrediction.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cardea.problem_definition.MortalityPrediction.__init__" title="cardea.problem_definition.MortalityPrediction.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a></p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_for_missing_values_in_target_label</span></code>(…)</p></td>
+<td><p>Checks if there is a missing value in the target label.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_target_label</span></code>(entity_set, …)</p></td>
+<td><p>Checks if target label exists in the entity set.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.problem_definition.MortalityPrediction.generate_cutoff_times.html#cardea.problem_definition.MortalityPrediction.generate_cutoff_times" title="cardea.problem_definition.MortalityPrediction.generate_cutoff_times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_cutoff_times</span></code></a>(es)</p></td>
+<td><p>Generates cutoff times for the prediction problem.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.MortalityPrediction.generate_target_label" title="cardea.problem_definition.MortalityPrediction.generate_target_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_target_label</span></code></a>(es)</p></td>
+<td><p>Generates target labels in the case of having missing label in the entityset.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unify_cutoff_time_admission_time</span></code>(es, …)</p></td>
+<td><p>Process records in the entity that contains cutoff times based on shared days and time.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unify_cutoff_time_discharge_time</span></code>(es, …)</p></td>
+<td><p>Process records in the entity that contains cutoff times based on shared days and time.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unify_cutoff_times_days_admission_time</span></code>(df, …)</p></td>
+<td><p>Unify records cutoff times based on shared days.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unify_cutoff_times_days_discharge_time</span></code>(df, …)</p></td>
+<td><p>Unify records cutoff times based on shared days.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unify_cutoff_times_hours_admission_time</span></code>(df, …)</p></td>
+<td><p>Unify records cutoff times based on shared time.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unify_cutoff_times_hours_discharge_time</span></code>(df, …)</p></td>
+<td><p>Unify records cutoff times based on shared time.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.MortalityPrediction.causes_of_death" title="cardea.problem_definition.MortalityPrediction.causes_of_death"><code class="xref py py-obj docutils literal notranslate"><span class="pre">causes_of_death</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.MortalityPrediction.conn" title="cardea.problem_definition.MortalityPrediction.conn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conn</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.MortalityPrediction.cutoff_entity" title="cardea.problem_definition.MortalityPrediction.cutoff_entity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cutoff_entity</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.MortalityPrediction.cutoff_time_label" title="cardea.problem_definition.MortalityPrediction.cutoff_time_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cutoff_time_label</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.MortalityPrediction.prediction_type" title="cardea.problem_definition.MortalityPrediction.prediction_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prediction_type</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.MortalityPrediction.target_entity" title="cardea.problem_definition.MortalityPrediction.target_entity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_entity</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.MortalityPrediction.target_label_column_name" title="cardea.problem_definition.MortalityPrediction.target_label_column_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_label_column_name</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.MortalityPrediction.updated_es" title="cardea.problem_definition.MortalityPrediction.updated_es"><code class="xref py py-obj docutils literal notranslate"><span class="pre">updated_es</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="cardea.problem_definition.Readmission.generate_cutoff_times.html" title="previous page">cardea.problem_definition.Readmission.generate_cutoff_times</a>
+    <a class='right-next' id="next-link" href="cardea.problem_definition.MortalityPrediction.generate_cutoff_times.html" title="next page">cardea.problem_definition.MortalityPrediction.generate_cutoff_times</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

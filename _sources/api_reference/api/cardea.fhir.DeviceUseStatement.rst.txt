@@ -1,0 +1,28 @@
+cardea.fhir.DeviceUseStatement
+==============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: DeviceUseStatement
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DeviceUseStatement.__init__
+      ~DeviceUseStatement.assert_type
+      ~DeviceUseStatement.get_dataframe
+      ~DeviceUseStatement.get_eligible_relationships
+      ~DeviceUseStatement.get_id
+      ~DeviceUseStatement.get_relationships
+      ~DeviceUseStatement.set_attributes
+   
+   
+
+   
+   
+   

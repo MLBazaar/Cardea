@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.Composition module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.Composition module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.ConceptMap module" href="cardea.fhir.ConceptMap.html" />
-    <link rel="prev" title="cardea.fhir.CompartmentDefinition module" href="cardea.fhir.CompartmentDefinition.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.Composition module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Composition.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.Composition">
 <span id="cardea-fhir-composition-module"></span><h1>cardea.fhir.Composition module<a class="headerlink" href="#module-cardea.fhir.Composition" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -255,121 +163,47 @@ clinical attestation with regard to who is making the statement. While
 a Composition defines the structure, it does not actually contain the
 content: rather the full content of a document is contained in a
 Bundle, of which the Composition is the first resource contained.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a Composition resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Logical identifier for the composition, assigned when
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a Composition resource</p></li>
+<li><p><strong>identifier</strong> – Logical identifier for the composition, assigned when
 created. This identifier stays constant as the composition is changed
-over time.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The workflow/clinical status of this composition. The status
-is a marker for the clinical standing of the document.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specifies the particular kind of composition (e.g. History and
+over time.</p></li>
+<li><p><strong>status</strong> – The workflow/clinical status of this composition. The status
+is a marker for the clinical standing of the document.</p></li>
+<li><p><strong>type</strong> – Specifies the particular kind of composition (e.g. History and
 Physical, Discharge Summary, Progress Note). This usually equates to
-the purpose of making the composition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.class">
-<code class="sig-name descname">class</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.class" title="Permalink to this definition">¶</a></dt>
-<dd><p>A categorization for the type of the composition - helps for
+the purpose of making the composition.</p></li>
+<li><p><strong>class</strong> – A categorization for the type of the composition - helps for
 indexing and searching. This may be implied by or derived from the
-code specified in the Composition Type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.subject">
-<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.subject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Who or what the composition is about. The composition can be
+code specified in the Composition Type.</p></li>
+<li><p><strong>subject</strong> – Who or what the composition is about. The composition can be
 about a person, (patient or healthcare practitioner), a device (e.g. a
 machine) or even a group of subjects (such as a document about a herd
-of livestock, or a set of patients that share a common exposure).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.encounter">
-<code class="sig-name descname">encounter</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.encounter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Describes the clinical encounter or type of care this
-documentation is associated with.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.date">
-<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>The composition editing time, when the composition was last
-logically changed by the author.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.author">
-<code class="sig-name descname">author</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.author" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies who is responsible for the information in the
-composition, not necessarily who typed it in.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.title">
-<code class="sig-name descname">title</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>Official human-readable label for the composition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.confidentiality">
-<code class="sig-name descname">confidentiality</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.confidentiality" title="Permalink to this definition">¶</a></dt>
-<dd><p>The code specifying the level of confidentiality of
-the Composition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.attester">
-<code class="sig-name descname">attester</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.attester" title="Permalink to this definition">¶</a></dt>
-<dd><p>A participant who has attested to the accuracy of the
-composition/document.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.custodian">
-<code class="sig-name descname">custodian</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.custodian" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the organization or group who is responsible for
+of livestock, or a set of patients that share a common exposure).</p></li>
+<li><p><strong>encounter</strong> – Describes the clinical encounter or type of care this
+documentation is associated with.</p></li>
+<li><p><strong>date</strong> – The composition editing time, when the composition was last
+logically changed by the author.</p></li>
+<li><p><strong>author</strong> – Identifies who is responsible for the information in the
+composition, not necessarily who typed it in.</p></li>
+<li><p><strong>title</strong> – Official human-readable label for the composition.</p></li>
+<li><p><strong>confidentiality</strong> – The code specifying the level of confidentiality of
+the Composition.</p></li>
+<li><p><strong>attester</strong> – A participant who has attested to the accuracy of the
+composition/document.</p></li>
+<li><p><strong>custodian</strong> – Identifies the organization or group who is responsible for
 ongoing maintenance of and access to the composition/document
-information.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.relatesTo">
-<code class="sig-name descname">relatesTo</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.relatesTo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Relationships that this composition has with other
-compositions or documents that already exist.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.event">
-<code class="sig-name descname">event</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.event" title="Permalink to this definition">¶</a></dt>
-<dd><p>The clinical service, such as a colonoscopy or an appendectomy,
-being documented.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition.section">
-<code class="sig-name descname">section</code><a class="headerlink" href="#cardea.fhir.Composition.Composition.section" title="Permalink to this definition">¶</a></dt>
-<dd><p>The root of the sections that make up the composition.</p>
-</dd></dl>
-
+information.</p></li>
+<li><p><strong>relatesTo</strong> – Relationships that this composition has with other
+compositions or documents that already exist.</p></li>
+<li><p><strong>event</strong> – The clinical service, such as a colonoscopy or an appendectomy,
+being documented.</p></li>
+<li><p><strong>section</strong> – The root of the sections that make up the composition.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Composition.Composition.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Composition.html#Composition.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Composition.Composition.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -406,24 +240,15 @@ clinical attestation with regard to who is making the statement. While
 a Composition defines the structure, it does not actually contain the
 content: rather the full content of a document is contained in a
 Bundle, of which the Composition is the first resource contained.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Attester.mode">
-<code class="sig-name descname">mode</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Attester.mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of attestation the authenticator offers.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Attester.time">
-<code class="sig-name descname">time</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Attester.time" title="Permalink to this definition">¶</a></dt>
-<dd><p>When the composition was attested by the party.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Attester.party">
-<code class="sig-name descname">party</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Attester.party" title="Permalink to this definition">¶</a></dt>
-<dd><p>Who attested the composition in the specified way.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> – The type of attestation the authenticator offers.</p></li>
+<li><p><strong>time</strong> – When the composition was attested by the party.</p></li>
+<li><p><strong>party</strong> – Who attested the composition in the specified way.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Composition.Composition_Attester.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Composition.html#Composition_Attester.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Composition.Composition_Attester.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -460,32 +285,23 @@ clinical attestation with regard to who is making the statement. While
 a Composition defines the structure, it does not actually contain the
 content: rather the full content of a document is contained in a
 Bundle, of which the Composition is the first resource contained.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Event.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Event.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>This list of codes represents the main clinical acts, such as a
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> – This list of codes represents the main clinical acts, such as a
 colonoscopy or an appendectomy, being documented. In some cases, the
 event is inherent in the typeCode, such as a “History and Physical
 Report” in which the procedure being documented is necessarily a
-“History and Physical” act.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Event.period">
-<code class="sig-name descname">period</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Event.period" title="Permalink to this definition">¶</a></dt>
-<dd><p>The period of time covered by the documentation. There is no
+“History and Physical” act.</p></li>
+<li><p><strong>period</strong> – The period of time covered by the documentation. There is no
 assertion that the documentation is a complete representation for this
-period, only that it documents events during this time.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Event.detail">
-<code class="sig-name descname">detail</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Event.detail" title="Permalink to this definition">¶</a></dt>
-<dd><p>The description and/or reference of the event(s) being
+period, only that it documents events during this time.</p></li>
+<li><p><strong>detail</strong> – The description and/or reference of the event(s) being
 documented. For example, this could be used to document such a
-colonoscopy or an appendectomy.</p>
-</dd></dl>
-
+colonoscopy or an appendectomy.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Composition.Composition_Event.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Composition.html#Composition_Event.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Composition.Composition_Event.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -510,26 +326,17 @@ clinical attestation with regard to who is making the statement. While
 a Composition defines the structure, it does not actually contain the
 content: rather the full content of a document is contained in a
 Bundle, of which the Composition is the first resource contained.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_RelatesTo.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_RelatesTo.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of relationship that this composition has with anther
-composition or document.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_RelatesTo.targetIdentifier">
-<code class="sig-name descname">targetIdentifier</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_RelatesTo.targetIdentifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>The target composition/document of this
-relationship.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_RelatesTo.targetReference">
-<code class="sig-name descname">targetReference</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_RelatesTo.targetReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>The target composition/document of this relationship.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> – The type of relationship that this composition has with anther
+composition or document.</p></li>
+<li><p><strong>targetIdentifier</strong> – The target composition/document of this
+relationship.</p></li>
+<li><p><strong>targetReference</strong> – The target composition/document of this relationship.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Composition.Composition_RelatesTo.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Composition.html#Composition_RelatesTo.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Composition.Composition_RelatesTo.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -554,68 +361,34 @@ clinical attestation with regard to who is making the statement. While
 a Composition defines the structure, it does not actually contain the
 content: rather the full content of a document is contained in a
 Bundle, of which the Composition is the first resource contained.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Section.title">
-<code class="sig-name descname">title</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Section.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>The label for this particular section.  This will be part of
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> – The label for this particular section.  This will be part of
 the rendered content for the document, and is often used to build a
-table of contents.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Section.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Section.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>A code identifying the kind of content contained within the
-section. This must be consistent with the section title.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Section.text">
-<code class="sig-name descname">text</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Section.text" title="Permalink to this definition">¶</a></dt>
-<dd><p>A human-readable narrative that contains the attested content of
+table of contents.</p></li>
+<li><p><strong>code</strong> – A code identifying the kind of content contained within the
+section. This must be consistent with the section title.</p></li>
+<li><p><strong>text</strong> – A human-readable narrative that contains the attested content of
 the section, used to represent the content of the resource to a human.
 The narrative need not encode all the structured data, but is required
 to contain sufficient detail to make it “clinically safe” for a human
-to just read the narrative.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Section.mode">
-<code class="sig-name descname">mode</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Section.mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>How the entry list was prepared - whether it is a working list
+to just read the narrative.</p></li>
+<li><p><strong>mode</strong> – How the entry list was prepared - whether it is a working list
 that is suitable for being maintained on an ongoing basis, or if it
 represents a snapshot of a list of items from another source, or
 whether it is a prepared list where items may be marked as added,
-modified or deleted.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Section.orderedBy">
-<code class="sig-name descname">orderedBy</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Section.orderedBy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specifies the order applied to the items in the section
-entries.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Section.entry">
-<code class="sig-name descname">entry</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Section.entry" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to the actual resource from which the narrative in
-the section is derived.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Section.emptyReason">
-<code class="sig-name descname">emptyReason</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Section.emptyReason" title="Permalink to this definition">¶</a></dt>
-<dd><p>If the section is empty, why the list is empty. An empty
-section typically has some text explaining the empty reason.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Composition.Composition_Section.section">
-<code class="sig-name descname">section</code><a class="headerlink" href="#cardea.fhir.Composition.Composition_Section.section" title="Permalink to this definition">¶</a></dt>
-<dd><p>A nested sub-section within this section.</p>
-</dd></dl>
-
+modified or deleted.</p></li>
+<li><p><strong>orderedBy</strong> – Specifies the order applied to the items in the section
+entries.</p></li>
+<li><p><strong>entry</strong> – A reference to the actual resource from which the narrative in
+the section is derived.</p></li>
+<li><p><strong>emptyReason</strong> – If the section is empty, why the list is empty. An empty
+section typically has some text explaining the empty reason.</p></li>
+<li><p><strong>section</strong> – A nested sub-section within this section.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Composition.Composition_Section.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Composition.html#Composition_Section.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Composition.Composition_Section.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -632,52 +405,31 @@ section typically has some text explaining the empty reason.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.ConceptMap.html" class="btn btn-neutral float-right" title="cardea.fhir.ConceptMap module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.CompartmentDefinition.html" class="btn btn-neutral float-left" title="cardea.fhir.CompartmentDefinition module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

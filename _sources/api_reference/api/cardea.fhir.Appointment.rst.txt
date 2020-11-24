@@ -1,0 +1,28 @@
+cardea.fhir.Appointment
+=======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Appointment
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Appointment.__init__
+      ~Appointment.assert_type
+      ~Appointment.get_dataframe
+      ~Appointment.get_eligible_relationships
+      ~Appointment.get_id
+      ~Appointment.get_relationships
+      ~Appointment.set_attributes
+   
+   
+
+   
+   
+   

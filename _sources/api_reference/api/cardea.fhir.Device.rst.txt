@@ -1,0 +1,28 @@
+cardea.fhir.Device
+==================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Device
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Device.__init__
+      ~Device.assert_type
+      ~Device.get_dataframe
+      ~Device.get_eligible_relationships
+      ~Device.get_id
+      ~Device.get_relationships
+      ~Device.set_attributes
+   
+   
+
+   
+   
+   

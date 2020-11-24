@@ -1,0 +1,28 @@
+cardea.fhir.Ratio
+=================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Ratio
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Ratio.__init__
+      ~Ratio.assert_type
+      ~Ratio.get_dataframe
+      ~Ratio.get_eligible_relationships
+      ~Ratio.get_id
+      ~Ratio.get_relationships
+      ~Ratio.set_attributes
+   
+   
+
+   
+   
+   

@@ -1,0 +1,28 @@
+cardea.fhir.ClinicalImpression
+==============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ClinicalImpression
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ClinicalImpression.__init__
+      ~ClinicalImpression.assert_type
+      ~ClinicalImpression.get_dataframe
+      ~ClinicalImpression.get_eligible_relationships
+      ~ClinicalImpression.get_id
+      ~ClinicalImpression.get_relationships
+      ~ClinicalImpression.set_attributes
+   
+   
+
+   
+   
+   

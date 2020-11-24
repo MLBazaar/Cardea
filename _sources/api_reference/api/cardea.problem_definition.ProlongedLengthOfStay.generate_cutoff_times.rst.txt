@@ -1,0 +1,6 @@
+cardea.problem\_definition.ProlongedLengthOfStay.generate\_cutoff\_times
+========================================================================
+
+.. currentmodule:: cardea.problem_definition
+
+.. automethod:: ProlongedLengthOfStay.generate_cutoff_times

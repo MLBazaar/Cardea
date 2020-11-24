@@ -1,0 +1,28 @@
+cardea.fhir.OperationOutcome
+============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: OperationOutcome
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~OperationOutcome.__init__
+      ~OperationOutcome.assert_type
+      ~OperationOutcome.get_dataframe
+      ~OperationOutcome.get_eligible_relationships
+      ~OperationOutcome.get_id
+      ~OperationOutcome.get_relationships
+      ~OperationOutcome.set_attributes
+   
+   
+
+   
+   
+   

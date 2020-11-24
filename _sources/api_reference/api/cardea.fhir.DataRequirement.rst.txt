@@ -1,0 +1,28 @@
+cardea.fhir.DataRequirement
+===========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: DataRequirement
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DataRequirement.__init__
+      ~DataRequirement.assert_type
+      ~DataRequirement.get_dataframe
+      ~DataRequirement.get_eligible_relationships
+      ~DataRequirement.get_id
+      ~DataRequirement.get_relationships
+      ~DataRequirement.set_attributes
+   
+   
+
+   
+   
+   

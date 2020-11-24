@@ -1,0 +1,28 @@
+cardea.fhir.CareTeam
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: CareTeam
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CareTeam.__init__
+      ~CareTeam.assert_type
+      ~CareTeam.get_dataframe
+      ~CareTeam.get_eligible_relationships
+      ~CareTeam.get_id
+      ~CareTeam.get_relationships
+      ~CareTeam.set_attributes
+   
+   
+
+   
+   
+   

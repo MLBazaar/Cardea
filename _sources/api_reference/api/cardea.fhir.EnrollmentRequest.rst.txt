@@ -1,0 +1,28 @@
+cardea.fhir.EnrollmentRequest
+=============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: EnrollmentRequest
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~EnrollmentRequest.__init__
+      ~EnrollmentRequest.assert_type
+      ~EnrollmentRequest.get_dataframe
+      ~EnrollmentRequest.get_eligible_relationships
+      ~EnrollmentRequest.get_id
+      ~EnrollmentRequest.get_relationships
+      ~EnrollmentRequest.set_attributes
+   
+   
+
+   
+   
+   

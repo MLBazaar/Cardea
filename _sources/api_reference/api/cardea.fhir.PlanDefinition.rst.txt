@@ -1,0 +1,28 @@
+cardea.fhir.PlanDefinition
+==========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: PlanDefinition
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~PlanDefinition.__init__
+      ~PlanDefinition.assert_type
+      ~PlanDefinition.get_dataframe
+      ~PlanDefinition.get_eligible_relationships
+      ~PlanDefinition.get_id
+      ~PlanDefinition.get_relationships
+      ~PlanDefinition.set_attributes
+   
+   
+
+   
+   
+   

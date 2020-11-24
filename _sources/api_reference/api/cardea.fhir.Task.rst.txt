@@ -1,0 +1,28 @@
+cardea.fhir.Task
+================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Task
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Task.__init__
+      ~Task.assert_type
+      ~Task.get_dataframe
+      ~Task.get_eligible_relationships
+      ~Task.get_id
+      ~Task.get_relationships
+      ~Task.set_attributes
+   
+   
+
+   
+   
+   

@@ -1,0 +1,28 @@
+cardea.fhir.Coding
+==================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Coding
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Coding.__init__
+      ~Coding.assert_type
+      ~Coding.get_dataframe
+      ~Coding.get_eligible_relationships
+      ~Coding.get_id
+      ~Coding.get_relationships
+      ~Coding.set_attributes
+   
+   
+
+   
+   
+   

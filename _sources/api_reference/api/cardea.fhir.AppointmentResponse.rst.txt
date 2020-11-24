@@ -1,0 +1,28 @@
+cardea.fhir.AppointmentResponse
+===============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: AppointmentResponse
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AppointmentResponse.__init__
+      ~AppointmentResponse.assert_type
+      ~AppointmentResponse.get_dataframe
+      ~AppointmentResponse.get_eligible_relationships
+      ~AppointmentResponse.get_id
+      ~AppointmentResponse.get_relationships
+      ~AppointmentResponse.set_attributes
+   
+   
+
+   
+   
+   

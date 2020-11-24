@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.Communication module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.Communication module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.CommunicationRequest module" href="cardea.fhir.CommunicationRequest.html" />
-    <link rel="prev" title="cardea.fhir.Coding module" href="cardea.fhir.Coding.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.Communication module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Communication.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.Communication">
 <span id="cardea-fhir-communication-module"></span><h1>cardea.fhir.Communication module<a class="headerlink" href="#module-cardea.fhir.Communication" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -251,153 +159,54 @@
 <p>An occurrence of information being transmitted; e.g. an alert that was
 sent to a responsible provider, a public health agency was notified
 about a reportable condition.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a Communication resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifiers associated with this Communication that are
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a Communication resource</p></li>
+<li><p><strong>identifier</strong> – Identifiers associated with this Communication that are
 defined by business processes and/ or used to refer to it when a
 direct URL reference to the resource itself is not appropriate (e.g.
-in CDA documents, or in written / printed documentation).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.definition">
-<code class="sig-name descname">definition</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.definition" title="Permalink to this definition">¶</a></dt>
-<dd><p>A protocol, guideline, or other definition that was
-adhered to in whole or in part by this communication event.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.basedOn">
-<code class="sig-name descname">basedOn</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.basedOn" title="Permalink to this definition">¶</a></dt>
-<dd><p>An order, proposal or plan fulfilled in whole or in part by
-this Communication.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.partOf">
-<code class="sig-name descname">partOf</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.partOf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Part of this action.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of the transmission.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.notDone">
-<code class="sig-name descname">notDone</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.notDone" title="Permalink to this definition">¶</a></dt>
-<dd><p>If true, indicates that the described communication event did
-not actually occur.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.notDoneReason">
-<code class="sig-name descname">notDoneReason</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.notDoneReason" title="Permalink to this definition">¶</a></dt>
-<dd><p>Describes why the communication event did not occur in
-coded and/or textual form.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of message conveyed such as alert, notification,
-reminder, instruction, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.medium">
-<code class="sig-name descname">medium</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.medium" title="Permalink to this definition">¶</a></dt>
-<dd><p>A channel that was used for this communication (e.g. email,
-fax).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.subject">
-<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.subject" title="Permalink to this definition">¶</a></dt>
-<dd><p>The patient or group that was the focus of this
-communication.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.recipient">
-<code class="sig-name descname">recipient</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.recipient" title="Permalink to this definition">¶</a></dt>
-<dd><p>The entity (e.g. person, organization, clinical information
+in CDA documents, or in written / printed documentation).</p></li>
+<li><p><strong>definition</strong> – A protocol, guideline, or other definition that was
+adhered to in whole or in part by this communication event.</p></li>
+<li><p><strong>basedOn</strong> – An order, proposal or plan fulfilled in whole or in part by
+this Communication.</p></li>
+<li><p><strong>partOf</strong> – Part of this action.</p></li>
+<li><p><strong>status</strong> – The status of the transmission.</p></li>
+<li><p><strong>notDone</strong> – If true, indicates that the described communication event did
+not actually occur.</p></li>
+<li><p><strong>notDoneReason</strong> – Describes why the communication event did not occur in
+coded and/or textual form.</p></li>
+<li><p><strong>category</strong> – The type of message conveyed such as alert, notification,
+reminder, instruction, etc.</p></li>
+<li><p><strong>medium</strong> – A channel that was used for this communication (e.g. email,
+fax).</p></li>
+<li><p><strong>subject</strong> – The patient or group that was the focus of this
+communication.</p></li>
+<li><p><strong>recipient</strong> – The entity (e.g. person, organization, clinical information
 system, or device) which was the target of the communication. If
 receipts need to be tracked by individual, a separate resource
 instance will need to be created for each recipient.  Multiple
 recipient communications are intended where either a receipt(s) is not
 tracked (e.g. a mass mail-out) or is captured in aggregate (all emails
-confirmed received by a particular time).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.topic">
-<code class="sig-name descname">topic</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.topic" title="Permalink to this definition">¶</a></dt>
-<dd><p>The resources which were responsible for or related to
-producing this communication.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.context">
-<code class="sig-name descname">context</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.context" title="Permalink to this definition">¶</a></dt>
-<dd><p>The encounter within which the communication was sent.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.sent">
-<code class="sig-name descname">sent</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.sent" title="Permalink to this definition">¶</a></dt>
-<dd><p>The time when this communication was sent.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.received">
-<code class="sig-name descname">received</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.received" title="Permalink to this definition">¶</a></dt>
-<dd><p>The time when this communication arrived at the destination.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.sender">
-<code class="sig-name descname">sender</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.sender" title="Permalink to this definition">¶</a></dt>
-<dd><p>The entity (e.g. person, organization, clinical information
-system, or device) which was the source of the communication.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.reasonCode">
-<code class="sig-name descname">reasonCode</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.reasonCode" title="Permalink to this definition">¶</a></dt>
-<dd><p>The reason or justification for the communication.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.reasonReference">
-<code class="sig-name descname">reasonReference</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.reasonReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates another resource whose existence justifies
-this communication.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.payload">
-<code class="sig-name descname">payload</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.payload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Text, attachment(s), or resource(s) that was communicated to
-the recipient.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication.note">
-<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.Communication.Communication.note" title="Permalink to this definition">¶</a></dt>
-<dd><p>Additional notes or commentary about the communication by the
-sender, receiver or other interested parties.</p>
-</dd></dl>
-
+confirmed received by a particular time).</p></li>
+<li><p><strong>topic</strong> – The resources which were responsible for or related to
+producing this communication.</p></li>
+<li><p><strong>context</strong> – The encounter within which the communication was sent.</p></li>
+<li><p><strong>sent</strong> – The time when this communication was sent.</p></li>
+<li><p><strong>received</strong> – The time when this communication arrived at the destination.</p></li>
+<li><p><strong>sender</strong> – The entity (e.g. person, organization, clinical information
+system, or device) which was the source of the communication.</p></li>
+<li><p><strong>reasonCode</strong> – The reason or justification for the communication.</p></li>
+<li><p><strong>reasonReference</strong> – Indicates another resource whose existence justifies
+this communication.</p></li>
+<li><p><strong>payload</strong> – Text, attachment(s), or resource(s) that was communicated to
+the recipient.</p></li>
+<li><p><strong>note</strong> – Additional notes or commentary about the communication by the
+sender, receiver or other interested parties.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Communication.Communication.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Communication.html#Communication.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Communication.Communication.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -418,27 +227,18 @@ sender, receiver or other interested parties.</p>
 <p>An occurrence of information being transmitted; e.g. an alert that was
 sent to a responsible provider, a public health agency was notified
 about a reportable condition.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication_Payload.contentString">
-<code class="sig-name descname">contentString</code><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.contentString" title="Permalink to this definition">¶</a></dt>
-<dd><p>A communicated content (or for multi-part
-communications, one portion of the communication).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication_Payload.contentAttachment">
-<code class="sig-name descname">contentAttachment</code><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.contentAttachment" title="Permalink to this definition">¶</a></dt>
-<dd><p>A communicated content (or for multi-part
-communications, one portion of the communication).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Communication.Communication_Payload.contentReference">
-<code class="sig-name descname">contentReference</code><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.contentReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>A communicated content (or for multi-part
-communications, one portion of the communication).</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>contentString</strong> – A communicated content (or for multi-part
+communications, one portion of the communication).</p></li>
+<li><p><strong>contentAttachment</strong> – A communicated content (or for multi-part
+communications, one portion of the communication).</p></li>
+<li><p><strong>contentReference</strong> – A communicated content (or for multi-part
+communications, one portion of the communication).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Communication.Communication_Payload.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Communication.html#Communication_Payload.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Communication.Communication_Payload.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -455,52 +255,31 @@ communications, one portion of the communication).</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.CommunicationRequest.html" class="btn btn-neutral float-right" title="cardea.fhir.CommunicationRequest module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Coding.html" class="btn btn-neutral float-left" title="cardea.fhir.Coding module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

@@ -1,0 +1,28 @@
+cardea.fhir.Identifier
+======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Identifier
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Identifier.__init__
+      ~Identifier.assert_type
+      ~Identifier.get_dataframe
+      ~Identifier.get_eligible_relationships
+      ~Identifier.get_id
+      ~Identifier.get_relationships
+      ~Identifier.set_attributes
+   
+   
+
+   
+   
+   

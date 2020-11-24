@@ -1,0 +1,28 @@
+cardea.fhir.Age
+===============
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Age
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Age.__init__
+      ~Age.assert_type
+      ~Age.get_dataframe
+      ~Age.get_eligible_relationships
+      ~Age.get_id
+      ~Age.get_relationships
+      ~Age.set_attributes
+   
+   
+
+   
+   
+   

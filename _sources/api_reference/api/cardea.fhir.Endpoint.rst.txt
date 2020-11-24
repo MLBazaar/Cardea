@@ -1,0 +1,28 @@
+cardea.fhir.Endpoint
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Endpoint
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Endpoint.__init__
+      ~Endpoint.assert_type
+      ~Endpoint.get_dataframe
+      ~Endpoint.get_eligible_relationships
+      ~Endpoint.get_id
+      ~Endpoint.get_relationships
+      ~Endpoint.set_attributes
+   
+   
+
+   
+   
+   

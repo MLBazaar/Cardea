@@ -1,0 +1,28 @@
+cardea.fhir.FamilyMemberHistory
+===============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: FamilyMemberHistory
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~FamilyMemberHistory.__init__
+      ~FamilyMemberHistory.assert_type
+      ~FamilyMemberHistory.get_dataframe
+      ~FamilyMemberHistory.get_eligible_relationships
+      ~FamilyMemberHistory.get_id
+      ~FamilyMemberHistory.get_relationships
+      ~FamilyMemberHistory.set_attributes
+   
+   
+
+   
+   
+   

@@ -1,0 +1,28 @@
+cardea.fhir.NamingSystem
+========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: NamingSystem
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~NamingSystem.__init__
+      ~NamingSystem.assert_type
+      ~NamingSystem.get_dataframe
+      ~NamingSystem.get_eligible_relationships
+      ~NamingSystem.get_id
+      ~NamingSystem.get_relationships
+      ~NamingSystem.set_attributes
+   
+   
+
+   
+   
+   

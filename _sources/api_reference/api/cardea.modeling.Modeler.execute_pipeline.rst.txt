@@ -1,0 +1,6 @@
+cardea.modeling.Modeler.execute\_pipeline
+=========================================
+
+.. currentmodule:: cardea.modeling
+
+.. automethod:: Modeler.execute_pipeline

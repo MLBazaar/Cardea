@@ -1,0 +1,28 @@
+cardea.fhir.Patient
+===================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Patient
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Patient.__init__
+      ~Patient.assert_type
+      ~Patient.get_dataframe
+      ~Patient.get_eligible_relationships
+      ~Patient.get_id
+      ~Patient.get_relationships
+      ~Patient.set_attributes
+   
+   
+
+   
+   
+   

@@ -1,0 +1,28 @@
+cardea.fhir.Goal
+================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Goal
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Goal.__init__
+      ~Goal.assert_type
+      ~Goal.get_dataframe
+      ~Goal.get_eligible_relationships
+      ~Goal.get_id
+      ~Goal.get_relationships
+      ~Goal.set_attributes
+   
+   
+
+   
+   
+   

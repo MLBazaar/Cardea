@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.ImplementationGuide module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.ImplementationGuide module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.Library module" href="cardea.fhir.Library.html" />
-    <link rel="prev" title="cardea.fhir.ImmunizationRecommendation module" href="cardea.fhir.ImmunizationRecommendation.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.ImplementationGuide module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.ImplementationGuide.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.ImplementationGuide">
 <span id="cardea-fhir-implementationguide-module"></span><h1>cardea.fhir.ImplementationGuide module<a class="headerlink" href="#module-cardea.fhir.ImplementationGuide" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -252,160 +160,71 @@
 resource is used to gather all the parts of an implementation guide
 into a logical whole and to publish a computable definition of all the
 parts.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a ImplementationGuide resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute URI that is used to identify this implementation
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a ImplementationGuide resource</p></li>
+<li><p><strong>url</strong> – An absolute URI that is used to identify this implementation
 guide when it is referenced in a specification, model, design or an
 instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD
 be an address at which this implementation guide is (or will be)
 published. The URL SHOULD include the major version of the
 implementation guide. For more information see [Technical and Business
-Versions](resource.html#versions).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier that is used to identify this version of the
+Versions](resource.html#versions).</p></li>
+<li><p><strong>version</strong> – The identifier that is used to identify this version of the
 implementation guide when it is referenced in a specification, model,
 design or instance. This is an arbitrary value managed by the
 implementation guide author and is not expected to be globally unique.
 For example, it might be a timestamp (e.g. yyyymmdd) if a managed
 version is not available. There is also no expectation that versions
-can be placed in a lexicographical sequence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>A natural language name identifying the implementation guide.
+can be placed in a lexicographical sequence.</p></li>
+<li><p><strong>name</strong> – A natural language name identifying the implementation guide.
 This name should be usable as an identifier for the module by machine
-processing applications such as code generation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of this implementation guide. Enables tracking the
-life-cycle of the content.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.experimental">
-<code class="sig-name descname">experimental</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.experimental" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean value to indicate that this implementation
+processing applications such as code generation.</p></li>
+<li><p><strong>status</strong> – The status of this implementation guide. Enables tracking the
+life-cycle of the content.</p></li>
+<li><p><strong>experimental</strong> – A boolean value to indicate that this implementation
 guide is authored for testing purposes (or
 education/evaluation/marketing), and is not intended to be used for
-genuine usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.date">
-<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date  (and optionally time) when the implementation guide
+genuine usage.</p></li>
+<li><p><strong>date</strong> – The date  (and optionally time) when the implementation guide
 was published. The date must change if and when the business version
 changes and it must change if the status code changes. In addition, it
 should change when the substantive content of the implementation guide
-changes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.publisher">
-<code class="sig-name descname">publisher</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.publisher" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the individual or organization that published
-the implementation guide.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.contact">
-<code class="sig-name descname">contact</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.contact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Contact details to assist a user in finding and communicating
-with the publisher.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A free text natural language description of the
-implementation guide from a consumer’s perspective.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.useContext">
-<code class="sig-name descname">useContext</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.useContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content was developed with a focus and intent of
+changes.</p></li>
+<li><p><strong>publisher</strong> – The name of the individual or organization that published
+the implementation guide.</p></li>
+<li><p><strong>contact</strong> – Contact details to assist a user in finding and communicating
+with the publisher.</p></li>
+<li><p><strong>description</strong> – A free text natural language description of the
+implementation guide from a consumer’s perspective.</p></li>
+<li><p><strong>useContext</strong> – The content was developed with a focus and intent of
 supporting the contexts that are listed. These terms may be used to
 assist with indexing and searching for appropriate implementation
-guide instances.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.jurisdiction">
-<code class="sig-name descname">jurisdiction</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.jurisdiction" title="Permalink to this definition">¶</a></dt>
-<dd><p>A legal or geographic region in which the implementation
-guide is intended to be used.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.copyright">
-<code class="sig-name descname">copyright</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.copyright" title="Permalink to this definition">¶</a></dt>
-<dd><p>A copyright statement relating to the implementation guide
+guide instances.</p></li>
+<li><p><strong>jurisdiction</strong> – A legal or geographic region in which the implementation
+guide is intended to be used.</p></li>
+<li><p><strong>copyright</strong> – A copyright statement relating to the implementation guide
 and/or its contents. Copyright statements are generally legal
-restrictions on the use and publishing of the implementation guide.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.fhirVersion">
-<code class="sig-name descname">fhirVersion</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.fhirVersion" title="Permalink to this definition">¶</a></dt>
-<dd><p>The version of the FHIR specification on which this
+restrictions on the use and publishing of the implementation guide.</p></li>
+<li><p><strong>fhirVersion</strong> – The version of the FHIR specification on which this
 ImplementationGuide is based - this is the formal version of the
 specification, without the revision number, e.g.
-[publication].[major].[minor], which is 3.0.1 for this version.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.dependency">
-<code class="sig-name descname">dependency</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.dependency" title="Permalink to this definition">¶</a></dt>
-<dd><p>Another implementation guide that this implementation
+[publication].[major].[minor], which is 3.0.1 for this version.</p></li>
+<li><p><strong>dependency</strong> – Another implementation guide that this implementation
 depends on. Typically, an implementation guide uses value sets,
-profiles etc.defined in other implementation guides.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.package">
-<code class="sig-name descname">package</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.package" title="Permalink to this definition">¶</a></dt>
-<dd><p>A logical group of resources. Logical groups can be used when
-building pages.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.global">
-<code class="sig-name descname">global</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.global" title="Permalink to this definition">¶</a></dt>
-<dd><p>A set of profiles that all resources covered by this
-implementation guide must conform to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.binary">
-<code class="sig-name descname">binary</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>A binary file that is included in the  implementation guide
-when it is published.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.page">
-<code class="sig-name descname">page</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.page" title="Permalink to this definition">¶</a></dt>
-<dd><p>A page / section in the implementation guide. The root page is
-the implementation guide home page.</p>
-</dd></dl>
-
+profiles etc.defined in other implementation guides.</p></li>
+<li><p><strong>package</strong> – A logical group of resources. Logical groups can be used when
+building pages.</p></li>
+<li><p><strong>global</strong> – A set of profiles that all resources covered by this
+implementation guide must conform to.</p></li>
+<li><p><strong>binary</strong> – A binary file that is included in the  implementation guide
+when it is published.</p></li>
+<li><p><strong>page</strong> – A page / section in the implementation guide. The root page is
+the implementation guide home page.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ImplementationGuide.ImplementationGuide.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImplementationGuide.html#ImplementationGuide.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -439,18 +258,14 @@ the implementation guide home page.</p>
 resource is used to gather all the parts of an implementation guide
 into a logical whole and to publish a computable definition of all the
 parts.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Dependency.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Dependency.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>How the dependency is represented when the guide is published.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Dependency.uri">
-<code class="sig-name descname">uri</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Dependency.uri" title="Permalink to this definition">¶</a></dt>
-<dd><p>Where the dependency is located.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – How the dependency is represented when the guide is published.</p></li>
+<li><p><strong>uri</strong> – Where the dependency is located.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Dependency.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImplementationGuide.html#ImplementationGuide_Dependency.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Dependency.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -473,19 +288,15 @@ parts.</p>
 resource is used to gather all the parts of an implementation guide
 into a logical whole and to publish a computable definition of all the
 parts.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Global.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Global.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of resource that all instances must conform to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Global.profile">
-<code class="sig-name descname">profile</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Global.profile" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to the profile that all instances must conform
-to.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – The type of resource that all instances must conform to.</p></li>
+<li><p><strong>profile</strong> – A reference to the profile that all instances must conform
+to.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Global.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImplementationGuide.html#ImplementationGuide_Global.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Global.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -507,27 +318,18 @@ to.</p>
 resource is used to gather all the parts of an implementation guide
 into a logical whole and to publish a computable definition of all the
 parts.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Package.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Package.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name for the group, as used in page.package.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Package.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Package.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Human readable text describing the package.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Package.resource">
-<code class="sig-name descname">resource</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Package.resource" title="Permalink to this definition">¶</a></dt>
-<dd><p>A resource that is part of the implementation guide.
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name for the group, as used in page.package.</p></li>
+<li><p><strong>description</strong> – Human readable text describing the package.</p></li>
+<li><p><strong>resource</strong> – A resource that is part of the implementation guide.
 Conformance resources (value set, structure definition, capability
 statements etc.) are obvious candidates for inclusion, but any kind of
-resource can be included as an example resource.</p>
-</dd></dl>
-
+resource can be included as an example resource.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Package.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImplementationGuide.html#ImplementationGuide_Package.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Package.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -549,53 +351,24 @@ resource can be included as an example resource.</p>
 resource is used to gather all the parts of an implementation guide
 into a logical whole and to publish a computable definition of all the
 parts.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Page.source">
-<code class="sig-name descname">source</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Page.source" title="Permalink to this definition">¶</a></dt>
-<dd><p>The source address for the page.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Page.title">
-<code class="sig-name descname">title</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Page.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short title used to represent this page in navigational
-structures such as table of contents, bread crumbs, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Page.kind">
-<code class="sig-name descname">kind</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Page.kind" title="Permalink to this definition">¶</a></dt>
-<dd><p>The kind of page that this is. Some pages are autogenerated
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – The source address for the page.</p></li>
+<li><p><strong>title</strong> – A short title used to represent this page in navigational
+structures such as table of contents, bread crumbs, etc.</p></li>
+<li><p><strong>kind</strong> – The kind of page that this is. Some pages are autogenerated
 (list, example), and other kinds are of interest so that tools can
-navigate the user to the page of interest.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Page.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Page.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>For constructed pages, what kind of resources to include in the
-list.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Page.package">
-<code class="sig-name descname">package</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Page.package" title="Permalink to this definition">¶</a></dt>
-<dd><p>For constructed pages, a list of packages to include in the
-page (or else empty for everything).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Page.format">
-<code class="sig-name descname">format</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Page.format" title="Permalink to this definition">¶</a></dt>
-<dd><p>The format of the page.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Page.page">
-<code class="sig-name descname">page</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Page.page" title="Permalink to this definition">¶</a></dt>
-<dd><p>Nested Pages/Sections under this page.</p>
-</dd></dl>
-
+navigate the user to the page of interest.</p></li>
+<li><p><strong>type</strong> – For constructed pages, what kind of resources to include in the
+list.</p></li>
+<li><p><strong>package</strong> – For constructed pages, a list of packages to include in the
+page (or else empty for everything).</p></li>
+<li><p><strong>format</strong> – The format of the page.</p></li>
+<li><p><strong>page</strong> – Nested Pages/Sections under this page.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Page.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImplementationGuide.html#ImplementationGuide_Page.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Page.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -629,57 +402,28 @@ page (or else empty for everything).</p>
 resource is used to gather all the parts of an implementation guide
 into a logical whole and to publish a computable definition of all the
 parts.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.example">
-<code class="sig-name descname">example</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.example" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether a resource is included in the guide as part of the
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>example</strong> – Whether a resource is included in the guide as part of the
 rules defined by the guide, or just as an example of a resource that
 conforms to the rules and/or help implementers understand the intent
-of the guide.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>A human assigned name for the resource. All resources SHOULD
+of the guide.</p></li>
+<li><p><strong>name</strong> – A human assigned name for the resource. All resources SHOULD
 have a name, but the name may be extracted from the resource (e.g.
-ValueSet.name).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description of the reason that a resource has been
-included in the implementation guide.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.acronym">
-<code class="sig-name descname">acronym</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.acronym" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short code that may be used to identify the resource
-throughout the implementation guide.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.sourceUri">
-<code class="sig-name descname">sourceUri</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.sourceUri" title="Permalink to this definition">¶</a></dt>
-<dd><p>Where this resource is found.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.sourceReference">
-<code class="sig-name descname">sourceReference</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.sourceReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Where this resource is found.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.exampleFor">
-<code class="sig-name descname">exampleFor</code><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.exampleFor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Another resource that this resource is an example for.
+ValueSet.name).</p></li>
+<li><p><strong>description</strong> – A description of the reason that a resource has been
+included in the implementation guide.</p></li>
+<li><p><strong>acronym</strong> – A short code that may be used to identify the resource
+throughout the implementation guide.</p></li>
+<li><p><strong>sourceUri</strong> – Where this resource is found.</p></li>
+<li><p><strong>sourceReference</strong> – Where this resource is found.</p></li>
+<li><p><strong>exampleFor</strong> – Another resource that this resource is an example for.
 This is mostly used for resources that are included as examples of
-StructureDefinitions.</p>
-</dd></dl>
-
+StructureDefinitions.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ImplementationGuide.html#ImplementationGuide_Resource.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ImplementationGuide.ImplementationGuide_Resource.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -696,52 +440,31 @@ StructureDefinitions.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.Library.html" class="btn btn-neutral float-right" title="cardea.fhir.Library module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.ImmunizationRecommendation.html" class="btn btn-neutral float-left" title="cardea.fhir.ImmunizationRecommendation module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

@@ -1,0 +1,28 @@
+cardea.fhir.Observation
+=======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Observation
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Observation.__init__
+      ~Observation.assert_type
+      ~Observation.get_dataframe
+      ~Observation.get_eligible_relationships
+      ~Observation.get_id
+      ~Observation.get_relationships
+      ~Observation.set_attributes
+   
+   
+
+   
+   
+   

@@ -1,0 +1,28 @@
+cardea.fhir.SearchParameter
+===========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: SearchParameter
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SearchParameter.__init__
+      ~SearchParameter.assert_type
+      ~SearchParameter.get_dataframe
+      ~SearchParameter.get_eligible_relationships
+      ~SearchParameter.get_id
+      ~SearchParameter.get_relationships
+      ~SearchParameter.set_attributes
+   
+   
+
+   
+   
+   

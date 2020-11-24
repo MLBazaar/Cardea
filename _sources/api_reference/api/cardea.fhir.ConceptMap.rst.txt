@@ -1,0 +1,28 @@
+cardea.fhir.ConceptMap
+======================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ConceptMap
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ConceptMap.__init__
+      ~ConceptMap.assert_type
+      ~ConceptMap.get_dataframe
+      ~ConceptMap.get_eligible_relationships
+      ~ConceptMap.get_id
+      ~ConceptMap.get_relationships
+      ~ConceptMap.set_attributes
+   
+   
+
+   
+   
+   

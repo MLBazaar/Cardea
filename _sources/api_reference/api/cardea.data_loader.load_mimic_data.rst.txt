@@ -1,0 +1,6 @@
+cardea.data\_loader.load\_mimic\_data
+=====================================
+
+.. currentmodule:: cardea.data_loader
+
+.. autofunction:: load_mimic_data

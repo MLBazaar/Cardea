@@ -1,0 +1,6 @@
+cardea.Cardea.list\_feature\_primitives
+=======================================
+
+.. currentmodule:: cardea
+
+.. automethod:: Cardea.list_feature_primitives

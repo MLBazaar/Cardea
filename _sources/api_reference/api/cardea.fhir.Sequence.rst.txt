@@ -1,0 +1,28 @@
+cardea.fhir.Sequence
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Sequence
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Sequence.__init__
+      ~Sequence.assert_type
+      ~Sequence.get_dataframe
+      ~Sequence.get_eligible_relationships
+      ~Sequence.get_id
+      ~Sequence.get_relationships
+      ~Sequence.set_attributes
+   
+   
+
+   
+   
+   

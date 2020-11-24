@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.Specimen module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.Specimen module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.StructureDefinition module" href="cardea.fhir.StructureDefinition.html" />
-    <link rel="prev" title="cardea.fhir.Slot module" href="cardea.fhir.Slot.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.Specimen module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Specimen.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.Specimen">
 <span id="cardea-fhir-specimen-module"></span><h1>cardea.fhir.Specimen module<a class="headerlink" href="#module-cardea.fhir.Specimen" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -249,96 +157,37 @@
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Specimen.</code><code class="sig-name descname">Specimen</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Specimen.html#Specimen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Specimen.Specimen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A sample to be used for analysis.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a Specimen resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Id for specimen.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.accessionIdentifier">
-<code class="sig-name descname">accessionIdentifier</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.accessionIdentifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier assigned by the lab when
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a Specimen resource</p></li>
+<li><p><strong>identifier</strong> – Id for specimen.</p></li>
+<li><p><strong>accessionIdentifier</strong> – The identifier assigned by the lab when
 accessioning specimen(s). This is not necessarily the same as the
-specimen identifier, depending on local lab procedures.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The availability of the specimen.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>The kind of material that forms the specimen.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.subject">
-<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.subject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Where the specimen came from. This may be from the patient(s)
-or from the environment or a device.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.receivedTime">
-<code class="sig-name descname">receivedTime</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.receivedTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Time when specimen was received for processing or
-testing.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.parent">
-<code class="sig-name descname">parent</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.parent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reference to the parent (source) specimen which is used when
+specimen identifier, depending on local lab procedures.</p></li>
+<li><p><strong>status</strong> – The availability of the specimen.</p></li>
+<li><p><strong>type</strong> – The kind of material that forms the specimen.</p></li>
+<li><p><strong>subject</strong> – Where the specimen came from. This may be from the patient(s)
+or from the environment or a device.</p></li>
+<li><p><strong>receivedTime</strong> – Time when specimen was received for processing or
+testing.</p></li>
+<li><p><strong>parent</strong> – Reference to the parent (source) specimen which is used when
 the specimen was either derived from or a component of another
-specimen.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.request">
-<code class="sig-name descname">request</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Details concerning a test or procedure request that required
-a specimen to be collected.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.collection">
-<code class="sig-name descname">collection</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.collection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Details concerning the specimen collection.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.processing">
-<code class="sig-name descname">processing</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.processing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Details concerning processing and processing steps for the
-specimen.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.container">
-<code class="sig-name descname">container</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.container" title="Permalink to this definition">¶</a></dt>
-<dd><p>The container holding the specimen.  The recursive nature
+specimen.</p></li>
+<li><p><strong>request</strong> – Details concerning a test or procedure request that required
+a specimen to be collected.</p></li>
+<li><p><strong>collection</strong> – Details concerning the specimen collection.</p></li>
+<li><p><strong>processing</strong> – Details concerning processing and processing steps for the
+specimen.</p></li>
+<li><p><strong>container</strong> – The container holding the specimen.  The recursive nature
 of containers; i.e. blood in tube in tray in rack is not addressed
-here.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen.note">
-<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.note" title="Permalink to this definition">¶</a></dt>
-<dd><p>To communicate any details or issues about the specimen or
+here.</p></li>
+<li><p><strong>note</strong> – To communicate any details or issues about the specimen or
 during the specimen collection. (for example: broken vial, sent with
-patient, frozen).</p>
-</dd></dl>
-
+patient, frozen).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Specimen.Specimen.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Specimen.html#Specimen.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Specimen.Specimen.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -369,49 +218,25 @@ patient, frozen).</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Specimen.</code><code class="sig-name descname">Specimen_Collection</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Specimen.html#Specimen_Collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Collection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A sample to be used for analysis.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Collection.collector">
-<code class="sig-name descname">collector</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Collection.collector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Person who collected the specimen.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Collection.collectedDateTime">
-<code class="sig-name descname">collectedDateTime</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Collection.collectedDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Time when specimen was collected from subject - the
-physiologically relevant time.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Collection.collectedPeriod">
-<code class="sig-name descname">collectedPeriod</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Collection.collectedPeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>Time when specimen was collected from subject - the
-physiologically relevant time.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Collection.quantity">
-<code class="sig-name descname">quantity</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Collection.quantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The quantity of specimen collected; for instance the volume
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>collector</strong> – Person who collected the specimen.</p></li>
+<li><p><strong>collectedDateTime</strong> – Time when specimen was collected from subject - the
+physiologically relevant time.</p></li>
+<li><p><strong>collectedPeriod</strong> – Time when specimen was collected from subject - the
+physiologically relevant time.</p></li>
+<li><p><strong>quantity</strong> – The quantity of specimen collected; for instance the volume
 of a blood sample, or the physical measurement of an anatomic
-pathology sample.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Collection.method">
-<code class="sig-name descname">method</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Collection.method" title="Permalink to this definition">¶</a></dt>
-<dd><p>A coded value specifying the technique that is used to perform
-the procedure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Collection.bodySite">
-<code class="sig-name descname">bodySite</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Collection.bodySite" title="Permalink to this definition">¶</a></dt>
-<dd><p>Anatomical location from which the specimen was collected
+pathology sample.</p></li>
+<li><p><strong>method</strong> – A coded value specifying the technique that is used to perform
+the procedure.</p></li>
+<li><p><strong>bodySite</strong> – Anatomical location from which the specimen was collected
 (if subject is a patient). This is the target site.  This element is
-not used for environmental specimens.</p>
-</dd></dl>
-
+not used for environmental specimens.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Specimen.Specimen_Collection.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Specimen.html#Specimen_Collection.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Collection.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -430,56 +255,27 @@ not used for environmental specimens.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Specimen.</code><code class="sig-name descname">Specimen_Container</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Specimen.html#Specimen_Container"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Container" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A sample to be used for analysis.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Container.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Container.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Id for container. There may be multiple; a manufacturer’s
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identifier</strong> – Id for container. There may be multiple; a manufacturer’s
 bar code, lab assigned identifier, etc. The container ID may differ
-from the specimen id in some circumstances.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Container.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Container.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Textual description of the container.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Container.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Container.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of container associated with the specimen (e.g. slide,
-aliquot, etc.).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Container.capacity">
-<code class="sig-name descname">capacity</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Container.capacity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The capacity (volume or other measure) the container may
-contain.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Container.specimenQuantity">
-<code class="sig-name descname">specimenQuantity</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Container.specimenQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The quantity of specimen in the container; may be
+from the specimen id in some circumstances.</p></li>
+<li><p><strong>description</strong> – Textual description of the container.</p></li>
+<li><p><strong>type</strong> – The type of container associated with the specimen (e.g. slide,
+aliquot, etc.).</p></li>
+<li><p><strong>capacity</strong> – The capacity (volume or other measure) the container may
+contain.</p></li>
+<li><p><strong>specimenQuantity</strong> – The quantity of specimen in the container; may be
 volume, dimensions, or other appropriate measurements, depending on
-the specimen type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Container.additiveCodeableConcept">
-<code class="sig-name descname">additiveCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Container.additiveCodeableConcept" title="Permalink to this definition">¶</a></dt>
-<dd><p>Introduced substance to preserve, maintain or
-enhance the specimen. Examples: Formalin, Citrate, EDTA.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Container.additiveReference">
-<code class="sig-name descname">additiveReference</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Container.additiveReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Introduced substance to preserve, maintain or
-enhance the specimen. Examples: Formalin, Citrate, EDTA.</p>
-</dd></dl>
-
+the specimen type.</p></li>
+<li><p><strong>additiveCodeableConcept</strong> – Introduced substance to preserve, maintain or
+enhance the specimen. Examples: Formalin, Citrate, EDTA.</p></li>
+<li><p><strong>additiveReference</strong> – Introduced substance to preserve, maintain or
+enhance the specimen. Examples: Formalin, Citrate, EDTA.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Specimen.Specimen_Container.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Specimen.html#Specimen_Container.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Container.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -498,41 +294,22 @@ enhance the specimen. Examples: Formalin, Citrate, EDTA.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Specimen.</code><code class="sig-name descname">Specimen_Processing</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Specimen.html#Specimen_Processing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Processing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A sample to be used for analysis.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Processing.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Processing.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Textual description of procedure.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Processing.procedure">
-<code class="sig-name descname">procedure</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Processing.procedure" title="Permalink to this definition">¶</a></dt>
-<dd><p>A coded value specifying the procedure used to process the
-specimen.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Processing.additive">
-<code class="sig-name descname">additive</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Processing.additive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Material used in the processing step.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Processing.timeDateTime">
-<code class="sig-name descname">timeDateTime</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Processing.timeDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>A record of the time or period when the specimen
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>description</strong> – Textual description of procedure.</p></li>
+<li><p><strong>procedure</strong> – A coded value specifying the procedure used to process the
+specimen.</p></li>
+<li><p><strong>additive</strong> – Material used in the processing step.</p></li>
+<li><p><strong>timeDateTime</strong> – A record of the time or period when the specimen
 processing occurred.  For example the time of sample fixation or the
-period of time the sample was in formalin.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Specimen.Specimen_Processing.timePeriod">
-<code class="sig-name descname">timePeriod</code><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Processing.timePeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>A record of the time or period when the specimen
+period of time the sample was in formalin.</p></li>
+<li><p><strong>timePeriod</strong> – A record of the time or period when the specimen
 processing occurred.  For example the time of sample fixation or the
-period of time the sample was in formalin.</p>
-</dd></dl>
-
+period of time the sample was in formalin.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Specimen.Specimen_Processing.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Specimen.html#Specimen_Processing.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Specimen.Specimen_Processing.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -549,52 +326,31 @@ period of time the sample was in formalin.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.StructureDefinition.html" class="btn btn-neutral float-right" title="cardea.fhir.StructureDefinition module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Slot.html" class="btn btn-neutral float-left" title="cardea.fhir.Slot module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

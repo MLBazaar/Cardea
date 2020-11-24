@@ -1,0 +1,28 @@
+cardea.fhir.HealthcareService
+=============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: HealthcareService
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~HealthcareService.__init__
+      ~HealthcareService.assert_type
+      ~HealthcareService.get_dataframe
+      ~HealthcareService.get_eligible_relationships
+      ~HealthcareService.get_id
+      ~HealthcareService.get_relationships
+      ~HealthcareService.set_attributes
+   
+   
+
+   
+   
+   

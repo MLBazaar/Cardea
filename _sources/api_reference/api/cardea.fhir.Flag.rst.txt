@@ -1,0 +1,28 @@
+cardea.fhir.Flag
+================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Flag
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Flag.__init__
+      ~Flag.assert_type
+      ~Flag.get_dataframe
+      ~Flag.get_eligible_relationships
+      ~Flag.get_id
+      ~Flag.get_relationships
+      ~Flag.set_attributes
+   
+   
+
+   
+   
+   

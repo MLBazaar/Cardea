@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.ServiceDefinition module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.ServiceDefinition module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.Signature module" href="cardea.fhir.Signature.html" />
-    <link rel="prev" title="cardea.fhir.Sequence module" href="cardea.fhir.Sequence.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.ServiceDefinition module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.ServiceDefinition.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.ServiceDefinition">
 <span id="cardea-fhir-servicedefinition-module"></span><h1>cardea.fhir.ServiceDefinition module<a class="headerlink" href="#module-cardea.fhir.ServiceDefinition" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -251,213 +159,89 @@
 <p>The ServiceDefinition describes a unit of decision support
 functionality that is made available as a service, such as
 immunization modules or drug-drug interaction checking.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a ServiceDefinition resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute URI that is used to identify this service definition
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a ServiceDefinition resource</p></li>
+<li><p><strong>url</strong> – An absolute URI that is used to identify this service definition
 when it is referenced in a specification, model, design or an
 instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD
 be an address at which this service definition is (or will be)
 published. The URL SHOULD include the major version of the service
 definition. For more information see [Technical and Business
-Versions](resource.html#versions).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A formal identifier that is used to identify this service
+Versions](resource.html#versions).</p></li>
+<li><p><strong>identifier</strong> – A formal identifier that is used to identify this service
 definition when it is represented in other formats, or referenced in a
 specification, model, design or an instance. This is used for CMS or
 NQF identifiers for a measure artifact. Note that at least one
-identifier is required for non-experimental active artifacts.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier that is used to identify this version of the
+identifier is required for non-experimental active artifacts.</p></li>
+<li><p><strong>version</strong> – The identifier that is used to identify this version of the
 service definition when it is referenced in a specification, model,
 design or instance. This is an arbitrary value managed by the service
 definition author and is not expected to be globally unique. For
 example, it might be a timestamp (e.g. yyyymmdd) if a managed version
 is not available. There is also no expectation that versions can be
-placed in a lexicographical sequence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>A natural language name identifying the service definition. This
+placed in a lexicographical sequence.</p></li>
+<li><p><strong>name</strong> – A natural language name identifying the service definition. This
 name should be usable as an identifier for the module by machine
-processing applications such as code generation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.title">
-<code class="sig-name descname">title</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short, descriptive, user-friendly title for the service
-definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of this service definition. Enables tracking the
-life-cycle of the content.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.experimental">
-<code class="sig-name descname">experimental</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.experimental" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean value to indicate that this service definition
+processing applications such as code generation.</p></li>
+<li><p><strong>title</strong> – A short, descriptive, user-friendly title for the service
+definition.</p></li>
+<li><p><strong>status</strong> – The status of this service definition. Enables tracking the
+life-cycle of the content.</p></li>
+<li><p><strong>experimental</strong> – A boolean value to indicate that this service definition
 is authored for testing purposes (or education/evaluation/marketing),
-and is not intended to be used for genuine usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.date">
-<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date  (and optionally time) when the service definition was
+and is not intended to be used for genuine usage.</p></li>
+<li><p><strong>date</strong> – The date  (and optionally time) when the service definition was
 published. The date must change if and when the business version
 changes and it must change if the status code changes. In addition, it
 should change when the substantive content of the service definition
-changes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.publisher">
-<code class="sig-name descname">publisher</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.publisher" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the individual or organization that published
-the service definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A free text natural language description of the service
-definition from a consumer’s perspective.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.purpose">
-<code class="sig-name descname">purpose</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.purpose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Explaination of why this service definition is needed and why
-it has been designed as it has.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.usage">
-<code class="sig-name descname">usage</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.usage" title="Permalink to this definition">¶</a></dt>
-<dd><p>A detailed description of how the module is used from a
-clinical perspective.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.approvalDate">
-<code class="sig-name descname">approvalDate</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.approvalDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date on which the resource content was approved by
+changes.</p></li>
+<li><p><strong>publisher</strong> – The name of the individual or organization that published
+the service definition.</p></li>
+<li><p><strong>description</strong> – A free text natural language description of the service
+definition from a consumer’s perspective.</p></li>
+<li><p><strong>purpose</strong> – Explaination of why this service definition is needed and why
+it has been designed as it has.</p></li>
+<li><p><strong>usage</strong> – A detailed description of how the module is used from a
+clinical perspective.</p></li>
+<li><p><strong>approvalDate</strong> – The date on which the resource content was approved by
 the publisher. Approval happens once when the content is officially
-approved for usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.lastReviewDate">
-<code class="sig-name descname">lastReviewDate</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.lastReviewDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date on which the resource content was last
+approved for usage.</p></li>
+<li><p><strong>lastReviewDate</strong> – The date on which the resource content was last
 reviewed. Review happens periodically after approval, but doesn’t
-change the original approval date.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.effectivePeriod">
-<code class="sig-name descname">effectivePeriod</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.effectivePeriod" title="Permalink to this definition">¶</a></dt>
-<dd><p>The period during which the service definition
-content was or is planned to be in active use.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.useContext">
-<code class="sig-name descname">useContext</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.useContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content was developed with a focus and intent of
+change the original approval date.</p></li>
+<li><p><strong>effectivePeriod</strong> – The period during which the service definition
+content was or is planned to be in active use.</p></li>
+<li><p><strong>useContext</strong> – The content was developed with a focus and intent of
 supporting the contexts that are listed. These terms may be used to
 assist with indexing and searching for appropriate service definition
-instances.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.jurisdiction">
-<code class="sig-name descname">jurisdiction</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.jurisdiction" title="Permalink to this definition">¶</a></dt>
-<dd><p>A legal or geographic region in which the service
-definition is intended to be used.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.topic">
-<code class="sig-name descname">topic</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.topic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Descriptive topics related to the module. Topics provide a
+instances.</p></li>
+<li><p><strong>jurisdiction</strong> – A legal or geographic region in which the service
+definition is intended to be used.</p></li>
+<li><p><strong>topic</strong> – Descriptive topics related to the module. Topics provide a
 high-level categorization of the module that can be useful for
-filtering and searching.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.contributor">
-<code class="sig-name descname">contributor</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.contributor" title="Permalink to this definition">¶</a></dt>
-<dd><p>A contributor to the content of the module, including
-authors, editors, reviewers, and endorsers.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.contact">
-<code class="sig-name descname">contact</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.contact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Contact details to assist a user in finding and communicating
-with the publisher.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.copyright">
-<code class="sig-name descname">copyright</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.copyright" title="Permalink to this definition">¶</a></dt>
-<dd><p>A copyright statement relating to the service definition
+filtering and searching.</p></li>
+<li><p><strong>contributor</strong> – A contributor to the content of the module, including
+authors, editors, reviewers, and endorsers.</p></li>
+<li><p><strong>contact</strong> – Contact details to assist a user in finding and communicating
+with the publisher.</p></li>
+<li><p><strong>copyright</strong> – A copyright statement relating to the service definition
 and/or its contents. Copyright statements are generally legal
-restrictions on the use and publishing of the service definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.relatedArtifact">
-<code class="sig-name descname">relatedArtifact</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.relatedArtifact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Related resources such as additional documentation,
-justification, or bibliographic references.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.trigger">
-<code class="sig-name descname">trigger</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.trigger" title="Permalink to this definition">¶</a></dt>
-<dd><p>The trigger element defines when the rule should be invoked.
+restrictions on the use and publishing of the service definition.</p></li>
+<li><p><strong>relatedArtifact</strong> – Related resources such as additional documentation,
+justification, or bibliographic references.</p></li>
+<li><p><strong>trigger</strong> – The trigger element defines when the rule should be invoked.
 This information is used by consumers of the rule to determine how to
-integrate the rule into a specific workflow.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.dataRequirement">
-<code class="sig-name descname">dataRequirement</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.dataRequirement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Data requirements are a machine processable
+integrate the rule into a specific workflow.</p></li>
+<li><p><strong>dataRequirement</strong> – Data requirements are a machine processable
 description of the data required by the module in order to perform a
-successful evaluation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.operationDefinition">
-<code class="sig-name descname">operationDefinition</code><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.operationDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to the operation that is used to
-invoke this service.</p>
-</dd></dl>
-
+successful evaluation.</p></li>
+<li><p><strong>operationDefinition</strong> – A reference to the operation that is used to
+invoke this service.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.ServiceDefinition.ServiceDefinition.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/ServiceDefinition.html#ServiceDefinition.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.ServiceDefinition.ServiceDefinition.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -486,52 +270,31 @@ invoke this service.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.Signature.html" class="btn btn-neutral float-right" title="cardea.fhir.Signature module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Sequence.html" class="btn btn-neutral float-left" title="cardea.fhir.Sequence module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

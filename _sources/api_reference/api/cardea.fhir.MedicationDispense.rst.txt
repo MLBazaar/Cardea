@@ -1,0 +1,28 @@
+cardea.fhir.MedicationDispense
+==============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: MedicationDispense
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MedicationDispense.__init__
+      ~MedicationDispense.assert_type
+      ~MedicationDispense.get_dataframe
+      ~MedicationDispense.get_eligible_relationships
+      ~MedicationDispense.get_id
+      ~MedicationDispense.get_relationships
+      ~MedicationDispense.set_attributes
+   
+   
+
+   
+   
+   

@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.TestScript module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.TestScript module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.Timing module" href="cardea.fhir.Timing.html" />
-    <link rel="prev" title="cardea.fhir.TestReport module" href="cardea.fhir.TestReport.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.TestScript module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.TestScript.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.TestScript">
 <span id="cardea-fhir-testscript-module"></span><h1>cardea.fhir.TestScript module<a class="headerlink" href="#module-cardea.fhir.TestScript" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -250,209 +158,80 @@
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a TestScript resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute URI that is used to identify this test script when it
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a TestScript resource</p></li>
+<li><p><strong>url</strong> – An absolute URI that is used to identify this test script when it
 is referenced in a specification, model, design or an instance. This
 SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at
 which this test script is (or will be) published. The URL SHOULD
 include the major version of the test script. For more information see
-[Technical and Business Versions](resource.html#versions).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A formal identifier that is used to identify this test
+[Technical and Business Versions](resource.html#versions).</p></li>
+<li><p><strong>identifier</strong> – A formal identifier that is used to identify this test
 script when it is represented in other formats, or referenced in a
-specification, model, design or an instance.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier that is used to identify this version of the
+specification, model, design or an instance.</p></li>
+<li><p><strong>version</strong> – The identifier that is used to identify this version of the
 test script when it is referenced in a specification, model, design or
 instance. This is an arbitrary value managed by the test script author
 and is not expected to be globally unique. For example, it might be a
 timestamp (e.g. yyyymmdd) if a managed version is not available. There
 is also no expectation that versions can be placed in a
-lexicographical sequence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>A natural language name identifying the test script. This name
+lexicographical sequence.</p></li>
+<li><p><strong>name</strong> – A natural language name identifying the test script. This name
 should be usable as an identifier for the module by machine processing
-applications such as code generation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.title">
-<code class="sig-name descname">title</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short, descriptive, user-friendly title for the test script.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of this test script. Enables tracking the
-life-cycle of the content.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.experimental">
-<code class="sig-name descname">experimental</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.experimental" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean value to indicate that this test script is
+applications such as code generation.</p></li>
+<li><p><strong>title</strong> – A short, descriptive, user-friendly title for the test script.</p></li>
+<li><p><strong>status</strong> – The status of this test script. Enables tracking the
+life-cycle of the content.</p></li>
+<li><p><strong>experimental</strong> – A boolean value to indicate that this test script is
 authored for testing purposes (or education/evaluation/marketing), and
-is not intended to be used for genuine usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.date">
-<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date  (and optionally time) when the test script was
+is not intended to be used for genuine usage.</p></li>
+<li><p><strong>date</strong> – The date  (and optionally time) when the test script was
 published. The date must change if and when the business version
 changes and it must change if the status code changes. In addition, it
-should change when the substantive content of the test script changes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.publisher">
-<code class="sig-name descname">publisher</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.publisher" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the individual or organization that published
-the test script.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.contact">
-<code class="sig-name descname">contact</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.contact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Contact details to assist a user in finding and communicating
-with the publisher.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A free text natural language description of the test
-script from a consumer’s perspective.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.useContext">
-<code class="sig-name descname">useContext</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.useContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content was developed with a focus and intent of
+should change when the substantive content of the test script changes.</p></li>
+<li><p><strong>publisher</strong> – The name of the individual or organization that published
+the test script.</p></li>
+<li><p><strong>contact</strong> – Contact details to assist a user in finding and communicating
+with the publisher.</p></li>
+<li><p><strong>description</strong> – A free text natural language description of the test
+script from a consumer’s perspective.</p></li>
+<li><p><strong>useContext</strong> – The content was developed with a focus and intent of
 supporting the contexts that are listed. These terms may be used to
 assist with indexing and searching for appropriate test script
-instances.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.jurisdiction">
-<code class="sig-name descname">jurisdiction</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.jurisdiction" title="Permalink to this definition">¶</a></dt>
-<dd><p>A legal or geographic region in which the test script is
-intended to be used.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.purpose">
-<code class="sig-name descname">purpose</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.purpose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Explaination of why this test script is needed and why it has
-been designed as it has.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.copyright">
-<code class="sig-name descname">copyright</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.copyright" title="Permalink to this definition">¶</a></dt>
-<dd><p>A copyright statement relating to the test script and/or
+instances.</p></li>
+<li><p><strong>jurisdiction</strong> – A legal or geographic region in which the test script is
+intended to be used.</p></li>
+<li><p><strong>purpose</strong> – Explaination of why this test script is needed and why it has
+been designed as it has.</p></li>
+<li><p><strong>copyright</strong> – A copyright statement relating to the test script and/or
 its contents. Copyright statements are generally legal restrictions on
-the use and publishing of the test script.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.origin">
-<code class="sig-name descname">origin</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.origin" title="Permalink to this definition">¶</a></dt>
-<dd><p>An abstract server used in operations within this test script
-in the origin element.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.destination">
-<code class="sig-name descname">destination</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.destination" title="Permalink to this definition">¶</a></dt>
-<dd><p>An abstract server used in operations within this test
-script in the destination element.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.metadata">
-<code class="sig-name descname">metadata</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>The required capability must exist and are assumed to
-function correctly on the FHIR server being tested.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.fixture">
-<code class="sig-name descname">fixture</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.fixture" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fixture in the test script - by reference (uri). All fixtures
-are required for the test script to execute.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.profile">
-<code class="sig-name descname">profile</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.profile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reference to the profile to be used for validation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.variable">
-<code class="sig-name descname">variable</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.variable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Variable is set based either on element value in response
-body or on header field value in the response headers.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.rule">
-<code class="sig-name descname">rule</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.rule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assert rule to be used in one or more asserts within the test
-script.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.ruleset">
-<code class="sig-name descname">ruleset</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.ruleset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Contains one or more rules.  Offers a way to group rules so
+the use and publishing of the test script.</p></li>
+<li><p><strong>origin</strong> – An abstract server used in operations within this test script
+in the origin element.</p></li>
+<li><p><strong>destination</strong> – An abstract server used in operations within this test
+script in the destination element.</p></li>
+<li><p><strong>metadata</strong> – The required capability must exist and are assumed to
+function correctly on the FHIR server being tested.</p></li>
+<li><p><strong>fixture</strong> – Fixture in the test script - by reference (uri). All fixtures
+are required for the test script to execute.</p></li>
+<li><p><strong>profile</strong> – Reference to the profile to be used for validation.</p></li>
+<li><p><strong>variable</strong> – Variable is set based either on element value in response
+body or on header field value in the response headers.</p></li>
+<li><p><strong>rule</strong> – Assert rule to be used in one or more asserts within the test
+script.</p></li>
+<li><p><strong>ruleset</strong> – Contains one or more rules.  Offers a way to group rules so
 assertions could reference the group of rules and have them all
-applied.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.setup">
-<code class="sig-name descname">setup</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>A series of required setup operations before tests are
-executed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.test">
-<code class="sig-name descname">test</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.test" title="Permalink to this definition">¶</a></dt>
-<dd><p>A test in this script.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript.teardown">
-<code class="sig-name descname">teardown</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.teardown" title="Permalink to this definition">¶</a></dt>
-<dd><p>A series of operations required to clean up after the all
-the tests are executed (successfully or otherwise).</p>
-</dd></dl>
-
+applied.</p></li>
+<li><p><strong>setup</strong> – A series of required setup operations before tests are
+executed.</p></li>
+<li><p><strong>test</strong> – A test in this script.</p></li>
+<li><p><strong>teardown</strong> – A series of operations required to clean up after the all
+the tests are executed (successfully or otherwise).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -484,19 +263,15 @@ the tests are executed (successfully or otherwise).</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Action.operation">
-<code class="sig-name descname">operation</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Action.operation" title="Permalink to this definition">¶</a></dt>
-<dd><p>The operation to perform.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Action.assert">
-<code class="sig-name descname">assert</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Action.assert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluates the results of previous operations to determine if
-the server under test behaves appropriately.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operation</strong> – The operation to perform.</p></li>
+<li><p><strong>assert</strong> – Evaluates the results of previous operations to determine if
+the server under test behaves appropriately.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Action.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Action.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Action.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -516,19 +291,15 @@ the server under test behaves appropriately.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Action1.operation">
-<code class="sig-name descname">operation</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Action1.operation" title="Permalink to this definition">¶</a></dt>
-<dd><p>An operation would involve a REST request to a server.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Action1.assert">
-<code class="sig-name descname">assert</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Action1.assert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluates the results of previous operations to determine if
-the server under test behaves appropriately.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operation</strong> – An operation would involve a REST request to a server.</p></li>
+<li><p><strong>assert</strong> – Evaluates the results of previous operations to determine if
+the server under test behaves appropriately.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Action1.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Action1.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Action1.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -548,12 +319,11 @@ the server under test behaves appropriately.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Action2.operation">
-<code class="sig-name descname">operation</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Action2.operation" title="Permalink to this definition">¶</a></dt>
-<dd><p>An operation would involve a REST request to a server.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>operation</strong> – An operation would involve a REST request to a server.</p>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Action2.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Action2.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Action2.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -573,173 +343,59 @@ determine compliance against the FHIR specification.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.label">
-<code class="sig-name descname">label</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.label" title="Permalink to this definition">¶</a></dt>
-<dd><p>The label would be used for tracking/logging purposes by test
-engines.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>The description would be used by test engines for
-tracking and reporting purposes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.direction">
-<code class="sig-name descname">direction</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.direction" title="Permalink to this definition">¶</a></dt>
-<dd><p>The direction to use for the assertion.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.compareToSourceId">
-<code class="sig-name descname">compareToSourceId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.compareToSourceId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Id of the source fixture used as the contents to be
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> – The label would be used for tracking/logging purposes by test
+engines.</p></li>
+<li><p><strong>description</strong> – The description would be used by test engines for
+tracking and reporting purposes.</p></li>
+<li><p><strong>direction</strong> – The direction to use for the assertion.</p></li>
+<li><p><strong>compareToSourceId</strong> – Id of the source fixture used as the contents to be
 evaluated by either the “source/expression” or “sourceId/path”
-definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.compareToSourceExpression">
-<code class="sig-name descname">compareToSourceExpression</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.compareToSourceExpression" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fluentpath expression to evaluate
+definition.</p></li>
+<li><p><strong>compareToSourceExpression</strong> – The fluentpath expression to evaluate
 against the source fixture. When compareToSourceId is defined, either
 compareToSourceExpression or compareToSourcePath must be defined, but
-not both.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.compareToSourcePath">
-<code class="sig-name descname">compareToSourcePath</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.compareToSourcePath" title="Permalink to this definition">¶</a></dt>
-<dd><p>XPath or JSONPath expression to evaluate against
+not both.</p></li>
+<li><p><strong>compareToSourcePath</strong> – XPath or JSONPath expression to evaluate against
 the source fixture. When compareToSourceId is defined, either
 compareToSourceExpression or compareToSourcePath must be defined, but
-not both.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.contentType">
-<code class="sig-name descname">contentType</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.contentType" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content-type or mime-type to use for RESTful
-operation in the ‘Content-Type’ header.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.expression">
-<code class="sig-name descname">expression</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.expression" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fluentpath expression to be evaluated against the
-request or response message contents - HTTP headers and payload.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.headerField">
-<code class="sig-name descname">headerField</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.headerField" title="Permalink to this definition">¶</a></dt>
-<dd><p>The HTTP header field name e.g. ‘Location’.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.minimumId">
-<code class="sig-name descname">minimumId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.minimumId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ID of a fixture.  Asserts that the response contains at
-a minimum the fixture specified by minimumId.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.navigationLinks">
-<code class="sig-name descname">navigationLinks</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.navigationLinks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether or not the test execution performs validation
-on the bundle navigation links.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.operator">
-<code class="sig-name descname">operator</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.operator" title="Permalink to this definition">¶</a></dt>
-<dd><p>The operator type defines the conditional behavior of the
-assert. If not defined, the default is equals.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.path">
-<code class="sig-name descname">path</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.path" title="Permalink to this definition">¶</a></dt>
-<dd><p>The XPath or JSONPath expression to be evaluated against the
-fixture representing the response received from server.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.requestMethod">
-<code class="sig-name descname">requestMethod</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.requestMethod" title="Permalink to this definition">¶</a></dt>
-<dd><p>The request method or HTTP operation code to compare
-against that used by the client system under test.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.requestURL">
-<code class="sig-name descname">requestURL</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.requestURL" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value to use in a comparison against the request URL
-path string.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.resource">
-<code class="sig-name descname">resource</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.resource" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of the resource.  See
-<a class="reference external" href="http://build.fhir.org/resourcelist.html">http://build.fhir.org/resourcelist.html</a>.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.response">
-<code class="sig-name descname">response</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.response" title="Permalink to this definition">¶</a></dt>
-<dd><p>okay | created | noContent | notModified | bad | forbidden |
+not both.</p></li>
+<li><p><strong>contentType</strong> – The content-type or mime-type to use for RESTful
+operation in the ‘Content-Type’ header.</p></li>
+<li><p><strong>expression</strong> – The fluentpath expression to be evaluated against the
+request or response message contents - HTTP headers and payload.</p></li>
+<li><p><strong>headerField</strong> – The HTTP header field name e.g. ‘Location’.</p></li>
+<li><p><strong>minimumId</strong> – The ID of a fixture.  Asserts that the response contains at
+a minimum the fixture specified by minimumId.</p></li>
+<li><p><strong>navigationLinks</strong> – Whether or not the test execution performs validation
+on the bundle navigation links.</p></li>
+<li><p><strong>operator</strong> – The operator type defines the conditional behavior of the
+assert. If not defined, the default is equals.</p></li>
+<li><p><strong>path</strong> – The XPath or JSONPath expression to be evaluated against the
+fixture representing the response received from server.</p></li>
+<li><p><strong>requestMethod</strong> – The request method or HTTP operation code to compare
+against that used by the client system under test.</p></li>
+<li><p><strong>requestURL</strong> – The value to use in a comparison against the request URL
+path string.</p></li>
+<li><p><strong>resource</strong> – The type of the resource.  See
+<a class="reference external" href="http://build.fhir.org/resourcelist.html">http://build.fhir.org/resourcelist.html</a>.</p></li>
+<li><p><strong>response</strong> – okay | created | noContent | notModified | bad | forbidden |
 notFound | methodNotAllowed | conflict | gone | preconditionFailed |
-unprocessable.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.responseCode">
-<code class="sig-name descname">responseCode</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.responseCode" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the HTTP response code to be tested.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.rule">
-<code class="sig-name descname">rule</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.rule" title="Permalink to this definition">¶</a></dt>
-<dd><p>The TestScript.rule this assert will evaluate.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.ruleset">
-<code class="sig-name descname">ruleset</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.ruleset" title="Permalink to this definition">¶</a></dt>
-<dd><p>The TestScript.ruleset this assert will evaluate.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.sourceId">
-<code class="sig-name descname">sourceId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.sourceId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fixture to evaluate the XPath/JSONPath expression or the
-headerField  against.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.validateProfileId">
-<code class="sig-name descname">validateProfileId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.validateProfileId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The ID of the Profile to validate against.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.value">
-<code class="sig-name descname">value</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value to compare to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Assert.warningOnly">
-<code class="sig-name descname">warningOnly</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.warningOnly" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether or not the test execution will produce a warning
-only on error for this assert.</p>
-</dd></dl>
-
+unprocessable.</p></li>
+<li><p><strong>responseCode</strong> – The value of the HTTP response code to be tested.</p></li>
+<li><p><strong>rule</strong> – The TestScript.rule this assert will evaluate.</p></li>
+<li><p><strong>ruleset</strong> – The TestScript.ruleset this assert will evaluate.</p></li>
+<li><p><strong>sourceId</strong> – Fixture to evaluate the XPath/JSONPath expression or the
+headerField  against.</p></li>
+<li><p><strong>validateProfileId</strong> – The ID of the Profile to validate against.</p></li>
+<li><p><strong>value</strong> – The value to compare to.</p></li>
+<li><p><strong>warningOnly</strong> – Whether or not the test execution will produce a warning
+only on error for this assert.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Assert.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Assert.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Assert.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -771,55 +427,26 @@ only on error for this assert.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Capability.required">
-<code class="sig-name descname">required</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Capability.required" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether or not the test execution will require the given
-capabilities of the server in order for this test script to execute.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Capability.validated">
-<code class="sig-name descname">validated</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Capability.validated" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether or not the test execution will validate the given
-capabilities of the server in order for this test script to execute.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Capability.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Capability.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Description of the capabilities that this test script is
-requiring the server to support.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Capability.origin">
-<code class="sig-name descname">origin</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Capability.origin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Which origin server these requirements apply to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Capability.destination">
-<code class="sig-name descname">destination</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Capability.destination" title="Permalink to this definition">¶</a></dt>
-<dd><p>Which server these requirements apply to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Capability.link">
-<code class="sig-name descname">link</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Capability.link" title="Permalink to this definition">¶</a></dt>
-<dd><p>Links to the FHIR specification that describes this interaction
-and the resources involved in more detail.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Capability.capabilities">
-<code class="sig-name descname">capabilities</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Capability.capabilities" title="Permalink to this definition">¶</a></dt>
-<dd><p>Minimum capabilities required of server for test script
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>required</strong> – Whether or not the test execution will require the given
+capabilities of the server in order for this test script to execute.</p></li>
+<li><p><strong>validated</strong> – Whether or not the test execution will validate the given
+capabilities of the server in order for this test script to execute.</p></li>
+<li><p><strong>description</strong> – Description of the capabilities that this test script is
+requiring the server to support.</p></li>
+<li><p><strong>origin</strong> – Which origin server these requirements apply to.</p></li>
+<li><p><strong>destination</strong> – Which server these requirements apply to.</p></li>
+<li><p><strong>link</strong> – Links to the FHIR specification that describes this interaction
+and the resources involved in more detail.</p></li>
+<li><p><strong>capabilities</strong> – Minimum capabilities required of server for test script
 to execute successfully.   If server does not meet at a minimum the
 referenced capability statement, then all tests in this script are
-skipped.</p>
-</dd></dl>
-
+skipped.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Capability.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Capability.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Capability.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -839,19 +466,15 @@ skipped.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Destination.index">
-<code class="sig-name descname">index</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Destination.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Abstract name given to a destination server in this test
-script.  The name is provided as a number starting at 1.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Destination.profile">
-<code class="sig-name descname">profile</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Destination.profile" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of destination profile the test system supports.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – Abstract name given to a destination server in this test
+script.  The name is provided as a number starting at 1.</p></li>
+<li><p><strong>profile</strong> – The type of destination profile the test system supports.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Destination.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Destination.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Destination.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -871,31 +494,22 @@ script.  The name is provided as a number starting at 1.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Fixture.autocreate">
-<code class="sig-name descname">autocreate</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Fixture.autocreate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether or not to implicitly create the fixture during
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>autocreate</strong> – Whether or not to implicitly create the fixture during
 setup. If true, the fixture is automatically created on each server
 being tested during setup, therefore no create operation is required
-for this fixture in the TestScript.setup section.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Fixture.autodelete">
-<code class="sig-name descname">autodelete</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Fixture.autodelete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether or not to implicitly delete the fixture during
+for this fixture in the TestScript.setup section.</p></li>
+<li><p><strong>autodelete</strong> – Whether or not to implicitly delete the fixture during
 teardown. If true, the fixture is automatically deleted on each server
 being tested during teardown, therefore no delete operation is
-required for this fixture in the TestScript.teardown section.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Fixture.resource">
-<code class="sig-name descname">resource</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Fixture.resource" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reference to the resource (containing the contents of the
-resource needed for operations).</p>
-</dd></dl>
-
+required for this fixture in the TestScript.teardown section.</p></li>
+<li><p><strong>resource</strong> – Reference to the resource (containing the contents of the
+resource needed for operations).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Fixture.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Fixture.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Fixture.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -915,19 +529,15 @@ resource needed for operations).</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Link.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Link.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>URL to a particular requirement or feature within the FHIR
-specification.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Link.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Link.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Short description of the link.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> – URL to a particular requirement or feature within the FHIR
+specification.</p></li>
+<li><p><strong>description</strong> – Short description of the link.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -936,19 +546,15 @@ specification.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Metadata.link">
-<code class="sig-name descname">link</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Metadata.link" title="Permalink to this definition">¶</a></dt>
-<dd><p>A link to the FHIR specification that this test is covering.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Metadata.capability">
-<code class="sig-name descname">capability</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Metadata.capability" title="Permalink to this definition">¶</a></dt>
-<dd><p>Capabilities that must exist and are assumed to function
-correctly on the FHIR server being tested.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>link</strong> – A link to the FHIR specification that this test is covering.</p></li>
+<li><p><strong>capability</strong> – Capabilities that must exist and are assumed to function
+correctly on the FHIR server being tested.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Metadata.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Metadata.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Metadata.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -968,116 +574,42 @@ correctly on the FHIR server being tested.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Server interaction or operation type.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.resource">
-<code class="sig-name descname">resource</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.resource" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of the resource.  See
-<a class="reference external" href="http://build.fhir.org/resourcelist.html">http://build.fhir.org/resourcelist.html</a>.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.label">
-<code class="sig-name descname">label</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.label" title="Permalink to this definition">¶</a></dt>
-<dd><p>The label would be used for tracking/logging purposes by test
-engines.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>The description would be used by test engines for
-tracking and reporting purposes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.accept">
-<code class="sig-name descname">accept</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.accept" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content-type or mime-type to use for RESTful operation in
-the ‘Accept’ header.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.contentType">
-<code class="sig-name descname">contentType</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.contentType" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content-type or mime-type to use for RESTful
-operation in the ‘Content-Type’ header.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.destination">
-<code class="sig-name descname">destination</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.destination" title="Permalink to this definition">¶</a></dt>
-<dd><p>The server where the request message is destined for.
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – Server interaction or operation type.</p></li>
+<li><p><strong>resource</strong> – The type of the resource.  See
+<a class="reference external" href="http://build.fhir.org/resourcelist.html">http://build.fhir.org/resourcelist.html</a>.</p></li>
+<li><p><strong>label</strong> – The label would be used for tracking/logging purposes by test
+engines.</p></li>
+<li><p><strong>description</strong> – The description would be used by test engines for
+tracking and reporting purposes.</p></li>
+<li><p><strong>accept</strong> – The content-type or mime-type to use for RESTful operation in
+the ‘Accept’ header.</p></li>
+<li><p><strong>contentType</strong> – The content-type or mime-type to use for RESTful
+operation in the ‘Content-Type’ header.</p></li>
+<li><p><strong>destination</strong> – The server where the request message is destined for.
 Must be one of the server numbers listed in TestScript.destination
-section.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.encodeRequestUrl">
-<code class="sig-name descname">encodeRequestUrl</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.encodeRequestUrl" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether or not to implicitly send the request url in
+section.</p></li>
+<li><p><strong>encodeRequestUrl</strong> – Whether or not to implicitly send the request url in
 encoded format. The default is true to match the standard RESTful
 client behavior. Set to false when communicating with a server that
-does not support encoded url paths.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.origin">
-<code class="sig-name descname">origin</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.origin" title="Permalink to this definition">¶</a></dt>
-<dd><p>The server where the request message originates from.  Must be
-one of the server numbers listed in TestScript.origin section.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.params">
-<code class="sig-name descname">params</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path plus parameters after [type].  Used to set parts of the
-request URL explicitly.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.requestHeader">
-<code class="sig-name descname">requestHeader</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.requestHeader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Header elements would be used to set HTTP headers.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.requestId">
-<code class="sig-name descname">requestId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.requestId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fixture id (maybe new) to map to the request.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.responseId">
-<code class="sig-name descname">responseId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.responseId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fixture id (maybe new) to map to the response.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.sourceId">
-<code class="sig-name descname">sourceId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.sourceId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The id of the fixture used as the body of a PUT or POST
-request.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.targetId">
-<code class="sig-name descname">targetId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.targetId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Id of fixture used for extracting the [id],  [type], and
-[vid] for GET requests.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Operation.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Complete request URL.</p>
-</dd></dl>
-
+does not support encoded url paths.</p></li>
+<li><p><strong>origin</strong> – The server where the request message originates from.  Must be
+one of the server numbers listed in TestScript.origin section.</p></li>
+<li><p><strong>params</strong> – Path plus parameters after [type].  Used to set parts of the
+request URL explicitly.</p></li>
+<li><p><strong>requestHeader</strong> – Header elements would be used to set HTTP headers.</p></li>
+<li><p><strong>requestId</strong> – The fixture id (maybe new) to map to the request.</p></li>
+<li><p><strong>responseId</strong> – The fixture id (maybe new) to map to the response.</p></li>
+<li><p><strong>sourceId</strong> – The id of the fixture used as the body of a PUT or POST
+request.</p></li>
+<li><p><strong>targetId</strong> – Id of fixture used for extracting the [id],  [type], and
+[vid] for GET requests.</p></li>
+<li><p><strong>url</strong> – Complete request URL.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Operation.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Operation.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Operation.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -1109,19 +641,15 @@ request.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Origin.index">
-<code class="sig-name descname">index</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Origin.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Abstract name given to an origin server in this test script.
-The name is provided as a number starting at 1.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Origin.profile">
-<code class="sig-name descname">profile</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Origin.profile" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of origin profile the test system supports.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – Abstract name given to an origin server in this test script.
+The name is provided as a number starting at 1.</p></li>
+<li><p><strong>profile</strong> – The type of origin profile the test system supports.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Origin.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Origin.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Origin.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1141,20 +669,16 @@ The name is provided as a number starting at 1.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Param.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Param.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Descriptive name for this parameter that matches the external
-assert rule parameter name.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Param.value">
-<code class="sig-name descname">value</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Param.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>The explicit or dynamic value for the parameter that will be
-passed on to the external rule template.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Descriptive name for this parameter that matches the external
+assert rule parameter name.</p></li>
+<li><p><strong>value</strong> – The explicit or dynamic value for the parameter that will be
+passed on to the external rule template.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -1163,20 +687,16 @@ passed on to the external rule template.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Param1.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Param1.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Descriptive name for this parameter that matches the external
-assert ruleset rule parameter name.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Param1.value">
-<code class="sig-name descname">value</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Param1.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value for the parameter that will be passed on to the
-external ruleset rule template.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Descriptive name for this parameter that matches the external
+assert ruleset rule parameter name.</p></li>
+<li><p><strong>value</strong> – The value for the parameter that will be passed on to the
+external ruleset rule template.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -1185,20 +705,16 @@ external ruleset rule template.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Param2.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Param2.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Descriptive name for this parameter that matches the external
-assert rule parameter name.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Param2.value">
-<code class="sig-name descname">value</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Param2.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value for the parameter that will be passed on to the
-external rule template.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Descriptive name for this parameter that matches the external
+assert rule parameter name.</p></li>
+<li><p><strong>value</strong> – The value for the parameter that will be passed on to the
+external rule template.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -1207,20 +723,16 @@ external rule template.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Param3.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Param3.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Descriptive name for this parameter that matches the external
-assert ruleset rule parameter name.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Param3.value">
-<code class="sig-name descname">value</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Param3.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value for the parameter that will be passed on to the
-external ruleset rule template.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Descriptive name for this parameter that matches the external
+assert ruleset rule parameter name.</p></li>
+<li><p><strong>value</strong> – The value for the parameter that will be passed on to the
+external ruleset rule template.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -1229,18 +741,14 @@ external ruleset rule template.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_RequestHeader.field">
-<code class="sig-name descname">field</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_RequestHeader.field" title="Permalink to this definition">¶</a></dt>
-<dd><p>The HTTP header field e.g. “Accept”.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_RequestHeader.value">
-<code class="sig-name descname">value</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_RequestHeader.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the header e.g. “application/fhir+xml”.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> – The HTTP header field e.g. “Accept”.</p></li>
+<li><p><strong>value</strong> – The value of the header e.g. “application/fhir+xml”.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -1249,20 +757,16 @@ determine compliance against the FHIR specification.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Rule.resource">
-<code class="sig-name descname">resource</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule.resource" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reference to the resource (containing the contents of the
-rule needed for assertions).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Rule.param">
-<code class="sig-name descname">param</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule.param" title="Permalink to this definition">¶</a></dt>
-<dd><p>Each rule template can take one or more parameters for rule
-evaluation.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resource</strong> – Reference to the resource (containing the contents of the
+rule needed for assertions).</p></li>
+<li><p><strong>param</strong> – Each rule template can take one or more parameters for rule
+evaluation.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Rule.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Rule.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1282,20 +786,16 @@ evaluation.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Rule1.ruleId">
-<code class="sig-name descname">ruleId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule1.ruleId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Id of the referenced rule within the external ruleset
-template.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Rule1.param">
-<code class="sig-name descname">param</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule1.param" title="Permalink to this definition">¶</a></dt>
-<dd><p>Each rule template can take one or more parameters for rule
-evaluation.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ruleId</strong> – Id of the referenced rule within the external ruleset
+template.</p></li>
+<li><p><strong>param</strong> – Each rule template can take one or more parameters for rule
+evaluation.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Rule1.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Rule1.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule1.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1315,19 +815,15 @@ evaluation.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Rule2.ruleId">
-<code class="sig-name descname">ruleId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule2.ruleId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The TestScript.rule id value this assert will evaluate.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Rule2.param">
-<code class="sig-name descname">param</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule2.param" title="Permalink to this definition">¶</a></dt>
-<dd><p>Each rule template can take one or more parameters for rule
-evaluation.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ruleId</strong> – The TestScript.rule id value this assert will evaluate.</p></li>
+<li><p><strong>param</strong> – Each rule template can take one or more parameters for rule
+evaluation.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Rule2.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Rule2.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule2.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1347,20 +843,16 @@ evaluation.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Rule3.ruleId">
-<code class="sig-name descname">ruleId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule3.ruleId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Id of the referenced rule within the external ruleset
-template.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Rule3.param">
-<code class="sig-name descname">param</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule3.param" title="Permalink to this definition">¶</a></dt>
-<dd><p>Each rule template can take one or more parameters for rule
-evaluation.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ruleId</strong> – Id of the referenced rule within the external ruleset
+template.</p></li>
+<li><p><strong>param</strong> – Each rule template can take one or more parameters for rule
+evaluation.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Rule3.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Rule3.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Rule3.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1380,19 +872,15 @@ evaluation.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Ruleset.resource">
-<code class="sig-name descname">resource</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Ruleset.resource" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reference to the resource (containing the contents of the
-ruleset needed for assertions).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Ruleset.rule">
-<code class="sig-name descname">rule</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Ruleset.rule" title="Permalink to this definition">¶</a></dt>
-<dd><p>The referenced rule within the external ruleset template.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resource</strong> – Reference to the resource (containing the contents of the
+ruleset needed for assertions).</p></li>
+<li><p><strong>rule</strong> – The referenced rule within the external ruleset template.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Ruleset.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Ruleset.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Ruleset.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1412,18 +900,14 @@ ruleset needed for assertions).</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Ruleset1.rulesetId">
-<code class="sig-name descname">rulesetId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Ruleset1.rulesetId" title="Permalink to this definition">¶</a></dt>
-<dd><p>The TestScript.ruleset id value this assert will evaluate.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Ruleset1.rule">
-<code class="sig-name descname">rule</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Ruleset1.rule" title="Permalink to this definition">¶</a></dt>
-<dd><p>The referenced rule within the external ruleset template.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rulesetId</strong> – The TestScript.ruleset id value this assert will evaluate.</p></li>
+<li><p><strong>rule</strong> – The referenced rule within the external ruleset template.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Ruleset1.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Ruleset1.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Ruleset1.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1443,12 +927,11 @@ determine compliance against the FHIR specification.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Setup.action">
-<code class="sig-name descname">action</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Setup.action" title="Permalink to this definition">¶</a></dt>
-<dd><p>Action would contain either an operation or an assertion.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>action</strong> – Action would contain either an operation or an assertion.</p>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Setup.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Setup.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Setup.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1468,12 +951,11 @@ determine compliance against the FHIR specification.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Teardown.action">
-<code class="sig-name descname">action</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Teardown.action" title="Permalink to this definition">¶</a></dt>
-<dd><p>The teardown action will only contain an operation.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>action</strong> – The teardown action will only contain an operation.</p>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Teardown.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Teardown.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Teardown.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1493,26 +975,17 @@ determine compliance against the FHIR specification.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Test.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Test.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of this test used for tracking/logging purposes by test
-engines.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Test.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Test.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short description of the test used by test engines for
-tracking and reporting purposes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Test.action">
-<code class="sig-name descname">action</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Test.action" title="Permalink to this definition">¶</a></dt>
-<dd><p>Action would contain either an operation or an assertion.</p>
-</dd></dl>
-
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of this test used for tracking/logging purposes by test
+engines.</p></li>
+<li><p><strong>description</strong> – A short description of the test used by test engines for
+tracking and reporting purposes.</p></li>
+<li><p><strong>action</strong> – Action would contain either an operation or an assertion.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.TestScript.TestScript_Test.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/TestScript.html#TestScript_Test.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Test.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -1532,114 +1005,59 @@ tracking and reporting purposes.</p>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>A structured set of tests against a FHIR server implementation to
 determine compliance against the FHIR specification.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Variable.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Variable.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Descriptive name for this variable.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Variable.defaultValue">
-<code class="sig-name descname">defaultValue</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Variable.defaultValue" title="Permalink to this definition">¶</a></dt>
-<dd><p>A default, hard-coded, or user-defined value for this
-variable.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Variable.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Variable.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A free text natural language description of the variable
-and its purpose.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Variable.expression">
-<code class="sig-name descname">expression</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Variable.expression" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fluentpath expression to evaluate against the fixture
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Descriptive name for this variable.</p></li>
+<li><p><strong>defaultValue</strong> – A default, hard-coded, or user-defined value for this
+variable.</p></li>
+<li><p><strong>description</strong> – A free text natural language description of the variable
+and its purpose.</p></li>
+<li><p><strong>expression</strong> – The fluentpath expression to evaluate against the fixture
 body. When variables are defined, only one of either expression,
-headerField or path must be specified.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Variable.headerField">
-<code class="sig-name descname">headerField</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Variable.headerField" title="Permalink to this definition">¶</a></dt>
-<dd><p>Will be used to grab the HTTP header field value from the
-headers that sourceId is pointing to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Variable.hint">
-<code class="sig-name descname">hint</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Variable.hint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Displayable text string with hint help information to the user
-when entering a default value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Variable.path">
-<code class="sig-name descname">path</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Variable.path" title="Permalink to this definition">¶</a></dt>
-<dd><p>XPath or JSONPath to evaluate against the fixture body.  When
+headerField or path must be specified.</p></li>
+<li><p><strong>headerField</strong> – Will be used to grab the HTTP header field value from the
+headers that sourceId is pointing to.</p></li>
+<li><p><strong>hint</strong> – Displayable text string with hint help information to the user
+when entering a default value.</p></li>
+<li><p><strong>path</strong> – XPath or JSONPath to evaluate against the fixture body.  When
 variables are defined, only one of either expression, headerField or
-path must be specified.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.TestScript.TestScript_Variable.sourceId">
-<code class="sig-name descname">sourceId</code><a class="headerlink" href="#cardea.fhir.TestScript.TestScript_Variable.sourceId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fixture to evaluate the XPath/JSONPath expression or the
-headerField  against within this variable.</p>
-</dd></dl>
-
+path must be specified.</p></li>
+<li><p><strong>sourceId</strong> – Fixture to evaluate the XPath/JSONPath expression or the
+headerField  against within this variable.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.Timing.html" class="btn btn-neutral float-right" title="cardea.fhir.Timing module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.TestReport.html" class="btn btn-neutral float-left" title="cardea.fhir.TestReport module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

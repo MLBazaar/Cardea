@@ -1,0 +1,28 @@
+cardea.fhir.ResearchSubject
+===========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: ResearchSubject
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ResearchSubject.__init__
+      ~ResearchSubject.assert_type
+      ~ResearchSubject.get_dataframe
+      ~ResearchSubject.get_eligible_relationships
+      ~ResearchSubject.get_id
+      ~ResearchSubject.get_relationships
+      ~ResearchSubject.set_attributes
+   
+   
+
+   
+   
+   

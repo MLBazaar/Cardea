@@ -1,0 +1,28 @@
+cardea.fhir.Library
+===================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Library
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Library.__init__
+      ~Library.assert_type
+      ~Library.get_dataframe
+      ~Library.get_eligible_relationships
+      ~Library.get_id
+      ~Library.get_relationships
+      ~Library.set_attributes
+   
+   
+
+   
+   
+   

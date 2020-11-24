@@ -1,0 +1,28 @@
+cardea.fhir.EligibilityResponse
+===============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: EligibilityResponse
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~EligibilityResponse.__init__
+      ~EligibilityResponse.assert_type
+      ~EligibilityResponse.get_dataframe
+      ~EligibilityResponse.get_eligible_relationships
+      ~EligibilityResponse.get_id
+      ~EligibilityResponse.get_relationships
+      ~EligibilityResponse.set_attributes
+   
+   
+
+   
+   
+   

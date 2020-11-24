@@ -1,0 +1,28 @@
+cardea.fhir.Dosage
+==================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Dosage
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Dosage.__init__
+      ~Dosage.assert_type
+      ~Dosage.get_dataframe
+      ~Dosage.get_eligible_relationships
+      ~Dosage.get_id
+      ~Dosage.get_relationships
+      ~Dosage.set_attributes
+   
+   
+
+   
+   
+   

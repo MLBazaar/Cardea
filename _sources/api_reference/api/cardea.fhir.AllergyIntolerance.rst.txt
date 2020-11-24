@@ -1,0 +1,28 @@
+cardea.fhir.AllergyIntolerance
+==============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: AllergyIntolerance
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AllergyIntolerance.__init__
+      ~AllergyIntolerance.assert_type
+      ~AllergyIntolerance.get_dataframe
+      ~AllergyIntolerance.get_eligible_relationships
+      ~AllergyIntolerance.get_id
+      ~AllergyIntolerance.get_relationships
+      ~AllergyIntolerance.set_attributes
+   
+   
+
+   
+   
+   

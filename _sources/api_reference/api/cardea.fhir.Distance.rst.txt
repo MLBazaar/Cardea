@@ -1,0 +1,28 @@
+cardea.fhir.Distance
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Distance
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Distance.__init__
+      ~Distance.assert_type
+      ~Distance.get_dataframe
+      ~Distance.get_eligible_relationships
+      ~Distance.get_id
+      ~Distance.get_relationships
+      ~Distance.set_attributes
+   
+   
+
+   
+   
+   

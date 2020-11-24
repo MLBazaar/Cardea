@@ -1,0 +1,28 @@
+cardea.fhir.RelatedPerson
+=========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: RelatedPerson
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~RelatedPerson.__init__
+      ~RelatedPerson.assert_type
+      ~RelatedPerson.get_dataframe
+      ~RelatedPerson.get_eligible_relationships
+      ~RelatedPerson.get_id
+      ~RelatedPerson.get_relationships
+      ~RelatedPerson.set_attributes
+   
+   
+
+   
+   
+   

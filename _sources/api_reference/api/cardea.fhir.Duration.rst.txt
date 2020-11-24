@@ -1,0 +1,28 @@
+cardea.fhir.Duration
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Duration
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Duration.__init__
+      ~Duration.assert_type
+      ~Duration.get_dataframe
+      ~Duration.get_eligible_relationships
+      ~Duration.get_id
+      ~Duration.get_relationships
+      ~Duration.set_attributes
+   
+   
+
+   
+   
+   

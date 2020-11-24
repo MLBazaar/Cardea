@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.Sequence module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.Sequence module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.ServiceDefinition module" href="cardea.fhir.ServiceDefinition.html" />
-    <link rel="prev" title="cardea.fhir.SearchParameter module" href="cardea.fhir.SearchParameter.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.Sequence module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Sequence.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.Sequence">
 <span id="cardea-fhir-sequence-module"></span><h1>cardea.fhir.Sequence module<a class="headerlink" href="#module-cardea.fhir.Sequence" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -249,122 +157,48 @@
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Sequence.</code><code class="sig-name descname">Sequence</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Sequence.html#Sequence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Sequence.Sequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Raw data describing a biological sequence.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a Sequence resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A unique identifier for this particular sequence instance.
-This is a FHIR-defined id.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Amino Acid Sequence/ DNA Sequence / RNA Sequence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.coordinateSystem">
-<code class="sig-name descname">coordinateSystem</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.coordinateSystem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether the sequence is numbered starting at 0
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a Sequence resource</p></li>
+<li><p><strong>identifier</strong> – A unique identifier for this particular sequence instance.
+This is a FHIR-defined id.</p></li>
+<li><p><strong>type</strong> – Amino Acid Sequence/ DNA Sequence / RNA Sequence.</p></li>
+<li><p><strong>coordinateSystem</strong> – Whether the sequence is numbered starting at 0
 (0-based numbering or coordinates, inclusive start, exclusive end) or
-starting at 1 (1-based numbering, inclusive start and inclusive end).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.patient">
-<code class="sig-name descname">patient</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.patient" title="Permalink to this definition">¶</a></dt>
-<dd><p>The patient whose sequencing results are described by this
-resource.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.specimen">
-<code class="sig-name descname">specimen</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.specimen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specimen used for sequencing.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.device">
-<code class="sig-name descname">device</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.device" title="Permalink to this definition">¶</a></dt>
-<dd><p>The method for sequencing, for example, chip information.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.performer">
-<code class="sig-name descname">performer</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.performer" title="Permalink to this definition">¶</a></dt>
-<dd><p>The organization or lab that should be responsible for this
-result.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.quantity">
-<code class="sig-name descname">quantity</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.quantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The number of copies of the seqeunce of interest. (RNASeq).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.referenceSeq">
-<code class="sig-name descname">referenceSeq</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.referenceSeq" title="Permalink to this definition">¶</a></dt>
-<dd><p>A sequence that is used as a reference to describe
-variants that are present in a sequence analyzed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.variant">
-<code class="sig-name descname">variant</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.variant" title="Permalink to this definition">¶</a></dt>
-<dd><p>The definition of variant here originates from Sequence
+starting at 1 (1-based numbering, inclusive start and inclusive end).</p></li>
+<li><p><strong>patient</strong> – The patient whose sequencing results are described by this
+resource.</p></li>
+<li><p><strong>specimen</strong> – Specimen used for sequencing.</p></li>
+<li><p><strong>device</strong> – The method for sequencing, for example, chip information.</p></li>
+<li><p><strong>performer</strong> – The organization or lab that should be responsible for this
+result.</p></li>
+<li><p><strong>quantity</strong> – The number of copies of the seqeunce of interest. (RNASeq).</p></li>
+<li><p><strong>referenceSeq</strong> – A sequence that is used as a reference to describe
+variants that are present in a sequence analyzed.</p></li>
+<li><p><strong>variant</strong> – The definition of variant here originates from Sequence
 ontology
 ([variant_of](<a class="reference external" href="http://www.sequenceontology.org/browser/current_svn/term/variant_of">http://www.sequenceontology.org/browser/current_svn/term/variant_of</a>)).
 This element can represent amino acid or nucleic sequence
 change(including insertion,deletion,SNP,etc.)  It can represent some
-complex mutation or segment variation with the assist of CIGAR string.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.observedSeq">
-<code class="sig-name descname">observedSeq</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.observedSeq" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sequence that was observed. It is the result marked by
+complex mutation or segment variation with the assist of CIGAR string.</p></li>
+<li><p><strong>observedSeq</strong> – Sequence that was observed. It is the result marked by
 referenceSeq along with variant records on referenceSeq. This shall
 starts from referenceSeq.windowStart and end by
-referenceSeq.windowEnd.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.quality">
-<code class="sig-name descname">quality</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.quality" title="Permalink to this definition">¶</a></dt>
-<dd><p>An experimental feature attribute that defines the quality of
+referenceSeq.windowEnd.</p></li>
+<li><p><strong>quality</strong> – An experimental feature attribute that defines the quality of
 the feature in a quantitative way, such as a phred quality score
-([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.readCoverage">
-<code class="sig-name descname">readCoverage</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.readCoverage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Coverage (read depth or depth) is the average number of
-reads representing a given nucleotide in the reconstructed sequence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.repository">
-<code class="sig-name descname">repository</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.repository" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configurations of the external repository. The repository
+([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).</p></li>
+<li><p><strong>readCoverage</strong> – Coverage (read depth or depth) is the average number of
+reads representing a given nucleotide in the reconstructed sequence.</p></li>
+<li><p><strong>repository</strong> – Configurations of the external repository. The repository
 shall store target’s observedSeq or records related with target’s
-observedSeq.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence.pointer">
-<code class="sig-name descname">pointer</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.pointer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pointer to next atomic sequence which at most contains one
-variant.</p>
-</dd></dl>
-
+observedSeq.</p></li>
+<li><p><strong>pointer</strong> – Pointer to next atomic sequence which at most contains one
+variant.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Sequence.Sequence.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Sequence.html#Sequence.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Sequence.Sequence.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -395,114 +229,50 @@ variant.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Sequence.</code><code class="sig-name descname">Sequence_Quality</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Sequence.html#Sequence_Quality"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Raw data describing a biological sequence.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>INDEL / SNP / Undefined variant.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.standardSequence">
-<code class="sig-name descname">standardSequence</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.standardSequence" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gold standard sequence used for comparing against.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.start">
-<code class="sig-name descname">start</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.start" title="Permalink to this definition">¶</a></dt>
-<dd><p>Start position of the sequence. If the coordinate system is
-either 0-based or 1-based, then start position is inclusive.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.end">
-<code class="sig-name descname">end</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.end" title="Permalink to this definition">¶</a></dt>
-<dd><p>End position of the sequence.If the coordinate system is 0-based
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – INDEL / SNP / Undefined variant.</p></li>
+<li><p><strong>standardSequence</strong> – Gold standard sequence used for comparing against.</p></li>
+<li><p><strong>start</strong> – Start position of the sequence. If the coordinate system is
+either 0-based or 1-based, then start position is inclusive.</p></li>
+<li><p><strong>end</strong> – End position of the sequence.If the coordinate system is 0-based
 then end is is exclusive and does not include the last position. If
 the coordinate system is 1-base, then end is inclusive and includes
-the last position.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.score">
-<code class="sig-name descname">score</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.score" title="Permalink to this definition">¶</a></dt>
-<dd><p>The score of an experimentally derived feature such as a
+the last position.</p></li>
+<li><p><strong>score</strong> – The score of an experimentally derived feature such as a
 p-value
-([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.method">
-<code class="sig-name descname">method</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.method" title="Permalink to this definition">¶</a></dt>
-<dd><p>Which method is used to get sequence quality.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.truthTP">
-<code class="sig-name descname">truthTP</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.truthTP" title="Permalink to this definition">¶</a></dt>
-<dd><p>True positives, from the perspective of the truth data, i.e.
+([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).</p></li>
+<li><p><strong>method</strong> – Which method is used to get sequence quality.</p></li>
+<li><p><strong>truthTP</strong> – True positives, from the perspective of the truth data, i.e.
 the number of sites in the Truth Call Set for which there are paths
 through the Query Call Set that are consistent with all of the alleles
 at this site, and for which there is an accurate genotype call for the
-event.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.queryTP">
-<code class="sig-name descname">queryTP</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.queryTP" title="Permalink to this definition">¶</a></dt>
-<dd><p>True positives, from the perspective of the query data, i.e.
+event.</p></li>
+<li><p><strong>queryTP</strong> – True positives, from the perspective of the query data, i.e.
 the number of sites in the Query Call Set for which there are paths
 through the Truth Call Set that are consistent with all of the alleles
 at this site, and for which there is an accurate genotype call for the
-event.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.truthFN">
-<code class="sig-name descname">truthFN</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.truthFN" title="Permalink to this definition">¶</a></dt>
-<dd><p>False negatives, i.e. the number of sites in the Truth Call
+event.</p></li>
+<li><p><strong>truthFN</strong> – False negatives, i.e. the number of sites in the Truth Call
 Set for which there is no path through the Query Call Set that is
 consistent with all of the alleles at this site, or sites for which
 there is an inaccurate genotype call for the event. Sites with correct
-variant but incorrect genotype are counted here.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.queryFP">
-<code class="sig-name descname">queryFP</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.queryFP" title="Permalink to this definition">¶</a></dt>
-<dd><p>False positives, i.e. the number of sites in the Query Call
+variant but incorrect genotype are counted here.</p></li>
+<li><p><strong>queryFP</strong> – False positives, i.e. the number of sites in the Query Call
 Set for which there is no path through the Truth Call Set that is
 consistent with this site. Sites with correct variant but incorrect
-genotype are counted here.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.gtFP">
-<code class="sig-name descname">gtFP</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.gtFP" title="Permalink to this definition">¶</a></dt>
-<dd><p>The number of false positives where the non-REF alleles in the
+genotype are counted here.</p></li>
+<li><p><strong>gtFP</strong> – The number of false positives where the non-REF alleles in the
 Truth and Query Call Sets match (i.e. cases where the truth is 1/1 and
-the query is 0/1 or similar).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.precision">
-<code class="sig-name descname">precision</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.precision" title="Permalink to this definition">¶</a></dt>
-<dd><p>QUERY.TP / (QUERY.TP + QUERY.FP).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.recall">
-<code class="sig-name descname">recall</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.recall" title="Permalink to this definition">¶</a></dt>
-<dd><p>TRUTH.TP / (TRUTH.TP + TRUTH.FN).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Quality.fScore">
-<code class="sig-name descname">fScore</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.fScore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Harmonic mean of Recall and Precision, computed as: 2 *
-precision * recall / (precision + recall).</p>
-</dd></dl>
-
+the query is 0/1 or similar).</p></li>
+<li><p><strong>precision</strong> – QUERY.TP / (QUERY.TP + QUERY.FP).</p></li>
+<li><p><strong>recall</strong> – TRUTH.TP / (TRUTH.TP + TRUTH.FN).</p></li>
+<li><p><strong>fScore</strong> – Harmonic mean of Recall and Precision, computed as: 2 *
+precision * recall / (precision + recall).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Sequence.Sequence_Quality.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Sequence.html#Sequence_Quality.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Quality.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -533,71 +303,37 @@ precision * recall / (precision + recall).</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Sequence.</code><code class="sig-name descname">Sequence_ReferenceSeq</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Sequence.html#Sequence_ReferenceSeq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_ReferenceSeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Raw data describing a biological sequence.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_ReferenceSeq.chromosome">
-<code class="sig-name descname">chromosome</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_ReferenceSeq.chromosome" title="Permalink to this definition">¶</a></dt>
-<dd><p>Structural unit composed of a nucleic acid molecule which
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chromosome</strong> – Structural unit composed of a nucleic acid molecule which
 controls its own replication through the interaction of specific
 proteins at one or more origins of replication
-([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340)).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_ReferenceSeq.genomeBuild">
-<code class="sig-name descname">genomeBuild</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_ReferenceSeq.genomeBuild" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Genome Build used for reference, following GRCh build
+([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340)).</p></li>
+<li><p><strong>genomeBuild</strong> – The Genome Build used for reference, following GRCh build
 versions e.g. ‘GRCh 37’.  Version number must be included if a
-versioned release of a primary build was used.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_ReferenceSeq.referenceSeqId">
-<code class="sig-name descname">referenceSeqId</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_ReferenceSeq.referenceSeqId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reference identifier of reference sequence submitted
+versioned release of a primary build was used.</p></li>
+<li><p><strong>referenceSeqId</strong> – Reference identifier of reference sequence submitted
 to NCBI. It must match the type in the Sequence.type field. For
 example, the prefix, <em>NG_</em> identifies reference sequence for genes,
 <em>NM_</em> for messenger RNA transcripts, and <em>NP_</em> for amino acid
-sequences.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_ReferenceSeq.referenceSeqPointer">
-<code class="sig-name descname">referenceSeqPointer</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_ReferenceSeq.referenceSeqPointer" title="Permalink to this definition">¶</a></dt>
-<dd><p>A Pointer to another Sequence entity as reference
-sequence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_ReferenceSeq.referenceSeqString">
-<code class="sig-name descname">referenceSeqString</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_ReferenceSeq.referenceSeqString" title="Permalink to this definition">¶</a></dt>
-<dd><p>A string like “ACGT”.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_ReferenceSeq.strand">
-<code class="sig-name descname">strand</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_ReferenceSeq.strand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Directionality of DNA sequence. Available values are “1” for
+sequences.</p></li>
+<li><p><strong>referenceSeqPointer</strong> – A Pointer to another Sequence entity as reference
+sequence.</p></li>
+<li><p><strong>referenceSeqString</strong> – A string like “ACGT”.</p></li>
+<li><p><strong>strand</strong> – Directionality of DNA sequence. Available values are “1” for
 the plus strand (5’ to 3’)/Watson/Sense/positive  and “-1” for the
-minus strand(3’ to 5’)/Crick/Antisense/negative.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_ReferenceSeq.windowStart">
-<code class="sig-name descname">windowStart</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_ReferenceSeq.windowStart" title="Permalink to this definition">¶</a></dt>
-<dd><p>Start position of the window on the reference sequence.
+minus strand(3’ to 5’)/Crick/Antisense/negative.</p></li>
+<li><p><strong>windowStart</strong> – Start position of the window on the reference sequence.
 If the coordinate system is either 0-based or 1-based, then start
-position is inclusive.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_ReferenceSeq.windowEnd">
-<code class="sig-name descname">windowEnd</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_ReferenceSeq.windowEnd" title="Permalink to this definition">¶</a></dt>
-<dd><p>End position of the window on the reference sequence. If
+position is inclusive.</p></li>
+<li><p><strong>windowEnd</strong> – End position of the window on the reference sequence. If
 the coordinate system is 0-based then end is is exclusive and does not
 include the last position. If the coordinate system is 1-base, then
-end is inclusive and includes the last position.</p>
-</dd></dl>
-
+end is inclusive and includes the last position.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Sequence.Sequence_ReferenceSeq.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Sequence.html#Sequence_ReferenceSeq.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_ReferenceSeq.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -616,49 +352,25 @@ end is inclusive and includes the last position.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Sequence.</code><code class="sig-name descname">Sequence_Repository</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Sequence.html#Sequence_Repository"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Repository" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Raw data describing a biological sequence.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Repository.type">
-<code class="sig-name descname">type</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Repository.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Click and see / RESTful API / Need login to see / RESTful API
-with authentication / Other ways to see resource.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Repository.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Repository.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>URI of an external repository which contains further details
-about the genetics data.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Repository.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Repository.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>URI of an external repository which contains further details
-about the genetics data.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Repository.datasetId">
-<code class="sig-name descname">datasetId</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Repository.datasetId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Id of the variant in this external repository. The server
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – Click and see / RESTful API / Need login to see / RESTful API
+with authentication / Other ways to see resource.</p></li>
+<li><p><strong>url</strong> – URI of an external repository which contains further details
+about the genetics data.</p></li>
+<li><p><strong>name</strong> – URI of an external repository which contains further details
+about the genetics data.</p></li>
+<li><p><strong>datasetId</strong> – Id of the variant in this external repository. The server
 will understand how to use this id to call for more info about
-datasets in external repository.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Repository.variantsetId">
-<code class="sig-name descname">variantsetId</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Repository.variantsetId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Id of the variantset in this external repository. The
+datasets in external repository.</p></li>
+<li><p><strong>variantsetId</strong> – Id of the variantset in this external repository. The
 server will understand how to use this id to call for more info about
-variantsets in external repository.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Repository.readsetId">
-<code class="sig-name descname">readsetId</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Repository.readsetId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Id of the read in this external repository.</p>
-</dd></dl>
-
+variantsets in external repository.</p></li>
+<li><p><strong>readsetId</strong> – Id of the read in this external repository.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Sequence.Sequence_Repository.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Sequence.html#Sequence_Repository.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Repository.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -678,64 +390,40 @@ variantsets in external repository.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cardea.fhir.Sequence.</code><code class="sig-name descname">Sequence_Variant</code><span class="sig-paren">(</span><em class="sig-param">dict_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Sequence.html#Sequence_Variant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Variant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.fhirbase" title="cardea.fhir.fhirbase.fhirbase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cardea.fhir.fhirbase.fhirbase</span></code></a></p>
 <p>Raw data describing a biological sequence.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Variant.start">
-<code class="sig-name descname">start</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Variant.start" title="Permalink to this definition">¶</a></dt>
-<dd><p>Start position of the variant on the  reference sequence.If the
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> – Start position of the variant on the  reference sequence.If the
 coordinate system is either 0-based or 1-based, then start position is
-inclusive.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Variant.end">
-<code class="sig-name descname">end</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Variant.end" title="Permalink to this definition">¶</a></dt>
-<dd><p>End position of the variant on the reference sequence.If the
+inclusive.</p></li>
+<li><p><strong>end</strong> – End position of the variant on the reference sequence.If the
 coordinate system is 0-based then end is is exclusive and does not
 include the last position. If the coordinate system is 1-base, then
-end is inclusive and includes the last position.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Variant.observedAllele">
-<code class="sig-name descname">observedAllele</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Variant.observedAllele" title="Permalink to this definition">¶</a></dt>
-<dd><p>An allele is one of a set of coexisting sequence
+end is inclusive and includes the last position.</p></li>
+<li><p><strong>observedAllele</strong> – An allele is one of a set of coexisting sequence
 variants of a gene
 ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)).
 Nucleotide(s)/amino acids from start position of sequence to stop
 position of sequence on the positive (+) strand of the observed
 sequence. When the sequence  type is DNA, it should be the sequence on
 the positive (+) strand. This will lay in the range between
-variant.start and variant.end.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Variant.referenceAllele">
-<code class="sig-name descname">referenceAllele</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Variant.referenceAllele" title="Permalink to this definition">¶</a></dt>
-<dd><p>An allele is one of a set of coexisting sequence
+variant.start and variant.end.</p></li>
+<li><p><strong>referenceAllele</strong> – An allele is one of a set of coexisting sequence
 variants of a gene
 ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)).
 Nucleotide(s)/amino acids from start position of sequence to stop
 position of sequence on the positive (+) strand of the reference
 sequence. When the sequence  type is DNA, it should be the sequence on
 the positive (+) strand. This will lay in the range between
-variant.start and variant.end.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Variant.cigar">
-<code class="sig-name descname">cigar</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Variant.cigar" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extended CIGAR string for aligning the sequence with reference
+variant.start and variant.end.</p></li>
+<li><p><strong>cigar</strong> – Extended CIGAR string for aligning the sequence with reference
 bases. See detailed documentation
-[here](<a class="reference external" href="http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm">http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm</a>).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Sequence.Sequence_Variant.variantPointer">
-<code class="sig-name descname">variantPointer</code><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Variant.variantPointer" title="Permalink to this definition">¶</a></dt>
-<dd><p>A pointer to an Observation containing variant
-information.</p>
-</dd></dl>
-
+[here](<a class="reference external" href="http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm">http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm</a>).</p></li>
+<li><p><strong>variantPointer</strong> – A pointer to an Observation containing variant
+information.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Sequence.Sequence_Variant.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Sequence.html#Sequence_Variant.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Sequence.Sequence_Variant.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -752,52 +440,31 @@ information.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.ServiceDefinition.html" class="btn btn-neutral float-right" title="cardea.fhir.ServiceDefinition module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.SearchParameter.html" class="btn btn-neutral float-left" title="cardea.fhir.SearchParameter module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.Goal module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.Goal module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.GraphDefinition module" href="cardea.fhir.GraphDefinition.html" />
-    <link rel="prev" title="cardea.fhir.Flag module" href="cardea.fhir.Flag.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.Goal module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.Goal.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.Goal">
 <span id="cardea-fhir-goal-module"></span><h1>cardea.fhir.Goal module<a class="headerlink" href="#module-cardea.fhir.Goal" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -252,122 +160,43 @@
 organization care, for example, weight loss, restoring an activity of
 daily living, obtaining herd immunity via immunization, meeting a
 process improvement objective, etc.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a Goal resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>This records identifiers associated with this care plan
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a Goal resource</p></li>
+<li><p><strong>identifier</strong> – This records identifiers associated with this care plan
 that are defined by business processes and/or used to refer to it when
 a direct URL reference to the resource itself is not appropriate (e.g.
-in CDA documents, or in written / printed documentation).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates whether the goal has been reached and is still
-considered relevant.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates a category the goal falls within.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.priority">
-<code class="sig-name descname">priority</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.priority" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the mutually agreed level of importance
-associated with reaching/sustaining the goal.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Human-readable and/or coded description of a specific
+in CDA documents, or in written / printed documentation).</p></li>
+<li><p><strong>status</strong> – Indicates whether the goal has been reached and is still
+considered relevant.</p></li>
+<li><p><strong>category</strong> – Indicates a category the goal falls within.</p></li>
+<li><p><strong>priority</strong> – Identifies the mutually agreed level of importance
+associated with reaching/sustaining the goal.</p></li>
+<li><p><strong>description</strong> – Human-readable and/or coded description of a specific
 desired objective of care, such as “control blood pressure” or
-“negotiate an obstacle course” or “dance with child at wedding”.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.subject">
-<code class="sig-name descname">subject</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.subject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the patient, group or organization for whom the
-goal is being established.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.startDate">
-<code class="sig-name descname">startDate</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.startDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date or event after which the goal should begin being
-pursued.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.startCodeableConcept">
-<code class="sig-name descname">startCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.startCodeableConcept" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date or event after which the goal should
-begin being pursued.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.target">
-<code class="sig-name descname">target</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.target" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates what should be done by when.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.statusDate">
-<code class="sig-name descname">statusDate</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.statusDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies when the current status.  I.e. When initially
-created, when achieved, when cancelled, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.statusReason">
-<code class="sig-name descname">statusReason</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.statusReason" title="Permalink to this definition">¶</a></dt>
-<dd><p>Captures the reason for the current status.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.expressedBy">
-<code class="sig-name descname">expressedBy</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.expressedBy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates whose goal this is - patient goal, practitioner
-goal, etc.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.addresses">
-<code class="sig-name descname">addresses</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.addresses" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identified conditions and other health record elements
-that are intended to be addressed by the goal.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.note">
-<code class="sig-name descname">note</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.note" title="Permalink to this definition">¶</a></dt>
-<dd><p>Any comments related to the goal.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.outcomeCode">
-<code class="sig-name descname">outcomeCode</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.outcomeCode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the change (or lack of change) at the point
-when the status of the goal is assessed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal.outcomeReference">
-<code class="sig-name descname">outcomeReference</code><a class="headerlink" href="#cardea.fhir.Goal.Goal.outcomeReference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Details of what’s changed (or not changed).</p>
-</dd></dl>
-
+“negotiate an obstacle course” or “dance with child at wedding”.</p></li>
+<li><p><strong>subject</strong> – Identifies the patient, group or organization for whom the
+goal is being established.</p></li>
+<li><p><strong>startDate</strong> – The date or event after which the goal should begin being
+pursued.</p></li>
+<li><p><strong>startCodeableConcept</strong> – The date or event after which the goal should
+begin being pursued.</p></li>
+<li><p><strong>target</strong> – Indicates what should be done by when.</p></li>
+<li><p><strong>statusDate</strong> – Identifies when the current status.  I.e. When initially
+created, when achieved, when cancelled, etc.</p></li>
+<li><p><strong>statusReason</strong> – Captures the reason for the current status.</p></li>
+<li><p><strong>expressedBy</strong> – Indicates whose goal this is - patient goal, practitioner
+goal, etc.</p></li>
+<li><p><strong>addresses</strong> – The identified conditions and other health record elements
+that are intended to be addressed by the goal.</p></li>
+<li><p><strong>note</strong> – Any comments related to the goal.</p></li>
+<li><p><strong>outcomeCode</strong> – Identifies the change (or lack of change) at the point
+when the status of the goal is assessed.</p></li>
+<li><p><strong>outcomeReference</strong> – Details of what’s changed (or not changed).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Goal.Goal.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Goal.html#Goal.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Goal.Goal.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -401,63 +230,39 @@ when the status of the goal is assessed.</p>
 organization care, for example, weight loss, restoring an activity of
 daily living, obtaining herd immunity via immunization, meeting a
 process improvement objective, etc.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal_Target.measure">
-<code class="sig-name descname">measure</code><a class="headerlink" href="#cardea.fhir.Goal.Goal_Target.measure" title="Permalink to this definition">¶</a></dt>
-<dd><p>The parameter whose value is being tracked, e.g. body weight,
-blood pressure, or hemoglobin A1c level.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal_Target.detailQuantity">
-<code class="sig-name descname">detailQuantity</code><a class="headerlink" href="#cardea.fhir.Goal.Goal_Target.detailQuantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>The target value of the focus to be achieved to
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>measure</strong> – The parameter whose value is being tracked, e.g. body weight,
+blood pressure, or hemoglobin A1c level.</p></li>
+<li><p><strong>detailQuantity</strong> – The target value of the focus to be achieved to
 signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the
 high or low or both values of the range can be specified. When a low
 value is missing, it indicates that the goal is achieved at any focus
 value at or below the high value. Similarly, if the high value is
 missing, it indicates that the goal is achieved at any focus value at
-or above the low value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal_Target.detailRange">
-<code class="sig-name descname">detailRange</code><a class="headerlink" href="#cardea.fhir.Goal.Goal_Target.detailRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>The target value of the focus to be achieved to signify
+or above the low value.</p></li>
+<li><p><strong>detailRange</strong> – The target value of the focus to be achieved to signify
 the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or
 low or both values of the range can be specified. When a low value is
 missing, it indicates that the goal is achieved at any focus value at
 or below the high value. Similarly, if the high value is missing, it
 indicates that the goal is achieved at any focus value at or above the
-low value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal_Target.detailCodeableConcept">
-<code class="sig-name descname">detailCodeableConcept</code><a class="headerlink" href="#cardea.fhir.Goal.Goal_Target.detailCodeableConcept" title="Permalink to this definition">¶</a></dt>
-<dd><p>The target value of the focus to be achieved to
+low value.</p></li>
+<li><p><strong>detailCodeableConcept</strong> – The target value of the focus to be achieved to
 signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the
 high or low or both values of the range can be specified. When a low
 value is missing, it indicates that the goal is achieved at any focus
 value at or below the high value. Similarly, if the high value is
 missing, it indicates that the goal is achieved at any focus value at
-or above the low value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal_Target.dueDate">
-<code class="sig-name descname">dueDate</code><a class="headerlink" href="#cardea.fhir.Goal.Goal_Target.dueDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates either the date or the duration after start by
-which the goal should be met.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.Goal.Goal_Target.dueDuration">
-<code class="sig-name descname">dueDuration</code><a class="headerlink" href="#cardea.fhir.Goal.Goal_Target.dueDuration" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates either the date or the duration after start by
-which the goal should be met.</p>
-</dd></dl>
-
+or above the low value.</p></li>
+<li><p><strong>dueDate</strong> – Indicates either the date or the duration after start by
+which the goal should be met.</p></li>
+<li><p><strong>dueDuration</strong> – Indicates either the date or the duration after start by
+which the goal should be met.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.Goal.Goal_Target.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/Goal.html#Goal_Target.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.Goal.Goal_Target.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -474,52 +279,31 @@ which the goal should be met.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.GraphDefinition.html" class="btn btn-neutral float-right" title="cardea.fhir.GraphDefinition module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.Flag.html" class="btn btn-neutral float-left" title="cardea.fhir.Flag module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>

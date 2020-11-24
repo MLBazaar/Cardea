@@ -1,0 +1,6 @@
+cardea.data\_loader.EntitySetLoader.load\_data\_entityset
+=========================================================
+
+.. currentmodule:: cardea.data_loader
+
+.. automethod:: EntitySetLoader.load_data_entityset

@@ -1,0 +1,28 @@
+cardea.fhir.CapabilityStatement
+===============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: CapabilityStatement
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CapabilityStatement.__init__
+      ~CapabilityStatement.assert_type
+      ~CapabilityStatement.get_dataframe
+      ~CapabilityStatement.get_eligible_relationships
+      ~CapabilityStatement.get_id
+      ~CapabilityStatement.get_relationships
+      ~CapabilityStatement.set_attributes
+   
+   
+
+   
+   
+   

@@ -1,0 +1,28 @@
+cardea.fhir.AdverseEvent
+========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: AdverseEvent
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AdverseEvent.__init__
+      ~AdverseEvent.assert_type
+      ~AdverseEvent.get_dataframe
+      ~AdverseEvent.get_eligible_relationships
+      ~AdverseEvent.get_id
+      ~AdverseEvent.get_relationships
+      ~AdverseEvent.set_attributes
+   
+   
+
+   
+   
+   

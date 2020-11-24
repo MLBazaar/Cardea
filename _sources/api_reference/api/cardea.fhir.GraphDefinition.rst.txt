@@ -1,0 +1,28 @@
+cardea.fhir.GraphDefinition
+===========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: GraphDefinition
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~GraphDefinition.__init__
+      ~GraphDefinition.assert_type
+      ~GraphDefinition.get_dataframe
+      ~GraphDefinition.get_eligible_relationships
+      ~GraphDefinition.get_id
+      ~GraphDefinition.get_relationships
+      ~GraphDefinition.set_attributes
+   
+   
+
+   
+   
+   

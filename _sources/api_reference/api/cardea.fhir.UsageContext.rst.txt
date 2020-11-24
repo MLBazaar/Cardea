@@ -1,0 +1,28 @@
+cardea.fhir.UsageContext
+========================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: UsageContext
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~UsageContext.__init__
+      ~UsageContext.assert_type
+      ~UsageContext.get_dataframe
+      ~UsageContext.get_eligible_relationships
+      ~UsageContext.get_id
+      ~UsageContext.get_relationships
+      ~UsageContext.set_attributes
+   
+   
+
+   
+   
+   

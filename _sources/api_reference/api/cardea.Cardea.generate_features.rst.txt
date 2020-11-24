@@ -1,0 +1,6 @@
+cardea.Cardea.generate\_features
+================================
+
+.. currentmodule:: cardea
+
+.. automethod:: Cardea.generate_features

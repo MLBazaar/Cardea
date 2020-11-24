@@ -1,0 +1,28 @@
+cardea.fhir.MedicationStatement
+===============================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: MedicationStatement
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MedicationStatement.__init__
+      ~MedicationStatement.assert_type
+      ~MedicationStatement.get_dataframe
+      ~MedicationStatement.get_eligible_relationships
+      ~MedicationStatement.get_id
+      ~MedicationStatement.get_relationships
+      ~MedicationStatement.set_attributes
+   
+   
+
+   
+   
+   

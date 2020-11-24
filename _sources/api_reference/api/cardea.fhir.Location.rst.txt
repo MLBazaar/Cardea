@@ -1,0 +1,28 @@
+cardea.fhir.Location
+====================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: Location
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Location.__init__
+      ~Location.assert_type
+      ~Location.get_dataframe
+      ~Location.get_eligible_relationships
+      ~Location.get_id
+      ~Location.get_relationships
+      ~Location.set_attributes
+   
+   
+
+   
+   
+   

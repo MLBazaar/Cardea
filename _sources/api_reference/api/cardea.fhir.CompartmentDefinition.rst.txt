@@ -1,0 +1,28 @@
+cardea.fhir.CompartmentDefinition
+=================================
+
+.. currentmodule:: cardea.fhir
+
+.. autoclass:: CompartmentDefinition
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CompartmentDefinition.__init__
+      ~CompartmentDefinition.assert_type
+      ~CompartmentDefinition.get_dataframe
+      ~CompartmentDefinition.get_eligible_relationships
+      ~CompartmentDefinition.get_id
+      ~CompartmentDefinition.get_relationships
+      ~CompartmentDefinition.set_attributes
+   
+   
+
+   
+   
+   

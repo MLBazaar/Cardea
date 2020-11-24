@@ -1,247 +1,155 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>cardea.fhir.MessageDefinition module &mdash; Cardea 0.1.1.dev0 documentation</title>
-  
 
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.fhir.MessageDefinition module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cardea.fhir.MessageHeader module" href="cardea.fhir.MessageHeader.html" />
-    <link rel="prev" title="cardea.fhir.MedicationStatement module" href="cardea.fhir.MedicationStatement.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-          
-            <a href="../index.html" class="icon icon-home"> Cardea
-          
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-          
-          </a>
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
 
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started/install.html#development-setup">Development Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Basic Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/concepts.html">Welcome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/data_loading.html">Data Loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html">Machine Learning Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#outcome-to-predict">Outcome to predict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#cutoff-times-and-labels">Cutoff times and Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/machine_learning_tasks.html#current-prediction-problems">Current Prediction Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_featurization.html">Auto - Featurization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auto_ml.html">Auto - ML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/auditing.html">Auditing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_concepts/advanced_use.html">Advanced Use</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#how-to-define-a-new-machine-learning-task">How to define a new machine learning task?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic_concepts/advanced_use.html#features-primitives-and-automl-integration">Features, primitives and AutoML integration</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Community</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../community/welcome.html">Community</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/welcome.html#types-of-contributions">Types of contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#reporting-issues">Reporting Issues</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-a-new-problem">Request a new Problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#request-new-features">Request new features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#report-bugs">Report Bugs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../community/welcome.html#ask-for-documentation">Ask for Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#write-documentation">Write Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../community/welcome.html#contribute-code">Contribute code</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../community/contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#general-coding-guidelines">General Coding Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../community/contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="cardea.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cardea.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cardea.data_loader.html">cardea.data_loader package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.data_loader.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.featurization.html">cardea.featurization package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.featurization.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="reference internal" href="cardea.fhir.html">cardea.fhir package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="cardea.fhir.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.modeling.html">cardea.modeling package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.modeling.html#submodules">Submodules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cardea.problem_definition.html">cardea.problem_definition package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cardea.problem_definition.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cardea.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cardea.cardea.html">cardea.cardea module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.1.0 - 2020-09-15</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+
+      <ul class="navbar-nav">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cardea</a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
         
-      </nav>
-
-
-      <div class="wy-nav-content">
         
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="cardea.html">cardea package</a> &raquo;</li>
-        
-          <li><a href="cardea.fhir.html">cardea.fhir package</a> &raquo;</li>
-        
-      <li>cardea.fhir.MessageDefinition module</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/D3-AI/cardea/blob/master/docs/api/cardea.fhir.MessageDefinition.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+      </ul>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <div class="section" id="module-cardea.fhir.MessageDefinition">
 <span id="cardea-fhir-messagedefinition-module"></span><h1>cardea.fhir.MessageDefinition module<a class="headerlink" href="#module-cardea.fhir.MessageDefinition" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -251,190 +159,76 @@
 <p>Defines the characteristics of a message that can be shared between
 systems, including the type of event that initiates the message, the
 content to be transmitted and what response(s), if any, are permitted.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.resourceType">
-<code class="sig-name descname">resourceType</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.resourceType" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is a MessageDefinition resource</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.url" title="Permalink to this definition">¶</a></dt>
-<dd><p>An absolute URI that is used to identify this message definition
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resourceType</strong> – This is a MessageDefinition resource</p></li>
+<li><p><strong>url</strong> – An absolute URI that is used to identify this message definition
 when it is referenced in a specification, model, design or an
 instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD
 be an address at which this message definition is (or will be)
 published. The URL SHOULD include the major version of the message
 definition. For more information see [Technical and Business
-Versions](resource.html#versions).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.identifier">
-<code class="sig-name descname">identifier</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A formal identifier that is used to identify this message
+Versions](resource.html#versions).</p></li>
+<li><p><strong>identifier</strong> – A formal identifier that is used to identify this message
 definition when it is represented in other formats, or referenced in a
-specification, model, design or an instance.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The identifier that is used to identify this version of the
+specification, model, design or an instance.</p></li>
+<li><p><strong>version</strong> – The identifier that is used to identify this version of the
 message definition when it is referenced in a specification, model,
 design or instance. This is an arbitrary value managed by the message
 definition author and is not expected to be globally unique. For
 example, it might be a timestamp (e.g. yyyymmdd) if a managed version
 is not available. There is also no expectation that versions can be
-placed in a lexicographical sequence.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>A natural language name identifying the message definition. This
+placed in a lexicographical sequence.</p></li>
+<li><p><strong>name</strong> – A natural language name identifying the message definition. This
 name should be usable as an identifier for the module by machine
-processing applications such as code generation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.title">
-<code class="sig-name descname">title</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>A short, descriptive, user-friendly title for the message
-definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>The status of this message definition. Enables tracking the
-life-cycle of the content.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.experimental">
-<code class="sig-name descname">experimental</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.experimental" title="Permalink to this definition">¶</a></dt>
-<dd><p>A boolean value to indicate that this message definition
+processing applications such as code generation.</p></li>
+<li><p><strong>title</strong> – A short, descriptive, user-friendly title for the message
+definition.</p></li>
+<li><p><strong>status</strong> – The status of this message definition. Enables tracking the
+life-cycle of the content.</p></li>
+<li><p><strong>experimental</strong> – A boolean value to indicate that this message definition
 is authored for testing purposes (or education/evaluation/marketing),
-and is not intended to be used for genuine usage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.date">
-<code class="sig-name descname">date</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>The date  (and optionally time) when the message definition was
+and is not intended to be used for genuine usage.</p></li>
+<li><p><strong>date</strong> – The date  (and optionally time) when the message definition was
 published. The date must change if and when the business version
 changes and it must change if the status code changes. In addition, it
 should change when the substantive content of the message definition
-changes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.publisher">
-<code class="sig-name descname">publisher</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.publisher" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the individual or organization that published
-the message definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.contact">
-<code class="sig-name descname">contact</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.contact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Contact details to assist a user in finding and communicating
-with the publisher.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.description">
-<code class="sig-name descname">description</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A free text natural language description of the message
-definition from a consumer’s perspective.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.useContext">
-<code class="sig-name descname">useContext</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.useContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The content was developed with a focus and intent of
+changes.</p></li>
+<li><p><strong>publisher</strong> – The name of the individual or organization that published
+the message definition.</p></li>
+<li><p><strong>contact</strong> – Contact details to assist a user in finding and communicating
+with the publisher.</p></li>
+<li><p><strong>description</strong> – A free text natural language description of the message
+definition from a consumer’s perspective.</p></li>
+<li><p><strong>useContext</strong> – The content was developed with a focus and intent of
 supporting the contexts that are listed. These terms may be used to
 assist with indexing and searching for appropriate message definition
-instances.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.jurisdiction">
-<code class="sig-name descname">jurisdiction</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.jurisdiction" title="Permalink to this definition">¶</a></dt>
-<dd><p>A legal or geographic region in which the message
-definition is intended to be used.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.purpose">
-<code class="sig-name descname">purpose</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.purpose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Explaination of why this message definition is needed and why
-it has been designed as it has.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.copyright">
-<code class="sig-name descname">copyright</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.copyright" title="Permalink to this definition">¶</a></dt>
-<dd><p>A copyright statement relating to the message definition
+instances.</p></li>
+<li><p><strong>jurisdiction</strong> – A legal or geographic region in which the message
+definition is intended to be used.</p></li>
+<li><p><strong>purpose</strong> – Explaination of why this message definition is needed and why
+it has been designed as it has.</p></li>
+<li><p><strong>copyright</strong> – A copyright statement relating to the message definition
 and/or its contents. Copyright statements are generally legal
-restrictions on the use and publishing of the message definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.base">
-<code class="sig-name descname">base</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.base" title="Permalink to this definition">¶</a></dt>
-<dd><p>The MessageDefinition that is the basis for the contents of this
-resource.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.parent">
-<code class="sig-name descname">parent</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.parent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies a protocol or workflow that this MessageDefinition
-represents a step in.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.replaces">
-<code class="sig-name descname">replaces</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.replaces" title="Permalink to this definition">¶</a></dt>
-<dd><p>A MessageDefinition that is superseded by this definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.event">
-<code class="sig-name descname">event</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.event" title="Permalink to this definition">¶</a></dt>
-<dd><p>A coded identifier of a supported messaging event.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.category">
-<code class="sig-name descname">category</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.category" title="Permalink to this definition">¶</a></dt>
-<dd><p>The impact of the content of the message.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.focus">
-<code class="sig-name descname">focus</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.focus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the resource (or resources) that are being addressed
+restrictions on the use and publishing of the message definition.</p></li>
+<li><p><strong>base</strong> – The MessageDefinition that is the basis for the contents of this
+resource.</p></li>
+<li><p><strong>parent</strong> – Identifies a protocol or workflow that this MessageDefinition
+represents a step in.</p></li>
+<li><p><strong>replaces</strong> – A MessageDefinition that is superseded by this definition.</p></li>
+<li><p><strong>event</strong> – A coded identifier of a supported messaging event.</p></li>
+<li><p><strong>category</strong> – The impact of the content of the message.</p></li>
+<li><p><strong>focus</strong> – Identifies the resource (or resources) that are being addressed
 by the event.  For example, the Encounter for an admit message or two
-Account records for a merge.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.responseRequired">
-<code class="sig-name descname">responseRequired</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.responseRequired" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates whether a response is required for this
-message.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition.allowedResponse">
-<code class="sig-name descname">allowedResponse</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.allowedResponse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Indicates what types of messages may be sent as an
-application-level response to this message.</p>
-</dd></dl>
-
+Account records for a merge.</p></li>
+<li><p><strong>responseRequired</strong> – Indicates whether a response is required for this
+message.</p></li>
+<li><p><strong>allowedResponse</strong> – Indicates what types of messages may be sent as an
+application-level response to this message.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.MessageDefinition.MessageDefinition.assert_type">
 <code class="sig-name descname">assert_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageDefinition.html#MessageDefinition.assert_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition.assert_type" title="Permalink to this definition">¶</a></dt>
@@ -467,21 +261,17 @@ application-level response to this message.</p>
 <p>Defines the characteristics of a message that can be shared between
 systems, including the type of event that initiates the message, the
 content to be transmitted and what response(s), if any, are permitted.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition_AllowedResponse.message">
-<code class="sig-name descname">message</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition_AllowedResponse.message" title="Permalink to this definition">¶</a></dt>
-<dd><p>A reference to the message definition that must be adhered to
-by this supported response.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition_AllowedResponse.situation">
-<code class="sig-name descname">situation</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition_AllowedResponse.situation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides a description of the circumstances in which this
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> – A reference to the message definition that must be adhered to
+by this supported response.</p></li>
+<li><p><strong>situation</strong> – Provides a description of the circumstances in which this
 response should be used (as opposed to one of the alternative
-responses).</p>
-</dd></dl>
-
+responses).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.MessageDefinition.MessageDefinition_AllowedResponse.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageDefinition.html#MessageDefinition_AllowedResponse.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition_AllowedResponse.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -502,35 +292,21 @@ responses).</p>
 <p>Defines the characteristics of a message that can be shared between
 systems, including the type of event that initiates the message, the
 content to be transmitted and what response(s), if any, are permitted.</p>
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition_Focus.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition_Focus.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>The kind of resource that must be the focus for this message.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition_Focus.profile">
-<code class="sig-name descname">profile</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition_Focus.profile" title="Permalink to this definition">¶</a></dt>
-<dd><p>A profile that reflects constraints for the focal resource
-(and potentially for related resources).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition_Focus.min">
-<code class="sig-name descname">min</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition_Focus.min" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the minimum number of resources of this type that must
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> – The kind of resource that must be the focus for this message.</p></li>
+<li><p><strong>profile</strong> – A profile that reflects constraints for the focal resource
+(and potentially for related resources).</p></li>
+<li><p><strong>min</strong> – Identifies the minimum number of resources of this type that must
 be pointed to by a message in order for it to be valid against this
-MessageDefinition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cardea.fhir.MessageDefinition.MessageDefinition_Focus.max">
-<code class="sig-name descname">max</code><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition_Focus.max" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies the maximum number of resources of this type that must
+MessageDefinition.</p></li>
+<li><p><strong>max</strong> – Identifies the maximum number of resources of this type that must
 be pointed to by a message in order for it to be valid against this
-MessageDefinition.</p>
-</dd></dl>
-
+MessageDefinition.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
 <dt id="cardea.fhir.MessageDefinition.MessageDefinition_Focus.get_relationships">
 <code class="sig-name descname">get_relationships</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/fhir/MessageDefinition.html#MessageDefinition_Focus.get_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.fhir.MessageDefinition.MessageDefinition_Focus.get_relationships" title="Permalink to this definition">¶</a></dt>
@@ -547,52 +323,31 @@ MessageDefinition.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cardea.fhir.MessageHeader.html" class="btn btn-neutral float-right" title="cardea.fhir.MessageHeader module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cardea.fhir.MedicationStatement.html" class="btn btn-neutral float-left" title="cardea.fhir.MedicationStatement module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
-  
 
-  <hr/>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
-  <div role="contentinfo">
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
-
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  </body>
 </html>
