@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import pickle
+import shutil
 from datetime import datetime
 
 import numpy as np
@@ -14,8 +15,6 @@ from cardea.modeling.modeler import Modeler
 LOGGER = logging.getLogger(__name__)
 
 ROOT_DIR = os.path.abspath(os.path.join(__file__, '../../../'))
-PIPELINE_DIR = os.path.join(ROOT_DIR, 'cardea', 'pipelines')
-VERIFIED_DIR = os.path.join(ROOT_DIR, 'benchmark', 'verified')
 
 CLASSIFICATION_METRICS = {
     'F1 Macro': lambda *args, **kwargs: sklearn.metrics.f1_score(*args, **kwargs, average="macro"),
@@ -67,7 +66,7 @@ def _split_features_target(feature_matrix, problem_name):
             and target values.
         problem_name: str, the name of the problem.
     Returns:
-        A tuple of features (2-D np.array) and target (1-D np.array).
+        A tuple of features (pd.DataFrame) and target (pd.Series).
     """
     features = feature_matrix.copy().reset_index(drop=True)
 
@@ -76,8 +75,8 @@ def _split_features_target(feature_matrix, problem_name):
     if problem_name.lower() in features.columns:
         features.pop(problem_name.lower())
 
-    target = features.pop(TARGET_NAME[problem_name]).values
-    features = features.values
+    target = features.pop(TARGET_NAME[problem_name])
+    features = features
     return features, target
 
 
@@ -163,15 +162,14 @@ def _select_runs(df, problem=None, pipeline=None):
     return df
 
 
-def benchmark(tasks, metrics=None, results_output_path=None, tasks_output_dir=None,
+def benchmark(tasks, metrics=None, output_path=None, save_results=True,
               save_model=True, save_intermedia_data=True, save_hyperparameters=True):
     """
     Args:
         tasks: list, a list of task instances storing meta information of each task.
         metrics: dict, a dictionary of metric functions indexed by metric names.
-        results_output_path: str, the csv file path to store the benchmarking results.
-        tasks_output_dir: dirt, the dir path to store the intermedia data, model and
-            hyperparametes of each task.
+        output_path: str, the dir path to store benchmark results and records of each task.
+        save_results: boolean, whether to store the benchmark results.
         save_intermedia_data: boolean, whether to store the intermedia data including an entity set
             and a feature matrix if the beginning stage is "data_loader" or "problem_definition".
         save_model: boolean, whether to store the trained model.
@@ -180,26 +178,26 @@ def benchmark(tasks, metrics=None, results_output_path=None, tasks_output_dir=No
     Returns:
         A pd.DataFrame object that stores the benchmarking results in detail.
     """
-    if tasks_output_dir is not None:
-        if not os.path.exists(tasks_output_dir):
-            os.mkdir(tasks_output_dir)
+    if output_path is not None:
+        if not os.path.exists(output_path):
+            os.mkdir(output_path)
 
     performance = []
     for task in tasks:
-        if tasks_output_dir is not None:
-            if not os.path.exists(tasks_output_dir):
-                os.mkdir(tasks_output_dir)
-            output_path = os.path.join(tasks_output_dir, task.task_id)
+        if output_path is not None:
+            if not os.path.exists(output_path):
+                os.mkdir(output_path)
+            task_output_path = os.path.join(output_path, task.task_id)
         else:
-            output_path = None
-        performance.extend(evaluate_task(task=task, metrics=metrics, output_path=output_path,
+            task_output_path = None
+        performance.extend(evaluate_task(task=task, metrics=metrics, output_path=task_output_path,
                                          save_model=save_model,
                                          save_intermedia_data=save_intermedia_data,
                                          save_hyperparameters=save_hyperparameters))
     result_df = pd.DataFrame.from_records(performance)
 
-    if results_output_path is not None:
-        result_df.to_csv(results_output_path)
+    if output_path is not None and save_results:
+        result_df.to_csv(os.path.join(output_path, 'details.csv'))
 
     return result_df
 
@@ -225,12 +223,20 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
         metrics = CLASSIFICATION_METRICS
 
     # Load pipeline.
-    with open(task.path_to_pipeline) as f:
+    with open(os.path.join(ROOT_DIR, task.path_to_pipeline)) as f:
         pipeline = MLPipeline.from_dict(json.load(f))
 
     # Set hyperparameters.
-    if task.init_hyperparameters is not None:
-        pipeline.set_hyperparameters(task.init_hyperparameters)
+    if task.path_to_hyperparameters is not None:
+        _, extension = os.path.splitext(task.path_to_hyperparameters)
+        with open(os.path.join(ROOT_DIR, task.path_to_hyperparameters)) as f:
+            if extension == '.json':
+                init_hyperparameters = json.load(f)
+            elif extension == '.pkl':
+                init_hyperparameters = pickle.load(f)
+            else:
+                raise TypeError("Unsupported file type {}.".format(extension))
+        pipeline.set_hyperparameters(init_hyperparameters)
 
     # Load Dataset.
     if feature_matrix is None:
@@ -241,7 +247,9 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
             raise NotImplementedError
 
         elif task.beginning_stage == "featurization":
-            feature_matrix = pd.read_csv(task.path_to_dataset, index_col=0)
+            feature_matrix = pd.read_csv(
+                os.path.join(ROOT_DIR, task.path_to_dataset),
+                index_col=0)
 
     else:
         raise ValueError("Beginning stage should be either \"data_loader\", "
@@ -262,29 +270,26 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
 
     # Store the output results.
     if output_path is not None:
-        # Ensure that the output directory exists.
-        if not os.path.exists(output_path):
-            os.mkdir(output_path)
+        # Initialize the output directory.
+        if os.path.exists(output_path):
+            shutil.rmtree(output_path)
+        os.mkdir(output_path)
 
         # Save task meta information
         task.save_as(os.path.join(output_path, "meta.json"), "json")
         matrix = 'F1 Macro'
         best_index = np.argmax([scores[matrix] for scores in results])
-        best_record = records[best_index]
+        models, hyperparameters = records[best_index]
 
         # Save pipeline models if required
         if save_model:
-            model_path = os.path.join(output_path, "models")
-            if not os.path.exists(model_path):
-                os.mkdir(model_path)
-            for fold_name, model in best_record[0].items():
-                with open(os.path.join(model_path, "{}_model.pkl".format(fold_name)), 'wb') as f:
-                    f.write(model)
+            with open(os.path.join(output_path, "models.pkl"), 'wb') as f:
+                pickle.dump(models, f)
 
         # Save pipeline hyperparameters if required
-        if save_hyperparameters:
+        if save_hyperparameters and hyperparameters is not None:
             with open(os.path.join(output_path, "hyperparameters.pkl"), 'wb') as f:
-                pickle.dump(best_record[1], f)
+                pickle.dump(hyperparameters, f)
 
     return results
 
@@ -331,8 +336,8 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, pro
                                                                max_evals=10)
         elapsed = datetime.utcnow() - start
         hyperparameters = pipelines_res['pipeline0'].get('hyperparameter', None)
-        models = {fold_name: fold['pipeline']
-                  for fold_name, fold in pipelines_res['pipeline0']['folds'].items()}
+        models = [{"pipeline": fold['pipeline'], "test_index": fold["test_index"]}
+                  for _, fold in pipelines_res['pipeline0']['folds'].items()]
         scores = _scoring_folds(pipelines_res['pipeline0']['folds'], metrics)
         scores['Elapsed Time(s)'] = elapsed.total_seconds()
         scores['Status'] = 'OK'

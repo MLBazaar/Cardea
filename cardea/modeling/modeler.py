@@ -1,10 +1,10 @@
 import copy
 import os
 
-import cloudpickle
 import hyperopt
 import mlblocks
 import numpy as np
+import pandas as pd
 from hyperopt import STATUS_OK, Trials, base, fmin, hp, tpe
 from mlblocks import MLPipeline
 from sklearn import metrics
@@ -164,13 +164,14 @@ class Modeler():
         """
         pipeline_list = []
         kf = KFold(n_splits=10, random_state=None, shuffle=True)
+        self.data_frame = pd.DataFrame(self.data_frame)
         i = 0
 
         for train_index, test_index in kf.split(self.data_frame):
             predict_result = []
 
-            X_train = self.data_frame[train_index]
-            X_test = self.data_frame[test_index]
+            X_train = self.data_frame.loc[train_index]
+            X_test = self.data_frame.loc[test_index]
             y_train = self.target[train_index]
             y_test = self.target[test_index]
 
@@ -214,21 +215,24 @@ class Modeler():
         Folds = {}
 
         kf = KFold(n_splits=10, random_state=None, shuffle=True)
+        data_frame = pd.DataFrame(data_frame)
 
         for train_index, test_index in kf.split(data_frame):
-            X_train = data_frame[train_index]
-            X_test = data_frame[test_index]
+            X_train = data_frame.loc[train_index]
+            X_test = data_frame.loc[test_index]
             y_train = target[train_index]
             y_test = target[test_index]
             number_of_folds = number_of_folds + 1
             # Append the predicted labels.
+            # TODO: use MLPipeline(pipeline) to copy a pipeline with MLBlocks >= 0.3.4
             fold_pipeline = copy.deepcopy(pipeline)
             y_predict = self.fit_predict_model(X_train, y_train, X_test, fold_pipeline)
 
             Folds[str(number_of_folds)] = {
                 "predicted": y_predict,
                 "Actual": y_test,
-                "pipeline": cloudpickle.dumps(fold_pipeline)
+                "pipeline": copy.deepcopy(fold_pipeline),
+                "test_index": test_index
             }
 
             if self.problem_type == 'regression':
@@ -354,6 +358,7 @@ class Modeler():
         hyperparameter = self.hyperparameter_tunning(pipeline, max_evals)
         self.pipeline_dict['hyperparameter'] = hyperparameter
 
+    # TODO: remove this function in a later version
     def execute_pipeline(self, data_frame, target, primitives_list, problem_type,
                          optimize=False, max_evals=10, scoring=None,
                          minimize_cost=False, hyperparameters=None):
@@ -424,19 +429,21 @@ class Modeler():
         """
         fold_dict = {}
         kf = KFold(n_splits=10, random_state=None, shuffle=True)
+        self.data_frame = pd.DataFrame(self.data_frame)
 
         for i, (train_index, test_index) in enumerate(kf.split(self.data_frame)):
             fold_pipeline = copy.deepcopy(pipeline)
 
-            X_train = self.data_frame[train_index]
-            X_test = self.data_frame[test_index]
+            X_train = self.data_frame.loc[train_index]
+            X_test = self.data_frame.loc[test_index]
             y_train = self.target[train_index]
             y_test = self.target[test_index]
 
             # Append the predicted labels.
             y_predict = self.fit_predict_model(X_train, y_train, X_test, fold_pipeline)
             fold_dict[str(i)] = {"predicted": y_predict, "Actual": y_test,
-                                 "pipeline": cloudpickle.dumps(fold_pipeline)}
+                                 "pipeline": copy.deepcopy(fold_pipeline),
+                                 "test_index": test_index}
 
         return fold_dict
 
