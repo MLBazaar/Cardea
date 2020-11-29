@@ -4,8 +4,8 @@ import cli.app
 from mlblocks import add_primitives_path
 
 from cardea import MLBLOCKS_PRIMITIVES
-from cardea.benchmark import create_tasks, benchmark, aggregate_results_by_pipeline, \
-    aggregate_results_by_problem
+from cardea.benchmark import (
+    aggregate_results_by_pipeline, aggregate_results_by_problem, benchmark, create_tasks)
 
 
 @cli.app.CommandLineApp
