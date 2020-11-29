@@ -1,6 +1,7 @@
 import json
 import os
 import pickle
+import shutil
 
 PIPELINES = ['Logistic Regression', 'K-Nearest Neightbors', 'Random Forest',
              'Gaussian Naive Bayes', 'Multinomial Naive Bayes', 'XGB',
@@ -8,15 +9,15 @@ PIPELINES = ['Logistic Regression', 'K-Nearest Neightbors', 'Random Forest',
 
 PROBLEMS = ['LOS', 'Mortality', 'Readmission']
 
-ROOT_DIR = os.path.abspath(os.path.join(__file__, '../../../'))
-PIPELINE_DIR = os.path.join(ROOT_DIR, 'cardea', 'pipelines')
-VERIFIED_DIR = os.path.join(ROOT_DIR, 'benchmark', 'verified')
+# relative paths from the project root path to the target directories
+PIPELINE_DIR = './cardea/pipelines'
+VERIFIED_DIR = './benchmark/verified'
 
 
 class Task:
     def __init__(self, task_id=None, pipeline_name=None, path_to_pipeline=None,
                  beginning_stage=None, dataset_name=None, problem_name=None, path_to_dataset=None,
-                 init_hyperparameters=None, tuned=None, run_num=None, ):
+                 path_to_hyperparameters=None, tuned=None, run_num=None, ):
         """A class that stores the configurations to a prediction task.
 
         Args:
@@ -28,7 +29,7 @@ class Task:
             dataset_name: str, the name to identify the dataset, e.g., mimic-iii.
             problem_name: str, the name to identify the problem, e.g., Readmission.
             path_to_dataset: str, the path where the dataset is stored.
-            init_hyperparameters: dict, the initial hyperparameters
+            path_to_hyperparameters: str, the path where the initial hyperparameters is stored.
             tuned: boolean, whether the hyperparameters will be tuned
             run_num: int, the number of runs for each pipeline on each problem.
         """
@@ -39,7 +40,7 @@ class Task:
         self._problem_name = problem_name
         self._path_to_dataset = path_to_dataset
         self._path_to_pipeline = path_to_pipeline
-        self._init_hyperparameters = init_hyperparameters
+        self._path_to_hyperparameters = path_to_hyperparameters
         self._tuned = tuned
         self._run_num = run_num
 
@@ -117,16 +118,12 @@ class Task:
         self._path_to_dataset = path_to_dataset
 
     @property
-    def init_hyperparameters(self):
-        return self._init_hyperparameters
+    def path_to_hyperparameters(self):
+        return self._path_to_hyperparameters
 
-    @init_hyperparameters.setter
-    def init_hyperparameters(self, init_hyperparameters):
-        self._init_hyperparameters = init_hyperparameters
-
-    def load_hyperparameters(self, path_to_hyperparameters):
-        with open(path_to_hyperparameters, 'r') as f:
-            self._init_hyperparameters = json.load(f)
+    @path_to_hyperparameters.setter
+    def path_to_hyperparameters(self, path_to_hyperparameters):
+        self._path_to_hyperparameters = path_to_hyperparameters
 
     @property
     def tuned(self):
@@ -188,6 +185,8 @@ def create_tasks(pipeline_names=None, problem_names=None, dataset_name='mimic-ii
             os.mkdir(output_dir)
         for task in tasks:
             task_path = os.path.join(output_dir, task.task_id)
+            if os.path.exists(task_path):
+                shutil.rmtree(task_path)
             os.mkdir(task_path)
             task.save_as(os.path.join(task_path, 'meta.json', 'json'))
 
