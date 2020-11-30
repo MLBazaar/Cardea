@@ -1,6 +1,6 @@
 {
     "name": "cardea.primitives.processing.Categorizer",
-    "contributors": ["Furui Cheng <furui@csail.mit.edu>"],
+    "contributors": ["Furui Cheng <furui@mit.edu>"],
     "description": "Imputation transformer for completing missing values.",
     "classifiers": {
         "type": "preprocessor",
