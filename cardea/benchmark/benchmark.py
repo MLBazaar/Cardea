@@ -4,6 +4,7 @@ import os
 import pickle
 import shutil
 from datetime import datetime
+from os.path import dirname
 
 import numpy as np
 import pandas as pd
@@ -14,7 +15,7 @@ from cardea.modeling.modeler import Modeler
 
 LOGGER = logging.getLogger(__name__)
 
-ROOT_DIR = os.path.abspath(os.path.join(__file__, '../../../'))
+ROOT_DIR = dirname(dirname(dirname(os.path.abspath(__file__))))
 
 CLASSIFICATION_METRICS = {
     'F1 Macro': lambda *args, **kwargs: sklearn.metrics.f1_score(*args, **kwargs, average="macro"),
@@ -41,6 +42,7 @@ TARGET_NAME = {
 
 def _scoring_folds(folds, metrics):
     """Score each fold from the pipeline results.
+
     Args:
         folds: list or dict, a list or a dictionary of pipeline results in each fold, the results
         consists of a list of prediction values and a list of label values.
@@ -70,8 +72,6 @@ def _split_features_target(feature_matrix, problem_name):
     """
     features = feature_matrix.copy().reset_index(drop=True)
 
-    # TODO: ensure that there are not duplicated label columns in the feature matrix before
-    #  running the modeling
     if problem_name.lower() in features.columns:
         features.pop(problem_name.lower())
 
@@ -185,8 +185,6 @@ def benchmark(tasks, metrics=None, output_path=None, save_results=True,
     performance = []
     for task in tasks:
         if output_path is not None:
-            if not os.path.exists(output_path):
-                os.mkdir(output_path)
             task_output_path = os.path.join(output_path, task.task_id)
         else:
             task_output_path = None
@@ -223,8 +221,7 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
         metrics = CLASSIFICATION_METRICS
 
     # Load pipeline.
-    with open(os.path.join(ROOT_DIR, task.path_to_pipeline)) as f:
-        pipeline = MLPipeline.from_dict(json.load(f))
+    pipeline = MLPipeline.load(os.path.join(ROOT_DIR, task.path_to_pipeline))
 
     # Set hyperparameters.
     if task.path_to_hyperparameters is not None:
@@ -316,7 +313,7 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, pro
     """
     features, target = _split_features_target(feature_matrix, problem_name)
 
-    # TODO: digitize the labels for classifications before modeling.
+    # TODO: digitize the labels in the featurization (problem definition) stage.
     if problem_name == 'LOS' and dataset_name == 'mimic-iii':
         target = np.digitize(target, [0, 7])
 
