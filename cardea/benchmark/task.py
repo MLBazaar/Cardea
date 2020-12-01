@@ -15,23 +15,35 @@ VERIFIED_DIR = './benchmark/verified'
 
 
 class Task:
+    """A class that stores the configurations to a prediction task."""
+
     def __init__(self, task_id=None, pipeline_name=None, path_to_pipeline=None,
                  beginning_stage=None, dataset_name=None, problem_name=None, path_to_dataset=None,
                  path_to_hyperparameters=None, tuned=None, run_num=None, ):
-        """A class that stores the configurations to a prediction task.
+        """Create a task configuration object from a list of settings.
 
         Args:
-            task_id: str, an identifier to the task.
-            pipeline_name: str, the name to identify the pipeline, e.g., Logistic Regression.
-            path_to_pipeline: str, the path where the pipeline .json file is stored
-            beginning_stage: enumerate, enumerate, the stage in which the benchmarking are applied,
-                should be either "data_loader", "problem_definition", "featurization".
-            dataset_name: str, the name to identify the dataset, e.g., mimic-iii.
-            problem_name: str, the name to identify the problem, e.g., Readmission.
-            path_to_dataset: str, the path where the dataset is stored.
-            path_to_hyperparameters: str, the path where the initial hyperparameters is stored.
-            tuned: boolean, whether the hyperparameters will be tuned
-            run_num: int, the number of runs for each pipeline on each problem.
+            task_id (str):
+                an identifier to the task.
+            pipeline_name (str):
+                the name to identify the pipeline, e.g., Logistic Regression.
+            path_to_pipeline (str):
+                the path where the pipeline .json file is stored
+            beginning_stage (str):
+                the stage in which the benchmarking are applied, should be either "data_loader",
+                "problem_definition", "featurization".
+            dataset_name (str):
+                the name to identify the dataset, e.g., mimic-iii.
+            problem_name (str):
+                the name to identify the problem, e.g., Readmission.
+            path_to_dataset (str):
+                the path where the dataset is stored.
+            path_to_hyperparameters (str):
+                the path where the initial hyperparameters is stored.
+            tuned (boolean):
+                whether the hyperparameters will be tuned
+            run_num (int):
+                the number of runs for each pipeline on each problem.
         """
         self._task_id = task_id
         self._pipeline_name = pipeline_name
@@ -58,14 +70,14 @@ class Task:
             description_str += "{:<20} {}\n".format(k, v)
         return description_str
 
-    def save_as(self, file_path, file_type='pkl'):
+    def save_as(self, file_path):
         """Save the task configurations to the given address.
 
         Args:
-            file_path: str, the path to store the configurations.
-            file_type: enumerate, the file type of the configuration. "pkl" is for a binary pickle
-                file and "json" is for a readable json file.
+            file_path (str):
+                the path to store the configurations.
         """
+        _, file_type = os.path.splitext(file_path)
         if file_type == 'pkl':
             with open(file_path, 'wb') as f:
                 pickle.dump(self, f)
@@ -136,19 +148,28 @@ class Task:
 
 def create_tasks(pipeline_names=None, problem_names=None, dataset_name='mimic-iii',
                  beginning_stage='data_loader', optimize=False, run_num=1, output_dir=None):
-    """
+    """Create a list of task configurations from settings.
+
     Args:
-        pipeline_names: list, a list of strings that verify the pipelines for testing.
-        problem_names: list, a list of strings that verify the problems to be tested on.
-        dataset_name: str, name of the dataset.
-        beginning_stage: enumerate, the stage in which the benchmarking are applied, should be
-            either "data_loader", "problem_definition", "featurization".
-        optimize: boolean, whether to optimize the hyper-parameters of the pipeline.
-        run_num: int, the number of runs for each pipeline on each problem.
-        output_dir: str, the path to store the task configurations.
+        pipeline_names (list):
+            name of the pipelines for testing.
+        problem_names (list):
+            name of the problems to be tested on.
+        dataset_name (str) :
+            name of the dataset to be tested on.
+        beginning_stage (str):
+            the stage in which the benchmarking are applied, should be either "data_loader",
+            "problem_definition", "featurization".
+        optimize (boolean):
+            whether to optimize the hyper-parameters of the pipeline.
+        run_num (int):
+            the number of runs for each pipeline on each problem.
+        output_dir (str):
+            the path to store the task configurations.
 
     Returns:
-        a list of Task objects that store the configurations of the tasks.
+        list:
+            a list of Task objects that store the task configurations.
     """
     if pipeline_names is None:
         pipeline_names = PIPELINES

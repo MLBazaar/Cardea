@@ -44,12 +44,15 @@ def _scoring_folds(folds, metrics):
     """Score each fold from the pipeline results.
 
     Args:
-        folds: list or dict, a list or a dictionary of pipeline results in each fold, the results
-        consists of a list of prediction values and a list of label values.
-        metrics: dict, a dictionary of metric functions indexed by metric names.
+        folds (list or dict):
+            a list or a dictionary of pipeline results in each fold, the results consists of a list
+            of prediction values and a list of label values.
+        metrics (dict):
+            a dictionary of metric functions indexed by metric names.
 
     Returns:
-        A dictionary of aggregated scores calculated from the fold results.
+        dict:
+            aggregated scores calculated from the fold results.
     """
     if isinstance(folds, dict):
         folds = [v for k, v in folds.items()]
@@ -63,12 +66,16 @@ def _scoring_folds(folds, metrics):
 
 def _split_features_target(feature_matrix, problem_name):
     """Split the features and labels.
+
     Args:
-        feature_matrix: pd.DataFrame, a dataframe consists of both feature values
-            and target values.
-        problem_name: str, the name of the problem.
+        feature_matrix (pd.DataFrame):
+            a dataframe consists of both feature values and target values.
+        problem_name (str):
+            the name of the problem.
+
     Returns:
-        A tuple of features (pd.DataFrame) and target (pd.Series).
+        tuple:
+            features (pd.DataFrame) and target (pd.Series).
     """
     features = feature_matrix.copy().reset_index(drop=True)
 
@@ -84,14 +91,18 @@ def aggregate_results_by_pipeline(performance, metric, record_time=True, output_
     """Aggregate the results of each pipeline.
 
     Args:
-        performance: pd.DataFrame, the performance of each pipeline execution.
-        metric: str, the name of the target metric for summary.
-        record_time: boolean, whether to the record the elapsed time in the summary.
-        output_path: str, the path to store the results.
+        performance (pd.DataFrame):
+            the performance of each pipeline execution.
+        metric (str):
+            the name of the target metric for summary.
+        record_time (boolean):
+            whether to the record the elapsed time in the summary.
+        output_path (str):
+            the path to store the results.
 
     Returns:
-        A pd.DataFrame object that stores the aggregated performance of each pipeline on
-        each problem.
+        pd.DataFrame:
+            aggregated performance of each pipeline on each problem.
     """
     if 'Status' in performance.columns:
         performance = performance[performance['Status'] == 'OK']
@@ -120,16 +131,21 @@ def aggregate_results_by_pipeline(performance, metric, record_time=True, output_
 
 
 def aggregate_results_by_problem(performance, metric, record_time=True, output_path=None):
-    """Aggregate the results on each problem (dataset).
+    """Aggregate the results on each problem.
 
     Args:
-        performance: pd.DataFrame, the performance of each pipeline execution.
-        metric: str, the name of the target metric for summary.
-        record_time: boolean, whether to the record the elapsed time in the summary.
-        output_path: str, the path to store the results.
+        performance (pd.DataFrame):
+            the performance of each pipeline execution.
+        metric (str):
+            the name of the target metric for summary.
+        record_time (boolean):
+            whether to the record the elapsed time in the summary.
+        output_path (str):
+            the path to store the results.
 
     Returns:
-        A pd.DataFrame object that stores the aggregated performance on each problem.
+        pd.DataFrame:
+            aggregated performance on each problem.
     """
     if 'Status' in performance.columns:
         performance = performance[performance['Status'] == 'OK']
@@ -164,19 +180,29 @@ def _select_runs(df, problem=None, pipeline=None):
 
 def benchmark(tasks, metrics=None, output_path=None, save_results=True,
               save_model=True, save_intermedia_data=True, save_hyperparameters=True):
-    """
+    """Run benchmark testing on a set of tasks. Return detailed results of each run stored in a
+    DataFrame object.
+
     Args:
-        tasks: list, a list of task instances storing meta information of each task.
-        metrics: dict, a dictionary of metric functions indexed by metric names.
-        output_path: str, the dir path to store benchmark results and records of each task.
-        save_results: boolean, whether to store the benchmark results.
-        save_intermedia_data: boolean, whether to store the intermedia data including an entity set
-            and a feature matrix if the beginning stage is "data_loader" or "problem_definition".
-        save_model: boolean, whether to store the trained model.
-        save_hyperparameters: boolean, whether to store the hyperparameters if task.tuned is true.
+        tasks (list):
+            a list of task instances storing meta information of each task.
+        metrics (dict):
+            a dictionary of metric functions indexed by metric names.
+        output_path (str):
+            the dir path to store benchmark results and records of each task.
+        save_results (boolean):
+            whether to store the benchmark results.
+        save_intermedia_data (boolean):
+            whether to store the intermedia data including an entity set and a feature matrix if
+            the beginning stage is "data_loader" or "problem_definition".
+        save_model (boolean):
+            whether to store the trained model.
+        save_hyperparameters (boolean):
+            whether to store the hyperparameters if task.tuned is true.
 
     Returns:
-        A pd.DataFrame object that stores the benchmarking results in detail.
+        pd.DataFrame:
+            benchmarking results in detail.
     """
     if output_path is not None:
         if not os.path.exists(output_path):
@@ -202,20 +228,29 @@ def benchmark(tasks, metrics=None, output_path=None, save_results=True,
 
 def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
                   save_intermedia_data=True, save_model=True, save_hyperparameters=True):
-    """
+    """Run benchmark testing on a task. Save intermedia data, trained models, and optimized
+    hyperparameters. Return testing results.
+
     Args:
-        task: Task, a task instance storing meta information of the task.
-        metrics: dict, a dictionary of metric functions indexed by metric names.
-        feature_matrix: pd.DataFrame, a dataframe consists of both feature values
-            and target values.
-        output_path: str, a dir path to store the intermedia data, model and hyperparametes.
-        save_intermedia_data: boolean, whether to store the intermedia data including an entity set
-            and a feature matrix if the beginning stage is "data_loader" or "problem_definition".
-        save_model: boolean, whether to store the trained model.
-        save_hyperparameters: boolean, whether to store the hyperparameters if task.tuned is true.
+        task (Task):
+            a task instance storing meta information of the task.
+        metrics (dict):
+            a dictionary of metric functions indexed by metric names.
+        feature_matrix (pd.DataFrame):
+            a dataframe consists of both feature values and target values.
+        output_path (str):
+            a directory path to store the intermedia data, model and hyperparametes.
+        save_intermedia_data (boolean):
+            whether to store the intermedia data including an entity set and a feature matrix if
+            the beginning stage is "data_loader" or "problem_definition".
+        save_model (boolean):
+            whether to store the trained model.
+        save_hyperparameters (boolean):
+            whether to store the hyperparameters if task.tuned is true.
 
     Returns:
-        A list of benchmarking results of each run.
+        list:
+            benchmarking results of each run.
     """
     if metrics is None:
         if PROBLEM_TYPE[task.problem_name] == 'classification':
@@ -296,23 +331,32 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
 
 def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, problem_name=None,
                        dataset_name=None, beginning_stage=None, optimize=False, metrics=None):
-    """Evaluate a pipeline's performance on a target dataset with the given metrics.
+    """Evaluate a pipeline's performance on a target dataset according to the given metrics.
 
     Args:
-        run_id: int, the index to specify the execution to the pipeline.
-        pipeline: MLPipeline, a pipeline instance.
-        feature_matrix: pd.DataFrame, a dataframe consists of both feature values
-            and target values.
-        pipeline_name: str, the name of the pipeline.
-        problem_name: str, the name of the problem.
-        dataset_name: str, the name of the dataset.
-        beginning_stage: enumerate, the stage in which the benchmarking are applied, should be
-            either "data_loader", "problem_definition", "featurization".
-        optimize: boolean, whether to optimize the hyper-parameters of the pipeline.
-        metrics: dict, a dictionary in which metric functions are indexed by names.
+        run_id (int):
+            the index to specify the execution to the pipeline.
+        pipeline (MLPipeline):
+            a pipeline instance.
+        feature_matrix (pd.DataFrame):
+            a dataframe consists of both feature values and target values.
+        pipeline_name (str):
+            the name of the pipeline.
+        problem_name (str):
+            the name of the problem.
+        dataset_name (str):
+            the name of the dataset.
+        beginning_stage (str):
+            the stage in which the benchmarking are applied, should be either "data_loader",
+            "problem_definition", "featurization".
+        optimize (boolean):
+            whether to optimize the hyper-parameters of the pipeline.
+        metrics (dict)
+            metric functions indexed by names.
 
     Returns:
-        Pipeline evaluation results in a tuple: (performance, models, hyperparameters).
+        tuple:
+            pipeline evaluation results including (performance, models, hyperparameters).
     """
     features, target = _split_features_target(feature_matrix, problem_name)
 
@@ -321,7 +365,10 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, pro
         target = np.digitize(target, [0, 7])
 
     if metrics is None:
-        metrics = CLASSIFICATION_METRICS
+        if PROBLEM_TYPE[problem_name] == 'classification':
+            metrics = CLASSIFICATION_METRICS
+        else:
+            raise NotImplementedError
 
     modeler = Modeler()
 
