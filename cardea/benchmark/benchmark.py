@@ -218,7 +218,10 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
         A list of benchmarking results of each run.
     """
     if metrics is None:
-        metrics = CLASSIFICATION_METRICS
+        if PROBLEM_TYPE[task.problem_name] == 'classification':
+            metrics = CLASSIFICATION_METRICS
+        else:
+            raise NotImplementedError
 
     # Load pipeline.
     pipeline = MLPipeline.load(os.path.join(ROOT_DIR, task.path_to_pipeline))
