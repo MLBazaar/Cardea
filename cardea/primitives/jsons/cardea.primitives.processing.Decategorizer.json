@@ -7,7 +7,7 @@
         "subtype": "transformer"
     },
     "modalities": [],
-    "primitive": "cardea.primitives.categorizer.Categorizer",
+    "primitive": "cardea.primitives.processing.Categorizer",
     "fit": {
         "method": "fit",
         "args": [

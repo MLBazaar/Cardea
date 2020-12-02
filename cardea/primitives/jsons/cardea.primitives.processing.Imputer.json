@@ -7,7 +7,7 @@
         "subtype": "transformer"
     },
     "modalities": [],
-    "primitive": "cardea.primitives.imputer.Imputer",
+    "primitive": "cardea.primitives.processing.Imputer",
     "fit": {
         "method": "fit",
         "args": [

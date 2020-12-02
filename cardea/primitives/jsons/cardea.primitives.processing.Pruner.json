@@ -7,7 +7,7 @@
         "subtype": "transformer"
     },
     "modalities": [],
-    "primitive": "cardea.primitives.pruner.Pruner",
+    "primitive": "cardea.primitives.processing.Pruner",
     "fit": {
         "method": "fit",
         "args": [

@@ -7,7 +7,7 @@
         "subtype": "transformer"
     },
     "modalities": [],
-    "primitive": "cardea.primitives.one_hot_encoder.OneHotEncoder",
+    "primitive": "cardea.primitives.processing.OneHotEncoder",
     "fit": {
         "method": "fit",
         "args": [
