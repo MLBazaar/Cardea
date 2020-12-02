@@ -1,247 +1,99 @@
+import composeml as cp
 import pandas as pd
-
-from cardea.data_loader import DataLoader
 
 
 class ProblemDefinition:
-    """A class that defines the prediction problem
-    by specifying cutoff times and generating the target label if it does not exist.
+    """Class that defines the prediction problem.
+
+    This class supports the generation of `label_times` which
+    is fundamental to the feature generation phase as well
+    as specifying the target labels.
+
+    Args:
+        target_entity (str):
+            The instance id of the target entity.
+        time_index (str):
+            The time index specifying at what point to start the prediction.
+        prediction_type (str):
+            The type of the machine learning prediction; classification or
+            regression.
+        es (featuretools.EntitySet):
+            An entityset representation of the data.
     """
 
-    def check_target_label(self, entity_set, target_entity, target_label):
-        """Checks if target label exists in the entity set.
+    def __init__(self, target_entity, time_index, prediction_type, es):
+        self.target_entity = target_entity
+        self.time_index = time_index
+        self.prediction_type = prediction_type
+        self.es = es
+
+    def _search_relationship(self, left, right):
+        for r in self.es.relationships:
+            if r.parent_entity.id in left:
+                if right == r.child_entity.id:
+                    left_on = r.parent_variable.id
+                    right_on = r.child_variable.id
+
+            elif r.child_entity.id in left:
+                if right == r.parent_entity.id:
+                    left_on = r.child_variable.id
+                    right_on = r.parent_variable.id
+
+        return left_on, right_on
+
+    def denormalize(self, entities):
+        """Merge a set of entities into a single dataframe.
+
+        Convert a set of entities from the entityset into a single
+        dataframe by repetitively merging the selected entities. The
+        merge process is applied sequentially.
 
         Args:
-            entity_set: fhir entityset.
-            target_label: The target label of the prediction problem.
-            target_entity: The entity name which contains the target label.
+            entities (list):
+                list of strings denoting which entities to merge.
 
         Returns:
-            True if the target label exists.
+            pandas.DataFrame:
+                A single dataframe containing all the information from the
+                selected entities.
         """
-        return DataLoader().check_column_existence(entity_set, target_entity, target_label)
+        k = len(entities)
+        assert k > 0
 
-    def check_for_missing_values_in_target_label(
-            self, entity_set, target_entity, target_label_column_name):
-        """Checks if there is a missing value in the target label.
+        # initial entity to start from (should be the target entity)
+        first = entities[0]
+        previous = [first]
+        df = self.es[first].df
 
-        Args:
-            entity_set: fhir entityset.
-            target_label: The target label of the prediction problem.
-            target_entity: The entity name which contains the target label.
+        # merge the dataframes to create a single input
+        for i in range(1, k):
+            right = entities[i]
 
-        Returns:
-            False is the target label does not contain a missing value.
-        """
-        return DataLoader().check_for_missing_values(entity_set,
-                                                     target_entity,
-                                                     target_label_column_name)
+            left_on, right_on = self._search_relationship(previous, right)
+            df = pd.merge(df, es[right].df,
+                          left_on=left_on, right_on=right_on,
+                          how='left', suffixes=('', '_y')).filter(regex='^(?!.*_y)')
 
-    def generate_target_label(self, entity_set, target_entity, target_label):
-        """Generates target labels if the entityset is missing labels.
+            previous.append(right)
 
-        Args:
-            entity_set: fhir entityset.
-            target_label: The target label of the prediction problem.
-            target_entity: The entity name which contains the target label.
-
-        Returns:
-            Target entity with the generated label.
-        """
-
-    def generate_cutoff_times(self, entity_set):
-        """Generates cutoff times for the predection problem.
-
-        Args:
-            entity_set: fhir entityset.
-
-        Returns:
-            entity_set, target_entity, series of target_labels and a dataframe of cutoff_times.
-
-        Raises:
-            ValueError: An error occurs if the cutoff variable does not exist.
-        """
-
-    def unify_cutoff_times_hours_admission_time(self, df, cutoff_time_label):
-        """Unify records cutoff times based on shared time.
-
-        Args:
-            df: cutoff_entity dataframe.
-        """
-        df = df.sort_values(by=[cutoff_time_label])
-        df = df.reset_index()
-
-        for i in df.index:
-
-            if i == 0:
-
-                if df.get_value(i, 'checked') is not True:
-                    df.set_value(i, 'ct', df.get_value(i, cutoff_time_label))
-                    df.set_value(i, 'checked', True)
-
-            elif df.get_value(i, 'checked') is not True:
-
-                ct_val1 = df.get_value(i - 1, 'ct')
-                end_val1 = df.get_value(i - 1, 'end')
-                start_val2 = df.get_value(i, cutoff_time_label)
-                df.get_value(i, 'end')
-
-                if ct_val1 < start_val2 < end_val1:
-                    df.set_value(i - 1, 'ct', start_val2)
-                    df.set_value(i, 'ct', start_val2)
-                    df.set_value(i, 'checked', True)
-
-                else:
-                    df.set_value(i, 'ct', df.get_value(i, cutoff_time_label))
-                    df.set_value(i, 'checked', True)
-
-                if i + 1 == len(df):
-                    break
         return df
 
-    def unify_cutoff_times_days_admission_time(self, df, cutoff_time_label):
-        """Unify records cutoff times based on shared days.
+    def generate_label_times(self, df, *args, **kwargs):
+        """Searches the data to calculate label times.
 
-        Args:
-            df: cutoff_entity dataframe.
+          Args:
+              df (pandas.DataFrame):
+                  Data frame to search and extract labels.
+              *args:
+                  Positional arguments for label maker.
+              **kwargs:
+                  Keyword arguments for label maker.
+          Returns:
+              composeml.LabelTimes:
+                  Calculated labels with cutoff times.
         """
+        label_maker = cp.LabelMaker(*args, **kwargs)
+        label_times = label_maker.search(df.sort_values(self.time_index),
+                                         num_examples_per_instance=1)
 
-        frames = []
-        for d in set(df['date']):
-            sub_day = df[df['date'] == d]
-
-            sub_duration_greater = sub_day[sub_day['duration'] > 0]
-            sub_duration_less = sub_day[sub_day['duration'] <= 0]
-            frames.append(sub_duration_less)
-            sub_duration_greater = sub_duration_greater.sort_values(by=[cutoff_time_label])
-            if len(sub_duration_greater) != 0:
-                final_date = sub_duration_greater.iloc[-1][cutoff_time_label]
-
-                for i in sub_duration_greater.index:
-                    sub_duration_greater.set_value(i, 'ct', final_date)
-                    sub_duration_greater.set_value(i, 'checked', True)
-
-                frames.append(sub_duration_greater)
-
-                for i in sub_duration_less.index:
-                    sub_duration_less.set_value(i, 'ct', pd.NaT)
-                    sub_duration_less.set_value(i, 'checked', False)
-
-                    frames.append(sub_duration_less)
-
-        result = pd.concat(frames)
-        result = result.drop_duplicates()
-        result[cutoff_time_label] = pd.to_datetime(result.start)
-        result = result.sort_values(by=[cutoff_time_label])
-        result = result.reset_index()
-        return result
-
-    def unify_cutoff_time_admission_time(self, es, cutoff_entity, cutoff_time_label):
-        """Process records in the entity that contains cutoff times
-        based on shared days and time.
-
-        Args:
-            es: fhir entityset.
-
-        Returns:
-            processed entity
-        """
-
-        df = es[cutoff_entity].df
-        df[cutoff_time_label] = pd.to_datetime(df[cutoff_time_label])
-        df['end'] = pd.to_datetime(df['end'])
-        duration = (df['end'] - df[cutoff_time_label]).dt.days
-        duration = duration.tolist()
-        df['duration'] = duration
-        df['date'] = df[cutoff_time_label].dt.date
-        df['ct'] = ''
-        df['checked'] = False
-        result1 = self.unify_cutoff_times_days_admission_time(df, cutoff_time_label)
-        result = self.unify_cutoff_times_hours_admission_time(result1, cutoff_time_label)
-        if 'level_0' in result.columns:
-            result = result.drop(columns=['level_0'])
-        return result
-
-    def unify_cutoff_times_days_discharge_time(self, df, cutoff_time_label):
-        """Unify records cutoff times based on shared days.
-
-        Args:
-            df: cutoff_entity dataframe.
-        """
-
-        frames = []
-        for d in set(df['end_date']):
-            sub_day = df[df['end_date'] == d]
-
-            sub_duration_greater = sub_day[sub_day['duration'] > 0]
-            sub_duration_less = sub_day[sub_day['duration'] <= 0]
-            frames.append(sub_duration_less)
-            sub_duration_greater = sub_duration_greater.sort_values(by=[cutoff_time_label])
-            if len(sub_duration_greater) != 0:
-                first_date = sub_duration_greater.iloc[0][cutoff_time_label]
-
-                for i in sub_duration_greater.index:
-                    sub_duration_greater.set_value(i, 'ct', first_date)
-                    sub_duration_greater.set_value(i, 'checked', True)
-                frames.append(sub_duration_greater)
-
-                for i in sub_duration_less.index:
-                    sub_duration_less.set_value(i, 'ct', pd.NaT)
-                    sub_duration_less.set_value(i, 'checked', False)
-                frames.append(sub_duration_less)
-
-        result = pd.concat(frames)
-        result = result.drop_duplicates()
-        result[cutoff_time_label] = pd.to_datetime(result.end)
-        result = result.reset_index()
-        return result
-
-    def unify_cutoff_times_hours_discharge_time(self, df, cutoff_time_label):
-        """Unify records cutoff times based on shared time.
-
-        Args:
-            df: cutoff_entity dataframe.
-        """
-
-        frames = []
-        for d in set(df['end_date']):
-            sub_day = df[df['end_date'] == d]
-            for h in set(sub_day['hour']):
-                sub_hour = sub_day[sub_day['hour'] == h]
-                sub_hour = sub_hour.sort_values(by=[cutoff_time_label])
-                if len(sub_hour) != 0:
-                    first_date = sub_hour.iloc[0][cutoff_time_label]
-                    for i in sub_hour.index:
-                        sub_hour.set_value(i, 'ct', first_date)
-                        sub_hour.set_value(i, 'checked', True)
-
-                    frames.append(sub_hour)
-
-        result = pd.concat(frames)
-        result = result.drop_duplicates()
-        return result
-
-    def unify_cutoff_time_discharge_time(self, es, cutoff_entity, cutoff_time_label):
-        """Process records in the entity that contains cutoff times
-        based on shared days and time.
-
-        Args:
-            es: fhir entityset.
-
-        Returns:
-            processed entity
-        """
-
-        df = es[cutoff_entity].df
-        df['end_date'] = df[cutoff_time_label].dt.date
-        df['hour'] = df.end.apply(lambda x: x.hour)
-        duration = (df[cutoff_time_label] - df['start']).dt.days
-        duration = duration.tolist()
-        df['duration'] = duration
-        df['ct'] = ''
-        df['checked'] = False
-        result1 = self.unify_cutoff_times_days_discharge_time(df, cutoff_time_label)
-        result = self.unify_cutoff_times_hours_discharge_time(result1, cutoff_time_label)
-        if 'level_0' in result.columns:
-            result = result.drop(columns=['level_0'])
-        return result
+        return label_times
