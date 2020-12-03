@@ -9,7 +9,7 @@ class MessageHeader(fhirbase):
     typically transmitted in a bundle in which the MessageHeader resource
     instance is the first resource in the bundle.
 
-    Attributes:
+    Args:
         resourceType: This is a MessageHeader resource
         event: Code that identifies the event this message represents and
             connects it with its definition. Events defined as part of the FHIR
@@ -164,7 +164,7 @@ class MessageHeader_Destination(fhirbase):
     typically transmitted in a bundle in which the MessageHeader resource
     instance is the first resource in the bundle.
 
-    Attributes:
+    Args:
         name: Human-readable name for the target system.
         target: Identifies the target end system in situations where the
             initial message transmission is to an intermediary system.
@@ -207,7 +207,7 @@ class MessageHeader_Source(fhirbase):
     typically transmitted in a bundle in which the MessageHeader resource
     instance is the first resource in the bundle.
 
-    Attributes:
+    Args:
         name: Human-readable name for the source system.
         software: May include configuration or other information useful in
             debugging.
@@ -260,7 +260,7 @@ class MessageHeader_Response(fhirbase):
     typically transmitted in a bundle in which the MessageHeader resource
     instance is the first resource in the bundle.
 
-    Attributes:
+    Args:
         identifier: The MessageHeader.id of the message to which this message
             is a response.
         code: Code that identifies the type of response to the message -

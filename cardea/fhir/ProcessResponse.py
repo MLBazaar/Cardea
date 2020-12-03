@@ -6,7 +6,7 @@ class ProcessResponse(fhirbase):
     This resource provides processing status, errors and notes from the
     processing of a resource.
 
-    Attributes:
+    Args:
         resourceType: This is a ProcessResponse resource
         identifier: The Response business identifier.
         status: The status of the resource instance.
@@ -143,7 +143,7 @@ class ProcessResponse_ProcessNote(fhirbase):
     This resource provides processing status, errors and notes from the
     processing of a resource.
 
-    Attributes:
+    Args:
         type: The note purpose: Print/Display.
         text: The note text.
     """

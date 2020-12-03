@@ -5,7 +5,7 @@ class Bundle(fhirbase):
     """
     A container for a collection of resources.
 
-    Attributes:
+    Args:
         resourceType: This is a Bundle resource
         identifier: A persistent identifier for the batch that won't change as
             a batch is copied from server to server.
@@ -93,7 +93,7 @@ class Bundle_Link(fhirbase):
     """
     A container for a collection of resources.
 
-    Attributes:
+    Args:
         relation: A name which details the functional use for this link - see
             [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).
         url: The reference details for the link.
@@ -119,7 +119,7 @@ class Bundle_Entry(fhirbase):
     """
     A container for a collection of resources.
 
-    Attributes:
+    Args:
         link: A series of links that provide context to this entry.
         fullUrl: The Absolute URL for the resource.  The fullUrl SHALL not
             disagree with the id in the resource. The fullUrl is a version
@@ -199,7 +199,7 @@ class Bundle_Search(fhirbase):
     """
     A container for a collection of resources.
 
-    Attributes:
+    Args:
         mode: Why this entry is in the result set - whether it's included as a
             match or because of an _include requirement.
         score: When searching, the server's search ranking score for the
@@ -237,7 +237,7 @@ class Bundle_Request(fhirbase):
     """
     A container for a collection of resources.
 
-    Attributes:
+    Args:
         method: The HTTP verb for this entry in either a change history, or a
             transaction/ transaction response.
         url: The URL for this entry, relative to the root (the address to
@@ -301,7 +301,7 @@ class Bundle_Response(fhirbase):
     """
     A container for a collection of resources.
 
-    Attributes:
+    Args:
         status: The status code returned by processing this entry. The status
             SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the
             standard HTTP description associated with the status code.

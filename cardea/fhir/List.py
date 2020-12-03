@@ -5,7 +5,7 @@ class List(fhirbase):
     """
     A set of information summarized from a list of other resources.
 
-    Attributes:
+    Args:
         resourceType: This is a List resource
         identifier: Identifier for the List assigned for business purposes
             outside the context of FHIR.
@@ -156,7 +156,7 @@ class List_Entry(fhirbase):
     """
     A set of information summarized from a list of other resources.
 
-    Attributes:
+    Args:
         flag: The flag allows the system constructing the list to indicate the
             role and significance of the item in the list.
         deleted: True if this item is marked as deleted in the list.

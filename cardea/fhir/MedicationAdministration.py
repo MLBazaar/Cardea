@@ -9,7 +9,7 @@ class MedicationAdministration(fhirbase):
     this event to the authorizing prescription, and the specific encounter
     between patient and health care practitioner.
 
-    Attributes:
+    Args:
         resourceType: This is a MedicationAdministration resource
         identifier: External identifier - FHIR will generate its own internal
             identifiers (probably URLs) which do not need to be explicitly managed
@@ -281,7 +281,7 @@ class MedicationAdministration_Performer(fhirbase):
     this event to the authorizing prescription, and the specific encounter
     between patient and health care practitioner.
 
-    Attributes:
+    Args:
         actor: The device, practitioner, etc. who performed the action.
         onBehalfOf: The organization the device or practitioner was acting on
             behalf of.
@@ -325,7 +325,7 @@ class MedicationAdministration_Dosage(fhirbase):
     this event to the authorizing prescription, and the specific encounter
     between patient and health care practitioner.
 
-    Attributes:
+    Args:
         text: Free text dosage can be used for cases where the dosage
             administered is too complex to code. When coded dosage is present, the
             free text dosage may still be present for display to humans.  The

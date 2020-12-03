@@ -7,7 +7,7 @@ class ActivityDefinition(fhirbase):
     performed, independent of a particular patient, practitioner, or other
     performance context.
 
-    Attributes:
+    Args:
         resourceType: This is a ActivityDefinition resource
         url: An absolute URI that is used to identify this activity definition
             when it is referenced in a specification, model, design or an
@@ -389,7 +389,7 @@ class ActivityDefinition_Participant(fhirbase):
     performed, independent of a particular patient, practitioner, or other
     performance context.
 
-    Attributes:
+    Args:
         type: The type of participant in the action.
         role: The role the participant should play in performing the described
             action.
@@ -426,7 +426,7 @@ class ActivityDefinition_DynamicValue(fhirbase):
     performed, independent of a particular patient, practitioner, or other
     performance context.
 
-    Attributes:
+    Args:
         description: A brief, natural language description of the intended
             semantics of the dynamic value.
         path: The path to the element to be customized. This is the path on

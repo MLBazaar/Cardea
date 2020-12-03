@@ -6,7 +6,7 @@ class SearchParameter(fhirbase):
     A search parameter that defines a named search item that can be used
     to search/filter on a resource.
 
-    Attributes:
+    Args:
         resourceType: This is a SearchParameter resource
         url: An absolute URI that is used to identify this search parameter
             when it is referenced in a specification, model, design or an
@@ -247,7 +247,7 @@ class SearchParameter_Component(fhirbase):
     A search parameter that defines a named search item that can be used
     to search/filter on a resource.
 
-    Attributes:
+    Args:
         definition: The definition of the search parameter that describes this
             part.
         expression: A sub-expression that defines how to extract values for

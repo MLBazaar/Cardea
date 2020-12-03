@@ -6,7 +6,7 @@ class PaymentReconciliation(fhirbase):
     This resource provides payment details and claim references supporting
     a bulk payment.
 
-    Attributes:
+    Args:
         resourceType: This is a PaymentReconciliation resource
         identifier: The Response business identifier.
         status: The status of the resource instance.
@@ -150,7 +150,7 @@ class PaymentReconciliation_Detail(fhirbase):
     This resource provides payment details and claim references supporting
     a bulk payment.
 
-    Attributes:
+    Args:
         type: Code to indicate the nature of the payment, adjustment, funds
             advance, etc.
         request: The claim or financial resource.
@@ -232,7 +232,7 @@ class PaymentReconciliation_ProcessNote(fhirbase):
     This resource provides payment details and claim references supporting
     a bulk payment.
 
-    Attributes:
+    Args:
         type: The note purpose: Print/Display.
         text: The note text.
     """

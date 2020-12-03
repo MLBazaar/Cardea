@@ -6,7 +6,7 @@ class PractitionerRole(fhirbase):
     A specific set of Roles/Locations/specialties/services that a
     practitioner may perform at an organization for a period of time.
 
-    Attributes:
+    Args:
         resourceType: This is a PractitionerRole resource
         identifier: Business Identifiers that are specific to a role/location.
         active: Whether this practitioner's record is in active use.
@@ -168,7 +168,7 @@ class PractitionerRole_AvailableTime(fhirbase):
     A specific set of Roles/Locations/specialties/services that a
     practitioner may perform at an organization for a period of time.
 
-    Attributes:
+    Args:
         daysOfWeek: Indicates which days of the week are available between the
             start and end Times.
         allDay: Is this always available? (hence times are irrelevant) e.g. 24
@@ -206,7 +206,7 @@ class PractitionerRole_NotAvailable(fhirbase):
     A specific set of Roles/Locations/specialties/services that a
     practitioner may perform at an organization for a period of time.
 
-    Attributes:
+    Args:
         description: The reason that can be presented to the user as to why
             this time is not available.
         during: Service is not available (seasonally or for a public holiday)

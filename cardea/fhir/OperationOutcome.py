@@ -6,7 +6,7 @@ class OperationOutcome(fhirbase):
     A collection of error, warning or information messages that result
     from a system action.
 
-    Attributes:
+    Args:
         resourceType: This is a OperationOutcome resource
         issue: An error, warning or information message that results from a
             system action.
@@ -45,7 +45,7 @@ class OperationOutcome_Issue(fhirbase):
     A collection of error, warning or information messages that result
     from a system action.
 
-    Attributes:
+    Args:
         severity: Indicates whether the issue indicates a variation from
             successful processing.
         code: Describes the type of the issue. The system that creates an

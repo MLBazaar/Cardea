@@ -5,7 +5,7 @@ class Measure(fhirbase):
     """
     The Measure resource provides the definition of a quality measure.
 
-    Attributes:
+    Args:
         resourceType: This is a Measure resource
         url: An absolute URI that is used to identify this measure when it is
             referenced in a specification, model, design or an instance. This
@@ -337,7 +337,7 @@ class Measure_Group(fhirbase):
     """
     The Measure resource provides the definition of a quality measure.
 
-    Attributes:
+    Args:
         identifier: A unique identifier for the group. This identifier will
             used to report data for the group in the measure report.
         name: Optional name or short description of this group.
@@ -395,7 +395,7 @@ class Measure_Population(fhirbase):
     """
     The Measure resource provides the definition of a quality measure.
 
-    Attributes:
+    Args:
         identifier: A unique identifier for the population criteria. This
             identifier is used to report data against this criteria within the
             measure report.
@@ -447,7 +447,7 @@ class Measure_Stratifier(fhirbase):
     """
     The Measure resource provides the definition of a quality measure.
 
-    Attributes:
+    Args:
         identifier: The identifier for the stratifier used to coordinate the
             reported data back to this stratifier.
         criteria: The criteria for the stratifier. This must be the name of an
@@ -485,7 +485,7 @@ class Measure_SupplementalData(fhirbase):
     """
     The Measure resource provides the definition of a quality measure.
 
-    Attributes:
+    Args:
         identifier: An identifier for the supplemental data.
         usage: An indicator of the intended usage for the supplemental data
             element. Supplemental data indicates the data is additional

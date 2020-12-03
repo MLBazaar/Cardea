@@ -8,7 +8,7 @@ class CapabilityStatement(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         resourceType: This is a CapabilityStatement resource
         url: An absolute URI that is used to identify this capability
             statement when it is referenced in a specification, model, design or
@@ -285,7 +285,7 @@ class CapabilityStatement_Software(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         name: Name software is known by.
         version: The version identifier for the software covered by this
             statement.
@@ -318,7 +318,7 @@ class CapabilityStatement_Implementation(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         description: Information about the specific installation that this
             capability statement relates to.
         url: An absolute base URL for the implementation.  This forms the base
@@ -348,7 +348,7 @@ class CapabilityStatement_Rest(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         mode: Identifies whether this portion of the statement is describing
             the ability to initiate or receive restful operations.
         documentation: Information about the system's restful capabilities
@@ -455,7 +455,7 @@ class CapabilityStatement_Security(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         cors: Server adds CORS headers when responding to requests - this
             enables javascript applications to use the server.
         service: Types of security services that are supported/required by the
@@ -509,7 +509,7 @@ class CapabilityStatement_Certificate(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         type: Mime type for a certificate.
         blob: Actual certificate.
     """
@@ -537,7 +537,7 @@ class CapabilityStatement_Resource(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         type: A type of resource exposed via the restful interface.
         profile: A specification of the profile that describes the solution's
             overall support for the resource, including any constraints on
@@ -697,7 +697,7 @@ class CapabilityStatement_Interaction(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         code: Coded identifier of the operation, supported by the system
             resource.
         documentation: Guidance specific to the implementation of this
@@ -743,7 +743,7 @@ class CapabilityStatement_SearchParam(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         name: The name of the search parameter used in the interface.
         definition: An absolute URI that is a formal reference to where this
             parameter was first defined, so that a client can be confident of the
@@ -798,7 +798,7 @@ class CapabilityStatement_Interaction1(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         code: A coded identifier of the operation, supported by the system.
         documentation: Guidance specific to the implementation of this
             operation, such as limitations on the kind of transactions allowed, or
@@ -840,7 +840,7 @@ class CapabilityStatement_Operation(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         name: The name of the operation or query. For an operation, this is
             the name  prefixed with $ and used in the URL. For a query, this is
             the name used in the _query parameter when the query is called.
@@ -879,7 +879,7 @@ class CapabilityStatement_Messaging(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         endpoint: An endpoint (network accessible address) to which messages
             and/or replies are to be sent.
         reliableCache: Length if the receiver's reliable messaging cache in
@@ -949,7 +949,7 @@ class CapabilityStatement_Endpoint(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         protocol: A list of the messaging transport protocol(s) identifiers,
             supported by this endpoint.
         address: The network address of the end-point. For solutions that do
@@ -988,7 +988,7 @@ class CapabilityStatement_SupportedMessage(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         mode: The mode of this event declaration - whether application is
             sender or receiver.
         definition: Points to a message definition that identifies the
@@ -1038,7 +1038,7 @@ class CapabilityStatement_Event(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         code: A coded identifier of a supported messaging event.
         category: The impact of the content of the message.
         mode: The mode of this event declaration - whether an application is a
@@ -1127,7 +1127,7 @@ class CapabilityStatement_Document(fhirbase):
     functionality or a statement of required or desired server
     implementation.
 
-    Attributes:
+    Args:
         mode: Mode of this document declaration - whether an application is a
             producer or consumer.
         documentation: A description of how the application supports or uses

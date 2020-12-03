@@ -9,7 +9,7 @@ class MedicationDispense(fhirbase):
     medication.  The medication dispense is the result of a pharmacy
     system responding to a medication order.
 
-    Attributes:
+    Args:
         resourceType: This is a MedicationDispense resource
         identifier: Identifier assigned by the dispensing facility - this is
             an identifier assigned outside FHIR.
@@ -306,7 +306,7 @@ class MedicationDispense_Performer(fhirbase):
     medication.  The medication dispense is the result of a pharmacy
     system responding to a medication order.
 
-    Attributes:
+    Args:
         actor: The device, practitioner, etc. who performed the action.  It
             should be assumed that the actor is the dispenser of the medication.
         onBehalfOf: The organization the device or practitioner was acting on
@@ -351,7 +351,7 @@ class MedicationDispense_Substitution(fhirbase):
     medication.  The medication dispense is the result of a pharmacy
     system responding to a medication order.
 
-    Attributes:
+    Args:
         wasSubstituted: True if the dispenser dispensed a different drug or
             product from what was prescribed.
         type: A code signifying whether a different drug was dispensed from

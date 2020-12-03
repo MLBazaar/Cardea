@@ -6,7 +6,7 @@ class Binary(fhirbase):
     A binary resource can contain any content, whether text, image, pdf,
     zip archive, etc.
 
-    Attributes:
+    Args:
         resourceType: This is a Binary resource
         contentType: MimeType of the binary content represented as a standard
             MimeType (BCP 13).

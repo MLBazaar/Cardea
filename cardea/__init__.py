@@ -15,3 +15,7 @@ logging.getLogger('cardea').addHandler(logging.NullHandler())
 _BASE_PATH = os.path.abspath(os.path.dirname(__file__))
 MLBLOCKS_PRIMITIVES = os.path.join(_BASE_PATH, 'primitives', 'jsons')
 MLBLOCKS_PIPELINES = os.path.join(_BASE_PATH, 'pipelines')
+
+__all__ = (
+    "Cardea"
+)

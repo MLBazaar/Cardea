@@ -12,7 +12,7 @@ class ClinicalImpression(fhirbase):
     "ClinicalAssessment" to avoid confusion with the recording of
     assessment tools such as Apgar score.
 
-    Attributes:
+    Args:
         resourceType: This is a ClinicalImpression resource
         identifier: A unique identifier assigned to the clinical impression
             that remains consistent regardless of what server the impression is
@@ -232,7 +232,7 @@ class ClinicalImpression_Investigation(fhirbase):
     "ClinicalAssessment" to avoid confusion with the recording of
     assessment tools such as Apgar score.
 
-    Attributes:
+    Args:
         code: A name/code for the group ("set") of investigations. Typically,
             this will be something like "signs", "symptoms", "clinical",
             "diagnostic", but the list is not constrained, and others such groups
@@ -282,7 +282,7 @@ class ClinicalImpression_Finding(fhirbase):
     "ClinicalAssessment" to avoid confusion with the recording of
     assessment tools such as Apgar score.
 
-    Attributes:
+    Args:
         itemCodeableConcept: Specific text, code or reference for finding or
             diagnosis, which may include ruled-out or resolved conditions.
         itemReference: Specific text, code or reference for finding or

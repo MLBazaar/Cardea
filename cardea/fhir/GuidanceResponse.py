@@ -7,7 +7,7 @@ class GuidanceResponse(fhirbase):
     including any output parameters returned by the evaluation, as well as
     the description of any proposed actions to be taken.
 
-    Attributes:
+    Args:
         resourceType: This is a GuidanceResponse resource
         requestId: The id of the request associated with this response. If an
             id was given as part of the request, it will be reproduced here to

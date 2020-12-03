@@ -6,7 +6,7 @@ class TestReport(fhirbase):
     A summary of information based on the results of executing a
     TestScript.
 
-    Attributes:
+    Args:
         resourceType: This is a TestReport resource
         identifier: Identifier for the TestScript assigned for external
             purposes outside the context of FHIR.
@@ -140,7 +140,7 @@ class TestReport_Participant(fhirbase):
     A summary of information based on the results of executing a
     TestScript.
 
-    Attributes:
+    Args:
         type: The type of participant.
         uri: The uri of the participant. An absolute URL is preferred.
         display: The display name of the participant.
@@ -181,7 +181,7 @@ class TestReport_Setup(fhirbase):
     A summary of information based on the results of executing a
     TestScript.
 
-    Attributes:
+    Args:
         action: Action would contain either an operation or an assertion.
     """
 
@@ -213,7 +213,7 @@ class TestReport_Action(fhirbase):
     A summary of information based on the results of executing a
     TestScript.
 
-    Attributes:
+    Args:
         operation: The operation performed.
         assert: The results of the assertion performed on the previous
             operations.
@@ -254,7 +254,7 @@ class TestReport_Operation(fhirbase):
     A summary of information based on the results of executing a
     TestScript.
 
-    Attributes:
+    Args:
         result: The result of this operation.
         message: An explanatory message associated with the result.
         detail: A link to further details on the result.
@@ -295,7 +295,7 @@ class TestReport_Assert(fhirbase):
     A summary of information based on the results of executing a
     TestScript.
 
-    Attributes:
+    Args:
         result: The result of this assertion.
         message: An explanatory message associated with the result.
         detail: A link to further details on the result.
@@ -336,7 +336,7 @@ class TestReport_Test(fhirbase):
     A summary of information based on the results of executing a
     TestScript.
 
-    Attributes:
+    Args:
         name: The name of this test used for tracking/logging purposes by test
             engines.
         description: A short description of the test used by test engines for
@@ -378,7 +378,7 @@ class TestReport_Action1(fhirbase):
     A summary of information based on the results of executing a
     TestScript.
 
-    Attributes:
+    Args:
         operation: An operation would involve a REST request to a server.
         assert: The results of the assertion performed on the previous
             operations.
@@ -419,7 +419,7 @@ class TestReport_Teardown(fhirbase):
     A summary of information based on the results of executing a
     TestScript.
 
-    Attributes:
+    Args:
         action: The teardown action will only contain an operation.
     """
 
@@ -451,7 +451,7 @@ class TestReport_Action2(fhirbase):
     A summary of information based on the results of executing a
     TestScript.
 
-    Attributes:
+    Args:
         operation: An operation would involve a REST request to a server.
     """
 

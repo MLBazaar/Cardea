@@ -6,7 +6,7 @@ class DeviceComponent(fhirbase):
     The characteristics, operational status and capabilities of a
     medical-related component of a medical device.
 
-    Attributes:
+    Args:
         resourceType: This is a DeviceComponent resource
         identifier: The locally assigned unique identification by the
             software. For example: handle ID.
@@ -137,7 +137,7 @@ class DeviceComponent_ProductionSpecification(fhirbase):
     The characteristics, operational status and capabilities of a
     medical-related component of a medical device.
 
-    Attributes:
+    Args:
         specType: The specification type, such as, serial number, part number,
             hardware revision, software revision, etc.
         componentId: The internal component unique identification. This is a

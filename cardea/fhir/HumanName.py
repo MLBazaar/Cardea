@@ -5,7 +5,7 @@ class HumanName(fhirbase):
     """
     A human's name with the ability to identify parts and usage.
 
-    Attributes:
+    Args:
         use: Identifies the purpose for this name.
         text: A full text representation of the name.
         family: The part of a name that links to the genealogy. In some

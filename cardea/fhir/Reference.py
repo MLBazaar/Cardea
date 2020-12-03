@@ -5,7 +5,7 @@ class Reference(fhirbase):
     """
     A reference from one resource to another.
 
-    Attributes:
+    Args:
         reference: A reference to a location at which the other resource is
             found. The reference may be a relative reference, in which case it is
             relative to the service base URL, or an absolute URL that resolves to

@@ -8,7 +8,7 @@ class Consent(fhirbase):
     more actions within a given policy context, for specific purposes and
     periods of time.
 
-    Attributes:
+    Args:
         resourceType: This is a Consent resource
         identifier: Unique identifier for this copy of the Consent Statement.
         status: Indicates the current state of this consent.
@@ -248,7 +248,7 @@ class Consent_Actor(fhirbase):
     more actions within a given policy context, for specific purposes and
     periods of time.
 
-    Attributes:
+    Args:
         role: How the individual is involved in the resources content that is
             described in the consent.
         reference: The resource that identifies the actor. To identify a
@@ -293,7 +293,7 @@ class Consent_Policy(fhirbase):
     more actions within a given policy context, for specific purposes and
     periods of time.
 
-    Attributes:
+    Args:
         authority: Entity or Organization having regulatory jurisdiction or
             accountability for  enforcing policies pertaining to Consent
             Directives.
@@ -325,7 +325,7 @@ class Consent_Data(fhirbase):
     more actions within a given policy context, for specific purposes and
     periods of time.
 
-    Attributes:
+    Args:
         meaning: How the resource reference is interpreted when testing
             consent restrictions.
         reference: A reference to a specific resource that defines which
@@ -375,7 +375,7 @@ class Consent_Except(fhirbase):
     more actions within a given policy context, for specific purposes and
     periods of time.
 
-    Attributes:
+    Args:
         type: Action  to take - permit or deny - when the exception conditions
             are met.
         period: The timeframe in this exception is valid.
@@ -514,7 +514,7 @@ class Consent_Actor1(fhirbase):
     more actions within a given policy context, for specific purposes and
     periods of time.
 
-    Attributes:
+    Args:
         role: How the individual is involved in the resources content that is
             described in the exception.
         reference: The resource that identifies the actor. To identify a
@@ -559,7 +559,7 @@ class Consent_Data1(fhirbase):
     more actions within a given policy context, for specific purposes and
     periods of time.
 
-    Attributes:
+    Args:
         meaning: How the resource reference is interpreted when testing
             consent restrictions.
         reference: A reference to a specific resource that defines which

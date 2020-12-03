@@ -5,7 +5,7 @@ class Attachment(fhirbase):
     """
     For referring to data content defined in other formats.
 
-    Attributes:
+    Args:
         contentType: Identifies the type of the data in the attachment and
             allows a method to be chosen to interpret or render the data. Includes
             mime type parameters such as charset where appropriate.

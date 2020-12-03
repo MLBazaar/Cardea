@@ -8,7 +8,7 @@ class ParameterDefinition(fhirbase):
     part of the $evaluate operation. Output parameters are included in the
     GuidanceResponse.
 
-    Attributes:
+    Args:
         name: The name of the parameter used to allow access to the value of
             the parameter in evaluation contexts.
         use: Whether the parameter is input or output for the module.

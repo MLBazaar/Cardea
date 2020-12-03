@@ -7,7 +7,7 @@ class Procedure(fhirbase):
     physical intervention like an operation, or less invasive like
     counseling or hypnotherapy.
 
-    Attributes:
+    Args:
         resourceType: This is a Procedure resource
         identifier: This records identifiers associated with this procedure
             that are defined by business processes and/or used to refer to it when
@@ -313,7 +313,7 @@ class Procedure_Performer(fhirbase):
     physical intervention like an operation, or less invasive like
     counseling or hypnotherapy.
 
-    Attributes:
+    Args:
         role: For example: surgeon, anaethetist, endoscopist.
         actor: The practitioner who was involved in the procedure.
         onBehalfOf: The organization the device or practitioner was acting on
@@ -364,7 +364,7 @@ class Procedure_FocalDevice(fhirbase):
     physical intervention like an operation, or less invasive like
     counseling or hypnotherapy.
 
-    Attributes:
+    Args:
         action: The kind of change that happened to the device during the
             procedure.
         manipulated: The device that was manipulated (changed) during the

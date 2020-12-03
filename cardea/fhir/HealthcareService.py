@@ -5,7 +5,7 @@ class HealthcareService(fhirbase):
     """
     The details of a healthcare service available at a location.
 
-    Attributes:
+    Args:
         resourceType: This is a HealthcareService resource
         identifier: External identifiers for this item.
         active: Whether this healthcareservice record is in active use.
@@ -239,7 +239,7 @@ class HealthcareService_AvailableTime(fhirbase):
     """
     The details of a healthcare service available at a location.
 
-    Attributes:
+    Args:
         daysOfWeek: Indicates which days of the week are available between the
             start and end Times.
         allDay: Is this always available? (hence times are irrelevant) e.g. 24
@@ -287,7 +287,7 @@ class HealthcareService_NotAvailable(fhirbase):
     """
     The details of a healthcare service available at a location.
 
-    Attributes:
+    Args:
         description: The reason that can be presented to the user as to why
             this time is not available.
         during: Service is not available (seasonally or for a public holiday)

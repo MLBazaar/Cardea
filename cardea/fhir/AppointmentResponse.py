@@ -6,7 +6,7 @@ class AppointmentResponse(fhirbase):
     A reply to an appointment request for a patient and/or
     practitioner(s), such as a confirmation or rejection.
 
-    Attributes:
+    Args:
         resourceType: This is a AppointmentResponse resource
         identifier: This records identifiers associated with this appointment
             response concern that are defined by business processes and/ or used

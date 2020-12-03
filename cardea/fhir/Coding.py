@@ -5,7 +5,7 @@ class Coding(fhirbase):
     """
     A reference to a code defined by a terminology system.
 
-    Attributes:
+    Args:
         system: The identification of the code system that defines the meaning
             of the symbol in the code.
         version: The version of the code system which was used when choosing

@@ -8,7 +8,7 @@ class Questionnaire(fhirbase):
     order, presentation, phraseology and grouping to allow coherent,
     consistent data collection.
 
-    Attributes:
+    Args:
         resourceType: This is a Questionnaire resource
         url: An absolute URI that is used to identify this questionnaire when
             it is referenced in a specification, model, design or an instance.
@@ -212,7 +212,7 @@ class Questionnaire_Item(fhirbase):
     order, presentation, phraseology and grouping to allow coherent,
     consistent data collection.
 
-    Attributes:
+    Args:
         linkId: An identifier that is unique within the Questionnaire allowing
             linkage to the equivalent item in a QuestionnaireResponse resource.
         definition: A reference to an [[[ElementDefinition]]] that provides
@@ -444,7 +444,7 @@ class Questionnaire_EnableWhen(fhirbase):
     order, presentation, phraseology and grouping to allow coherent,
     consistent data collection.
 
-    Attributes:
+    Args:
         question: The linkId for the question whose answer (or lack of answer)
             governs whether this item is enabled.
         hasAnswer: An indication that this item should be enabled only if the
@@ -559,7 +559,7 @@ class Questionnaire_Option(fhirbase):
     order, presentation, phraseology and grouping to allow coherent,
     consistent data collection.
 
-    Attributes:
+    Args:
         valueInteger: A potential answer that's allowed as the answer to this
             question.
         valueDate: A potential answer that's allowed as the answer to this
