@@ -151,12 +151,13 @@
               <div>
                 
   <h1>Source code for cardea.modeling.modeler</h1><div class="highlight"><pre>
-<span></span>
+<span></span><span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">import</span> <span class="nn">hyperopt</span>
 <span class="kn">import</span> <span class="nn">mlblocks</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">hyperopt</span> <span class="kn">import</span> <span class="n">STATUS_OK</span><span class="p">,</span> <span class="n">Trials</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">fmin</span><span class="p">,</span> <span class="n">hp</span><span class="p">,</span> <span class="n">tpe</span>
 <span class="kn">from</span> <span class="nn">mlblocks</span> <span class="kn">import</span> <span class="n">MLPipeline</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
@@ -212,9 +213,9 @@
         <span class="k">for</span> <span class="n">primitive</span> <span class="ow">in</span> <span class="n">primitives</span><span class="p">:</span>
             <span class="n">mypath</span> <span class="o">=</span> <span class="n">mypath</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
             <span class="n">primitive_file_name</span> <span class="o">=</span> <span class="n">primitive</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">mypath</span> <span class="ow">in</span> <span class="n">primitive</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">primitive_file_name</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">mypath</span> <span class="ow">in</span> <span class="n">primitive</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">primitive_file_name</span><span class="p">)):</span>
                 <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">primitive</span><span class="p">)</span>
-            <span class="k">elif</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">mypath</span> <span class="o">+</span> <span class="n">primitive_file_name</span><span class="p">)):</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">mypath</span> <span class="o">+</span> <span class="n">primitive_file_name</span><span class="p">)):</span>
                 <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mypath</span> <span class="o">+</span> <span class="n">primitive</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">new_list</span> <span class="o">==</span> <span class="p">[]:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="s1">&#39;is not found in MLprimitives.&#39;</span><span class="p">)</span>
@@ -238,9 +239,9 @@
             <span class="n">mypath</span> <span class="o">=</span> <span class="n">mypath</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
             <span class="n">primitive_file_name</span> <span class="o">=</span> <span class="n">hyperparameter</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span>
 
-            <span class="k">if</span><span class="p">(</span><span class="n">mypath</span> <span class="ow">in</span> <span class="n">hyperparameter</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">primitive_file_name</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">mypath</span> <span class="ow">in</span> <span class="n">hyperparameter</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">primitive_file_name</span><span class="p">)):</span>
                 <span class="n">new_list</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span>
-            <span class="k">elif</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">mypath</span> <span class="o">+</span> <span class="n">hyperparameter</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span><span class="p">)):</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">mypath</span> <span class="o">+</span> <span class="n">hyperparameter</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span><span class="p">)):</span>
                 <span class="n">new_list</span><span class="p">[</span><span class="n">mypath</span> <span class="o">+</span> <span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">new_list</span> <span class="o">==</span> <span class="p">{}:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">hyperparameters_keys</span><span class="p">),</span> <span class="s1">&#39;is not found in MLprimitives.&#39;</span><span class="p">)</span>
@@ -278,7 +279,6 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            A list consists of the used pipeline and an array of the predicted values.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="n">pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
         <span class="n">y_pred</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y_pred</span></div>
@@ -317,13 +317,14 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pipeline_list</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">):</span>
             <span class="n">predict_result</span> <span class="o">=</span> <span class="p">[]</span>
 
-            <span class="n">X_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
-            <span class="n">X_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+            <span class="n">X_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
+            <span class="n">X_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
             <span class="n">y_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
             <span class="n">y_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
 
@@ -367,19 +368,24 @@
         <span class="n">Folds</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">data_frame</span><span class="p">):</span>
-            <span class="n">X_train</span> <span class="o">=</span> <span class="n">data_frame</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
-            <span class="n">X_test</span> <span class="o">=</span> <span class="n">data_frame</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+            <span class="n">X_train</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
+            <span class="n">X_test</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
             <span class="n">y_train</span> <span class="o">=</span> <span class="n">target</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
             <span class="n">y_test</span> <span class="o">=</span> <span class="n">target</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
             <span class="n">number_of_folds</span> <span class="o">=</span> <span class="n">number_of_folds</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="c1"># Append the predicted labels.</span>
-            <span class="n">y_predict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_predict_model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
+            <span class="c1"># TODO: use MLPipeline(pipeline) to copy a pipeline with MLBlocks &gt;= 0.3.4</span>
+            <span class="n">fold_pipeline</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+            <span class="n">y_predict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_predict_model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">fold_pipeline</span><span class="p">)</span>
 
             <span class="n">Folds</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">number_of_folds</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s2">&quot;predicted&quot;</span><span class="p">:</span> <span class="n">y_predict</span><span class="p">,</span>
-                <span class="s2">&quot;Actual&quot;</span><span class="p">:</span> <span class="n">y_test</span>
+                <span class="s2">&quot;Actual&quot;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span>
+                <span class="s2">&quot;pipeline&quot;</span><span class="p">:</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">fold_pipeline</span><span class="p">),</span>
+                <span class="s2">&quot;test_index&quot;</span><span class="p">:</span> <span class="n">test_index</span>
             <span class="p">}</span>
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem_type</span> <span class="o">==</span> <span class="s1">&#39;regression&#39;</span><span class="p">:</span>
@@ -422,14 +428,14 @@
 
             <span class="k">for</span> <span class="n">hyperparameter</span> <span class="ow">in</span> <span class="n">tunable_hyperparameters</span><span class="p">:</span>
                 <span class="n">hp_type</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-                <span class="k">if</span><span class="p">(</span><span class="s1">&#39;values&#39;</span> <span class="ow">in</span> <span class="n">hp_type</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;values&#39;</span> <span class="ow">in</span> <span class="n">hp_type</span><span class="p">):</span>
                     <span class="n">value</span> <span class="o">=</span> <span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;values&#39;</span><span class="p">]</span>
                     <span class="n">space</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">hyperparameter</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-                <span class="k">elif</span><span class="p">(</span><span class="s1">&#39;range&#39;</span> <span class="ow">in</span> <span class="n">hp_type</span><span class="p">):</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;range&#39;</span> <span class="ow">in</span> <span class="n">hp_type</span><span class="p">):</span>
                     <span class="n">value</span> <span class="o">=</span> <span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;range&#39;</span><span class="p">]</span>
-                    <span class="k">if</span><span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;float&#39;</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;float&#39;</span><span class="p">):</span>
                         <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span>
-                        <span class="k">if</span><span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
                             <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
                         <span class="n">space</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
                             <span class="n">hyperparameter</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
@@ -437,20 +443,20 @@
                         <span class="n">space</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">hyperparameter</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
-                        <span class="k">if</span><span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
                             <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
                         <span class="n">space</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
                             <span class="n">hyperparameter</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
-                <span class="k">elif</span><span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bool&#39;</span><span class="p">):</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bool&#39;</span><span class="p">):</span>
                     <span class="n">space</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">hyperparameter</span><span class="p">,</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
 
             <span class="n">space_list</span><span class="p">[</span><span class="n">primitive</span><span class="p">]</span> <span class="o">=</span> <span class="n">space</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">space_list</span> <span class="o">==</span> <span class="p">{}):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">space_list</span> <span class="o">==</span> <span class="p">{}):</span>
                 <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Can not create the domain Space.</span><span class="se">\</span>
 <span class="s1">                    The value of tunnable hyperparameters is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">space_list</span></div>
 
-<div class="viewcode-block" id="Modeler.hyperopt_train_test"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.hyperopt_train_test">[docs]</a>    <span class="k">def</span> <span class="nf">hyperopt_train_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<div class="viewcode-block" id="Modeler.hyperopt_train_test"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.hyperopt_train_test">[docs]</a>    <span class="k">def</span> <span class="nf">hyperopt_train_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">pipeline</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Creates the objective function to minimize.</span>
 
 <span class="sd">        Args:</span>
@@ -459,14 +465,14 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            The the model secore after K-fold corss-validation.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">primitive</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pipeline</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">primitive</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kfold_scoring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Modeler.objective"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.objective">[docs]</a>    <span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<div class="viewcode-block" id="Modeler.objective"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.objective">[docs]</a>    <span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">pipeline</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
-        <span class="n">accuracy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyperopt_train_test</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">accuracy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyperopt_train_test</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">minimize_cost</span><span class="p">:</span>
             <span class="n">accuracy</span> <span class="o">=</span> <span class="o">-</span><span class="n">accuracy</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">accuracy</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="n">STATUS_OK</span><span class="p">}</span></div>
@@ -485,7 +491,7 @@
 
         <span class="n">trials</span> <span class="o">=</span> <span class="n">Trials</span><span class="p">()</span>
         <span class="n">best</span> <span class="o">=</span> <span class="n">fmin</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">param</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">),</span>
             <span class="n">space</span><span class="p">,</span>
             <span class="n">algo</span><span class="o">=</span><span class="n">tpe</span><span class="o">.</span><span class="n">suggest</span><span class="p">,</span>
             <span class="n">max_evals</span><span class="o">=</span><span class="n">max_evals</span><span class="p">,</span>
@@ -505,6 +511,7 @@
         <span class="n">hyperparameter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyperparameter_tunning</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">max_evals</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span><span class="p">[</span><span class="s1">&#39;hyperparameter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hyperparameter</span></div>
 
+    <span class="c1"># TODO: remove this function in a later version</span>
 <div class="viewcode-block" id="Modeler.execute_pipeline"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.execute_pipeline.html#cardea.modeling.modeler.Modeler.execute_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">execute_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">primitives_list</span><span class="p">,</span> <span class="n">problem_type</span><span class="p">,</span>
                          <span class="n">optimize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                          <span class="n">minimize_cost</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -541,7 +548,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">data_frame</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">problem_type</span> <span class="o">=</span> <span class="n">problem_type</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">minimize_cost</span> <span class="o">=</span> <span class="n">minimize_cost</span>
-        <span class="k">if</span><span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
             <span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
 
@@ -550,7 +557,7 @@
 
             <span class="n">pipleline_order</span> <span class="o">=</span> <span class="s2">&quot;pipeline&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
 
-            <span class="k">if</span><span class="p">(</span><span class="n">optimize</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">optimize</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">primitive</span> <span class="o">=</span> <span class="n">primitives</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span><span class="p">[</span><span class="s1">&#39;primitives&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">primitives</span>
                 <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">(</span><span class="n">primitives</span><span class="p">)</span>
@@ -570,6 +577,84 @@
                                       <span class="s1">&#39;hyperparameter&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
 
             <span class="n">all_pipeline_dict</span><span class="p">[</span><span class="n">pipleline_order</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">return</span> <span class="n">all_pipeline_dict</span></div>
+
+<div class="viewcode-block" id="Modeler.create_kfold_from_pipeline"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.create_kfold_from_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">create_kfold_from_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates Kfold cross-validation and predicts all the primitives within the pipeline.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            pipeline: A MLPipeline instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Prediction results and trained models of each fold stored in a dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fold_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">)):</span>
+            <span class="n">fold_pipeline</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+
+            <span class="n">X_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
+            <span class="n">X_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+            <span class="n">y_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
+            <span class="n">y_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+
+            <span class="c1"># Append the predicted labels.</span>
+            <span class="n">y_predict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_predict_model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">fold_pipeline</span><span class="p">)</span>
+            <span class="n">fold_dict</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;predicted&quot;</span><span class="p">:</span> <span class="n">y_predict</span><span class="p">,</span> <span class="s2">&quot;Actual&quot;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span>
+                                 <span class="s2">&quot;pipeline&quot;</span><span class="p">:</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">fold_pipeline</span><span class="p">),</span>
+                                 <span class="s2">&quot;test_index&quot;</span><span class="p">:</span> <span class="n">test_index</span><span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">fold_dict</span></div>
+
+<div class="viewcode-block" id="Modeler.execute_pipeline_from_pipeline"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.execute_pipeline_from_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">execute_pipeline_from_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">pipelines</span><span class="p">,</span> <span class="n">problem_type</span><span class="p">,</span>
+                                       <span class="n">optimize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                       <span class="n">minimize_cost</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Executes and predict all the pipelines.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data_frame: A dataframe, which encapsulates all the records of that entity.</span>
+<span class="sd">            target: An array of labels for the target variable.</span>
+<span class="sd">            pipelines: A list of MLPipeline instances.</span>
+<span class="sd">            problem_type: A label to specify the type of problem whether</span>
+<span class="sd">            regression or classification.</span>
+<span class="sd">            optimize: A boolean value which indicates whether to optimize the model or not.</span>
+<span class="sd">            max_evals: Maximum number of hyperparameter evaluations.</span>
+<span class="sd">            scoring: A label to specify the scoring function.</span>
+<span class="sd">            minimize_cost: A boolean value indicating whether to get minimum or maximum cost value.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A list for all the pipelines which consists of: the fold number, the used pipeline</span>
+<span class="sd">            and an array of the predicted values and an array of the actual values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">all_pipeline_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scoring</span> <span class="o">=</span> <span class="n">scoring</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">data_frame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">problem_type</span> <span class="o">=</span> <span class="n">problem_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minimize_cost</span> <span class="o">=</span> <span class="n">minimize_cost</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
+
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">pipeline</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pipelines</span><span class="p">):</span>
+            <span class="n">pipleline_order</span> <span class="o">=</span> <span class="s2">&quot;pipeline&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">optimize</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">optimization</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">max_evals</span><span class="p">)</span>
+                <span class="c1"># TODO: Pass training results in function returns instead of class attributes</span>
+                <span class="n">pipeline_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fold_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_kfold_from_pipeline</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+                <span class="n">pipeline_dict</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;primitives&#39;</span><span class="p">:</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">primitives</span><span class="p">,</span>
+                    <span class="s1">&#39;folds&#39;</span><span class="p">:</span> <span class="n">fold_dict</span><span class="p">,</span>
+                    <span class="s1">&#39;hyperparameters&#39;</span><span class="p">:</span> <span class="kc">None</span>
+                <span class="p">}</span>
+
+            <span class="n">all_pipeline_dict</span><span class="p">[</span><span class="n">pipleline_order</span><span class="p">]</span> <span class="o">=</span> <span class="n">pipeline_dict</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">return</span> <span class="n">all_pipeline_dict</span></div></div>
 </pre></div>

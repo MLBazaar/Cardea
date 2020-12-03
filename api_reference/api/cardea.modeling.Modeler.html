@@ -233,13 +233,19 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_kfold</span></code>(primitives[, hyperparameters])</p></td>
 <td><p>Creates Kfold cross-validation and predicts all the primitives within the pipeline.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_pipeline</span></code>(primitives[, hyperparameters])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_kfold_from_pipeline</span></code>(pipeline)</p></td>
+<td><p>Creates Kfold cross-validation and predicts all the primitives within the pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_pipeline</span></code>(primitives[, hyperparameters])</p></td>
 <td><p>Creates a pipeline of primitives.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_space</span></code>(pipeline)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_space</span></code>(pipeline)</p></td>
 <td><p>Creates the search space.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cardea.modeling.Modeler.execute_pipeline.html#cardea.modeling.Modeler.execute_pipeline" title="cardea.modeling.Modeler.execute_pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">execute_pipeline</span></code></a>(data_frame, target, …[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.modeling.Modeler.execute_pipeline.html#cardea.modeling.Modeler.execute_pipeline" title="cardea.modeling.Modeler.execute_pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">execute_pipeline</span></code></a>(data_frame, target, …[, …])</p></td>
+<td><p>Executes and predict all the pipelines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">execute_pipeline_from_pipeline</span></code>(data_frame, …)</p></td>
 <td><p>Executes and predict all the pipelines.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_predict_model</span></code>(X_train, y_train, X_test, …)</p></td>
@@ -248,7 +254,7 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_directory</span></code>()</p></td>
 <td><p>Returns the path of the directory.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperopt_train_test</span></code>(params)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperopt_train_test</span></code>(params[, pipeline])</p></td>
 <td><p>Creates the objective function to minimize.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperparameter_tunning</span></code>(pipeline, max_evals)</p></td>
@@ -257,7 +263,7 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">kfold_scoring</span></code>(data_frame, target, pipeline)</p></td>
 <td><p>Calculate the average Kfold cross-validation score.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">objective</span></code>(params)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">objective</span></code>(params[, pipeline])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimization</span></code>(pipeline, max_evals)</p></td>

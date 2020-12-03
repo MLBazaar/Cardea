@@ -1,0 +1,14 @@
+cardea.primitives package
+=========================
+
+.. automodule:: cardea.primitives
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+   cardea.primitives.processing

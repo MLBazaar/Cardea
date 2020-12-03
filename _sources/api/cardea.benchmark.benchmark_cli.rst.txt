@@ -1,0 +1,7 @@
+cardea.benchmark.benchmark\_cli module
+======================================
+
+.. automodule:: cardea.benchmark.benchmark_cli
+   :members:
+   :undoc-members:
+   :show-inheritance:

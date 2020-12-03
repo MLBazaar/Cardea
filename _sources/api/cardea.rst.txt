@@ -11,10 +11,12 @@ Subpackages
 
 .. toctree::
 
+   cardea.benchmark
    cardea.data_loader
    cardea.featurization
    cardea.fhir
    cardea.modeling
+   cardea.primitives
    cardea.problem_definition
 
 Submodules

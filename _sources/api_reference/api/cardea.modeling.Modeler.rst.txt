@@ -17,9 +17,11 @@ cardea.modeling.Modeler
       ~Modeler.check_path
       ~Modeler.check_path_hyperparameters
       ~Modeler.create_kfold
+      ~Modeler.create_kfold_from_pipeline
       ~Modeler.create_pipeline
       ~Modeler.create_space
       ~Modeler.execute_pipeline
+      ~Modeler.execute_pipeline_from_pipeline
       ~Modeler.fit_predict_model
       ~Modeler.get_directory
       ~Modeler.hyperopt_train_test

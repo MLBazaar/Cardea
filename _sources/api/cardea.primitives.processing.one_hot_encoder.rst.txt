@@ -1,0 +1,7 @@
+cardea.primitives.processing.one\_hot\_encoder module
+=====================================================
+
+.. automodule:: cardea.primitives.processing.one_hot_encoder
+   :members:
+   :undoc-members:
+   :show-inheritance:

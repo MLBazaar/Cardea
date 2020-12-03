@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.benchmark.benchmark module &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-cardea.benchmark.benchmark">
+<span id="cardea-benchmark-benchmark-module"></span><h1>cardea.benchmark.benchmark module<a class="headerlink" href="#module-cardea.benchmark.benchmark" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="cardea.benchmark.benchmark.aggregate_results_by_pipeline">
+<code class="sig-prename descclassname">cardea.benchmark.benchmark.</code><code class="sig-name descname">aggregate_results_by_pipeline</code><span class="sig-paren">(</span><em class="sig-param">performance</em>, <em class="sig-param">metric</em>, <em class="sig-param">record_time=True</em>, <em class="sig-param">output_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/benchmark/benchmark.html#aggregate_results_by_pipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.benchmark.benchmark.aggregate_results_by_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregate the results of each pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>performance</strong> (<em>pd.DataFrame</em>) – the performance of each pipeline execution.</p></li>
+<li><p><strong>metric</strong> (<em>str</em>) – the name of the target metric for summary.</p></li>
+<li><p><strong>record_time</strong> (<em>boolean</em>) – whether to the record the elapsed time in the summary.</p></li>
+<li><p><strong>output_path</strong> (<em>str</em>) – the path to store the results.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>aggregated performance of each pipeline on each problem.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cardea.benchmark.benchmark.aggregate_results_by_problem">
+<code class="sig-prename descclassname">cardea.benchmark.benchmark.</code><code class="sig-name descname">aggregate_results_by_problem</code><span class="sig-paren">(</span><em class="sig-param">performance</em>, <em class="sig-param">metric</em>, <em class="sig-param">record_time=True</em>, <em class="sig-param">output_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/benchmark/benchmark.html#aggregate_results_by_problem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.benchmark.benchmark.aggregate_results_by_problem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregate the results on each problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>performance</strong> (<em>pd.DataFrame</em>) – the performance of each pipeline execution.</p></li>
+<li><p><strong>metric</strong> (<em>str</em>) – the name of the target metric for summary.</p></li>
+<li><p><strong>record_time</strong> (<em>boolean</em>) – whether to the record the elapsed time in the summary.</p></li>
+<li><p><strong>output_path</strong> (<em>str</em>) – the path to store the results.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>aggregated performance on each problem.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cardea.benchmark.benchmark.benchmark">
+<code class="sig-prename descclassname">cardea.benchmark.benchmark.</code><code class="sig-name descname">benchmark</code><span class="sig-paren">(</span><em class="sig-param">tasks</em>, <em class="sig-param">metrics=None</em>, <em class="sig-param">output_path=None</em>, <em class="sig-param">save_results=True</em>, <em class="sig-param">save_model=True</em>, <em class="sig-param">save_intermedia_data=True</em>, <em class="sig-param">save_hyperparameters=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/benchmark/benchmark.html#benchmark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.benchmark.benchmark.benchmark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run benchmark testing on a set of tasks. Return detailed results of each run stored in a
+DataFrame object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tasks</strong> (<em>list</em>) – a list of task instances storing meta information of each task.</p></li>
+<li><p><strong>metrics</strong> (<em>dict</em>) – a dictionary of metric functions indexed by metric names.</p></li>
+<li><p><strong>output_path</strong> (<em>str</em>) – the dir path to store benchmark results and records of each task.</p></li>
+<li><p><strong>save_results</strong> (<em>boolean</em>) – whether to store the benchmark results.</p></li>
+<li><p><strong>save_intermedia_data</strong> (<em>boolean</em>) – whether to store the intermedia data including an entity set and a feature matrix if
+the beginning stage is “data_loader” or “problem_definition”.</p></li>
+<li><p><strong>save_model</strong> (<em>boolean</em>) – whether to store the trained model.</p></li>
+<li><p><strong>save_hyperparameters</strong> (<em>boolean</em>) – whether to store the hyperparameters if task.tuned is true.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>benchmarking results in detail.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cardea.benchmark.benchmark.evaluate_task">
+<code class="sig-prename descclassname">cardea.benchmark.benchmark.</code><code class="sig-name descname">evaluate_task</code><span class="sig-paren">(</span><em class="sig-param">task</em>, <em class="sig-param">metrics=None</em>, <em class="sig-param">feature_matrix=None</em>, <em class="sig-param">output_path=None</em>, <em class="sig-param">save_intermedia_data=True</em>, <em class="sig-param">save_model=True</em>, <em class="sig-param">save_hyperparameters=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cardea/benchmark/benchmark.html#evaluate_task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.benchmark.benchmark.evaluate_task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run benchmark testing on a task. Save intermedia data, trained models, and optimized
+hyperparameters. Return testing results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> (<a class="reference internal" href="cardea.benchmark.task.html#cardea.benchmark.task.Task" title="cardea.benchmark.task.Task"><em>Task</em></a>) – a task instance storing meta information of the task.</p></li>
+<li><p><strong>metrics</strong> (<em>dict</em>) – a dictionary of metric functions indexed by metric names.</p></li>
+<li><p><strong>feature_matrix</strong> (<em>pd.DataFrame</em>) – a dataframe consists of both feature values and target values.</p></li>
+<li><p><strong>output_path</strong> (<em>str</em>) – a directory path to store the intermedia data, model and hyperparametes.</p></li>
+<li><p><strong>save_intermedia_data</strong> (<em>boolean</em>) – whether to store the intermedia data including an entity set and a feature matrix if
+the beginning stage is “data_loader” or “problem_definition”.</p></li>
+<li><p><strong>save_model</strong> (<em>boolean</em>) – whether to store the trained model.</p></li>
+<li><p><strong>save_hyperparameters</strong> (<em>boolean</em>) – whether to store the hyperparameters if task.tuned is true.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>benchmarking results of each run.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

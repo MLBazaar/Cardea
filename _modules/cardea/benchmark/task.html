@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>cardea.benchmark.task &#8212; Cardea 0.1.1.dev0 documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../index.html">
+    
+      <p class="title">Cardea</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../getting_started/index.html">Getting Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../basic_concepts/index.html">Basic Concepts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../community/index.html">Community</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../history.html">Release Notes</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/DAI-Lab/Cardea" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for cardea.benchmark.task</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="n">PIPELINES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Logistic Regression&#39;</span><span class="p">,</span> <span class="s1">&#39;K-Nearest Neightbors&#39;</span><span class="p">,</span> <span class="s1">&#39;Random Forest&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Gaussian Naive Bayes&#39;</span><span class="p">,</span> <span class="s1">&#39;Multinomial Naive Bayes&#39;</span><span class="p">,</span> <span class="s1">&#39;XGB&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Stochastic Gradient Descent&#39;</span><span class="p">,</span> <span class="s1">&#39;Gradient Boosting&#39;</span><span class="p">]</span>
+
+<span class="n">PROBLEMS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LOS&#39;</span><span class="p">,</span> <span class="s1">&#39;Mortality&#39;</span><span class="p">,</span> <span class="s1">&#39;Readmission&#39;</span><span class="p">]</span>
+
+<span class="c1"># relative paths from the project root path to the target directories</span>
+<span class="n">PIPELINE_DIR</span> <span class="o">=</span> <span class="s1">&#39;./cardea/pipelines&#39;</span>
+<span class="n">VERIFIED_DIR</span> <span class="o">=</span> <span class="s1">&#39;./benchmark/verified&#39;</span>
+
+
+<div class="viewcode-block" id="Task"><a class="viewcode-back" href="../../../api/cardea.benchmark.task.html#cardea.benchmark.task.Task">[docs]</a><span class="k">class</span> <span class="nc">Task</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A class that stores the configurations to a prediction task.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pipeline_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path_to_pipeline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">beginning_stage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dataset_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">problem_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path_to_dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">path_to_hyperparameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tuned</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">run_num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a task configuration object from a list of settings.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            task_id (str):</span>
+<span class="sd">                an identifier to the task.</span>
+<span class="sd">            pipeline_name (str):</span>
+<span class="sd">                the name to identify the pipeline, e.g., Logistic Regression.</span>
+<span class="sd">            path_to_pipeline (str):</span>
+<span class="sd">                the path where the pipeline .json file is stored</span>
+<span class="sd">            beginning_stage (str):</span>
+<span class="sd">                the stage in which the benchmarking are applied, should be either &quot;data_loader&quot;,</span>
+<span class="sd">                &quot;problem_definition&quot;, &quot;featurization&quot;.</span>
+<span class="sd">            dataset_name (str):</span>
+<span class="sd">                the name to identify the dataset, e.g., mimic-iii.</span>
+<span class="sd">            problem_name (str):</span>
+<span class="sd">                the name to identify the problem, e.g., Readmission.</span>
+<span class="sd">            path_to_dataset (str):</span>
+<span class="sd">                the path where the dataset is stored.</span>
+<span class="sd">            path_to_hyperparameters (str):</span>
+<span class="sd">                the path where the initial hyperparameters is stored.</span>
+<span class="sd">            tuned (boolean):</span>
+<span class="sd">                whether the hyperparameters will be tuned</span>
+<span class="sd">            run_num (int):</span>
+<span class="sd">                the number of runs for each pipeline on each problem.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_task_id</span> <span class="o">=</span> <span class="n">task_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline_name</span> <span class="o">=</span> <span class="n">pipeline_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_beginning_stage</span> <span class="o">=</span> <span class="n">beginning_stage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_name</span> <span class="o">=</span> <span class="n">dataset_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_problem_name</span> <span class="o">=</span> <span class="n">problem_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_path_to_dataset</span> <span class="o">=</span> <span class="n">path_to_dataset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_path_to_pipeline</span> <span class="o">=</span> <span class="n">path_to_pipeline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_path_to_hyperparameters</span> <span class="o">=</span> <span class="n">path_to_hyperparameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tuned</span> <span class="o">=</span> <span class="n">tuned</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_run_num</span> <span class="o">=</span> <span class="n">run_num</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">description_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">ordered_items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ordered_items</span><span class="p">:</span>
+            <span class="n">description_str</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="si">{:&lt;20}</span><span class="s2"> </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">description_str</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">description_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">ordered_items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ordered_items</span><span class="p">:</span>
+            <span class="n">description_str</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="si">{:&lt;20}</span><span class="s2"> </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">description_str</span>
+
+<div class="viewcode-block" id="Task.save_as"><a class="viewcode-back" href="../../../api/cardea.benchmark.task.html#cardea.benchmark.task.Task.save_as">[docs]</a>    <span class="k">def</span> <span class="nf">save_as</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Save the task configurations to the given address.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            file_path (str):</span>
+<span class="sd">                the path to store the configurations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">file_type</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s1">&#39;pkl&#39;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;file_type should be either </span><span class="se">\&quot;</span><span class="s2">pkl</span><span class="se">\&quot;</span><span class="s2"> or </span><span class="se">\&quot;</span><span class="s2">json</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Task.load"><a class="viewcode-back" href="../../../api/cardea.benchmark.task.html#cardea.benchmark.task.Task.load">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">attr_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Task</span><span class="p">(</span><span class="o">**</span><span class="n">attr_dict</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">task_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_id</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pipeline_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dataset_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">problem_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_problem_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">beginning_stage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_beginning_stage</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">path_to_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path_to_pipeline</span>
+
+    <span class="nd">@path_to_pipeline</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">path_to_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_to_pipeline</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_path_to_pipeline</span> <span class="o">=</span> <span class="n">path_to_pipeline</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">path_to_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path_to_dataset</span>
+
+    <span class="nd">@path_to_dataset</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">path_to_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_to_dataset</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_path_to_dataset</span> <span class="o">=</span> <span class="n">path_to_dataset</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">path_to_hyperparameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path_to_hyperparameters</span>
+
+    <span class="nd">@path_to_hyperparameters</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">path_to_hyperparameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_to_hyperparameters</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_path_to_hyperparameters</span> <span class="o">=</span> <span class="n">path_to_hyperparameters</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tuned</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tuned</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">run_num</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_num</span></div>
+
+
+<div class="viewcode-block" id="create_tasks"><a class="viewcode-back" href="../../../api/cardea.benchmark.task.html#cardea.benchmark.task.create_tasks">[docs]</a><span class="k">def</span> <span class="nf">create_tasks</span><span class="p">(</span><span class="n">pipeline_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">problem_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;mimic-iii&#39;</span><span class="p">,</span>
+                 <span class="n">beginning_stage</span><span class="o">=</span><span class="s1">&#39;data_loader&#39;</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">run_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a list of task configurations from settings.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pipeline_names (list):</span>
+<span class="sd">            name of the pipelines for testing.</span>
+<span class="sd">        problem_names (list):</span>
+<span class="sd">            name of the problems to be tested on.</span>
+<span class="sd">        dataset_name (str) :</span>
+<span class="sd">            name of the dataset to be tested on.</span>
+<span class="sd">        beginning_stage (str):</span>
+<span class="sd">            the stage in which the benchmarking are applied, should be either &quot;data_loader&quot;,</span>
+<span class="sd">            &quot;problem_definition&quot;, &quot;featurization&quot;.</span>
+<span class="sd">        optimize (boolean):</span>
+<span class="sd">            whether to optimize the hyper-parameters of the pipeline.</span>
+<span class="sd">        run_num (int):</span>
+<span class="sd">            the number of runs for each pipeline on each problem.</span>
+<span class="sd">        output_dir (str):</span>
+<span class="sd">            the path to store the task configurations.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list:</span>
+<span class="sd">            a list of Task objects that store the task configurations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">pipeline_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pipeline_names</span> <span class="o">=</span> <span class="n">PIPELINES</span>
+    <span class="n">pipeline_names</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pipeline_names</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">problem_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">problem_names</span> <span class="o">=</span> <span class="n">PROBLEMS</span>
+    <span class="n">problem_names</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">problem_names</span><span class="p">)</span>
+
+    <span class="n">task_num</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">problem</span> <span class="ow">in</span> <span class="n">problem_names</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">pipeline</span> <span class="ow">in</span> <span class="n">pipeline_names</span><span class="p">:</span>
+            <span class="n">task_id</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">task_num</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
+            <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="n">task_id</span><span class="p">,</span> <span class="n">pipeline_name</span><span class="o">=</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">dataset_name</span><span class="o">=</span><span class="n">dataset_name</span><span class="p">,</span>
+                        <span class="n">problem_name</span><span class="o">=</span><span class="n">problem</span><span class="p">,</span> <span class="n">beginning_stage</span><span class="o">=</span><span class="n">beginning_stage</span><span class="p">,</span>
+                        <span class="n">run_num</span><span class="o">=</span><span class="n">run_num</span><span class="p">,</span> <span class="n">tuned</span><span class="o">=</span><span class="n">optimize</span><span class="p">)</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">path_to_pipeline</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PIPELINE_DIR</span><span class="p">,</span>
+                                                 <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.json&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">pipeline_name</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">beginning_stage</span> <span class="o">==</span> <span class="s1">&#39;data_loader&#39;</span><span class="p">:</span>
+                <span class="n">task</span><span class="o">.</span><span class="n">path_to_dataset</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">VERIFIED_DIR</span><span class="p">,</span> <span class="s1">&#39;Raw&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">beginning_stage</span> <span class="o">==</span> <span class="s1">&#39;problem_definition&#39;</span><span class="p">:</span>
+                <span class="n">task</span><span class="o">.</span><span class="n">path_to_dataset</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">VERIFIED_DIR</span><span class="p">,</span> <span class="s1">&#39;EntitySet&#39;</span><span class="p">,</span>
+                                                    <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.pkl&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">beginning_stage</span> <span class="o">==</span> <span class="s1">&#39;featurization&#39;</span><span class="p">:</span>
+                <span class="n">task</span><span class="o">.</span><span class="n">path_to_dataset</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">VERIFIED_DIR</span><span class="p">,</span> <span class="s1">&#39;Problems&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">problem_name</span><span class="p">,</span>
+                                                    <span class="s1">&#39;FeatureMatrix&#39;</span><span class="p">,</span>
+                                                    <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.csv&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">))</span>
+            <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+            <span class="n">task_num</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">output_dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_dir</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+            <span class="n">task_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">task_path</span><span class="p">):</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">task_path</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">task_path</span><span class="p">)</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">save_as</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">task_path</span><span class="p">,</span> <span class="s1">&#39;meta.json&#39;</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">tasks</span></div>
+</pre></div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

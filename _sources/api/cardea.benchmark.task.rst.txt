@@ -1,0 +1,7 @@
+cardea.benchmark.task module
+============================
+
+.. automodule:: cardea.benchmark.task
+   :members:
+   :undoc-members:
+   :show-inheritance:
