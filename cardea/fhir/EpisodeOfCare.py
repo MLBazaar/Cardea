@@ -8,7 +8,7 @@ class EpisodeOfCare(fhirbase):
     organization assumes a level of responsibility for the patient during
     this time.
 
-    Attributes:
+    Args:
         resourceType: This is a EpisodeOfCare resource
         identifier: The EpisodeOfCare may be known by different identifiers
             for different contexts of use, such as when an external agency is
@@ -168,7 +168,7 @@ class EpisodeOfCare_StatusHistory(fhirbase):
     organization assumes a level of responsibility for the patient during
     this time.
 
-    Attributes:
+    Args:
         status: planned | waitlist | active | onhold | finished | cancelled.
         period: The period during this EpisodeOfCare that the specific status
             applied.
@@ -220,7 +220,7 @@ class EpisodeOfCare_Diagnosis(fhirbase):
     organization assumes a level of responsibility for the patient during
     this time.
 
-    Attributes:
+    Args:
         condition: A list of conditions/problems/diagnoses that this episode
             of care is intended to be providing care for.
         role: Role that this diagnosis has within the episode of care (e.g.

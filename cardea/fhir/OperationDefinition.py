@@ -6,7 +6,7 @@ class OperationDefinition(fhirbase):
     A formal computable definition of an operation (on the RESTful
     interface) or a named query (using the search interaction).
 
-    Attributes:
+    Args:
         resourceType: This is a OperationDefinition resource
         url: An absolute URI that is used to identify this operation
             definition when it is referenced in a specification, model, design or
@@ -221,7 +221,7 @@ class OperationDefinition_Parameter(fhirbase):
     A formal computable definition of an operation (on the RESTful
     interface) or a named query (using the search interaction).
 
-    Attributes:
+    Args:
         name: The name of used to identify the parameter.
         use: Whether this is an input or an output parameter.
         min: The minimum number of times this parameter SHALL appear in the
@@ -340,7 +340,7 @@ class OperationDefinition_Binding(fhirbase):
     A formal computable definition of an operation (on the RESTful
     interface) or a named query (using the search interaction).
 
-    Attributes:
+    Args:
         strength: Indicates the degree of conformance expectations associated
             with this binding - that is, the degree to which the provided value
             set must be adhered to in the instances.
@@ -394,7 +394,7 @@ class OperationDefinition_Overload(fhirbase):
     A formal computable definition of an operation (on the RESTful
     interface) or a named query (using the search interaction).
 
-    Attributes:
+    Args:
         parameterName: Name of parameter to include in overload.
         comment: Comments to go on overload.
     """

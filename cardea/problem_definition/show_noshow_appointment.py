@@ -4,15 +4,21 @@ from cardea.problem_definition import ProblemDefinition
 
 
 class MissedAppointmentProblemDefinition (ProblemDefinition):
-    """Defines the problem of missed appointments,
-    whether the patient showed to the appointment or not.
+    """Defines the problem of missed appointment
 
-    Attributes:
-        target_label: The target label of the prediction problem.
-        target_entity: The entity name which contains the target label.
-        cutoff_time_label: The cutoff time label of the prediction problem.
-        cutoff_entity: Name of the entity containing the cutoff time label.
-        prediction_type: The type of the machine learning prediction.
+    Predict whether the patient will show to the appointment or not.
+
+    Args:
+        target_label_column_name (str):
+            The target label of the prediction problem.
+        target_entity (str):
+            Name of the entity containing the target label.
+        cutoff_time_label (str):
+            The cutoff time label of the prediction problem.
+        cutoff_entity (str):
+            Name of the entity containing the cutoff time label.
+        prediction_type (str):
+            The type of the machine learning prediction.
     """
     __name__ = 'mapp'
 
@@ -23,13 +29,17 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
     cutoff_entity = target_entity
 
     def generate_cutoff_times(self, entity_set):
-        """Generates cutoff times for the predection problem.
+        """Generates cutoff times for the prediction problem.
 
         Args:
-            entity_set: fhir entityset.
+            es (featuretools.EntitySet):
+                An EntitySet with the loaded data.
 
         Returns:
-            entity_set, target_entity and a dataframe of cutoff_times and target_labels
+            featuretools.EntitySet, str, pandas.DataFrame:
+                * An updated EntitySet if a new column is generated.
+                * A string indicating the selected target entity.
+                * A dataframe of cutoff times and their target labels.
 
         Raises:
             ValueError: An error occurs if the cutoff variable does not exist.

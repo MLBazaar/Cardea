@@ -6,7 +6,7 @@ class DeviceUseStatement(fhirbase):
     A record of a device being used by a patient where the record is the
     result of a report from the patient or another clinician.
 
-    Attributes:
+    Args:
         resourceType: This is a DeviceUseStatement resource
         identifier: An external identifier for this statement such as an IRI.
         status: A code representing the patient or other source's judgment

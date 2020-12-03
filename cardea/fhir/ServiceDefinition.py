@@ -7,7 +7,7 @@ class ServiceDefinition(fhirbase):
     functionality that is made available as a service, such as
     immunization modules or drug-drug interaction checking.
 
-    Attributes:
+    Args:
         resourceType: This is a ServiceDefinition resource
         url: An absolute URI that is used to identify this service definition
             when it is referenced in a specification, model, design or an

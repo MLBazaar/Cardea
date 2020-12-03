@@ -6,7 +6,7 @@ class Person(fhirbase):
     Demographics and administrative information about a person independent
     of a specific health-related context.
 
-    Attributes:
+    Args:
         resourceType: This is a Person resource
         identifier: Identifier for a person within a particular scope.
         name: A name associated with the person.
@@ -124,7 +124,7 @@ class Person_Link(fhirbase):
     Demographics and administrative information about a person independent
     of a specific health-related context.
 
-    Attributes:
+    Args:
         target: The resource to which this actual person is associated.
         assurance: Level of assurance that this link is actually associated
             with the target resource.

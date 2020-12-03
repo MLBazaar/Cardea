@@ -6,7 +6,7 @@ class Patient(fhirbase):
     Demographics and other administrative information about an individual
     or animal receiving care or other health-related services.
 
-    Attributes:
+    Args:
         resourceType: This is a Patient resource
         identifier: An identifier for this patient.
         active: Whether this patient record is in active use.
@@ -195,7 +195,7 @@ class Patient_Contact(fhirbase):
     Demographics and other administrative information about an individual
     or animal receiving care or other health-related services.
 
-    Attributes:
+    Args:
         relationship: The nature of the relationship between the patient and
             the contact person.
         name: A name associated with the contact person.
@@ -293,7 +293,7 @@ class Patient_Animal(fhirbase):
     Demographics and other administrative information about an individual
     or animal receiving care or other health-related services.
 
-    Attributes:
+    Args:
         species: Identifies the high level taxonomic categorization of the
             kind of animal.
         breed: Identifies the detailed categorization of the kind of animal.
@@ -344,7 +344,7 @@ class Patient_Communication(fhirbase):
     Demographics and other administrative information about an individual
     or animal receiving care or other health-related services.
 
-    Attributes:
+    Args:
         language: The ISO-639-1 alpha 2 code in lower case for the language,
             optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for
             the region in upper case; e.g. "en" for English, or "en-US" for
@@ -383,7 +383,7 @@ class Patient_Link(fhirbase):
     Demographics and other administrative information about an individual
     or animal receiving care or other health-related services.
 
-    Attributes:
+    Args:
         other: The other patient resource that the link refers to.
         type: The type of link between this patient resource and another
             patient resource.

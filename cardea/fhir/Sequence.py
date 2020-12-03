@@ -5,7 +5,7 @@ class Sequence(fhirbase):
     """
     Raw data describing a biological sequence.
 
-    Attributes:
+    Args:
         resourceType: This is a Sequence resource
         identifier: A unique identifier for this particular sequence instance.
             This is a FHIR-defined id.
@@ -179,7 +179,7 @@ class Sequence_ReferenceSeq(fhirbase):
     """
     Raw data describing a biological sequence.
 
-    Attributes:
+    Args:
         chromosome: Structural unit composed of a nucleic acid molecule which
             controls its own replication through the interaction of specific
             proteins at one or more origins of replication
@@ -264,7 +264,7 @@ class Sequence_Variant(fhirbase):
     """
     Raw data describing a biological sequence.
 
-    Attributes:
+    Args:
         start: Start position of the variant on the  reference sequence.If the
             coordinate system is either 0-based or 1-based, then start position is
             inclusive.
@@ -336,7 +336,7 @@ class Sequence_Quality(fhirbase):
     """
     Raw data describing a biological sequence.
 
-    Attributes:
+    Args:
         type: INDEL / SNP / Undefined variant.
         standardSequence: Gold standard sequence used for comparing against.
         start: Start position of the sequence. If the coordinate system is
@@ -463,7 +463,7 @@ class Sequence_Repository(fhirbase):
     """
     Raw data describing a biological sequence.
 
-    Attributes:
+    Args:
         type: Click and see / RESTful API / Need login to see / RESTful API
             with authentication / Other ways to see resource.
         url: URI of an external repository which contains further details

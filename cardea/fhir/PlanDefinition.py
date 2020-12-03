@@ -9,7 +9,7 @@ class PlanDefinition(fhirbase):
     artifacts such as clinical decision support rules, order sets and
     protocols.
 
-    Attributes:
+    Args:
         resourceType: This is a PlanDefinition resource
         url: An absolute URI that is used to identify this plan definition
             when it is referenced in a specification, model, design or an
@@ -274,7 +274,7 @@ class PlanDefinition_Goal(fhirbase):
     artifacts such as clinical decision support rules, order sets and
     protocols.
 
-    Attributes:
+    Args:
         category: Indicates a category the goal falls within.
         description: Human-readable and/or coded description of a specific
             desired objective of care, such as "control blood pressure" or
@@ -372,7 +372,7 @@ class PlanDefinition_Target(fhirbase):
     artifacts such as clinical decision support rules, order sets and
     protocols.
 
-    Attributes:
+    Args:
         measure: The parameter whose value is to be tracked, e.g. body weigth,
             blood pressure, or hemoglobin A1c level.
         detailQuantity: The target value of the measure to be achieved to
@@ -462,7 +462,7 @@ class PlanDefinition_Action(fhirbase):
     artifacts such as clinical decision support rules, order sets and
     protocols.
 
-    Attributes:
+    Args:
         label: A user-visible label for the action.
         title: The title of the action displayed to a user.
         description: A short description of the action used to provide a
@@ -820,7 +820,7 @@ class PlanDefinition_Condition(fhirbase):
     artifacts such as clinical decision support rules, order sets and
     protocols.
 
-    Attributes:
+    Args:
         kind: The kind of condition.
         description: A brief, natural language description of the condition
             that effectively communicates the intended semantics.
@@ -870,7 +870,7 @@ class PlanDefinition_RelatedAction(fhirbase):
     artifacts such as clinical decision support rules, order sets and
     protocols.
 
-    Attributes:
+    Args:
         actionId: The element id of the related action.
         relationship: The relationship of this action to the related action.
         offsetDuration: A duration or range of durations to apply to the
@@ -939,7 +939,7 @@ class PlanDefinition_Participant(fhirbase):
     artifacts such as clinical decision support rules, order sets and
     protocols.
 
-    Attributes:
+    Args:
         type: The type of participant in the action.
         role: The role the participant should play in performing the described
             action.
@@ -989,7 +989,7 @@ class PlanDefinition_DynamicValue(fhirbase):
     artifacts such as clinical decision support rules, order sets and
     protocols.
 
-    Attributes:
+    Args:
         description: A brief, natural language description of the intended
             semantics of the dynamic value.
         path: The path to the element to be customized. This is the path on

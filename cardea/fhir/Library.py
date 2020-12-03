@@ -8,7 +8,7 @@ class Library(fhirbase):
     knowledge assets such as logic libraries and information model
     descriptions, as well as to describe a collection of knowledge assets.
 
-    Attributes:
+    Args:
         resourceType: This is a Library resource
         url: An absolute URI that is used to identify this library when it is
             referenced in a specification, model, design or an instance. This

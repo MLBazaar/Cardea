@@ -6,7 +6,7 @@ class TestScript(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         resourceType: This is a TestScript resource
         url: An absolute URI that is used to identify this test script when it
             is referenced in a specification, model, design or an instance. This
@@ -272,7 +272,7 @@ class TestScript_Origin(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         index: Abstract name given to an origin server in this test script.
             The name is provided as a number starting at 1.
         profile: The type of origin profile the test system supports.
@@ -308,7 +308,7 @@ class TestScript_Destination(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         index: Abstract name given to a destination server in this test
             script.  The name is provided as a number starting at 1.
         profile: The type of destination profile the test system supports.
@@ -344,7 +344,7 @@ class TestScript_Metadata(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         link: A link to the FHIR specification that this test is covering.
         capability: Capabilities that must exist and are assumed to function
             correctly on the FHIR server being tested.
@@ -387,7 +387,7 @@ class TestScript_Link(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         url: URL to a particular requirement or feature within the FHIR
             specification.
         description: Short description of the link.
@@ -414,7 +414,7 @@ class TestScript_Capability(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         required: Whether or not the test execution will require the given
             capabilities of the server in order for this test script to execute.
         validated: Whether or not the test execution will validate the given
@@ -476,7 +476,7 @@ class TestScript_Fixture(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         autocreate: Whether or not to implicitly create the fixture during
             setup. If true, the fixture is automatically created on each server
             being tested during setup, therefore no create operation is required
@@ -522,7 +522,7 @@ class TestScript_Variable(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         name: Descriptive name for this variable.
         defaultValue: A default, hard-coded, or user-defined value for this
             variable.
@@ -581,7 +581,7 @@ class TestScript_Rule(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         resource: Reference to the resource (containing the contents of the
             rule needed for assertions).
         param: Each rule template can take one or more parameters for rule
@@ -624,7 +624,7 @@ class TestScript_Param(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         name: Descriptive name for this parameter that matches the external
             assert rule parameter name.
         value: The explicit or dynamic value for the parameter that will be
@@ -652,7 +652,7 @@ class TestScript_Ruleset(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         resource: Reference to the resource (containing the contents of the
             ruleset needed for assertions).
         rule: The referenced rule within the external ruleset template.
@@ -694,7 +694,7 @@ class TestScript_Rule1(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         ruleId: Id of the referenced rule within the external ruleset
             template.
         param: Each rule template can take one or more parameters for rule
@@ -732,7 +732,7 @@ class TestScript_Param1(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         name: Descriptive name for this parameter that matches the external
             assert ruleset rule parameter name.
         value: The value for the parameter that will be passed on to the
@@ -760,7 +760,7 @@ class TestScript_Setup(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         action: Action would contain either an operation or an assertion.
     """
 
@@ -792,7 +792,7 @@ class TestScript_Action(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         operation: The operation to perform.
         assert: Evaluates the results of previous operations to determine if
             the server under test behaves appropriately.
@@ -833,7 +833,7 @@ class TestScript_Operation(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         type: Server interaction or operation type.
         resource: The type of the resource.  See
             http://build.fhir.org/resourcelist.html.
@@ -991,7 +991,7 @@ class TestScript_RequestHeader(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         field: The HTTP header field e.g. "Accept".
         value: The value of the header e.g. "application/fhir+xml".
     """
@@ -1017,7 +1017,7 @@ class TestScript_Assert(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         label: The label would be used for tracking/logging purposes by test
             engines.
         description: The description would be used by test engines for
@@ -1259,7 +1259,7 @@ class TestScript_Rule2(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         ruleId: The TestScript.rule id value this assert will evaluate.
         param: Each rule template can take one or more parameters for rule
             evaluation.
@@ -1296,7 +1296,7 @@ class TestScript_Param2(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         name: Descriptive name for this parameter that matches the external
             assert rule parameter name.
         value: The value for the parameter that will be passed on to the
@@ -1324,7 +1324,7 @@ class TestScript_Ruleset1(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         rulesetId: The TestScript.ruleset id value this assert will evaluate.
         rule: The referenced rule within the external ruleset template.
     """
@@ -1360,7 +1360,7 @@ class TestScript_Rule3(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         ruleId: Id of the referenced rule within the external ruleset
             template.
         param: Each rule template can take one or more parameters for rule
@@ -1398,7 +1398,7 @@ class TestScript_Param3(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         name: Descriptive name for this parameter that matches the external
             assert ruleset rule parameter name.
         value: The value for the parameter that will be passed on to the
@@ -1426,7 +1426,7 @@ class TestScript_Test(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         name: The name of this test used for tracking/logging purposes by test
             engines.
         description: A short description of the test used by test engines for
@@ -1468,7 +1468,7 @@ class TestScript_Action1(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         operation: An operation would involve a REST request to a server.
         assert: Evaluates the results of previous operations to determine if
             the server under test behaves appropriately.
@@ -1509,7 +1509,7 @@ class TestScript_Teardown(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         action: The teardown action will only contain an operation.
     """
 
@@ -1541,7 +1541,7 @@ class TestScript_Action2(fhirbase):
     A structured set of tests against a FHIR server implementation to
     determine compliance against the FHIR specification.
 
-    Attributes:
+    Args:
         operation: An operation would involve a REST request to a server.
     """
 

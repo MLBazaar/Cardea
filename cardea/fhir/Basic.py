@@ -8,7 +8,7 @@ class Basic(fhirbase):
     custom resources not appropriate for inclusion in the FHIR
     specification.
 
-    Attributes:
+    Args:
         resourceType: This is a Basic resource
         identifier: Identifier assigned to the resource for business purposes,
             outside the context of FHIR.

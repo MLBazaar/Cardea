@@ -7,7 +7,7 @@ class DeviceRequest(fhirbase):
     device may be an implantable device, or an external assistive device,
     such as a walker.
 
-    Attributes:
+    Args:
         resourceType: This is a DeviceRequest resource
         identifier: Identifiers assigned to this order by the orderer or by
             the receiver.
@@ -265,7 +265,7 @@ class DeviceRequest_Requester(fhirbase):
     device may be an implantable device, or an external assistive device,
     such as a walker.
 
-    Attributes:
+    Args:
         agent: The device, practitioner, etc. who initiated the request.
         onBehalfOf: The organization the device or practitioner was acting on
             behalf of.

@@ -10,7 +10,7 @@ class MedicationRequest(fhirbase):
     across inpatient and outpatient settings, including care plans, etc.,
     and to harmonize with workflow patterns.
 
-    Attributes:
+    Args:
         resourceType: This is a MedicationRequest resource
         identifier: This records identifiers associated with this medication
             request that are defined by business processes and/or used to refer to
@@ -326,7 +326,7 @@ class MedicationRequest_Requester(fhirbase):
     across inpatient and outpatient settings, including care plans, etc.,
     and to harmonize with workflow patterns.
 
-    Attributes:
+    Args:
         agent: The healthcare professional responsible for authorizing the
             initial prescription.
         onBehalfOf: The organization the device or practitioner was acting on
@@ -372,7 +372,7 @@ class MedicationRequest_DispenseRequest(fhirbase):
     across inpatient and outpatient settings, including care plans, etc.,
     and to harmonize with workflow patterns.
 
-    Attributes:
+    Args:
         validityPeriod: This indicates the validity period of a prescription
             (stale dating the Prescription).
         numberOfRepeatsAllowed: An integer indicating the number of times, in
@@ -448,7 +448,7 @@ class MedicationRequest_Substitution(fhirbase):
     across inpatient and outpatient settings, including care plans, etc.,
     and to harmonize with workflow patterns.
 
-    Attributes:
+    Args:
         allowed: True if the prescriber allows a different drug to be
             dispensed from what was prescribed.
         reason: Indicates the reason for the substitution, or why substitution

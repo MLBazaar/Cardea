@@ -8,7 +8,7 @@ class Endpoint(fhirbase):
     for another FHIR server. This may include any security context
     information.
 
-    Attributes:
+    Args:
         resourceType: This is a Endpoint resource
         identifier: Identifier for the organization that is used to identify
             the endpoint across multiple disparate systems.

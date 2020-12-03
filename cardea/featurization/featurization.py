@@ -24,14 +24,23 @@ class Featurization():
 
     def generate_feature_matrix(self, es, target, cutoff, verbose=True):
         """Calculates a feature matrix and features given in Featurization object.
-            Args:
-            es: A featuretools entityset that holds injested data.
-            target: A string of the target entity name.
-            cutoff: A pandas dataframe that indicates cutoff_time for each instance.
-            verbose: A boolean indicator of verbose option.
-            Returns:
-            A pandas dataframe of the calculated matrix.
-            """
+
+          Args:
+            es (featuretools.EntitySet):
+              An already initialized entityset. Required if entities and relationships
+              are not defined.
+            target (str):
+              A string of the target entity name.
+            cutoff (pandas.DataFrame):
+              Specified times at which to calculate the features for each instance.
+            verbose (bool):
+              An indicator of verbose option.
+
+          Returns:
+            pandas.DataFrame, list:
+              * The generated feature matrix.
+              * List of feature definitions in the feature matrix.
+        """
 
         feature_matrix, features_defs = ft.dfs(entityset=es,
                                                target_entity=target,

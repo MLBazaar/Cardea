@@ -7,7 +7,7 @@ class ReferralRequest(fhirbase):
     or transfer of a patient to the care of another provider or provider
     organization.
 
-    Attributes:
+    Args:
         resourceType: This is a ReferralRequest resource
         identifier: Business identifier that uniquely identifies the
             referral/care transfer request instance.
@@ -265,7 +265,7 @@ class ReferralRequest_Requester(fhirbase):
     or transfer of a patient to the care of another provider or provider
     organization.
 
-    Attributes:
+    Args:
         agent: The device, practitioner, etc. who initiated the request.
         onBehalfOf: The organization the device or practitioner was acting on
             behalf of.

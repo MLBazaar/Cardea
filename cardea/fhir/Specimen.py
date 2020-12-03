@@ -5,7 +5,7 @@ class Specimen(fhirbase):
     """
     A sample to be used for analysis.
 
-    Attributes:
+    Args:
         resourceType: This is a Specimen resource
         identifier: Id for specimen.
         accessionIdentifier: The identifier assigned by the lab when
@@ -156,7 +156,7 @@ class Specimen_Collection(fhirbase):
     """
     A sample to be used for analysis.
 
-    Attributes:
+    Args:
         collector: Person who collected the specimen.
         collectedDateTime: Time when specimen was collected from subject - the
             physiologically relevant time.
@@ -233,7 +233,7 @@ class Specimen_Processing(fhirbase):
     """
     A sample to be used for analysis.
 
-    Attributes:
+    Args:
         description: Textual description of procedure.
         procedure: A coded value specifying the procedure used to process the
             specimen.
@@ -295,7 +295,7 @@ class Specimen_Container(fhirbase):
     """
     A sample to be used for analysis.
 
-    Attributes:
+    Args:
         identifier: Id for container. There may be multiple; a manufacturer's
             bar code, lab assigned identifier, etc. The container ID may differ
             from the specimen id in some circumstances.

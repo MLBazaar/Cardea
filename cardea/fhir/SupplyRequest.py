@@ -6,7 +6,7 @@ class SupplyRequest(fhirbase):
     A record of a request for a medication, substance or device used in
     the healthcare setting.
 
-    Attributes:
+    Args:
         resourceType: This is a SupplyRequest resource
         identifier: Unique identifier for this supply request.
         status: Status of the supply request.
@@ -163,7 +163,7 @@ class SupplyRequest_OrderedItem(fhirbase):
     A record of a request for a medication, substance or device used in
     the healthcare setting.
 
-    Attributes:
+    Args:
         quantity: The amount that is being ordered of the indicated item.
         itemCodeableConcept: The item that is requested to be supplied. This
             is either a link to a resource representing the details of the item or
@@ -216,7 +216,7 @@ class SupplyRequest_Requester(fhirbase):
     A record of a request for a medication, substance or device used in
     the healthcare setting.
 
-    Attributes:
+    Args:
         agent: The device, practitioner, etc. who initiated the request.
         onBehalfOf: The organization the device or practitioner was acting on
             behalf of.

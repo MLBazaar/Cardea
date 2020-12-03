@@ -11,7 +11,7 @@ class Composition(fhirbase):
     content: rather the full content of a document is contained in a
     Bundle, of which the Composition is the first resource contained.
 
-    Attributes:
+    Args:
         resourceType: This is a Composition resource
         identifier: Logical identifier for the composition, assigned when
             created. This identifier stays constant as the composition is changed
@@ -191,7 +191,7 @@ class Composition_Attester(fhirbase):
     content: rather the full content of a document is contained in a
     Bundle, of which the Composition is the first resource contained.
 
-    Attributes:
+    Args:
         mode: The type of attestation the authenticator offers.
         time: When the composition was attested by the party.
         party: Who attested the composition in the specified way.
@@ -246,7 +246,7 @@ class Composition_RelatesTo(fhirbase):
     content: rather the full content of a document is contained in a
     Bundle, of which the Composition is the first resource contained.
 
-    Attributes:
+    Args:
         code: The type of relationship that this composition has with anther
             composition or document.
         targetIdentifier: The target composition/document of this
@@ -297,7 +297,7 @@ class Composition_Event(fhirbase):
     content: rather the full content of a document is contained in a
     Bundle, of which the Composition is the first resource contained.
 
-    Attributes:
+    Args:
         code: This list of codes represents the main clinical acts, such as a
             colonoscopy or an appendectomy, being documented. In some cases, the
             event is inherent in the typeCode, such as a "History and Physical
@@ -361,7 +361,7 @@ class Composition_Section(fhirbase):
     content: rather the full content of a document is contained in a
     Bundle, of which the Composition is the first resource contained.
 
-    Attributes:
+    Args:
         title: The label for this particular section.  This will be part of
             the rendered content for the document, and is often used to build a
             table of contents.

@@ -5,7 +5,7 @@ class ExpansionProfile(fhirbase):
     """
     Resource to define constraints on the Expansion of a FHIR ValueSet.
 
-    Attributes:
+    Args:
         resourceType: This is a ExpansionProfile resource
         url: An absolute URI that is used to identify this expansion profile
             when it is referenced in a specification, model, design or an
@@ -215,7 +215,7 @@ class ExpansionProfile_FixedVersion(fhirbase):
     """
     Resource to define constraints on the Expansion of a FHIR ValueSet.
 
-    Attributes:
+    Args:
         system: The specific system for which to fix the version.
         version: The version of the code system from which codes in the
             expansion should be included.
@@ -258,7 +258,7 @@ class ExpansionProfile_ExcludedSystem(fhirbase):
     """
     Resource to define constraints on the Expansion of a FHIR ValueSet.
 
-    Attributes:
+    Args:
         system: An absolute URI which is the code system to be excluded.
         version: The version of the code system from which codes in the
             expansion should be excluded.
@@ -284,7 +284,7 @@ class ExpansionProfile_Designation(fhirbase):
     """
     Resource to define constraints on the Expansion of a FHIR ValueSet.
 
-    Attributes:
+    Args:
         include: Designations to be included.
         exclude: Designations to be excluded.
     """
@@ -323,7 +323,7 @@ class ExpansionProfile_Include(fhirbase):
     """
     Resource to define constraints on the Expansion of a FHIR ValueSet.
 
-    Attributes:
+    Args:
         designation: A data group for each designation to be included.
     """
 
@@ -354,7 +354,7 @@ class ExpansionProfile_Designation1(fhirbase):
     """
     Resource to define constraints on the Expansion of a FHIR ValueSet.
 
-    Attributes:
+    Args:
         language: The language this designation is defined for.
         use: Which kinds of designation to include in the expansion.
     """
@@ -388,7 +388,7 @@ class ExpansionProfile_Exclude(fhirbase):
     """
     Resource to define constraints on the Expansion of a FHIR ValueSet.
 
-    Attributes:
+    Args:
         designation: A data group for each designation to be excluded.
     """
 
@@ -419,7 +419,7 @@ class ExpansionProfile_Designation2(fhirbase):
     """
     Resource to define constraints on the Expansion of a FHIR ValueSet.
 
-    Attributes:
+    Args:
         language: The language this designation is defined for.
         use: Which kinds of designation to exclude from the expansion.
     """

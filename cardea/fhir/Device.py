@@ -12,7 +12,7 @@ class Device(fhirbase):
     healthcare and public health.  Non-medical devices may include items
     such as a machine, cellphone, computer, application, etc.
 
-    Attributes:
+    Args:
         resourceType: This is a Device resource
         identifier: Unique instance identifiers assigned to a device by
             manufacturers other organizations or owners.
@@ -181,7 +181,7 @@ class Device_Udi(fhirbase):
     healthcare and public health.  Non-medical devices may include items
     such as a machine, cellphone, computer, application, etc.
 
-    Attributes:
+    Args:
         deviceIdentifier: The device identifier (DI) is a mandatory, fixed
             portion of a UDI that identifies the labeler and the specific version
             or model of a device.

@@ -6,7 +6,7 @@ class Linkage(fhirbase):
     Identifies two or more records (resource instances) that are referring
     to the same real-world "occurrence".
 
-    Attributes:
+    Args:
         resourceType: This is a Linkage resource
         active: Indicates whether the asserted set of linkages are considered
             to be "in effect".
@@ -62,7 +62,7 @@ class Linkage_Item(fhirbase):
     Identifies two or more records (resource instances) that are referring
     to the same real-world "occurrence".
 
-    Attributes:
+    Args:
         type: Distinguishes which item is "source of truth" (if any) and which
             items are no longer considered to be current representations.
         resource: The resource instance being linked as part of the group.

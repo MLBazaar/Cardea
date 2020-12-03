@@ -5,7 +5,7 @@ class TriggerDefinition(fhirbase):
     """
     A description of a triggering event.
 
-    Attributes:
+    Args:
         type: The type of triggering event.
         eventName: The name of the event (if this is a named-event trigger).
         eventTimingTiming: The timing of the event (if this is a period

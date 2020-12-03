@@ -7,7 +7,7 @@ class NamingSystem(fhirbase):
     for the identification of concepts, people, devices, etc.  Represents
     a "System" used within the Identifier and Coding data types.
 
-    Attributes:
+    Args:
         resourceType: This is a NamingSystem resource
         name: A natural language name identifying the naming system. This name
             should be usable as an identifier for the module by machine processing
@@ -166,7 +166,7 @@ class NamingSystem_UniqueId(fhirbase):
     for the identification of concepts, people, devices, etc.  Represents
     a "System" used within the Identifier and Coding data types.
 
-    Attributes:
+    Args:
         type: Identifies the unique identifier scheme used for this particular
             identifier.
         value: The string that should be sent over the wire to identify the
