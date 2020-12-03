@@ -1,0 +1,35 @@
+{
+    "name": "cardea.primitives.one_hot_encoder.OneHotEncoder",
+    "contributors": ["Furui Cheng <furui@mit.edu>"],
+    "description": "Imputation transformer for completing missing values.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "transformer"
+    },
+    "modalities": [],
+    "primitive": "cardea.primitives.processing.OneHotEncoder",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    }
+}

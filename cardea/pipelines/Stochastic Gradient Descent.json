@@ -1,0 +1,21 @@
+{
+    "primitives": [
+        "cardea.primitives.processing.Pruner",
+        "cardea.primitives.processing.Imputer",
+        "cardea.primitives.processing.OneHotEncoder",
+        "sklearn.preprocessing.MinMaxScaler",
+        "cardea.primitives.processing.Categorizer",
+        "sklearn.linear_model.SGDClassifier",
+        "cardea.primitives.processing.Decategorizer"
+    ],
+    "input_names": {
+        "sklearn.linear_model.SGDClassifier#1": {
+            "y": "y_codes"
+        }
+    },
+    "output_names": {
+        "sklearn.linear_model.SGDClassifier#1": {
+            "y": "y_codes"
+        }
+    }
+}

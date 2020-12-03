@@ -5,6 +5,7 @@ include LICENSE
 include README.md
 
 recursive-include cardea *.xml
+recursive-include cardea *.json
 
 recursive-include tests *
 recursive-exclude * __pycache__
