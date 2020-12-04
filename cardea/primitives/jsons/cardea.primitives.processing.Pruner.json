@@ -1,0 +1,35 @@
+{
+    "name": "cardea.primitives.processing.Pruner",
+    "contributors": ["Furui Cheng <furui@mit.edu>"],
+    "description": "Prune identifier columns, columns with numerous tokens (>100) and columns with low information.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "transformer"
+    },
+    "modalities": [],
+    "primitive": "cardea.primitives.processing.Pruner",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    }
+}

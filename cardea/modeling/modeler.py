@@ -1,9 +1,10 @@
-
+import copy
 import os
 
 import hyperopt
 import mlblocks
 import numpy as np
+import pandas as pd
 from hyperopt import STATUS_OK, Trials, base, fmin, hp, tpe
 from mlblocks import MLPipeline
 from sklearn import metrics
@@ -59,9 +60,9 @@ class Modeler():
         for primitive in primitives:
             mypath = mypath + '/'
             primitive_file_name = primitive + '.json'
-            if(mypath in primitive and os.path.exists(primitive_file_name)):
+            if (mypath in primitive and os.path.exists(primitive_file_name)):
                 new_list.append(primitive)
-            elif(os.path.exists(mypath + primitive_file_name)):
+            elif (os.path.exists(mypath + primitive_file_name)):
                 new_list.append(mypath + primitive)
         if new_list == []:
             raise ValueError(primitives, 'is not found in MLprimitives.')
@@ -85,9 +86,9 @@ class Modeler():
             mypath = mypath + '/'
             primitive_file_name = hyperparameter + '.json'
 
-            if(mypath in hyperparameter and os.path.exists(primitive_file_name)):
+            if (mypath in hyperparameter and os.path.exists(primitive_file_name)):
                 new_list[hyperparameter] = hyperparameters[hyperparameter]
-            elif(os.path.exists(mypath + hyperparameter + ".json")):
+            elif (os.path.exists(mypath + hyperparameter + ".json")):
                 new_list[mypath + hyperparameter] = hyperparameters[hyperparameter]
         if new_list == {}:
             raise ValueError(list(hyperparameters_keys), 'is not found in MLprimitives.')
@@ -125,7 +126,6 @@ class Modeler():
         Returns:
             A list consists of the used pipeline and an array of the predicted values.
         """
-
         pipeline.fit(X_train, y_train)
         y_pred = pipeline.predict(X_test)
         return y_pred
@@ -164,13 +164,14 @@ class Modeler():
         """
         pipeline_list = []
         kf = KFold(n_splits=10, random_state=None, shuffle=True)
+        self.data_frame = pd.DataFrame(self.data_frame)
         i = 0
 
         for train_index, test_index in kf.split(self.data_frame):
             predict_result = []
 
-            X_train = self.data_frame[train_index]
-            X_test = self.data_frame[test_index]
+            X_train = self.data_frame.loc[train_index]
+            X_test = self.data_frame.loc[test_index]
             y_train = self.target[train_index]
             y_test = self.target[test_index]
 
@@ -214,19 +215,24 @@ class Modeler():
         Folds = {}
 
         kf = KFold(n_splits=10, random_state=None, shuffle=True)
+        data_frame = pd.DataFrame(data_frame)
 
         for train_index, test_index in kf.split(data_frame):
-            X_train = data_frame[train_index]
-            X_test = data_frame[test_index]
+            X_train = data_frame.loc[train_index]
+            X_test = data_frame.loc[test_index]
             y_train = target[train_index]
             y_test = target[test_index]
             number_of_folds = number_of_folds + 1
             # Append the predicted labels.
-            y_predict = self.fit_predict_model(X_train, y_train, X_test, pipeline)
+            # TODO: use MLPipeline(pipeline) to copy a pipeline with MLBlocks >= 0.3.4
+            fold_pipeline = copy.deepcopy(pipeline)
+            y_predict = self.fit_predict_model(X_train, y_train, X_test, fold_pipeline)
 
             Folds[str(number_of_folds)] = {
                 "predicted": y_predict,
-                "Actual": y_test
+                "Actual": y_test,
+                "pipeline": copy.deepcopy(fold_pipeline),
+                "test_index": test_index
             }
 
             if self.problem_type == 'regression':
@@ -269,14 +275,14 @@ class Modeler():
 
             for hyperparameter in tunable_hyperparameters:
                 hp_type = list(tunable_hyperparameters[hyperparameter].keys())
-                if('values' in hp_type):
+                if ('values' in hp_type):
                     value = tunable_hyperparameters[hyperparameter]['values']
                     space[hyperparameter] = hp.choice(hyperparameter, value)
-                elif('range' in hp_type):
+                elif ('range' in hp_type):
                     value = tunable_hyperparameters[hyperparameter]['range']
-                    if(tunable_hyperparameters[hyperparameter]['type'] == 'float'):
+                    if (tunable_hyperparameters[hyperparameter]['type'] == 'float'):
                         values = np.linspace(value[0], value[1], 10)
-                        if(tunable_hyperparameters[hyperparameter]['default'] is None):
+                        if (tunable_hyperparameters[hyperparameter]['default'] is None):
                             np.append(values, None)
                         space[hyperparameter] = hp.choice(
                             hyperparameter, values)
@@ -284,20 +290,20 @@ class Modeler():
                         space[hyperparameter] = hp.choice(hyperparameter, value)
                     else:
                         values = np.arange(value[0], value[1], 1)
-                        if(tunable_hyperparameters[hyperparameter]['default'] is None):
+                        if (tunable_hyperparameters[hyperparameter]['default'] is None):
                             np.append(values, None)
                         space[hyperparameter] = hp.choice(
                             hyperparameter, values)
-                elif(tunable_hyperparameters[hyperparameter]['type'] == 'bool'):
+                elif (tunable_hyperparameters[hyperparameter]['type'] == 'bool'):
                     space[hyperparameter] = hp.choice(hyperparameter, [True, False])
 
             space_list[primitive] = space
-            if(space_list == {}):
+            if (space_list == {}):
                 raise Exception('Can not create the domain Space.\
                     The value of tunnable hyperparameters is: {}')
         return space_list
 
-    def hyperopt_train_test(self, params):
+    def hyperopt_train_test(self, params, pipeline=None):
         """Creates the objective function to minimize.
 
         Args:
@@ -306,14 +312,14 @@ class Modeler():
         Returns:
             The the model secore after K-fold corss-validation.
         """
-
-        pipeline = self.create_pipeline(self.primitive, params)
+        if pipeline is None:
+            pipeline = self.create_pipeline(self.primitive, params)
 
         return self.kfold_scoring(self.data_frame, self.target, pipeline)
 
-    def objective(self, params):
+    def objective(self, params, pipeline=None):
 
-        accuracy = self.hyperopt_train_test(params)
+        accuracy = self.hyperopt_train_test(params, pipeline)
         if not self.minimize_cost:
             accuracy = -accuracy
         return {'loss': accuracy, 'status': STATUS_OK}
@@ -332,7 +338,7 @@ class Modeler():
 
         trials = Trials()
         best = fmin(
-            self.objective,
+            lambda param: self.objective(param, pipeline),
             space,
             algo=tpe.suggest,
             max_evals=max_evals,
@@ -352,6 +358,7 @@ class Modeler():
         hyperparameter = self.hyperparameter_tunning(pipeline, max_evals)
         self.pipeline_dict['hyperparameter'] = hyperparameter
 
+    # TODO: remove this function in a later version
     def execute_pipeline(self, data_frame, target, primitives_list, problem_type,
                          optimize=False, max_evals=10, scoring=None,
                          minimize_cost=False, hyperparameters=None):
@@ -388,7 +395,7 @@ class Modeler():
         self.data_frame = data_frame
         self.problem_type = problem_type
         self.minimize_cost = minimize_cost
-        if(not isinstance(target, np.ndarray)):
+        if (not isinstance(target, np.ndarray)):
             target = np.asarray(target)
         self.target = target
 
@@ -397,7 +404,7 @@ class Modeler():
 
             pipleline_order = "pipeline" + str(index)
 
-            if(optimize):
+            if (optimize):
                 self.primitive = primitives
                 self.pipeline_dict['primitives'] = primitives
                 pipeline = self.create_pipeline(primitives)
@@ -417,5 +424,83 @@ class Modeler():
                                       'hyperparameter': None}
 
             all_pipeline_dict[pipleline_order] = self.pipeline_dict
+            self.pipeline_dict = {}
+        return all_pipeline_dict
+
+    def create_kfold_from_pipeline(self, pipeline):
+        """Creates Kfold cross-validation and predicts all the primitives within the pipeline.
+
+        Args:
+            pipeline: A MLPipeline instance.
+
+        Returns:
+            Prediction results and trained models of each fold stored in a dictionary.
+        """
+        fold_dict = {}
+        kf = KFold(n_splits=10, random_state=None, shuffle=True)
+        self.data_frame = pd.DataFrame(self.data_frame)
+
+        for i, (train_index, test_index) in enumerate(kf.split(self.data_frame)):
+            fold_pipeline = copy.deepcopy(pipeline)
+
+            X_train = self.data_frame.loc[train_index]
+            X_test = self.data_frame.loc[test_index]
+            y_train = self.target[train_index]
+            y_test = self.target[test_index]
+
+            # Append the predicted labels.
+            y_predict = self.fit_predict_model(X_train, y_train, X_test, fold_pipeline)
+            fold_dict[str(i)] = {"predicted": y_predict, "Actual": y_test,
+                                 "pipeline": copy.deepcopy(fold_pipeline),
+                                 "test_index": test_index}
+
+        return fold_dict
+
+    def execute_pipeline_from_pipeline(self, data_frame, target, pipelines, problem_type,
+                                       optimize=False, max_evals=10, scoring=None,
+                                       minimize_cost=False):
+        """Executes and predict all the pipelines.
+
+        Args:
+            data_frame: A dataframe, which encapsulates all the records of that entity.
+            target: An array of labels for the target variable.
+            pipelines: A list of MLPipeline instances.
+            problem_type: A label to specify the type of problem whether
+            regression or classification.
+            optimize: A boolean value which indicates whether to optimize the model or not.
+            max_evals: Maximum number of hyperparameter evaluations.
+            scoring: A label to specify the scoring function.
+            minimize_cost: A boolean value indicating whether to get minimum or maximum cost value.
+
+        Returns:
+            A list for all the pipelines which consists of: the fold number, the used pipeline
+            and an array of the predicted values and an array of the actual values.
+        """
+        all_pipeline_dict = {}
+        self.scoring = scoring
+        self.data_frame = data_frame
+        self.problem_type = problem_type
+        self.minimize_cost = minimize_cost
+        if not isinstance(target, np.ndarray):
+            target = np.asarray(target)
+        self.target = target
+
+        for index, pipeline in enumerate(pipelines):
+            pipleline_order = "pipeline" + str(index)
+
+            if optimize:
+                self.optimization(pipeline, max_evals)
+                # TODO: Pass training results in function returns instead of class attributes
+                pipeline_dict = self.pipeline_dict
+
+            else:
+                fold_dict = self.create_kfold_from_pipeline(pipeline)
+                pipeline_dict = {
+                    'primitives': pipeline.primitives,
+                    'folds': fold_dict,
+                    'hyperparameters': None
+                }
+
+            all_pipeline_dict[pipleline_order] = pipeline_dict
             self.pipeline_dict = {}
         return all_pipeline_dict
