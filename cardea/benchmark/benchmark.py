@@ -376,11 +376,11 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, pro
 
     start = datetime.utcnow()
     try:
-        pipelines_res = modeler.execute_pipeline_from_pipeline(features, target, [pipeline],
-                                                               PROBLEM_TYPE[problem_name],
-                                                               optimize=optimize,
-                                                               minimize_cost=False, scoring='f1',
-                                                               max_evals=10)
+        pipelines_res = modeler.execute_pipeline(features, target, [pipeline],
+                                                 PROBLEM_TYPE[problem_name],
+                                                 optimize=optimize,
+                                                 minimize_cost=False, scoring='f1',
+                                                 max_evals=10)
         elapsed = datetime.utcnow() - start
         hyperparameters = pipelines_res['pipeline0'].get('hyperparameter', None)
         models = [{"pipeline": fold['pipeline'], "test_index": fold["test_index"]}
