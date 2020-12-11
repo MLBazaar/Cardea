@@ -1,12 +1,8 @@
 from btb.session import BTBSession
-import hyperopt
 import numpy as np
 import sklearn
-from hyperopt import Trials, base, fmin, hp, tpe
 from mlblocks import MLPipeline
 from sklearn.model_selection import KFold
-
-base.have_bson = False
 
 
 class Modeler:
@@ -141,74 +137,6 @@ class Modeler:
             score = -score
 
         return score
-
-    # TODO: remove this function in the future version
-    def _create_space(self, pipeline):
-        """Creates the search space.
-        Args:
-            pipeline: A MLPipeline instance.
-        Raises:
-        Exception: If the value of tunnable hyperparameters is empty.
-        Returns:
-            A dictionary of the space over which to search.
-        """
-        space = {}
-        space_list = {}
-        for primitive, block in pipeline.blocks.items():
-            space = {}
-
-            tunable_hyperparameters = block.get_tunable_hyperparameters()
-
-            for hyperparameter in tunable_hyperparameters:
-                hp_type = list(tunable_hyperparameters[hyperparameter].keys())
-                if ('values' in hp_type):
-                    value = tunable_hyperparameters[hyperparameter]['values']
-                    space[hyperparameter] = hp.choice(hyperparameter, value)
-                elif ('range' in hp_type):
-                    value = tunable_hyperparameters[hyperparameter]['range']
-                    if (tunable_hyperparameters[hyperparameter]['type'] == 'float'):
-                        values = np.linspace(value[0], value[1], 10)
-                        if (tunable_hyperparameters[hyperparameter]['default'] is None):
-                            np.append(values, None)
-                        space[hyperparameter] = hp.choice(
-                            hyperparameter, values)
-                    elif (tunable_hyperparameters[hyperparameter]['type'] == 'str'):
-                        space[hyperparameter] = hp.choice(hyperparameter, value)
-                    else:
-                        values = np.arange(value[0], value[1], 1)
-                        if (tunable_hyperparameters[hyperparameter]['default'] is None):
-                            np.append(values, None)
-                        space[hyperparameter] = hp.choice(
-                            hyperparameter, values)
-                elif (tunable_hyperparameters[hyperparameter]['type'] == 'bool'):
-                    space[hyperparameter] = hp.choice(hyperparameter, [True, False])
-
-            space_list[primitive] = space
-            if (space_list == {}):
-                raise Exception('Can not create the domain Space.\
-                    The value of tunnable hyperparameters is: {}')
-        return space_list
-
-    # TODO: remove this function in the future version
-    def _optimize_with_hyperopt(self, pipeline):
-        """Tuens and optimize the models' hyperparameter.
-
-        Args:
-            pipeline: A MLPipeline instance.
-            max_evals: Maximum number of hyperparameter evaluations.
-        """
-        space = self._create_space(pipeline)
-
-        trials = Trials()
-        best = fmin(
-            lambda param: self._cross_validate(param, pipeline),
-            space,
-            algo=tpe.suggest,
-            max_evals=self.max_evals,
-            catch_eval_exceptions=False,
-            trials=trials)
-
-        return hyperopt.space_eval(space, best)
 
     def _optimize_with_btb(self, pipeline):
         """Optimize the pipeline's hyperparameters.
