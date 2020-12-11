@@ -6,7 +6,7 @@ class AllergyIntolerance(fhirbase):
     Risk of harmful or undesirable, physiological response which is unique
     to an individual and associated with exposure to a substance.
 
-    Attributes:
+    Args:
         resourceType: This is a AllergyIntolerance resource
         identifier: This records identifiers associated with this
             allergy/intolerance concern that are defined by business processes
@@ -229,7 +229,7 @@ class AllergyIntolerance_Reaction(fhirbase):
     Risk of harmful or undesirable, physiological response which is unique
     to an individual and associated with exposure to a substance.
 
-    Attributes:
+    Args:
         substance: Identification of the specific substance (or pharmaceutical
             product) considered to be responsible for the Adverse Reaction event.
             Note: the substance for a specific reaction may be different from the

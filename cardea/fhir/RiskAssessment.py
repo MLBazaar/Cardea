@@ -6,7 +6,7 @@ class RiskAssessment(fhirbase):
     An assessment of the likely outcome(s) for a patient or other subject
     as well as the likelihood of each outcome.
 
-    Attributes:
+    Args:
         resourceType: This is a RiskAssessment resource
         identifier: Business identifier assigned to the risk assessment.
         basedOn: A reference to the request that is fulfilled by this risk
@@ -184,7 +184,7 @@ class RiskAssessment_Prediction(fhirbase):
     An assessment of the likely outcome(s) for a patient or other subject
     as well as the likelihood of each outcome.
 
-    Attributes:
+    Args:
         outcome: One of the potential outcomes for the patient (e.g.
             remission, death,  a particular condition).
         probabilityDecimal: How likely is the outcome (in the specified

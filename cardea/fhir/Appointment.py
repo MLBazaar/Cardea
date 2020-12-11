@@ -7,7 +7,7 @@ class Appointment(fhirbase):
     related person(s) and/or device(s) for a specific date/time. This may
     result in one or more Encounter(s).
 
-    Attributes:
+    Args:
         resourceType: This is a Appointment resource
         identifier: This records identifiers associated with this appointment
             concern that are defined by business processes and/or used to refer to
@@ -231,7 +231,7 @@ class Appointment_Participant(fhirbase):
     related person(s) and/or device(s) for a specific date/time. This may
     result in one or more Encounter(s).
 
-    Attributes:
+    Args:
         type: Role of participant in the appointment.
         actor: A Person, Location/HealthcareService or Device that is
             participating in the appointment.

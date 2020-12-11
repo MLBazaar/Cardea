@@ -6,7 +6,7 @@ class DocumentManifest(fhirbase):
     A collection of documents compiled for a purpose together with
     metadata that applies to the collection.
 
-    Attributes:
+    Args:
         resourceType: This is a DocumentManifest resource
         masterIdentifier: A single identifier that uniquely identifies this
             manifest. Principally used to refer to the manifest in non-FHIR
@@ -152,7 +152,7 @@ class DocumentManifest_Content(fhirbase):
     A collection of documents compiled for a purpose together with
     metadata that applies to the collection.
 
-    Attributes:
+    Args:
         pAttachment: The list of references to document content, or Attachment
             that consist of the parts of this document manifest. Usually, these
             would be document references, but direct references to Media or
@@ -198,7 +198,7 @@ class DocumentManifest_Related(fhirbase):
     A collection of documents compiled for a purpose together with
     metadata that applies to the collection.
 
-    Attributes:
+    Args:
         identifier: Related identifier to this DocumentManifest.  For example,
             Order numbers, accession numbers, XDW workflow numbers.
         ref: Related Resource to this DocumentManifest. For example, Order,

@@ -6,7 +6,7 @@ class Observation(fhirbase):
     Measurements and simple assertions made about a patient, device or
     other subject.
 
-    Attributes:
+    Args:
         resourceType: This is a Observation resource
         identifier: A unique identifier assigned to this observation.
         basedOn: A plan, proposal or order that is fulfilled in whole or in
@@ -347,7 +347,7 @@ class Observation_ReferenceRange(fhirbase):
     Measurements and simple assertions made about a patient, device or
     other subject.
 
-    Attributes:
+    Args:
         low: The value of the low bound of the reference range.  The low bound
             of the reference range endpoint is inclusive of the value (e.g.
             reference range is >=5 - <=9).   If the low bound is omitted,  it is
@@ -433,7 +433,7 @@ class Observation_Related(fhirbase):
     Measurements and simple assertions made about a patient, device or
     other subject.
 
-    Attributes:
+    Args:
         type: A code specifying the kind of relationship that exists with the
             target resource.
         target: A reference to the observation or [[[QuestionnaireResponse]]]
@@ -484,7 +484,7 @@ class Observation_Component(fhirbase):
     Measurements and simple assertions made about a patient, device or
     other subject.
 
-    Attributes:
+    Args:
         code: Describes what was observed. Sometimes this is called the
             observation "code".
         valueQuantity: The information determined as a result of making the

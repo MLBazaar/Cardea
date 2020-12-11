@@ -6,7 +6,7 @@ class Slot(fhirbase):
     A slot of time on a schedule that may be available for booking
     appointments.
 
-    Attributes:
+    Args:
         resourceType: This is a Slot resource
         identifier: External Ids for this item.
         serviceCategory: A broad categorisation of the service that is to be

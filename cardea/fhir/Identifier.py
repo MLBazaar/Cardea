@@ -6,7 +6,7 @@ class Identifier(fhirbase):
     A technical identifier - identifies some entity uniquely and
     unambiguously.
 
-    Attributes:
+    Args:
         use: The purpose of this identifier.
         type: A coded type for the identifier that can be used to determine
             which identifier to use for a specific purpose.

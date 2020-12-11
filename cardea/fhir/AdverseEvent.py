@@ -8,7 +8,7 @@ class AdverseEvent(fhirbase):
     other healthcare setting factors that requires additional monitoring,
     treatment, or hospitalization, or that results in death.
 
-    Attributes:
+    Args:
         resourceType: This is a AdverseEvent resource
         identifier: The identifier(s) of this adverse event that are assigned
             by business processes and/or used to refer to it when a direct URL
@@ -195,7 +195,7 @@ class AdverseEvent_SuspectEntity(fhirbase):
     other healthcare setting factors that requires additional monitoring,
     treatment, or hospitalization, or that results in death.
 
-    Attributes:
+    Args:
         instance: Identifies the actual instance of what caused the adverse
             event.  May be a substance, medication, medication administration,
             medication statement or a device.

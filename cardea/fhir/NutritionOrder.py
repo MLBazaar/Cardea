@@ -6,7 +6,7 @@ class NutritionOrder(fhirbase):
     A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
 
-    Attributes:
+    Args:
         resourceType: This is a NutritionOrder resource
         identifier: Identifiers assigned to this order by the order sender or
             by the order receiver.
@@ -170,7 +170,7 @@ class NutritionOrder_OralDiet(fhirbase):
     A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
 
-    Attributes:
+    Args:
         type: The kind of diet or dietary restriction such as fiber restricted
             diet or diabetic diet.
         schedule: The time period and frequency at which the diet should be
@@ -255,7 +255,7 @@ class NutritionOrder_Nutrient(fhirbase):
     A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
 
-    Attributes:
+    Args:
         modifier: The nutrient that is being modified such as carbohydrate or
             sodium.
         amount: The quantity of the specified nutrient to include in diet.
@@ -296,7 +296,7 @@ class NutritionOrder_Texture(fhirbase):
     A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
 
-    Attributes:
+    Args:
         modifier: Any texture modifications (for solid foods) that should be
             made, e.g. easy to chew, chopped, ground, and pureed.
         foodType: The food type(s) (e.g. meats, all foods)  that the texture
@@ -338,7 +338,7 @@ class NutritionOrder_Supplement(fhirbase):
     A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
 
-    Attributes:
+    Args:
         type: The kind of nutritional supplement product required such as a
             high protein or pediatric clear liquid supplement.
         productName: The product or brand name of the nutritional supplement
@@ -401,7 +401,7 @@ class NutritionOrder_EnteralFormula(fhirbase):
     A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
 
-    Attributes:
+    Args:
         baseFormulaType: The type of enteral or infant formula such as an
             adult standard formula with fiber or a soy-based infant formula.
         baseFormulaProductName: The product or brand name of the enteral or
@@ -508,7 +508,7 @@ class NutritionOrder_Administration(fhirbase):
     A request to supply a diet, formula feeding (enteral) or oral
     nutritional supplement to a patient/resident.
 
-    Attributes:
+    Args:
         schedule: The time period and frequency at which the enteral formula
             should be delivered to the patient.
         quantity: The volume of formula to provide to the patient per the

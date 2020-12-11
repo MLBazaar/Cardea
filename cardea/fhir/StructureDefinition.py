@@ -7,7 +7,7 @@ class StructureDefinition(fhirbase):
     the underlying resources, data types defined in FHIR, and also for
     describing extensions and constraints on resources and data types.
 
-    Attributes:
+    Args:
         resourceType: This is a StructureDefinition resource
         url: An absolute URI that is used to identify this structure
             definition when it is referenced in a specification, model, design or
@@ -281,7 +281,7 @@ class StructureDefinition_Mapping(fhirbase):
     the underlying resources, data types defined in FHIR, and also for
     describing extensions and constraints on resources and data types.
 
-    Attributes:
+    Args:
         identity: An Internal id that is used to identify this mapping set
             when specific mappings are made.
         uri: An absolute URI that identifies the specification that this
@@ -319,7 +319,7 @@ class StructureDefinition_Snapshot(fhirbase):
     the underlying resources, data types defined in FHIR, and also for
     describing extensions and constraints on resources and data types.
 
-    Attributes:
+    Args:
         element: Captures constraints on each element within the resource.
     """
 
@@ -352,7 +352,7 @@ class StructureDefinition_Differential(fhirbase):
     the underlying resources, data types defined in FHIR, and also for
     describing extensions and constraints on resources and data types.
 
-    Attributes:
+    Args:
         element: Captures constraints on each element within the resource.
     """
 

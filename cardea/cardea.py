@@ -16,14 +16,21 @@ from cardea.problem_definition import (
 class Cardea():
     """An interface class that ties the end-to-end system together.
 
-    Attributes:
-        es_loader: An entityset loader.
-        featurization: A featurization class.
-        modeler: A modeling class.
-        problems: A list of currently available prediction problems.
-        chosen_problem: The selected prediction problem or regression.
-        es: The loaded entityset.
-        target_entity: The target entity for featurization.
+    Args:
+        es_loader (EntitySetLoader):
+            An entityset loader.
+        featurization (Featurization):
+            A featurization class.
+        modeler (Modeler):
+            A modeling class.
+        problems (list):
+            A list of currently available prediction problems.
+        chosen_problem (str):
+            The selected prediction problem or regression.
+        es (featuretools.EntitySet):
+            The loaded entityset.
+        target_entity (str):
+            The target entity for featurization.
     """
 
     def __init__(self):
@@ -44,10 +51,12 @@ class Cardea():
         function will automatically load kaggle's missed appointment dataset.
 
         Args:
-            folder_path: A directory of all .csv files that should be loaded.
+            folder_path (str):
+                A directory of all .csv files that should be loaded.
 
         Returns:
-            An entityset with loaded data.
+            featuretools.EntitySet:
+                An entityset with loaded data.
         """
 
         if folder_path:
@@ -74,7 +83,8 @@ class Cardea():
         """Returns a list of the currently available problems.
 
         Returns:
-            A set of the available problems.
+            list:
+                A list of the available problems.
         """
 
         problems = set([])
@@ -93,12 +103,16 @@ class Cardea():
         the target entity and update the entityset.
 
         Args:
-            selection: Name of the chosen prediction problem.
-            data: Entityset representation of the data.
-            parameters: A variable to change the default parameters, if any.
+            selection (str):
+                Name of the chosen prediction problem.
+            parameters (dict):
+                Variables to change the default parameters, if any.
 
         Returns:
-            The updated version of the entityset and cutoff time label.
+            featuretools.EntitySet, str, pandas.DataFrame:
+                * An updated EntitySet if a new column is generated.
+                * A string indicating the selected target entity.
+                * A dataframe of cutoff times and their target labels.
         """
 
         # problem selection
@@ -140,7 +154,8 @@ class Cardea():
         """Returns built-in primitive in Featuretools.
 
         Returns:
-            A pandas dataframe that lists and describes each built-in primitives.
+            pandas.DataFrame:
+                A dataframe that lists and describes each built-in primitives.
         """
         return ft.list_primitives()
 
@@ -148,11 +163,15 @@ class Cardea():
         """Returns a the calculated feature matrix.
 
         Args:
-            es: A featuretools entityset that holds data.
-            cutoff: A pandas dataframe that indicates cutoff_time for each instance.
+            es (featuretools.EntitySet):
+                An entityset that holds data.
+            cutoff (pandas.DataFrame):
+                A dataframe that indicates cutoff time for each instance.
 
         Returns:
-            Encoded feature_matrix, encoded features.
+            pandas.DataFrame, list:
+              * The generated feature matrix.
+              * List of feature definitions in the feature matrix.
         """
 
         fm_encoded, _ = self.featurization.generate_feature_matrix(
@@ -168,13 +187,20 @@ class Cardea():
         with the result of each fold with its associated predicted values and actual values.
 
         Args:
-            data_frame: A dataframe, which encapsulates all the records of that entity.
-            primitives_list: A list of the primitives within a pipeline.
-            optimize: A boolean value which indicates whether to optimize the model or not.
-            hyperparameters: A dictionary of hyperparameters for each primitive.
+            data_frame (pandas.DataFrame or ndarray):
+                A dataframe which encapsulates all the feature matrix.
+            target (ndarray):
+                An array of labels for the target variable.
+            primitives_list (list):
+                A list of the primitives within a pipeline.
+            optimize (bool):
+                A boolean value which indicates whether to optimize the model or not.
+            hyperparameters (dict):
+                A dictionary of hyperparameters for each primitive.
 
         Returns:
-            A list for all the executed pipelines and its result.
+            dict:
+                A dictionary for all the executed pipelines and its result.
         """
 
         return self.modeler.execute_pipeline(
@@ -186,24 +212,28 @@ class Cardea():
             hyperparameters=hyperparameters
         )
 
-    def convert_to_json(dic):
+    def convert_to_json(X):
         """Converts a given dictionary to json format.
 
         Args:
-            dict: A dictionary of values to be coverted.
+            X (dict):
+                A dictionary of values to be coverted.
 
         Returns:
-            A string in json format.
+            str:
+                A string in json format.
         """
-        return json.dumps(dic)
+        return json.dumps(X)
 
-    def convert_from_json(string):
+    def convert_from_json(X):
         """Converts a given json string to dictionary format.
 
         Args:
-            json: A dictionary of values to be coverted.
+            X (str):
+                A string of values to be coverted to json.
 
         Returns:
-            A parsed dictionary.
+            dict:
+                A parsed dictionary.
         """
-        return json.loads(string)
+        return json.loads(X)

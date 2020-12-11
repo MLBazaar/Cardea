@@ -18,7 +18,8 @@ install_requires = [
     'mlblocks==0.3.0',
     'mlprimitives==0.1.6',
     'hyperopt==0.1.2',
-    'Keras>=2.1.6,<2.4'
+    'Keras>=2.1.6,<2.4',
+    'pyCLI==2.0.3'
 ]
 
 setup_requires = [
@@ -35,12 +36,12 @@ development_requires = [
     'bumpversion>=0.5.3',
     'pip>=9.0.1',
     'watchdog>=0.8.3',
-    
+
     # build docs
-    'm2r>=0.2.0,<0.3',
+    'm2r2>=0.2.5,<0.3',
     'nbsphinx>=0.5.0,<0.7',
     'Sphinx>=1.7.1,<3',
-    'sphinx_rtd_theme>=0.2.4,<0.5',
+    'pydata-sphinx-theme',
     'autodocsumm>=0.1.10,<1',
     'recommonmark>=0.4.0',
     'ipython==6.5.0',
@@ -48,7 +49,7 @@ development_requires = [
     # style check
     'flake8>=3.5.0,<4',
     'isort>=4.3.4,<5',
-    
+
     # automatically fix style issues
     'autoflake>=1.3',
     'autopep8>=1.3.5',
@@ -56,7 +57,7 @@ development_requires = [
     # distribute on PyPI
     'twine>=1.10.0',
     'wheel>=0.30.0',
-    
+
     # Advanced testing
     'tox>=2.9.1',
     'coverage>=4.5.1'
@@ -76,6 +77,12 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     description="Cardea",
+    entry_points={
+        'mlblocks': [
+            'primitives=cardea:MLBLOCKS_PRIMITIVES',
+            'pipelines=cardea:MLBLOCKS_PIPELINES'
+        ]
+    },
     extras_require={
         'dev': development_requires + tests_require,
         'test': tests_require
@@ -92,7 +99,7 @@ setup(
     setup_requires=setup_requires,
     test_suite='tests',
     tests_require=tests_require,
-    url='https://github.com/D3-AI/Cardea',
-    version='0.1.0',
-    zip_safe=False,
+    url='https://github.com/DAI-Lab/Cardea',
+    version='0.1.1.dev1',
+    zip_safe=False
 )

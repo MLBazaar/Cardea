@@ -5,7 +5,7 @@ class SupplyDelivery(fhirbase):
     """
     Record of delivery of what is supplied.
 
-    Attributes:
+    Args:
         resourceType: This is a SupplyDelivery resource
         identifier: Identifier assigned by the dispensing facility when the
             item(s) is dispensed.
@@ -158,7 +158,7 @@ class SupplyDelivery_SuppliedItem(fhirbase):
     """
     Record of delivery of what is supplied.
 
-    Attributes:
+    Args:
         quantity: The amount of supply that has been dispensed. Includes unit
             of measure.
         itemCodeableConcept: Identifies the medication, substance or device

@@ -6,7 +6,7 @@ class RelatedArtifact(fhirbase):
     Related artifacts such as additional documentation, justification, or
     bibliographic references.
 
-    Attributes:
+    Args:
         type: The type of relationship to the related artifact.
         display: A brief description of the document or knowledge resource
             being referenced, suitable for display to a consumer.

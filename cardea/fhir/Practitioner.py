@@ -6,7 +6,7 @@ class Practitioner(fhirbase):
     A person who is directly or indirectly involved in the provisioning of
     healthcare.
 
-    Attributes:
+    Args:
         resourceType: This is a Practitioner resource
         identifier: An identifier that applies to this person in this role.
         active: Whether this practitioner's record is in active use.
@@ -128,7 +128,7 @@ class Practitioner_Qualification(fhirbase):
     A person who is directly or indirectly involved in the provisioning of
     healthcare.
 
-    Attributes:
+    Args:
         identifier: An identifier that applies to this person's qualification
             in this role.
         code: Coded representation of the qualification.

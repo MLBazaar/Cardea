@@ -6,7 +6,7 @@ class Contract(fhirbase):
     A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
 
-    Attributes:
+    Args:
         resourceType: This is a Contract resource
         identifier: Unique identifier for this Contract.
         status: The status of the resource instance.
@@ -288,7 +288,7 @@ class Contract_Agent(fhirbase):
     A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
 
-    Attributes:
+    Args:
         actor: Who or what parties are assigned roles in this Contract.
         role: Role type of agent assigned roles in this Contract.
     """
@@ -329,7 +329,7 @@ class Contract_Signer(fhirbase):
     A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
 
-    Attributes:
+    Args:
         type: Role of this Contract signer, e.g. notary, grantee.
         party: Party which is a signator to this Contract.
         signature: Legally binding Contract DSIG signature contents in Base64.
@@ -379,7 +379,7 @@ class Contract_ValuedItem(fhirbase):
     A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
 
-    Attributes:
+    Args:
         entityCodeableConcept: Specific type of Contract Valued Item that may
             be priced.
         entityReference: Specific type of Contract Valued Item that may be
@@ -479,7 +479,7 @@ class Contract_Term(fhirbase):
     A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
 
-    Attributes:
+    Args:
         identifier: Unique identifier for this particular Contract Provision.
         issued: When this Contract Provision was issued.
         applies: Relevant time or time-period when this Contract Provision is
@@ -621,7 +621,7 @@ class Contract_Agent1(fhirbase):
     A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
 
-    Attributes:
+    Args:
         actor: The agent assigned a role in this Contract Provision.
         role: Role played by the agent assigned this role in the execution of
             this Contract Provision.
@@ -663,7 +663,7 @@ class Contract_ValuedItem1(fhirbase):
     A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
 
-    Attributes:
+    Args:
         entityCodeableConcept: Specific type of Contract Provision Valued Item
             that may be priced.
         entityReference: Specific type of Contract Provision Valued Item that
@@ -764,7 +764,7 @@ class Contract_Friendly(fhirbase):
     A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
 
-    Attributes:
+    Args:
         contentAttachment: Human readable rendering of this Contract in a
             format and representation intended to enhance comprehension and ensure
             understandability.
@@ -808,7 +808,7 @@ class Contract_Legal(fhirbase):
     A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
 
-    Attributes:
+    Args:
         contentAttachment: Contract legal text in human renderable form.
         contentReference: Contract legal text in human renderable form.
     """
@@ -848,7 +848,7 @@ class Contract_Rule(fhirbase):
     A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
 
-    Attributes:
+    Args:
         contentAttachment: Computable Contract conveyed using a policy rule
             language (e.g. XACML, DKAL, SecPal).
         contentReference: Computable Contract conveyed using a policy rule

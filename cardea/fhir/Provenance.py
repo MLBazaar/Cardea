@@ -15,7 +15,7 @@ class Provenance(fhirbase):
     artifact been legally authenticated), all of which may impact
     security, privacy, and trust policies.
 
-    Attributes:
+    Args:
         resourceType: This is a Provenance resource
         target: The Reference(s) that were generated or updated by  the
             activity described in this resource. A provenance can point to more
@@ -147,7 +147,7 @@ class Provenance_Agent(fhirbase):
     artifact been legally authenticated), all of which may impact
     security, privacy, and trust policies.
 
-    Attributes:
+    Args:
         role: The function of the agent with respect to the activity. The
             security role enabling the agent with respect to the activity.
         whoUri: The individual, device or organization that participated in
@@ -228,7 +228,7 @@ class Provenance_Entity(fhirbase):
     artifact been legally authenticated), all of which may impact
     security, privacy, and trust policies.
 
-    Attributes:
+    Args:
         role: How the entity was used during the activity.
         whatUri: Identity of the  Entity used. May be a logical or physical
             uri and maybe absolute or relative.

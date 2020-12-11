@@ -9,7 +9,7 @@ class EligibilityRequest(fhirbase):
     coverage is valid and in-force and optionally to provide the insurance
     details of the policy.
 
-    Attributes:
+    Args:
         resourceType: This is a EligibilityRequest resource
         identifier: The Response business identifier.
         status: The status of the resource instance.

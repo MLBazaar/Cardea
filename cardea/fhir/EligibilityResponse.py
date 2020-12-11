@@ -6,7 +6,7 @@ class EligibilityResponse(fhirbase):
     This resource provides eligibility and plan details from the
     processing of an Eligibility resource.
 
-    Attributes:
+    Args:
         resourceType: This is a EligibilityResponse resource
         identifier: The Response business identifier.
         status: The status of the resource instance.
@@ -138,7 +138,7 @@ class EligibilityResponse_Insurance(fhirbase):
     This resource provides eligibility and plan details from the
     processing of an Eligibility resource.
 
-    Attributes:
+    Args:
         coverage: A suite of updated or additional Coverages from the Insurer.
         contract: The contract resource which may provide more detailed
             information.
@@ -189,7 +189,7 @@ class EligibilityResponse_BenefitBalance(fhirbase):
     This resource provides eligibility and plan details from the
     processing of an Eligibility resource.
 
-    Attributes:
+    Args:
         category: Dental, Vision, Medical, Pharmacy, Rehab etc.
         subCategory: Dental: basic, major, ortho; Vision exam, glasses,
             contacts; etc.
@@ -285,7 +285,7 @@ class EligibilityResponse_Financial(fhirbase):
     This resource provides eligibility and plan details from the
     processing of an Eligibility resource.
 
-    Attributes:
+    Args:
         type: Deductable, visits, benefit amount.
         allowedUnsignedInt: Benefits allowed.
         allowedString: Benefits allowed.
@@ -346,7 +346,7 @@ class EligibilityResponse_Error(fhirbase):
     This resource provides eligibility and plan details from the
     processing of an Eligibility resource.
 
-    Attributes:
+    Args:
         code: An error code,from a specified code system, which details why
             the eligibility check could not be performed.
     """

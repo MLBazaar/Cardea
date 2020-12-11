@@ -10,7 +10,7 @@ class Subscription(fhirbase):
     message on the defined "channel" so that another system is able to
     take an appropriate action.
 
-    Attributes:
+    Args:
         resourceType: This is a Subscription resource
         status: The status of the subscription, which marks the server state
             for managing the subscription.
@@ -108,7 +108,7 @@ class Subscription_Channel(fhirbase):
     message on the defined "channel" so that another system is able to
     take an appropriate action.
 
-    Attributes:
+    Args:
         type: The type of channel to send notifications on.
         endpoint: The uri that describes the actual end-point to send messages
             to.

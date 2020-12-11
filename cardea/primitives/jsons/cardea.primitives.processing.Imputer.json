@@ -1,0 +1,48 @@
+{
+    "name": "cardea.primitives.processing.Imputer",
+    "contributors": ["Furui Cheng <furui@mit.edu>"],
+    "description": "Imputation transformer for completing missing values.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "transformer"
+    },
+    "modalities": [],
+    "primitive": "cardea.primitives.processing.Imputer",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "strategy": {
+                "type": "str",
+                "default": "mean",
+                "values": [
+                    "mean",
+                    "median",
+                    "most_frequent"
+                ]
+            }
+        }
+    }
+}

@@ -7,7 +7,7 @@ class Location(fhirbase):
     are provided  and resources and participants may be stored, found,
     contained or accommodated.
 
-    Attributes:
+    Args:
         resourceType: This is a Location resource
         identifier: Unique code or number identifying the location to its
             users.
@@ -182,7 +182,7 @@ class Location_Position(fhirbase):
     are provided  and resources and participants may be stored, found,
     contained or accommodated.
 
-    Attributes:
+    Args:
         longitude: Longitude. The value domain and the interpretation are the
             same as for the text of the longitude element in KML (see notes
             below).

@@ -8,7 +8,7 @@ class ImplementationGuide(fhirbase):
     into a logical whole and to publish a computable definition of all the
     parts.
 
-    Attributes:
+    Args:
         resourceType: This is a ImplementationGuide resource
         url: An absolute URI that is used to identify this implementation
             guide when it is referenced in a specification, model, design or an
@@ -201,7 +201,7 @@ class ImplementationGuide_Dependency(fhirbase):
     into a logical whole and to publish a computable definition of all the
     parts.
 
-    Attributes:
+    Args:
         type: How the dependency is represented when the guide is published.
         uri: Where the dependency is located.
     """
@@ -240,7 +240,7 @@ class ImplementationGuide_Package(fhirbase):
     into a logical whole and to publish a computable definition of all the
     parts.
 
-    Attributes:
+    Args:
         name: The name for the group, as used in page.package.
         description: Human readable text describing the package.
         resource: A resource that is part of the implementation guide.
@@ -285,7 +285,7 @@ class ImplementationGuide_Resource(fhirbase):
     into a logical whole and to publish a computable definition of all the
     parts.
 
-    Attributes:
+    Args:
         example: Whether a resource is included in the guide as part of the
             rules defined by the guide, or just as an example of a resource that
             conforms to the rules and/or help implementers understand the intent
@@ -356,7 +356,7 @@ class ImplementationGuide_Global(fhirbase):
     into a logical whole and to publish a computable definition of all the
     parts.
 
-    Attributes:
+    Args:
         type: The type of resource that all instances must conform to.
         profile: A reference to the profile that all instances must conform
             to.
@@ -394,7 +394,7 @@ class ImplementationGuide_Page(fhirbase):
     into a logical whole and to publish a computable definition of all the
     parts.
 
-    Attributes:
+    Args:
         source: The source address for the page.
         title: A short title used to represent this page in navigational
             structures such as table of contents, bread crumbs, etc.

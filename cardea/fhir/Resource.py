@@ -5,7 +5,7 @@ class Resource(fhirbase):
     """
     This is the base resource type for everything.
 
-    Attributes:
+    Args:
         id: The logical id of the resource, as used in the URL for the
             resource. Once assigned, this value never changes.
         meta: The metadata about the resource. This is content that is

@@ -5,7 +5,7 @@ class Element(fhirbase):
     """
     Base definition for all elements in a resource.
 
-    Attributes:
+    Args:
         id: unique id for the element within a resource (for internal
             references). This may be any string value that does not contain
             spaces.

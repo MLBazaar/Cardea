@@ -6,7 +6,7 @@ class BackboneElement(fhirbase):
     Base definition for all elements that are defined inside a resource -
     but not those in a data type.
 
-    Attributes:
+    Args:
         modifierExtension: May be used to represent additional information
             that is not part of the basic definition of the element, and that
             modifies the understanding of the element that contains it. Usually
