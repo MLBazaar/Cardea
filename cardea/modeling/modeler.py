@@ -28,11 +28,8 @@ class Modeler:
 
     def __init__(self):
         self.problem_type = None
-        self.minimize_cost = False
         self.features = None
         self.target = None
-        self.metric = None
-        self.max_evals = None
 
     @property
     def regression_metrics(self):
@@ -85,7 +82,7 @@ class Modeler:
 
         return fold_dict
 
-    def _score_kfolds(self, fold_dict):
+    def _score_kfolds(self, fold_dict, metric=None):
         """Score the average prediction results from Kfold cross-validation results.
 
         Args:
@@ -98,7 +95,6 @@ class Modeler:
         """
 
         fold_score = []
-        metric = self.metric
         for _, fold in fold_dict.items():
             if self.problem_type == 'regression':
                 if metric is None:
@@ -112,7 +108,7 @@ class Modeler:
             fold_score.append(result)
         return np.mean(fold_score)
 
-    def _cross_validate(self, hyperparameters, pipeline):
+    def _cross_validate(self, hyperparameters, pipeline, metric=None):
         """Calculate the average Kfold cross-validation score.
 
         Args:
@@ -131,14 +127,11 @@ class Modeler:
             pipeline.set_hyperparameters(hyperparameters)
 
         fold_dict = self._run_kfolds(pipeline)
-        score = self._score_kfolds(fold_dict)
-
-        if not self.minimize_cost:
-            score = -score
+        score = self._score_kfolds(fold_dict, metric)
 
         return score
 
-    def _optimize_with_btb(self, pipeline):
+    def _optimize(self, pipeline, max_evals=10, metric=None):
         """Optimize the pipeline's hyperparameters.
 
         Args:
@@ -147,17 +140,16 @@ class Modeler:
 
         Returns:
             dict:
-                The optimized hyperparameters,
+                The optimized hyperparameters.
         """
         tunables = {'0': pipeline.get_tunable_hyperparameters(flat=True)}
-        session = BTBSession(tunables, lambda _, hyparam: self._cross_validate(hyparam, pipeline),
-                             verbose=True)
-        session.run(self.max_evals)
+        session = BTBSession(tunables, lambda _, hyparam: self._cross_validate(
+            hyparam, pipeline, metric), verbose=True)
+        session.run(max_evals)
         return session.best_proposal['config']
 
     def execute_pipeline(self, data_frame, target, pipelines, problem_type,
-                         optimize=False, max_evals=10, scoring=None,
-                         minimize_cost=False, hyperparameters=None):
+                         optimize=False, max_evals=10, scoring=None):
         """Executes and predict all the pipelines.
 
         Args:
@@ -175,10 +167,6 @@ class Modeler:
                 Maximum number of hyperparameter evaluations.
             scoring (str):
                 A label to specify the scoring function.
-            minimize_cost (bool):
-                A boolean value indicating whether to get minimum or maximum cost value.
-            hyperparameters (dict):
-                A dictionary of hyperparameters for each primitives.
 
         Returns:
             dict:
@@ -186,11 +174,8 @@ class Modeler:
                 pipeline and an array of the predicted values and an array of the actual values.
         """
         self.problem_type = problem_type
-        self.minimize_cost = minimize_cost
         self.features = data_frame
         self.target = target
-        self.metric = scoring
-        self.max_evals = max_evals
 
         all_pipeline_dict = {}
         for index, pipeline in enumerate(pipelines):
@@ -200,7 +185,7 @@ class Modeler:
                              'folds': None, 'hyperparameters': None}
 
             if optimize:
-                pipeline_dict['hyperparameters'] = self._optimize_with_btb(pipeline)
+                pipeline_dict['hyperparameters'] = self._optimize(pipeline, max_evals, scoring)
                 pipeline.set_hyperparameters(pipeline_dict['hyperparameters'])
 
             pipeline_dict['folds'] = self._run_kfolds(pipeline)
