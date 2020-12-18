@@ -1,8 +1,12 @@
+import os
+import pickle
+
 from btb.session import BTBSession
 import numpy as np
 import sklearn
 from mlblocks import MLPipeline
-from sklearn.model_selection import KFold
+from sklearn.metrics import make_scorer
+from sklearn.model_selection import KFold, train_test_split
 
 
 class Modeler:
@@ -26,10 +30,21 @@ class Modeler:
                                                                       average="macro"),
     }
 
-    def __init__(self):
-        self.problem_type = None
-        self.features = None
-        self.target = None
+    def __init__(self, pipelines, problem_type):
+        if isinstance(pipelines, dict):
+            self._pipelines = {name: MLPipeline(pipeline) for name, pipeline in pipelines.items()}
+        elif isinstance(pipelines, list):
+            self._pipelines = {'pipeline_{}'.format(i): MLPipeline(pipeline)
+                               for i, pipeline in enumerate(pipelines)}
+        else:
+            raise TypeError("Pipelines should be either list or dict. ")
+        self._problem_type = problem_type
+        self._best_name = None
+
+    @staticmethod
+    def train_test_split(X, y, test_size=0.2, shuffle=True):
+        """Split the training dataset and the testing dataset."""
+        return train_test_split(X, y, test_size=test_size, shuffle=shuffle)
 
     @property
     def regression_metrics(self):
@@ -51,144 +66,180 @@ class Modeler:
         """
         return self._classification_metrics
 
-    def _run_kfolds(self, pipeline):
-        """Creates Kfold cross-validation and predicts all the primitives within the pipeline.
+    def scoring_function(self, model_name, hyperparameters, X, y, scoring=None):
+        """Score the pipeline through k-fold validation with the given scoring function.
 
         Args:
-            pipeline (MLPipeline):
-                A MLPipeline instance.
+            model_name (str):
+                The name of the target pipeline.
+            hyperparameters (dict or None):
+                A dictionary of hyper-parameters for each primitive in the target pipeline.
+            X (array-like):
+                Inputs of the pipeline.
+            y (array-like):
+                Target values.
+            scoring (str):
+                The name of the scoring function.
 
         Returns:
-            dict:
-                A dictionary for prediction results and trained models of each fold.
+            np.float64:
+                The average score in the k-fold validation.
         """
-        fold_dict = {}
-        kf = KFold(n_splits=10, random_state=None, shuffle=True)
-
-        for i, (train_index, test_index) in enumerate(kf.split(self.features)):
-            fold_pipeline = MLPipeline(pipeline)
-
-            X_train = self.features.loc[train_index]
-            X_test = self.features.loc[test_index]
-            y_train = self.target[train_index]
-            y_test = self.target[test_index]
-
-            fold_pipeline.fit(X_train, y_train)
-            y_predict = fold_pipeline.predict(X_test)
-
-            fold_dict[str(i)] = {"predicted": y_predict, "Actual": y_test,
-                                 "pipeline": MLPipeline(fold_pipeline),
-                                 "test_index": test_index}
-
-        return fold_dict
-
-    def _score_kfolds(self, fold_dict, metric=None):
-        """Score the average prediction results from Kfold cross-validation results.
-
-        Args:
-            fold_dict (dict):
-                A dictionary for prediction results and trained models of each fold.
-
-        Returns:
-            float:
-                The average score in the Kfold cross-validation.
-        """
-
-        fold_score = []
-        for _, fold in fold_dict.items():
-            if self.problem_type == 'regression':
-                if metric is None:
-                    metric = 'r2_score'
-                result = self.regression_metrics[metric](fold['Actual'], fold['predicted'])
-            else:
-                if metric is None:
-                    metric = 'f1'
-                result = self.classification_metrics[metric](fold['Actual'], fold['predicted'])
-
-            fold_score.append(result)
-        return np.mean(fold_score)
-
-    def _cross_validate(self, hyperparameters, pipeline, metric=None):
-        """Calculate the average Kfold cross-validation score.
-
-        Args:
-            hyperparameters (dict):
-                A dictionary of hyperparameters for each primitives.
-            pipeline (MLPipeline):
-                A MLPipeline instance.
-
-        Returns:
-            float:
-                The average score in the Kfold cross-validation.
-        """
-        pipeline = MLPipeline(pipeline)
+        model_instance = MLPipeline(self._pipelines[model_name])
 
         if hyperparameters:
-            pipeline.set_hyperparameters(hyperparameters)
+            model_instance.set_hyperparameters(hyperparameters)
 
-        fold_dict = self._run_kfolds(pipeline)
-        score = self._score_kfolds(fold_dict, metric)
+        if self._problem_type == 'regression':
+            scorer = self.regression_metrics[scoring or 'r2_score']
+        else:
+            scorer = self.classification_metrics[scoring or 'f1']
 
-        return score
+        scores = []
+        kf = KFold(n_splits=10, random_state=None, shuffle=True)
+        for train_index, test_index in kf.split(X):
+            model_instance.fit(X.iloc[train_index], y.iloc[train_index])
+            y_pred = model_instance.predict(X.iloc[test_index])
+            scores.append(scorer(y.iloc[test_index], y_pred))
 
-    def _optimize(self, pipeline, max_evals=10, metric=None):
-        """Optimize the pipeline's hyperparameters.
+        return np.mean(scores)
 
-        Args:
-            pipeline (MLPipeline):
-                A MLPipeline instance.
-
-        Returns:
-            dict:
-                The optimized hyperparameters.
-        """
-        tunables = {'0': pipeline.get_tunable_hyperparameters(flat=True)}
-        session = BTBSession(tunables, lambda _, hyparam: self._cross_validate(
-            hyparam, pipeline, metric), verbose=True)
-        session.run(max_evals)
-        return session.best_proposal['config']
-
-    def execute_pipeline(self, data_frame, target, pipelines, problem_type,
-                         optimize=False, max_evals=10, scoring=None):
-        """Executes and predict all the pipelines.
+    def tune_select(self, X, y, max_evals=10, scoring=None, verbose=False):
+        """ Tune the pipeline hyper-parameters and select the optimized model.
 
         Args:
-            data_frame (pandas.DataFrame or ndarray):
-                A dataframe which holds the feature matrix.
-            target (ndarray):
-                An array of labels for the target variable.
-            pipelines (list):
-                A list of MLPipeline instances or the primitives within a pipeline.
-            problem_type (str):
-                A label to specify the type of problem whether regression or classification.
-            optimize (bool):
-                A boolean value which indicates whether to optimize the model or not.
+            X (array-like):
+                Inputs to the pipeline.
+            y (array-like):
+                Target values.
             max_evals (int):
-                Maximum number of hyperparameter evaluations.
+                Maximum number of hyper-parameter optimization iterations.
             scoring (str):
-                A label to specify the scoring function.
+                The name of the scoring function.
+            verbose(bool):
+                Whether to log information during processing.
+        """
+        tunables = {name: pipeline.get_tunable_hyperparameters(flat=True)
+                    for name, pipeline in self._pipelines.items()}
+
+        session = BTBSession(tunables, lambda name, hyparam: self.scoring_function(
+            name, hyparam, X=X, y=y, scoring=scoring), verbose=verbose)
+        best_proposal = session.run(max_evals)
+        self._best_name = best_proposal['name']
+        self._pipelines[self._best_name].set_hyperparameters(best_proposal['config'])
+
+    def fit(self, X_train, y_train, tune=False, max_evals=10, scoring=None, verbose=False):
+        """Fit the pipelines.
+
+        Args:
+            X_train (array-like):
+                Training data, inputs to the pipeline.
+            y_train (array-like):
+                Target values.
+            tune (bool):
+                Whether to optimize hyper-parameters of the pipelines.
+            max_evals (int):
+                Maximum number of hyper-parameter optimization iterations.
+            scoring (str):
+                The name of the scoring function.
+            verbose(bool):
+                Whether to log information during processing.
+        """
+        if tune:
+            self.tune_select(X_train, y_train, max_evals=max_evals, scoring=scoring,
+                             verbose=verbose)
+        else:
+            model_names = list(self._pipelines.keys())
+            scores = [self.scoring_function(name, None, X_train, y_train, scoring=scoring)
+                      for name in model_names]
+            self._best_name = model_names[np.argmax(scores)]
+        self._pipelines[self._best_name].fit(X_train, y_train)
+
+    def predict(self, X_test):
+        """Predict the input data
+
+        Args:
+            X_test (array-like):
+                Testing data, inputs to the pipeline.
 
         Returns:
-            dict:
-                A dictionary for all the pipelines which consists of: the fold number, the used
-                pipeline and an array of the predicted values and an array of the actual values.
+            array-like:
+                Predictions to the input data.
         """
-        self.problem_type = problem_type
-        self.features = data_frame
-        self.target = target
+        if self._best_name:
+            return self._pipelines[self._best_name].predict(X_test)
+        else:
+            raise ValueError("Modeler should be fitted before predict.")
 
-        all_pipeline_dict = {}
-        for index, pipeline in enumerate(pipelines):
+    def test(self, X_test, y_test, scoring=None):
+        """Test the trained pipeline.
 
-            pipeline = MLPipeline(pipeline)
-            pipeline_dict = {'primitives': pipeline.primitives,
-                             'folds': None, 'hyperparameters': None}
+        Args:
+            X_test (array-like):
+                Testing data, inputs to the pipeline.
+            y_test (array-like):
+                Target values.
+            scoring (str):
+                The name of the scoring function.
 
-            if optimize:
-                pipeline_dict['hyperparameters'] = self._optimize(pipeline, max_evals, scoring)
-                pipeline.set_hyperparameters(pipeline_dict['hyperparameters'])
+        Returns:
+            float:
+                The score of the trained pipeline on the inputs.
+        """
+        if self._problem_type == 'regression':
+            scorer = self.regression_metrics[scoring or 'r2_score']
+        else:
+            scorer = self.classification_metrics[scoring or 'f1']
+        return scorer(y_test, self.predict(X_test))
 
-            pipeline_dict['folds'] = self._run_kfolds(pipeline)
-            all_pipeline_dict["pipeline" + str(index)] = pipeline_dict
+    def fit_predict(self, X_train, y_train, tune=False, max_evals=10, scoring=None, verbose=False):
+        """Fit the pipeline and make predictions
 
-        return all_pipeline_dict
+        Args:
+            X_train (array-like):
+                Training data, inputs to the pipeline.
+            y_train (array-like):
+                Target values.
+            tune (bool):
+                Whether to optimize hyper-parameters of the pipelines.
+            max_evals (int):
+                Maximum number of hyper-parameter optimization iterations.
+            scoring (str):
+                The name of the scoring function.
+            verbose(bool):
+                Whether to log information during processing.
+
+        Returns:
+            array-like:
+                Predictions to the input data.
+        """
+        self.fit(X_train, y_train, tune=tune, max_evals=max_evals, scoring=scoring,
+                 verbose=verbose)
+        return self.predict(X_train)
+
+    def save(self, path):
+        """Save the object in a pickle file.
+
+        Args:
+            path (str): The path to store the modeler.
+        """
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'wb') as pickle_file:
+            pickle.dump(self, pickle_file)
+
+    @staticmethod
+    def load(path):
+        """Load a Modeler object from a pickle file
+
+        Args:
+            path (str): The path to load the modeler.
+
+        Returns:
+            Modeler:
+                A Modeler instance.
+        """
+        with open(path, 'rb') as pickle_file:
+            obj = pickle.load(pickle_file)
+        if not isinstance(obj, Modeler):
+            raise ValueError('Serialized object is not an Modeler instance')
+        return obj
