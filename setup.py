@@ -13,6 +13,7 @@ install_requires = [
     'featuretools==0.6.1',
     'mlblocks==0.3.4',
     'mlprimitives==0.2.5',
+    'baytune==0.3.8',
     'pyCLI==2.0.3'
 ]
 
