@@ -13,34 +13,28 @@ class Modeler:
     """A class responsible for executing various Machine Learning Pipelines using MLBlocks."""
 
     _regression_metrics = {
-        'explained_variance_score': sklearn.metrics.explained_variance_score,
-        'mean_absolute_error': sklearn.metrics.mean_absolute_error,
-        'mean_squared_error': sklearn.metrics.mean_squared_error,
-        'mean_squared_log_error': sklearn.metrics.mean_squared_log_error,
-        'median_absolute_error': sklearn.metrics.median_absolute_error,
-        'r2_score': sklearn.metrics.r2_score
+        'Explained Variance Score': sklearn.metrics.explained_variance_score,
+        'Mean Absolute Error': sklearn.metrics.mean_absolute_error,
+        'Mean Squared Error': sklearn.metrics.mean_squared_error,
+        'Mean Squared Log Error': sklearn.metrics.mean_squared_log_error,
+        'Median Absolute Error': sklearn.metrics.median_absolute_error,
+        'R2 Score': sklearn.metrics.r2_score
     }
 
     _classification_metrics = {
-        'accuracy': sklearn.metrics.accuracy_score,
-        'f1': lambda y_true, y_pred: sklearn.metrics.f1_score(y_true, y_pred, average="macro"),
-        'precision': lambda y_true, y_pred: sklearn.metrics.precision_score(y_true, y_pred,
+        'Accuracy': sklearn.metrics.accuracy_score,
+        'F1 Macro': lambda y_true, y_pred: sklearn.metrics.f1_score(y_true, y_pred,
+                                                                    average="macro"),
+        'Precision': lambda y_true, y_pred: sklearn.metrics.precision_score(y_true, y_pred,
                                                                             average="macro"),
-        'recall': lambda y_true, y_pred: sklearn.metrics.recall_score(y_true, y_pred,
+        'Recall': lambda y_true, y_pred: sklearn.metrics.recall_score(y_true, y_pred,
                                                                       average="macro"),
-        'auroc': sklearn.metrics.roc_auc_score
+        'Confusion Matrix': sklearn.metrics.confusion_matrix
     }
 
-    def __init__(self, pipelines, problem_type):
-        if isinstance(pipelines, dict):
-            self._pipelines = {name: MLPipeline(pipeline) for name, pipeline in pipelines.items()}
-        elif isinstance(pipelines, list):
-            self._pipelines = {'pipeline_{}'.format(i): MLPipeline(pipeline)
-                               for i, pipeline in enumerate(pipelines)}
-        else:
-            raise TypeError("Pipelines should be either list or dict. ")
+    def __init__(self, pipeline, problem_type):
+        self._pipeline = pipeline
         self._problem_type = problem_type
-        self._best_name = None
 
     @staticmethod
     def train_test_split(X, y, test_size=0.2, shuffle=True):
@@ -80,12 +74,20 @@ class Modeler:
         else:
             return self._regression_metrics
 
-    def k_fold_validation(self, model_name, hyperparameters, X, y, scoring=None):
+    @property
+    def pipeline(self):
+        """Pipeline.
+
+        Returns:
+            MLPipeline:
+                The pipeline in the modeler.
+        """
+        return MLPipeline(self._pipeline)
+
+    def k_fold_validation(self, hyperparameters, X, y, scoring=None):
         """Score the pipeline through k-fold validation with the given scoring function.
 
         Args:
-            model_name (str):
-                The name of the target pipeline.
             hyperparameters (dict or None):
                 A dictionary of hyper-parameters for each primitive in the target pipeline.
             X (array-like):
@@ -99,15 +101,15 @@ class Modeler:
             np.float64:
                 The average score in the k-fold validation.
         """
-        model_instance = MLPipeline(self._pipelines[model_name])
+        model_instance = MLPipeline(self._pipeline)
 
         if hyperparameters:
             model_instance.set_hyperparameters(hyperparameters)
 
         if self._problem_type == 'regression':
-            scorer = self.regression_metrics[scoring or 'r2_score']
+            scorer = self.regression_metrics[scoring or 'R2 Score']
         else:
-            scorer = self.classification_metrics[scoring or 'f1']
+            scorer = self.classification_metrics[scoring or 'F1 Macro']
 
         scores = []
         kf = KFold(n_splits=10, random_state=None, shuffle=True)
@@ -118,7 +120,7 @@ class Modeler:
 
         return np.mean(scores)
 
-    def tune_select(self, X, y, max_evals=10, scoring=None, verbose=False):
+    def tune(self, X, y, max_evals=10, scoring=None, verbose=False):
         """ Tune the pipeline hyper-parameters and select the optimized model.
 
         Args:
@@ -133,16 +135,15 @@ class Modeler:
             verbose (bool):
                 Whether to log information during processing.
         """
-        tunables = {name: pipeline.get_tunable_hyperparameters(flat=True)
-                    for name, pipeline in self._pipelines.items()}
+        tunables = {'0': self._pipeline.get_tunable_hyperparameters(flat=True)}
 
-        session = BTBSession(tunables, lambda name, hyparam: self.k_fold_validation(
-            name, hyparam, X=X, y=y, scoring=scoring), verbose=verbose)
+        session = BTBSession(tunables, lambda _, hyparam: self.k_fold_validation(
+            hyparam, X=X, y=y, scoring=scoring), verbose=verbose)
+
         best_proposal = session.run(max_evals)
-        self._best_name = best_proposal['name']
-        self._pipelines[self._best_name].set_hyperparameters(best_proposal['config'])
+        self._pipeline.set_hyperparameters(best_proposal['config'])
 
-    def fit_select(self, X_train, y_train, tune=False, max_evals=10, scoring=None, verbose=False):
+    def fit(self, X_train, y_train, tune=False, max_evals=10, scoring=None, verbose=False):
         """Fit and select the pipelines.
 
         Args:
@@ -155,25 +156,19 @@ class Modeler:
             max_evals (int):
                 Maximum number of hyper-parameter optimization iterations.
             scoring (str):
-                The name of the scoring function.
+                The name of the scoring function used in the hyper-parameter optimization.
             verbose (bool):
                 Whether to log information during processing.
         """
         if tune:
             # tune and select pipeline
-            self.tune_select(X_train, y_train, max_evals=max_evals, scoring=scoring,
-                             verbose=verbose)
-        else:
-            # select pipeline
-            model_names = list(self._pipelines.keys())
-            scores = [self.k_fold_validation(name, None, X_train, y_train, scoring=scoring)
-                      for name in model_names]
-            self._best_name = model_names[np.argmax(scores)]
+            self.tune(X_train, y_train, max_evals=max_evals, scoring=scoring,
+                      verbose=verbose)
 
         # fit pipeline
-        self._pipelines[self._best_name].fit(X_train, y_train)
+        self._pipeline.fit(X_train, y_train)
 
-    def evaluate(self, X, y, tune=False, max_evals=10, metrics=None, verbose=False):
+    def evaluate(self, X, y, tune=False, max_evals=10, scoring=None, metrics=None, verbose=False):
         """Evaluate the pipelines.
 
         Args:
@@ -185,6 +180,8 @@ class Modeler:
                 Whether to optimize hyper-parameters of the pipelines.
             max_evals (int):
                 Maximum number of hyper-parameter optimization iterations.
+            scoring (str):
+                The name of the scoring function used in the hyper-parameter optimization.
             metrics (list):
                 A list of scoring function names. The scoring functions should be consistent
                 with the problem type.
@@ -195,7 +192,8 @@ class Modeler:
         metrics = metrics or self.target_metrics.keys()
 
         scores = {}
-        self.fit_select(X_train, y_train, tune=tune, max_evals=max_evals, verbose=verbose)
+        self.fit(X_train, y_train, tune=tune, max_evals=max_evals, scoring=scoring,
+                 verbose=verbose)
         for metric in metrics:
             scores[metric] = self.test(X_test, y_test, scoring=metric)
         return scores
@@ -211,10 +209,7 @@ class Modeler:
             array-like:
                 Predictions to the input data.
         """
-        if self._best_name:
-            return self._pipelines[self._best_name].predict(X_test)
-        else:
-            raise ValueError("Modeler should be fitted before predict.")
+        return self._pipeline.predict(X_test)
 
     def test(self, X_test, y_test, scoring=None):
         """Test the trained pipeline.
@@ -250,7 +245,7 @@ class Modeler:
             max_evals (int):
                 Maximum number of hyper-parameter optimization iterations.
             scoring (str):
-                The name of the scoring function.
+                The name of the scoring function used in the hyper-parameter optimization.
             verbose(bool):
                 Whether to log information during processing.
 
@@ -258,8 +253,8 @@ class Modeler:
             array-like:
                 Predictions to the input data.
         """
-        self.fit_select(X_train, y_train, tune=tune, max_evals=max_evals, scoring=scoring,
-                        verbose=verbose)
+        self.fit(X_train, y_train, tune=tune, max_evals=max_evals, scoring=scoring,
+                 verbose=verbose)
         return self.predict(X_train)
 
     def save(self, path):
