@@ -14,9 +14,9 @@
 
 [![Development Status](https://img.shields.io/badge/Development%20Status-2%20--%20Pre--Alpha-yellow)](https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha)
 [![PyPi Shield](https://img.shields.io/pypi/v/cardea.svg)](https://pypi.python.org/pypi/cardea)
-[![Travis CI Shield](https://travis-ci.org/DAI-Lab/Cardea.svg?branch=master)](https://travis-ci.org/DAI-Lab/Cardea)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DAI-Lab/Cardea/)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/DAI-Lab/Cardea/master?filepath=notebooks)
+[![Travis CI Shield](https://travis-ci.org/MLBazaar/Cardea.svg?branch=master)](https://travis-ci.org/MLBazaar/Cardea)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MLBazaar/Cardea/)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/MLBazaar/Cardea/master?filepath=notebooks)
 
 # Cardea
 
@@ -40,4 +40,4 @@ Cardea is a machine learning library built on top of the FHIR data schema. The l
 - Free software: MIT license
 
 ## Documentation
-- Documentation: https://dai-lab.github.io/Cardea
+- Documentation: https://mlbazaar.github.io/Cardea
