@@ -23,11 +23,11 @@ def es_loader():
 @pytest.fixture()
 def cutoff_times():
     temp = pd.DataFrame({"instance_id": [10, 11, 12, 13, 14, 15],
-                         "cutoff_time": ['9/22/2018', '9/21/2018', '10/4/2018',
-                                         '9/28/2018', '10/30/2018', '11/18/2018'],
+                         "time": ['9/22/2018', '9/21/2018', '10/4/2018',
+                                  '9/28/2018', '10/30/2018', '11/18/2018'],
                          "label": [False, False, False, True, False, True]
                          })
-    temp['cutoff_time'] = pd.to_datetime(temp['cutoff_time'])
+    temp['time'] = pd.to_datetime(temp['time'])
     return temp
 
 
@@ -224,7 +224,7 @@ def test_generate_labels_success_threshold(entityset_success, cutoff_times):
 
 
 def test_generate_cutoff_times_missing_generation_label(entityset_success, readmission):
-    entityset_success['Period'].delete_variables('end')
+    entityset_success['Period'].delete_variables(['end'])
     with pytest.raises(ValueError):
         readmission.generate_cutoff_times(
             entityset_success)

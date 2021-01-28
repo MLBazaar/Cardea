@@ -78,7 +78,7 @@ class ProlongedLengthOfStay (ProblemDefinition):
                 cutoff_times = cutoff_times.reindex(index=label)
                 cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
                 cutoff_times['instance_id'] = instance_id
-                cutoff_times.columns = ['cutoff_time', 'instance_id']
+                cutoff_times.columns = ['time', 'instance_id']
                 update_es = es[self.target_entity].df
 
                 # threshold

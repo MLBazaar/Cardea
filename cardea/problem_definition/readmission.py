@@ -81,7 +81,7 @@ class Readmission (ProblemDefinition):
             cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
 
             cutoff_times['instance_id'] = instance_id
-            cutoff_times.columns = ['cutoff_time', 'instance_id']
+            cutoff_times.columns = ['time', 'instance_id']
             cutoff_times['label'] = list(es[self.target_entity].df[self.target_label_column_name])
             return(es, self.target_entity, cutoff_times)
         else:
