@@ -224,7 +224,7 @@ def test_generate_labels_success_threshold(entityset_success, cutoff_times):
 
 
 def test_generate_cutoff_times_missing_generation_label(entityset_success, readmission):
-    entityset_success['Period'].delete_variable('end')
+    entityset_success['Period'].delete_variables('end')
     with pytest.raises(ValueError):
         readmission.generate_cutoff_times(
             entityset_success)

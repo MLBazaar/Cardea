@@ -294,7 +294,7 @@ def test_generate_cutoff_times_missing_generation_label(
 
 def test_generate_cutoff_times_with_missing_cutoff_label(
         entityset_error_missing_cutoff_label, length_of_stay):
-    entityset_error_missing_cutoff_label['Period'].delete_variable('start')
+    entityset_error_missing_cutoff_label['Period'].delete_variables('start')
     with pytest.raises(ValueError):
         length_of_stay.generate_cutoff_times(
             entityset_error_missing_cutoff_label)

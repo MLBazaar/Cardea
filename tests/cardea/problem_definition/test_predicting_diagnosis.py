@@ -243,14 +243,14 @@ def test_generate_cutoff_times_success(entityset_success, diagnosis_prediction, 
 
 
 def test_generate_cutoff_times_missing_generation_label(entityset_success, diagnosis_prediction):
-    entityset_success['Period'].delete_variable('start')
+    entityset_success['Period'].delete_variables('start')
     with pytest.raises(ValueError):
         diagnosis_prediction.generate_cutoff_times(
             entityset_success)
 
 
 def test_generate_label_with_missing_label(entityset_success, diagnosis_prediction):
-    entityset_success['Encounter'].delete_variable('diagnosis')
+    entityset_success['Encounter'].delete_variables('diagnosis')
     with pytest.raises(ValueError):
         diagnosis_prediction.generate_cutoff_times(entityset_success)
 

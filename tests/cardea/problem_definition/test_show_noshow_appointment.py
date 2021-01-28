@@ -150,7 +150,7 @@ def test_generate_cutoff_times_error_value(es_success, missed_appointment_proble
 
 def test_generate_cutoff_times_missing_cutoff_time(
         es_success, missed_appointment_problem_definition):
-    es_success['Appointment'].delete_variable('created')
+    es_success['Appointment'].delete_variables('created')
     with pytest.raises(ValueError):
         missed_appointment_problem_definition.generate_cutoff_times(
             es_success)
