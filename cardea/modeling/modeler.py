@@ -33,7 +33,7 @@ class Modeler:
     }
 
     def __init__(self, pipeline, problem_type):
-        self._pipeline = pipeline
+        self._pipeline = MLPipeline(pipeline)
         self._problem_type = problem_type
 
     @staticmethod
@@ -138,7 +138,7 @@ class Modeler:
         tunables = {'0': self._pipeline.get_tunable_hyperparameters(flat=True)}
 
         session = BTBSession(tunables, lambda _, hyparam: self.k_fold_validation(
-            hyparam, X=X, y=y, scoring=scoring), verbose=verbose)
+            hyparam, X=X, y=y, scoring=scoring), max_errors=max_evals, verbose=verbose)
 
         best_proposal = session.run(max_evals)
         self._pipeline.set_hyperparameters(best_proposal['config'])
@@ -281,5 +281,5 @@ class Modeler:
         with open(path, 'rb') as pickle_file:
             obj = pickle.load(pickle_file)
         if not isinstance(obj, Modeler):
-            raise ValueError('Serialized object is not an Modeler instance')
+            raise ValueError('Serialized object is not a Modeler instance')
         return obj
