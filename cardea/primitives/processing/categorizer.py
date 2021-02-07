@@ -8,19 +8,19 @@ class Categorizer(TransformerMixin):
     """
 
     def __init__(self):
-        self.categorical_dtype = None
+        self.categories = None
         self.dtype = None
 
     def fit(self, y):
-        self.categorical_dtype = pd.Categorical(y, ordered=True)
+        self.categories = pd.Categorical(y, ordered=True).categories
         self.dtype = np.array(y).dtype
         return self
 
     def transform(self, y):
         if y is None:
             return y
-        return pd.Categorical(y, dtype=self.categorical_dtype).codes
+        return pd.Categorical(np.array(y).astype(str), categories=self.categories).codes
 
     def inverse_transform(self, y_codes):
-        return np.array(pd.Categorical.from_codes(y_codes, dtype=self.categorical_dtype))\
+        return np.array(pd.Categorical.from_codes(y_codes, categories=self.categories))\
             .astype(self.dtype)
