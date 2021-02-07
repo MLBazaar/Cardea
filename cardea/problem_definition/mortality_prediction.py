@@ -72,13 +72,13 @@ class MortalityPrediction (ProblemDefinition):
 
             cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
             cutoff_times['instance_id'] = instance_id
-            cutoff_times.columns = ['cutoff_time', 'instance_id']
+            cutoff_times.columns = ['time', 'instance_id']
 
             cutoff_times['label'] = list(es[self.target_entity].df[self.target_label_column_name])
 
             for (idx, row) in cutoff_times.iterrows():
                 new_val = row.loc['label'] in self.causes_of_death
-                cutoff_times.set_value(idx, 'label', new_val)
+                cutoff_times.at[idx, 'label'] = new_val
 
             return(es, self.target_entity, cutoff_times)
         else:
