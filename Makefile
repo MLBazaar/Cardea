@@ -136,11 +136,11 @@ docs: clean-docs ## generate Sphinx HTML documentation, including API docs
 	touch docs/_build/html/.nojekyll
 
 .PHONY: viewdocs
-viewdocs: docs ## view docs in browser
+viewdocs: ## view the docs in a browser
 	$(BROWSER) docs/_build/html/index.html
 
 .PHONY: servedocs
-servedocs: docs ## compile the docs watching for changes
+servedocs: ## compile the docs watching for changes
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
 

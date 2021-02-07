@@ -93,7 +93,7 @@ setup(
     setup_requires=setup_requires,
     test_suite='tests',
     tests_require=tests_require,
-    url='https://github.com/DAI-Lab/Cardea',
-    version='0.1.1.dev0',
+    url='https://github.com/MLBazaar/Cardea',
+    version='0.1.2.dev0',
     zip_safe=False
 )

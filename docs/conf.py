@@ -146,7 +146,7 @@ html_context = {
 #     'display_version': False,
 # }
 html_theme_options = {
-    "github_url": "https://github.com/DAI-Lab/Cardea",
+    "github_url": "https://github.com/MLBazaar/Cardea",
     "show_prev_next": True,
 }
 

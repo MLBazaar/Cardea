@@ -18,11 +18,11 @@ Welcome to Cardea
 
 **Date**: |today| **Version**: |version|
 
--  License: `MIT <https://github.com/DAI-Lab/Cardea/blob/master/LICENSE>`__
+-  License: `MIT <https://github.com/MLBazaar/Cardea/blob/master/LICENSE>`__
 -  Development Status:
    `Pre-Alpha <https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha>`__
--  Documentation: https://dai-lab.github.io/Cardea/
--  Homepage: https://github.com/DAI-Lab/Cardea
+-  Documentation: https://mlbazaar.github.io/Cardea/
+-  Homepage: https://github.com/MLBazaar/Cardea
 
 Overview
 --------
@@ -75,12 +75,12 @@ Explore Cardea
    :target: https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha
 .. |PyPi Shield| image:: https://img.shields.io/pypi/v/cardea.svg
    :target: https://pypi.python.org/pypi/cardea
-.. |Travis CI Shield| image:: https://travis-ci.org/DAI-Lab/Cardea.svg?branch=master
-   :target: https://travis-ci.org/DAI-Lab/Cardea
+.. |Travis CI Shield| image:: https://travis-ci.org/MLBazaar/Cardea.svg?branch=master
+   :target: https://travis-ci.org/MLBazaar/Cardea
 .. |Downloads| image:: https://pepy.tech/badge/cardea
    :target: https://pepy.tech/project/cardea
 .. |Binder| image:: https://mybinder.org/badge_logo.svg
-   :target: https://mybinder.org/v2/gh/DAI-Lab/Cardea/master?filepath=notebooks
+   :target: https://mybinder.org/v2/gh/MLBazaar/Cardea/master?filepath=notebooks
 
 
 .. toctree::
