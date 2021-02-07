@@ -1,11 +1,10 @@
 import os
 import pickle
 
-from btb.session import BTBSession
 import numpy as np
 import sklearn
+from btb.session import BTBSession
 from mlblocks import MLPipeline
-from sklearn.metrics import make_scorer
 from sklearn.model_selection import KFold, train_test_split
 
 
