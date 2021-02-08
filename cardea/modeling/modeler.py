@@ -2,6 +2,7 @@ import os
 import pickle
 
 import numpy as np
+import pandas as pd
 import sklearn
 from btb.session import BTBSession
 from mlblocks import MLPipeline
@@ -40,9 +41,9 @@ class Modeler:
         """Split the training dataset and the testing dataset.
 
         Args:
-            X (array-like):
+            X (pandas.DataFrame or narray):
                 Inputs to the pipeline.
-            y (array-like):
+            y (pandas.Series or narray):
                 Target values.
             test_size (float):
                 The proportion of the dataset to include in the test dataset.
@@ -104,9 +105,9 @@ class Modeler:
         Args:
             hyperparameters (dict or None):
                 A dictionary of hyper-parameters for each primitive in the target pipeline.
-            X (array-like):
-                Inputs of the pipeline.
-            y (array-like):
+            X (pandas.DataFrame or narray):
+                Inputs to the pipeline.
+            y (pandas.Series or narray):
                 Target values.
             scoring (str):
                 The name of the scoring function.
@@ -116,6 +117,8 @@ class Modeler:
                 The average score in the k-fold validation.
         """
         model_instance = MLPipeline(self._pipeline)
+        X = pd.DataFrame(X)
+        y = pd.Series(y)
 
         if hyperparameters:
             model_instance.set_hyperparameters(hyperparameters)
@@ -138,9 +141,9 @@ class Modeler:
         """ Tune the pipeline hyper-parameters and select the optimized model.
 
         Args:
-            X (array-like):
+            X (pandas.DataFrame or narray):
                 Inputs to the pipeline.
-            y (array-like):
+            y (pandas.Series or narray):
                 Target values.
             max_evals (int):
                 Maximum number of hyper-parameter optimization iterations.
@@ -161,9 +164,9 @@ class Modeler:
         """Fit and select the pipelines.
 
         Args:
-            X (array-like):
-                Training data, inputs to the pipeline.
-            y (array-like):
+            X (pandas.DataFrame or narray):
+                Inputs to the pipeline.
+            y (pandas.Series or narray):
                 Target values.
             tune (bool):
                 Whether to optimize hyper-parameters of the pipelines.
@@ -182,26 +185,26 @@ class Modeler:
         # fit pipeline
         self._pipeline.fit(X, y)
 
-    def predict(self, X_test):
+    def predict(self, X):
         """Predict the input data
 
         Args:
-            X_test (array-like):
+            X (pandas.DataFrame or narray):
                 Testing data, inputs to the pipeline.
 
         Returns:
-            array-like:
+            pandas.Series or narray:
                 Predictions to the input data.
         """
-        return self._pipeline.predict(X_test)
+        return self._pipeline.predict(X)
 
     def test(self, X, y, scoring=None):
         """Test the trained pipeline.
 
         Args:
-            X (array-like):
-                Testing data, inputs to the pipeline.
-            y (array-like):
+            X (pandas.DataFrame or narray):
+                Inputs to the pipeline.
+            y (pandas.Series or narray):
                 Target values.
             scoring (str):
                 The name of the scoring function.
@@ -220,9 +223,9 @@ class Modeler:
         """Fit the pipeline and make predictions
 
         Args:
-            X (array-like):
-                Training data, inputs to the pipeline.
-            y (array-like):
+            X (pandas.DataFrame or narray):
+                Inputs to the pipeline.
+            y (pandas.Series or narray):
                 Target values.
             tune (bool):
                 Whether to optimize hyper-parameters of the pipelines.
@@ -234,7 +237,7 @@ class Modeler:
                 Whether to log information during processing.
 
         Returns:
-            array-like:
+            pandas.Series or narray:
                 Predictions to the input data.
         """
         self.fit(X, y, tune=tune, max_evals=max_evals, scoring=scoring,
@@ -246,9 +249,9 @@ class Modeler:
         """Evaluate the pipelines.
 
         Args:
-            X (array-like):
+            X (pandas.DataFrame or narray):
                 Inputs to the pipeline.
-            y (array-like):
+            y (pandas.Series or narray):
                 Target values.
             test_size (float):
                 The proportion of the dataset to include in the test dataset.
