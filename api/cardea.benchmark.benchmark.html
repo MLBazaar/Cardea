@@ -205,7 +205,7 @@ DataFrame object.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tasks</strong> (<em>list</em>) – a list of task instances storing meta information of each task.</p></li>
-<li><p><strong>metrics</strong> (<em>dict</em>) – a dictionary of metric functions indexed by metric names.</p></li>
+<li><p><strong>metrics</strong> (<em>list</em>) – a list of strings to identify the metric functions.</p></li>
 <li><p><strong>output_path</strong> (<em>str</em>) – the dir path to store benchmark results and records of each task.</p></li>
 <li><p><strong>save_results</strong> (<em>boolean</em>) – whether to store the benchmark results.</p></li>
 <li><p><strong>save_intermedia_data</strong> (<em>boolean</em>) – whether to store the intermedia data including an entity set and a feature matrix if
@@ -232,7 +232,7 @@ hyperparameters. Return testing results.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>task</strong> (<a class="reference internal" href="cardea.benchmark.task.html#cardea.benchmark.task.Task" title="cardea.benchmark.task.Task"><em>Task</em></a>) – a task instance storing meta information of the task.</p></li>
-<li><p><strong>metrics</strong> (<em>dict</em>) – a dictionary of metric functions indexed by metric names.</p></li>
+<li><p><strong>metrics</strong> (<em>list</em>) – a list of strings to identify the metric functions.</p></li>
 <li><p><strong>feature_matrix</strong> (<em>pd.DataFrame</em>) – a dataframe consists of both feature values and target values.</p></li>
 <li><p><strong>output_path</strong> (<em>str</em>) – a directory path to store the intermedia data, model and hyperparametes.</p></li>
 <li><p><strong>save_intermedia_data</strong> (<em>boolean</em>) – whether to store the intermedia data including an entity set and a feature matrix if

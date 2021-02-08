@@ -151,512 +151,314 @@
               <div>
                 
   <h1>Source code for cardea.modeling.modeler</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">copy</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
 
-<span class="kn">import</span> <span class="nn">hyperopt</span>
-<span class="kn">import</span> <span class="nn">mlblocks</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">hyperopt</span> <span class="kn">import</span> <span class="n">STATUS_OK</span><span class="p">,</span> <span class="n">Trials</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">fmin</span><span class="p">,</span> <span class="n">hp</span><span class="p">,</span> <span class="n">tpe</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="kn">from</span> <span class="nn">btb.session</span> <span class="kn">import</span> <span class="n">BTBSession</span>
 <span class="kn">from</span> <span class="nn">mlblocks</span> <span class="kn">import</span> <span class="n">MLPipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
-
-<span class="n">base</span><span class="o">.</span><span class="n">have_bson</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">train_test_split</span>
 
 
-<div class="viewcode-block" id="Modeler"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.html#cardea.modeling.modeler.Modeler">[docs]</a><span class="k">class</span> <span class="nc">Modeler</span><span class="p">():</span>
+<div class="viewcode-block" id="Modeler"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.html#cardea.modeling.modeler.Modeler">[docs]</a><span class="k">class</span> <span class="nc">Modeler</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;A class responsible for executing various Machine Learning Pipelines using MLBlocks.&quot;&quot;&quot;</span>
 
-    <span class="n">problem_type</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">primitive</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">pipeline_dict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">scoring</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">data_frame</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">target</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">minimize_cost</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">_regression_metrics</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;Explained Variance Score&#39;</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">explained_variance_score</span><span class="p">,</span>
+        <span class="s1">&#39;Mean Absolute Error&#39;</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">,</span>
+        <span class="s1">&#39;Mean Squared Error&#39;</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">,</span>
+        <span class="s1">&#39;Mean Squared Log Error&#39;</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_log_error</span><span class="p">,</span>
+        <span class="s1">&#39;Median Absolute Error&#39;</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">median_absolute_error</span><span class="p">,</span>
+        <span class="s1">&#39;R2 Score&#39;</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span>
+    <span class="p">}</span>
 
-    <span class="n">regression_scoring_function</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;explained_variance_score&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">explained_variance_score</span><span class="p">,</span>
-                                   <span class="s1">&#39;mean_absolute_error&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">,</span>
-                                   <span class="s1">&#39;mean_squared_error&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">,</span>
-                                   <span class="s1">&#39;mean_squared_log_error&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_log_error</span><span class="p">,</span>
-                                   <span class="s1">&#39;median_absolute_error&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">median_absolute_error</span><span class="p">,</span>
-                                   <span class="s1">&#39;r2_score&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">}</span>
-    <span class="n">classification_scoring_function</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">,</span>
-                                       <span class="s1">&#39;f1&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">,</span>
-                                       <span class="s1">&#39;precision&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">,</span>
-                                       <span class="s1">&#39;recall&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">,</span>
-                                       <span class="p">}</span>
+    <span class="n">_classification_metrics</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;Accuracy&#39;</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">,</span>
+        <span class="s1">&#39;F1 Macro&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span>
+                                                                    <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">),</span>
+        <span class="s1">&#39;Precision&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span>
+                                                                            <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">),</span>
+        <span class="s1">&#39;Recall&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span>
+                                                                      <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">),</span>
+        <span class="s1">&#39;Confusion Matrix&#39;</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span>
+    <span class="p">}</span>
 
-<div class="viewcode-block" id="Modeler.get_directory"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.get_directory">[docs]</a>    <span class="k">def</span> <span class="nf">get_directory</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns the path of the directory.</span>
+<div class="viewcode-block" id="Modeler.__init__"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.html#cardea.modeling.modeler.Modeler.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">problem_type</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span> <span class="o">=</span> <span class="n">MLPipeline</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_problem_type</span> <span class="o">=</span> <span class="n">problem_type</span></div>
+
+<div class="viewcode-block" id="Modeler.train_test_split"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.train_test_split">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Split the training dataset and the testing dataset.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            X (pandas.DataFrame or ndarray):</span>
+<span class="sd">                Inputs to the pipeline.</span>
+<span class="sd">            y (pandas.Series or ndarray):</span>
+<span class="sd">                Target values.</span>
+<span class="sd">            test_size (float):</span>
+<span class="sd">                The proportion of the dataset to include in the test dataset.</span>
+<span class="sd">            shuffle (bool):</span>
+<span class="sd">                Whether or not to shuffle the data before splitting.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            The absolute path of MLplrimitive directory.</span>
+<span class="sd">            list:</span>
+<span class="sd">                List containing the train-test split of the inputs and targets.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">mypath</span> <span class="o">=</span> <span class="n">mlblocks</span><span class="o">.</span><span class="n">get_primitives_paths</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">mypath</span></div>
+        <span class="k">return</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="n">shuffle</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Modeler.check_path"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.check_path">[docs]</a>    <span class="k">def</span> <span class="nf">check_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">primitives</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Checks the path of each primitive in the pipeline.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            primitives: A list of primitive.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            A list of primitives after edition.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">mypath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_directory</span><span class="p">()</span>
-
-        <span class="k">for</span> <span class="n">primitive</span> <span class="ow">in</span> <span class="n">primitives</span><span class="p">:</span>
-            <span class="n">mypath</span> <span class="o">=</span> <span class="n">mypath</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
-            <span class="n">primitive_file_name</span> <span class="o">=</span> <span class="n">primitive</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">mypath</span> <span class="ow">in</span> <span class="n">primitive</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">primitive_file_name</span><span class="p">)):</span>
-                <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">primitive</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">mypath</span> <span class="o">+</span> <span class="n">primitive_file_name</span><span class="p">)):</span>
-                <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mypath</span> <span class="o">+</span> <span class="n">primitive</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">new_list</span> <span class="o">==</span> <span class="p">[]:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="s1">&#39;is not found in MLprimitives.&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">new_list</span></div>
-
-<div class="viewcode-block" id="Modeler.check_path_hyperparameters"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.check_path_hyperparameters">[docs]</a>    <span class="k">def</span> <span class="nf">check_path_hyperparameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Checks the path of each hyperparameters in the pipeline.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            hyperparameters: A list of hyperparameters.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            A list of hyperparameters after edition.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">new_list</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">mypath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_directory</span><span class="p">()</span>
-        <span class="n">hyperparameters_keys</span> <span class="o">=</span> <span class="n">hyperparameters</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-
-        <span class="k">for</span> <span class="n">hyperparameter</span> <span class="ow">in</span> <span class="n">hyperparameters_keys</span><span class="p">:</span>
-            <span class="n">mypath</span> <span class="o">=</span> <span class="n">mypath</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
-            <span class="n">primitive_file_name</span> <span class="o">=</span> <span class="n">hyperparameter</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span>
-
-            <span class="k">if</span> <span class="p">(</span><span class="n">mypath</span> <span class="ow">in</span> <span class="n">hyperparameter</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">primitive_file_name</span><span class="p">)):</span>
-                <span class="n">new_list</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span>
-            <span class="k">elif</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">mypath</span> <span class="o">+</span> <span class="n">hyperparameter</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span><span class="p">)):</span>
-                <span class="n">new_list</span><span class="p">[</span><span class="n">mypath</span> <span class="o">+</span> <span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">new_list</span> <span class="o">==</span> <span class="p">{}:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">hyperparameters_keys</span><span class="p">),</span> <span class="s1">&#39;is not found in MLprimitives.&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">new_list</span></div>
-
-<div class="viewcode-block" id="Modeler.create_pipeline"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.create_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">create_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">primitives</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates a pipeline of primitives.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            primitives: A list of primitive.</span>
-<span class="sd">            hyperparameters: A dictionary of hyperparameters for each primitives.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            A MLPipeline instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">primitive</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_path</span><span class="p">(</span><span class="n">primitives</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">hyperparameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">hyperparameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_path_hyperparameters</span><span class="p">(</span><span class="n">hyperparameters</span><span class="p">)</span>
-            <span class="n">pipeline</span> <span class="o">=</span> <span class="n">MLPipeline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">primitive</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">pipeline</span> <span class="o">=</span> <span class="n">MLPipeline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">primitive</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">pipeline</span></div>
-
-<div class="viewcode-block" id="Modeler.fit_predict_model"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.fit_predict_model">[docs]</a>    <span class="k">def</span> <span class="nf">fit_predict_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Fits and predicts all the primitives within the pipeline.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            X_train: A ndarray of the training data.</span>
-<span class="sd">            y_train: An array of the training target variable.</span>
-<span class="sd">            X_test: A ndarray of the testing data.</span>
-<span class="sd">            pipeline: A MLPipeline instance.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            A list consists of the used pipeline and an array of the predicted values.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">y_pred</span></div>
-
-<div class="viewcode-block" id="Modeler.search_all_possible_primitives"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.search_all_possible_primitives">[docs]</a>    <span class="k">def</span> <span class="nf">search_all_possible_primitives</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">primitives</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Searches for all primitives similar to the ones provided.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            primitives: A list of primitive.</span>
-<span class="sd">            hyperparameters: A dictionary of hyperparameters for each primitives.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            A list that encapsulate a list consisting of the fold number and the used pipeline and</span>
-<span class="sd">            an array of the predicted values and an array of the actual values.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">pipeline_list</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">pipeline_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">create_kfold</span><span class="p">(</span><span class="n">primitives</span><span class="p">))</span>
-
-        <span class="k">return</span> <span class="n">pipeline_list</span></div>
-
-<div class="viewcode-block" id="Modeler.create_kfold"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.create_kfold">[docs]</a>    <span class="k">def</span> <span class="nf">create_kfold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">primitives</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates Kfold cross-validation and predicts all the primitives within the pipeline.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            primitive: The name of the primitive.</span>
-<span class="sd">            primitives_names: A list of the names of all the primitives similar</span>
-<span class="sd">            to the ones provided.</span>
-<span class="sd">            hyperparameters: A dictionary of hyperparameters for each primitives.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            A list consists of the fold number and the used pipeline and an array of</span>
-<span class="sd">            the predicted values and an array of the actual values.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">pipeline_list</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-
-        <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">):</span>
-            <span class="n">predict_result</span> <span class="o">=</span> <span class="p">[]</span>
-
-            <span class="n">X_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
-            <span class="n">X_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
-            <span class="n">y_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
-            <span class="n">y_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
-
-            <span class="c1"># Append the fold number.</span>
-            <span class="n">predict_result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">hyperparameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">(</span><span class="n">primitives</span><span class="p">)</span>
-
-            <span class="c1"># Append the primitive name.</span>
-            <span class="n">predict_result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">primitives</span><span class="p">)</span>
-
-            <span class="c1"># Append the predicted labels.</span>
-            <span class="n">y_predict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_predict_model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
-            <span class="n">predict_result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_predict</span><span class="p">)</span>
-            <span class="c1"># Append the Actual labels.</span>
-
-            <span class="n">predict_result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
-            <span class="n">pipeline_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">predict_result</span><span class="p">)</span>
-
-            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">pipeline_list</span></div>
-
-<div class="viewcode-block" id="Modeler.kfold_scoring"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.kfold_scoring">[docs]</a>    <span class="k">def</span> <span class="nf">kfold_scoring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate the average Kfold cross-validation score.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            data_frame: A dataframe, which encapsulates all the records of that entity.</span>
-<span class="sd">            target: An array of labels for the target variable.</span>
-<span class="sd">            pipeline: A MLPipeline instance.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            The average folds score.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">fold_score</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">macro</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;recall&#39;</span><span class="p">,</span> <span class="s1">&#39;f1&#39;</span><span class="p">,</span> <span class="s1">&#39;precision&#39;</span><span class="p">]</span>
-        <span class="n">number_of_folds</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="n">Folds</span> <span class="o">=</span> <span class="p">{}</span>
-
-        <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">data_frame</span><span class="p">):</span>
-            <span class="n">X_train</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
-            <span class="n">X_test</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
-            <span class="n">y_train</span> <span class="o">=</span> <span class="n">target</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
-            <span class="n">y_test</span> <span class="o">=</span> <span class="n">target</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
-            <span class="n">number_of_folds</span> <span class="o">=</span> <span class="n">number_of_folds</span> <span class="o">+</span> <span class="mi">1</span>
-            <span class="c1"># Append the predicted labels.</span>
-            <span class="c1"># TODO: use MLPipeline(pipeline) to copy a pipeline with MLBlocks &gt;= 0.3.4</span>
-            <span class="n">fold_pipeline</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
-            <span class="n">y_predict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_predict_model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">fold_pipeline</span><span class="p">)</span>
-
-            <span class="n">Folds</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">number_of_folds</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;predicted&quot;</span><span class="p">:</span> <span class="n">y_predict</span><span class="p">,</span>
-                <span class="s2">&quot;Actual&quot;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span>
-                <span class="s2">&quot;pipeline&quot;</span><span class="p">:</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">fold_pipeline</span><span class="p">),</span>
-                <span class="s2">&quot;test_index&quot;</span><span class="p">:</span> <span class="n">test_index</span>
-            <span class="p">}</span>
-
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem_type</span> <span class="o">==</span> <span class="s1">&#39;regression&#39;</span><span class="p">:</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scoring</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regression_scoring_function</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">scoring</span><span class="p">](</span><span class="n">y_predict</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regression_scoring_function</span><span class="p">[</span><span class="s1">&#39;r2_score&#39;</span><span class="p">](</span><span class="n">y_predict</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scoring</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scoring</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">macro</span><span class="p">:</span>
-                        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classification_scoring_function</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">scoring</span><span class="p">](</span>
-                            <span class="n">y_predict</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classification_scoring_function</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">scoring</span><span class="p">](</span>
-                            <span class="n">y_predict</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classification_scoring_function</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">](</span>
-                        <span class="n">y_predict</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
-
-            <span class="n">fold_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span><span class="p">[</span><span class="s1">&#39;folds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Folds</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fold_score</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Modeler.create_space"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.create_space">[docs]</a>    <span class="k">def</span> <span class="nf">create_space</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates the search space.</span>
-<span class="sd">        Args:</span>
-<span class="sd">            pipeline: A MLPipeline instance.</span>
-<span class="sd">        Raises:</span>
-<span class="sd">        Exception: If the value of tunnable hyperparameters is empty.</span>
-<span class="sd">        Returns:</span>
-<span class="sd">            A dictionary of the space over which to search.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">space</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">space_list</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">blocks</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
-            <span class="n">space</span> <span class="o">=</span> <span class="p">{}</span>
-
-            <span class="n">tunable_hyperparameters</span> <span class="o">=</span> <span class="n">block</span><span class="o">.</span><span class="n">get_tunable_hyperparameters</span><span class="p">()</span>
-            <span class="n">primitive</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">block</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;MLBlock - &#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-
-            <span class="k">for</span> <span class="n">hyperparameter</span> <span class="ow">in</span> <span class="n">tunable_hyperparameters</span><span class="p">:</span>
-                <span class="n">hp_type</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-                <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;values&#39;</span> <span class="ow">in</span> <span class="n">hp_type</span><span class="p">):</span>
-                    <span class="n">value</span> <span class="o">=</span> <span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;values&#39;</span><span class="p">]</span>
-                    <span class="n">space</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">hyperparameter</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;range&#39;</span> <span class="ow">in</span> <span class="n">hp_type</span><span class="p">):</span>
-                    <span class="n">value</span> <span class="o">=</span> <span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;range&#39;</span><span class="p">]</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;float&#39;</span><span class="p">):</span>
-                        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-                            <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-                        <span class="n">space</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
-                            <span class="n">hyperparameter</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
-                    <span class="k">elif</span> <span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;str&#39;</span><span class="p">):</span>
-                        <span class="n">space</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">hyperparameter</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-                            <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-                        <span class="n">space</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
-                            <span class="n">hyperparameter</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="p">(</span><span class="n">tunable_hyperparameters</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bool&#39;</span><span class="p">):</span>
-                    <span class="n">space</span><span class="p">[</span><span class="n">hyperparameter</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">hyperparameter</span><span class="p">,</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
-
-            <span class="n">space_list</span><span class="p">[</span><span class="n">primitive</span><span class="p">]</span> <span class="o">=</span> <span class="n">space</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">space_list</span> <span class="o">==</span> <span class="p">{}):</span>
-                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Can not create the domain Space.</span><span class="se">\</span>
-<span class="s1">                    The value of tunnable hyperparameters is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">space_list</span></div>
-
-<div class="viewcode-block" id="Modeler.hyperopt_train_test"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.hyperopt_train_test">[docs]</a>    <span class="k">def</span> <span class="nf">hyperopt_train_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">pipeline</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates the objective function to minimize.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            params: The parameter for a specific pipleline.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            The the model secore after K-fold corss-validation.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">pipeline</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">primitive</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kfold_scoring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Modeler.objective"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.objective">[docs]</a>    <span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">pipeline</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-
-        <span class="n">accuracy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyperopt_train_test</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">minimize_cost</span><span class="p">:</span>
-            <span class="n">accuracy</span> <span class="o">=</span> <span class="o">-</span><span class="n">accuracy</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">accuracy</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="n">STATUS_OK</span><span class="p">}</span></div>
-
-<div class="viewcode-block" id="Modeler.hyperparameter_tunning"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.hyperparameter_tunning">[docs]</a>    <span class="k">def</span> <span class="nf">hyperparameter_tunning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">max_evals</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Tuens and optimize the models&#39; hyperparameter.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            pipeline: A MLPipeline instance.</span>
-<span class="sd">            max_evals: Maximum number of hyperparameter evaluations.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            A list of the tuned hyperparameter that best fits the model.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">space</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_space</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
-
-        <span class="n">trials</span> <span class="o">=</span> <span class="n">Trials</span><span class="p">()</span>
-        <span class="n">best</span> <span class="o">=</span> <span class="n">fmin</span><span class="p">(</span>
-            <span class="k">lambda</span> <span class="n">param</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">),</span>
-            <span class="n">space</span><span class="p">,</span>
-            <span class="n">algo</span><span class="o">=</span><span class="n">tpe</span><span class="o">.</span><span class="n">suggest</span><span class="p">,</span>
-            <span class="n">max_evals</span><span class="o">=</span><span class="n">max_evals</span><span class="p">,</span>
-            <span class="n">catch_eval_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">trials</span><span class="o">=</span><span class="n">trials</span><span class="p">)</span>
-
-        <span class="n">best</span> <span class="o">=</span> <span class="n">hyperopt</span><span class="o">.</span><span class="n">space_eval</span><span class="p">(</span><span class="n">space</span><span class="p">,</span> <span class="n">best</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">best</span></div>
-
-<div class="viewcode-block" id="Modeler.optimization"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.optimization">[docs]</a>    <span class="k">def</span> <span class="nf">optimization</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">max_evals</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Tuens and optimize the models&#39; hyperparameter.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            pipeline: A MLPipeline instance.</span>
-<span class="sd">            max_evals: Maximum number of hyperparameter evaluations.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">hyperparameter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyperparameter_tunning</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">max_evals</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span><span class="p">[</span><span class="s1">&#39;hyperparameter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hyperparameter</span></div>
-
-    <span class="c1"># TODO: remove this function in a later version</span>
-<div class="viewcode-block" id="Modeler.execute_pipeline"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.execute_pipeline.html#cardea.modeling.modeler.Modeler.execute_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">execute_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">primitives_list</span><span class="p">,</span> <span class="n">problem_type</span><span class="p">,</span>
-                         <span class="n">optimize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                         <span class="n">minimize_cost</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Executes and predict all the pipelines.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            data_frame (pandas.DataFrame or ndarray):</span>
-<span class="sd">                A dataframe which holds the feature matrix.</span>
-<span class="sd">            target (ndarray):</span>
-<span class="sd">                An array of labels for the target variable.</span>
-<span class="sd">            primitives_list (list):</span>
-<span class="sd">                A list of the primitives within a pipeline.</span>
-<span class="sd">            problem_type (str):</span>
-<span class="sd">                A label to specify the type of problem whether regression or classification.</span>
-<span class="sd">            optimize (bool):</span>
-<span class="sd">                A boolean value which indicates whether to optimize the model or not.</span>
-<span class="sd">            max_evals (int):</span>
-<span class="sd">                Maximum number of hyperparameter evaluations.</span>
-<span class="sd">            scoring (str):</span>
-<span class="sd">                A label to specify the scoring function.</span>
-<span class="sd">            minimize_cost (bool):</span>
-<span class="sd">                A boolean value indicating whether to get minimum or maximum cost value.</span>
-<span class="sd">            hyperparameters (dict):</span>
-<span class="sd">                A dictionary of hyperparameters for each primitives.</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">regression_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Supported regression metrics functions.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            dict:</span>
-<span class="sd">                A dictionary for all the pipelines which consists of: the fold number, the used</span>
-<span class="sd">                pipeline and an array of the predicted values and an array of the actual values.</span>
+<span class="sd">                A dictionary for regression metric functions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">all_pipeline_dict</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">Folds</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scoring</span> <span class="o">=</span> <span class="n">scoring</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">data_frame</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">problem_type</span> <span class="o">=</span> <span class="n">problem_type</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">minimize_cost</span> <span class="o">=</span> <span class="n">minimize_cost</span>
-        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
-            <span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regression_metrics</span>
 
-        <span class="n">list_of_executed_pipelines</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">primitives</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">primitives_list</span><span class="p">):</span>
-
-            <span class="n">pipleline_order</span> <span class="o">=</span> <span class="s2">&quot;pipeline&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="p">(</span><span class="n">optimize</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">primitive</span> <span class="o">=</span> <span class="n">primitives</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span><span class="p">[</span><span class="s1">&#39;primitives&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">primitives</span>
-                <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">(</span><span class="n">primitives</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">optimization</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">max_evals</span><span class="p">)</span>
-
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">list_of_executed_pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">search_all_possible_primitives</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">))</span>
-
-                <span class="k">for</span> <span class="n">fold</span> <span class="ow">in</span> <span class="n">list_of_executed_pipelines</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
-                    <span class="n">fold_number</span> <span class="o">=</span> <span class="n">fold</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-                    <span class="n">Folds</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">fold_number</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;predicted&quot;</span><span class="p">:</span> <span class="n">list_of_executed_pipelines</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span>
-                                               <span class="s2">&quot;Actual&quot;</span><span class="p">:</span> <span class="n">list_of_executed_pipelines</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]}</span>
-
-                <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;primitives&#39;</span><span class="p">:</span> <span class="n">primitives</span><span class="p">,</span>
-                                      <span class="s1">&#39;folds&#39;</span><span class="p">:</span> <span class="n">Folds</span><span class="p">,</span>
-                                      <span class="s1">&#39;hyperparameter&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
-
-            <span class="n">all_pipeline_dict</span><span class="p">[</span><span class="n">pipleline_order</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">return</span> <span class="n">all_pipeline_dict</span></div>
-
-<div class="viewcode-block" id="Modeler.create_kfold_from_pipeline"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.create_kfold_from_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">create_kfold_from_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates Kfold cross-validation and predicts all the primitives within the pipeline.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            pipeline: A MLPipeline instance.</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">classification_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Supported classification metrics functions.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Prediction results and trained models of each fold stored in a dictionary.</span>
+<span class="sd">            dict:</span>
+<span class="sd">                A dictionary for classification metric functions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">fold_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_classification_metrics</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">target_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Supported metrics functions for the given problem type.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict:</span>
+<span class="sd">                A dictionary for metric functions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_problem_type</span> <span class="o">==</span> <span class="s1">&#39;classification&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_classification_metrics</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regression_metrics</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Pipeline.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            MLPipeline:</span>
+<span class="sd">                The pipeline in the modeler.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">MLPipeline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Modeler.k_fold_validation"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.k_fold_validation">[docs]</a>    <span class="k">def</span> <span class="nf">k_fold_validation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Score the pipeline through k-fold validation with the given scoring function.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            hyperparameters (dict or None):</span>
+<span class="sd">                A dictionary of hyper-parameters for each primitive in the target pipeline.</span>
+<span class="sd">            X (pandas.DataFrame or ndarray):</span>
+<span class="sd">                Inputs to the pipeline.</span>
+<span class="sd">            y (pandas.Series or ndarray):</span>
+<span class="sd">                Target values.</span>
+<span class="sd">            scoring (str):</span>
+<span class="sd">                The name of the scoring function.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            np.float64:</span>
+<span class="sd">                The average score in the k-fold validation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">model_instance</span> <span class="o">=</span> <span class="n">MLPipeline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">hyperparameters</span><span class="p">:</span>
+            <span class="n">model_instance</span><span class="o">.</span><span class="n">set_hyperparameters</span><span class="p">(</span><span class="n">hyperparameters</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_problem_type</span> <span class="o">==</span> <span class="s1">&#39;regression&#39;</span><span class="p">:</span>
+            <span class="n">scorer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regression_metrics</span><span class="p">[</span><span class="n">scoring</span> <span class="ow">or</span> <span class="s1">&#39;R2 Score&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">scorer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classification_metrics</span><span class="p">[</span><span class="n">scoring</span> <span class="ow">or</span> <span class="s1">&#39;F1 Macro&#39;</span><span class="p">]</span>
+
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+            <span class="n">model_instance</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">])</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model_instance</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">])</span>
+            <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scorer</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">))</span>
 
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="p">)):</span>
-            <span class="n">fold_pipeline</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span></div>
 
-            <span class="n">X_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
-            <span class="n">X_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
-            <span class="n">y_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
-            <span class="n">y_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
-
-            <span class="c1"># Append the predicted labels.</span>
-            <span class="n">y_predict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_predict_model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">fold_pipeline</span><span class="p">)</span>
-            <span class="n">fold_dict</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;predicted&quot;</span><span class="p">:</span> <span class="n">y_predict</span><span class="p">,</span> <span class="s2">&quot;Actual&quot;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span>
-                                 <span class="s2">&quot;pipeline&quot;</span><span class="p">:</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">fold_pipeline</span><span class="p">),</span>
-                                 <span class="s2">&quot;test_index&quot;</span><span class="p">:</span> <span class="n">test_index</span><span class="p">}</span>
-
-        <span class="k">return</span> <span class="n">fold_dict</span></div>
-
-<div class="viewcode-block" id="Modeler.execute_pipeline_from_pipeline"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.execute_pipeline_from_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">execute_pipeline_from_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">pipelines</span><span class="p">,</span> <span class="n">problem_type</span><span class="p">,</span>
-                                       <span class="n">optimize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                       <span class="n">minimize_cost</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Executes and predict all the pipelines.</span>
+<div class="viewcode-block" id="Modeler.tune"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.tune">[docs]</a>    <span class="k">def</span> <span class="nf">tune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Tune the pipeline hyper-parameters and select the optimized model.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            data_frame: A dataframe, which encapsulates all the records of that entity.</span>
-<span class="sd">            target: An array of labels for the target variable.</span>
-<span class="sd">            pipelines: A list of MLPipeline instances.</span>
-<span class="sd">            problem_type: A label to specify the type of problem whether</span>
-<span class="sd">            regression or classification.</span>
-<span class="sd">            optimize: A boolean value which indicates whether to optimize the model or not.</span>
-<span class="sd">            max_evals: Maximum number of hyperparameter evaluations.</span>
-<span class="sd">            scoring: A label to specify the scoring function.</span>
-<span class="sd">            minimize_cost: A boolean value indicating whether to get minimum or maximum cost value.</span>
+<span class="sd">            X (pandas.DataFrame or ndarray):</span>
+<span class="sd">                Inputs to the pipeline.</span>
+<span class="sd">            y (pandas.Series or ndarray):</span>
+<span class="sd">                Target values.</span>
+<span class="sd">            max_evals (int):</span>
+<span class="sd">                Maximum number of hyper-parameter optimization iterations.</span>
+<span class="sd">            scoring (str):</span>
+<span class="sd">                The name of the scoring function.</span>
+<span class="sd">            verbose (bool):</span>
+<span class="sd">                Whether to log information during processing.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tunables</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;0&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="o">.</span><span class="n">get_tunable_hyperparameters</span><span class="p">(</span><span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+
+        <span class="n">session</span> <span class="o">=</span> <span class="n">BTBSession</span><span class="p">(</span><span class="n">tunables</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">_</span><span class="p">,</span> <span class="n">hyparam</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_fold_validation</span><span class="p">(</span>
+            <span class="n">hyparam</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">),</span> <span class="n">max_errors</span><span class="o">=</span><span class="n">max_evals</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+        <span class="n">best_proposal</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">max_evals</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="o">.</span><span class="n">set_hyperparameters</span><span class="p">(</span><span class="n">best_proposal</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="Modeler.fit"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fit and select the pipelines.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            X (pandas.DataFrame or ndarray):</span>
+<span class="sd">                Inputs to the pipeline.</span>
+<span class="sd">            y (pandas.Series or ndarray):</span>
+<span class="sd">                Target values.</span>
+<span class="sd">            tune (bool):</span>
+<span class="sd">                Whether to optimize hyper-parameters of the pipelines.</span>
+<span class="sd">            max_evals (int):</span>
+<span class="sd">                Maximum number of hyper-parameter optimization iterations.</span>
+<span class="sd">            scoring (str):</span>
+<span class="sd">                The name of the scoring function used in the hyper-parameter optimization.</span>
+<span class="sd">            verbose (bool):</span>
+<span class="sd">                Whether to log information during processing.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">tune</span><span class="p">:</span>
+            <span class="c1"># tune and select pipeline</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="n">max_evals</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">,</span>
+                      <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+        <span class="c1"># fit pipeline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Modeler.predict"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Predict the input data</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            X (pandas.DataFrame or ndarray):</span>
+<span class="sd">                Testing data, inputs to the pipeline.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            A list for all the pipelines which consists of: the fold number, the used pipeline</span>
-<span class="sd">            and an array of the predicted values and an array of the actual values.</span>
+<span class="sd">            pandas.Series or ndarray:</span>
+<span class="sd">                Predictions to the input data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">all_pipeline_dict</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scoring</span> <span class="o">=</span> <span class="n">scoring</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">data_frame</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">problem_type</span> <span class="o">=</span> <span class="n">problem_type</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">minimize_cost</span> <span class="o">=</span> <span class="n">minimize_cost</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-            <span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
-        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">pipeline</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pipelines</span><span class="p">):</span>
-            <span class="n">pipleline_order</span> <span class="o">=</span> <span class="s2">&quot;pipeline&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<div class="viewcode-block" id="Modeler.test"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.test">[docs]</a>    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test the trained pipeline.</span>
 
-            <span class="k">if</span> <span class="n">optimize</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">optimization</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">max_evals</span><span class="p">)</span>
-                <span class="c1"># TODO: Pass training results in function returns instead of class attributes</span>
-                <span class="n">pipeline_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span>
+<span class="sd">        Args:</span>
+<span class="sd">            X (pandas.DataFrame or ndarray):</span>
+<span class="sd">                Inputs to the pipeline.</span>
+<span class="sd">            y (pandas.Series or ndarray):</span>
+<span class="sd">                Target values.</span>
+<span class="sd">            scoring (str):</span>
+<span class="sd">                The name of the scoring function.</span>
 
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">fold_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_kfold_from_pipeline</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
-                <span class="n">pipeline_dict</span> <span class="o">=</span> <span class="p">{</span>
-                    <span class="s1">&#39;primitives&#39;</span><span class="p">:</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">primitives</span><span class="p">,</span>
-                    <span class="s1">&#39;folds&#39;</span><span class="p">:</span> <span class="n">fold_dict</span><span class="p">,</span>
-                    <span class="s1">&#39;hyperparameters&#39;</span><span class="p">:</span> <span class="kc">None</span>
-                <span class="p">}</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            float:</span>
+<span class="sd">                The score of the trained pipeline on the inputs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_problem_type</span> <span class="o">==</span> <span class="s1">&#39;regression&#39;</span><span class="p">:</span>
+            <span class="n">scorer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regression_metrics</span><span class="p">[</span><span class="n">scoring</span> <span class="ow">or</span> <span class="s1">&#39;r2_score&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">scorer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classification_metrics</span><span class="p">[</span><span class="n">scoring</span> <span class="ow">or</span> <span class="s1">&#39;f1&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">scorer</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span></div>
 
-            <span class="n">all_pipeline_dict</span><span class="p">[</span><span class="n">pipleline_order</span><span class="p">]</span> <span class="o">=</span> <span class="n">pipeline_dict</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">pipeline_dict</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">return</span> <span class="n">all_pipeline_dict</span></div></div>
+<div class="viewcode-block" id="Modeler.fit_predict"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.fit_predict">[docs]</a>    <span class="k">def</span> <span class="nf">fit_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fit the pipeline and make predictions</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            X (pandas.DataFrame or ndarray):</span>
+<span class="sd">                Inputs to the pipeline.</span>
+<span class="sd">            y (pandas.Series or ndarray):</span>
+<span class="sd">                Target values.</span>
+<span class="sd">            tune (bool):</span>
+<span class="sd">                Whether to optimize hyper-parameters of the pipelines.</span>
+<span class="sd">            max_evals (int):</span>
+<span class="sd">                Maximum number of hyper-parameter optimization iterations.</span>
+<span class="sd">            scoring (str):</span>
+<span class="sd">                The name of the scoring function used in the hyper-parameter optimization.</span>
+<span class="sd">            verbose(bool):</span>
+<span class="sd">                Whether to log information during processing.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.Series or ndarray:</span>
+<span class="sd">                Predictions to the input data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="n">tune</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="n">max_evals</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Modeler.evaluate"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">metrics</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Evaluate the pipelines.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            X (pandas.DataFrame or ndarray):</span>
+<span class="sd">                Inputs to the pipeline.</span>
+<span class="sd">            y (pandas.Series or ndarray):</span>
+<span class="sd">                Target values.</span>
+<span class="sd">            test_size (float):</span>
+<span class="sd">                The proportion of the dataset to include in the test dataset.</span>
+<span class="sd">            shuffle (bool):</span>
+<span class="sd">                Whether or not to shuffle the data before splitting.</span>
+<span class="sd">            tune (bool):</span>
+<span class="sd">                Whether to optimize hyper-parameters of the pipelines.</span>
+<span class="sd">            max_evals (int):</span>
+<span class="sd">                Maximum number of hyper-parameter optimization iterations.</span>
+<span class="sd">            scoring (str):</span>
+<span class="sd">                The name of the scoring function used in the hyper-parameter optimization.</span>
+<span class="sd">            metrics (list):</span>
+<span class="sd">                A list of scoring function names. The scoring functions should be consistent</span>
+<span class="sd">                with the problem type.</span>
+<span class="sd">            verbose (bool):</span>
+<span class="sd">                Whether to log information during processing.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span>
+                                                                 <span class="n">shuffle</span><span class="o">=</span><span class="n">shuffle</span><span class="p">)</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="n">metrics</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_metrics</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="n">tune</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="n">max_evals</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
+            <span class="n">scores</span><span class="p">[</span><span class="n">metric</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">metric</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">scores</span></div>
+
+<div class="viewcode-block" id="Modeler.save"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Save the object in a pickle file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path (str): The path to store the modeler.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pickle_file</span><span class="p">:</span>
+            <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pickle_file</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Modeler.load"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.load">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Load a Modeler object from a pickle file</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path (str): The path to load the modeler.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Modeler:</span>
+<span class="sd">                A Modeler instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pickle_file</span><span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pickle_file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Modeler</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Serialized object is not a Modeler instance&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">obj</span></div></div>
 </pre></div>
 
               </div>

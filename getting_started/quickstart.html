@@ -175,53 +175,83 @@ using the following steps:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">cardea</span> <span class="kn">import</span> <span class="n">Cardea</span>
 
 <span class="gp">In [2]: </span><span class="n">cardea</span> <span class="o">=</span> <span class="n">Cardea</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-2-e6841733c998&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cardea</span> <span class="o">=</span> <span class="n">Cardea</span><span class="p">()</span>
+
+<span class="nn">~/work/Cardea/Cardea/cardea/cardea.py</span> in <span class="ni">__init__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>         <span class="bp">self</span><span class="o">.</span><span class="n">es_loader</span> <span class="o">=</span> <span class="n">EntitySetLoader</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="bp">self</span><span class="o">.</span><span class="n">featurization</span> <span class="o">=</span> <span class="n">Featurization</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">40</span>         <span class="bp">self</span><span class="o">.</span><span class="n">modeler</span> <span class="o">=</span> <span class="n">Modeler</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> 
+<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="bp">self</span><span class="o">.</span><span class="n">es</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="ne">TypeError</span>: __init__() missing 2 required positional arguments: &#39;pipeline&#39; and &#39;problem_type&#39;
 </pre></div>
 </div>
 <p>Second, load a dataset. By default, if no path is given, Cardea automatically loads a
 pre-processed version of the Kaggle dataset: <a class="reference external" href="https://www.kaggle.com/joniarroba/noshowappointments">Medical Appointment No Shows</a>, using the
 following command:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">cardea</span><span class="o">.</span><span class="n">load_data_entityset</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-3-b76739a145a5&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cardea</span><span class="o">.</span><span class="n">load_data_entityset</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;cardea&#39; is not defined
 </pre></div>
 </div>
 <p>You can see the list of problem definitions and select one with the following commands:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">cardea</span><span class="o">.</span><span class="n">list_problems</span><span class="p">()</span>
-<span class="gh">Out[4]: </span><span class="go"></span>
-<span class="go">{&#39;DiagnosisPrediction&#39;,</span>
-<span class="go"> &#39;LengthOfStay&#39;,</span>
-<span class="go"> &#39;MissedAppointmentProblemDefinition&#39;,</span>
-<span class="go"> &#39;MortalityPrediction&#39;,</span>
-<span class="go"> &#39;ProlongedLengthOfStay&#39;,</span>
-<span class="go"> &#39;Readmission&#39;}</span>
+<pre class="literal-block">In [4]: cardea.list_problems()
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-4-3dcc3f8bb0b2&gt; in &lt;module&gt;()
+----&gt; 1 cardea.list_problems()
 
-<span class="gp">In [5]: </span><span class="n">problem</span> <span class="o">=</span> <span class="n">cardea</span><span class="o">.</span><span class="n">select_problem</span><span class="p">(</span><span class="s1">&#39;MissedAppointmentProblemDefinition&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
+NameError: name 'cardea' is not defined
+
+In [5]: problem = cardea.select_problem('MissedAppointmentProblemDefinition')
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-5-244c29917e5b&gt; in &lt;module&gt;()
+----&gt; 1 problem = cardea.select_problem('MissedAppointmentProblemDefinition')
+
+NameError: name 'cardea' is not defined</pre>
 <p>Then, you can perform the AutoML steps and take advantage of Cardea:</p>
 <ol class="arabic">
 <li><p>Extracting features (automated feature engineering), using the following commands:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">feature_matrix</span> <span class="o">=</span> <span class="n">cardea</span><span class="o">.</span><span class="n">generate_features</span><span class="p">(</span><span class="n">problem</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>  <span class="c1"># a subset</span>
-<span class="go">Built 13 features</span>
+<pre class="literal-block">In [6]: feature_matrix = cardea.generate_features(problem[:1000])  # a subset
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-6-b6b8906ad9ed&gt; in &lt;module&gt;()
+----&gt; 1 feature_matrix = cardea.generate_features(problem[:1000])  # a subset
 
-<span class="go">Elapsed: 00:00 | Remaining: ? | Progress:   0%|          | Calculated: 0/10 chunks</span>
-<span class="go">Elapsed: 00:05 | Remaining: 00:49 | Progress:  10%|#         | Calculated: 1/10 chunks</span>
-<span class="go">Elapsed: 00:11 | Remaining: 00:48 | Progress:  20%|##        | Calculated: 2/10 chunks</span>
-<span class="go">Elapsed: 00:18 | Remaining: 00:42 | Progress:  30%|###       | Calculated: 3/10 chunks</span>
-<span class="go">Elapsed: 00:24 | Remaining: 00:37 | Progress:  40%|####      | Calculated: 4/10 chunks</span>
-<span class="go">Elapsed: 00:31 | Remaining: 00:32 | Progress:  50%|#####     | Calculated: 5/10 chunks</span>
-<span class="go">Elapsed: 00:38 | Remaining: 00:26 | Progress:  60%|######    | Calculated: 6/10 chunks</span>
-<span class="go">Elapsed: 00:44 | Remaining: 00:19 | Progress:  70%|#######   | Calculated: 7/10 chunks</span>
-<span class="go">Elapsed: 00:51 | Remaining: 00:13 | Progress:  80%|########  | Calculated: 8/10 chunks</span>
-<span class="go">Elapsed: 00:57 | Remaining: 00:06 | Progress:  90%|######### | Calculated: 9/10 chunks</span>
-<span class="go">Elapsed: 01:03 | Remaining: 00:00 | Progress: 100%|##########| Calculated: 10/10 chunks</span>
-<span class="go">Elapsed: 01:03 | Remaining: 00:00 | Progress: 100%|##########| Calculated: 10/10 chunks</span>
+NameError: name 'cardea' is not defined
 
-<span class="gp">In [7]: </span><span class="n">feature_matrix</span> <span class="o">=</span> <span class="n">feature_matrix</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># shuffle</span>
+In [7]: feature_matrix = feature_matrix.sample(frac=1)  # shuffle
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-7-941b26116ccb&gt; in &lt;module&gt;()
+----&gt; 1 feature_matrix = feature_matrix.sample(frac=1)  # shuffle
 
-<span class="gp">In [8]: </span><span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">feature_matrix</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">))</span>
+NameError: name 'feature_matrix' is not defined
 
-<span class="gp">In [9]: </span><span class="n">X</span> <span class="o">=</span> <span class="n">feature_matrix</span><span class="o">.</span><span class="n">values</span>
-</pre></div>
-</div>
+In [8]: y = list(feature_matrix.pop('label'))
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-8-ad424e470cf5&gt; in &lt;module&gt;()
+----&gt; 1 y = list(feature_matrix.pop('label'))
+
+NameError: name 'feature_matrix' is not defined
+
+In [9]: X = feature_matrix.values
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-9-66a0671292d9&gt; in &lt;module&gt;()
+----&gt; 1 X = feature_matrix.values
+
+NameError: name 'feature_matrix' is not defined</pre>
 </li>
 <li><p>Modeling, optimizing hyperparameters and finding the most optimal model using the following commands:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">pipeline</span> <span class="o">=</span> <span class="p">[</span>
@@ -237,6 +267,16 @@ following command:</p>
 <span class="gp">   ....: </span>    <span class="n">primitives</span><span class="o">=</span><span class="n">pipeline</span>
 <span class="gp">   ....: </span><span class="p">)</span>
 <span class="gp">   ....: </span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-11-b593586879ea&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">result</span> <span class="o">=</span> <span class="n">cardea</span><span class="o">.</span><span class="n">execute_model</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">feature_matrix</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">target</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">primitives</span><span class="o">=</span><span class="n">pipeline</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;cardea&#39; is not defined
 </pre></div>
 </div>
 </li>
@@ -254,13 +294,21 @@ following command:</p>
 <span class="gp">   ....: </span>    <span class="n">y_test</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;pipeline0&#39;</span><span class="p">][</span><span class="s1">&#39;folds&#39;</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="s1">&#39;Actual&#39;</span><span class="p">])</span>
 <span class="gp">   ....: </span>    <span class="n">y_pred</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;pipeline0&#39;</span><span class="p">][</span><span class="s1">&#39;folds&#39;</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="s1">&#39;predicted&#39;</span><span class="p">])</span>
 <span class="gp">   ....: </span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-16-1b0105a0defd&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">y_test</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;pipeline0&#39;</span><span class="p">][</span><span class="s1">&#39;folds&#39;</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="s1">&#39;Actual&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">y_pred</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;pipeline0&#39;</span><span class="p">][</span><span class="s1">&#39;folds&#39;</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="s1">&#39;predicted&#39;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;result&#39; is not defined
 
 <span class="gp">In [17]: </span><span class="n">y_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span><span class="o">.</span><span class="n">codes</span>
 
 <span class="gp">In [18]: </span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_pred</span><span class="p">))</span><span class="o">.</span><span class="n">codes</span>
 
 <span class="gp">In [19]: </span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="gh">Out[19]: </span><span class="go">0.71</span>
+<span class="gh">Out[19]: </span><span class="go">nan</span>
 </pre></div>
 </div>
 </div>

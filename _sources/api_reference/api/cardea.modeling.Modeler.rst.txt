@@ -14,22 +14,16 @@ cardea.modeling.Modeler
    .. autosummary::
    
       ~Modeler.__init__
-      ~Modeler.check_path
-      ~Modeler.check_path_hyperparameters
-      ~Modeler.create_kfold
-      ~Modeler.create_kfold_from_pipeline
-      ~Modeler.create_pipeline
-      ~Modeler.create_space
-      ~Modeler.execute_pipeline
-      ~Modeler.execute_pipeline_from_pipeline
-      ~Modeler.fit_predict_model
-      ~Modeler.get_directory
-      ~Modeler.hyperopt_train_test
-      ~Modeler.hyperparameter_tunning
-      ~Modeler.kfold_scoring
-      ~Modeler.objective
-      ~Modeler.optimization
-      ~Modeler.search_all_possible_primitives
+      ~Modeler.evaluate
+      ~Modeler.fit
+      ~Modeler.fit_predict
+      ~Modeler.k_fold_validation
+      ~Modeler.load
+      ~Modeler.predict
+      ~Modeler.save
+      ~Modeler.test
+      ~Modeler.train_test_split
+      ~Modeler.tune
    
    
 
@@ -39,14 +33,9 @@ cardea.modeling.Modeler
 
    .. autosummary::
    
-      ~Modeler.classification_scoring_function
-      ~Modeler.data_frame
-      ~Modeler.minimize_cost
-      ~Modeler.pipeline_dict
-      ~Modeler.primitive
-      ~Modeler.problem_type
-      ~Modeler.regression_scoring_function
-      ~Modeler.scoring
-      ~Modeler.target
+      ~Modeler.classification_metrics
+      ~Modeler.pipeline
+      ~Modeler.regression_metrics
+      ~Modeler.target_metrics
    
    

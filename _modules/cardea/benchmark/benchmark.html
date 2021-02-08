@@ -161,7 +161,6 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">sklearn</span>
 <span class="kn">from</span> <span class="nn">mlblocks</span> <span class="kn">import</span> <span class="n">MLPipeline</span>
 
 <span class="kn">from</span> <span class="nn">cardea.modeling.modeler</span> <span class="kn">import</span> <span class="n">Modeler</span>
@@ -169,16 +168,6 @@
 <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="n">ROOT_DIR</span> <span class="o">=</span> <span class="n">dirname</span><span class="p">(</span><span class="n">dirname</span><span class="p">(</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))))</span>
-
-<span class="n">CLASSIFICATION_METRICS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;F1 Macro&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">),</span>
-    <span class="s1">&#39;Recall&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-                                                                   <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">),</span>
-    <span class="s1">&#39;Precision&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-                                                                         <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">),</span>
-    <span class="s1">&#39;Accuracy&#39;</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">,</span>
-    <span class="s1">&#39;Confusion Matrix&#39;</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span>
-<span class="p">}</span>
 
 <span class="n">PROBLEM_TYPE</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;LOS&#39;</span><span class="p">:</span> <span class="s1">&#39;classification&#39;</span><span class="p">,</span>
@@ -191,30 +180,6 @@
     <span class="s1">&#39;Mortality&#39;</span><span class="p">:</span> <span class="s1">&#39;label&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Readmission&#39;</span><span class="p">:</span> <span class="s1">&#39;label&#39;</span><span class="p">,</span>
 <span class="p">}</span>
-
-
-<span class="k">def</span> <span class="nf">_scoring_folds</span><span class="p">(</span><span class="n">folds</span><span class="p">,</span> <span class="n">metrics</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Score each fold from the pipeline results.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        folds (list or dict):</span>
-<span class="sd">            a list or a dictionary of pipeline results in each fold, the results consists of a list</span>
-<span class="sd">            of prediction values and a list of label values.</span>
-<span class="sd">        metrics (dict):</span>
-<span class="sd">            a dictionary of metric functions indexed by metric names.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        dict:</span>
-<span class="sd">            aggregated scores calculated from the fold results.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">folds</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-        <span class="n">folds</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">folds</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
-
-    <span class="n">performance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="n">item</span><span class="p">:</span> <span class="n">func</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;Actual&#39;</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;predicted&#39;</span><span class="p">])</span>
-                                 <span class="k">for</span> <span class="n">item</span><span class="p">,</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">folds</span><span class="p">])</span>
-    <span class="n">scores</span> <span class="o">=</span> <span class="n">performance</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">scores</span>
 
 
 <span class="k">def</span> <span class="nf">_split_features_target</span><span class="p">(</span><span class="n">feature_matrix</span><span class="p">,</span> <span class="n">problem_name</span><span class="p">):</span>
@@ -339,8 +304,8 @@
 <span class="sd">    Args:</span>
 <span class="sd">        tasks (list):</span>
 <span class="sd">            a list of task instances storing meta information of each task.</span>
-<span class="sd">        metrics (dict):</span>
-<span class="sd">            a dictionary of metric functions indexed by metric names.</span>
+<span class="sd">        metrics (list)</span>
+<span class="sd">            a list of strings to identify the metric functions.</span>
 <span class="sd">        output_path (str):</span>
 <span class="sd">            the dir path to store benchmark results and records of each task.</span>
 <span class="sd">        save_results (boolean):</span>
@@ -387,8 +352,8 @@
 <span class="sd">    Args:</span>
 <span class="sd">        task (Task):</span>
 <span class="sd">            a task instance storing meta information of the task.</span>
-<span class="sd">        metrics (dict):</span>
-<span class="sd">            a dictionary of metric functions indexed by metric names.</span>
+<span class="sd">        metrics (list)</span>
+<span class="sd">            a list of strings to identify the metric functions.</span>
 <span class="sd">        feature_matrix (pd.DataFrame):</span>
 <span class="sd">            a dataframe consists of both feature values and target values.</span>
 <span class="sd">        output_path (str):</span>
@@ -405,12 +370,6 @@
 <span class="sd">        list:</span>
 <span class="sd">            benchmarking results of each run.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">metrics</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">PROBLEM_TYPE</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">problem_name</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;classification&#39;</span><span class="p">:</span>
-            <span class="n">metrics</span> <span class="o">=</span> <span class="n">CLASSIFICATION_METRICS</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-
     <span class="c1"># Load pipeline.</span>
     <span class="n">pipeline</span> <span class="o">=</span> <span class="n">MLPipeline</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_DIR</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">path_to_pipeline</span><span class="p">))</span>
 
@@ -435,9 +394,7 @@
             <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
         <span class="k">elif</span> <span class="n">task</span><span class="o">.</span><span class="n">beginning_stage</span> <span class="o">==</span> <span class="s2">&quot;featurization&quot;</span><span class="p">:</span>
-            <span class="n">feature_matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_DIR</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">path_to_dataset</span><span class="p">),</span>
-                <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">feature_matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_DIR</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">path_to_dataset</span><span class="p">),</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Beginning stage should be either </span><span class="se">\&quot;</span><span class="s2">data_loader</span><span class="se">\&quot;</span><span class="s2">, &quot;</span>
@@ -445,16 +402,16 @@
 
     <span class="c1"># Run the pipeline for #task.run_num times and record each run.</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Records include (pipeline models (pickle), hyperparameters) of each run.</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">run_num</span><span class="p">):</span>
-        <span class="n">scores</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">hyperparameters</span> <span class="o">=</span> <span class="n">_evaluate_pipeline</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">feature_matrix</span><span class="p">,</span>
-                                                             <span class="n">task</span><span class="o">.</span><span class="n">pipeline_name</span><span class="p">,</span>
-                                                             <span class="n">task</span><span class="o">.</span><span class="n">problem_name</span><span class="p">,</span>
-                                                             <span class="n">task</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">,</span>
-                                                             <span class="n">task</span><span class="o">.</span><span class="n">beginning_stage</span><span class="p">,</span>
-                                                             <span class="n">task</span><span class="o">.</span><span class="n">tuned</span><span class="p">,</span> <span class="n">metrics</span><span class="p">)</span>
+        <span class="n">scores</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">hyperparameters</span> <span class="o">=</span> <span class="n">_evaluate_pipeline</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">feature_matrix</span><span class="p">,</span>
+                                                            <span class="n">task</span><span class="o">.</span><span class="n">pipeline_name</span><span class="p">,</span>
+                                                            <span class="n">task</span><span class="o">.</span><span class="n">problem_name</span><span class="p">,</span>
+                                                            <span class="n">task</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">,</span>
+                                                            <span class="n">task</span><span class="o">.</span><span class="n">beginning_stage</span><span class="p">,</span>
+                                                            <span class="n">task</span><span class="o">.</span><span class="n">tuned</span><span class="p">,</span> <span class="n">metrics</span><span class="p">)</span>
         <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
-        <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">models</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">))</span>
+        <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">model</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">))</span>
 
     <span class="c1"># Store the output results.</span>
     <span class="k">if</span> <span class="n">output_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -464,14 +421,14 @@
         <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
 
         <span class="c1"># Save task meta information</span>
-        <span class="n">task</span><span class="o">.</span><span class="n">save_as</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;meta.json&quot;</span><span class="p">),</span> <span class="s2">&quot;json&quot;</span><span class="p">)</span>
+        <span class="n">task</span><span class="o">.</span><span class="n">save_as</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;meta.json&quot;</span><span class="p">))</span>
         <span class="n">matrix</span> <span class="o">=</span> <span class="s1">&#39;F1 Macro&#39;</span>
         <span class="n">best_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="n">scores</span><span class="p">[</span><span class="n">matrix</span><span class="p">]</span> <span class="k">for</span> <span class="n">scores</span> <span class="ow">in</span> <span class="n">results</span><span class="p">])</span>
         <span class="n">models</span><span class="p">,</span> <span class="n">hyperparameters</span> <span class="o">=</span> <span class="n">records</span><span class="p">[</span><span class="n">best_index</span><span class="p">]</span>
 
         <span class="c1"># Save pipeline models if required</span>
         <span class="k">if</span> <span class="n">save_model</span><span class="p">:</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;models.pkl&quot;</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;model.pkl&quot;</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                 <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 
         <span class="c1"># Save pipeline hyperparameters if required</span>
@@ -504,41 +461,29 @@
 <span class="sd">            &quot;problem_definition&quot;, &quot;featurization&quot;.</span>
 <span class="sd">        optimize (boolean):</span>
 <span class="sd">            whether to optimize the hyper-parameters of the pipeline.</span>
-<span class="sd">        metrics (dict)</span>
-<span class="sd">            metric functions indexed by names.</span>
+<span class="sd">        metrics (list)</span>
+<span class="sd">            a list of strings to identify the metric functions.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        tuple:</span>
 <span class="sd">            pipeline evaluation results including (performance, models, hyperparameters).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">features</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">_split_features_target</span><span class="p">(</span><span class="n">feature_matrix</span><span class="p">,</span> <span class="n">problem_name</span><span class="p">)</span>
+    <span class="n">modeler</span> <span class="o">=</span> <span class="n">Modeler</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">PROBLEM_TYPE</span><span class="p">[</span><span class="n">problem_name</span><span class="p">])</span>
 
+    <span class="n">features</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">_split_features_target</span><span class="p">(</span><span class="n">feature_matrix</span><span class="p">,</span> <span class="n">problem_name</span><span class="p">)</span>
     <span class="c1"># TODO: digitize the labels in the featurization (problem definition) stage.</span>
     <span class="k">if</span> <span class="n">problem_name</span> <span class="o">==</span> <span class="s1">&#39;LOS&#39;</span> <span class="ow">and</span> <span class="n">dataset_name</span> <span class="o">==</span> <span class="s1">&#39;mimic-iii&#39;</span><span class="p">:</span>
         <span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
-
-    <span class="k">if</span> <span class="n">metrics</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">PROBLEM_TYPE</span><span class="p">[</span><span class="n">problem_name</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;classification&#39;</span><span class="p">:</span>
-            <span class="n">metrics</span> <span class="o">=</span> <span class="n">CLASSIFICATION_METRICS</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-
-    <span class="n">modeler</span> <span class="o">=</span> <span class="n">Modeler</span><span class="p">()</span>
 
     <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting pipeline </span><span class="si">{}</span><span class="s2"> for </span><span class="si">{}</span><span class="s2"> problem..&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pipeline_name</span><span class="p">,</span> <span class="n">problem_name</span><span class="p">))</span>
 
     <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">pipelines_res</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">execute_pipeline_from_pipeline</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="p">[</span><span class="n">pipeline</span><span class="p">],</span>
-                                                               <span class="n">PROBLEM_TYPE</span><span class="p">[</span><span class="n">problem_name</span><span class="p">],</span>
-                                                               <span class="n">optimize</span><span class="o">=</span><span class="n">optimize</span><span class="p">,</span>
-                                                               <span class="n">minimize_cost</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;f1&#39;</span><span class="p">,</span>
-                                                               <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span>
+                                  <span class="n">tune</span><span class="o">=</span><span class="n">optimize</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;f1&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">metrics</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
         <span class="n">elapsed</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-        <span class="n">hyperparameters</span> <span class="o">=</span> <span class="n">pipelines_res</span><span class="p">[</span><span class="s1">&#39;pipeline0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;hyperparameter&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-        <span class="n">models</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;pipeline&quot;</span><span class="p">:</span> <span class="n">fold</span><span class="p">[</span><span class="s1">&#39;pipeline&#39;</span><span class="p">],</span> <span class="s2">&quot;test_index&quot;</span><span class="p">:</span> <span class="n">fold</span><span class="p">[</span><span class="s2">&quot;test_index&quot;</span><span class="p">]}</span>
-                  <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">fold</span> <span class="ow">in</span> <span class="n">pipelines_res</span><span class="p">[</span><span class="s1">&#39;pipeline0&#39;</span><span class="p">][</span><span class="s1">&#39;folds&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
-        <span class="n">scores</span> <span class="o">=</span> <span class="n">_scoring_folds</span><span class="p">(</span><span class="n">pipelines_res</span><span class="p">[</span><span class="s1">&#39;pipeline0&#39;</span><span class="p">][</span><span class="s1">&#39;folds&#39;</span><span class="p">],</span> <span class="n">metrics</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">pipeline</span>
+        <span class="n">hyperparameters</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">get_hyperparameters</span><span class="p">()</span> <span class="k">if</span> <span class="n">optimize</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;Elapsed Time(s)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elapsed</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
         <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;OK&#39;</span>
 
@@ -547,13 +492,9 @@
             <span class="s2">&quot;Exception scoring pipeline </span><span class="si">{}</span><span class="s2"> in problem </span><span class="si">{}</span><span class="s2">, exception </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pipeline_name</span><span class="p">,</span>
                                                                                <span class="n">problem_name</span><span class="p">,</span> <span class="n">ex</span><span class="p">))</span>
         <span class="n">elapsed</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">hyperparameters</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">models</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">scores</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">name</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">metrics</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-        <span class="p">}</span>
-        <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;Elapsed Time(s)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elapsed</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
-        <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Fail&#39;</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Elapsed Time(s)&#39;</span><span class="p">:</span> <span class="n">elapsed</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">(),</span> <span class="s1">&#39;Status&#39;</span><span class="p">:</span> <span class="s1">&#39;Fail&#39;</span><span class="p">}</span>
 
     <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;Pipeline Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pipeline_name</span>
     <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;Run #&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">run_id</span>
@@ -562,7 +503,7 @@
     <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;Beginning Stage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">beginning_stage</span>
     <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;Tuned&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">optimize</span>
 
-    <span class="k">return</span> <span class="n">scores</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">hyperparameters</span>
+    <span class="k">return</span> <span class="n">scores</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">hyperparameters</span>
 </pre></div>
 
               </div>

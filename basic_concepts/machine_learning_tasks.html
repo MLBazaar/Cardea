@@ -231,80 +231,38 @@ set the definition of the model output. In the other hand, the objective of cuto
 split the data in such manner that any events before the cutoff time are used for training while
 events after the cutoff time are used for testing. The following code shows the format for these
 values in the <strong>Missed Appointment</strong> task:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">cardea</span> <span class="kn">import</span> <span class="n">Cardea</span>
+<pre class="literal-block">In [1]: from cardea import Cardea
 
-<span class="gp">In [2]: </span><span class="n">cardea</span> <span class="o">=</span> <span class="n">Cardea</span><span class="p">()</span>
+In [2]: cardea = Cardea()
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-2-e6841733c998&gt; in &lt;module&gt;()
+----&gt; 1 cardea = Cardea()
 
-<span class="gp">In [3]: </span><span class="n">cardea</span><span class="o">.</span><span class="n">load_data_entityset</span><span class="p">()</span>
+~/work/Cardea/Cardea/cardea/cardea.py in __init__(self)
+     38         self.es_loader = EntitySetLoader()
+     39         self.featurization = Featurization()
+---&gt; 40         self.modeler = Modeler()
+     41 
+     42         self.es = None
 
-<span class="gp">In [4]: </span><span class="n">cardea</span><span class="o">.</span><span class="n">select_problem</span><span class="p">(</span><span class="s1">&#39;MissedAppointmentProblemDefinition&#39;</span><span class="p">)</span>
-<span class="gh">Out[4]: </span><span class="go"></span>
-<span class="go">                cutoff_time  instance_id      label</span>
-<span class="go">5030230 2015-11-10 07:13:56      5030230     noshow</span>
-<span class="go">5122866 2015-12-03 08:17:28      5122866  fulfilled</span>
-<span class="go">5134197 2015-12-07 10:40:59      5134197  fulfilled</span>
-<span class="go">5134220 2015-12-07 10:42:42      5134220     noshow</span>
-<span class="go">5134223 2015-12-07 10:43:01      5134223     noshow</span>
-<span class="go">5134224 2015-12-07 10:43:17      5134224     noshow</span>
-<span class="go">5134227 2015-12-07 10:43:34      5134227     noshow</span>
-<span class="go">5134228 2015-12-07 10:43:50      5134228     noshow</span>
-<span class="go">5134233 2015-12-07 10:44:07      5134233  fulfilled</span>
-<span class="go">5134239 2015-12-07 10:44:25      5134239     noshow</span>
-<span class="go">5134243 2015-12-07 10:44:40      5134243     noshow</span>
-<span class="go">5134249 2015-12-07 10:45:01      5134249     noshow</span>
-<span class="go">5139826 2015-12-08 13:30:21      5139826  fulfilled</span>
-<span class="go">5139831 2015-12-08 13:30:41      5139831  fulfilled</span>
-<span class="go">5139832 2015-12-08 13:31:04      5139832  fulfilled</span>
-<span class="go">5139834 2015-12-08 13:31:21      5139834     noshow</span>
-<span class="go">5139839 2015-12-08 13:31:45      5139839     noshow</span>
-<span class="go">5139848 2015-12-08 13:32:14      5139848  fulfilled</span>
-<span class="go">5139853 2015-12-08 13:32:34      5139853  fulfilled</span>
-<span class="go">5139857 2015-12-08 13:33:09      5139857     noshow</span>
-<span class="go">5139859 2015-12-08 13:33:28      5139859     noshow</span>
-<span class="go">5139864 2015-12-08 13:33:50      5139864  fulfilled</span>
-<span class="go">5140065 2015-12-08 13:58:50      5140065     noshow</span>
-<span class="go">5140069 2015-12-08 13:59:33      5140069     noshow</span>
-<span class="go">5140074 2015-12-08 14:00:52      5140074     noshow</span>
-<span class="go">5140081 2015-12-08 14:01:28      5140081     noshow</span>
-<span class="go">5140090 2015-12-08 14:02:04      5140090     noshow</span>
-<span class="go">5140100 2015-12-08 14:02:31      5140100     noshow</span>
-<span class="go">5140105 2015-12-08 14:03:00      5140105     noshow</span>
-<span class="go">5140112 2015-12-08 14:03:23      5140112     noshow</span>
-<span class="go">...                     ...          ...        ...</span>
-<span class="go">5790245 2016-06-08 17:23:59      5790245     noshow</span>
-<span class="go">5790248 2016-06-08 17:24:34      5790248     noshow</span>
-<span class="go">5790275 2016-06-08 17:37:08      5790275     noshow</span>
-<span class="go">5790284 2016-06-08 17:42:29      5790284     noshow</span>
-<span class="go">5790287 2016-06-08 17:45:18      5790287     noshow</span>
-<span class="go">5790292 2016-06-08 17:50:25      5790292     noshow</span>
-<span class="go">5790319 2016-06-08 18:07:30      5790319     noshow</span>
-<span class="go">5790322 2016-06-08 18:09:45      5790322     noshow</span>
-<span class="go">5790330 2016-06-08 18:15:52      5790330     noshow</span>
-<span class="go">5790351 2016-06-08 18:20:04      5790351     noshow</span>
-<span class="go">5790352 2016-06-08 18:20:13      5790352     noshow</span>
-<span class="go">5790355 2016-06-08 18:21:20      5790355     noshow</span>
-<span class="go">5790358 2016-06-08 18:21:46      5790358     noshow</span>
-<span class="go">5790362 2016-06-08 18:24:25      5790362     noshow</span>
-<span class="go">5790364 2016-06-08 18:25:45      5790364     noshow</span>
-<span class="go">5790367 2016-06-08 18:28:07      5790367     noshow</span>
-<span class="go">5790369 2016-06-08 18:28:21      5790369     noshow</span>
-<span class="go">5790370 2016-06-08 18:28:35      5790370     noshow</span>
-<span class="go">5790372 2016-06-08 18:30:42      5790372     noshow</span>
-<span class="go">5790376 2016-06-08 18:34:10      5790376     noshow</span>
-<span class="go">5790377 2016-06-08 18:34:11      5790377     noshow</span>
-<span class="go">5790416 2016-06-08 18:52:20      5790416     noshow</span>
-<span class="go">5790434 2016-06-08 19:02:15      5790434     noshow</span>
-<span class="go">5790447 2016-06-08 19:08:20      5790447     noshow</span>
-<span class="go">5790452 2016-06-08 19:14:25      5790452     noshow</span>
-<span class="go">5790461 2016-06-08 19:32:25      5790461     noshow</span>
-<span class="go">5790464 2016-06-08 19:32:56      5790464     noshow</span>
-<span class="go">5790466 2016-06-08 19:33:23      5790466     noshow</span>
-<span class="go">5790481 2016-06-08 19:58:52      5790481     noshow</span>
-<span class="go">5790484 2016-06-08 20:07:23      5790484     noshow</span>
+TypeError: __init__() missing 2 required positional arguments: 'pipeline' and 'problem_type'
 
-<span class="go">[110527 rows x 3 columns]</span>
-</pre></div>
-</div>
+In [3]: cardea.load_data_entityset()
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-3-b76739a145a5&gt; in &lt;module&gt;()
+----&gt; 1 cardea.load_data_entityset()
+
+NameError: name 'cardea' is not defined
+
+In [4]: cardea.select_problem('MissedAppointmentProblemDefinition')
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-4-596ab474f9de&gt; in &lt;module&gt;()
+----&gt; 1 cardea.select_problem('MissedAppointmentProblemDefinition')
+
+NameError: name 'cardea' is not defined</pre>
 </div>
 <div class="section" id="current-prediction-problems">
 <h2>Current Prediction Problems<a class="headerlink" href="#current-prediction-problems" title="Permalink to this headline">¶</a></h2>
@@ -325,20 +283,30 @@ a. Predicts whether a patient stayed in the hospital more or less than a period 
 a. Predicts whether a patient will revisit the hospital within certain period of time (a month by default).</p></li>
 </ol>
 <p>You can see the list of problems using the <code class="docutils literal notranslate"><span class="pre">list_problems(...)</span></code> method, example:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="kn">from</span> <span class="nn">cardea</span> <span class="kn">import</span> <span class="n">Cardea</span>
+<pre class="literal-block">In [5]: from cardea import Cardea
 
-<span class="gp">In [6]: </span><span class="n">cardea</span> <span class="o">=</span> <span class="n">Cardea</span><span class="p">()</span>
+In [6]: cardea = Cardea()
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-6-e6841733c998&gt; in &lt;module&gt;()
+----&gt; 1 cardea = Cardea()
 
-<span class="gp">In [7]: </span><span class="n">cardea</span><span class="o">.</span><span class="n">list_problems</span><span class="p">()</span>
-<span class="gh">Out[7]: </span><span class="go"></span>
-<span class="go">{&#39;DiagnosisPrediction&#39;,</span>
-<span class="go"> &#39;LengthOfStay&#39;,</span>
-<span class="go"> &#39;MissedAppointmentProblemDefinition&#39;,</span>
-<span class="go"> &#39;MortalityPrediction&#39;,</span>
-<span class="go"> &#39;ProlongedLengthOfStay&#39;,</span>
-<span class="go"> &#39;Readmission&#39;}</span>
-</pre></div>
-</div>
+~/work/Cardea/Cardea/cardea/cardea.py in __init__(self)
+     38         self.es_loader = EntitySetLoader()
+     39         self.featurization = Featurization()
+---&gt; 40         self.modeler = Modeler()
+     41 
+     42         self.es = None
+
+TypeError: __init__() missing 2 required positional arguments: 'pipeline' and 'problem_type'
+
+In [7]: cardea.list_problems()
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-7-3dcc3f8bb0b2&gt; in &lt;module&gt;()
+----&gt; 1 cardea.list_problems()
+
+NameError: name 'cardea' is not defined</pre>
 </div>
 </div>
 
