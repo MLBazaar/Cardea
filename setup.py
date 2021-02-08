@@ -10,9 +10,9 @@ with open('HISTORY.md') as history_file:
     history = history_file.read()
 
 install_requires = [
-    'mlblocks==0.4.0',
-    'mlprimitives==0.3.0',
-    'baytune==0.4.0',
+    'mlblocks>=0.4.0,<0.5',
+    'mlprimitives>=0.3.0,<0.4',
+    'baytune>=0.4.0,<0.5',
     'pyCLI==2.0.3'
 ]
 
