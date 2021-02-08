@@ -142,13 +142,13 @@ class Modeler:
         best_proposal = session.run(max_evals)
         self._pipeline.set_hyperparameters(best_proposal['config'])
 
-    def fit(self, X_train, y_train, tune=False, max_evals=10, scoring=None, verbose=False):
+    def fit(self, X, y, tune=False, max_evals=10, scoring=None, verbose=False):
         """Fit and select the pipelines.
 
         Args:
-            X_train (array-like):
+            X (array-like):
                 Training data, inputs to the pipeline.
-            y_train (array-like):
+            y (array-like):
                 Target values.
             tune (bool):
                 Whether to optimize hyper-parameters of the pipelines.
@@ -161,11 +161,11 @@ class Modeler:
         """
         if tune:
             # tune and select pipeline
-            self.tune(X_train, y_train, max_evals=max_evals, scoring=scoring,
+            self.tune(X, y, max_evals=max_evals, scoring=scoring,
                       verbose=verbose)
 
         # fit pipeline
-        self._pipeline.fit(X_train, y_train)
+        self._pipeline.fit(X, y)
 
     def evaluate(self, X, y, tune=False, max_evals=10, scoring=None, metrics=None, verbose=False):
         """Evaluate the pipelines.
@@ -210,13 +210,13 @@ class Modeler:
         """
         return self._pipeline.predict(X_test)
 
-    def test(self, X_test, y_test, scoring=None):
+    def test(self, X, y, scoring=None):
         """Test the trained pipeline.
 
         Args:
-            X_test (array-like):
+            X (array-like):
                 Testing data, inputs to the pipeline.
-            y_test (array-like):
+            y (array-like):
                 Target values.
             scoring (str):
                 The name of the scoring function.
@@ -229,15 +229,15 @@ class Modeler:
             scorer = self.regression_metrics[scoring or 'r2_score']
         else:
             scorer = self.classification_metrics[scoring or 'f1']
-        return scorer(y_test, self.predict(X_test))
+        return scorer(y, self.predict(X))
 
-    def fit_predict(self, X_train, y_train, tune=False, max_evals=10, scoring=None, verbose=False):
+    def fit_predict(self, X, y, tune=False, max_evals=10, scoring=None, verbose=False):
         """Fit the pipeline and make predictions
 
         Args:
-            X_train (array-like):
+            X (array-like):
                 Training data, inputs to the pipeline.
-            y_train (array-like):
+            y (array-like):
                 Target values.
             tune (bool):
                 Whether to optimize hyper-parameters of the pipelines.
@@ -252,9 +252,9 @@ class Modeler:
             array-like:
                 Predictions to the input data.
         """
-        self.fit(X_train, y_train, tune=tune, max_evals=max_evals, scoring=scoring,
+        self.fit(X, y, tune=tune, max_evals=max_evals, scoring=scoring,
                  verbose=verbose)
-        return self.predict(X_train)
+        return self.predict(X)
 
     def save(self, path):
         """Save the object in a pickle file.
