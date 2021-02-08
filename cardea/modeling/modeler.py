@@ -41,9 +41,9 @@ class Modeler:
         """Split the training dataset and the testing dataset.
 
         Args:
-            X (pandas.DataFrame or narray):
+            X (pandas.DataFrame or ndarray):
                 Inputs to the pipeline.
-            y (pandas.Series or narray):
+            y (pandas.Series or ndarray):
                 Target values.
             test_size (float):
                 The proportion of the dataset to include in the test dataset.
@@ -105,9 +105,9 @@ class Modeler:
         Args:
             hyperparameters (dict or None):
                 A dictionary of hyper-parameters for each primitive in the target pipeline.
-            X (pandas.DataFrame or narray):
+            X (pandas.DataFrame or ndarray):
                 Inputs to the pipeline.
-            y (pandas.Series or narray):
+            y (pandas.Series or ndarray):
                 Target values.
             scoring (str):
                 The name of the scoring function.
@@ -141,9 +141,9 @@ class Modeler:
         """ Tune the pipeline hyper-parameters and select the optimized model.
 
         Args:
-            X (pandas.DataFrame or narray):
+            X (pandas.DataFrame or ndarray):
                 Inputs to the pipeline.
-            y (pandas.Series or narray):
+            y (pandas.Series or ndarray):
                 Target values.
             max_evals (int):
                 Maximum number of hyper-parameter optimization iterations.
@@ -164,9 +164,9 @@ class Modeler:
         """Fit and select the pipelines.
 
         Args:
-            X (pandas.DataFrame or narray):
+            X (pandas.DataFrame or ndarray):
                 Inputs to the pipeline.
-            y (pandas.Series or narray):
+            y (pandas.Series or ndarray):
                 Target values.
             tune (bool):
                 Whether to optimize hyper-parameters of the pipelines.
@@ -189,11 +189,11 @@ class Modeler:
         """Predict the input data
 
         Args:
-            X (pandas.DataFrame or narray):
+            X (pandas.DataFrame or ndarray):
                 Testing data, inputs to the pipeline.
 
         Returns:
-            pandas.Series or narray:
+            pandas.Series or ndarray:
                 Predictions to the input data.
         """
         return self._pipeline.predict(X)
@@ -202,9 +202,9 @@ class Modeler:
         """Test the trained pipeline.
 
         Args:
-            X (pandas.DataFrame or narray):
+            X (pandas.DataFrame or ndarray):
                 Inputs to the pipeline.
-            y (pandas.Series or narray):
+            y (pandas.Series or ndarray):
                 Target values.
             scoring (str):
                 The name of the scoring function.
@@ -223,9 +223,9 @@ class Modeler:
         """Fit the pipeline and make predictions
 
         Args:
-            X (pandas.DataFrame or narray):
+            X (pandas.DataFrame or ndarray):
                 Inputs to the pipeline.
-            y (pandas.Series or narray):
+            y (pandas.Series or ndarray):
                 Target values.
             tune (bool):
                 Whether to optimize hyper-parameters of the pipelines.
@@ -237,7 +237,7 @@ class Modeler:
                 Whether to log information during processing.
 
         Returns:
-            pandas.Series or narray:
+            pandas.Series or ndarray:
                 Predictions to the input data.
         """
         self.fit(X, y, tune=tune, max_evals=max_evals, scoring=scoring,
@@ -249,9 +249,9 @@ class Modeler:
         """Evaluate the pipelines.
 
         Args:
-            X (pandas.DataFrame or narray):
+            X (pandas.DataFrame or ndarray):
                 Inputs to the pipeline.
-            y (pandas.Series or narray):
+            y (pandas.Series or ndarray):
                 Target values.
             test_size (float):
                 The proportion of the dataset to include in the test dataset.
