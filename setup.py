@@ -10,15 +10,9 @@ with open('HISTORY.md') as history_file:
     history = history_file.read()
 
 install_requires = [
-    'featuretools==0.6.1',
-    'networkx==2.2',
-    'numpy>=1.15.2,<1.17',
-    'pandas>=0.23.4,<0.25',
-    'scikit-learn>=0.20.0,<0.21',
-    'mlblocks==0.3.0',
-    'mlprimitives==0.1.6',
-    'hyperopt==0.1.2',
-    'Keras>=2.1.6,<2.4',
+    'mlblocks>=0.4.0,<0.5',
+    'mlprimitives>=0.3.0,<0.4',
+    'baytune>=0.4.0,<0.5',
     'pyCLI==2.0.3'
 ]
 

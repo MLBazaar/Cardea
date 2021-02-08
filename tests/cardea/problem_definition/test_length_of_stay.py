@@ -23,10 +23,10 @@ def es_loader():
 @pytest.fixture()
 def cutoff_times():
     temp = pd.DataFrame({"instance_id": [10, 11, 12],
-                         "cutoff_time": ['9/19/2018 00:00', '9/19/2018 00:00', '9/20/2018 11:23'],
+                         "time": ['9/19/2018 00:00', '9/19/2018 00:00', '9/20/2018 11:23'],
                          "label": [2, 1, 7]
                          })
-    temp['cutoff_time'] = pd.to_datetime(temp['cutoff_time'])
+    temp['time'] = pd.to_datetime(temp['time'])
     return temp
 
 
@@ -294,7 +294,7 @@ def test_generate_cutoff_times_missing_generation_label(
 
 def test_generate_cutoff_times_with_missing_cutoff_label(
         entityset_error_missing_cutoff_label, length_of_stay):
-    entityset_error_missing_cutoff_label['Period'].delete_variable('start')
+    entityset_error_missing_cutoff_label['Period'].delete_variables(['start'])
     with pytest.raises(ValueError):
         length_of_stay.generate_cutoff_times(
             entityset_error_missing_cutoff_label)

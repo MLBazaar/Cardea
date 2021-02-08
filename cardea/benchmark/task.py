@@ -78,10 +78,10 @@ class Task:
                 the path to store the configurations.
         """
         _, file_type = os.path.splitext(file_path)
-        if file_type == 'pkl':
+        if file_type == '.pkl':
             with open(file_path, 'wb') as f:
                 pickle.dump(self, f)
-        elif file_type == 'json':
+        elif file_type == '.json':
             with open(file_path, 'w') as f:
                 json.dump(self.__dict__, f)
         else:

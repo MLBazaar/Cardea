@@ -48,9 +48,9 @@ def entityset(objects, es_loader):
 @pytest.fixture()
 def cutoff():
     cutoff = pd.DataFrame({"instance_id": [10, 11, 12],
-                           "cutoff_time": ['1/1/2000 20:00', '2/1/2000 5:00', '3/1/2000 22:00']})
+                           "time": ['1/1/2000 20:00', '2/1/2000 5:00', '3/1/2000 22:00']})
 
-    cutoff['cutoff_time'] = pd.to_datetime(cutoff['cutoff_time'])
+    cutoff['time'] = pd.to_datetime(cutoff['time'])
     return cutoff
 
 
