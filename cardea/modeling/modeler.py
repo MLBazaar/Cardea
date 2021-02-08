@@ -37,7 +37,22 @@ class Modeler:
 
     @staticmethod
     def train_test_split(X, y, test_size=0.2, shuffle=True):
-        """Split the training dataset and the testing dataset."""
+        """Split the training dataset and the testing dataset.
+
+        Args:
+            X (array-like):
+                Inputs to the pipeline.
+            y (array-like):
+                Target values.
+            test_size (float):
+                The proportion of the dataset to include in the test dataset.
+            shuffle (bool):
+                Whether or not to shuffle the data before splitting.
+
+        Returns:
+            list:
+                List containing the train-test split of the inputs and targets.
+        """
         return train_test_split(X, y, test_size=test_size, shuffle=shuffle)
 
     @property
@@ -167,36 +182,6 @@ class Modeler:
         # fit pipeline
         self._pipeline.fit(X, y)
 
-    def evaluate(self, X, y, tune=False, max_evals=10, scoring=None, metrics=None, verbose=False):
-        """Evaluate the pipelines.
-
-        Args:
-            X (array-like):
-                Inputs to the pipeline.
-            y (array-like):
-                Target values.
-            tune (bool):
-                Whether to optimize hyper-parameters of the pipelines.
-            max_evals (int):
-                Maximum number of hyper-parameter optimization iterations.
-            scoring (str):
-                The name of the scoring function used in the hyper-parameter optimization.
-            metrics (list):
-                A list of scoring function names. The scoring functions should be consistent
-                with the problem type.
-            verbose (bool):
-                Whether to log information during processing.
-        """
-        X_train, X_test, y_train, y_test = self.train_test_split(X, y)
-        metrics = metrics or self.target_metrics.keys()
-
-        scores = {}
-        self.fit(X_train, y_train, tune=tune, max_evals=max_evals, scoring=scoring,
-                 verbose=verbose)
-        for metric in metrics:
-            scores[metric] = self.test(X_test, y_test, scoring=metric)
-        return scores
-
     def predict(self, X_test):
         """Predict the input data
 
@@ -255,6 +240,42 @@ class Modeler:
         self.fit(X, y, tune=tune, max_evals=max_evals, scoring=scoring,
                  verbose=verbose)
         return self.predict(X)
+
+    def evaluate(self, X, y, test_size=0.2, shuffle=True, tune=False, max_evals=10, scoring=None,
+                 metrics=None, verbose=False):
+        """Evaluate the pipelines.
+
+        Args:
+            X (array-like):
+                Inputs to the pipeline.
+            y (array-like):
+                Target values.
+            test_size (float):
+                The proportion of the dataset to include in the test dataset.
+            shuffle (bool):
+                Whether or not to shuffle the data before splitting.
+            tune (bool):
+                Whether to optimize hyper-parameters of the pipelines.
+            max_evals (int):
+                Maximum number of hyper-parameter optimization iterations.
+            scoring (str):
+                The name of the scoring function used in the hyper-parameter optimization.
+            metrics (list):
+                A list of scoring function names. The scoring functions should be consistent
+                with the problem type.
+            verbose (bool):
+                Whether to log information during processing.
+        """
+        X_train, X_test, y_train, y_test = self.train_test_split(X, y, test_size=test_size,
+                                                                 shuffle=shuffle)
+        metrics = metrics or self.target_metrics.keys()
+
+        scores = {}
+        self.fit(X_train, y_train, tune=tune, max_evals=max_evals, scoring=scoring,
+                 verbose=verbose)
+        for metric in metrics:
+            scores[metric] = self.test(X_test, y_test, scoring=metric)
+        return scores
 
     def save(self, path):
         """Save the object in a pickle file.
