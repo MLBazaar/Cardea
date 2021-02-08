@@ -3,7 +3,7 @@ from cardea.data_loader import DataLoader
 from cardea.problem_definition import ProblemDefinition
 
 
-class MissedAppointmentProblemDefinition (ProblemDefinition):
+class MissedAppointment(ProblemDefinition):
     """Defines the problem of missed appointment
 
     Predict whether the patient will show to the appointment or not.

@@ -7,6 +7,23 @@ on:
     branches: [ master ]
 
 jobs:
+  devel:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7]
+        os: [ubuntu-latest, macos-latest]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install package
+      run: pip install .[dev]
+    - name: make test-devel
+      run: make test-devel
+      
   unit:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -24,7 +41,7 @@ jobs:
     - name: Test with pytest
       run: make test
 
-  devel:
+  readme:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -36,9 +53,8 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install package
-      run: pip install .[dev]
-    - name: Lint with flake8
-      run: make lint
-    - name: Test with pytest
-      run: make test
+    - name: Install package and dependencies
+      run: pip install rundoc .
+    - name: make test-readme
+      run: make test-readme
+
