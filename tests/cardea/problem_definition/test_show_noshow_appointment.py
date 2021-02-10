@@ -7,12 +7,12 @@ import pytest
 from numpy import nan
 
 from cardea.data_loader import EntitySetLoader
-from cardea.problem_definition import MissedAppointmentProblemDefinition
+from cardea.problem_definition import MissedAppointment
 
 
 @pytest.fixture()
-def missed_appointment_problem_definition():
-    return MissedAppointmentProblemDefinition()
+def missed_appointment():
+    return MissedAppointment()
 
 
 @pytest.fixture()
@@ -126,31 +126,31 @@ def entityset_error_missing_cutoff_label(objects, objects_error_missing_cutoff_l
 
 
 def test_generate_cutoff_times_success(
-        es_success, missed_appointment_problem_definition, cutoff_times):
-    _, _, generated_df = missed_appointment_problem_definition.generate_cutoff_times(es_success)
+        es_success, missed_appointment, cutoff_times):
+    _, _, generated_df = missed_appointment.generate_cutoff_times(es_success)
     generated_df.index = cutoff_times.index  # both should have the same index
     generated_df = generated_df[cutoff_times.columns]  # same columns order
     assert generated_df.equals(cutoff_times)
 
 
 def test_generate_cutoff_times_error(
-        entityset_error_missing_label, missed_appointment_problem_definition):
+        entityset_error_missing_label, missed_appointment):
     with pytest.raises(ValueError):
-        missed_appointment_problem_definition.generate_cutoff_times(
+        missed_appointment.generate_cutoff_times(
             entityset_error_missing_label)
 
 
-def test_generate_cutoff_times_error_value(es_success, missed_appointment_problem_definition):
+def test_generate_cutoff_times_error_value(es_success, missed_appointment):
     es_success['Appointment'].df.loc[len(es_success['Appointment'].df)] = [
         nan, nan, nan, nan, nan]
     with pytest.raises(ValueError):
-        missed_appointment_problem_definition.generate_cutoff_times(
+        missed_appointment.generate_cutoff_times(
             es_success)
 
 
 def test_generate_cutoff_times_missing_cutoff_time(
-        es_success, missed_appointment_problem_definition):
+        es_success, missed_appointment):
     es_success['Appointment'].delete_variables(['created'])
     with pytest.raises(ValueError):
-        missed_appointment_problem_definition.generate_cutoff_times(
+        missed_appointment.generate_cutoff_times(
             es_success)

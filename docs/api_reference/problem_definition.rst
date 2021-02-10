@@ -56,5 +56,5 @@ MissedAppointmentProblemDefinition
 .. autosummary::
    :toctree: api/
 
-   MissedAppointmentProblemDefinition
-   MissedAppointmentProblemDefinition.generate_cutoff_times
+   MissedAppointment
+   MissedAppointment.generate_cutoff_times

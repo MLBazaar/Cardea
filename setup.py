@@ -3,10 +3,10 @@
 
 from setuptools import setup, find_packages
 
-with open('README.md') as readme_file:
+with open('README.md', encoding='utf-8') as readme_file:
     readme = readme_file.read()
 
-with open('HISTORY.md') as history_file:
+with open('HISTORY.md', encoding='utf-8') as history_file:
     history = history_file.read()
 
 install_requires = [
@@ -22,7 +22,8 @@ setup_requires = [
 
 tests_require = [
     'pytest>=3.4.2',
-    'google-compute-engine==2.8.12',    # required by travis
+    'pytest-cov>=2.6.0',
+    'rundoc>=0.4.3,<0.5',
 ]
 
 development_requires = [
@@ -31,22 +32,21 @@ development_requires = [
     'pip>=9.0.1',
     'watchdog>=0.8.3',
 
-    # build docs
+    # docs
     'm2r2>=0.2.5,<0.3',
     'nbsphinx>=0.5.0,<0.7',
-    'Sphinx>=1.7.1,<3',
+    'Sphinx>=3,<3.3',
     'pydata-sphinx-theme',
     'autodocsumm>=0.1.10,<1',
-    'recommonmark>=0.4.0',
-    'ipython==6.5.0',
+    'ipython>=6.5,<7.5',
 
     # style check
-    'flake8>=3.5.0,<4',
+    'flake8>=3.7.7,<4',
     'isort>=4.3.4,<5',
 
     # automatically fix style issues
-    'autoflake>=1.3',
-    'autopep8>=1.3.5',
+    'autoflake>=1.3,<2',
+    'autopep8>=1.3.5,<2',
 
     # distribute on PyPI
     'twine>=1.10.0',

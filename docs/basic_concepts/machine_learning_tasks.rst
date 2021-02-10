@@ -35,8 +35,8 @@ values in the **Missed Appointment** task:
 
     from cardea import Cardea
     cardea = Cardea()
-    cardea.load_data_entityset()
-    cardea.select_problem('MissedAppointmentProblemDefinition')
+    cardea.load_entityset()
+    cardea.select_problem('MissedAppointment')
 
 Current Prediction Problems
 ---------------------------
