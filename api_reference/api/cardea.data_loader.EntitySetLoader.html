@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.data_loader.EntitySetLoader &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -208,11 +209,11 @@
                 
   <div class="section" id="cardea-data-loader-entitysetloader">
 <h1>cardea.data_loader.EntitySetLoader<a class="headerlink" href="#cardea-data-loader-entitysetloader" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="cardea.data_loader.EntitySetLoader">
 <em class="property">class </em><code class="sig-prename descclassname">cardea.data_loader.</code><code class="sig-name descname">EntitySetLoader</code><a class="reference internal" href="../../_modules/cardea/data_loader/entityset_loader.html#EntitySetLoader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.data_loader.EntitySetLoader" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class that loads fhir class objects to featuretools entityset.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="cardea.data_loader.EntitySetLoader.__init__">
 <code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cardea.data_loader.EntitySetLoader.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
@@ -225,7 +226,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#cardea.data_loader.EntitySetLoader.__init__" title="cardea.data_loader.EntitySetLoader.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cardea.data_loader.EntitySetLoader.__init__" title="cardea.data_loader.EntitySetLoader.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_column_existence</span></code>(entity_set, …)</p></td>
@@ -234,13 +235,13 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_for_missing_values</span></code>(entity_set, …)</p></td>
 <td><p>Checks if there is a missing value in the given column.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.data_loader.html#cardea.data_loader.EntitySetLoader.create_entity" title="cardea.data_loader.EntitySetLoader.create_entity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_entity</span></code></a>(fhir, identifiers, entity_set)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_entity</span></code>(fhir, identifiers, entity_set)</p></td>
 <td><p>Creates an entity from fhir dataframes and add it to entityset.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_object</span></code>(df, file_name)</p></td>
 <td><p>Returns fhir representation of pandas dataframe.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.data_loader.html#cardea.data_loader.EntitySetLoader.create_relationships" title="cardea.data_loader.EntitySetLoader.create_relationships"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_relationships</span></code></a>(relationships, entity_set)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_relationships</span></code>(relationships, entity_set)</p></td>
 <td><p>Binds entities in the entityset.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataframes</span></code>(objects)</p></td>
@@ -255,10 +256,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="cardea.data_loader.EntitySetLoader.load_data_entityset.html#cardea.data_loader.EntitySetLoader.load_data_entityset" title="cardea.data_loader.EntitySetLoader.load_data_entityset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_data_entityset</span></code></a>(folder_path)</p></td>
 <td><p>Returns an entityset loaded with .csv files in folder_path.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../api/cardea.data_loader.html#cardea.data_loader.EntitySetLoader.load_df_entityset" title="cardea.data_loader.EntitySetLoader.load_df_entityset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_df_entityset</span></code></a>(fhir)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_df_entityset</span></code>(fhir)</p></td>
 <td><p>Returns an entityset loaded with received dataframes in fhir.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.data_loader.html#cardea.data_loader.EntitySetLoader.read_csv_files" title="cardea.data_loader.EntitySetLoader.read_csv_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_csv_files</span></code></a>(folder_path)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_csv_files</span></code>(folder_path)</p></td>
 <td><p>Returns a dictionary with loaded .csv files in folder_path.</p></td>
 </tr>
 </tbody>
@@ -292,7 +293,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

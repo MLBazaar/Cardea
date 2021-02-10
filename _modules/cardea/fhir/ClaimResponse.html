@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.fhir.ClaimResponse &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -283,7 +284,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="ClaimResponse.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
@@ -385,10 +386,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;communicationRequest&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="ClaimResponse_Item"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Item">[docs]</a><span class="k">class</span> <span class="nc">ClaimResponse_Item</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ClaimResponse_Item</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This resource provides the adjudication details from the processing of</span>
 <span class="sd">    a Claim resource.</span>
@@ -423,7 +424,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ClaimResponse_Item.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Item.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_Detail&#39;</span><span class="p">,</span>
@@ -435,10 +436,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_Item&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;adjudication&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ClaimResponse_Adjudication"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Adjudication">[docs]</a><span class="k">class</span> <span class="nc">ClaimResponse_Adjudication</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ClaimResponse_Adjudication</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This resource provides the adjudication details from the processing of</span>
 <span class="sd">    a Claim resource.</span>
@@ -473,7 +474,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ClaimResponse_Adjudication.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Adjudication.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
@@ -490,10 +491,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_Adjudication&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;amount&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ClaimResponse_Detail"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Detail">[docs]</a><span class="k">class</span> <span class="nc">ClaimResponse_Detail</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ClaimResponse_Detail</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This resource provides the adjudication details from the processing of</span>
 <span class="sd">    a Claim resource.</span>
@@ -529,7 +530,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ClaimResponse_Detail.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Detail.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_Adjudication&#39;</span><span class="p">,</span>
@@ -541,10 +542,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_Detail&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;subDetail&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ClaimResponse_SubDetail"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_SubDetail">[docs]</a><span class="k">class</span> <span class="nc">ClaimResponse_SubDetail</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ClaimResponse_SubDetail</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This resource provides the adjudication details from the processing of</span>
 <span class="sd">    a Claim resource.</span>
@@ -574,17 +575,17 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ClaimResponse_SubDetail.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_SubDetail.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_Adjudication&#39;</span><span class="p">,</span>
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_SubDetail&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;adjudication&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ClaimResponse_AddItem"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_AddItem">[docs]</a><span class="k">class</span> <span class="nc">ClaimResponse_AddItem</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ClaimResponse_AddItem</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This resource provides the adjudication details from the processing of</span>
 <span class="sd">    a Claim resource.</span>
@@ -647,7 +648,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ClaimResponse_AddItem.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_AddItem.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_Detail1&#39;</span><span class="p">,</span>
@@ -684,10 +685,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_AddItem&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;category&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ClaimResponse_Detail1"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Detail1">[docs]</a><span class="k">class</span> <span class="nc">ClaimResponse_Detail1</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ClaimResponse_Detail1</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This resource provides the adjudication details from the processing of</span>
 <span class="sd">    a Claim resource.</span>
@@ -739,7 +740,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ClaimResponse_Detail1.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Detail1.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
@@ -771,10 +772,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_Detail1&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;modifier&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ClaimResponse_Error"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Error">[docs]</a><span class="k">class</span> <span class="nc">ClaimResponse_Error</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ClaimResponse_Error</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This resource provides the adjudication details from the processing of</span>
 <span class="sd">    a Claim resource.</span>
@@ -813,17 +814,17 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ClaimResponse_Error.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Error.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_Error&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;code&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ClaimResponse_Payment"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Payment">[docs]</a><span class="k">class</span> <span class="nc">ClaimResponse_Payment</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ClaimResponse_Payment</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This resource provides the adjudication details from the processing of</span>
 <span class="sd">    a Claim resource.</span>
@@ -863,7 +864,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ClaimResponse_Payment.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Payment.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Money&#39;</span><span class="p">,</span>
@@ -890,10 +891,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_Payment&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ClaimResponse_ProcessNote"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_ProcessNote">[docs]</a><span class="k">class</span> <span class="nc">ClaimResponse_ProcessNote</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ClaimResponse_ProcessNote</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This resource provides the adjudication details from the processing of</span>
 <span class="sd">    a Claim resource.</span>
@@ -930,7 +931,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ClaimResponse_ProcessNote.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_ProcessNote.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
@@ -942,10 +943,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_ProcessNote&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;language&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ClaimResponse_Insurance"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Insurance">[docs]</a><span class="k">class</span> <span class="nc">ClaimResponse_Insurance</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ClaimResponse_Insurance</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This resource provides the adjudication details from the processing of</span>
 <span class="sd">    a Claim resource.</span>
@@ -991,7 +992,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ClaimResponse_Insurance.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ClaimResponse.html#cardea.fhir.ClaimResponse_Insurance.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
@@ -1003,7 +1004,7 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ClaimResponse_Insurance&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;claimResponse&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 </pre></div>
 
               </div>
@@ -1028,7 +1029,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.fhir.Sequence &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -259,16 +260,16 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Sequence.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.Sequence.html#cardea.fhir.Sequence.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
                         <span class="s1">&#39;aa&#39;</span><span class="p">,</span> <span class="s1">&#39;dna&#39;</span><span class="p">,</span> <span class="s1">&#39;rna&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;aa, dna, rna&#39;</span><span class="p">))</span></div>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;aa, dna, rna&#39;</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Sequence.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Sequence.html#cardea.fhir.Sequence.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
@@ -325,10 +326,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Sequence&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;device&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="Sequence_ReferenceSeq"><a class="viewcode-back" href="../../../api/cardea.fhir.Sequence.html#cardea.fhir.Sequence_ReferenceSeq">[docs]</a><span class="k">class</span> <span class="nc">Sequence_ReferenceSeq</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Sequence_ReferenceSeq</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Raw data describing a biological sequence.</span>
 
@@ -393,7 +394,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Sequence_ReferenceSeq.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Sequence.html#cardea.fhir.Sequence_ReferenceSeq.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
@@ -410,10 +411,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Sequence_ReferenceSeq&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;referenceSeqPointer&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="Sequence_Variant"><a class="viewcode-back" href="../../../api/cardea.fhir.Sequence.html#cardea.fhir.Sequence_Variant">[docs]</a><span class="k">class</span> <span class="nc">Sequence_Variant</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Sequence_Variant</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Raw data describing a biological sequence.</span>
 
@@ -475,17 +476,17 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Sequence_Variant.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Sequence.html#cardea.fhir.Sequence_Variant.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Sequence_Variant&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;variantPointer&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="Sequence_Quality"><a class="viewcode-back" href="../../../api/cardea.fhir.Sequence.html#cardea.fhir.Sequence_Quality">[docs]</a><span class="k">class</span> <span class="nc">Sequence_Quality</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Sequence_Quality</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Raw data describing a biological sequence.</span>
 
@@ -583,16 +584,16 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Sequence_Quality.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.Sequence.html#cardea.fhir.Sequence_Quality.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
                         <span class="s1">&#39;indel&#39;</span><span class="p">,</span> <span class="s1">&#39;snp&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;indel, snp, unknown&#39;</span><span class="p">))</span></div>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;indel, snp, unknown&#39;</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Sequence_Quality.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.Sequence.html#cardea.fhir.Sequence_Quality.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
@@ -609,10 +610,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Sequence_Quality&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;standardSequence&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="Sequence_Repository"><a class="viewcode-back" href="../../../api/cardea.fhir.Sequence.html#cardea.fhir.Sequence_Repository">[docs]</a><span class="k">class</span> <span class="nc">Sequence_Repository</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Sequence_Repository</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Raw data describing a biological sequence.</span>
 
@@ -661,14 +662,14 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Sequence_Repository.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.Sequence.html#cardea.fhir.Sequence_Repository.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
                         <span class="s1">&#39;directlink&#39;</span><span class="p">,</span> <span class="s1">&#39;openapi&#39;</span><span class="p">,</span> <span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="s1">&#39;oauth&#39;</span><span class="p">,</span> <span class="s1">&#39;other&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;directlink, openapi, login, oauth, other&#39;</span><span class="p">))</span></div></div>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;directlink, openapi, login, oauth, other&#39;</span><span class="p">))</span>
 </pre></div>
 
               </div>
@@ -693,7 +694,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

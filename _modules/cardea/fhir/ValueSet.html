@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.fhir.ValueSet &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -295,16 +296,16 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="ValueSet.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
                         <span class="s1">&#39;draft&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;retired&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;draft, active, retired, unknown&#39;</span><span class="p">))</span></div>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;draft, active, retired, unknown&#39;</span><span class="p">))</span>
 
-<div class="viewcode-block" id="ValueSet.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;UsageContext&#39;</span><span class="p">,</span>
@@ -336,10 +337,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;jurisdiction&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="ValueSet_Compose"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Compose">[docs]</a><span class="k">class</span> <span class="nc">ValueSet_Compose</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ValueSet_Compose</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A value set specifies a set of codes drawn from one or more code</span>
 <span class="sd">    systems.</span>
@@ -385,7 +386,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ValueSet_Compose.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Compose.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet_Include&#39;</span><span class="p">,</span>
@@ -397,10 +398,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet_Compose&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;exclude&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ValueSet_Include"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Include">[docs]</a><span class="k">class</span> <span class="nc">ValueSet_Include</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ValueSet_Include</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A value set specifies a set of codes drawn from one or more code</span>
 <span class="sd">    systems.</span>
@@ -444,7 +445,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ValueSet_Include.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Include.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet_Concept&#39;</span><span class="p">,</span>
@@ -456,10 +457,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet_Include&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;filter&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ValueSet_Concept"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Concept">[docs]</a><span class="k">class</span> <span class="nc">ValueSet_Concept</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ValueSet_Concept</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A value set specifies a set of codes drawn from one or more code</span>
 <span class="sd">    systems.</span>
@@ -494,17 +495,17 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ValueSet_Concept.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Concept.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet_Designation&#39;</span><span class="p">,</span>
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet_Concept&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;designation&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ValueSet_Designation"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Designation">[docs]</a><span class="k">class</span> <span class="nc">ValueSet_Designation</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ValueSet_Designation</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A value set specifies a set of codes drawn from one or more code</span>
 <span class="sd">    systems.</span>
@@ -533,17 +534,17 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ValueSet_Designation.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Designation.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Coding&#39;</span><span class="p">,</span>
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet_Designation&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;use&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ValueSet_Filter"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Filter">[docs]</a><span class="k">class</span> <span class="nc">ValueSet_Filter</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ValueSet_Filter</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A value set specifies a set of codes drawn from one or more code</span>
 <span class="sd">    systems.</span>
@@ -579,7 +580,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
 
-<div class="viewcode-block" id="ValueSet_Filter.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Filter.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="p">:</span>
@@ -588,10 +589,10 @@
                         <span class="s1">&#39;generalizes&#39;</span><span class="p">,</span> <span class="s1">&#39;exists&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                         <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;=, is-a, descendent-of, is-not-a, regex, in, not-in, generalizes,&#39;</span>
-                        <span class="s1">&#39;exists&#39;</span><span class="p">))</span></div></div>
+                        <span class="s1">&#39;exists&#39;</span><span class="p">))</span>
 
 
-<div class="viewcode-block" id="ValueSet_Expansion"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Expansion">[docs]</a><span class="k">class</span> <span class="nc">ValueSet_Expansion</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ValueSet_Expansion</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A value set specifies a set of codes drawn from one or more code</span>
 <span class="sd">    systems.</span>
@@ -642,7 +643,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ValueSet_Expansion.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Expansion.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet_Parameter&#39;</span><span class="p">,</span>
@@ -654,10 +655,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet_Expansion&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;contains&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ValueSet_Parameter"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Parameter">[docs]</a><span class="k">class</span> <span class="nc">ValueSet_Parameter</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ValueSet_Parameter</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A value set specifies a set of codes drawn from one or more code</span>
 <span class="sd">    systems.</span>
@@ -700,10 +701,10 @@
         <span class="c1"># unique identifier for object class</span>
 
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="ValueSet_Contains"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Contains">[docs]</a><span class="k">class</span> <span class="nc">ValueSet_Contains</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ValueSet_Contains</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A value set specifies a set of codes drawn from one or more code</span>
 <span class="sd">    systems.</span>
@@ -767,7 +768,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ValueSet_Contains.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ValueSet.html#cardea.fhir.ValueSet_Contains.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet_Contains&#39;</span><span class="p">,</span>
@@ -779,7 +780,7 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ValueSet_Contains&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;designation&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 </pre></div>
 
               </div>
@@ -804,7 +805,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

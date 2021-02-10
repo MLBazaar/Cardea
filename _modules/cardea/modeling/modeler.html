@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.modeling.modeler &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -162,7 +163,7 @@
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">train_test_split</span>
 
 
-<div class="viewcode-block" id="Modeler"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.html#cardea.modeling.modeler.Modeler">[docs]</a><span class="k">class</span> <span class="nc">Modeler</span><span class="p">:</span>
+<div class="viewcode-block" id="Modeler"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.html#cardea.modeling.Modeler">[docs]</a><span class="k">class</span> <span class="nc">Modeler</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;A class responsible for executing various Machine Learning Pipelines using MLBlocks.&quot;&quot;&quot;</span>
 
     <span class="n">_regression_metrics</span> <span class="o">=</span> <span class="p">{</span>
@@ -185,11 +186,11 @@
         <span class="s1">&#39;Confusion Matrix&#39;</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span>
     <span class="p">}</span>
 
-<div class="viewcode-block" id="Modeler.__init__"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.html#cardea.modeling.modeler.Modeler.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">problem_type</span><span class="p">):</span>
+<div class="viewcode-block" id="Modeler.__init__"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.html#cardea.modeling.Modeler.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">problem_type</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span> <span class="o">=</span> <span class="n">MLPipeline</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_problem_type</span> <span class="o">=</span> <span class="n">problem_type</span></div>
 
-<div class="viewcode-block" id="Modeler.train_test_split"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.train_test_split">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Modeler.train_test_split"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.train_test_split.html#cardea.modeling.Modeler.train_test_split">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Split the training dataset and the testing dataset.</span>
 
@@ -252,7 +253,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">MLPipeline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Modeler.k_fold_validation"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.k_fold_validation">[docs]</a>    <span class="k">def</span> <span class="nf">k_fold_validation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">k_fold_validation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Score the pipeline through k-fold validation with the given scoring function.</span>
 
 <span class="sd">        Args:</span>
@@ -288,9 +289,9 @@
             <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model_instance</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">])</span>
             <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scorer</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">))</span>
 
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Modeler.tune"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.tune">[docs]</a>    <span class="k">def</span> <span class="nf">tune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">tune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Tune the pipeline hyper-parameters and select the optimized model.</span>
 
 <span class="sd">        Args:</span>
@@ -311,9 +312,9 @@
             <span class="n">hyparam</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">),</span> <span class="n">max_errors</span><span class="o">=</span><span class="n">max_evals</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
 
         <span class="n">best_proposal</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">max_evals</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="o">.</span><span class="n">set_hyperparameters</span><span class="p">(</span><span class="n">best_proposal</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">])</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="o">.</span><span class="n">set_hyperparameters</span><span class="p">(</span><span class="n">best_proposal</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">])</span>
 
-<div class="viewcode-block" id="Modeler.fit"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Modeler.fit"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.fit.html#cardea.modeling.Modeler.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit and select the pipelines.</span>
 
 <span class="sd">        Args:</span>
@@ -338,7 +339,7 @@
         <span class="c1"># fit pipeline</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Modeler.predict"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<div class="viewcode-block" id="Modeler.predict"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.predict.html#cardea.modeling.Modeler.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Predict the input data</span>
 
 <span class="sd">        Args:</span>
@@ -351,7 +352,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Modeler.test"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.test">[docs]</a>    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Test the trained pipeline.</span>
 
 <span class="sd">        Args:</span>
@@ -370,9 +371,9 @@
             <span class="n">scorer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regression_metrics</span><span class="p">[</span><span class="n">scoring</span> <span class="ow">or</span> <span class="s1">&#39;r2_score&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">scorer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classification_metrics</span><span class="p">[</span><span class="n">scoring</span> <span class="ow">or</span> <span class="s1">&#39;f1&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">scorer</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="n">scorer</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Modeler.fit_predict"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.fit_predict">[docs]</a>    <span class="k">def</span> <span class="nf">fit_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Modeler.fit_predict"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.fit_predict.html#cardea.modeling.Modeler.fit_predict">[docs]</a>    <span class="k">def</span> <span class="nf">fit_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit the pipeline and make predictions</span>
 
 <span class="sd">        Args:</span>
@@ -397,7 +398,7 @@
                  <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Modeler.evaluate"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Modeler.evaluate"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.evaluate.html#cardea.modeling.Modeler.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">metrics</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Evaluate the pipelines.</span>
 
@@ -433,7 +434,7 @@
             <span class="n">scores</span><span class="p">[</span><span class="n">metric</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">metric</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">scores</span></div>
 
-<div class="viewcode-block" id="Modeler.save"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<div class="viewcode-block" id="Modeler.save"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.save.html#cardea.modeling.Modeler.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Save the object in a pickle file.</span>
 
 <span class="sd">        Args:</span>
@@ -443,7 +444,7 @@
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pickle_file</span><span class="p">:</span>
             <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pickle_file</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Modeler.load"><a class="viewcode-back" href="../../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler.load">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Modeler.load"><a class="viewcode-back" href="../../../api_reference/api/cardea.modeling.Modeler.load.html#cardea.modeling.Modeler.load">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Load a Modeler object from a pickle file</span>
 
@@ -483,7 +484,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

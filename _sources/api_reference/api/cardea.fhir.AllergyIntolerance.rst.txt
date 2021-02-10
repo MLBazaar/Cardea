@@ -1,4 +1,4 @@
-cardea.fhir.AllergyIntolerance
+﻿cardea.fhir.AllergyIntolerance
 ==============================
 
 .. currentmodule:: cardea.fhir

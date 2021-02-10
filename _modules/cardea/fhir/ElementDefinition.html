@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.fhir.ElementDefinition &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -1663,16 +1664,16 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="ElementDefinition.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">representation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">representation</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
                         <span class="s1">&#39;xmlattr&#39;</span><span class="p">,</span> <span class="s1">&#39;xmltext&#39;</span><span class="p">,</span> <span class="s1">&#39;typeattr&#39;</span><span class="p">,</span> <span class="s1">&#39;cdatext&#39;</span><span class="p">,</span> <span class="s1">&#39;xhtml&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;xmlAttr, xmlText, typeAttr, cdaText, xhtml&#39;</span><span class="p">))</span></div>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;xmlAttr, xmlText, typeAttr, cdaText, xhtml&#39;</span><span class="p">))</span>
 
-<div class="viewcode-block" id="ElementDefinition.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Money&#39;</span><span class="p">,</span>
@@ -2264,10 +2265,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ElementDefinition&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;mapping&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="ElementDefinition_Slicing"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Slicing">[docs]</a><span class="k">class</span> <span class="nc">ElementDefinition_Slicing</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ElementDefinition_Slicing</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Captures constraints on each element within the resource, profile, or</span>
 <span class="sd">    extension.</span>
@@ -2314,26 +2315,26 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
 
-<div class="viewcode-block" id="ElementDefinition_Slicing.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Slicing.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
                         <span class="s1">&#39;closed&#39;</span><span class="p">,</span> <span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="s1">&#39;openatend&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;closed, open, openAtEnd&#39;</span><span class="p">))</span></div>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;closed, open, openAtEnd&#39;</span><span class="p">))</span>
 
-<div class="viewcode-block" id="ElementDefinition_Slicing.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Slicing.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ElementDefinition_Discriminator&#39;</span><span class="p">,</span>
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ElementDefinition_Slicing&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;discriminator&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ElementDefinition_Discriminator"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Discriminator">[docs]</a><span class="k">class</span> <span class="nc">ElementDefinition_Discriminator</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ElementDefinition_Discriminator</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Captures constraints on each element within the resource, profile, or</span>
 <span class="sd">    extension.</span>
@@ -2362,17 +2363,17 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
 
-<div class="viewcode-block" id="ElementDefinition_Discriminator.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Discriminator.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
                         <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;exists&#39;</span><span class="p">,</span> <span class="s1">&#39;pattern&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;profile&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;value, exists, pattern, type, profile&#39;</span><span class="p">))</span></div></div>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;value, exists, pattern, type, profile&#39;</span><span class="p">))</span>
 
 
-<div class="viewcode-block" id="ElementDefinition_Base"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Base">[docs]</a><span class="k">class</span> <span class="nc">ElementDefinition_Base</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ElementDefinition_Base</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Captures constraints on each element within the resource, profile, or</span>
 <span class="sd">    extension.</span>
@@ -2402,10 +2403,10 @@
         <span class="c1"># unique identifier for object class</span>
 
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="ElementDefinition_Type"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Type">[docs]</a><span class="k">class</span> <span class="nc">ElementDefinition_Type</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ElementDefinition_Type</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Captures constraints on each element within the resource, profile, or</span>
 <span class="sd">    extension.</span>
@@ -2464,7 +2465,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
 
-<div class="viewcode-block" id="ElementDefinition_Type.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Type.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregation</span><span class="p">:</span>
@@ -2478,10 +2479,10 @@
                 <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
                         <span class="s1">&#39;either&#39;</span><span class="p">,</span> <span class="s1">&#39;independent&#39;</span><span class="p">,</span> <span class="s1">&#39;specific&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;either, independent, specific&#39;</span><span class="p">))</span></div></div>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;either, independent, specific&#39;</span><span class="p">))</span>
 
 
-<div class="viewcode-block" id="ElementDefinition_Example"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Example">[docs]</a><span class="k">class</span> <span class="nc">ElementDefinition_Example</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ElementDefinition_Example</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Captures constraints on each element within the resource, profile, or</span>
 <span class="sd">    extension.</span>
@@ -2767,7 +2768,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ElementDefinition_Example.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Example.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Address&#39;</span><span class="p">,</span>
@@ -2944,10 +2945,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ElementDefinition_Example&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;valueCoding&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ElementDefinition_Constraint"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Constraint">[docs]</a><span class="k">class</span> <span class="nc">ElementDefinition_Constraint</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ElementDefinition_Constraint</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Captures constraints on each element within the resource, profile, or</span>
 <span class="sd">    extension.</span>
@@ -3002,17 +3003,17 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
 
-<div class="viewcode-block" id="ElementDefinition_Constraint.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Constraint.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">severity</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
                         <span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;warning&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;error, warning&#39;</span><span class="p">))</span></div></div>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;error, warning&#39;</span><span class="p">))</span>
 
 
-<div class="viewcode-block" id="ElementDefinition_Binding"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Binding">[docs]</a><span class="k">class</span> <span class="nc">ElementDefinition_Binding</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ElementDefinition_Binding</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Captures constraints on each element within the resource, profile, or</span>
 <span class="sd">    extension.</span>
@@ -3062,26 +3063,26 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span>
 
-<div class="viewcode-block" id="ElementDefinition_Binding.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Binding.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">strength</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">strength</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
                         <span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="s1">&#39;extensible&#39;</span><span class="p">,</span> <span class="s1">&#39;preferred&#39;</span><span class="p">,</span> <span class="s1">&#39;example&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;required, extensible, preferred, example&#39;</span><span class="p">))</span></div>
+                        <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;required, extensible, preferred, example&#39;</span><span class="p">))</span>
 
-<div class="viewcode-block" id="ElementDefinition_Binding.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Binding.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;identifier&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;ElementDefinition_Binding&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;valueSetReference&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ElementDefinition_Mapping"><a class="viewcode-back" href="../../../api/cardea.fhir.ElementDefinition.html#cardea.fhir.ElementDefinition_Mapping">[docs]</a><span class="k">class</span> <span class="nc">ElementDefinition_Mapping</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ElementDefinition_Mapping</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Captures constraints on each element within the resource, profile, or</span>
 <span class="sd">    extension.</span>
@@ -3115,7 +3116,7 @@
         <span class="c1"># unique identifier for object class</span>
 
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 </pre></div>
 
               </div>
@@ -3140,7 +3141,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

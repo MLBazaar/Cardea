@@ -1,0 +1,6 @@
+﻿cardea.Cardea.save
+==================
+
+.. currentmodule:: cardea
+
+.. automethod:: Cardea.save

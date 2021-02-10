@@ -1,7 +1,0 @@
-cardea.fhir.MedicationRequest module
-====================================
-
-.. automodule:: cardea.fhir.MedicationRequest
-   :members:
-   :undoc-members:
-   :show-inheritance:

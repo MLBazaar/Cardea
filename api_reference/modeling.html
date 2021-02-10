@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.modeling &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -156,6 +157,34 @@
                             <a href="api/cardea.modeling.Modeler.html">cardea.modeling.Modeler</a>
                         </li>
                     
+                        <li class="">
+                            <a href="api/cardea.modeling.Modeler.train_test_split.html">cardea.modeling.Modeler.train_test_split</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/cardea.modeling.Modeler.fit.html">cardea.modeling.Modeler.fit</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/cardea.modeling.Modeler.predict.html">cardea.modeling.Modeler.predict</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/cardea.modeling.Modeler.fit_predict.html">cardea.modeling.Modeler.fit_predict</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/cardea.modeling.Modeler.evaluate.html">cardea.modeling.Modeler.evaluate</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/cardea.modeling.Modeler.save.html">cardea.modeling.Modeler.save</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/cardea.modeling.Modeler.load.html">cardea.modeling.Modeler.load</a>
+                        </li>
+                    
                     </ul>
                 </li>
             
@@ -218,8 +247,26 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.modeling.Modeler.html#cardea.modeling.Modeler" title="cardea.modeling.Modeler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Modeler</span></code></a>(pipeline, problem_type)</p></td>
 <td><p>A class responsible for executing various Machine Learning Pipelines using MLBlocks.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Modeler.execute_pipeline</span></code></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cardea.modeling.Modeler.train_test_split.html#cardea.modeling.Modeler.train_test_split" title="cardea.modeling.Modeler.train_test_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Modeler.train_test_split</span></code></a>(X, y[, test_size, …])</p></td>
+<td><p>Split the training dataset and the testing dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.modeling.Modeler.fit.html#cardea.modeling.Modeler.fit" title="cardea.modeling.Modeler.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Modeler.fit</span></code></a>(X, y[, tune, max_evals, …])</p></td>
+<td><p>Fit and select the pipelines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cardea.modeling.Modeler.predict.html#cardea.modeling.Modeler.predict" title="cardea.modeling.Modeler.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Modeler.predict</span></code></a>(X)</p></td>
+<td><p>Predict the input data</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.modeling.Modeler.fit_predict.html#cardea.modeling.Modeler.fit_predict" title="cardea.modeling.Modeler.fit_predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Modeler.fit_predict</span></code></a>(X, y[, tune, max_evals, …])</p></td>
+<td><p>Fit the pipeline and make predictions</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cardea.modeling.Modeler.evaluate.html#cardea.modeling.Modeler.evaluate" title="cardea.modeling.Modeler.evaluate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Modeler.evaluate</span></code></a>(X, y[, test_size, shuffle, …])</p></td>
+<td><p>Evaluate the pipelines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.modeling.Modeler.save.html#cardea.modeling.Modeler.save" title="cardea.modeling.Modeler.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Modeler.save</span></code></a>(path)</p></td>
+<td><p>Save the object in a pickle file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cardea.modeling.Modeler.load.html#cardea.modeling.Modeler.load" title="cardea.modeling.Modeler.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Modeler.load</span></code></a>(path)</p></td>
+<td><p>Load a Modeler object from a pickle file</p></td>
 </tr>
 </tbody>
 </table>
@@ -251,7 +298,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

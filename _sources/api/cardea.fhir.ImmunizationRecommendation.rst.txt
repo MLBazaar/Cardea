@@ -1,7 +1,0 @@
-cardea.fhir.ImmunizationRecommendation module
-=============================================
-
-.. automodule:: cardea.fhir.ImmunizationRecommendation
-   :members:
-   :undoc-members:
-   :show-inheritance:

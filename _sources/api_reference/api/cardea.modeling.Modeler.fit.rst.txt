@@ -1,0 +1,6 @@
+﻿cardea.modeling.Modeler.fit
+===========================
+
+.. currentmodule:: cardea.modeling
+
+.. automethod:: Modeler.fit

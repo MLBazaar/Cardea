@@ -1,7 +1,0 @@
-cardea.fhir.Measure module
-==========================
-
-.. automodule:: cardea.fhir.Measure
-   :members:
-   :undoc-members:
-   :show-inheritance:

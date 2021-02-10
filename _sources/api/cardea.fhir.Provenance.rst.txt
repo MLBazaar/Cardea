@@ -1,7 +1,0 @@
-cardea.fhir.Provenance module
-=============================
-
-.. automodule:: cardea.fhir.Provenance
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.fhir.NutritionOrder &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -252,7 +253,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assert_type</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="NutritionOrder.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
@@ -261,9 +262,9 @@
                         <span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="s1">&#39;cancelled&#39;</span><span class="p">,</span> <span class="s1">&#39;entered-in-error&#39;</span><span class="p">]:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; does not match possible values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                         <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;proposed, draft, planned, requested, active, on-hold, completed,&#39;</span>
-                        <span class="s1">&#39;cancelled, entered-in-error&#39;</span><span class="p">))</span></div>
+                        <span class="s1">&#39;cancelled, entered-in-error&#39;</span><span class="p">))</span>
 
-<div class="viewcode-block" id="NutritionOrder.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Reference&#39;</span><span class="p">,</span>
@@ -315,10 +316,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;NutritionOrder&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;supplement&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="NutritionOrder_OralDiet"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_OralDiet">[docs]</a><span class="k">class</span> <span class="nc">NutritionOrder_OralDiet</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">NutritionOrder_OralDiet</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A request to supply a diet, formula feeding (enteral) or oral</span>
 <span class="sd">    nutritional supplement to a patient/resident.</span>
@@ -373,7 +374,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="NutritionOrder_OralDiet.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_OralDiet.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
@@ -400,10 +401,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;NutritionOrder_OralDiet&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;schedule&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="NutritionOrder_Nutrient"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_Nutrient">[docs]</a><span class="k">class</span> <span class="nc">NutritionOrder_Nutrient</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">NutritionOrder_Nutrient</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A request to supply a diet, formula feeding (enteral) or oral</span>
 <span class="sd">    nutritional supplement to a patient/resident.</span>
@@ -429,7 +430,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="NutritionOrder_Nutrient.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_Nutrient.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
@@ -441,10 +442,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;NutritionOrder_Nutrient&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;modifier&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="NutritionOrder_Texture"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_Texture">[docs]</a><span class="k">class</span> <span class="nc">NutritionOrder_Texture</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">NutritionOrder_Texture</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A request to supply a diet, formula feeding (enteral) or oral</span>
 <span class="sd">    nutritional supplement to a patient/resident.</span>
@@ -471,7 +472,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="NutritionOrder_Texture.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_Texture.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
@@ -483,10 +484,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;NutritionOrder_Texture&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;modifier&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="NutritionOrder_Supplement"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_Supplement">[docs]</a><span class="k">class</span> <span class="nc">NutritionOrder_Supplement</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">NutritionOrder_Supplement</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A request to supply a diet, formula feeding (enteral) or oral</span>
 <span class="sd">    nutritional supplement to a patient/resident.</span>
@@ -529,7 +530,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="NutritionOrder_Supplement.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_Supplement.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
@@ -546,10 +547,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;NutritionOrder_Supplement&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;schedule&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="NutritionOrder_EnteralFormula"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_EnteralFormula">[docs]</a><span class="k">class</span> <span class="nc">NutritionOrder_EnteralFormula</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">NutritionOrder_EnteralFormula</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A request to supply a diet, formula feeding (enteral) or oral</span>
 <span class="sd">    nutritional supplement to a patient/resident.</span>
@@ -621,7 +622,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="NutritionOrder_EnteralFormula.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_EnteralFormula.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;CodeableConcept&#39;</span><span class="p">,</span>
@@ -653,10 +654,10 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;NutritionOrder_EnteralFormula&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;routeofAdministration&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 
 
-<div class="viewcode-block" id="NutritionOrder_Administration"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_Administration">[docs]</a><span class="k">class</span> <span class="nc">NutritionOrder_Administration</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">NutritionOrder_Administration</span><span class="p">(</span><span class="n">fhirbase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A request to supply a diet, formula feeding (enteral) or oral</span>
 <span class="sd">    nutritional supplement to a patient/resident.</span>
@@ -694,7 +695,7 @@
         <span class="k">if</span> <span class="n">dict_values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">dict_values</span><span class="p">)</span>
 
-<div class="viewcode-block" id="NutritionOrder_Administration.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.NutritionOrder.html#cardea.fhir.NutritionOrder_Administration.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">{</span><span class="s1">&#39;parent_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
@@ -716,7 +717,7 @@
              <span class="s1">&#39;parent_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;object_id&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_entity&#39;</span><span class="p">:</span> <span class="s1">&#39;NutritionOrder_Administration&#39;</span><span class="p">,</span>
              <span class="s1">&#39;child_variable&#39;</span><span class="p">:</span> <span class="s1">&#39;rateRatio&#39;</span><span class="p">},</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span>
 </pre></div>
 
               </div>
@@ -741,7 +742,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

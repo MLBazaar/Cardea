@@ -1,7 +1,0 @@
-cardea.fhir.RelatedArtifact module
-==================================
-
-.. automodule:: cardea.fhir.RelatedArtifact
-   :members:
-   :undoc-members:
-   :show-inheritance:

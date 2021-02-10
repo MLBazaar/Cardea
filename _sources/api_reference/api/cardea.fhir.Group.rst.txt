@@ -1,4 +1,4 @@
-cardea.fhir.Group
+﻿cardea.fhir.Group
 =================
 
 .. currentmodule:: cardea.fhir

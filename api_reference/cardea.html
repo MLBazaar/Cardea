@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -133,7 +134,7 @@
                         </li>
                     
                         <li class="">
-                            <a href="api/cardea.Cardea.load_data_entityset.html">cardea.Cardea.load_data_entityset</a>
+                            <a href="api/cardea.Cardea.load_entityset.html">cardea.Cardea.load_entityset</a>
                         </li>
                     
                         <li class="">
@@ -153,15 +154,35 @@
                         </li>
                     
                         <li class="">
-                            <a href="api/cardea.Cardea.execute_model.html">cardea.Cardea.execute_model</a>
+                            <a href="api/cardea.Cardea.select_pipeline.html">cardea.Cardea.select_pipeline</a>
                         </li>
                     
                         <li class="">
-                            <a href="api/cardea.Cardea.convert_to_json.html">cardea.Cardea.convert_to_json</a>
+                            <a href="api/cardea.Cardea.train_test_split.html">cardea.Cardea.train_test_split</a>
                         </li>
                     
                         <li class="">
-                            <a href="api/cardea.Cardea.convert_from_json.html">cardea.Cardea.convert_from_json</a>
+                            <a href="api/cardea.Cardea.fit.html">cardea.Cardea.fit</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/cardea.Cardea.predict.html">cardea.Cardea.predict</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/cardea.Cardea.fit_predict.html">cardea.Cardea.fit_predict</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/cardea.Cardea.evaluate.html">cardea.Cardea.evaluate</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/cardea.Cardea.save.html">cardea.Cardea.save</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/cardea.Cardea.load.html">cardea.Cardea.load</a>
                         </li>
                     
                     </ul>
@@ -250,7 +271,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.Cardea.html#cardea.Cardea" title="cardea.Cardea"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea</span></code></a>()</p></td>
 <td><p>An interface class that ties the end-to-end system together.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/cardea.Cardea.load_data_entityset.html#cardea.Cardea.load_data_entityset" title="cardea.Cardea.load_data_entityset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.load_data_entityset</span></code></a>([folder_path])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cardea.Cardea.load_entityset.html#cardea.Cardea.load_entityset" title="cardea.Cardea.load_entityset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.load_entityset</span></code></a>([folder_path])</p></td>
 <td><p>Returns an entityset loaded with .csv files in folder_path.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.Cardea.list_problems.html#cardea.Cardea.list_problems" title="cardea.Cardea.list_problems"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.list_problems</span></code></a>()</p></td>
@@ -265,14 +286,29 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/cardea.Cardea.generate_features.html#cardea.Cardea.generate_features" title="cardea.Cardea.generate_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.generate_features</span></code></a>(cutoff)</p></td>
 <td><p>Returns a the calculated feature matrix.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.Cardea.execute_model.html#cardea.Cardea.execute_model" title="cardea.Cardea.execute_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.execute_model</span></code></a>(feature_matrix, target, …)</p></td>
-<td><p>Executes and predicts all of the pipelines.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.Cardea.select_pipeline.html#cardea.Cardea.select_pipeline" title="cardea.Cardea.select_pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.select_pipeline</span></code></a>(pipeline)</p></td>
+<td><p>Select a pipeline.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/cardea.Cardea.convert_to_json.html#cardea.Cardea.convert_to_json" title="cardea.Cardea.convert_to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.convert_to_json</span></code></a>()</p></td>
-<td><p>Converts a given dictionary to json format.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cardea.Cardea.train_test_split.html#cardea.Cardea.train_test_split" title="cardea.Cardea.train_test_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.train_test_split</span></code></a>(X, y, test_size, shuffle)</p></td>
+<td><p>Split the training dataset and the testing dataset.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.Cardea.convert_from_json.html#cardea.Cardea.convert_from_json" title="cardea.Cardea.convert_from_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.convert_from_json</span></code></a>()</p></td>
-<td><p>Converts a given json string to dictionary format.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.Cardea.fit.html#cardea.Cardea.fit" title="cardea.Cardea.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.fit</span></code></a>(X, y[, tune, max_evals, scoring, …])</p></td>
+<td><p>Train the cardea pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cardea.Cardea.predict.html#cardea.Cardea.predict" title="cardea.Cardea.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.predict</span></code></a>(X)</p></td>
+<td><p>Get predictions from the cardea pipeline.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.Cardea.fit_predict.html#cardea.Cardea.fit_predict" title="cardea.Cardea.fit_predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.fit_predict</span></code></a>(X, y[, tune, max_evals, …])</p></td>
+<td><p>Train a cardea pipeline then make predictions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cardea.Cardea.evaluate.html#cardea.Cardea.evaluate" title="cardea.Cardea.evaluate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.evaluate</span></code></a>(X, y[, test_size, shuffle, …])</p></td>
+<td><p>Evaluate the cardea pipeline.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cardea.Cardea.save.html#cardea.Cardea.save" title="cardea.Cardea.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.save</span></code></a>(path)</p></td>
+<td><p>Save this object using pickle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cardea.Cardea.load.html#cardea.Cardea.load" title="cardea.Cardea.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cardea.load</span></code></a>(path)</p></td>
+<td><p>Load an Orion instance from a pickle file.</p></td>
 </tr>
 </tbody>
 </table>
@@ -304,7 +340,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

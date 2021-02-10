@@ -1,7 +1,0 @@
-cardea.fhir.EnrollmentRequest module
-====================================
-
-.. automodule:: cardea.fhir.EnrollmentRequest
-   :members:
-   :undoc-members:
-   :show-inheritance:

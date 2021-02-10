@@ -1,0 +1,6 @@
+﻿cardea.problem\_definition.MissedAppointment.generate\_cutoff\_times
+====================================================================
+
+.. currentmodule:: cardea.problem_definition
+
+.. automethod:: MissedAppointment.generate_cutoff_times

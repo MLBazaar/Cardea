@@ -1,4 +1,4 @@
-cardea.fhir.DomainResource
+﻿cardea.fhir.DomainResource
 ==========================
 
 .. currentmodule:: cardea.fhir

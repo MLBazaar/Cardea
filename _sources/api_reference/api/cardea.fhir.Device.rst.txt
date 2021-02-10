@@ -1,4 +1,4 @@
-cardea.fhir.Device
+﻿cardea.fhir.Device
 ==================
 
 .. currentmodule:: cardea.fhir

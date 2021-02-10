@@ -1,7 +1,0 @@
-cardea.fhir.Coverage module
-===========================
-
-.. automodule:: cardea.fhir.Coverage
-   :members:
-   :undoc-members:
-   :show-inheritance:

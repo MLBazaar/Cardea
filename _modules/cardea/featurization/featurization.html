@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.featurization.featurization &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -154,28 +155,28 @@
 <span></span><span class="kn">import</span> <span class="nn">featuretools</span> <span class="k">as</span> <span class="nn">ft</span>
 
 
-<div class="viewcode-block" id="Featurization"><a class="viewcode-back" href="../../../api_reference/api/cardea.featurization.Featurization.html#cardea.featurization.featurization.Featurization">[docs]</a><span class="k">class</span> <span class="nc">Featurization</span><span class="p">():</span>
+<div class="viewcode-block" id="Featurization"><a class="viewcode-back" href="../../../api_reference/api/cardea.featurization.Featurization.html#cardea.featurization.Featurization">[docs]</a><span class="k">class</span> <span class="nc">Featurization</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;A class that generates a feature matrix from its attributes.&quot;&quot;&quot;</span>
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Featurization&#39;</span>
 
-<div class="viewcode-block" id="Featurization.agg_prim"><a class="viewcode-back" href="../../../api/cardea.featurization.featurization.html#cardea.featurization.featurization.Featurization.agg_prim">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">agg_prim</span><span class="p">():</span>
-        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;skew&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;percent_true&quot;</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;skew&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;percent_true&quot;</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Featurization.trans_prim"><a class="viewcode-back" href="../../../api/cardea.featurization.featurization.html#cardea.featurization.featurization.Featurization.trans_prim">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">trans_prim</span><span class="p">():</span>
-        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;weekday&quot;</span><span class="p">,</span> <span class="s2">&quot;is_weekend&quot;</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;weekday&quot;</span><span class="p">,</span> <span class="s2">&quot;is_weekend&quot;</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Featurization.n_jobs"><a class="viewcode-back" href="../../../api/cardea.featurization.featurization.html#cardea.featurization.featurization.Featurization.n_jobs">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">n_jobs</span><span class="p">():</span>
-        <span class="k">return</span> <span class="mi">1</span></div>
+        <span class="k">return</span> <span class="mi">1</span>
 
-<div class="viewcode-block" id="Featurization.max_depth"><a class="viewcode-back" href="../../../api/cardea.featurization.featurization.html#cardea.featurization.featurization.Featurization.max_depth">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">max_depth</span><span class="p">():</span>
-        <span class="k">return</span> <span class="mi">2</span></div>
+        <span class="k">return</span> <span class="mi">2</span>
 
-<div class="viewcode-block" id="Featurization.generate_feature_matrix"><a class="viewcode-back" href="../../../api_reference/api/cardea.featurization.Featurization.generate_feature_matrix.html#cardea.featurization.featurization.Featurization.generate_feature_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">generate_feature_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Featurization.generate_feature_matrix"><a class="viewcode-back" href="../../../api_reference/api/cardea.featurization.Featurization.generate_feature_matrix.html#cardea.featurization.Featurization.generate_feature_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">generate_feature_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Calculates a feature matrix and features given in Featurization object.</span>
 
 <span class="sd">          Args:</span>
@@ -233,7 +234,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

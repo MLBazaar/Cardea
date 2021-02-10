@@ -1,7 +1,0 @@
-cardea.data\_loader.load\_mimic module
-======================================
-
-.. automodule:: cardea.data_loader.load_mimic
-   :members:
-   :undoc-members:
-   :show-inheritance:

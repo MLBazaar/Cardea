@@ -1,4 +1,4 @@
-cardea.fhir.Flag
+﻿cardea.fhir.Flag
 ================
 
 .. currentmodule:: cardea.fhir

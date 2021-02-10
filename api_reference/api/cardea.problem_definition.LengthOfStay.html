@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.problem_definition.LengthOfStay &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -181,11 +182,11 @@
                         </li>
                     
                         <li class="">
-                            <a href="cardea.problem_definition.MissedAppointmentProblemDefinition.html">cardea.problem_definition.MissedAppointmentProblemDefinition</a>
+                            <a href="cardea.problem_definition.MissedAppointment.html">cardea.problem_definition.MissedAppointment</a>
                         </li>
                     
                         <li class="">
-                            <a href="cardea.problem_definition.MissedAppointmentProblemDefinition.generate_cutoff_times.html">cardea.problem_definition.MissedAppointmentProblemDefinition.generate_cutoff_times</a>
+                            <a href="cardea.problem_definition.MissedAppointment.generate_cutoff_times.html">cardea.problem_definition.MissedAppointment.generate_cutoff_times</a>
                         </li>
                     
                     </ul>
@@ -244,7 +245,7 @@
                 
   <div class="section" id="cardea-problem-definition-lengthofstay">
 <h1>cardea.problem_definition.LengthOfStay<a class="headerlink" href="#cardea-problem-definition-lengthofstay" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="cardea.problem_definition.LengthOfStay">
 <em class="property">class </em><code class="sig-prename descclassname">cardea.problem_definition.</code><code class="sig-name descname">LengthOfStay</code><a class="reference internal" href="../../_modules/cardea/problem_definition/length_of_stay.html#LengthOfStay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.problem_definition.LengthOfStay" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines the problem of length of stay, predicting how many days
@@ -260,7 +261,7 @@ the patient will be in the hospital.</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="cardea.problem_definition.LengthOfStay.__init__">
 <code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cardea.problem_definition.LengthOfStay.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
@@ -273,7 +274,7 @@ the patient will be in the hospital.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#cardea.problem_definition.LengthOfStay.__init__" title="cardea.problem_definition.LengthOfStay.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cardea.problem_definition.LengthOfStay.__init__" title="cardea.problem_definition.LengthOfStay.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_for_missing_values_in_target_label</span></code>(…)</p></td>
@@ -285,7 +286,7 @@ the patient will be in the hospital.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="cardea.problem_definition.LengthOfStay.generate_cutoff_times.html#cardea.problem_definition.LengthOfStay.generate_cutoff_times" title="cardea.problem_definition.LengthOfStay.generate_cutoff_times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_cutoff_times</span></code></a>(es)</p></td>
 <td><p>Generates cutoff times for the prediction problem.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.LengthOfStay.generate_target_label" title="cardea.problem_definition.LengthOfStay.generate_target_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_target_label</span></code></a>(es)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_target_label</span></code>(es)</p></td>
 <td><p>Generates target labels in the case of having missing label in the entityset.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unify_cutoff_time_admission_time</span></code>(es, …)</p></td>
@@ -315,25 +316,25 @@ the patient will be in the hospital.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.LengthOfStay.conn" title="cardea.problem_definition.LengthOfStay.conn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conn</span></code></a></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">conn</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.LengthOfStay.cutoff_entity" title="cardea.problem_definition.LengthOfStay.cutoff_entity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cutoff_entity</span></code></a></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">cutoff_entity</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.LengthOfStay.cutoff_time_label" title="cardea.problem_definition.LengthOfStay.cutoff_time_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cutoff_time_label</span></code></a></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">cutoff_time_label</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.LengthOfStay.prediction_type" title="cardea.problem_definition.LengthOfStay.prediction_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prediction_type</span></code></a></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prediction_type</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.LengthOfStay.target_entity" title="cardea.problem_definition.LengthOfStay.target_entity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_entity</span></code></a></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_entity</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.LengthOfStay.target_label_column_name" title="cardea.problem_definition.LengthOfStay.target_label_column_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_label_column_name</span></code></a></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_label_column_name</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../api/cardea.problem_definition.html#cardea.problem_definition.LengthOfStay.updated_es" title="cardea.problem_definition.LengthOfStay.updated_es"><code class="xref py py-obj docutils literal notranslate"><span class="pre">updated_es</span></code></a></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">updated_es</span></code></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -367,7 +368,7 @@ the patient will be in the hospital.</p>
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

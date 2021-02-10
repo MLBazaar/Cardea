@@ -1,7 +1,0 @@
-cardea.fhir.TriggerDefinition module
-====================================
-
-.. automodule:: cardea.fhir.TriggerDefinition
-   :members:
-   :undoc-members:
-   :show-inheritance:

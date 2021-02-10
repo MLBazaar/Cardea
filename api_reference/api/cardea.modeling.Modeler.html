@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.modeling.Modeler &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -38,7 +39,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="cardea.fhir" href="../fhir.html" />
+    <link rel="next" title="cardea.modeling.Modeler.train_test_split" href="cardea.modeling.Modeler.train_test_split.html" />
     <link rel="prev" title="cardea.modeling" href="../modeling.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -156,6 +157,34 @@
                             <a href="">cardea.modeling.Modeler</a>
                         </li>
                     
+                        <li class="">
+                            <a href="cardea.modeling.Modeler.train_test_split.html">cardea.modeling.Modeler.train_test_split</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.modeling.Modeler.fit.html">cardea.modeling.Modeler.fit</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.modeling.Modeler.predict.html">cardea.modeling.Modeler.predict</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.modeling.Modeler.fit_predict.html">cardea.modeling.Modeler.fit_predict</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.modeling.Modeler.evaluate.html">cardea.modeling.Modeler.evaluate</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.modeling.Modeler.save.html">cardea.modeling.Modeler.save</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.modeling.Modeler.load.html">cardea.modeling.Modeler.load</a>
+                        </li>
+                    
                     </ul>
                 </li>
             
@@ -200,13 +229,13 @@
                 
   <div class="section" id="cardea-modeling-modeler">
 <h1>cardea.modeling.Modeler<a class="headerlink" href="#cardea-modeling-modeler" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="cardea.modeling.Modeler">
-<em class="property">class </em><code class="sig-prename descclassname">cardea.modeling.</code><code class="sig-name descname">Modeler</code><span class="sig-paren">(</span><em class="sig-param">pipeline</em>, <em class="sig-param">problem_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/modeling/modeler.html#Modeler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.Modeler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.modeling.</code><code class="sig-name descname">Modeler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pipeline</span></em>, <em class="sig-param"><span class="n">problem_type</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/modeling/modeler.html#Modeler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.Modeler" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class responsible for executing various Machine Learning Pipelines using MLBlocks.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="cardea.modeling.Modeler.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">pipeline</em>, <em class="sig-param">problem_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/modeling/modeler.html#Modeler.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.Modeler.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pipeline</span></em>, <em class="sig-param"><span class="n">problem_type</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/modeling/modeler.html#Modeler.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.modeling.Modeler.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -220,31 +249,31 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#cardea.modeling.Modeler.__init__" title="cardea.modeling.Modeler.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(pipeline, problem_type)</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate</span></code>(X, y[, test_size, shuffle, tune, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.modeling.Modeler.evaluate.html#cardea.modeling.Modeler.evaluate" title="cardea.modeling.Modeler.evaluate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate</span></code></a>(X, y[, test_size, shuffle, tune, …])</p></td>
 <td><p>Evaluate the pipelines.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code>(X, y[, tune, max_evals, scoring, verbose])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="cardea.modeling.Modeler.fit.html#cardea.modeling.Modeler.fit" title="cardea.modeling.Modeler.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X, y[, tune, max_evals, scoring, verbose])</p></td>
 <td><p>Fit and select the pipelines.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_predict</span></code>(X, y[, tune, max_evals, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.modeling.Modeler.fit_predict.html#cardea.modeling.Modeler.fit_predict" title="cardea.modeling.Modeler.fit_predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_predict</span></code></a>(X, y[, tune, max_evals, …])</p></td>
 <td><p>Fit the pipeline and make predictions</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">k_fold_validation</span></code>(hyperparameters, X, y[, …])</p></td>
 <td><p>Score the pipeline through k-fold validation with the given scoring function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code>(path)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.modeling.Modeler.load.html#cardea.modeling.Modeler.load" title="cardea.modeling.Modeler.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(path)</p></td>
 <td><p>Load a Modeler object from a pickle file</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code>(X)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="cardea.modeling.Modeler.predict.html#cardea.modeling.Modeler.predict" title="cardea.modeling.Modeler.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
 <td><p>Predict the input data</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code>(path)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.modeling.Modeler.save.html#cardea.modeling.Modeler.save" title="cardea.modeling.Modeler.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(path)</p></td>
 <td><p>Save the object in a pickle file.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">test</span></code>(X, y[, scoring])</p></td>
 <td><p>Test the trained pipeline.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">train_test_split</span></code>(X, y[, test_size, shuffle])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.modeling.Modeler.train_test_split.html#cardea.modeling.Modeler.train_test_split" title="cardea.modeling.Modeler.train_test_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">train_test_split</span></code></a>(X, y[, test_size, shuffle])</p></td>
 <td><p>Split the training dataset and the testing dataset.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tune</span></code>(X, y[, max_evals, scoring, verbose])</p></td>
@@ -284,7 +313,7 @@
               <div class='prev-next-bottom'>
                 
     <a class='left-prev' id="prev-link" href="../modeling.html" title="previous page">cardea.modeling</a>
-    <a class='right-next' id="next-link" href="../fhir.html" title="next page">cardea.fhir</a>
+    <a class='right-next' id="next-link" href="cardea.modeling.Modeler.train_test_split.html" title="next page">cardea.modeling.Modeler.train_test_split</a>
 
               </div>
               
@@ -302,7 +331,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

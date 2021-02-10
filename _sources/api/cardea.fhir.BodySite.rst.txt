@@ -1,7 +1,0 @@
-cardea.fhir.BodySite module
-===========================
-
-.. automodule:: cardea.fhir.BodySite
-   :members:
-   :undoc-members:
-   :show-inheritance:

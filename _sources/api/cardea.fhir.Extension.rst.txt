@@ -1,7 +1,0 @@
-cardea.fhir.Extension module
-============================
-
-.. automodule:: cardea.fhir.Extension
-   :members:
-   :undoc-members:
-   :show-inheritance:

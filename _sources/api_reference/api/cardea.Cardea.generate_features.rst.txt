@@ -1,4 +1,4 @@
-cardea.Cardea.generate\_features
+﻿cardea.Cardea.generate\_features
 ================================
 
 .. currentmodule:: cardea

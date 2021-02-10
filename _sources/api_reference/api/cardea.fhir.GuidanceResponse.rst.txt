@@ -1,4 +1,4 @@
-cardea.fhir.GuidanceResponse
+﻿cardea.fhir.GuidanceResponse
 ============================
 
 .. currentmodule:: cardea.fhir

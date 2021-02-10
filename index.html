@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Cardea &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -165,14 +166,14 @@
   <p align="left">
 <img width=15% src="https://dai.lids.mit.edu/wp-content/uploads/2018/06/Logo_DAI_highres.png" alt="DAI-Lab" />
 <i>An open source project from Data to AI Lab at MIT.</i>
-</p><p><a class="reference external" href="https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha"><img alt="Development Status" src="https://img.shields.io/badge/Development%20Status-2%20--%20Pre--Alpha-yellow" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cardea"><img alt="PyPi Shield" src="https://img.shields.io/pypi/v/cardea.svg" /></a> <a class="reference external" href="https://travis-ci.org/MLBazaar/Cardea"><img alt="Travis CI Shield" src="https://travis-ci.org/MLBazaar/Cardea.svg?branch=master" /></a> <a class="reference external" href="https://pepy.tech/project/cardea"><img alt="Downloads" src="https://pepy.tech/badge/cardea" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/MLBazaar/Cardea/master?filepath=notebooks"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</p><p><a class="reference external" href="https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha"><img alt="Development Status" src="https://img.shields.io/badge/Development%20Status-2%20--%20Pre--Alpha-yellow" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cardea"><img alt="PyPi Shield" src="https://img.shields.io/pypi/v/cardea.svg" /></a> <a class="reference external" href="https://github.com/MLBazaar/Cardea/actions?query=workflow%3A%22Run+Tests%22+branch%3Amaster"><img alt="Run Tests" src="https://github.com/MLBazaar/Cardea/workflows/Run%20Tests/badge.svg" /></a> <a class="reference external" href="https://pepy.tech/project/cardea"><img alt="Downloads" src="https://pepy.tech/badge/cardea" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/MLBazaar/Cardea/master?filepath=notebooks"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 <div class="section" id="welcome-to-cardea">
 <h1>Welcome to Cardea<a class="headerlink" href="#welcome-to-cardea" title="Permalink to this headline">¶</a></h1>
-<div class="figure align-default" id="id1">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="_images/cardea-logo.png"><img alt="Cardea Logo" src="_images/cardea-logo.png" style="width: 200px;" /></a>
-<p class="caption"><span class="caption-text">An open source project from Data to AI Lab at MIT.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<p><strong>Date</strong>: Feb 08, 2021 <strong>Version</strong>: 0.1.2.dev0</p>
+<p><em>This library is under development. Please contact dai-lab&#64;mit.edu or any of the contributors for more information.</em></p>
+<p><strong>Date</strong>: Feb 10, 2021 <strong>Version</strong>: 0.1.2.dev0</p>
 <ul class="simple">
 <li><p>License: <a class="reference external" href="https://github.com/MLBazaar/Cardea/blob/master/LICENSE">MIT</a></p></li>
 <li><p>Development Status:
@@ -182,29 +183,19 @@
 </ul>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p><em>This library is under development. Please contact dai-lab&#64;mit.edu or any of the contributors
-for more information.</em></p>
-<p>Cardea is a machine learning library built on top of the <a class="reference external" href="https://www.hl7.org/fhir/">FHIR</a> data schema. The library uses
-a number of AutoML tools developed under <a class="reference external" href="https://github.com/HDI-Project">The Human Data Interaction Project</a> at
+<p><em>This library is under development. Please contact dai-lab&#64;mit.edu or any of the contributors for more information.</em></p>
+<p>Cardea is a machine learning library built on top of <em>schemas</em> that support electronic health records (EHR). The library uses a number of AutoML tools developed under <a class="reference external" href="https://github.com/HDI-Project">The Human Data Interaction Project</a> at
 <a class="reference external" href="https://dai.lids.mit.edu/">Data to AI Lab at MIT</a>.</p>
-<p>Our goal is to provide an easy to use library to develop machine learning models from
-electronic health records. A typical usage of this library will involve:</p>
+<p>Our goal is to provide an easy to use library to develop machine learning models from electronic health records. A typical usage of this library will involve interacting with our API to develop prediction models.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/cardea-process.png"><img alt="Cardea Process" src="_images/cardea-process.png" style="width: 600px;" /></a>
+</div>
+<p>A series of sequential processes are applied to build a machine learning model. These processes are triggered using our following APIs to perform the following:</p>
 <ul class="simple">
-<li><p>Installing the library available via pypi</p></li>
-<li><p>Integrating their data in FHIR schema (whatever subset of data is available)</p></li>
-<li><p>Following the API to develop some pre-specified prediction models (or specify new ones using
-our API). The model building process is parameterized but automatically does:</p>
-<ul>
-<li><p>data cleaning, auditing</p></li>
-<li><p>preprocessing</p></li>
-<li><p>feature engineering</p></li>
-<li><p>machine learning model search and tuning</p></li>
-<li><p>model evaluation</p></li>
-<li><p>model auditing</p></li>
-</ul>
-</li>
-<li><p>Testing the models using our API</p></li>
-<li><p>Preparing and deploying the models</p></li>
+<li><p>loading data using the automatic <strong>data assembler</strong>, where we capture data from its raw format into an entityset representation.</p></li>
+<li><p><strong>data labeling</strong> where we create label times that generates (1) the time index that indicates the timespan for which I create my features (2) the encoded labels of the prediction task. this is essential for our feature engineering phase.</p></li>
+<li><p><strong>featurization</strong> for which we automatically feature engineer our data to generate a feature matrix.</p></li>
+<li><p>lastly, we build, train, and tune our machine learning model using the <strong>modeling component</strong>.</p></li>
 </ul>
 </div>
 <div class="section" id="explore-cardea">
@@ -246,7 +237,7 @@ our API). The model building process is parameterized but automatically does:</p
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

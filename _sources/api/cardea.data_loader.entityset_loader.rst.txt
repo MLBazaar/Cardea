@@ -1,7 +1,0 @@
-cardea.data\_loader.entityset\_loader module
-============================================
-
-.. automodule:: cardea.data_loader.entityset_loader
-   :members:
-   :undoc-members:
-   :show-inheritance:

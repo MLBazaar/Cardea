@@ -1,0 +1,6 @@
+﻿cardea.Cardea.fit
+=================
+
+.. currentmodule:: cardea
+
+.. automethod:: Cardea.fit

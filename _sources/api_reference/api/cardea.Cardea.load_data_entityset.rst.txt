@@ -1,6 +1,0 @@
-cardea.Cardea.load\_data\_entityset
-===================================
-
-.. currentmodule:: cardea
-
-.. automethod:: Cardea.load_data_entityset

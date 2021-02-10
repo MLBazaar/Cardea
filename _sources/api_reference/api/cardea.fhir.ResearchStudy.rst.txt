@@ -1,4 +1,4 @@
-cardea.fhir.ResearchStudy
+﻿cardea.fhir.ResearchStudy
 =========================
 
 .. currentmodule:: cardea.fhir

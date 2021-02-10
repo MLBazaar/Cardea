@@ -1,4 +1,4 @@
-cardea.data\_loader.EntitySetLoader.load\_data\_entityset
+﻿cardea.data\_loader.EntitySetLoader.load\_data\_entityset
 =========================================================
 
 .. currentmodule:: cardea.data_loader

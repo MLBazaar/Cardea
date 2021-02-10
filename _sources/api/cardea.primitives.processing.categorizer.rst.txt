@@ -1,7 +1,0 @@
-cardea.primitives.processing.categorizer module
-===============================================
-
-.. automodule:: cardea.primitives.processing.categorizer
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-cardea.fhir.TestScript module
-=============================
-
-.. automodule:: cardea.fhir.TestScript
-   :members:
-   :undoc-members:
-   :show-inheritance:

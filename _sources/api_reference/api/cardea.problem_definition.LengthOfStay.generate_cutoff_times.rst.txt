@@ -1,4 +1,4 @@
-cardea.problem\_definition.LengthOfStay.generate\_cutoff\_times
+﻿cardea.problem\_definition.LengthOfStay.generate\_cutoff\_times
 ===============================================================
 
 .. currentmodule:: cardea.problem_definition

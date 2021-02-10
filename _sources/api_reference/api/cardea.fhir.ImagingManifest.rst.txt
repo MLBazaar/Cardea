@@ -1,4 +1,4 @@
-cardea.fhir.ImagingManifest
+﻿cardea.fhir.ImagingManifest
 ===========================
 
 .. currentmodule:: cardea.fhir

@@ -1,7 +1,0 @@
-cardea.fhir.PractitionerRole module
-===================================
-
-.. automodule:: cardea.fhir.PractitionerRole
-   :members:
-   :undoc-members:
-   :show-inheritance:

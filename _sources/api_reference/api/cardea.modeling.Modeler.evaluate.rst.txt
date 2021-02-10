@@ -1,0 +1,6 @@
+﻿cardea.modeling.Modeler.evaluate
+================================
+
+.. currentmodule:: cardea.modeling
+
+.. automethod:: Modeler.evaluate

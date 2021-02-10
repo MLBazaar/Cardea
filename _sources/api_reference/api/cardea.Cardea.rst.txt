@@ -1,4 +1,4 @@
-cardea.Cardea
+﻿cardea.Cardea
 =============
 
 .. currentmodule:: cardea
@@ -14,14 +14,19 @@ cardea.Cardea
    .. autosummary::
    
       ~Cardea.__init__
-      ~Cardea.convert_from_json
-      ~Cardea.convert_to_json
-      ~Cardea.execute_model
+      ~Cardea.evaluate
+      ~Cardea.fit
+      ~Cardea.fit_predict
       ~Cardea.generate_features
       ~Cardea.list_feature_primitives
       ~Cardea.list_problems
-      ~Cardea.load_data_entityset
+      ~Cardea.load
+      ~Cardea.load_entityset
+      ~Cardea.predict
+      ~Cardea.save
+      ~Cardea.select_pipeline
       ~Cardea.select_problem
+      ~Cardea.train_test_split
    
    
 

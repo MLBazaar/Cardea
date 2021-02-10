@@ -1,7 +1,0 @@
-cardea.fhir.ImplementationGuide module
-======================================
-
-.. automodule:: cardea.fhir.ImplementationGuide
-   :members:
-   :undoc-members:
-   :show-inheritance:

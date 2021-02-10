@@ -1,7 +1,0 @@
-cardea.fhir.RelatedPerson module
-================================
-
-.. automodule:: cardea.fhir.RelatedPerson
-   :members:
-   :undoc-members:
-   :show-inheritance:

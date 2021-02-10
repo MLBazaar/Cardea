@@ -1,7 +1,0 @@
-cardea.fhir.Binary module
-=========================
-
-.. automodule:: cardea.fhir.Binary
-   :members:
-   :undoc-members:
-   :show-inheritance:

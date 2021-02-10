@@ -1,4 +1,4 @@
-cardea.fhir.Timing
+﻿cardea.fhir.Timing
 ==================
 
 .. currentmodule:: cardea.fhir

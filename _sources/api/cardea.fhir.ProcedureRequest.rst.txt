@@ -1,7 +1,0 @@
-cardea.fhir.ProcedureRequest module
-===================================
-
-.. automodule:: cardea.fhir.ProcedureRequest
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-cardea.fhir.Reference module
-============================
-
-.. automodule:: cardea.fhir.Reference
-   :members:
-   :undoc-members:
-   :show-inheritance:

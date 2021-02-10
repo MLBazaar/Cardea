@@ -5,7 +5,7 @@
    <i>An open source project from Data to AI Lab at MIT.</i>
    </p>
 
-|Development Status| |PyPi Shield| |Travis CI Shield| |Downloads| |Binder|
+|Development Status| |PyPi Shield| |Run Tests| |Downloads| |Binder|
 
 Welcome to Cardea
 ==================
@@ -14,7 +14,7 @@ Welcome to Cardea
    :width: 200 px
    :alt: Cardea Logo
 
-   An open source project from Data to AI Lab at MIT.
+*This library is under development. Please contact dai-lab@mit.edu or any of the contributors for more information.*
 
 **Date**: |today| **Version**: |version|
 
@@ -27,41 +27,30 @@ Welcome to Cardea
 Overview
 --------
 
-*This library is under development. Please contact dai-lab@mit.edu or any of the contributors
-for more information.*
+*This library is under development. Please contact dai-lab@mit.edu or any of the contributors for more information.*
 
-Cardea is a machine learning library built on top of the `FHIR`_ data schema. The library uses
-a number of AutoML tools developed under `The Human Data Interaction Project`_ at
+Cardea is a machine learning library built on top of *schemas* that support electronic health records (EHR). The library uses a number of AutoML tools developed under `The Human Data Interaction Project`_ at
 `Data to AI Lab at MIT`_.
 
-Our goal is to provide an easy to use library to develop machine learning models from
-electronic health records. A typical usage of this library will involve:
+Our goal is to provide an easy to use library to develop machine learning models from electronic health records. A typical usage of this library will involve interacting with our API to develop prediction models.
 
-* Installing the library available via pypi
+.. figure:: images/cardea-process.png
+   :width: 600 px
+   :alt: Cardea Process
 
-* Integrating their data in FHIR schema (whatever subset of data is available)
+A series of sequential processes are applied to build a machine learning model. These processes are triggered using our following APIs to perform the following:
 
-* Following the API to develop some pre-specified prediction models (or specify new ones using
-  our API). The model building process is parameterized but automatically does:
+* loading data using the automatic **data assembler**, where we capture data from its raw format into an entityset representation.
 
-  * data cleaning, auditing
+* **data labeling** where we create label times that generates (1) the time index that indicates the timespan for which I create my features (2) the encoded labels of the prediction task. this is essential for our feature engineering phase.
 
-  * preprocessing
+* **featurization** for which we automatically feature engineer our data to generate a feature matrix.
 
-  * feature engineering
+* lastly, we build, train, and tune our machine learning model using the **modeling component**.
 
-  * machine learning model search and tuning
-
-  * model evaluation
-
-  * model auditing
-
-* Testing the models using our API
-
-* Preparing and deploying the models
 
 Explore Cardea
------------
+--------------
 
 * `Getting Started <getting_started/index.html>`_
 * `Basic Concepts <basic_concepts/index.html>`_
@@ -75,8 +64,8 @@ Explore Cardea
    :target: https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha
 .. |PyPi Shield| image:: https://img.shields.io/pypi/v/cardea.svg
    :target: https://pypi.python.org/pypi/cardea
-.. |Travis CI Shield| image:: https://travis-ci.org/MLBazaar/Cardea.svg?branch=master
-   :target: https://travis-ci.org/MLBazaar/Cardea
+.. |Run Tests| image:: https://github.com/MLBazaar/Cardea/workflows/Run%20Tests/badge.svg
+   :target: https://github.com/MLBazaar/Cardea/actions?query=workflow%3A%22Run+Tests%22+branch%3Amaster
 .. |Downloads| image:: https://pepy.tech/badge/cardea
    :target: https://pepy.tech/project/cardea
 .. |Binder| image:: https://mybinder.org/badge_logo.svg

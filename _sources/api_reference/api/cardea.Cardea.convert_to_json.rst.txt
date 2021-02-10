@@ -1,6 +1,0 @@
-cardea.Cardea.convert\_to\_json
-===============================
-
-.. currentmodule:: cardea
-
-.. automethod:: Cardea.convert_to_json

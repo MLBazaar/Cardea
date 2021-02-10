@@ -1,4 +1,4 @@
-cardea.fhir.Claim
+﻿cardea.fhir.Claim
 =================
 
 .. currentmodule:: cardea.fhir

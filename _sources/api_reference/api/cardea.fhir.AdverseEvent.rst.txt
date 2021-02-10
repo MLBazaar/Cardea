@@ -1,4 +1,4 @@
-cardea.fhir.AdverseEvent
+﻿cardea.fhir.AdverseEvent
 ========================
 
 .. currentmodule:: cardea.fhir

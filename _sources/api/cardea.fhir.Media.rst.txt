@@ -1,7 +1,0 @@
-cardea.fhir.Media module
-========================
-
-.. automodule:: cardea.fhir.Media
-   :members:
-   :undoc-members:
-   :show-inheritance:

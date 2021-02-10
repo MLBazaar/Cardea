@@ -1,4 +1,4 @@
-cardea.fhir.AppointmentResponse
+﻿cardea.fhir.AppointmentResponse
 ===============================
 
 .. currentmodule:: cardea.fhir

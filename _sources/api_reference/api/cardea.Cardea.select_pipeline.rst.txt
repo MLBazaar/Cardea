@@ -1,0 +1,6 @@
+﻿cardea.Cardea.select\_pipeline
+==============================
+
+.. currentmodule:: cardea
+
+.. automethod:: Cardea.select_pipeline

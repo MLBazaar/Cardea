@@ -1,4 +1,4 @@
-cardea.fhir.DocumentManifest
+﻿cardea.fhir.DocumentManifest
 ============================
 
 .. currentmodule:: cardea.fhir

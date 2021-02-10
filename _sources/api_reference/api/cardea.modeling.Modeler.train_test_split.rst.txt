@@ -1,0 +1,6 @@
+﻿cardea.modeling.Modeler.train\_test\_split
+==========================================
+
+.. currentmodule:: cardea.modeling
+
+.. automethod:: Modeler.train_test_split

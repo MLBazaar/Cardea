@@ -1,4 +1,4 @@
-cardea.fhir.Coverage
+﻿cardea.fhir.Coverage
 ====================
 
 .. currentmodule:: cardea.fhir

@@ -1,7 +1,0 @@
-cardea.fhir.ChargeItem module
-=============================
-
-.. automodule:: cardea.fhir.ChargeItem
-   :members:
-   :undoc-members:
-   :show-inheritance:

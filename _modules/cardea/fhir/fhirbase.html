@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.fhir.fhirbase &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -160,7 +161,7 @@
 
 <div class="viewcode-block" id="fhirbase"><a class="viewcode-back" href="../../../api_reference/api/cardea.fhir.fhirbase.html#cardea.fhir.fhirbase">[docs]</a><span class="k">class</span> <span class="nc">fhirbase</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-<div class="viewcode-block" id="fhirbase.set_attributes"><a class="viewcode-back" href="../../../api/cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.set_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">set_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">set_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_values</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Sets values to class attributes.</span>
 
 <span class="sd">        Args:</span>
@@ -175,9 +176,9 @@
                 <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
                     <span class="s2">&quot;Attribute </span><span class="si">{}</span><span class="s2"> in </span><span class="si">{}</span><span class="s2"> could not be loaded.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
-<div class="viewcode-block" id="fhirbase.get_dataframe"><a class="viewcode-back" href="../../../api/cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.get_dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">get_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns dataframe from class attribute values.</span>
 
 <span class="sd">        Returns:</span>
@@ -189,9 +190,9 @@
             <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">attr</span> <span class="o">!=</span> <span class="s1">&#39;resourceType&#39;</span><span class="p">:</span>
                 <span class="n">dataframe</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
 
-<div class="viewcode-block" id="fhirbase.get_id"><a class="viewcode-back" href="../../../api/cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.get_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns fhir class identifier.</span>
 
 <span class="sd">        Returns:</span>
@@ -208,25 +209,25 @@
         <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;object_id&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;object_id&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="s1">&#39;object_id&#39;</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">LookupError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is missing an identifier&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span></div>
+            <span class="k">raise</span> <span class="ne">LookupError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is missing an identifier&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
 
-<div class="viewcode-block" id="fhirbase.assert_type"><a class="viewcode-back" href="../../../api/cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.assert_type">[docs]</a>    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">assert_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Checks class values follow set possible enumerations.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            ValueError: An error occurs if an attribute of the fhir class</span>
 <span class="sd">                does not match its possible enumerations.</span>
-<span class="sd">        &quot;&quot;&quot;</span></div>
+<span class="sd">        &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="fhirbase.get_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.get_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns class relationships.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            A list of the class&#39;s associated relationships.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">[]</span></div>
+        <span class="k">return</span> <span class="p">[]</span>
 
-<div class="viewcode-block" id="fhirbase.get_eligible_relationships"><a class="viewcode-back" href="../../../api/cardea.fhir.fhirbase.html#cardea.fhir.fhirbase.get_eligible_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">get_eligible_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_eligible_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns class relationships for attributes that are used.</span>
 
 <span class="sd">        Returns:</span>
@@ -238,7 +239,7 @@
         <span class="n">eligible</span> <span class="o">=</span> <span class="p">[</span>
             <span class="n">relation</span> <span class="k">for</span> <span class="n">relation</span> <span class="ow">in</span> <span class="n">all_relationships</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span>
                 <span class="bp">self</span><span class="p">,</span> <span class="n">relation</span><span class="p">[</span><span class="s1">&#39;child_variable&#39;</span><span class="p">])</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">eligible</span></div></div>
+        <span class="k">return</span> <span class="n">eligible</span></div>
 </pre></div>
 
               </div>
@@ -263,7 +264,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

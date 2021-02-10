@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.Cardea &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -38,7 +39,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="cardea.Cardea.load_data_entityset" href="cardea.Cardea.load_data_entityset.html" />
+    <link rel="next" title="cardea.Cardea.load_entityset" href="cardea.Cardea.load_entityset.html" />
     <link rel="prev" title="cardea" href="../cardea.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -133,7 +134,7 @@
                         </li>
                     
                         <li class="">
-                            <a href="cardea.Cardea.load_data_entityset.html">cardea.Cardea.load_data_entityset</a>
+                            <a href="cardea.Cardea.load_entityset.html">cardea.Cardea.load_entityset</a>
                         </li>
                     
                         <li class="">
@@ -153,15 +154,35 @@
                         </li>
                     
                         <li class="">
-                            <a href="cardea.Cardea.execute_model.html">cardea.Cardea.execute_model</a>
+                            <a href="cardea.Cardea.select_pipeline.html">cardea.Cardea.select_pipeline</a>
                         </li>
                     
                         <li class="">
-                            <a href="cardea.Cardea.convert_to_json.html">cardea.Cardea.convert_to_json</a>
+                            <a href="cardea.Cardea.train_test_split.html">cardea.Cardea.train_test_split</a>
                         </li>
                     
                         <li class="">
-                            <a href="cardea.Cardea.convert_from_json.html">cardea.Cardea.convert_from_json</a>
+                            <a href="cardea.Cardea.fit.html">cardea.Cardea.fit</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.Cardea.predict.html">cardea.Cardea.predict</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.Cardea.fit_predict.html">cardea.Cardea.fit_predict</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.Cardea.evaluate.html">cardea.Cardea.evaluate</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.Cardea.save.html">cardea.Cardea.save</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="cardea.Cardea.load.html">cardea.Cardea.load</a>
                         </li>
                     
                     </ul>
@@ -232,16 +253,16 @@
                 
   <div class="section" id="cardea-cardea">
 <h1>cardea.Cardea<a class="headerlink" href="#cardea-cardea" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="cardea.Cardea">
-<em class="property">class </em><code class="sig-prename descclassname">cardea.</code><code class="sig-name descname">Cardea</code><a class="reference internal" href="../../_modules/cardea/cardea.html#Cardea"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.Cardea" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cardea.</code><code class="sig-name descname">Cardea</code><a class="reference internal" href="../../_modules/cardea/core.html#Cardea"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.Cardea" title="Permalink to this definition">¶</a></dt>
 <dd><p>An interface class that ties the end-to-end system together.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>es_loader</strong> (<a class="reference internal" href="cardea.data_loader.EntitySetLoader.html#cardea.data_loader.EntitySetLoader" title="cardea.data_loader.EntitySetLoader"><em>EntitySetLoader</em></a>) – An entityset loader.</p></li>
-<li><p><strong>featurization</strong> (<a class="reference internal" href="../../api/cardea.featurization.featurization.html#cardea.featurization.featurization.Featurization" title="cardea.featurization.featurization.Featurization"><em>Featurization</em></a>) – A featurization class.</p></li>
-<li><p><strong>modeler</strong> (<a class="reference internal" href="../../api/cardea.modeling.modeler.html#cardea.modeling.modeler.Modeler" title="cardea.modeling.modeler.Modeler"><em>Modeler</em></a>) – A modeling class.</p></li>
+<li><p><strong>featurization</strong> (<a class="reference internal" href="cardea.featurization.Featurization.html#cardea.featurization.Featurization" title="cardea.featurization.Featurization"><em>Featurization</em></a>) – A featurization class.</p></li>
+<li><p><strong>modeler</strong> (<a class="reference internal" href="cardea.modeling.Modeler.html#cardea.modeling.Modeler" title="cardea.modeling.Modeler"><em>Modeler</em></a>) – A modeling class.</p></li>
 <li><p><strong>problems</strong> (<em>list</em>) – A list of currently available prediction problems.</p></li>
 <li><p><strong>chosen_problem</strong> (<em>str</em>) – The selected prediction problem or regression.</p></li>
 <li><p><strong>es</strong> (<em>featuretools.EntitySet</em>) – The loaded entityset.</p></li>
@@ -249,9 +270,9 @@
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="cardea.Cardea.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/cardea.html#Cardea.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.Cardea.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/core.html#Cardea.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.Cardea.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -265,14 +286,14 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#cardea.Cardea.__init__" title="cardea.Cardea.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cardea.Cardea.convert_from_json.html#cardea.Cardea.convert_from_json" title="cardea.Cardea.convert_from_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_from_json</span></code></a>()</p></td>
-<td><p>Converts a given json string to dictionary format.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.Cardea.evaluate.html#cardea.Cardea.evaluate" title="cardea.Cardea.evaluate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate</span></code></a>(X, y[, test_size, shuffle, tune, …])</p></td>
+<td><p>Evaluate the cardea pipeline.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cardea.Cardea.convert_to_json.html#cardea.Cardea.convert_to_json" title="cardea.Cardea.convert_to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_to_json</span></code></a>()</p></td>
-<td><p>Converts a given dictionary to json format.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="cardea.Cardea.fit.html#cardea.Cardea.fit" title="cardea.Cardea.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X, y[, tune, max_evals, scoring, verbose])</p></td>
+<td><p>Train the cardea pipeline.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cardea.Cardea.execute_model.html#cardea.Cardea.execute_model" title="cardea.Cardea.execute_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">execute_model</span></code></a>(feature_matrix, target, primitives)</p></td>
-<td><p>Executes and predicts all of the pipelines.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.Cardea.fit_predict.html#cardea.Cardea.fit_predict" title="cardea.Cardea.fit_predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_predict</span></code></a>(X, y[, tune, max_evals, …])</p></td>
+<td><p>Train a cardea pipeline then make predictions.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="cardea.Cardea.generate_features.html#cardea.Cardea.generate_features" title="cardea.Cardea.generate_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_features</span></code></a>(cutoff)</p></td>
 <td><p>Returns a the calculated feature matrix.</p></td>
@@ -283,11 +304,26 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="cardea.Cardea.list_problems.html#cardea.Cardea.list_problems" title="cardea.Cardea.list_problems"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_problems</span></code></a>()</p></td>
 <td><p>Returns a list of the currently available problems.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cardea.Cardea.load_data_entityset.html#cardea.Cardea.load_data_entityset" title="cardea.Cardea.load_data_entityset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_data_entityset</span></code></a>([folder_path])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.Cardea.load.html#cardea.Cardea.load" title="cardea.Cardea.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(path)</p></td>
+<td><p>Load an Orion instance from a pickle file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cardea.Cardea.load_entityset.html#cardea.Cardea.load_entityset" title="cardea.Cardea.load_entityset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_entityset</span></code></a>([folder_path])</p></td>
 <td><p>Returns an entityset loaded with .csv files in folder_path.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.Cardea.predict.html#cardea.Cardea.predict" title="cardea.Cardea.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
+<td><p>Get predictions from the cardea pipeline.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cardea.Cardea.save.html#cardea.Cardea.save" title="cardea.Cardea.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(path)</p></td>
+<td><p>Save this object using pickle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.Cardea.select_pipeline.html#cardea.Cardea.select_pipeline" title="cardea.Cardea.select_pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_pipeline</span></code></a>(pipeline)</p></td>
+<td><p>Select a pipeline.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="cardea.Cardea.select_problem.html#cardea.Cardea.select_problem" title="cardea.Cardea.select_problem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_problem</span></code></a>(selection[, parameter])</p></td>
 <td><p>Select a prediction problem and extract information.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.Cardea.train_test_split.html#cardea.Cardea.train_test_split" title="cardea.Cardea.train_test_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">train_test_split</span></code></a>(X, y, test_size, shuffle)</p></td>
+<td><p>Split the training dataset and the testing dataset.</p></td>
 </tr>
 </tbody>
 </table>
@@ -302,7 +338,7 @@
               <div class='prev-next-bottom'>
                 
     <a class='left-prev' id="prev-link" href="../cardea.html" title="previous page">cardea</a>
-    <a class='right-next' id="next-link" href="cardea.Cardea.load_data_entityset.html" title="next page">cardea.Cardea.load_data_entityset</a>
+    <a class='right-next' id="next-link" href="cardea.Cardea.load_entityset.html" title="next page">cardea.Cardea.load_entityset</a>
 
               </div>
               
@@ -320,7 +356,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

@@ -1,7 +1,0 @@
-cardea.primitives.processing.pruner module
-==========================================
-
-.. automodule:: cardea.primitives.processing.pruner
-   :members:
-   :undoc-members:
-   :show-inheritance:

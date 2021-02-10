@@ -1,7 +1,0 @@
-cardea.fhir.GraphDefinition module
-==================================
-
-.. automodule:: cardea.fhir.GraphDefinition
-   :members:
-   :undoc-members:
-   :show-inheritance:

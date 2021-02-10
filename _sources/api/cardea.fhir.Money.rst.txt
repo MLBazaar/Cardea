@@ -1,7 +1,0 @@
-cardea.fhir.Money module
-========================
-
-.. automodule:: cardea.fhir.Money
-   :members:
-   :undoc-members:
-   :show-inheritance:

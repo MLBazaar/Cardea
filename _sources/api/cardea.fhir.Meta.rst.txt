@@ -1,7 +1,0 @@
-cardea.fhir.Meta module
-=======================
-
-.. automodule:: cardea.fhir.Meta
-   :members:
-   :undoc-members:
-   :show-inheritance:

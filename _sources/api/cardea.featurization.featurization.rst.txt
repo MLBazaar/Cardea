@@ -1,7 +1,0 @@
-cardea.featurization.featurization module
-=========================================
-
-.. automodule:: cardea.featurization.featurization
-   :members:
-   :undoc-members:
-   :show-inheritance:

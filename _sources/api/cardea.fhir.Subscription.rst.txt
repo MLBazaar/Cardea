@@ -1,7 +1,0 @@
-cardea.fhir.Subscription module
-===============================
-
-.. automodule:: cardea.fhir.Subscription
-   :members:
-   :undoc-members:
-   :show-inheritance:

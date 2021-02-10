@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.data_loader.load_mimic &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -162,7 +163,7 @@
 <span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/schema.xml&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="get_table_properties"><a class="viewcode-back" href="../../../api/cardea.data_loader.load_mimic.html#cardea.data_loader.get_table_properties">[docs]</a><span class="k">def</span> <span class="nf">get_table_properties</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">get_table_properties</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns a tuple containing the datatype of each column, the primary key of the table,</span>
 <span class="sd">        and the time indices.</span>
 
@@ -191,10 +192,10 @@
 
         <span class="n">types</span><span class="p">[</span><span class="n">column</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">d_type</span>
 
-    <span class="k">return</span> <span class="n">types</span><span class="p">,</span> <span class="n">prim_key</span><span class="p">,</span> <span class="n">arr_time</span></div>
+    <span class="k">return</span> <span class="n">types</span><span class="p">,</span> <span class="n">prim_key</span><span class="p">,</span> <span class="n">arr_time</span>
 
 
-<div class="viewcode-block" id="get_table_relationships"><a class="viewcode-back" href="../../../api/cardea.data_loader.load_mimic.html#cardea.data_loader.get_table_relationships">[docs]</a><span class="k">def</span> <span class="nf">get_table_relationships</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">get_table_relationships</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns a list of the relationships in the table.</span>
 
 <span class="sd">    Args:</span>
@@ -216,17 +217,17 @@
         <span class="n">relations</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;parent&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;primary_key&#39;</span><span class="p">:</span> <span class="n">handle</span><span class="p">,</span>
                           <span class="s1">&#39;child&#39;</span><span class="p">:</span> <span class="n">target_table</span><span class="p">,</span> <span class="s1">&#39;foreign_key&#39;</span><span class="p">:</span> <span class="n">target_handle</span><span class="p">})</span>
 
-    <span class="k">return</span> <span class="n">relations</span></div>
+    <span class="k">return</span> <span class="n">relations</span>
 
 
-<div class="viewcode-block" id="get_type"><a class="viewcode-back" href="../../../api/cardea.data_loader.load_mimic.html#cardea.data_loader.get_type">[docs]</a><span class="k">def</span> <span class="nf">get_type</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">get_type</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span>
         <span class="s1">&#39;int4&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
         <span class="s1">&#39;int2&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
         <span class="s1">&#39;varchar&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="s1">&#39;float8&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
         <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span></div>
+    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="load_mimic_data"><a class="viewcode-back" href="../../../api_reference/api/cardea.data_loader.load_mimic_data.html#cardea.data_loader.load_mimic_data">[docs]</a><span class="k">def</span> <span class="nf">load_mimic_data</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -314,7 +315,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

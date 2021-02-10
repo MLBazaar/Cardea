@@ -1,7 +1,0 @@
-cardea.fhir.Period module
-=========================
-
-.. automodule:: cardea.fhir.Period
-   :members:
-   :undoc-members:
-   :show-inheritance:

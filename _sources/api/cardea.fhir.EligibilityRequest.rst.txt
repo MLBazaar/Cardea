@@ -1,7 +1,0 @@
-cardea.fhir.EligibilityRequest module
-=====================================
-
-.. automodule:: cardea.fhir.EligibilityRequest
-   :members:
-   :undoc-members:
-   :show-inheritance:

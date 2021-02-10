@@ -1,7 +1,0 @@
-cardea.benchmark.benchmark module
-=================================
-
-.. automodule:: cardea.benchmark.benchmark
-   :members:
-   :undoc-members:
-   :show-inheritance:

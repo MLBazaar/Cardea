@@ -1,4 +1,4 @@
-cardea.featurization.Featurization.generate\_feature\_matrix
+﻿cardea.featurization.Featurization.generate\_feature\_matrix
 ============================================================
 
 .. currentmodule:: cardea.featurization

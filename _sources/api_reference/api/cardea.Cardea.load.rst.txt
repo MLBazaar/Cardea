@@ -1,0 +1,6 @@
+﻿cardea.Cardea.load
+==================
+
+.. currentmodule:: cardea
+
+.. automethod:: Cardea.load

@@ -1,4 +1,4 @@
-cardea.featurization.Featurization
+﻿cardea.featurization.Featurization
 ==================================
 
 .. currentmodule:: cardea.featurization

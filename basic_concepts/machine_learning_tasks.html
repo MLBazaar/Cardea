@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Machine Learning Tasks &#8212; Cardea 0.1.2.dev0 documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -231,38 +232,30 @@ set the definition of the model output. In the other hand, the objective of cuto
 split the data in such manner that any events before the cutoff time are used for training while
 events after the cutoff time are used for testing. The following code shows the format for these
 values in the <strong>Missed Appointment</strong> task:</p>
-<pre class="literal-block">In [1]: from cardea import Cardea
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">cardea</span> <span class="kn">import</span> <span class="n">Cardea</span>
 
-In [2]: cardea = Cardea()
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-&lt;ipython-input-2-e6841733c998&gt; in &lt;module&gt;()
-----&gt; 1 cardea = Cardea()
+<span class="gp">In [2]: </span><span class="n">cardea</span> <span class="o">=</span> <span class="n">Cardea</span><span class="p">()</span>
 
-~/work/Cardea/Cardea/cardea/cardea.py in __init__(self)
-     38         self.es_loader = EntitySetLoader()
-     39         self.featurization = Featurization()
----&gt; 40         self.modeler = Modeler()
-     41 
-     42         self.es = None
+<span class="gp">In [3]: </span><span class="n">cardea</span><span class="o">.</span><span class="n">load_entityset</span><span class="p">()</span>
 
-TypeError: __init__() missing 2 required positional arguments: 'pipeline' and 'problem_type'
+<span class="gp">In [4]: </span><span class="n">cardea</span><span class="o">.</span><span class="n">select_problem</span><span class="p">(</span><span class="s1">&#39;MissedAppointment&#39;</span><span class="p">)</span>
+<span class="gh">Out[4]: </span><span class="go"></span>
+<span class="go">                       time  instance_id   label</span>
+<span class="go">5642903 2016-04-29 18:38:08      5642903  noshow</span>
+<span class="go">5642503 2016-04-29 16:08:27      5642503  noshow</span>
+<span class="go">5642549 2016-04-29 16:19:04      5642549  noshow</span>
+<span class="go">5642828 2016-04-29 17:29:31      5642828  noshow</span>
+<span class="go">5642494 2016-04-29 16:07:23      5642494  noshow</span>
+<span class="go">...                     ...          ...     ...</span>
+<span class="go">5651768 2016-05-03 09:15:35      5651768  noshow</span>
+<span class="go">5650093 2016-05-03 07:27:33      5650093  noshow</span>
+<span class="go">5630692 2016-04-27 16:03:52      5630692  noshow</span>
+<span class="go">5630323 2016-04-27 15:09:23      5630323  noshow</span>
+<span class="go">5629448 2016-04-27 13:30:56      5629448  noshow</span>
 
-In [3]: cardea.load_data_entityset()
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-3-b76739a145a5&gt; in &lt;module&gt;()
-----&gt; 1 cardea.load_data_entityset()
-
-NameError: name 'cardea' is not defined
-
-In [4]: cardea.select_problem('MissedAppointmentProblemDefinition')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-4-596ab474f9de&gt; in &lt;module&gt;()
-----&gt; 1 cardea.select_problem('MissedAppointmentProblemDefinition')
-
-NameError: name 'cardea' is not defined</pre>
+<span class="go">[110527 rows x 3 columns]</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="current-prediction-problems">
 <h2>Current Prediction Problems<a class="headerlink" href="#current-prediction-problems" title="Permalink to this headline">¶</a></h2>
@@ -283,30 +276,20 @@ a. Predicts whether a patient stayed in the hospital more or less than a period 
 a. Predicts whether a patient will revisit the hospital within certain period of time (a month by default).</p></li>
 </ol>
 <p>You can see the list of problems using the <code class="docutils literal notranslate"><span class="pre">list_problems(...)</span></code> method, example:</p>
-<pre class="literal-block">In [5]: from cardea import Cardea
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="kn">from</span> <span class="nn">cardea</span> <span class="kn">import</span> <span class="n">Cardea</span>
 
-In [6]: cardea = Cardea()
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-&lt;ipython-input-6-e6841733c998&gt; in &lt;module&gt;()
-----&gt; 1 cardea = Cardea()
+<span class="gp">In [6]: </span><span class="n">cardea</span> <span class="o">=</span> <span class="n">Cardea</span><span class="p">()</span>
 
-~/work/Cardea/Cardea/cardea/cardea.py in __init__(self)
-     38         self.es_loader = EntitySetLoader()
-     39         self.featurization = Featurization()
----&gt; 40         self.modeler = Modeler()
-     41 
-     42         self.es = None
-
-TypeError: __init__() missing 2 required positional arguments: 'pipeline' and 'problem_type'
-
-In [7]: cardea.list_problems()
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-7-3dcc3f8bb0b2&gt; in &lt;module&gt;()
-----&gt; 1 cardea.list_problems()
-
-NameError: name 'cardea' is not defined</pre>
+<span class="gp">In [7]: </span><span class="n">cardea</span><span class="o">.</span><span class="n">list_problems</span><span class="p">()</span>
+<span class="gh">Out[7]: </span><span class="go"></span>
+<span class="go">{&#39;DiagnosisPrediction&#39;,</span>
+<span class="go"> &#39;LengthOfStay&#39;,</span>
+<span class="go"> &#39;MissedAppointment&#39;,</span>
+<span class="go"> &#39;MortalityPrediction&#39;,</span>
+<span class="go"> &#39;ProlongedLengthOfStay&#39;,</span>
+<span class="go"> &#39;Readmission&#39;}</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -335,7 +318,7 @@ NameError: name 'cardea' is not defined</pre>
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

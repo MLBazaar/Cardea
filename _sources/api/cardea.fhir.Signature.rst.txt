@@ -1,7 +1,0 @@
-cardea.fhir.Signature module
-============================
-
-.. automodule:: cardea.fhir.Signature
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-cardea.fhir.ImagingManifest module
-==================================
-
-.. automodule:: cardea.fhir.ImagingManifest
-   :members:
-   :undoc-members:
-   :show-inheritance:

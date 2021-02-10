@@ -1,4 +1,4 @@
-cardea.modeling.Modeler
+﻿cardea.modeling.Modeler
 =======================
 
 .. currentmodule:: cardea.modeling

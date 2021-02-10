@@ -1,7 +1,0 @@
-cardea.fhir.DeviceUseStatement module
-=====================================
-
-.. automodule:: cardea.fhir.DeviceUseStatement
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-cardea.fhir.Specimen module
-===========================
-
-.. automodule:: cardea.fhir.Specimen
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-cardea.fhir.Bundle module
-=========================
-
-.. automodule:: cardea.fhir.Bundle
-   :members:
-   :undoc-members:
-   :show-inheritance:

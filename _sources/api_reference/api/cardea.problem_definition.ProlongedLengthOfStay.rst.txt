@@ -1,4 +1,4 @@
-cardea.problem\_definition.ProlongedLengthOfStay
+﻿cardea.problem\_definition.ProlongedLengthOfStay
 ================================================
 
 .. currentmodule:: cardea.problem_definition

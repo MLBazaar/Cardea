@@ -1,7 +1,0 @@
-cardea.fhir.Quantity module
-===========================
-
-.. automodule:: cardea.fhir.Quantity
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-cardea.problem\_definition.prolonged\_length\_of\_stay module
-=============================================================
-
-.. automodule:: cardea.problem_definition.prolonged_length_of_stay
-   :members:
-   :undoc-members:
-   :show-inheritance:

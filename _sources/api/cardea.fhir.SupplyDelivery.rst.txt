@@ -1,7 +1,0 @@
-cardea.fhir.SupplyDelivery module
-=================================
-
-.. automodule:: cardea.fhir.SupplyDelivery
-   :members:
-   :undoc-members:
-   :show-inheritance:

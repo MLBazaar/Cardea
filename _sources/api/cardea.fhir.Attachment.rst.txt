@@ -1,7 +1,0 @@
-cardea.fhir.Attachment module
-=============================
-
-.. automodule:: cardea.fhir.Attachment
-   :members:
-   :undoc-members:
-   :show-inheritance:

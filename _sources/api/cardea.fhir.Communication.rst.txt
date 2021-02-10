@@ -1,7 +1,0 @@
-cardea.fhir.Communication module
-================================
-
-.. automodule:: cardea.fhir.Communication
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,0 +1,6 @@
+﻿cardea.modeling.Modeler.predict
+===============================
+
+.. currentmodule:: cardea.modeling
+
+.. automethod:: Modeler.predict

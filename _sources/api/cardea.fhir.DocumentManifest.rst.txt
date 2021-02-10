@@ -1,7 +1,0 @@
-cardea.fhir.DocumentManifest module
-===================================
-
-.. automodule:: cardea.fhir.DocumentManifest
-   :members:
-   :undoc-members:
-   :show-inheritance:

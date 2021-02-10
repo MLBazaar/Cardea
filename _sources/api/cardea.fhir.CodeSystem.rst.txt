@@ -1,7 +1,0 @@
-cardea.fhir.CodeSystem module
-=============================
-
-.. automodule:: cardea.fhir.CodeSystem
-   :members:
-   :undoc-members:
-   :show-inheritance:

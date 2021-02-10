@@ -1,7 +1,0 @@
-cardea.fhir.CompartmentDefinition module
-========================================
-
-.. automodule:: cardea.fhir.CompartmentDefinition
-   :members:
-   :undoc-members:
-   :show-inheritance:

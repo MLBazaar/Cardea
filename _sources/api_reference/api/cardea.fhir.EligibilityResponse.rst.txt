@@ -1,4 +1,4 @@
-cardea.fhir.EligibilityResponse
+﻿cardea.fhir.EligibilityResponse
 ===============================
 
 .. currentmodule:: cardea.fhir

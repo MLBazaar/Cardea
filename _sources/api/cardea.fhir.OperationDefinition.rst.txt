@@ -1,7 +1,0 @@
-cardea.fhir.OperationDefinition module
-======================================
-
-.. automodule:: cardea.fhir.OperationDefinition
-   :members:
-   :undoc-members:
-   :show-inheritance:
