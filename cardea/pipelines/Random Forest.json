@@ -4,18 +4,6 @@
         "cardea.primitives.processing.Imputer",
         "cardea.primitives.processing.OneHotEncoder",
         "sklearn.preprocessing.MinMaxScaler",
-        "cardea.primitives.processing.Categorizer",
-        "sklearn.ensemble.RandomForestClassifier",
-        "cardea.primitives.processing.Decategorizer"
-    ],
-    "input_names": {
-        "sklearn.ensemble.RandomForestClassifier#1": {
-            "y": "y_codes"
-        }
-    },
-    "output_names": {
-        "sklearn.ensemble.RandomForestClassifier#1": {
-            "y": "y_codes"
-        }
-    }
+        "sklearn.ensemble.RandomForestClassifier"
+    ]
 }
