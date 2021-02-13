@@ -179,8 +179,7 @@ class Modeler:
         """
         if tune:
             # tune and select pipeline
-            self.tune(X, y, max_evals=max_evals, scoring=scoring,
-                      verbose=verbose)
+            self.tune(X, y, max_evals=max_evals, scoring=scoring, verbose=verbose)
 
         # fit pipeline
         self._pipeline.fit(X, y)
@@ -214,9 +213,9 @@ class Modeler:
                 The score of the trained pipeline on the inputs.
         """
         if self._problem_type == 'regression':
-            scorer = self.regression_metrics[scoring or 'r2_score']
+            scorer = self.regression_metrics[scoring or 'R2 Score']
         else:
-            scorer = self.classification_metrics[scoring or 'f1']
+            scorer = self.classification_metrics[scoring or 'F1 Macro']
         return scorer(y, self.predict(X))
 
     def fit_predict(self, X, y, tune=False, max_evals=10, scoring=None, verbose=False):

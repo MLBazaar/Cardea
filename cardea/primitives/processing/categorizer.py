@@ -19,7 +19,7 @@ class Categorizer(TransformerMixin):
     def transform(self, y):
         if y is None:
             return y
-        return pd.Categorical(np.array(y).astype(str), categories=self.categories).codes
+        return pd.Categorical(y, categories=self.categories).codes
 
     def inverse_transform(self, y_codes):
         return np.array(pd.Categorical.from_codes(y_codes, categories=self.categories))\
