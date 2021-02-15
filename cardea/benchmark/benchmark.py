@@ -6,6 +6,7 @@ import shutil
 from datetime import datetime
 from os.path import dirname
 
+import dask
 import numpy as np
 import pandas as pd
 from mlblocks import MLPipeline
@@ -144,7 +145,8 @@ def _select_runs(df, problem=None, pipeline=None):
 
 
 def benchmark(tasks, metrics=None, output_path=None, save_results=True,
-              save_model=True, save_intermedia_data=True, save_hyperparameters=True):
+              save_model=True, save_intermedia_data=True, save_hyperparameters=True,
+              distributed=True):
     """Run benchmark testing on a set of tasks. Return detailed results of each run stored in a
     DataFrame object.
 
@@ -164,6 +166,8 @@ def benchmark(tasks, metrics=None, output_path=None, save_results=True,
             whether to store the trained model.
         save_hyperparameters (boolean):
             whether to store the hyperparameters if task.tuned is true.
+        distributed (boolean):
+            whether to use parallel computing.
 
     Returns:
         pd.DataFrame:
@@ -173,16 +177,27 @@ def benchmark(tasks, metrics=None, output_path=None, save_results=True,
         if not os.path.exists(output_path):
             os.mkdir(output_path)
 
+    if distributed:
+        function = dask.delayed(evaluate_task)
+    else:
+        function = evaluate_task
+
     performance = []
     for task in tasks:
         if output_path is not None:
             task_output_path = os.path.join(output_path, task.task_id)
         else:
             task_output_path = None
-        performance.extend(evaluate_task(task=task, metrics=metrics, output_path=task_output_path,
-                                         save_model=save_model,
-                                         save_intermedia_data=save_intermedia_data,
-                                         save_hyperparameters=save_hyperparameters))
+        performance.append(function(task=task, metrics=metrics, output_path=task_output_path,
+                                    save_model=save_model,
+                                    save_intermedia_data=save_intermedia_data,
+                                    save_hyperparameters=save_hyperparameters))
+
+    if distributed:
+        persisted = dask.persist(*performance)
+        performance = dask.compute(persisted)
+
+    performance = [score for item in performance for score in item]
     result_df = pd.DataFrame.from_records(performance)
 
     if output_path is not None and save_results:
@@ -260,28 +275,30 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
         results.append(scores)
         records.append((model, hyperparameters))
 
+    all_fail = all([scores['Status'] == 'Fail' for scores in results])
+
     # Store the output results.
     if output_path is not None:
         # Initialize the output directory.
         if os.path.exists(output_path):
             shutil.rmtree(output_path)
-        os.mkdir(output_path)
+        os.makedirs(output_path)
 
         # Save task meta information
         task.save_as(os.path.join(output_path, "meta.json"))
-        matrix = 'F1 Macro'
-        best_index = np.argmax([scores[matrix] for scores in results])
-        models, hyperparameters = records[best_index]
+        if not all_fail:
+            best_index = np.argmax([scores.get('F1 Macro', 0) for scores in results])
+            model, hyperparameter = records[best_index]
 
-        # Save pipeline models if required
-        if save_model:
-            with open(os.path.join(output_path, "model.pkl"), 'wb') as f:
-                pickle.dump(models, f)
+            # Save pipeline models if required
+            if save_model:
+                with open(os.path.join(output_path, "model.pkl"), 'wb') as f:
+                    pickle.dump(model, f)
 
-        # Save pipeline hyperparameters if required
-        if save_hyperparameters and hyperparameters is not None:
-            with open(os.path.join(output_path, "hyperparameters.pkl"), 'wb') as f:
-                pickle.dump(hyperparameters, f)
+            # Save pipeline hyperparameters if required
+            if save_hyperparameters and hyperparameter is not None:
+                with open(os.path.join(output_path, "hyperparameters.pkl"), 'wb') as f:
+                    pickle.dump(hyperparameter, f)
 
     return results
 
@@ -315,8 +332,6 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, pro
         tuple:
             pipeline evaluation results including (performance, models, hyperparameters).
     """
-    modeler = Modeler(pipeline, PROBLEM_TYPE[problem_name])
-
     features, target = _split_features_target(feature_matrix, problem_name)
     # TODO: digitize the labels in the featurization (problem definition) stage.
     if problem_name == 'LOS' and dataset_name == 'mimic-iii':
@@ -326,8 +341,9 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, pro
 
     start = datetime.utcnow()
     try:
+        modeler = Modeler(pipeline, PROBLEM_TYPE[problem_name])
         scores = modeler.evaluate(features, target,
-                                  tune=optimize, scoring='f1', metrics=metrics, max_evals=10)
+                                  tune=optimize, scoring='F1 Macro', metrics=metrics, max_evals=10)
         elapsed = datetime.utcnow() - start
         model = modeler.pipeline
         hyperparameters = modeler.pipeline.get_hyperparameters() if optimize else None
