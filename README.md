@@ -67,14 +67,14 @@ We then seamlessly plug in our data. Here in this example, we are loading a pre-
 To use this dataset download the data from here then unzip it in the root directory, or run the command:
 
 ```bash
-curl -O https://dai-cardea.s3.amazonaws.com/kaggle.zip && unzip kaggle.zip
+curl -O https://dai-cardea.s3.amazonaws.com/kaggle.zip && unzip -d kaggle kaggle.zip
 ```
-To load the data, supply the ``folder_path`` to the loader using the following command:
+To load the data, supply the ``data`` to the loader using the following command:
 
 ```python3
-cardea.load_entityset()
+cardea.load_entityset(data='kaggle')
 ```
-> :bulb: To load local data, use ``cardea.load_entityset(folder_path='kaggle')``.
+> :bulb: To load local data, pass the folder path to ``data``.
 
 To verify that the data has been loaded, you can find the loaded entityset by viewing ``cardea.es`` which should output the following:
 

@@ -3,17 +3,19 @@
 This module defines the Cardea Class, which is responsible for the
 tying all components together, as well as the interact with them.
 """
-
 import logging
 import os
 import pickle
 from inspect import isclass
+from io import BytesIO
+from urllib.request import urlopen
+from zipfile import ZipFile
 
 import featuretools as ft
 import pandas as pd
 
 import cardea
-from cardea.data_loader import EntitySetLoader
+from cardea.data_loader import EntitySetLoader, load_mimic_data
 from cardea.featurization import Featurization
 from cardea.modeling import Modeler
 from cardea.problem_definition import (
@@ -21,6 +23,13 @@ from cardea.problem_definition import (
     ProlongedLengthOfStay, Readmission)
 
 LOGGER = logging.getLogger(__name__)
+
+DATA_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    'data'
+)
+BUCKET = 'dai-cardea'
+S3_URL = 'https://{}.s3.amazonaws.com/{}'
 
 
 class Cardea():
@@ -53,41 +62,49 @@ class Cardea():
         self.target_entity = None
         self.modeler = None
 
-    def load_entityset(self, folder_path=None):
-        """Returns an entityset loaded with .csv files in folder_path.
+    def load_entityset(self, data, fhir=True):
+        """Returns an entityset loaded with .csv files in data.
 
-        Load the given dataset within the folder path into an entityset. The dataset
-        must be in a FHIR structure format. If no folder_path is not passed, the
-        function will automatically load kaggle's missed appointment dataset.
+        Load the given dataset into an entityset. The dataset
+        must be in FHIR or MIMIC structure format.
 
         Args:
-            folder_path (str):
-                A directory of all .csv files that should be loaded.
+            data (str):
+                A directory of all .csv files that should be loaded. To load demo dataset,
+                pass the name of the dataset "kaggle" or "mimic".
+            fhir (bool):
+                An indicator of whether to use FHIR or MIMIC schema.
 
         Returns:
             featuretools.EntitySet:
                 An entityset with loaded data.
         """
+        demo = ['kaggle', 'mimic']
+        if not os.path.exists(data) and data in demo:
+            data = self.download_demo(data)
 
-        if folder_path:
-            self.es = self.es_loader.load_data_entityset(folder_path)
-
+        if fhir:
+            self.es = self.es_loader.load_data_entityset(data)
         else:
-            csv_s3 = "https://s3.amazonaws.com/dai-cardea/"
-            kaggle = ['Address',
-                      'Appointment_Participant',
-                      'Appointment',
-                      'CodeableConcept',
-                      'Coding',
-                      'Identifier',
-                      'Observation',
-                      'Patient',
-                      'Reference']
+            self.es = load_mimic_data(data)
 
-            fhir = {
-                resource: pd.read_csv(
-                    csv_s3 + resource + ".csv") for resource in kaggle}
-            self.es = self.es_loader.load_df_entityset(fhir)
+    @staticmethod
+    def download_demo(name, data_path=DATA_PATH):
+        data_path = os.path.join(data_path, name)
+        os.makedirs(data_path, exist_ok=True)
+
+        url = S3_URL.format(BUCKET, '{}.zip'.format(name))
+        compressed = ZipFile(BytesIO(urlopen(url).read()))
+
+        LOGGER.info('Downloading dataset %s from %s', name, url)
+        for file in compressed.namelist():
+            filename = os.path.join(data_path, file)
+            csv_file = compressed.open(file)
+
+            data = pd.read_csv(csv_file)
+            data.to_csv(filename, index=False)
+
+        return data_path
 
     def list_problems(self):
         """Returns a list of the currently available problems.

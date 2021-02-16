@@ -89,21 +89,21 @@ def load_mimic_data(path=None, subset=None):
         featuretools.EntitySet:
             An entityset with loaded data.
     """
-
+    columns_to_cast = ['hadm_id', 'cgid', 'itemid', 'spec_itemid', 'icustay_id']
     es = ft.EntitySet(id="mimic")
 
     relationships = []
     global_tables = []
-    files = glob(path + '*.csv')
+    files = glob(path + '/*.csv')
 
     for tag in root.findall('tables/table'):
         table = tag.get('name')
-        file = table.upper() + '.csv'
+        file = os.path.join(path, table.upper() + '.csv')
 
         if subset and table not in subset:
             continue
 
-        if (path + file) in files:
+        if file in files:
             # table name
             global_tables.append(table)
 
@@ -114,8 +114,16 @@ def load_mimic_data(path=None, subset=None):
             prop, key, arr_time = get_table_properties(table)
 
             # load table into a dataframe
-            df = pd.read_csv(path + file, dtype=prop, date_parser=pd.to_datetime)
+            df = pd.read_csv(file, dtype=prop, date_parser=pd.to_datetime)
             df.columns = [column.lower() for column in df.columns]
+
+            # TODO: make this implicit in loading csv
+            for col in df.columns:
+                if col in columns_to_cast:
+                    df[col] = df[col].astype(float)
+
+            # TODO: figure duplicate indices
+            df = df.drop_duplicates(subset=key)
 
             # check if arr_time should be None (no time index)
             arr_time = arr_time[0] if len(arr_time) > 0 else None
