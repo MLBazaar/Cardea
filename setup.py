@@ -13,7 +13,8 @@ install_requires = [
     'mlblocks>=0.4.0,<0.5',
     'mlprimitives>=0.3.0,<0.4',
     'baytune>=0.4.0,<0.5',
-    'pyCLI==2.0.3'
+    'pyCLI==2.0.3',
+    'scikit-learn>=0.21,<0.22'
 ]
 
 setup_requires = [
