@@ -23,7 +23,7 @@ def get_model(get_pipeline):
 
 @pytest.fixture()
 def get_data():
-    return load_iris(return_X_y=True, as_frame=True)
+    return load_iris(return_X_y=True)
 
 
 def test_k_fold_validation(get_model, get_data):
