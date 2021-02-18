@@ -101,7 +101,7 @@ class Cardea():
             filename = os.path.join(data_path, file)
             csv_file = compressed.open(file)
 
-            data = pd.read_csv(csv_file)
+            data = pd.read_csv(csv_file, dtype=str)
             data.to_csv(filename, index=False)
 
         return data_path

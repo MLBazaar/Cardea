@@ -36,7 +36,7 @@ def get_table_properties(name):
         if a_type == 'timestamp':
             arr_time.append(column)
 
-        types[column.upper()] = d_type
+        types[column.lower()] = d_type
 
     return types, prim_key, arr_time
 
@@ -89,7 +89,6 @@ def load_mimic_data(path=None, subset=None):
         featuretools.EntitySet:
             An entityset with loaded data.
     """
-    columns_to_cast = ['hadm_id', 'cgid', 'itemid', 'spec_itemid', 'icustay_id']
     es = ft.EntitySet(id="mimic")
 
     relationships = []
@@ -115,15 +114,8 @@ def load_mimic_data(path=None, subset=None):
 
             # load table into a dataframe
             df = pd.read_csv(file, dtype=prop, date_parser=pd.to_datetime)
+
             df.columns = [column.lower() for column in df.columns]
-
-            # TODO: make this implicit in loading csv
-            for col in df.columns:
-                if col in columns_to_cast:
-                    df[col] = df[col].astype(float)
-
-            # TODO: figure duplicate indices
-            df = df.drop_duplicates(subset=key)
 
             # check if arr_time should be None (no time index)
             arr_time = arr_time[0] if len(arr_time) > 0 else None
