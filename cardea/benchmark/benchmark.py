@@ -327,7 +327,7 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, pro
     start = datetime.utcnow()
     try:
         scores = modeler.evaluate(features, target,
-                                  tune=optimize, scoring='f1', metrics=metrics, max_evals=10)
+                                  tune=optimize, scoring='F1 Macro', metrics=metrics, max_evals=10)
         elapsed = datetime.utcnow() - start
         model = modeler.pipeline
         hyperparameters = modeler.pipeline.get_hyperparameters() if optimize else None
