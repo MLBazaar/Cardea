@@ -25,7 +25,7 @@ def relationships(admission):
 
 def test_get_table_properties_types(properties):
     types = properties[0]
-    assert len(types) == 19 and types['LANGUAGE'] == str
+    assert len(types) == 19 and types['language'] == str
 
 
 def test_get_table_properties_primkey(properties):

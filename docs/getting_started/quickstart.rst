@@ -20,7 +20,7 @@ following command:
 
 .. ipython:: python
 
-    cardea.load_entityset()
+    cardea.load_entityset(data='kaggle')
     cardea.es
 
 You can see the list of problem definitions and select one with the following commands:

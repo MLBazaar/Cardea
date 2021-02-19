@@ -36,7 +36,7 @@ def get_table_properties(name):
         if a_type == 'timestamp':
             arr_time.append(column)
 
-        types[column.upper()] = d_type
+        types[column.lower()] = d_type
 
     return types, prim_key, arr_time
 
@@ -89,21 +89,20 @@ def load_mimic_data(path=None, subset=None):
         featuretools.EntitySet:
             An entityset with loaded data.
     """
-
     es = ft.EntitySet(id="mimic")
 
     relationships = []
     global_tables = []
-    files = glob(path + '*.csv')
+    files = glob(path + '/*.csv')
 
     for tag in root.findall('tables/table'):
         table = tag.get('name')
-        file = table.upper() + '.csv'
+        file = os.path.join(path, table.upper() + '.csv')
 
         if subset and table not in subset:
             continue
 
-        if (path + file) in files:
+        if file in files:
             # table name
             global_tables.append(table)
 
@@ -114,7 +113,8 @@ def load_mimic_data(path=None, subset=None):
             prop, key, arr_time = get_table_properties(table)
 
             # load table into a dataframe
-            df = pd.read_csv(path + file, dtype=prop, date_parser=pd.to_datetime)
+            df = pd.read_csv(file, dtype=prop, date_parser=pd.to_datetime)
+
             df.columns = [column.lower() for column in df.columns]
 
             # check if arr_time should be None (no time index)
