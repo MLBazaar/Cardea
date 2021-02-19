@@ -190,7 +190,7 @@
         <span class="k">if</span> <span class="n">a_type</span> <span class="o">==</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span>
             <span class="n">arr_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
 
-        <span class="n">types</span><span class="p">[</span><span class="n">column</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">d_type</span>
+        <span class="n">types</span><span class="p">[</span><span class="n">column</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">d_type</span>
 
     <span class="k">return</span> <span class="n">types</span><span class="p">,</span> <span class="n">prim_key</span><span class="p">,</span> <span class="n">arr_time</span>
 
@@ -243,21 +243,20 @@
 <span class="sd">        featuretools.EntitySet:</span>
 <span class="sd">            An entityset with loaded data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
     <span class="n">es</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">EntitySet</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;mimic&quot;</span><span class="p">)</span>
 
     <span class="n">relationships</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">global_tables</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;*.csv&#39;</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/*.csv&#39;</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;tables/table&#39;</span><span class="p">):</span>
         <span class="n">table</span> <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
-        <span class="n">file</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">table</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">subset</span> <span class="ow">and</span> <span class="n">table</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">subset</span><span class="p">:</span>
             <span class="k">continue</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
             <span class="c1"># table name</span>
             <span class="n">global_tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
 
@@ -268,7 +267,8 @@
             <span class="n">prop</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">arr_time</span> <span class="o">=</span> <span class="n">get_table_properties</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
 
             <span class="c1"># load table into a dataframe</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">file</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">prop</span><span class="p">,</span> <span class="n">date_parser</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">prop</span><span class="p">,</span> <span class="n">date_parser</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">)</span>
+
             <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">column</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
 
             <span class="c1"># check if arr_time should be None (no time index)</span>

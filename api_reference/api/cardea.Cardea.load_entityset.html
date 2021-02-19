@@ -255,14 +255,17 @@
 <h1>cardea.Cardea.load_entityset<a class="headerlink" href="#cardea-cardea-load-entityset" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
 <dt id="cardea.Cardea.load_entityset">
-<code class="sig-prename descclassname">Cardea.</code><code class="sig-name descname">load_entityset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder_path</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/core.html#Cardea.load_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.Cardea.load_entityset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an entityset loaded with .csv files in folder_path.</p>
-<p>Load the given dataset within the folder path into an entityset. The dataset
-must be in a FHIR structure format. If no folder_path is not passed, the
-function will automatically load kaggle’s missed appointment dataset.</p>
+<code class="sig-prename descclassname">Cardea.</code><code class="sig-name descname">load_entityset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">fhir</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/core.html#Cardea.load_entityset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.Cardea.load_entityset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an entityset loaded with .csv files in data.</p>
+<p>Load the given dataset into an entityset. The dataset
+must be in FHIR or MIMIC structure format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>folder_path</strong> (<em>str</em>) – A directory of all .csv files that should be loaded.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>str</em>) – A directory of all .csv files that should be loaded. To load demo dataset,
+pass the name of the dataset “kaggle” or “mimic”.</p></li>
+<li><p><strong>fhir</strong> (<em>bool</em>) – An indicator of whether to use FHIR or MIMIC schema.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An entityset with loaded data.</p>

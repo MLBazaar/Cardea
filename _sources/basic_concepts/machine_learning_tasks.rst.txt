@@ -35,7 +35,7 @@ values in the **Missed Appointment** task:
 
     from cardea import Cardea
     cardea = Cardea()
-    cardea.load_entityset()
+    cardea.load_entityset(data='kaggle')
     cardea.select_problem('MissedAppointment')
 
 Current Prediction Problems
