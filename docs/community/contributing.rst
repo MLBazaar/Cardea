@@ -6,13 +6,13 @@ Contributing Guidelines
 Ready to contribute with your own code? Great!
 
 Before diving deeper into the contributing guidelines, please make sure to having read
-the :ref:`concepts` section and to have gone through the :ref:`development` guide.
+the :ref:`concepts` section and to have gone through the development guide.
 
 Afterwards, please make sure to read the following contributing guidelines carefully, and
 later on head to the step-by-step guides for each possible type of contribution.
 
 General Coding Guidelines
-*************************
+-------------------------
 
 Once you have set up your development environment, you are ready to start working on your
 python code.
@@ -76,7 +76,7 @@ When doing so, make sure to follow these guidelines:
 
 
 Unit Testing Guidelines
-***********************
+-----------------------
 
 If you are going to contribute Python code, we will ask you to write unit tests that cover
 your development, following these requirements:

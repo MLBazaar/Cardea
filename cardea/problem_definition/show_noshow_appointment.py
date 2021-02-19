@@ -3,7 +3,7 @@ from cardea.data_loader import DataLoader
 from cardea.problem_definition import ProblemDefinition
 
 
-class MissedAppointmentProblemDefinition (ProblemDefinition):
+class MissedAppointment(ProblemDefinition):
     """Defines the problem of missed appointment
 
     Predict whether the patient will show to the appointment or not.
@@ -60,10 +60,10 @@ class MissedAppointmentProblemDefinition (ProblemDefinition):
                 instance_id = list(entity_set[self.target_entity].df.index)
                 cutoff_times = entity_set[self.cutoff_entity].df[self.cutoff_time_label].to_frame()
                 cutoff_times['instance_id'] = instance_id
-                cutoff_times.columns = ['cutoff_time', 'instance_id']
+                cutoff_times.columns = ['time', 'instance_id']
                 cutoff_times['label'] = list(
                     entity_set[self.target_entity].df[self.target_label_column_name])
-                entity_set[self.target_entity].delete_variable(self.target_label_column_name)
+                entity_set[self.target_entity].delete_variables([self.target_label_column_name])
                 return (entity_set, self.target_entity, cutoff_times)
             else:
                 raise ValueError(

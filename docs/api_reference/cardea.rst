@@ -12,11 +12,16 @@ Cardea
    :toctree: api/
 
    Cardea
-   Cardea.load_data_entityset
+   Cardea.load_entityset
    Cardea.list_problems
    Cardea.select_problem
    Cardea.list_feature_primitives
    Cardea.generate_features
-   Cardea.execute_model
-   Cardea.convert_to_json
-   Cardea.convert_from_json
+   Cardea.select_pipeline
+   Cardea.train_test_split
+   Cardea.fit
+   Cardea.predict
+   Cardea.fit_predict
+   Cardea.evaluate
+   Cardea.save
+   Cardea.load

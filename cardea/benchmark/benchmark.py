@@ -8,7 +8,6 @@ from os.path import dirname
 
 import numpy as np
 import pandas as pd
-import sklearn
 from mlblocks import MLPipeline
 
 from cardea.modeling.modeler import Modeler
@@ -16,16 +15,6 @@ from cardea.modeling.modeler import Modeler
 LOGGER = logging.getLogger(__name__)
 
 ROOT_DIR = dirname(dirname(dirname(os.path.abspath(__file__))))
-
-CLASSIFICATION_METRICS = {
-    'F1 Macro': lambda *args, **kwargs: sklearn.metrics.f1_score(*args, **kwargs, average="macro"),
-    'Recall': lambda *args, **kwargs: sklearn.metrics.recall_score(*args, **kwargs,
-                                                                   average="macro"),
-    'Precision': lambda *args, **kwargs: sklearn.metrics.precision_score(*args, **kwargs,
-                                                                         average="macro"),
-    'Accuracy': sklearn.metrics.accuracy_score,
-    'Confusion Matrix': sklearn.metrics.confusion_matrix
-}
 
 PROBLEM_TYPE = {
     'LOS': 'classification',
@@ -38,30 +27,6 @@ TARGET_NAME = {
     'Mortality': 'label',
     'Readmission': 'label',
 }
-
-
-def _scoring_folds(folds, metrics):
-    """Score each fold from the pipeline results.
-
-    Args:
-        folds (list or dict):
-            a list or a dictionary of pipeline results in each fold, the results consists of a list
-            of prediction values and a list of label values.
-        metrics (dict):
-            a dictionary of metric functions indexed by metric names.
-
-    Returns:
-        dict:
-            aggregated scores calculated from the fold results.
-    """
-    if isinstance(folds, dict):
-        folds = [v for k, v in folds.items()]
-
-    performance = pd.DataFrame([{item: func(f['Actual'], f['predicted'])
-                                 for item, func in metrics.items()} for f in folds])
-    scores = performance.mean().to_dict()
-
-    return scores
 
 
 def _split_features_target(feature_matrix, problem_name):
@@ -186,8 +151,8 @@ def benchmark(tasks, metrics=None, output_path=None, save_results=True,
     Args:
         tasks (list):
             a list of task instances storing meta information of each task.
-        metrics (dict):
-            a dictionary of metric functions indexed by metric names.
+        metrics (list)
+            a list of strings to identify the metric functions.
         output_path (str):
             the dir path to store benchmark results and records of each task.
         save_results (boolean):
@@ -234,8 +199,8 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
     Args:
         task (Task):
             a task instance storing meta information of the task.
-        metrics (dict):
-            a dictionary of metric functions indexed by metric names.
+        metrics (list)
+            a list of strings to identify the metric functions.
         feature_matrix (pd.DataFrame):
             a dataframe consists of both feature values and target values.
         output_path (str):
@@ -252,12 +217,6 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
         list:
             benchmarking results of each run.
     """
-    if metrics is None:
-        if PROBLEM_TYPE[task.problem_name] == 'classification':
-            metrics = CLASSIFICATION_METRICS
-        else:
-            raise NotImplementedError
-
     # Load pipeline.
     pipeline = MLPipeline.load(os.path.join(ROOT_DIR, task.path_to_pipeline))
 
@@ -282,9 +241,7 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
             raise NotImplementedError
 
         elif task.beginning_stage == "featurization":
-            feature_matrix = pd.read_csv(
-                os.path.join(ROOT_DIR, task.path_to_dataset),
-                index_col=0)
+            feature_matrix = pd.read_csv(os.path.join(ROOT_DIR, task.path_to_dataset), index_col=0)
 
     else:
         raise ValueError("Beginning stage should be either \"data_loader\", "
@@ -292,16 +249,16 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
 
     # Run the pipeline for #task.run_num times and record each run.
     results = []
-    records = []  # Records include (pipeline models (pickle), hyperparameters) of each run.
+    records = []
     for i in range(task.run_num):
-        scores, models, hyperparameters = _evaluate_pipeline(i, pipeline, feature_matrix,
-                                                             task.pipeline_name,
-                                                             task.problem_name,
-                                                             task.dataset_name,
-                                                             task.beginning_stage,
-                                                             task.tuned, metrics)
+        scores, model, hyperparameters = _evaluate_pipeline(i, pipeline, feature_matrix,
+                                                            task.pipeline_name,
+                                                            task.problem_name,
+                                                            task.dataset_name,
+                                                            task.beginning_stage,
+                                                            task.tuned, metrics)
         results.append(scores)
-        records.append((models, hyperparameters))
+        records.append((model, hyperparameters))
 
     # Store the output results.
     if output_path is not None:
@@ -311,14 +268,14 @@ def evaluate_task(task, metrics=None, feature_matrix=None, output_path=None,
         os.mkdir(output_path)
 
         # Save task meta information
-        task.save_as(os.path.join(output_path, "meta.json"), "json")
+        task.save_as(os.path.join(output_path, "meta.json"))
         matrix = 'F1 Macro'
         best_index = np.argmax([scores[matrix] for scores in results])
         models, hyperparameters = records[best_index]
 
         # Save pipeline models if required
         if save_model:
-            with open(os.path.join(output_path, "models.pkl"), 'wb') as f:
+            with open(os.path.join(output_path, "model.pkl"), 'wb') as f:
                 pickle.dump(models, f)
 
         # Save pipeline hyperparameters if required
@@ -351,41 +308,29 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, pro
             "problem_definition", "featurization".
         optimize (boolean):
             whether to optimize the hyper-parameters of the pipeline.
-        metrics (dict)
-            metric functions indexed by names.
+        metrics (list)
+            a list of strings to identify the metric functions.
 
     Returns:
         tuple:
             pipeline evaluation results including (performance, models, hyperparameters).
     """
-    features, target = _split_features_target(feature_matrix, problem_name)
+    modeler = Modeler(pipeline, PROBLEM_TYPE[problem_name])
 
+    features, target = _split_features_target(feature_matrix, problem_name)
     # TODO: digitize the labels in the featurization (problem definition) stage.
     if problem_name == 'LOS' and dataset_name == 'mimic-iii':
         target = np.digitize(target, [0, 7])
-
-    if metrics is None:
-        if PROBLEM_TYPE[problem_name] == 'classification':
-            metrics = CLASSIFICATION_METRICS
-        else:
-            raise NotImplementedError
-
-    modeler = Modeler()
 
     LOGGER.info("Starting pipeline {} for {} problem..".format(pipeline_name, problem_name))
 
     start = datetime.utcnow()
     try:
-        pipelines_res = modeler.execute_pipeline_from_pipeline(features, target, [pipeline],
-                                                               PROBLEM_TYPE[problem_name],
-                                                               optimize=optimize,
-                                                               minimize_cost=False, scoring='f1',
-                                                               max_evals=10)
+        scores = modeler.evaluate(features, target,
+                                  tune=optimize, scoring='F1 Macro', metrics=metrics, max_evals=10)
         elapsed = datetime.utcnow() - start
-        hyperparameters = pipelines_res['pipeline0'].get('hyperparameter', None)
-        models = [{"pipeline": fold['pipeline'], "test_index": fold["test_index"]}
-                  for _, fold in pipelines_res['pipeline0']['folds'].items()]
-        scores = _scoring_folds(pipelines_res['pipeline0']['folds'], metrics)
+        model = modeler.pipeline
+        hyperparameters = modeler.pipeline.get_hyperparameters() if optimize else None
         scores['Elapsed Time(s)'] = elapsed.total_seconds()
         scores['Status'] = 'OK'
 
@@ -394,13 +339,9 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, pro
             "Exception scoring pipeline {} in problem {}, exception {}".format(pipeline_name,
                                                                                problem_name, ex))
         elapsed = datetime.utcnow() - start
+        model = None
         hyperparameters = None
-        models = None
-        scores = {
-            name: 0 for name in metrics.keys()
-        }
-        scores['Elapsed Time(s)'] = elapsed.total_seconds()
-        scores['Status'] = 'Fail'
+        scores = {'Elapsed Time(s)': elapsed.total_seconds(), 'Status': 'Fail'}
 
     scores['Pipeline Name'] = pipeline_name
     scores['Run #'] = run_id
@@ -409,4 +350,4 @@ def _evaluate_pipeline(run_id, pipeline, feature_matrix, pipeline_name=None, pro
     scores['Beginning Stage'] = beginning_stage
     scores['Tuned'] = optimize
 
-    return scores, models, hyperparameters
+    return scores, model, hyperparameters

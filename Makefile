@@ -115,8 +115,17 @@ test: ## run tests quickly with the default Python
 test-all: ## run tests on every Python version with tox
 	tox
 
+.PHONY: test-readme
+test-readme: ## run the readme snippets
+	rundoc run --single-session python3 -t python3 README.md
 
 
+.PHONY: check-dependencies
+check-dependencies: ## test if there are any broken dependencies
+	pip check
+
+.PHONY: test-devel
+test-devel: check-dependencies lint docs ## test everything that needs development dependencies
 
 
 .PHONY: coverage
@@ -131,16 +140,14 @@ coverage: clean-coverage ## check code coverage quickly with the default Python
 
 .PHONY: docs
 docs: clean-docs ## generate Sphinx HTML documentation, including API docs
-	sphinx-apidoc --module-first --separate --no-toc --output-dir docs/api/ cardea
 	$(MAKE) -C docs html
-	touch docs/_build/html/.nojekyll
 
 .PHONY: viewdocs
-viewdocs: docs ## view docs in browser
+viewdocs: ## view the docs in a browser
 	$(BROWSER) docs/_build/html/index.html
 
 .PHONY: servedocs
-servedocs: docs ## compile the docs watching for changes
+servedocs: ## compile the docs watching for changes
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
 

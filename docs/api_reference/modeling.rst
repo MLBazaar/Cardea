@@ -12,4 +12,10 @@ Modeler
    :toctree: api/
 
    Modeler
-   Modeler.execute_pipeline
+   Modeler.train_test_split
+   Modeler.fit
+   Modeler.predict
+   Modeler.fit_predict
+   Modeler.evaluate
+   Modeler.save
+   Modeler.load
