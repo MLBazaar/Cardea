@@ -78,7 +78,7 @@ cardea.load_entityset(data='kaggle')
 
 To verify that the data has been loaded, you can find the loaded entityset by viewing ``cardea.es`` which should output the following:
 
-```bash
+```
 Entityset: kaggle
   Entities:
     Address [Rows: 81, Columns: 2]
@@ -110,7 +110,7 @@ label_times = cardea.select_problem('MissedAppointment')
 ``label_times`` summarizes for each instance in the dataset (1) what is its corresponding label of the instance and (2) what is the time index that indicates the timespan allowed for calculating features that pertain to each instance in the dataset.
 
 ```bash
-          cutoff_time     instance_id        label
+                 time     instance_id        label
 0 2015-11-10 07:13:56	      5030230       noshow
 1 2015-12-03 08:17:28	      5122866    fulfilled
 2 2015-12-07 10:40:59	      5134197    fulfilled
@@ -165,7 +165,7 @@ If you use Cardea for your research, please consider citing the following paper:
 
 Sarah Alnegheimish; Najat Alrashed; Faisal Aleissa; Shahad Althobaiti; Dongyu Liu; Mansour Alsaleh; Kalyan Veeramachaneni. [Cardea: An Open Automated Machine Learning Framework for Electronic Health Records](https://arxiv.org/abs/2010.00509). [IEEE DSAA 2020](https://ieeexplore.ieee.org/document/9260104).
 
-```bash
+```
 @inproceedings{alnegheimish2020cardea,
   title={Cardea: An Open Automated Machine Learning Framework for Electronic Health Records},
   author={Alnegheimish, Sarah and Alrashed, Najat and Aleissa, Faisal and Althobaiti, Shahad and Liu, Dongyu and Alsaleh, Mansour and Veeramachaneni, Kalyan},

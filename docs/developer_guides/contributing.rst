@@ -5,8 +5,7 @@ Contributing Guidelines
 
 Ready to contribute with your own code? Great!
 
-Before diving deeper into the contributing guidelines, please make sure to having read
-the :ref:`concepts` section and to have gone through the development guide.
+Before diving deeper into the contributing guidelines, please make sure to having read the :ref:`user_guides` section and to have gone through the :ref:`development` setup.
 
 Afterwards, please make sure to read the following contributing guidelines carefully, and
 later on head to the step-by-step guides for each possible type of contribution.

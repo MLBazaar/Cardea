@@ -67,7 +67,7 @@ docs/_build/
 docs/cardea.rst
 docs/cardea.*.rst
 docs/modules.rst
-docs/api
+docs/api_reference
 
 # PyBuilder
 target/

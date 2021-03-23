@@ -19,7 +19,7 @@ Reporting Issues
 ~~~~~~~~~~~~~~~~
 
 If there is something that you would like to see changed in the project, or that you just want
-to ask, please create an issue at https://github.com/D3-AI/Cardea/issues
+to ask, please create an issue at https://github.com/MLBazaar/Cardea/issues
 
 If you do so, please:
 
