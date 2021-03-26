@@ -6,7 +6,7 @@ class Media(fhirbase):
     A photo, video, or audio recording acquired or used in healthcare. The
     actual content may be inline or provided by direct reference.
 
-    Attributes:
+    Args:
         resourceType: This is a Media resource
         identifier: Identifiers associated with the image - these may include
             identifiers for the image itself, identifiers for the context of its

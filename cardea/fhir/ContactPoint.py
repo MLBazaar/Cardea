@@ -6,7 +6,7 @@ class ContactPoint(fhirbase):
     Details for all kinds of technology mediated contact points for a
     person or organization, including telephone, email, etc.
 
-    Attributes:
+    Args:
         system: Telecommunications form for contact point - what
             communications system is required to make use of the contact.
         value: The actual contact point details, in a form that is meaningful

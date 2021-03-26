@@ -10,7 +10,7 @@ class DiagnosticReport(fhirbase):
     images, textual and coded interpretations, and formatted
     representation of diagnostic reports.
 
-    Attributes:
+    Args:
         resourceType: This is a DiagnosticReport resource
         identifier: Identifiers assigned to this report by the performer or
             other systems.
@@ -233,7 +233,7 @@ class DiagnosticReport_Performer(fhirbase):
     images, textual and coded interpretations, and formatted
     representation of diagnostic reports.
 
-    Attributes:
+    Args:
         role: Describes the type of participation (e.g.  a responsible party,
             author, or verifier).
         actor: The reference to the  practitioner or organization involved in
@@ -280,7 +280,7 @@ class DiagnosticReport_Image(fhirbase):
     images, textual and coded interpretations, and formatted
     representation of diagnostic reports.
 
-    Attributes:
+    Args:
         comment: A comment about the image. Typically, this is used to provide
             an explanation for why the image is included, or to draw the viewer's
             attention to important features.

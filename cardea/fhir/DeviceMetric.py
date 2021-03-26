@@ -6,7 +6,7 @@ class DeviceMetric(fhirbase):
     Describes a measurement, calculation or setting capability of a
     medical device.
 
-    Attributes:
+    Args:
         resourceType: This is a DeviceMetric resource
         identifier: Describes the unique identification of this metric that
             has been assigned by the device or gateway software. For example:
@@ -166,7 +166,7 @@ class DeviceMetric_Calibration(fhirbase):
     Describes a measurement, calculation or setting capability of a
     medical device.
 
-    Attributes:
+    Args:
         type: Describes the type of the calibration method.
         state: Describes the state of the calibration.
         time: Describes the time last calibration has been performed.

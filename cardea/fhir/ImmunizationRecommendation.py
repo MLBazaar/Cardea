@@ -7,7 +7,7 @@ class ImmunizationRecommendation(fhirbase):
     forecasting a patient's immunization eligibility according to a
     published schedule) with optional supporting justification.
 
-    Attributes:
+    Args:
         resourceType: This is a ImmunizationRecommendation resource
         identifier: A unique identifier assigned to this particular
             recommendation record.
@@ -63,7 +63,7 @@ class ImmunizationRecommendation_Recommendation(fhirbase):
     forecasting a patient's immunization eligibility according to a
     published schedule) with optional supporting justification.
 
-    Attributes:
+    Args:
         date: The date the immunization recommendation was created.
         vaccineCode: Vaccine that pertains to the recommendation.
         targetDisease: The targeted disease for the recommendation.
@@ -166,7 +166,7 @@ class ImmunizationRecommendation_DateCriterion(fhirbase):
     forecasting a patient's immunization eligibility according to a
     published schedule) with optional supporting justification.
 
-    Attributes:
+    Args:
         code: Date classification of recommendation.  For example, earliest
             date to give, latest date to give, etc.
         value: The date whose meaning is specified by dateCriterion.code.
@@ -203,7 +203,7 @@ class ImmunizationRecommendation_Protocol(fhirbase):
     forecasting a patient's immunization eligibility according to a
     published schedule) with optional supporting justification.
 
-    Attributes:
+    Args:
         doseSequence: Indicates the nominal position in a series of the next
             dose.  This is the recommended dose number as per a specified
             protocol.

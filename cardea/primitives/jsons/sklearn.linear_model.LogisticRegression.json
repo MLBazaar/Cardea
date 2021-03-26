@@ -1,0 +1,102 @@
+{
+    "name": "sklearn.linear_model.LogisticRegression",
+    "documentation":"http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html",
+    "primitive": "sklearn.linear_model.LogisticRegression",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            },
+            {
+                "name": "y",
+                "type": "Series"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "Series"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed":{
+            "n_jobs": {
+                "type": "int",
+                "default": 1
+            },
+            "verbose": {
+                "type": "int",
+                "default": 0
+            },
+            "max_iter": {
+                "type": "int",
+                "default": 100
+            },
+            "random_state": {
+                "type": "int",
+                "default": null
+            },
+            "tol": {
+                "type": "float",
+                "default": 1e-4
+            },
+            "C": {
+                "type": "float",
+                "default": 1.0,
+                "range": [0.0, 1.0]
+            },
+            "intercept_scaling": {
+                "type": "float",
+                "default": 1.0
+            },
+            "multi_class": {
+                "type": "float",
+                "default": "ovr",
+                "values": ["ovr","multinomial"]
+            },
+            "dual": {
+                "type": "bool",
+                "default": false
+            },
+            "penalty": {
+                "type": "str",
+                "default": "l2",
+                "values":["l1", "l2"]
+            }
+        },
+        "tunable": {
+            "fit_intercept": {
+                "type": "bool",
+                "default": true
+            },
+            "class_weight": {
+                "type": "str",
+                "default": null,
+                "range": [null, "balanced"]
+            },
+            "solver": {
+                "type": "str",
+                "default": "liblinear",
+                "values": ["newton-cg", "lbfgs", "liblinear", "sag", "saga"]
+            }
+            ,
+            "warm_start": {
+                "type": "bool",
+                "default": false
+            }
+            
+        }
+    }
+}

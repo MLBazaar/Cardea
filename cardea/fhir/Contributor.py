@@ -6,7 +6,7 @@ class Contributor(fhirbase):
     A contributor to the content of a knowledge asset, including authors,
     editors, reviewers, and endorsers.
 
-    Attributes:
+    Args:
         type: The type of contributor.
         name: The name of the individual or organization responsible for the
             contribution.

@@ -6,7 +6,7 @@ class MeasureReport(fhirbase):
     The MeasureReport resource contains the results of evaluating a
     measure.
 
-    Attributes:
+    Args:
         resourceType: This is a MeasureReport resource
         identifier: A formal identifier that is used to identify this report
             when it is represented in other formats, or referenced in a
@@ -136,7 +136,7 @@ class MeasureReport_Group(fhirbase):
     The MeasureReport resource contains the results of evaluating a
     measure.
 
-    Attributes:
+    Args:
         identifier: The identifier of the population group as defined in the
             measure definition.
         population: The populations that make up the population group, one for
@@ -193,7 +193,7 @@ class MeasureReport_Population(fhirbase):
     The MeasureReport resource contains the results of evaluating a
     measure.
 
-    Attributes:
+    Args:
         identifier: The identifier of the population being reported, as
             defined by the population element of the measure.
         code: The type of the population.
@@ -245,7 +245,7 @@ class MeasureReport_Stratifier(fhirbase):
     The MeasureReport resource contains the results of evaluating a
     measure.
 
-    Attributes:
+    Args:
         identifier: The identifier of this stratifier, as defined in the
             measure definition.
         stratum: This element contains the results for a single stratum within
@@ -286,7 +286,7 @@ class MeasureReport_Stratum(fhirbase):
     The MeasureReport resource contains the results of evaluating a
     measure.
 
-    Attributes:
+    Args:
         value: The value for this stratum, expressed as a string. When
             defining stratifiers on complex values, the value must be rendered
             such that the value for each stratum within the stratifier is unique.
@@ -331,7 +331,7 @@ class MeasureReport_Population1(fhirbase):
     The MeasureReport resource contains the results of evaluating a
     measure.
 
-    Attributes:
+    Args:
         identifier: The identifier of the population being reported, as
             defined by the population element of the measure.
         code: The type of the population.

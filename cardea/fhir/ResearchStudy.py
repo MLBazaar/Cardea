@@ -11,7 +11,7 @@ class ResearchStudy(fhirbase):
     ResearchStudy involves the gathering of information about human or
     animal subjects.
 
-    Attributes:
+    Args:
         resourceType: This is a ResearchStudy resource
         identifier: Identifiers assigned to this research study by the sponsor
             or other systems.
@@ -250,7 +250,7 @@ class ResearchStudy_Arm(fhirbase):
     ResearchStudy involves the gathering of information about human or
     animal subjects.
 
-    Attributes:
+    Args:
         name: Unique, human-readable label for this arm of the study.
         code: Categorization of study arm, e.g. experimental, active
             comparator, placebo comparater.

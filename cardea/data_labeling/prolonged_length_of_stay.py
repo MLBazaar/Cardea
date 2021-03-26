@@ -6,15 +6,22 @@ from cardea.problem_definition import ProblemDefinition
 
 
 class ProlongedLengthOfStay (ProblemDefinition):
-    """Defines the problem of length of stay, predicting whether
-    a patient stayed in the hospital more or less than a week (Default).
+    """Defines the problem of length of stay
 
-    Attributes:
-        target_label_column_name: The target label of the prediction problem.
-        target_entity: Name of the entity containing the target label.
-        cutoff_time_label: The cutoff time label of the prediction problem.
-        cutoff_entity: Name of the entity containing the cutoff time label.
-        prediction_type: The type of the machine learning prediction.
+    Predicting whether a patient stayed in the hospital more or less than
+    a week (by default).
+
+    Args:
+        target_label_column_name (str):
+            The target label of the prediction problem.
+        target_entity (str):
+            Name of the entity containing the target label.
+        cutoff_time_label (str):
+            The cutoff time label of the prediction problem.
+        cutoff_entity (str):
+            Name of the entity containing the cutoff time label.
+        prediction_type (str):
+            The type of the machine learning prediction.
     """
     __name__ = 'plos'
 
@@ -30,13 +37,17 @@ class ProlongedLengthOfStay (ProblemDefinition):
         self.threshold = t
 
     def generate_cutoff_times(self, es):
-        """Generates cutoff times for the predection problem.
+        """Generates cutoff times for the prediction problem.
 
         Args:
-            es: fhir entityset.
+            es (featuretools.EntitySet):
+                An EntitySet with the loaded data.
 
         Returns:
-            entity_set, target_entity, and a dataframe of cutoff_times and target_labels.
+            featuretools.EntitySet, str, pandas.DataFrame:
+                * An updated EntitySet if a new column is generated.
+                * A string indicating the selected target entity.
+                * A dataframe of cutoff times and their target labels.
 
         Raises:
             ValueError: An error occurs if the cutoff variable does not exist.
@@ -67,7 +78,7 @@ class ProlongedLengthOfStay (ProblemDefinition):
                 cutoff_times = cutoff_times.reindex(index=label)
                 cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
                 cutoff_times['instance_id'] = instance_id
-                cutoff_times.columns = ['cutoff_time', 'instance_id']
+                cutoff_times.columns = ['time', 'instance_id']
                 update_es = es[self.target_entity].df
 
                 # threshold

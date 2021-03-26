@@ -6,7 +6,7 @@ class Dosage(fhirbase):
     Indicates how the medication is/was taken or should be taken by the
     patient.
 
-    Attributes:
+    Args:
         sequence: Indicates the order in which the dosage instructions should
             be applied or interpreted.
         text: Free text dosage instructions e.g. SIG.

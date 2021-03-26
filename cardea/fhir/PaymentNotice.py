@@ -6,7 +6,7 @@ class PaymentNotice(fhirbase):
     This resource provides the status of the payment for goods and
     services rendered, and the request and response resource references.
 
-    Attributes:
+    Args:
         resourceType: This is a PaymentNotice resource
         identifier: The notice business identifier.
         status: The status of the resource instance.

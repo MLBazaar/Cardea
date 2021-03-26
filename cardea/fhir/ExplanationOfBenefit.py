@@ -7,7 +7,7 @@ class ExplanationOfBenefit(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         resourceType: This is a ExplanationOfBenefit resource
         identifier: The EOB Business Identifier.
         status: The status of the resource instance.
@@ -415,7 +415,7 @@ class ExplanationOfBenefit_Related(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         claim: Other claims which are related to this claim such as prior
             claim versions or for related services.
         relationship: For example prior or umbrella.
@@ -468,7 +468,7 @@ class ExplanationOfBenefit_Payee(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         type: Type of Party to be reimbursed: Subscriber, provider, other.
         resourceType: organization | patient | practitioner | relatedperson.
         party: Party to be reimbursed: Subscriber, provider, other.
@@ -518,7 +518,7 @@ class ExplanationOfBenefit_Information(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         sequence: Sequence of the information element which serves to provide
             a link.
         category: The general class of the information supplied: information;
@@ -631,7 +631,7 @@ class ExplanationOfBenefit_CareTeam(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         sequence: Sequence of careteam which serves to order and provide a
             link.
         provider: The members of the team who provided the overall service.
@@ -692,7 +692,7 @@ class ExplanationOfBenefit_Diagnosis(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         sequence: Sequence of diagnosis which serves to provide a link.
         diagnosisCodeableConcept: The diagnosis.
         diagnosisReference: The diagnosis.
@@ -758,7 +758,7 @@ class ExplanationOfBenefit_Procedure(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         sequence: Sequence of procedures which serves to order and provide a
             link.
         date: Date and optionally time the procedure was performed .
@@ -808,7 +808,7 @@ class ExplanationOfBenefit_Insurance(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         coverage: Reference to the program or plan identification, underwriter
             or payor.
         preAuthRef: A list of references from the Insurer to which these
@@ -846,7 +846,7 @@ class ExplanationOfBenefit_Accident(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         date: Date of an accident which these services are addressing.
         type: Type of accident: work, auto, etc.
         locationAddress: Where the accident occurred.
@@ -900,7 +900,7 @@ class ExplanationOfBenefit_Item(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         sequence: A service line number.
         careTeamLinkId: Careteam applicable for this service or product line.
         diagnosisLinkId: Diagnosis applicable for this service or product
@@ -1148,7 +1148,7 @@ class ExplanationOfBenefit_Adjudication(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         category: Code indicating: Co-Pay, deductable, elegible, benefit, tax,
             etc.
         reason: Adjudication reason such as limit reached.
@@ -1204,7 +1204,7 @@ class ExplanationOfBenefit_Detail(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         sequence: A service line number.
         type: The type of product or service.
         revenue: The type of reveneu or cost center providing the product
@@ -1369,7 +1369,7 @@ class ExplanationOfBenefit_SubDetail(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         sequence: A service line number.
         type: The type of product or service.
         revenue: The type of reveneu or cost center providing the product
@@ -1519,7 +1519,7 @@ class ExplanationOfBenefit_AddItem(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         sequenceLinkId: List of input service items which this service line is
             intended to replace.
         revenue: The type of reveneu or cost center providing the product
@@ -1626,7 +1626,7 @@ class ExplanationOfBenefit_Detail1(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         revenue: The type of reveneu or cost center providing the product
             and/or service.
         category: Health Care Service Type Codes  to identify the
@@ -1714,7 +1714,7 @@ class ExplanationOfBenefit_Payment(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         type: Whether this represents partial or complete payment of the
             claim.
         adjustment: Adjustment to the payment of this transaction which is not
@@ -1785,7 +1785,7 @@ class ExplanationOfBenefit_ProcessNote(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         number: An integer associated with each note which may be referred to
             from each service line item.
         type: The note purpose: Print/Display.
@@ -1838,7 +1838,7 @@ class ExplanationOfBenefit_BenefitBalance(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         category: Dental, Vision, Medical, Pharmacy, Rehab etc.
         subCategory: Dental: basic, major, ortho; Vision exam, glasses,
             contacts; etc.
@@ -1935,7 +1935,7 @@ class ExplanationOfBenefit_Financial(fhirbase):
     the processing of a Claim; and optionally account balance information,
     for informing the subscriber of the benefits provided.
 
-    Attributes:
+    Args:
         type: Deductable, visits, benefit amount.
         allowedUnsignedInt: Benefits allowed.
         allowedString: Benefits allowed.

@@ -17,17 +17,17 @@ Kaggle dataset: `Medical Appointment No Shows`_, but it also allows user to load
 local path with CSV files, using the ``load_data_entityset(...)`` method. As an example, the following piece
 of code will load the default Kaggle dataset:
 
-.. code-block:: python
+.. ipython:: python
 
     from cardea import Cardea
     cardea = Cardea()
-    cardea.load_data_entityset()
+    cardea.load_entityset(data='kaggle')
 
-While local files can be loaded using the same method with a ``folder_path`` parameter:
+While local files can be loaded using the same method with a ``data`` parameter:
 
 .. code-block:: python
 
-    cardea.load_data_entityset(folder_path="your/local/path/")
+    cardea.load_entityset(data="your/local/path/")
 
 Cardea handles datasets as a collection of entities and the relationships between them because they
 are useful for preparing raw, structured datasets for feature engineering. For this, it uses

@@ -7,7 +7,7 @@ class AuditEvent(fhirbase):
     Typical uses include detection of intrusion attempts and monitoring
     for inappropriate usage.
 
-    Attributes:
+    Args:
         resourceType: This is a AuditEvent resource
         type: Identifier for a family of the event.  For example, a menu item,
             program, rule, policy, function code, application name or URL. It
@@ -133,7 +133,7 @@ class AuditEvent_Agent(fhirbase):
     Typical uses include detection of intrusion attempts and monitoring
     for inappropriate usage.
 
-    Attributes:
+    Args:
         role: The security role that the user was acting under, that come from
             local codes defined by the access control security system (e.g. RBAC,
             ABAC) used in the local context.
@@ -250,7 +250,7 @@ class AuditEvent_Network(fhirbase):
     Typical uses include detection of intrusion attempts and monitoring
     for inappropriate usage.
 
-    Attributes:
+    Args:
         address: An identifier for the network access point of the user device
             for the audit event.
         type: An identifier for the type of network access point that
@@ -290,7 +290,7 @@ class AuditEvent_Source(fhirbase):
     Typical uses include detection of intrusion attempts and monitoring
     for inappropriate usage.
 
-    Attributes:
+    Args:
         site: Logical source location within the healthcare enterprise
             network.  For example, a hospital or other provider location within a
             multi-entity provider group.
@@ -335,7 +335,7 @@ class AuditEvent_Entity(fhirbase):
     Typical uses include detection of intrusion attempts and monitoring
     for inappropriate usage.
 
-    Attributes:
+    Args:
         identifier: Identifies a specific instance of the entity. The
             reference should always be version specific.
         reference: Identifies a specific instance of the entity. The reference
@@ -436,7 +436,7 @@ class AuditEvent_Detail(fhirbase):
     Typical uses include detection of intrusion attempts and monitoring
     for inappropriate usage.
 
-    Attributes:
+    Args:
         type: The type of extra detail provided in the value.
         value: The details, base64 encoded. Used to carry bulk information.
     """

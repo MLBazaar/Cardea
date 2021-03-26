@@ -5,7 +5,7 @@ class Substance(fhirbase):
     """
     A homogeneous material with a definite composition.
 
-    Attributes:
+    Args:
         resourceType: This is a Substance resource
         identifier: Unique identifier for the substance.
         status: A code to indicate if the substance is actively used.
@@ -99,7 +99,7 @@ class Substance_Instance(fhirbase):
     """
     A homogeneous material with a definite composition.
 
-    Attributes:
+    Args:
         identifier: Identifier associated with the package/container (usually
             a label affixed directly).
         expiry: When the substance is no longer valid to use. For some
@@ -141,7 +141,7 @@ class Substance_Ingredient(fhirbase):
     """
     A homogeneous material with a definite composition.
 
-    Attributes:
+    Args:
         quantity: The amount of the ingredient in the substance - a
             concentration ratio.
         substanceCodeableConcept: Another substance that is a component of

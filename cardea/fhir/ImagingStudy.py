@@ -10,7 +10,7 @@ class ImagingStudy(fhirbase):
     modality (e.g. X-ray, CT, MR, ultrasound), but a study may have
     multiple series of different modalities.
 
-    Attributes:
+    Args:
         resourceType: This is a ImagingStudy resource
         uid: Formal identifier for the study.
         accession: Accession Number is an identifier related to some aspect of
@@ -218,7 +218,7 @@ class ImagingStudy_Series(fhirbase):
     modality (e.g. X-ray, CT, MR, ultrasound), but a study may have
     multiple series of different modalities.
 
-    Attributes:
+    Args:
         uid: Formal identifier for this series.
         number: The numeric identifier of this series in the study.
         modality: The modality of this series sequence.
@@ -354,7 +354,7 @@ class ImagingStudy_Instance(fhirbase):
     modality (e.g. X-ray, CT, MR, ultrasound), but a study may have
     multiple series of different modalities.
 
-    Attributes:
+    Args:
         uid: Formal identifier for this image or other content.
         number: The number of instance in the series.
         sopClass: DICOM instance  type.

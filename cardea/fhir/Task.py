@@ -5,7 +5,7 @@ class Task(fhirbase):
     """
     A task to be performed.
 
-    Attributes:
+    Args:
         resourceType: This is a Task resource
         identifier: The business identifier for this task.
         definitionUri: A reference to a formal or informal definition of the
@@ -300,7 +300,7 @@ class Task_Requester(fhirbase):
     """
     A task to be performed.
 
-    Attributes:
+    Args:
         agent: The device, practitioner, etc. who initiated the task.
         onBehalfOf: The organization the device or practitioner was acting on
             behalf of when they initiated the task.
@@ -340,7 +340,7 @@ class Task_Restriction(fhirbase):
     """
     A task to be performed.
 
-    Attributes:
+    Args:
         repetitions: Indicates the number of times the requested action should
             occur.
         period: Over what time-period is fulfillment sought.
@@ -386,7 +386,7 @@ class Task_Input(fhirbase):
     """
     A task to be performed.
 
-    Attributes:
+    Args:
         type: A code or description indicating how the input is intended to be
             used as part of the task execution.
         valueBoolean: The value of the input parameter as a basic type.
@@ -816,7 +816,7 @@ class Task_Output(fhirbase):
     """
     A task to be performed.
 
-    Attributes:
+    Args:
         type: The name of the Output parameter.
         valueBoolean: The value of the Output parameter as a basic type.
         valueInteger: The value of the Output parameter as a basic type.

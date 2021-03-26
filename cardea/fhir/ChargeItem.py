@@ -10,7 +10,7 @@ class ChargeItem(fhirbase):
     Usage of the ChargeItem is to enable the billing process and internal
     cost allocation.
 
-    Attributes:
+    Args:
         resourceType: This is a ChargeItem resource
         identifier: Identifiers assigned to this event performer or other
             systems.
@@ -270,7 +270,7 @@ class ChargeItem_Participant(fhirbase):
     Usage of the ChargeItem is to enable the billing process and internal
     cost allocation.
 
-    Attributes:
+    Args:
         role: Describes the type of performance or participation(e.g. primary
             surgeon, anaesthesiologiest, etc.).
         actor: The device, practitioner, etc. who performed or participated in

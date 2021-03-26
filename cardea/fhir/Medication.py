@@ -7,7 +7,7 @@ class Medication(fhirbase):
     of a medication. It covers the ingredients and the packaging for a
     medication.
 
-    Attributes:
+    Args:
         resourceType: This is a Medication resource
         code: A code (or set of codes) that specify this medication, or a
             textual description if no code is available. Usage note: This could be
@@ -123,7 +123,7 @@ class Medication_Ingredient(fhirbase):
     of a medication. It covers the ingredients and the packaging for a
     medication.
 
-    Attributes:
+    Args:
         itemCodeableConcept: The actual ingredient - either a substance
             (simple ingredient) or another medication.
         itemReference: The actual ingredient - either a substance (simple
@@ -183,7 +183,7 @@ class Medication_Package(fhirbase):
     of a medication. It covers the ingredients and the packaging for a
     medication.
 
-    Attributes:
+    Args:
         container: The kind of container that this package comes as.
         content: A set of components that go to make up the described item.
         batch: Information about a group of medication produced or packaged
@@ -236,7 +236,7 @@ class Medication_Content(fhirbase):
     of a medication. It covers the ingredients and the packaging for a
     medication.
 
-    Attributes:
+    Args:
         itemCodeableConcept: Identifies one of the items in the package.
         itemReference: Identifies one of the items in the package.
         amount: The amount of the product that is in the package.
@@ -286,7 +286,7 @@ class Medication_Batch(fhirbase):
     of a medication. It covers the ingredients and the packaging for a
     medication.
 
-    Attributes:
+    Args:
         lotNumber: The assigned lot number of a batch of the specified
             product.
         expirationDate: When this specific batch of product will expire.

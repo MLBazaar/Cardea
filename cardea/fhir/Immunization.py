@@ -8,7 +8,7 @@ class Immunization(fhirbase):
     another party and may include vaccine reaction information and what
     vaccination protocol was followed.
 
-    Attributes:
+    Args:
         resourceType: This is a Immunization resource
         identifier: A unique identifier assigned to this immunization record.
         status: Indicates the current status of the vaccination event.
@@ -209,7 +209,7 @@ class Immunization_Practitioner(fhirbase):
     another party and may include vaccine reaction information and what
     vaccination protocol was followed.
 
-    Attributes:
+    Args:
         role: Describes the type of performance (e.g. ordering provider,
             administering provider, etc.).
         actor: The device, practitioner, etc. who performed the action.
@@ -252,7 +252,7 @@ class Immunization_Explanation(fhirbase):
     another party and may include vaccine reaction information and what
     vaccination protocol was followed.
 
-    Attributes:
+    Args:
         reason: Reasons why a vaccine was administered.
         reasonNotGiven: Reason why a vaccine was not administered.
     """
@@ -296,7 +296,7 @@ class Immunization_Reaction(fhirbase):
     another party and may include vaccine reaction information and what
     vaccination protocol was followed.
 
-    Attributes:
+    Args:
         date: Date of reaction to the immunization.
         detail: Details of the reaction.
         reported: Self-reported indicator.
@@ -337,7 +337,7 @@ class Immunization_VaccinationProtocol(fhirbase):
     another party and may include vaccine reaction information and what
     vaccination protocol was followed.
 
-    Attributes:
+    Args:
         doseSequence: Nominal position in a series.
         description: Contains the description about the protocol under which
             the vaccine was administered.

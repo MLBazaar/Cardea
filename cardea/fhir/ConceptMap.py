@@ -7,7 +7,7 @@ class ConceptMap(fhirbase):
     other concepts - either code systems or data elements, or classes in
     class models.
 
-    Attributes:
+    Args:
         resourceType: This is a ConceptMap resource
         url: An absolute URI that is used to identify this concept map when it
             is referenced in a specification, model, design or an instance. This
@@ -202,7 +202,7 @@ class ConceptMap_Group(fhirbase):
     other concepts - either code systems or data elements, or classes in
     class models.
 
-    Attributes:
+    Args:
         source: An absolute URI that identifies the Code System (if the source
             is a value set that crosses more than one code system).
         sourceVersion: The specific version of the code system, as determined
@@ -266,7 +266,7 @@ class ConceptMap_Element(fhirbase):
     other concepts - either code systems or data elements, or classes in
     class models.
 
-    Attributes:
+    Args:
         code: Identity (code or path) or the element/item being mapped.
         display: The display for the code. The display is only provided to
             help editors when editing the concept map.
@@ -308,7 +308,7 @@ class ConceptMap_Target(fhirbase):
     other concepts - either code systems or data elements, or classes in
     class models.
 
-    Attributes:
+    Args:
         code: Identity (code or path) or the element/item that the map refers
             to.
         display: The display for the code. The display is only provided to
@@ -392,7 +392,7 @@ class ConceptMap_DependsOn(fhirbase):
     other concepts - either code systems or data elements, or classes in
     class models.
 
-    Attributes:
+    Args:
         property: A reference to an element that holds a coded value that
             corresponds to a code system property. The idea is that the
             information model carries an element somwhere that is labeled to
@@ -434,7 +434,7 @@ class ConceptMap_Unmapped(fhirbase):
     other concepts - either code systems or data elements, or classes in
     class models.
 
-    Attributes:
+    Args:
         mode: Defines which action to take if there is no match in the group.
             One of 3 actions is possible: use the unmapped code (this is useful
             when doing a mapping between versions, and only a few codes have

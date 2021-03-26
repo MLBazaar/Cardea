@@ -8,7 +8,7 @@ class Signature(fhirbase):
     representing a hand-written signature, or a signature process.
     Different signature approaches have different utilities.
 
-    Attributes:
+    Args:
         type: An indication of the reason that the entity signed this
             document. This may be explicitly included as part of the signature
             information and can be used when determining accountability for

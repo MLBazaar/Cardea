@@ -8,7 +8,7 @@ class GraphDefinition(fhirbase):
     The Graph Definition resource defines a set and makes rules about the
     set.
 
-    Attributes:
+    Args:
         resourceType: This is a GraphDefinition resource
         url: An absolute URI that is used to identify this graph definition
             when it is referenced in a specification, model, design or an
@@ -162,7 +162,7 @@ class GraphDefinition_Link(fhirbase):
     The Graph Definition resource defines a set and makes rules about the
     set.
 
-    Attributes:
+    Args:
         path: Path in the resource that contains the link.
         sliceName: Which slice (if profiled).
         min: Minimum occurrences for this link.
@@ -207,7 +207,7 @@ class GraphDefinition_Target(fhirbase):
     The Graph Definition resource defines a set and makes rules about the
     set.
 
-    Attributes:
+    Args:
         type: Type of resource this link refers to.
         profile: Profile for the target resource.
         compartment: Compartment Consistency Rules.
@@ -259,7 +259,7 @@ class GraphDefinition_Compartment(fhirbase):
     The Graph Definition resource defines a set and makes rules about the
     set.
 
-    Attributes:
+    Args:
         code: Identifies the compartment.
         rule: identical | matching | different | no-rule | custom.
         expression: Custom rule, as a FHIRPath expression.

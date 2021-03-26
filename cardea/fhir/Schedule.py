@@ -6,7 +6,7 @@ class Schedule(fhirbase):
     A container for slots of time that may be available for booking
     appointments.
 
-    Attributes:
+    Args:
         resourceType: This is a Schedule resource
         identifier: External Ids for this item.
         active: Whether this schedule record is in active use, or should not

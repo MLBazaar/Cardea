@@ -6,7 +6,7 @@ class Coverage(fhirbase):
     Financial instrument which may be used to reimburse or pay for health
     care products and services.
 
-    Attributes:
+    Args:
         resourceType: This is a Coverage resource
         identifier: The main (and possibly only) identifier for the coverage -
             often referred to as a Member Id, Certificate number, Personal Health
@@ -172,7 +172,7 @@ class Coverage_Grouping(fhirbase):
     Financial instrument which may be used to reimburse or pay for health
     care products and services.
 
-    Attributes:
+    Args:
         group: Identifies a style or collective of coverage issued by the
             underwriter, for example may be used to identify an employer group.
             May also be referred to as a Policy or Group ID.

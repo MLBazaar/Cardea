@@ -7,7 +7,7 @@ class BodySite(fhirbase):
     part.  This resource may be used when a coded concept does not provide
     the necessary detail needed for the use case.
 
-    Attributes:
+    Args:
         resourceType: This is a BodySite resource
         identifier: Identifier for this instance of the anatomical location.
         active: Whether this body site is in active use.

@@ -8,7 +8,7 @@ class DetectedIssue(fhirbase):
     interaction, Ineffective treatment frequency, Procedure-condition
     conflict, etc.
 
-    Attributes:
+    Args:
         resourceType: This is a DetectedIssue resource
         identifier: Business identifier associated with the detected issue
             record.
@@ -133,7 +133,7 @@ class DetectedIssue_Mitigation(fhirbase):
     interaction, Ineffective treatment frequency, Procedure-condition
     conflict, etc.
 
-    Attributes:
+    Args:
         action: Describes the action that was taken or the observation that
             was made that reduces/eliminates the risk associated with the
             identified issue.

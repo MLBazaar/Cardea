@@ -8,7 +8,7 @@ class Group(fhirbase):
     and are not formally or legally recognized; i.e. a collection of
     entities that isn't an Organization.
 
-    Attributes:
+    Args:
         resourceType: This is a Group resource
         identifier: A unique business identifier for this group.
         active: Indicates whether the record for the group is available for
@@ -114,7 +114,7 @@ class Group_Characteristic(fhirbase):
     and are not formally or legally recognized; i.e. a collection of
     entities that isn't an Organization.
 
-    Attributes:
+    Args:
         code: A code that identifies the kind of trait being asserted.
         valueCodeableConcept: The value of the trait that holds (or does not
             hold - see 'exclude') for members of the group.
@@ -197,7 +197,7 @@ class Group_Member(fhirbase):
     and are not formally or legally recognized; i.e. a collection of
     entities that isn't an Organization.
 
-    Attributes:
+    Args:
         entity: A reference to the entity that is a member of the group. Must
             be consistent with Group.type.
         period: The period that the member was in the group, if known.

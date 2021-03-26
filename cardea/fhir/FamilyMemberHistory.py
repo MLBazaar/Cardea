@@ -6,7 +6,7 @@ class FamilyMemberHistory(fhirbase):
     Significant health events and conditions for a person related to the
     patient relevant in the context of care for the patient.
 
-    Attributes:
+    Args:
         resourceType: This is a FamilyMemberHistory resource
         identifier: This records identifiers associated with this family
             member history record that are defined by business processes and/ or
@@ -260,7 +260,7 @@ class FamilyMemberHistory_Condition(fhirbase):
     Significant health events and conditions for a person related to the
     patient relevant in the context of care for the patient.
 
-    Attributes:
+    Args:
         code: The actual condition specified. Could be a coded condition (like
             MI or Diabetes) or a less specific string like 'cancer' depending on
             how much is known about the condition and the capabilities of the

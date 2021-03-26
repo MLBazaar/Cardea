@@ -1,0 +1,72 @@
+{
+    "name": "sklearn.linear_model.SGDClassifier",
+    "documentation":"http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html",
+    "primitive": "sklearn.linear_model.SGDClassifier",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            },
+            {
+                "name": "y",
+                "type": "Series"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "DataFrame"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "Series"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed":{
+            "n_jobs": {
+                "type": "int",
+                "default": 1
+            },
+            "verbose": {
+                "type": "int",
+                "default": 0
+            },
+            "max_iter": {
+                "type": "int",
+                "default": 100
+            }
+        },
+        "tunable": {
+            "loss": {
+                "type": "str",
+                "default": "hinge",
+                "values":["hinge","log","modified_huber","squared_hinge","perceptron","squared_loss","huber","epsilon_insensitive","squared_epsilon_insensitive"]
+            },
+            "penalty": {
+                "type": "str",
+                "default": null,
+                "values": [null, "l2", "l1", "elasticnet"]
+            },
+            "learning_rate": {
+                "type": "str",
+                "default": "optimal",
+                "values": ["optimal", "invscaling", "adaptive","constant"]
+            }
+            ,
+            "warm_start": {
+                "type": "bool",
+                "default": false
+            }
+            
+        }
+    }
+}

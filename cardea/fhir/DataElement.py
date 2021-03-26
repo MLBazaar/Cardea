@@ -6,7 +6,7 @@ class DataElement(fhirbase):
     The formal description of a single piece of information that can be
     gathered and reported.
 
-    Attributes:
+    Args:
         resourceType: This is a DataElement resource
         url: An absolute URI that is used to identify this data element when
             it is referenced in a specification, model, design or an instance.
@@ -187,7 +187,7 @@ class DataElement_Mapping(fhirbase):
     The formal description of a single piece of information that can be
     gathered and reported.
 
-    Attributes:
+    Args:
         identity: An internal id that is used to identify this mapping set
             when specific mappings are made on a per-element basis.
         uri: An absolute URI that identifies the specification that this

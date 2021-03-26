@@ -8,7 +8,7 @@ class Goal(fhirbase):
     daily living, obtaining herd immunity via immunization, meeting a
     process improvement objective, etc.
 
-    Attributes:
+    Args:
         resourceType: This is a Goal resource
         identifier: This records identifiers associated with this care plan
             that are defined by business processes and/or used to refer to it when
@@ -195,7 +195,7 @@ class Goal_Target(fhirbase):
     daily living, obtaining herd immunity via immunization, meeting a
     process improvement objective, etc.
 
-    Attributes:
+    Args:
         measure: The parameter whose value is being tracked, e.g. body weight,
             blood pressure, or hemoglobin A1c level.
         detailQuantity: The target value of the focus to be achieved to
