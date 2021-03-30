@@ -10,13 +10,13 @@ class DataLabeler:
     as specifying the target labels.
 
     Args:
-        clf (function):
+        function (method):
             function that defines the labeling function, it should return a
             tuple of labeling function, the dataframe, and the name of the
             target entity.
     """
-    def __init__(self, clf):
-        self.clf = clf
+    def __init__(self, function):
+        self.function = function
 
     def generate_label_times(self, es, *args, **kwargs):
       """Searches the data to calculate label times.
@@ -32,7 +32,7 @@ class DataLabeler:
             composeml.LabelTimes: 
                 Calculated labels with cutoff times.
       """
-      labeling_function, df, meta = self.clf(es)
+      labeling_function, df, meta = self.function(es)
       kwargs = {**meta, **kwargs}
       target_entity = kwargs.get('target_entity')
       time_index = kwargs.get('time_index')
@@ -47,6 +47,6 @@ class DataLabeler:
                                        *args,
                                        **kwargs)
       if thresh is not None:
-          label_times.threshold(thresh)
+          label_times = label_times.threshold(thresh)
 
       return label_times, kwargs.get('entity')

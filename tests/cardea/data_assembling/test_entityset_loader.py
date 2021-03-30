@@ -5,7 +5,7 @@ import featuretools as ft
 import pandas as pd
 import pytest
 
-from cardea.data_loader import EntitySetLoader
+from cardea.data_assembling import EntitySetLoader
 
 
 @pytest.fixture()

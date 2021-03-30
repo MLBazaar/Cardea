@@ -3,7 +3,7 @@ from glob import glob
 import featuretools as ft
 import pandas as pd
 
-from cardea.data_loader import DataLoader, Diamond
+from cardea.data_assembling import DataLoader, Diamond
 
 
 class EntitySetLoader(DataLoader):
@@ -23,14 +23,15 @@ class EntitySetLoader(DataLoader):
 
             id = identifiers[object_name]
             df = df.apply(pd.to_numeric, errors='ignore')
+            df.columns = map(str.lower, df.columns)
 
             if object_name == 'Period':
-                entity_set.entity_from_dataframe(entity_id=str(object_name),
+                entity_set.entity_from_dataframe(entity_id=str(object_name).lower(),
                                                  dataframe=df,
                                                  index=id,
                                                  time_index="start")
             else:
-                entity_set.entity_from_dataframe(entity_id=str(object_name),
+                entity_set.entity_from_dataframe(entity_id=str(object_name).lower(),
                                                  dataframe=df,
                                                  index=id)
 

@@ -3,7 +3,7 @@
 
 import pytest
 
-from cardea.data_loader.load_mimic import get_table_properties, get_table_relationships
+from cardea.data_assembling.load_mimic import get_table_properties, get_table_relationships
 
 
 @pytest.fixture()

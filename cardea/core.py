@@ -8,6 +8,7 @@ import os
 import pickle
 from inspect import isclass
 from io import BytesIO
+from functools import partial
 from urllib.request import urlopen
 from zipfile import ZipFile
 
@@ -15,12 +16,12 @@ import featuretools as ft
 import pandas as pd
 
 import cardea
-from cardea.data_loader import EntitySetLoader, load_mimic_data
-from cardea.featurization import Featurization
+from cardea.data_assembling import EntitySetLoader, load_mimic_data
+from cardea.featurizing import Featurization
 from cardea.modeling import Modeler
-from cardea.problem_definition import (
-    DiagnosisPrediction, LengthOfStay, MissedAppointment, MortalityPrediction,
-    ProlongedLengthOfStay, Readmission)
+from cardea.data_labeling import (
+    diagnosis_prediction, length_of_stay, appointment_no_show, mortality,
+    readmission)
 
 LOGGER = logging.getLogger(__name__)
 
@@ -145,19 +146,17 @@ class Cardea():
 
         # problem selection
         if selection == 'LengthOfStay':
-            self.chosen_problem = LengthOfStay()
+            self.chosen_problem = length_of_stay
 
         elif selection == 'MortalityPrediction':
-            self.chosen_problem = MortalityPrediction()
+            self.chosen_problem = mortality
 
         elif selection == 'MissedAppointment':
-            self.chosen_problem = MissedAppointment()
-
-        elif selection == 'ProlongedLengthOfStay' and parameter:
-            self.chosen_problem = ProlongedLengthOfStay(parameter)
+            self.chosen_problem = appointment_no_show
 
         elif selection == 'ProlongedLengthOfStay':
-            self.chosen_problem = ProlongedLengthOfStay()
+            plos = partial(length_of_stay, parameter)
+            self.chosen_problem = plos
 
         elif selection == 'Readmission' and parameter:
             self.chosen_problem = Readmission(parameter)
@@ -166,7 +165,8 @@ class Cardea():
             self.chosen_problem = Readmission()
 
         elif selection == 'DiagnosisPrediction' and parameter:
-            self.chosen_problem = DiagnosisPrediction(parameter)
+            diag = partial(diagnosis_prediction, parameter)
+            self.chosen_problem = diag
 
         elif selection == 'DiagnosisPrediction':
             raise ValueError('unspecified diagnosis code')

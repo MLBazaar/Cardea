@@ -4,7 +4,7 @@
 import pandas as pd
 import pytest
 
-from cardea.data_loader import DataLoader, Diamond
+from cardea.data_assembling import DataLoader, Diamond
 
 
 @pytest.fixture()

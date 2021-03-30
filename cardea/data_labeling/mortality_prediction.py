@@ -1,145 +1,47 @@
 import pandas as pd
 
-from cardea.data_loader import DataLoader
-from cardea.problem_definition import ProblemDefinition
+from cardea.data_labeling.utils import denormalize
 
+MIMIC_META = {
+    'entity': 'admissions',
+    'target_entity': 'hadm_id',
+    'time_index': 'admittime',
+}
 
-class MortalityPrediction (ProblemDefinition):
-    """Defines the problem of diagnosis Prediction.
+FHIR_META = {
+    'entity': 'encounter',
+    'target_entity': 'identifier',
+    'time_index': 'start',
+}
 
-    Finding whether a patient will be diagnosed with a specifed diagnosis.
-
-    Args:
-        target_label_column_name (str):
-            The target label of the prediction problem.
-        target_entity (str):
-            Name of the entity containing the target label.
-        cutoff_time_label (str):
-            The cutoff time label of the prediction problem.
-        cutoff_entity (str):
-            Name of the entity containing the cutoff time label.
-        prediction_type (str):
-            The type of the machine learning prediction.
+def mortality(es):
+    """Defines the labeling task of length of stay. 
+    
+    Predict how many days the patient will be in the hospital. For 
+    a classification version of the problem, specify k.
     """
-    __name__ = 'mortality'
+    def mortal(ds, **kwargs):
+        return ds['hospital_expire_flag'].sum() > 0
 
-    updated_es = None
-    target_label_column_name = 'diagnosis'
-    target_entity = 'Encounter'
-    cutoff_time_label = 'start'
-    cutoff_entity = 'Period'
-    prediction_type = 'classification'
-    conn = 'period'
-    causes_of_death = ['X60', 'X84', 'Y87.0', 'X85', 'Y09',
-                       'Y87.1', 'V02', 'V04', 'V09.0', 'V09.2', 'V12', 'V14']
+    if es.id == 'mimic':
+        meta = MIMIC_META
+        entities = ['admissions']
 
-    def generate_cutoff_times(self, es):
-        """Generates cutoff times for the prediction problem.
+    elif es.id == 'fhir':
+        meta = FHIR_META
+        entities = ['encounter', 'encounter_diagnosis', 'condition', 
+                    'codeableconcept', 'coding', 'period']
 
-        Args:
-            es (featuretools.EntitySet):
-                An EntitySet with the loaded data.
+    meta['type'] = 'classification'
+    meta['num_examples_per_instance'] = 1
 
-        Returns:
-            featuretools.EntitySet, str, pandas.DataFrame:
-                * An updated EntitySet if a new column is generated.
-                * A string indicating the selected target entity.
-                * A dataframe of cutoff times and their target labels.
+    df = denormalize(es, entities=entities)
+    
+    # generate label
+    if es.id == 'fhir':
+        causes_of_death = ['X60', 'X84', 'Y87.0', 'X85', 'Y09', 'Y87.1', 
+                           'V02', 'V04', 'V09.0', 'V09.2', 'V12', 'V14']
 
-        Raises:
-            ValueError: An error occurs if the cutoff variable does not exist.
-        """
+        df['hospital_expire_flag'] = int(df['code'].isin(causes_of_death))
 
-        es = self.generate_target_label(es)
-
-        if DataLoader().check_column_existence(
-            es,
-            self.cutoff_entity,
-                self.cutoff_time_label):  # check the existance of the cutoff label
-
-            generated_cts = self.unify_cutoff_time_admission_time(
-                es, self.cutoff_entity, self.cutoff_time_label)
-
-            es = es.entity_from_dataframe(entity_id=self.cutoff_entity,
-                                          dataframe=generated_cts,
-                                          index='object_id')
-
-            cutoff_times = es[self.cutoff_entity].df['ct'].to_frame()
-
-            label = es[self.target_entity].df[self.conn].values
-            instance_id = list(es[self.target_entity].df.index)
-            cutoff_times = cutoff_times.reindex(index=label)
-
-            cutoff_times = cutoff_times[cutoff_times.index.isin(label)]
-            cutoff_times['instance_id'] = instance_id
-            cutoff_times.columns = ['time', 'instance_id']
-
-            cutoff_times['label'] = list(es[self.target_entity].df[self.target_label_column_name])
-
-            for (idx, row) in cutoff_times.iterrows():
-                new_val = row.loc['label'] in self.causes_of_death
-                cutoff_times.at[idx, 'label'] = new_val
-
-            return(es, self.target_entity, cutoff_times)
-        else:
-            raise ValueError('Cutoff time label {} in table {} does not exist'.format(
-                self.cutoff_time_label, self.target_entity))
-
-    def generate_target_label(self, es):
-        """Generates target labels in the case of having missing label in the entityset.
-
-        Args:
-            es: fhir entityset.
-
-        Returns:
-            Updated entityset with the generated label.
-
-        Raises:
-            ValueError: An error occurs if the target label cannot be generated.
-        """
-        generate_from = 'Period'
-        if (self.check_target_label(
-            es,
-            self.target_entity,
-                self.target_label_column_name)):
-
-            if not DataLoader().check_for_missing_values(es,
-                                                         self.target_entity,
-                                                         self.target_label_column_name):
-                entity_set_df = es[self.target_entity].df
-
-                merging_coding = pd.merge(es['Coding'].df, es['CodeableConcept'].df,
-                                          left_on='object_id', right_on='coding', how='left')
-                merging_condtion = pd.merge(merging_coding, es['Condition'].df,
-                                            left_on='object_id_y', right_on='code', how='left')
-                merging_diagnosis = pd.merge(
-                    merging_condtion,
-                    es['Encounter_Diagnosis'].df,
-                    left_on='identifier',
-                    right_on='condition', how='left')
-
-                merging_encouter = pd.merge(merging_diagnosis, es[self.target_entity].df,
-                                            left_on='subject', right_on='identifier', how='left')
-                merging_encouter['target'] = merging_encouter['code_x']
-
-                set(es[self.target_entity].df.identifier)
-
-                entity_set_df[self.target_label_column_name] = list(merging_encouter['target'])
-
-                es = es.entity_from_dataframe(entity_id=self.target_entity,
-                                              dataframe=entity_set_df,
-                                              index='identifier')
-
-                return es
-
-            else:
-                raise ValueError(
-                    'Can not generate target label {} in table {} beacuse end label in \
-                     table {} contains missing value.'.format(
-                        self.target_label_column_name, self. target_entity, generate_from))
-
-        else:
-            raise ValueError(
-                'Can not generate target label {} in table {}.'.format(
-                    self.target_label_column_name,
-                    self.target_entity))
+    return mortal, df, meta
