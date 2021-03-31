@@ -68,6 +68,7 @@ docs/cardea.rst
 docs/cardea.*.rst
 docs/modules.rst
 docs/api
+docs/api_reference/api
 
 # PyBuilder
 target/
@@ -113,3 +114,7 @@ ENV/
 
 # IntelliJ Idea
 .idea/
+
+# output
+data/
+*.csv

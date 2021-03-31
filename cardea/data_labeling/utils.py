@@ -1,4 +1,5 @@
-import inspect
+import pandas as pd
+
 
 def _search_relationship(es, left, right):
     for r in es.relationships:
@@ -32,7 +33,7 @@ def denormalize(es, entities):
             selected entities.
     """
     k = len(entities)
-    
+
     # initial entity to start from (should be the target entity)
     first = entities[0]
     previous = [first]
@@ -48,5 +49,5 @@ def denormalize(es, entities):
                       how='left', suffixes=('', '_y')).filter(regex='^(?!.*_y)')
 
         previous.append(right)
-        
+
     return df

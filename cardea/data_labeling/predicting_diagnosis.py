@@ -1,4 +1,3 @@
-import pandas as pd
 
 from cardea.data_labeling.utils import denormalize
 
@@ -14,10 +13,11 @@ FHIR_META = {
     'time_index': 'start',
 }
 
+
 def diagnosis_prediction(es, diag):
-    """Defines the labeling task of length of stay. 
-    
-    Predict how many days the patient will be in the hospital. For 
+    """Defines the labeling task of length of stay.
+
+    Predict how many days the patient will be in the hospital. For
     a classification version of the problem, specify k.
     """
     def diagnosis(ds, **kwargs):
@@ -30,7 +30,7 @@ def diagnosis_prediction(es, diag):
 
     elif es.id == 'fhir':
         meta = FHIR_META
-        entities = ['encounter', 'encounter_diagnosis', 'condition', 
+        entities = ['encounter', 'encounter_diagnosis', 'condition',
                     'codeableconcept', 'coding', 'period']
         column = 'code'
 
@@ -38,5 +38,5 @@ def diagnosis_prediction(es, diag):
     meta['num_examples_per_instance'] = 1
 
     df = denormalize(es, entities=entities)
-   
+
     return diagnosis, df, meta

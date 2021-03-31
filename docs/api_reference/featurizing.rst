@@ -1,9 +1,9 @@
-.. _cardea.featurization:
+.. _cardea.featurizing:
 
 cardea.featurization
 ====================
 
-.. currentmodule:: cardea.featurization
+.. currentmodule:: cardea.featurizing
 
 Featurization
 ~~~~~~~~~~~~~~~~~

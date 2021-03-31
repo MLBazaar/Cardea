@@ -46,12 +46,12 @@ def entityset(objects, es_loader):
 
 
 @pytest.fixture()
-def cutoff():
-    cutoff = pd.DataFrame({"instance_id": [10, 11, 12],
-                           "time": ['1/1/2000 20:00', '2/1/2000 5:00', '3/1/2000 22:00']})
+def label_times():
+    label_times = pd.DataFrame({"instance_id": [10, 11, 12],
+                                "time": ['1/1/2000 20:00', '2/1/2000 5:00', '3/1/2000 22:00']})
 
-    cutoff['time'] = pd.to_datetime(cutoff['time'])
-    return cutoff
+    label_times['time'] = pd.to_datetime(label_times['time'])
+    return label_times
 
 
 @pytest.fixture()
@@ -59,7 +59,7 @@ def featurization():
     return Featurization()
 
 
-def test_generate_feature_matrix(featurization, entityset, cutoff):
+def test_generate_feature_matrix(featurization, entityset, label_times):
     fm_encoded, features_encoded = featurization.generate_feature_matrix(
-        entityset, "Encounter", cutoff)
+        entityset, "Encounter", label_times)
     assert len(fm_encoded) == 3 and len(fm_encoded.columns) == 32

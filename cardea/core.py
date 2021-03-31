@@ -6,9 +6,9 @@ tying all components together, as well as the interact with them.
 import logging
 import os
 import pickle
-from inspect import isclass
-from io import BytesIO
 from functools import partial
+from inspect import ismethod
+from io import BytesIO
 from urllib.request import urlopen
 from zipfile import ZipFile
 
@@ -17,11 +17,9 @@ import pandas as pd
 
 import cardea
 from cardea.data_assembling import EntitySetLoader, load_mimic_data
+from cardea.data_labeling import DataLabeler
 from cardea.featurizing import Featurization
 from cardea.modeling import Modeler
-from cardea.data_labeling import (
-    diagnosis_prediction, length_of_stay, appointment_no_show, mortality,
-    readmission)
 
 LOGGER = logging.getLogger(__name__)
 
@@ -73,8 +71,6 @@ class Cardea():
             data (str):
                 A directory of all .csv files that should be loaded. To load demo dataset,
                 pass the name of the dataset "kaggle" or "mimic".
-            fhir (bool):
-                An indicator of whether to use FHIR or MIMIC schema.
 
         Returns:
             featuretools.EntitySet:
@@ -82,12 +78,12 @@ class Cardea():
         """
         demo = ['kaggle', 'mimic']
         if not os.path.exists(data) and data in demo:
-            data = self.download_demo(data)
+            path = self.download_demo(data)
 
-        if fhir:
-            self.es = self.es_loader.load_data_entityset(data)
-        else:
-            self.es = load_mimic_data(data)
+        if data == "kaggle":
+            self.es = self.es_loader.load_data_entityset(path)
+        elif data == "mimic":
+            self.es = load_mimic_data(path)
 
     @staticmethod
     def download_demo(name, data_path=DATA_PATH):
@@ -100,9 +96,9 @@ class Cardea():
         LOGGER.info('Downloading dataset %s from %s', name, url)
         for file in compressed.namelist():
             filename = os.path.join(data_path, file)
-            csv_file = compressed.open(file)
+            csv_file = compressed.open(file, 'r')
 
-            data = pd.read_csv(csv_file, dtype=str)
+            data = pd.read_csv(csv_file, dtype=str, encoding="utf-8")
             data.to_csv(filename, index=False)
 
         return data_path
@@ -116,24 +112,25 @@ class Cardea():
         """
 
         problems = set([])
-        for attribute_string in dir(cardea.problem_definition):
-            attribute = getattr(cardea.problem_definition, attribute_string)
-            if isclass(attribute):
-                if attribute.__name__ and attribute.__name__ != 'ProblemDefinition':
-                    problems.add(attribute.__name__)
+        for attribute_string in dir(cardea.data_labeling):
+            attribute = getattr(cardea.data_labeling, attribute_string)
+            if ismethod(attribute):
+                problems.add(attribute.__name__)
 
         return problems
 
-    def select_problem(self, selection, parameter=None):
+    def select_problem(self, function, parameter=None, **kwargs):
         """Select a prediction problem and extract information.
 
         Update the select_problem attribute and generate the cutoff times,
         the target entity and update the entityset.
 
         Args:
-            selection (str):
-                Name of the chosen prediction problem.
-            parameters (dict):
+            function (method):
+                function that defines the prediction task, it should return a
+                tuple of labeling function, the dataframe, and the name of the
+                target entity.
+            parameter (dict):
                 Variables to change the default parameters, if any.
 
         Returns:
@@ -142,50 +139,26 @@ class Cardea():
                 * A string indicating the selected target entity.
                 * A dataframe of cutoff times and their target labels.
         """
-        LOGGER.info("Selecting %s prediction problem", selection)
+        LOGGER.info("Selecting %s prediction problem", str(function))
 
-        # problem selection
-        if selection == 'LengthOfStay':
-            self.chosen_problem = length_of_stay
+        if parameter:
+            function = partial(function, parameter)
 
-        elif selection == 'MortalityPrediction':
-            self.chosen_problem = mortality
-
-        elif selection == 'MissedAppointment':
-            self.chosen_problem = appointment_no_show
-
-        elif selection == 'ProlongedLengthOfStay':
-            plos = partial(length_of_stay, parameter)
-            self.chosen_problem = plos
-
-        elif selection == 'Readmission' and parameter:
-            self.chosen_problem = Readmission(parameter)
-
-        elif selection == 'Readmission':
-            self.chosen_problem = Readmission()
-
-        elif selection == 'DiagnosisPrediction' and parameter:
-            diag = partial(diagnosis_prediction, parameter)
-            self.chosen_problem = diag
-
-        elif selection == 'DiagnosisPrediction':
-            raise ValueError('unspecified diagnosis code')
-
-        else:
-            raise ValueError('{} is not a defined problem'.format(selection))
+        data_labeler = DataLabeler(function)
 
         # target label calculation
-        self.es, self.target_entity, cutoff = self.chosen_problem.generate_cutoff_times(self.es)
+        label_times, self.target_entity, self.prediction_type = data_labeler.generate_label_times(
+            self.es)
 
         # set default pipeline
-        if self.chosen_problem.prediction_type == "classification":
+        if self.prediction_type == "classification":
             pipeline = "Random Forest"
         else:
             pipeline = "Random Forest Regressor"
 
-        self.modeler = Modeler(pipeline, self.chosen_problem.prediction_type)
+        self.modeler = Modeler(pipeline, self.prediction_type)
 
-        return cutoff
+        return label_times
 
     def list_feature_primitives(self):
         """Returns built-in primitive in Featuretools.
@@ -196,13 +169,13 @@ class Cardea():
         """
         return ft.list_primitives()
 
-    def generate_features(self, cutoff):
+    def generate_features(self, label_times, verbose=False):
         """Returns a the calculated feature matrix.
 
         Args:
             es (featuretools.EntitySet):
                 An entityset that holds data.
-            cutoff (pandas.DataFrame):
+            label_times (pandas.DataFrame):
                 A dataframe that indicates cutoff time for each instance.
 
         Returns:
@@ -212,7 +185,7 @@ class Cardea():
         """
 
         fm_encoded, _ = self.featurization.generate_feature_matrix(
-            self.es, self.target_entity, cutoff)
+            self.es, self.target_entity, label_times, verbose=verbose)
         fm_encoded = fm_encoded.reset_index(drop=True)
         return fm_encoded
 
@@ -224,7 +197,7 @@ class Cardea():
                 A pipeline instance or the name/path of a pipeline.
         """
         LOGGER.info("Selecting %s pipeline", pipeline)
-        self.modeler = Modeler(pipeline, self.chosen_problem.prediction_type)
+        self.modeler = Modeler(pipeline, self.prediction_type)
 
     def train_test_split(self, X, y, test_size, shuffle):
         """Split the training dataset and the testing dataset.

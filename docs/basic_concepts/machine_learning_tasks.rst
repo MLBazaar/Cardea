@@ -34,9 +34,11 @@ values in the **Missed Appointment** task:
 .. ipython:: python
 
     from cardea import Cardea
+    from cardea.data_labeling import appointment_no_show
+
     cardea = Cardea()
     cardea.load_entityset(data='kaggle')
-    cardea.select_problem('MissedAppointment')
+    cardea.select_problem(appointment_no_show)
 
 Current Prediction Problems
 ---------------------------
@@ -57,10 +59,4 @@ these are described as follows:
 6. Readmission:
    a. Predicts whether a patient will revisit the hospital within certain period of time (a month by default).
 
-You can see the list of problems using the ``list_problems(...)`` method, example:
-
-.. ipython:: python
-
-    from cardea import Cardea
-    cardea = Cardea()
-    cardea.list_problems()
+You can see the list of problems using the ``list_problems(...)`` method

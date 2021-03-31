@@ -14,10 +14,11 @@ FHIR_META = {
     'time_index': 'start',
 }
 
+
 def length_of_stay(es, k=None):
-    """Defines the labeling task of length of stay. 
-    
-    Predict how many days the patient will be in the hospital. For 
+    """Defines the labeling task of length of stay.
+
+    Predict how many days the patient will be in the hospital. For
     a classification version of the problem, specify k.
     """
     def los(ds, **kwargs):
@@ -43,11 +44,10 @@ def length_of_stay(es, k=None):
         meta['thresh'] = k
 
     df = denormalize(es, entities=entities)
-    
+
     # generate label
     df[end] = pd.to_datetime(df[end])
     df[start] = pd.to_datetime(df[start])
     df['los'] = df[end] - df[start]
 
     return los, df, meta
-    

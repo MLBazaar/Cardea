@@ -10,7 +10,7 @@ library to help you get started.
 .. toctree::
     :maxdepth: 3
 
-    data_loading
+    data_assembling
     machine_learning_tasks
     auto_featurization
     auto_ml

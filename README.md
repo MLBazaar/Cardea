@@ -104,13 +104,15 @@ The output shown represents the entityset data structure where ``cardea.es`` is 
 From there, you can select the prediction problem you aim to solve by specifying the name of the class, which in return gives us the ``label_times`` of the problem.
 
 ```python3
-label_times = cardea.select_problem('MissedAppointment')
+from cardea.data_labeling import appointment_no_show
+
+label_times = cardea.select_problem(appointment_no_show)
 ```
 
 ``label_times`` summarizes for each instance in the dataset (1) what is its corresponding label of the instance and (2) what is the time index that indicates the timespan allowed for calculating features that pertain to each instance in the dataset.
 
 ```bash
-          cutoff_time     instance_id        label
+          cutoff_time     instance_id       missed
 0 2015-11-10 07:13:56	      5030230       noshow
 1 2015-12-03 08:17:28	      5122866    fulfilled
 2 2015-12-07 10:40:59	      5134197    fulfilled
@@ -132,7 +134,7 @@ feature_matrix = cardea.generate_features(label_times[:1000])
 Once we have the features, we can now split the data into training and testing
 
 ```python3
-y = list(feature_matrix.pop('label'))
+y = list(feature_matrix.pop('missed'))
 
 X = feature_matrix.values
 

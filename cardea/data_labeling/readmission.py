@@ -14,10 +14,11 @@ FHIR_META = {
     'time_index': 'end'
 }
 
+
 def readmission(es, k=30):
-    """Defines the labeling task of length of stay. 
-    
-    Predict how many days the patient will be in the hospital. For 
+    """Defines the labeling task of length of stay.
+
+    Predict how many days the patient will be in the hospital. For
     a classification version of the problem, specify k.
     """
     def readmit(ds, **kwargs):
@@ -42,7 +43,7 @@ def readmission(es, k=30):
     meta['num_examples_per_instance'] = 2
 
     df = denormalize(es, entities=entities)
-    
+
     # generate label
     df[end] = pd.to_datetime(df[end])
     df[start] = pd.to_datetime(df[start])

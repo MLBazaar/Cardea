@@ -9,8 +9,7 @@ In this section you will find a detailed specification of all the public functio
    :maxdepth: 2
 
    cardea
-   data_loader
-   problem_definition
-   featurization
+   data_assembling
+   featurizing
    modeling
    fhir

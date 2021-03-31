@@ -32,8 +32,10 @@ You can see the list of problem definitions and select one with the following co
 From there, you can select the prediction problem you aim to solve by specifying the name of the class, which in return gives us the ``label_times`` of the problem. 
 
 .. ipython:: python
+    
+    from cardea.data_labeling import appointment_no_show 
 
-    label_times = cardea.select_problem('MissedAppointment')
+    label_times = cardea.select_problem(appointment_no_show)
     label_times.head()
 
 Then, you can perform the AutoML steps and take advantage of Cardea.
@@ -51,7 +53,7 @@ Once we have the features, we can now split the data into training and testing
  .. ipython:: python
      :okwarning:
 
-     y = list(feature_matrix.pop('label'))
+     y = list(feature_matrix.pop('missed'))
      X = feature_matrix.values
 
      X_train, X_test, y_train, y_test = cardea.train_test_split(

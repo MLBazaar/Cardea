@@ -2,5 +2,5 @@
 # -*- coding: utf-8 -*-
 
 
-def test_something():
+def test_data_labeler():
     pass

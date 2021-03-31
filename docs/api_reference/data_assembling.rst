@@ -1,9 +1,9 @@
-.. _cardea.data_loader:
+.. _cardea.data_assembling:
 
 cardea.data_loader
 ==================
 
-.. currentmodule:: cardea.data_loader
+.. currentmodule:: cardea.data_assembling
 
 EntitySet Loader
 ~~~~~~~~~~~~~~~~

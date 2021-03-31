@@ -26,12 +26,12 @@ class EntitySetLoader(DataLoader):
             df.columns = map(str.lower, df.columns)
 
             if object_name == 'Period':
-                entity_set.entity_from_dataframe(entity_id=str(object_name).lower(),
+                entity_set.entity_from_dataframe(entity_id=str(object_name),
                                                  dataframe=df,
                                                  index=id,
                                                  time_index="start")
             else:
-                entity_set.entity_from_dataframe(entity_id=str(object_name).lower(),
+                entity_set.entity_from_dataframe(entity_id=str(object_name),
                                                  dataframe=df,
                                                  index=id)
 

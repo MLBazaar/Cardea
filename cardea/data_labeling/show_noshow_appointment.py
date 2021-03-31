@@ -1,10 +1,10 @@
 
-import pandas as pd
 
 from cardea.data_labeling.utils import denormalize
 
+
 def appointment_no_show(es):
-    """Defines the labeling task of appointment no show. 
+    """Defines the labeling task of appointment no show.
     """
     def missed(ds, **kwargs):
         return True if 'noshow' in ds["status"].values else False
@@ -14,12 +14,12 @@ def appointment_no_show(es):
 
     meta = {
         "entity": "Appointment",
-        "target_entity": "identifier", # automatically, should this be the index of the table?
+        "target_entity": "identifier",  # automatically, should this be the index of the table?
         "time_index": "created",
         "type": "classification",
         "num_examples_per_instance": 1
     }
 
     df = denormalize(es, entities=['Appointment'])
-    
+
     return missed, df, meta
