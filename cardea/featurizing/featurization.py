@@ -22,7 +22,7 @@ class Featurization():
     def max_depth():
         return 2
 
-    def generate_feature_matrix(self, es, target, cutoff, verbose=True):
+    def generate_feature_matrix(self, es, target, cutoff, verbose=True, encode=False):
         """Calculates a feature matrix and features given in Featurization object.
 
           Args:
@@ -35,6 +35,8 @@ class Featurization():
               Specified times at which to calculate the features for each instance.
             verbose (bool):
               An indicator of verbose option.
+            encode (bool):
+              Whether or not to encode categorical features
 
           Returns:
             pandas.DataFrame, list:
@@ -51,8 +53,7 @@ class Featurization():
                                                max_depth=self.max_depth(),
                                                verbose=verbose)
 
-        # encode categorical values
-        fm_encoded, features_encoded = ft.encode_features(feature_matrix,
-                                                          features_defs)
+        if encode:
+            return ft.encode_features(feature_matrix, features_defs)
 
-        return fm_encoded, features_encoded
+        return feature_matrix, features_defs

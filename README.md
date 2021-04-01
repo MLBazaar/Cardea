@@ -69,16 +69,15 @@ To use this dataset download the data from here then unzip it in the root direct
 ```bash
 curl -O https://dai-cardea.s3.amazonaws.com/kaggle.zip && unzip -d kaggle kaggle.zip
 ```
-To load the data, supply the ``data`` to the loader using the following command:
+To load the data, supply the ``data_path`` to the loader. By default, ``cardea`` loads the kaggle dataset
 
 ```python3
-cardea.load_entityset(data='kaggle')
+cardea.load_entityset(data_path='cardea/data/kaggle', fhir=True) 
 ```
-> :bulb: To load local data, pass the folder path to ``data``.
 
 To verify that the data has been loaded, you can find the loaded entityset by viewing ``cardea.es`` which should output the following:
 
-```bash
+```
 Entityset: kaggle
   Entities:
     Address [Rows: 81, Columns: 2]
@@ -104,20 +103,18 @@ The output shown represents the entityset data structure where ``cardea.es`` is 
 From there, you can select the prediction problem you aim to solve by specifying the name of the class, which in return gives us the ``label_times`` of the problem.
 
 ```python3
-from cardea.data_labeling import appointment_no_show
-
-label_times = cardea.select_problem(appointment_no_show)
+label_times = cardea.create_label_times()
 ```
 
 ``label_times`` summarizes for each instance in the dataset (1) what is its corresponding label of the instance and (2) what is the time index that indicates the timespan allowed for calculating features that pertain to each instance in the dataset.
 
-```bash
-          cutoff_time     instance_id       missed
-0 2015-11-10 07:13:56	      5030230       noshow
-1 2015-12-03 08:17:28	      5122866    fulfilled
-2 2015-12-07 10:40:59	      5134197    fulfilled
-3 2015-12-07 10:42:42	      5134220       noshow
-4 2015-12-07 10:43:01	      5134223       noshow
+```
+  identifier               time  missed
+0 5030230   2015-11-10 07:13:56   True
+1 5122866   2015-12-03 08:17:28   False
+2 5134197   2015-12-07 10:40:59   False
+3 5134220   2015-12-07 10:42:42   True
+4 5134223   2015-12-07 10:43:01   True
 ```
 
 You can read more about ``label_times`` [here](https://mlbazaar.github.io/Cardea/basic_concepts/machine_learning_tasks.html).
@@ -134,8 +131,7 @@ feature_matrix = cardea.generate_features(label_times[:1000])
 Once we have the features, we can now split the data into training and testing
 
 ```python3
-y = list(feature_matrix.pop('missed'))
-
+y = feature_matrix.pop('missed').values
 X = feature_matrix.values
 
 X_train, X_test, y_train, y_test = cardea.train_test_split(
@@ -145,7 +141,7 @@ X_train, X_test, y_train, y_test = cardea.train_test_split(
 Now that we have our feature matrix properly divided, we can use to train our machine learning pipeline, Modeling, optimizing hyperparameters and finding the most optimal model
 
 ```python3
-cardea.select_pipeline('Random Forest')
+cardea.set_pipeline('Random Forest')
 cardea.fit(X_train, y_train)
 y_pred = cardea.predict(X_test)
 ```
@@ -155,11 +151,11 @@ Finally, you can evaluate the performance of the model
 cardea.evaluate(X, y, test_size=0.2, shuffle=True)
 ```
 which returns the scoring metric depending on the type of problem
-```bash
-{'Accuracy': 0.75, 
- 'F1 Macro': 0.5098039215686274, 
- 'Precision': 0.5183001719479243, 
- 'Recall': 0.5123528436411872}
+```
+Accuracy     0.75
+F1 Macro     0.5098
+Precision    0.5183
+Recall       0.5123
 ```
 
 # Citation
@@ -167,7 +163,7 @@ If you use Cardea for your research, please consider citing the following paper:
 
 Sarah Alnegheimish; Najat Alrashed; Faisal Aleissa; Shahad Althobaiti; Dongyu Liu; Mansour Alsaleh; Kalyan Veeramachaneni. [Cardea: An Open Automated Machine Learning Framework for Electronic Health Records](https://arxiv.org/abs/2010.00509). [IEEE DSAA 2020](https://ieeexplore.ieee.org/document/9260104).
 
-```bash
+```
 @inproceedings{alnegheimish2020cardea,
   title={Cardea: An Open Automated Machine Learning Framework for Electronic Health Records},
   author={Alnegheimish, Sarah and Alrashed, Najat and Aleissa, Faisal and Althobaiti, Shahad and Liu, Dongyu and Alsaleh, Mansour and Veeramachaneni, Kalyan},
