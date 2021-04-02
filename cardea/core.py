@@ -8,7 +8,6 @@ import logging
 import os
 import pickle
 from functools import partial
-from inspect import ismethod
 from types import FunctionType
 from typing import List, Union
 
@@ -30,6 +29,7 @@ DEFAULT_FHIR = True
 DEFAULT_LABELER = appointment_no_show
 DEFAULT_PIPELINE = 'XGB'
 DEFAULT_METRICS = ["Accuracy", "F1 Macro", "Precision", "Recall"]
+
 
 class Cardea:
     """Cardea Class.
