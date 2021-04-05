@@ -24,16 +24,15 @@ class Featurization():
             es (featuretools.EntitySet):
                 An already initialized entityset.
             target (str):
-                Entity id of entity on which to make predictions.
+                Name of the entity (entity id) on which to make predictions.
             label_times (pandas.DataFrame):
-                Specifies times at which to calculate the features for each instance.
-                The resulting feature matrix will use data up to and including the cutoff time.
-                The instance ids for which to calculate features must be in a column with the
-                same name as the target entity index or a column named ``instance_id``.
-                The cutoff time values in the DataFrame must be in a column with the same name
-                as the target entity time index or a column named ``time``.
-                If the DataFrame has more than two columns, any additional columns will be added
-                to the resulting feature matrix.
+                A data frame that specifies the times at which to calculate the features 
+                for each instance. This data frame contains three columns ``instance_id``, 
+                ``time``, ``label``. The ``instance_id`` specifies the instances for 
+                which to calculate features over. The ``time`` column specifies the cutoff
+                time for each instance. Data before the cutoff time will be used for
+                calculating the feature matrix. The ``label`` column specifies the ground 
+                truth label (value we want to predict) for each instance.
             instance_ids (list):
                 List of instances on which to calculate features.
             agg_primitives (list):
@@ -67,7 +66,7 @@ class Featurization():
             include_cutoff_time (bool):
                 Include data at cutoff times in feature calculations. Defaults to ``True``.
             encode (bool):
-                Whether or not to encode categorical features.
+                Whether or not to encode categorical into one-hot features.
 
         Returns:
             pandas.DataFrame, list:
