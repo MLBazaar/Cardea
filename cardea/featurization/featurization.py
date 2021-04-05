@@ -26,12 +26,12 @@ class Featurization():
             target (str):
                 Name of the entity (entity id) on which to make predictions.
             label_times (pandas.DataFrame):
-                A data frame that specifies the times at which to calculate the features 
-                for each instance. This data frame contains three columns ``instance_id``, 
-                ``time``, ``label``. The ``instance_id`` specifies the instances for 
+                A data frame that specifies the times at which to calculate the features
+                for each instance. This data frame contains three columns ``instance_id``,
+                ``time``, ``label``. The ``instance_id`` specifies the instances for
                 which to calculate features over. The ``time`` column specifies the cutoff
                 time for each instance. Data before the cutoff time will be used for
-                calculating the feature matrix. The ``label`` column specifies the ground 
+                calculating the feature matrix. The ``label`` column specifies the ground
                 truth label (value we want to predict) for each instance.
             instance_ids (list):
                 List of instances on which to calculate features.
