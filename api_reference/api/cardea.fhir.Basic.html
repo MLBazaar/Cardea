@@ -4,10 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>cardea.fhir.Basic &#8212; Cardea 0.1.3.dev0 documentation</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,16 +21,12 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1e043a052b0af929e4d8.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -46,57 +44,62 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+
+    
     <a class="navbar-brand" href="../../index.html">
-    
       <p class="title">Cardea</p>
-    
     </a>
+    
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../getting_started/index.html">Getting Started</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../basic_concepts/index.html">Basic Concepts</a>
-        </li>
-        
-        <li class="nav-item active">
-            <a class="nav-link" href="../index.html">API Reference</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../community/index.html">Community</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../history.html">Release Notes</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../basic_concepts/index.html">
+  Basic Concepts
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../community/index.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../history.html">
+  Release Notes
+ </a>
+</li>
+
         
       </ul>
 
-
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/MLBazaar/Cardea" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/MLBazaar/Cardea" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -106,697 +109,832 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-    <div class="bd-toc-item active">
-    
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-          
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="../cardea.html">
+   cardea
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../data_loader.html">
+   cardea.data_loader
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../problem_definition.html">
+   cardea.problem_definition
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../featurization.html">
+   cardea.featurization
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../modeling.html">
+   cardea.modeling
+  </a>
+ </li>
+ <li class="toctree-l2 current active">
+  <a class="reference internal" href="../fhir.html">
+   cardea.fhir
+  </a>
+  <ul class="current">
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.fhirbase.html">
+     cardea.fhir.fhirbase
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Account.html">
+     cardea.fhir.Account
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ActivityDefinition.html">
+     cardea.fhir.ActivityDefinition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Address.html">
+     cardea.fhir.Address
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.AdverseEvent.html">
+     cardea.fhir.AdverseEvent
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Age.html">
+     cardea.fhir.Age
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.AllergyIntolerance.html">
+     cardea.fhir.AllergyIntolerance
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Annotation.html">
+     cardea.fhir.Annotation
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Appointment.html">
+     cardea.fhir.Appointment
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.AppointmentResponse.html">
+     cardea.fhir.AppointmentResponse
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Attachment.html">
+     cardea.fhir.Attachment
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.AuditEvent.html">
+     cardea.fhir.AuditEvent
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.BackboneElement.html">
+     cardea.fhir.BackboneElement
+    </a>
+   </li>
+   <li class="toctree-l3 current active">
+    <a class="current reference internal" href="#">
+     cardea.fhir.Basic
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Binary.html">
+     cardea.fhir.Binary
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.BodySite.html">
+     cardea.fhir.BodySite
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Bundle.html">
+     cardea.fhir.Bundle
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.CapabilityStatement.html">
+     cardea.fhir.CapabilityStatement
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.CarePlan.html">
+     cardea.fhir.CarePlan
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.CareTeam.html">
+     cardea.fhir.CareTeam
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ChargeItem.html">
+     cardea.fhir.ChargeItem
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Claim.html">
+     cardea.fhir.Claim
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ClaimResponse.html">
+     cardea.fhir.ClaimResponse
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ClinicalImpression.html">
+     cardea.fhir.ClinicalImpression
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.CodeableConcept.html">
+     cardea.fhir.CodeableConcept
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.CodeSystem.html">
+     cardea.fhir.CodeSystem
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Coding.html">
+     cardea.fhir.Coding
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Communication.html">
+     cardea.fhir.Communication
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.CommunicationRequest.html">
+     cardea.fhir.CommunicationRequest
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.CompartmentDefinition.html">
+     cardea.fhir.CompartmentDefinition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Composition.html">
+     cardea.fhir.Composition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ConceptMap.html">
+     cardea.fhir.ConceptMap
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Condition.html">
+     cardea.fhir.Condition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Consent.html">
+     cardea.fhir.Consent
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ContactDetail.html">
+     cardea.fhir.ContactDetail
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ContactPoint.html">
+     cardea.fhir.ContactPoint
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Contract.html">
+     cardea.fhir.Contract
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Contributor.html">
+     cardea.fhir.Contributor
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Count.html">
+     cardea.fhir.Count
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Coverage.html">
+     cardea.fhir.Coverage
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.DataElement.html">
+     cardea.fhir.DataElement
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.DataRequirement.html">
+     cardea.fhir.DataRequirement
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.DetectedIssue.html">
+     cardea.fhir.DetectedIssue
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Device.html">
+     cardea.fhir.Device
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.DeviceComponent.html">
+     cardea.fhir.DeviceComponent
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.DeviceMetric.html">
+     cardea.fhir.DeviceMetric
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.DeviceRequest.html">
+     cardea.fhir.DeviceRequest
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.DeviceUseStatement.html">
+     cardea.fhir.DeviceUseStatement
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.DiagnosticReport.html">
+     cardea.fhir.DiagnosticReport
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Distance.html">
+     cardea.fhir.Distance
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.DocumentManifest.html">
+     cardea.fhir.DocumentManifest
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.DocumentReference.html">
+     cardea.fhir.DocumentReference
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.DomainResource.html">
+     cardea.fhir.DomainResource
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Dosage.html">
+     cardea.fhir.Dosage
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Duration.html">
+     cardea.fhir.Duration
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Element.html">
+     cardea.fhir.Element
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ElementDefinition.html">
+     cardea.fhir.ElementDefinition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.EligibilityRequest.html">
+     cardea.fhir.EligibilityRequest
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.EligibilityResponse.html">
+     cardea.fhir.EligibilityResponse
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Encounter.html">
+     cardea.fhir.Encounter
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Endpoint.html">
+     cardea.fhir.Endpoint
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.EnrollmentRequest.html">
+     cardea.fhir.EnrollmentRequest
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.EnrollmentResponse.html">
+     cardea.fhir.EnrollmentResponse
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.EpisodeOfCare.html">
+     cardea.fhir.EpisodeOfCare
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ExpansionProfile.html">
+     cardea.fhir.ExpansionProfile
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ExplanationOfBenefit.html">
+     cardea.fhir.ExplanationOfBenefit
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Extension.html">
+     cardea.fhir.Extension
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.FamilyMemberHistory.html">
+     cardea.fhir.FamilyMemberHistory
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Flag.html">
+     cardea.fhir.Flag
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Goal.html">
+     cardea.fhir.Goal
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.GraphDefinition.html">
+     cardea.fhir.GraphDefinition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Group.html">
+     cardea.fhir.Group
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.GuidanceResponse.html">
+     cardea.fhir.GuidanceResponse
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.HealthcareService.html">
+     cardea.fhir.HealthcareService
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.HumanName.html">
+     cardea.fhir.HumanName
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Identifier.html">
+     cardea.fhir.Identifier
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ImagingManifest.html">
+     cardea.fhir.ImagingManifest
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ImagingStudy.html">
+     cardea.fhir.ImagingStudy
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Immunization.html">
+     cardea.fhir.Immunization
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ImmunizationRecommendation.html">
+     cardea.fhir.ImmunizationRecommendation
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ImplementationGuide.html">
+     cardea.fhir.ImplementationGuide
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Library.html">
+     cardea.fhir.Library
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Linkage.html">
+     cardea.fhir.Linkage
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.List.html">
+     cardea.fhir.List
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Location.html">
+     cardea.fhir.Location
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Measure.html">
+     cardea.fhir.Measure
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.MeasureReport.html">
+     cardea.fhir.MeasureReport
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Media.html">
+     cardea.fhir.Media
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Medication.html">
+     cardea.fhir.Medication
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.MedicationAdministration.html">
+     cardea.fhir.MedicationAdministration
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.MedicationDispense.html">
+     cardea.fhir.MedicationDispense
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.MedicationRequest.html">
+     cardea.fhir.MedicationRequest
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.MedicationStatement.html">
+     cardea.fhir.MedicationStatement
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.MessageDefinition.html">
+     cardea.fhir.MessageDefinition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.MessageHeader.html">
+     cardea.fhir.MessageHeader
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Meta.html">
+     cardea.fhir.Meta
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Money.html">
+     cardea.fhir.Money
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.NamingSystem.html">
+     cardea.fhir.NamingSystem
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Narrative.html">
+     cardea.fhir.Narrative
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.NutritionOrder.html">
+     cardea.fhir.NutritionOrder
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Observation.html">
+     cardea.fhir.Observation
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.OperationDefinition.html">
+     cardea.fhir.OperationDefinition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.OperationOutcome.html">
+     cardea.fhir.OperationOutcome
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Organization.html">
+     cardea.fhir.Organization
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ParameterDefinition.html">
+     cardea.fhir.ParameterDefinition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Parameters.html">
+     cardea.fhir.Parameters
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Patient.html">
+     cardea.fhir.Patient
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.PaymentNotice.html">
+     cardea.fhir.PaymentNotice
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.PaymentReconciliation.html">
+     cardea.fhir.PaymentReconciliation
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Period.html">
+     cardea.fhir.Period
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Person.html">
+     cardea.fhir.Person
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.PlanDefinition.html">
+     cardea.fhir.PlanDefinition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Practitioner.html">
+     cardea.fhir.Practitioner
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.PractitionerRole.html">
+     cardea.fhir.PractitionerRole
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Procedure.html">
+     cardea.fhir.Procedure
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ProcedureRequest.html">
+     cardea.fhir.ProcedureRequest
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ProcessRequest.html">
+     cardea.fhir.ProcessRequest
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ProcessResponse.html">
+     cardea.fhir.ProcessResponse
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Provenance.html">
+     cardea.fhir.Provenance
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Quantity.html">
+     cardea.fhir.Quantity
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Questionnaire.html">
+     cardea.fhir.Questionnaire
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.QuestionnaireResponse.html">
+     cardea.fhir.QuestionnaireResponse
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Range.html">
+     cardea.fhir.Range
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Ratio.html">
+     cardea.fhir.Ratio
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Reference.html">
+     cardea.fhir.Reference
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ReferralRequest.html">
+     cardea.fhir.ReferralRequest
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.RelatedArtifact.html">
+     cardea.fhir.RelatedArtifact
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.RelatedPerson.html">
+     cardea.fhir.RelatedPerson
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.RequestGroup.html">
+     cardea.fhir.RequestGroup
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ResearchStudy.html">
+     cardea.fhir.ResearchStudy
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ResearchSubject.html">
+     cardea.fhir.ResearchSubject
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Resource.html">
+     cardea.fhir.Resource
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ResourceList.html">
+     cardea.fhir.ResourceList
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.RiskAssessment.html">
+     cardea.fhir.RiskAssessment
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.SampledData.html">
+     cardea.fhir.SampledData
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Schedule.html">
+     cardea.fhir.Schedule
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.SearchParameter.html">
+     cardea.fhir.SearchParameter
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Sequence.html">
+     cardea.fhir.Sequence
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ServiceDefinition.html">
+     cardea.fhir.ServiceDefinition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Signature.html">
+     cardea.fhir.Signature
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Slot.html">
+     cardea.fhir.Slot
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Specimen.html">
+     cardea.fhir.Specimen
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.StructureDefinition.html">
+     cardea.fhir.StructureDefinition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.StructureMap.html">
+     cardea.fhir.StructureMap
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Subscription.html">
+     cardea.fhir.Subscription
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Substance.html">
+     cardea.fhir.Substance
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.SupplyDelivery.html">
+     cardea.fhir.SupplyDelivery
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.SupplyRequest.html">
+     cardea.fhir.SupplyRequest
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Task.html">
+     cardea.fhir.Task
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.TestReport.html">
+     cardea.fhir.TestReport
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.TestScript.html">
+     cardea.fhir.TestScript
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.Timing.html">
+     cardea.fhir.Timing
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.TriggerDefinition.html">
+     cardea.fhir.TriggerDefinition
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.UsageContext.html">
+     cardea.fhir.UsageContext
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.ValueSet.html">
+     cardea.fhir.ValueSet
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.fhir.VisionPrescription.html">
+     cardea.fhir.VisionPrescription
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
             
-                <li class="">
-                    <a href="../cardea.html">cardea</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../data_loader.html">cardea.data_loader</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../problem_definition.html">cardea.problem_definition</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../featurization.html">cardea.featurization</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../modeling.html">cardea.modeling</a>
-                </li>
-            
-          
-            
-  
-                <li class="active">
-                    <a href="../fhir.html">cardea.fhir</a>
-                    <ul>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.fhirbase.html">cardea.fhir.fhirbase</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Account.html">cardea.fhir.Account</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ActivityDefinition.html">cardea.fhir.ActivityDefinition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Address.html">cardea.fhir.Address</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.AdverseEvent.html">cardea.fhir.AdverseEvent</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Age.html">cardea.fhir.Age</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.AllergyIntolerance.html">cardea.fhir.AllergyIntolerance</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Annotation.html">cardea.fhir.Annotation</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Appointment.html">cardea.fhir.Appointment</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.AppointmentResponse.html">cardea.fhir.AppointmentResponse</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Attachment.html">cardea.fhir.Attachment</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.AuditEvent.html">cardea.fhir.AuditEvent</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.BackboneElement.html">cardea.fhir.BackboneElement</a>
-                        </li>
-                    
-                        <li class="active">
-                            <a href="">cardea.fhir.Basic</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Binary.html">cardea.fhir.Binary</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.BodySite.html">cardea.fhir.BodySite</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Bundle.html">cardea.fhir.Bundle</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.CapabilityStatement.html">cardea.fhir.CapabilityStatement</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.CarePlan.html">cardea.fhir.CarePlan</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.CareTeam.html">cardea.fhir.CareTeam</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ChargeItem.html">cardea.fhir.ChargeItem</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Claim.html">cardea.fhir.Claim</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ClaimResponse.html">cardea.fhir.ClaimResponse</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ClinicalImpression.html">cardea.fhir.ClinicalImpression</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.CodeableConcept.html">cardea.fhir.CodeableConcept</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.CodeSystem.html">cardea.fhir.CodeSystem</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Coding.html">cardea.fhir.Coding</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Communication.html">cardea.fhir.Communication</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.CommunicationRequest.html">cardea.fhir.CommunicationRequest</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.CompartmentDefinition.html">cardea.fhir.CompartmentDefinition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Composition.html">cardea.fhir.Composition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ConceptMap.html">cardea.fhir.ConceptMap</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Condition.html">cardea.fhir.Condition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Consent.html">cardea.fhir.Consent</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ContactDetail.html">cardea.fhir.ContactDetail</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ContactPoint.html">cardea.fhir.ContactPoint</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Contract.html">cardea.fhir.Contract</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Contributor.html">cardea.fhir.Contributor</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Count.html">cardea.fhir.Count</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Coverage.html">cardea.fhir.Coverage</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.DataElement.html">cardea.fhir.DataElement</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.DataRequirement.html">cardea.fhir.DataRequirement</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.DetectedIssue.html">cardea.fhir.DetectedIssue</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Device.html">cardea.fhir.Device</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.DeviceComponent.html">cardea.fhir.DeviceComponent</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.DeviceMetric.html">cardea.fhir.DeviceMetric</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.DeviceRequest.html">cardea.fhir.DeviceRequest</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.DeviceUseStatement.html">cardea.fhir.DeviceUseStatement</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.DiagnosticReport.html">cardea.fhir.DiagnosticReport</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Distance.html">cardea.fhir.Distance</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.DocumentManifest.html">cardea.fhir.DocumentManifest</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.DocumentReference.html">cardea.fhir.DocumentReference</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.DomainResource.html">cardea.fhir.DomainResource</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Dosage.html">cardea.fhir.Dosage</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Duration.html">cardea.fhir.Duration</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Element.html">cardea.fhir.Element</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ElementDefinition.html">cardea.fhir.ElementDefinition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.EligibilityRequest.html">cardea.fhir.EligibilityRequest</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.EligibilityResponse.html">cardea.fhir.EligibilityResponse</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Encounter.html">cardea.fhir.Encounter</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Endpoint.html">cardea.fhir.Endpoint</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.EnrollmentRequest.html">cardea.fhir.EnrollmentRequest</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.EnrollmentResponse.html">cardea.fhir.EnrollmentResponse</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.EpisodeOfCare.html">cardea.fhir.EpisodeOfCare</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ExpansionProfile.html">cardea.fhir.ExpansionProfile</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ExplanationOfBenefit.html">cardea.fhir.ExplanationOfBenefit</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Extension.html">cardea.fhir.Extension</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.FamilyMemberHistory.html">cardea.fhir.FamilyMemberHistory</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Flag.html">cardea.fhir.Flag</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Goal.html">cardea.fhir.Goal</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.GraphDefinition.html">cardea.fhir.GraphDefinition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Group.html">cardea.fhir.Group</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.GuidanceResponse.html">cardea.fhir.GuidanceResponse</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.HealthcareService.html">cardea.fhir.HealthcareService</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.HumanName.html">cardea.fhir.HumanName</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Identifier.html">cardea.fhir.Identifier</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ImagingManifest.html">cardea.fhir.ImagingManifest</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ImagingStudy.html">cardea.fhir.ImagingStudy</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Immunization.html">cardea.fhir.Immunization</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ImmunizationRecommendation.html">cardea.fhir.ImmunizationRecommendation</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ImplementationGuide.html">cardea.fhir.ImplementationGuide</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Library.html">cardea.fhir.Library</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Linkage.html">cardea.fhir.Linkage</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.List.html">cardea.fhir.List</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Location.html">cardea.fhir.Location</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Measure.html">cardea.fhir.Measure</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.MeasureReport.html">cardea.fhir.MeasureReport</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Media.html">cardea.fhir.Media</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Medication.html">cardea.fhir.Medication</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.MedicationAdministration.html">cardea.fhir.MedicationAdministration</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.MedicationDispense.html">cardea.fhir.MedicationDispense</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.MedicationRequest.html">cardea.fhir.MedicationRequest</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.MedicationStatement.html">cardea.fhir.MedicationStatement</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.MessageDefinition.html">cardea.fhir.MessageDefinition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.MessageHeader.html">cardea.fhir.MessageHeader</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Meta.html">cardea.fhir.Meta</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Money.html">cardea.fhir.Money</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.NamingSystem.html">cardea.fhir.NamingSystem</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Narrative.html">cardea.fhir.Narrative</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.NutritionOrder.html">cardea.fhir.NutritionOrder</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Observation.html">cardea.fhir.Observation</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.OperationDefinition.html">cardea.fhir.OperationDefinition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.OperationOutcome.html">cardea.fhir.OperationOutcome</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Organization.html">cardea.fhir.Organization</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ParameterDefinition.html">cardea.fhir.ParameterDefinition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Parameters.html">cardea.fhir.Parameters</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Patient.html">cardea.fhir.Patient</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.PaymentNotice.html">cardea.fhir.PaymentNotice</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.PaymentReconciliation.html">cardea.fhir.PaymentReconciliation</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Period.html">cardea.fhir.Period</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Person.html">cardea.fhir.Person</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.PlanDefinition.html">cardea.fhir.PlanDefinition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Practitioner.html">cardea.fhir.Practitioner</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.PractitionerRole.html">cardea.fhir.PractitionerRole</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Procedure.html">cardea.fhir.Procedure</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ProcedureRequest.html">cardea.fhir.ProcedureRequest</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ProcessRequest.html">cardea.fhir.ProcessRequest</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ProcessResponse.html">cardea.fhir.ProcessResponse</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Provenance.html">cardea.fhir.Provenance</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Quantity.html">cardea.fhir.Quantity</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Questionnaire.html">cardea.fhir.Questionnaire</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.QuestionnaireResponse.html">cardea.fhir.QuestionnaireResponse</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Range.html">cardea.fhir.Range</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Ratio.html">cardea.fhir.Ratio</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Reference.html">cardea.fhir.Reference</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ReferralRequest.html">cardea.fhir.ReferralRequest</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.RelatedArtifact.html">cardea.fhir.RelatedArtifact</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.RelatedPerson.html">cardea.fhir.RelatedPerson</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.RequestGroup.html">cardea.fhir.RequestGroup</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ResearchStudy.html">cardea.fhir.ResearchStudy</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ResearchSubject.html">cardea.fhir.ResearchSubject</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Resource.html">cardea.fhir.Resource</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ResourceList.html">cardea.fhir.ResourceList</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.RiskAssessment.html">cardea.fhir.RiskAssessment</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.SampledData.html">cardea.fhir.SampledData</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Schedule.html">cardea.fhir.Schedule</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.SearchParameter.html">cardea.fhir.SearchParameter</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Sequence.html">cardea.fhir.Sequence</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ServiceDefinition.html">cardea.fhir.ServiceDefinition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Signature.html">cardea.fhir.Signature</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Slot.html">cardea.fhir.Slot</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Specimen.html">cardea.fhir.Specimen</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.StructureDefinition.html">cardea.fhir.StructureDefinition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.StructureMap.html">cardea.fhir.StructureMap</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Subscription.html">cardea.fhir.Subscription</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Substance.html">cardea.fhir.Substance</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.SupplyDelivery.html">cardea.fhir.SupplyDelivery</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.SupplyRequest.html">cardea.fhir.SupplyRequest</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Task.html">cardea.fhir.Task</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.TestReport.html">cardea.fhir.TestReport</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.TestScript.html">cardea.fhir.TestScript</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.Timing.html">cardea.fhir.Timing</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.TriggerDefinition.html">cardea.fhir.TriggerDefinition</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.UsageContext.html">cardea.fhir.UsageContext</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.ValueSet.html">cardea.fhir.ValueSet</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.fhir.VisionPrescription.html">cardea.fhir.VisionPrescription</a>
-                        </li>
-                    
-                    </ul>
-                </li>
-            
-          
-        
-        
-        
-        
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
           
 
           
@@ -804,9 +942,7 @@
               
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
     
-    </ul>
 </nav>
 
 
@@ -815,11 +951,14 @@
           
 
           
+          
+            
+          
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
                 
-  <div class="section" id="cardea-fhir-basic">
+  <section id="cardea-fhir-basic">
 <h1>cardea.fhir.Basic<a class="headerlink" href="#cardea-fhir-basic" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="cardea.fhir.Basic">
@@ -882,7 +1021,7 @@ instance.</p></li>
 </table>
 </dd></dl>
 
-</div>
+</section>
 
 
               </div>
@@ -902,7 +1041,7 @@ instance.</p></li>
     </div>
 
     
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../../_static/js/index.1e043a052b0af929e4d8.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">

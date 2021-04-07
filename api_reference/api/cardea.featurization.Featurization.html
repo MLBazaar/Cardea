@@ -4,10 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>cardea.featurization.Featurization &#8212; Cardea 0.1.3.dev0 documentation</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,16 +21,12 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1e043a052b0af929e4d8.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -46,57 +44,62 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+
+    
     <a class="navbar-brand" href="../../index.html">
-    
       <p class="title">Cardea</p>
-    
     </a>
+    
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../getting_started/index.html">Getting Started</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../basic_concepts/index.html">Basic Concepts</a>
-        </li>
-        
-        <li class="nav-item active">
-            <a class="nav-link" href="../index.html">API Reference</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../community/index.html">Community</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../history.html">Release Notes</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../basic_concepts/index.html">
+  Basic Concepts
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../community/index.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../history.html">
+  Release Notes
+ </a>
+</li>
+
         
       </ul>
 
-
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/MLBazaar/Cardea" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/MLBazaar/Cardea" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -106,81 +109,62 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-    <div class="bd-toc-item active">
-    
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-          
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="../cardea.html">
+   cardea
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../data_loader.html">
+   cardea.data_loader
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../problem_definition.html">
+   cardea.problem_definition
+  </a>
+ </li>
+ <li class="toctree-l2 current active">
+  <a class="reference internal" href="../featurization.html">
+   cardea.featurization
+  </a>
+  <ul class="current">
+   <li class="toctree-l3 current active">
+    <a class="current reference internal" href="#">
+     cardea.featurization.Featurization
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.featurization.Featurization.generate_feature_matrix.html">
+     cardea.featurization.Featurization.generate_feature_matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../modeling.html">
+   cardea.modeling
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../fhir.html">
+   cardea.fhir
+  </a>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
             
-                <li class="">
-                    <a href="../cardea.html">cardea</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../data_loader.html">cardea.data_loader</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../problem_definition.html">cardea.problem_definition</a>
-                </li>
-            
-          
-            
-  
-                <li class="active">
-                    <a href="../featurization.html">cardea.featurization</a>
-                    <ul>
-                    
-                        <li class="active">
-                            <a href="">cardea.featurization.Featurization</a>
-                        </li>
-                    
-                        <li class="">
-                            <a href="cardea.featurization.Featurization.generate_feature_matrix.html">cardea.featurization.Featurization.generate_feature_matrix</a>
-                        </li>
-                    
-                    </ul>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../modeling.html">cardea.modeling</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../fhir.html">cardea.fhir</a>
-                </li>
-            
-          
-        
-        
-        
-        
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
           
 
           
@@ -188,9 +172,7 @@
               
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
     
-    </ul>
 </nav>
 
 
@@ -199,11 +181,14 @@
           
 
           
+          
+            
+          
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
                 
-  <div class="section" id="cardea-featurization-featurization">
+  <section id="cardea-featurization-featurization">
 <h1>cardea.featurization.Featurization<a class="headerlink" href="#cardea-featurization-featurization" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="cardea.featurization.Featurization">
@@ -225,26 +210,29 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#cardea.featurization.Featurization.__init__" title="cardea.featurization.Featurization.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">agg_prim</span></code>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cardea.featurization.Featurization.generate_feature_matrix.html#cardea.featurization.Featurization.generate_feature_matrix" title="cardea.featurization.Featurization.generate_feature_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_feature_matrix</span></code></a>(es, target, cutoff)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cardea.featurization.Featurization.generate_feature_matrix.html#cardea.featurization.Featurization.generate_feature_matrix" title="cardea.featurization.Featurization.generate_feature_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_feature_matrix</span></code></a>(es, target, label_times)</p></td>
 <td><p>Calculates a feature matrix and features given in Featurization object.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_depth</span></code>()</p></td>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">AGG_PRIMITIVES</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_jobs</span></code>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">trans_prim</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TRANS_PRIMITIVES</span></code></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
-</div>
+</section>
 
 
               </div>
@@ -264,7 +252,7 @@
     </div>
 
     
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../../_static/js/index.1e043a052b0af929e4d8.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">

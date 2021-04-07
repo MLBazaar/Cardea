@@ -4,10 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>cardea.featurization.Featurization.generate_feature_matrix &#8212; Cardea 0.1.3.dev0 documentation</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,16 +21,12 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1e043a052b0af929e4d8.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -46,57 +44,62 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+
+    
     <a class="navbar-brand" href="../../index.html">
-    
       <p class="title">Cardea</p>
-    
     </a>
+    
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../getting_started/index.html">Getting Started</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../basic_concepts/index.html">Basic Concepts</a>
-        </li>
-        
-        <li class="nav-item active">
-            <a class="nav-link" href="../index.html">API Reference</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../community/index.html">Community</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../history.html">Release Notes</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../basic_concepts/index.html">
+  Basic Concepts
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../community/index.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../history.html">
+  Release Notes
+ </a>
+</li>
+
         
       </ul>
 
-
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/MLBazaar/Cardea" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/MLBazaar/Cardea" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -106,81 +109,62 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-    <div class="bd-toc-item active">
-    
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-          
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="../cardea.html">
+   cardea
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../data_loader.html">
+   cardea.data_loader
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../problem_definition.html">
+   cardea.problem_definition
+  </a>
+ </li>
+ <li class="toctree-l2 current active">
+  <a class="reference internal" href="../featurization.html">
+   cardea.featurization
+  </a>
+  <ul class="current">
+   <li class="toctree-l3">
+    <a class="reference internal" href="cardea.featurization.Featurization.html">
+     cardea.featurization.Featurization
+    </a>
+   </li>
+   <li class="toctree-l3 current active">
+    <a class="current reference internal" href="#">
+     cardea.featurization.Featurization.generate_feature_matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../modeling.html">
+   cardea.modeling
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="../fhir.html">
+   cardea.fhir
+  </a>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
             
-                <li class="">
-                    <a href="../cardea.html">cardea</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../data_loader.html">cardea.data_loader</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../problem_definition.html">cardea.problem_definition</a>
-                </li>
-            
-          
-            
-  
-                <li class="active">
-                    <a href="../featurization.html">cardea.featurization</a>
-                    <ul>
-                    
-                        <li class="">
-                            <a href="cardea.featurization.Featurization.html">cardea.featurization.Featurization</a>
-                        </li>
-                    
-                        <li class="active">
-                            <a href="">cardea.featurization.Featurization.generate_feature_matrix</a>
-                        </li>
-                    
-                    </ul>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../modeling.html">cardea.modeling</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="../fhir.html">cardea.fhir</a>
-                </li>
-            
-          
-        
-        
-        
-        
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
           
 
           
@@ -188,9 +172,7 @@
               
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
     
-    </ul>
 </nav>
 
 
@@ -199,24 +181,50 @@
           
 
           
+          
+            
+          
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
                 
-  <div class="section" id="cardea-featurization-featurization-generate-feature-matrix">
+  <section id="cardea-featurization-featurization-generate-feature-matrix">
 <h1>cardea.featurization.Featurization.generate_feature_matrix<a class="headerlink" href="#cardea-featurization-featurization-generate-feature-matrix" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
 <dt id="cardea.featurization.Featurization.generate_feature_matrix">
-<code class="sig-prename descclassname">Featurization.</code><code class="sig-name descname">generate_feature_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">es</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">cutoff</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/featurization/featurization.html#Featurization.generate_feature_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.Featurization.generate_feature_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Featurization.</code><code class="sig-name descname">generate_feature_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">es</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">label_times</span></em>, <em class="sig-param"><span class="n">instance_ids</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">agg_primitives</span><span class="o">=</span><span class="default_value">['sum', 'std', 'max', 'skew', 'min', 'mean', 'count', 'percent_true', 'num_unique', 'mode']</span></em>, <em class="sig-param"><span class="n">trans_primitives</span><span class="o">=</span><span class="default_value">['day', 'month', 'year', 'weekday', 'is_weekend']</span></em>, <em class="sig-param"><span class="n">max_depth</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">ignore_entities</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ignore_variables</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">seed_features</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">drop_contains</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">drop_exact</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_features</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">training_window</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">include_cutoff_time</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">encode</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cardea/featurization/featurization.html#Featurization.generate_feature_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cardea.featurization.Featurization.generate_feature_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a feature matrix and features given in Featurization object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>es</strong> (<em>featuretools.EntitySet</em>) – An already initialized entityset. Required if entities and relationships
-are not defined.</p></li>
-<li><p><strong>target</strong> (<em>str</em>) – A string of the target entity name.</p></li>
-<li><p><strong>cutoff</strong> (<em>pandas.DataFrame</em>) – Specified times at which to calculate the features for each instance.</p></li>
+<li><p><strong>es</strong> (<em>featuretools.EntitySet</em>) – An already initialized entityset.</p></li>
+<li><p><strong>target</strong> (<em>str</em>) – Name of the entity (entity id) on which to make predictions.</p></li>
+<li><p><strong>label_times</strong> (<em>pandas.DataFrame</em>) – A data frame that specifies the times at which to calculate the features
+for each instance. This data frame contains three columns <code class="docutils literal notranslate"><span class="pre">instance_id</span></code>,
+<code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code>. The <code class="docutils literal notranslate"><span class="pre">instance_id</span></code> specifies the instances for
+which to calculate features over. The <code class="docutils literal notranslate"><span class="pre">time</span></code> column specifies the cutoff
+time for each instance. Data before the cutoff time will be used for
+calculating the feature matrix. The <code class="docutils literal notranslate"><span class="pre">label</span></code> column specifies the ground
+truth label (value we want to predict) for each instance.</p></li>
+<li><p><strong>instance_ids</strong> (<em>list</em>) – List of instances on which to calculate features.</p></li>
+<li><p><strong>agg_primitives</strong> (<em>list</em>) – List of Aggregation Feature types to apply.</p></li>
+<li><p><strong>trans_primitives</strong> (<em>list</em>) – List of Transform Feature functions to apply.</p></li>
+<li><p><strong>max_depth</strong> (<em>int</em>) – Maximum allowed depth of features.</p></li>
+<li><p><strong>ignore_entities</strong> (<em>list</em>) – List of entities to blacklist when creating features.</p></li>
+<li><p><strong>ignore_variables</strong> (<em>dict</em>) – List of specific variables within each entity to blacklist when creating features.</p></li>
+<li><p><strong>seed_features</strong> (<em>list</em>) – List of manually defined features to use.</p></li>
+<li><p><strong>drop_contains</strong> (<em>list</em>) – Drop features that contains these strings in name.</p></li>
+<li><p><strong>drop_exact</strong> (<em>list</em>) – Drop features that exactly match these strings in name.</p></li>
+<li><p><strong>max_features</strong> (<em>int</em>) – Cap the number of generated features to this number. If -1, no limit.</p></li>
+<li><p><strong>training_window</strong> (<em>ft.Timedelta</em><em> or </em><em>str</em>) – Window defining how much time before the cutoff time data can be used when c
+alculating features. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all data before cutoff time is used.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>. Month and year units are not relative when Pandas
+Timedeltas are used. Relative units should be passed as a Featuretools
+Timedelta or a string.</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em>) – Number of parallel processes to use when calculating feature matrix.</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em>) – An indicator of verbose option.</p></li>
+<li><p><strong>include_cutoff_time</strong> (<em>bool</em>) – Include data at cutoff times in feature calculations. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>encode</strong> (<em>bool</em>) – Whether or not to encode categorical into one-hot features.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -232,7 +240,7 @@ are not defined.</p></li>
 </dl>
 </dd></dl>
 
-</div>
+</section>
 
 
               </div>
@@ -252,7 +260,7 @@ are not defined.</p></li>
     </div>
 
     
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../../_static/js/index.1e043a052b0af929e4d8.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">

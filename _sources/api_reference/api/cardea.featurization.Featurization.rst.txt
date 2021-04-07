@@ -14,14 +14,17 @@
    .. autosummary::
    
       ~Featurization.__init__
-      ~Featurization.agg_prim
       ~Featurization.generate_feature_matrix
-      ~Featurization.max_depth
-      ~Featurization.n_jobs
-      ~Featurization.trans_prim
    
    
 
    
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Featurization.AGG_PRIMITIVES
+      ~Featurization.TRANS_PRIMITIVES
    
    

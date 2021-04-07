@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cardea.featurization.featurization &#8212; Cardea 0.1.3.dev0 documentation</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,16 +20,12 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.1e043a052b0af929e4d8.js">
 
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -44,57 +41,62 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+
+    
     <a class="navbar-brand" href="../../../index.html">
-    
       <p class="title">Cardea</p>
-    
     </a>
+    
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../../getting_started/index.html">Getting Started</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../../basic_concepts/index.html">Basic Concepts</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../../api_reference/index.html">API Reference</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../../community/index.html">Community</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../../history.html">Release Notes</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../basic_concepts/index.html">
+  Basic Concepts
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../api_reference/index.html">
+  API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../community/index.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../history.html">
+  Release Notes
+ </a>
+</li>
+
         
       </ul>
 
-
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/MLBazaar/Cardea" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/MLBazaar/Cardea" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -104,31 +106,19 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-    <div class="bd-toc-item active">
+  <div class="bd-toc-item active">
     
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
+  </div>
+</nav>
+            </div>
+            
           
 
           
@@ -136,9 +126,7 @@
               
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
     
-    </ul>
 </nav>
 
 
@@ -146,6 +134,9 @@
           </div>
           
 
+          
+          
+            
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -160,56 +151,97 @@
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;Featurization&#39;</span>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">agg_prim</span><span class="p">():</span>
-        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;skew&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;percent_true&quot;</span><span class="p">]</span>
+    <span class="n">AGG_PRIMITIVES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;skew&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;percent_true&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;num_unique&quot;</span><span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">]</span>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">trans_prim</span><span class="p">():</span>
-        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;weekday&quot;</span><span class="p">,</span> <span class="s2">&quot;is_weekend&quot;</span><span class="p">]</span>
+    <span class="n">TRANS_PRIMITIVES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;weekday&quot;</span><span class="p">,</span> <span class="s2">&quot;is_weekend&quot;</span><span class="p">]</span>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">n_jobs</span><span class="p">():</span>
-        <span class="k">return</span> <span class="mi">1</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">max_depth</span><span class="p">():</span>
-        <span class="k">return</span> <span class="mi">2</span>
-
-<div class="viewcode-block" id="Featurization.generate_feature_matrix"><a class="viewcode-back" href="../../../api_reference/api/cardea.featurization.Featurization.generate_feature_matrix.html#cardea.featurization.Featurization.generate_feature_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">generate_feature_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Featurization.generate_feature_matrix"><a class="viewcode-back" href="../../../api_reference/api/cardea.featurization.Featurization.generate_feature_matrix.html#cardea.featurization.Featurization.generate_feature_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">generate_feature_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">label_times</span><span class="p">,</span>
+                                <span class="n">instance_ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">agg_primitives</span><span class="o">=</span><span class="n">AGG_PRIMITIVES</span><span class="p">,</span>
+                                <span class="n">trans_primitives</span><span class="o">=</span><span class="n">TRANS_PRIMITIVES</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                <span class="n">ignore_entities</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ignore_variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed_features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                <span class="n">drop_contains</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop_exact</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+                                <span class="n">training_window</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                <span class="n">include_cutoff_time</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">encode</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Calculates a feature matrix and features given in Featurization object.</span>
 
-<span class="sd">          Args:</span>
+<span class="sd">        Args:</span>
 <span class="sd">            es (featuretools.EntitySet):</span>
-<span class="sd">              An already initialized entityset. Required if entities and relationships</span>
-<span class="sd">              are not defined.</span>
+<span class="sd">                An already initialized entityset.</span>
 <span class="sd">            target (str):</span>
-<span class="sd">              A string of the target entity name.</span>
-<span class="sd">            cutoff (pandas.DataFrame):</span>
-<span class="sd">              Specified times at which to calculate the features for each instance.</span>
+<span class="sd">                Name of the entity (entity id) on which to make predictions.</span>
+<span class="sd">            label_times (pandas.DataFrame):</span>
+<span class="sd">                A data frame that specifies the times at which to calculate the features</span>
+<span class="sd">                for each instance. This data frame contains three columns ``instance_id``,</span>
+<span class="sd">                ``time``, ``label``. The ``instance_id`` specifies the instances for</span>
+<span class="sd">                which to calculate features over. The ``time`` column specifies the cutoff</span>
+<span class="sd">                time for each instance. Data before the cutoff time will be used for</span>
+<span class="sd">                calculating the feature matrix. The ``label`` column specifies the ground</span>
+<span class="sd">                truth label (value we want to predict) for each instance.</span>
+<span class="sd">            instance_ids (list):</span>
+<span class="sd">                List of instances on which to calculate features.</span>
+<span class="sd">            agg_primitives (list):</span>
+<span class="sd">                List of Aggregation Feature types to apply.</span>
+<span class="sd">            trans_primitives (list):</span>
+<span class="sd">                List of Transform Feature functions to apply.</span>
+<span class="sd">            max_depth (int):</span>
+<span class="sd">                Maximum allowed depth of features.</span>
+<span class="sd">            ignore_entities (list):</span>
+<span class="sd">                List of entities to blacklist when creating features.</span>
+<span class="sd">            ignore_variables (dict):</span>
+<span class="sd">                List of specific variables within each entity to blacklist when creating features.</span>
+<span class="sd">            seed_features (list):</span>
+<span class="sd">                List of manually defined features to use.</span>
+<span class="sd">            drop_contains (list):</span>
+<span class="sd">                Drop features that contains these strings in name.</span>
+<span class="sd">            drop_exact (list):</span>
+<span class="sd">                Drop features that exactly match these strings in name.</span>
+<span class="sd">            max_features (int):</span>
+<span class="sd">                Cap the number of generated features to this number. If -1, no limit.</span>
+<span class="sd">            training_window (ft.Timedelta or str):</span>
+<span class="sd">                Window defining how much time before the cutoff time data can be used when c</span>
+<span class="sd">                alculating features. If ``None``, all data before cutoff time is used.</span>
+<span class="sd">                Defaults to ``None``. Month and year units are not relative when Pandas</span>
+<span class="sd">                Timedeltas are used. Relative units should be passed as a Featuretools</span>
+<span class="sd">                Timedelta or a string.</span>
+<span class="sd">            n_jobs (int):</span>
+<span class="sd">                Number of parallel processes to use when calculating feature matrix.</span>
 <span class="sd">            verbose (bool):</span>
-<span class="sd">              An indicator of verbose option.</span>
+<span class="sd">                An indicator of verbose option.</span>
+<span class="sd">            include_cutoff_time (bool):</span>
+<span class="sd">                Include data at cutoff times in feature calculations. Defaults to ``True``.</span>
+<span class="sd">            encode (bool):</span>
+<span class="sd">                Whether or not to encode categorical into one-hot features.</span>
 
-<span class="sd">          Returns:</span>
+<span class="sd">        Returns:</span>
 <span class="sd">            pandas.DataFrame, list:</span>
-<span class="sd">              * The generated feature matrix.</span>
-<span class="sd">              * List of feature definitions in the feature matrix.</span>
+<span class="sd">                * The generated feature matrix.</span>
+<span class="sd">                * List of feature definitions in the feature matrix.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">feature_matrix</span><span class="p">,</span> <span class="n">features_defs</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="n">entityset</span><span class="o">=</span><span class="n">es</span><span class="p">,</span>
                                                <span class="n">target_entity</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
-                                               <span class="n">agg_primitives</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">agg_prim</span><span class="p">(),</span>
-                                               <span class="n">trans_primitives</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">trans_prim</span><span class="p">(),</span>
-                                               <span class="n">cutoff_time</span><span class="o">=</span><span class="n">cutoff</span><span class="p">,</span>
-                                               <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">(),</span>
-                                               <span class="n">max_depth</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_depth</span><span class="p">(),</span>
-                                               <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+                                               <span class="n">cutoff_time</span><span class="o">=</span><span class="n">label_times</span><span class="p">,</span>
+                                               <span class="n">instance_ids</span><span class="o">=</span><span class="n">instance_ids</span><span class="p">,</span>
+                                               <span class="n">agg_primitives</span><span class="o">=</span><span class="n">agg_primitives</span><span class="p">,</span>
+                                               <span class="n">trans_primitives</span><span class="o">=</span><span class="n">trans_primitives</span><span class="p">,</span>
+                                               <span class="n">max_depth</span><span class="o">=</span><span class="n">max_depth</span><span class="p">,</span>
+                                               <span class="n">ignore_entities</span><span class="o">=</span><span class="n">ignore_entities</span><span class="p">,</span>
+                                               <span class="n">ignore_variables</span><span class="o">=</span><span class="n">ignore_variables</span><span class="p">,</span>
+                                               <span class="n">seed_features</span><span class="o">=</span><span class="n">seed_features</span><span class="p">,</span>
+                                               <span class="n">drop_contains</span><span class="o">=</span><span class="n">drop_contains</span><span class="p">,</span>
+                                               <span class="n">drop_exact</span><span class="o">=</span><span class="n">drop_exact</span><span class="p">,</span>
+                                               <span class="n">max_features</span><span class="o">=</span><span class="n">max_features</span><span class="p">,</span>
+                                               <span class="n">training_window</span><span class="o">=</span><span class="n">training_window</span><span class="p">,</span>
+                                               <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span>
+                                               <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+                                               <span class="n">include_cutoff_time</span><span class="o">=</span><span class="n">include_cutoff_time</span><span class="p">)</span>
 
-        <span class="c1"># encode categorical values</span>
-        <span class="n">fm_encoded</span><span class="p">,</span> <span class="n">features_encoded</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">encode_features</span><span class="p">(</span><span class="n">feature_matrix</span><span class="p">,</span>
-                                                          <span class="n">features_defs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">encode</span><span class="p">:</span>
+            <span class="c1"># encode categorical values</span>
+            <span class="k">return</span> <span class="n">ft</span><span class="o">.</span><span class="n">encode_features</span><span class="p">(</span><span class="n">feature_matrix</span><span class="p">,</span> <span class="n">features_defs</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">fm_encoded</span><span class="p">,</span> <span class="n">features_encoded</span></div></div>
+        <span class="k">return</span> <span class="n">feature_matrix</span><span class="p">,</span> <span class="n">features_defs</span></div></div>
 </pre></div>
 
               </div>
@@ -227,7 +259,7 @@
     </div>
 
     
-  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../../../_static/js/index.1e043a052b0af929e4d8.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">

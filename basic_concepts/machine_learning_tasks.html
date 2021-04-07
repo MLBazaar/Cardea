@@ -4,10 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Machine Learning Tasks &#8212; Cardea 0.1.3.dev0 documentation</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,16 +21,12 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1e043a052b0af929e4d8.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -46,57 +44,62 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+
+    
     <a class="navbar-brand" href="../index.html">
-    
       <p class="title">Cardea</p>
-    
     </a>
+    
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
-        </li>
-        
-        <li class="nav-item active">
-            <a class="nav-link" href="index.html">Basic Concepts</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../api_reference/index.html">API Reference</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../community/index.html">Community</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../history.html">Release Notes</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Basic Concepts
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api_reference/index.html">
+  API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../community/index.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../history.html">
+  Release Notes
+ </a>
+</li>
+
         
       </ul>
 
-
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/MLBazaar/Cardea" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/MLBazaar/Cardea" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -106,69 +109,50 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-    <div class="bd-toc-item active">
-    
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-          
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="data_loading.html">
+   Data Loading
+  </a>
+ </li>
+ <li class="toctree-l2 current active">
+  <a class="current reference internal" href="#">
+   Machine Learning Tasks
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="auto_featurization.html">
+   Auto - Featurization
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="auto_ml.html">
+   Auto - ML
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="auditing.html">
+   Auditing
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="advanced_use.html">
+   Advanced use
+  </a>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
             
-                <li class="">
-                    <a href="data_loading.html">Data Loading</a>
-                </li>
-            
-          
-            
-                <li class="active">
-                    <a href="">Machine Learning Tasks</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="auto_featurization.html">Auto - Featurization</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="auto_ml.html">Auto - ML</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="auditing.html">Auditing</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="advanced_use.html">Advanced use</a>
-                </li>
-            
-          
-        
-        
-        
-        
-        
-        
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
           
 
           
@@ -179,21 +163,24 @@
 </div>
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#outcome-to-predict" class="nav-link">Outcome to predict</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#cutoff-times-and-labels" class="nav-link">Cutoff times and Labels</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#current-prediction-problems" class="nav-link">Current Prediction Problems</a>
-        </li>
-    
-    </ul>
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#outcome-to-predict">
+   Outcome to predict
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cutoff-times-and-labels">
+   Cutoff times and Labels
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#current-prediction-problems">
+   Current Prediction Problems
+  </a>
+ </li>
+</ul>
+
 </nav>
 
 
@@ -202,11 +189,14 @@
           
 
           
+          
+            
+          
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
                 
-  <div class="section" id="machine-learning-tasks">
+  <section id="machine-learning-tasks">
 <h1>Machine Learning Tasks<a class="headerlink" href="#machine-learning-tasks" title="Permalink to this headline">¶</a></h1>
 <p>The Problem Definition is considered a fundamental component that formulates the task for
 Machine Learning models. It includes generating and identifying two main concepts:
@@ -215,15 +205,15 @@ the <strong>target variable</strong> and the <strong>cutoff times</strong>.</p>
 of the already defined tasks). For example, <strong>Missed Appointment</strong> is a common task that aims
 to predict whether the patient showed to the appointment or not, helping hospitals to optimize
 their scheduling policies and resources efficiently.</p>
-<div class="section" id="outcome-to-predict">
+<section id="outcome-to-predict">
 <h2>Outcome to predict<a class="headerlink" href="#outcome-to-predict" title="Permalink to this headline">¶</a></h2>
 <p>Following with the previous example, the <strong>Missed Appointment</strong> task is currently defined as
 a binary classification task in the system, determining whether a patient showed to the appointment
 or not from the point of appointment scheduling.</p>
 <p>Usually, the outcome is defined over the FHIR data schema, using the resource id values for
 references between instances.</p>
-</div>
-<div class="section" id="cutoff-times-and-labels">
+</section>
+<section id="cutoff-times-and-labels">
 <h2>Cutoff times and Labels<a class="headerlink" href="#cutoff-times-and-labels" title="Permalink to this headline">¶</a></h2>
 <p>As it was stated before, the success of the Problem Definition step and its outcome depends on
 two main concepts: the <strong>target variable</strong> and the <strong>cutoff times</strong>. The target variable is
@@ -256,8 +246,8 @@ values in the <strong>Missed Appointment</strong> task:</p>
 <span class="go">[110527 rows x 3 columns]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="current-prediction-problems">
+</section>
+<section id="current-prediction-problems">
 <h2>Current Prediction Problems<a class="headerlink" href="#current-prediction-problems" title="Permalink to this headline">¶</a></h2>
 <p>Cardea encapsulates six different prediction problems for users to explore easily,
 these are described as follows:</p>
@@ -290,8 +280,8 @@ a. Predicts whether a patient will revisit the hospital within certain period of
 <span class="go"> &#39;Readmission&#39;}</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>
@@ -311,7 +301,7 @@ a. Predicts whether a patient will revisit the hospital within certain period of
     </div>
 
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.1e043a052b0af929e4d8.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
