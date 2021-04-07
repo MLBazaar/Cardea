@@ -55,7 +55,7 @@ class Cardea:
             Additional hyperparameters to set to the pipeline.
     """
 
-    def load_entityset(self, data_path: str, fhir: bool = False) -> None:
+    def load_entityset(self, data_path: str, fhir: bool = True) -> None:
         """Returns an entityset loaded with .csv files in data.
 
         Load the given dataset into an entityset. The dataset
@@ -66,19 +66,22 @@ class Cardea:
                 A directory of all .csv files that should be loaded.
             fhir (bool):
                 An indicator whether FHIR or MIMIC schema is used. This parameter is
-                ignored when loading demo data.
+                ignored when loading demo data. Default is ``True``.
 
         Returns:
             featuretools.EntitySet:
                 An entityset with loaded data.
         """
         LOGGER.info("Loading data %s", data_path)
+        self._fhir = fhir
 
         if fhir:
-            self.es = self._es_loader.load_data_entityset(data_path)
+            es = self._es_loader.load_data_entityset(data_path)
 
         else:
-            self.es = load_mimic_data(data_path)
+            es = load_mimic_data(data_path)
+
+        return es
 
     def _set_modeler(self):
         pipeline = self._pipeline
@@ -111,8 +114,9 @@ class Cardea:
         self._featurization = Featurization()
         self._modeler = None
 
+        self._fhir = True # default
         self._target = None
-        self._set_entityset()
+        self.es = self._set_entityset()
 
     def list_labelers(self) -> set:
         """Returns a list of the currently available data labelers.
@@ -165,13 +169,24 @@ class Cardea:
 
         return label_times
 
-    def generate_features(self, label_times: pd.DataFrame,
-                          verbose: bool = False) -> pd.DataFrame:
+    def generate_feature_matrix(self, label_times: pd.DataFrame,
+                                seed_features: Union[bool, list] = None, max_depth: int = 1, 
+                                max_features: int = -1, n_jobs: int = 1,
+                                verbose: bool = False) -> pd.DataFrame:
         """Returns a the calculated feature matrix.
 
         Args:
             label_times (pandas.DataFrame):
                 A dataframe that indicates cutoff time for each instance.
+            max_depth (int):
+                Maximum allowed depth of features.
+            max_features (int):
+                Cap the number of generated features to this number. If -1, no limit.
+            n_jobs (int):
+                Number of parallel processes to use when calculating feature matrix.
+            seed_features (bool or list):
+                List of manually defined features to use. If boolean, then use previously
+                created features as seed.
             verbose (bool):
                 Indicate verbosity of the featurization.
 
@@ -179,9 +194,12 @@ class Cardea:
             pandas.DataFrame:
                 Generated feature matrix.
         """
+        if isinstance(seed_features, bool):
+            seed_features = self._fm_defs
 
-        fm, _ = self._featurization.generate_feature_matrix(
-            self.es, self._target, label_times, verbose=verbose)
+        fm, self._fm_defs = self._featurization.generate_feature_matrix(
+            self.es, self._target, label_times, seed_features=seed_features, max_depth=max_depth, 
+            max_features=max_features, n_jobs=n_jobs, verbose=verbose)
 
         return fm
 
@@ -247,17 +265,21 @@ class Cardea:
         """
         self._modeler.fit(X, y, tune, max_evals, scoring, verbose)
 
-    def predict(self, X: Union[np.ndarray, pd.DataFrame]) -> Union[np.ndarray, list]:
+    def predict(self, X: Union[str, np.ndarray, pd.DataFrame]) -> Union[np.ndarray, list]:
         """Get predictions from the cardea pipeline.
 
         Args:
-            X (pandas.DataFrame or ndarray):
-                Inputs to the pipeline.
+            X (str, pandas.DataFrame or ndarray):
+                Inputs to the pipeline. If string, it points to the data path.
 
         Returns:
             numpy.ndarray or list:
                 Predictions to the input data.
         """
+        if isinstance(X, str) and os.path.exits(X):
+            es = load_entityset(X, self._fhir)
+
+
         return self._modeler.predict(X)
 
     def fit_predict(self, X: Union[np.ndarray, pd.DataFrame],
