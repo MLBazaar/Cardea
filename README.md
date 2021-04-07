@@ -7,6 +7,7 @@
 [![PyPi Shield](https://img.shields.io/pypi/v/cardea.svg)](https://pypi.python.org/pypi/cardea)
 [![Tests](https://github.com/MLBazaar/Cardea/workflows/Run%20Tests/badge.svg)](https://github.com/MLBazaar/Cardea/actions?query=workflow%3A%22Run+Tests%22+branch%3Amaster)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/MLBazaar/Cardea/master?filepath=notebooks)
+[![Slack](https://img.shields.io/badge/Slack%20Workspace-Join%20now!-36C5F0?logo=slack)](https://docs.google.com/document/d/1h0-l7UFe9ELhP52RgyhwiK-nTNX6bs-Zowy7d7av1fM/edit?usp=sharing)
 
 # Cardea
 
@@ -37,6 +38,14 @@ A series of sequential processes are applied to build a machine learning model. 
 * lastly, we build, train, and tune our machine learning model using the **modeling** component.
 
 to learn more about how we structure our machine learning process and our data structures, read our documentation [here](https://MLBazaar.github.io/Cardea).
+
+## Join our Slack Workspace
+
+If you want to be part of the Cardea community to receive announcements of the latest releases,
+ask questions, or suggest new features, please join our Slack Workspace!
+
+[![Slack](https://img.shields.io/badge/Slack%20Workspace-Join%20now!-36C5F0?logo=slack)](https://docs.google.com/document/d/1h0-l7UFe9ELhP52RgyhwiK-nTNX6bs-Zowy7d7av1fM/edit?usp=sharing)
+
 
 # Quickstart
 
