@@ -59,7 +59,13 @@ def featurization():
     return Featurization()
 
 
-def test_generate_feature_matrix(featurization, entityset, label_times):
+def test_generate_feature_matrix(featurization, entityset, cutoff):
+    feature_matrix, features_defs = featurization.generate_feature_matrix(
+        entityset, "Encounter", cutoff, encode=False)
+    assert len(feature_matrix) == 3 and len(feature_matrix.columns) == 12
+
+
+def test_generate_feature_matrix_encoded(featurization, entityset, cutoff):
     fm_encoded, features_encoded = featurization.generate_feature_matrix(
-        entityset, "Encounter", label_times)
+        entityset, "Encounter", cutoff, encode=True)
     assert len(fm_encoded) == 3 and len(fm_encoded.columns) == 32
