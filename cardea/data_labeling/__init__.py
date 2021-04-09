@@ -1,5 +1,5 @@
 # import logging
-from cardea.data_labeling.definition import DataLabeler
+from cardea.data_labeling.data_labeler import DataLabeler
 from cardea.data_labeling.length_of_stay import length_of_stay
 from cardea.data_labeling.mortality_prediction import mortality
 from cardea.data_labeling.predicting_diagnosis import diagnosis_prediction

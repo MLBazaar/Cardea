@@ -8,6 +8,7 @@ import logging
 import os
 import pickle
 from functools import partial
+from inspect import getfullargspec
 from types import FunctionType
 from typing import List, Union
 
@@ -16,17 +17,13 @@ import pandas as pd
 from mlblocks import MLPipeline
 
 import cardea
-from cardea.data import DEMO_DATA, download
 from cardea.data_assembling import EntitySetLoader, load_mimic_data
-from cardea.data_labeling import DataLabeler, appointment_no_show
+from cardea.data_labeling import DataLabeler
 from cardea.featurizing import Featurization
 from cardea.modeling import Modeler
 
 LOGGER = logging.getLogger(__name__)
 
-DEFAULT_DATA = 'kaggle'
-DEFAULT_FHIR = True
-DEFAULT_LABELER = appointment_no_show
 DEFAULT_PIPELINE = 'XGB'
 DEFAULT_METRICS = ["Accuracy", "F1 Macro", "Precision", "Recall"]
 
@@ -39,12 +36,10 @@ class Cardea:
     pipelines.
 
     Args:
-        data (str):
+        data_path (str):
             Path or name of the dataset to load into an entityset.
         fhir (bool):
             Indicator of whether to use FHIR or MIMIC schema.
-        labeler (method):
-            Function to defined the data labeler for the wanted prediction problem.
         pipeline (str, dict or MLPipeline):
             Pipeline to use. It can be passed as:
                 * An ``str`` with a path to a JSON file.
@@ -55,15 +50,16 @@ class Cardea:
             Additional hyperparameters to set to the pipeline.
     """
 
-    def load_entityset(self, data_path: str, fhir: bool = True) -> None:
+    def _load_entityset(self, data_path, fhir):
         """Returns an entityset loaded with .csv files in data.
 
         Load the given dataset into an entityset. The dataset
         must be in FHIR or MIMIC structure format.
 
         Args:
-            data_path (str):
-                A directory of all .csv files that should be loaded.
+            data (str):
+                Path or name of the dataset to load into an entityset. Or
+                a preloaded entityset
             fhir (bool):
                 An indicator whether FHIR or MIMIC schema is used. This parameter is
                 ignored when loading demo data. Default is ``True``.
@@ -72,16 +68,13 @@ class Cardea:
             featuretools.EntitySet:
                 An entityset with loaded data.
         """
-        LOGGER.info("Loading data %s", data_path)
-        self._fhir = fhir
-
+        function = load_mimic_data
         if fhir:
-            es = self._es_loader.load_data_entityset(data_path)
+            function = self._es_loader.load_data_entityset
 
-        else:
-            es = load_mimic_data(data_path)
+        LOGGER.info("Loading data %s", data_path)
 
-        return es
+        return function(data_path)
 
     def _set_modeler(self):
         pipeline = self._pipeline
@@ -95,18 +88,8 @@ class Cardea:
 
         self._modeler = Modeler(mlpipeline, self._type)
 
-    def _set_entityset(self):
-        data = self._data
-
-        if data in DEMO_DATA:
-            fhir = False if data == "mimic" else True
-            data_path = download(data)
-
-        self.load_entityset(data_path, fhir)
-
-    def __init__(self, data: str = None, labeler: FunctionType = None,
+    def __init__(self, data_path: str = None, labeler: FunctionType = None, fhir: bool = True,
                  pipeline: Union[str, dict, MLPipeline] = None, hyperparameters: dict = None):
-        self._data = data or DEFAULT_DATA
         self._pipeline = pipeline or DEFAULT_PIPELINE
         self._hyperparameters = hyperparameters
 
@@ -114,9 +97,11 @@ class Cardea:
         self._featurization = Featurization()
         self._modeler = None
 
-        self._fhir = True # default
+        self._fhir = fhir
         self._target = None
-        self.es = self._set_entityset()
+
+        # load dataset
+        self.entityset = self._load_entityset(data_path, fhir)
 
     def list_labelers(self) -> set:
         """Returns a list of the currently available data labelers.
@@ -134,8 +119,9 @@ class Cardea:
 
         return labelers
 
-    def create_label_times(self, labeler: FunctionType = None,
-                           parameter: dict = None) -> pd.DataFrame:
+    def label(self, labeler: FunctionType,
+              parameters: dict = None,
+              verbose: bool = False) -> pd.DataFrame:
         """Create label times using the data labeler.
 
         Update the labeling function and generate the label times,
@@ -152,27 +138,26 @@ class Cardea:
             pandas.DataFrame:
                 A dataframe of cutoff times and their target labels.
         """
-        labeler = labeler or DEFAULT_LABELER
-
-        if parameter:
-            labeler = partial(labeler, **parameter)
+        if parameters:
+            labeler = partial(labeler, **parameters)
 
         LOGGER.info("Using labeler %s", str(labeler.__name__))
         data_labeler = DataLabeler(labeler)
 
         # target label calculation
-        label_times, self._target, self._type = data_labeler.generate_label_times(
-            self.es)
+        label_times, self._type, self._meta = data_labeler.generate_label_times(
+            self.entityset, verbose=verbose)
 
-        # set default pipeline
-        self._set_modeler()
+        # set modeler if pipeline defined
+        if self._pipeline:
+            self._set_modeler()
 
         return label_times
 
-    def generate_feature_matrix(self, label_times: pd.DataFrame,
-                                seed_features: Union[bool, list] = None, max_depth: int = 1, 
-                                max_features: int = -1, n_jobs: int = 1,
-                                verbose: bool = False) -> pd.DataFrame:
+    def featurize(self, label_times: pd.DataFrame,
+                  seed_features: Union[bool, list] = None, max_depth: int = 1,
+                  max_features: int = -1, n_jobs: int = 1,
+                  verbose: bool = False) -> pd.DataFrame:
         """Returns a the calculated feature matrix.
 
         Args:
@@ -197,9 +182,14 @@ class Cardea:
         if isinstance(seed_features, bool):
             seed_features = self._fm_defs
 
-        fm, self._fm_defs = self._featurization.generate_feature_matrix(
-            self.es, self._target, label_times, seed_features=seed_features, max_depth=max_depth, 
-            max_features=max_features, n_jobs=n_jobs, verbose=verbose)
+        method = self._featurization.generate_feature_matrix
+        target = self._meta.get('entity')
+        arguments = set(getfullargspec(method)[0]) - set(getfullargspec(self.featurize)[0])
+        kwargs = {k: self._meta.get(k) for k in arguments if self._meta.get(k) is not None}
+        fm, self._fm_defs = method(
+            self.entityset, target, label_times,
+            seed_features=seed_features, max_depth=max_depth,
+            max_features=max_features, n_jobs=n_jobs, verbose=verbose, **kwargs)
 
         return fm
 
@@ -276,10 +266,6 @@ class Cardea:
             numpy.ndarray or list:
                 Predictions to the input data.
         """
-        if isinstance(X, str) and os.path.exits(X):
-            es = load_entityset(X, self._fhir)
-
-
         return self._modeler.predict(X)
 
     def fit_predict(self, X: Union[np.ndarray, pd.DataFrame],
@@ -351,8 +337,7 @@ class Cardea:
                 X_train, y_train, tune=tune, max_evals=max_evals, scoring=scoring, verbose=verbose)
 
         else:
-            X_test = X
-            y_test = y
+            X_test, y_test = X, y
 
         scores = {
             metric: self._modeler.test(X_test, y_test, scoring=metric)

@@ -67,9 +67,9 @@ In this short tutorial we will guide you through a series of steps that will hel
 First, load the core class to work with:
 
 ```python3
-from cardea import Cardea
+from cardea.data import download
 
-cardea = Cardea()
+data_path = download('kaggle')
 ```
 
 We then seamlessly plug in our data. Here in this example, we are loading a pre-processed version of the [Kaggle dataset: Medical Appointment No Shows](https://www.kaggle.com/joniarroba/noshowappointments). 
@@ -81,10 +81,13 @@ curl -O https://dai-cardea.s3.amazonaws.com/kaggle.zip && unzip -d kaggle kaggle
 To load the data, supply the ``data_path`` to the loader. By default, ``cardea`` loads the kaggle dataset
 
 ```python3
-cardea.load_entityset(data_path='cardea/data/kaggle', fhir=True) 
+from cardea import Cardea
+
+cardea = Cardea(data_path=data_path,
+                fhir=True)
 ```
 
-To verify that the data has been loaded, you can find the loaded entityset by viewing ``cardea.es`` which should output the following:
+To verify that the data has been loaded, you can find the loaded entityset by viewing ``cardea.entityset`` which should output the following:
 
 ```
 Entityset: kaggle
@@ -112,7 +115,9 @@ The output shown represents the entityset data structure where ``cardea.es`` is 
 From there, you can select the prediction problem you aim to solve by specifying the name of the class, which in return gives us the ``label_times`` of the problem.
 
 ```python3
-label_times = cardea.create_label_times()
+from cardea.data_labeling import appointment_no_show
+
+label_times = cardea.label(appointment_no_show)
 ```
 
 ``label_times`` summarizes for each instance in the dataset (1) what is its corresponding label of the instance and (2) what is the time index that indicates the timespan allowed for calculating features that pertain to each instance in the dataset.
@@ -133,14 +138,14 @@ Then, you can perform the AutoML steps and take advantage of Cardea.
 Cardea extracts features through automated feature engineering by supplying the ``label_times`` pertaining to the problem you aim to solve
 
 ```python3
-feature_matrix = cardea.generate_features(label_times[:1000])
+feature_matrix = cardea.featurize(label_times[:1000])
 ```
 > :warning: Featurizing the data might take a while depending on the size of the data. For demonstration, we only featurize the first 1000 records.
 
 Once we have the features, we can now split the data into training and testing
 
 ```python3
-y = feature_matrix.pop('missed').values
+y = feature_matrix.pop('label').values
 X = feature_matrix.values
 
 X_train, X_test, y_train, y_test = cardea.train_test_split(

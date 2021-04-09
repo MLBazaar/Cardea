@@ -18,7 +18,7 @@ class DataLabeler:
     def __init__(self, function):
         self.function = function
 
-    def generate_label_times(self, es, *args, **kwargs):
+    def generate_label_times(self, es, verbose, *args, **kwargs):
         """Searches the data to calculate label times.
 
           Args:
@@ -34,19 +34,19 @@ class DataLabeler:
         """
         labeling_function, df, meta = self.function(es)
         kwargs = {**meta, **kwargs}
-        kwargs.get('target_entity')
-        time_index = kwargs.get('time_index')
-        kwargs.get('window_size')
-        thresh = kwargs.get('thresh')
+        target_entity = meta.get('target_entity')
+        time_index = meta.get('time_index')
+        window_size = meta.get('window_size')
+        thresh = meta.get('thresh')
+        pred_type = meta.get('type')
         label_maker = cp.LabelMaker(labeling_function=labeling_function,
-                                    target_entity=kwargs.get('target_entity'),
-                                    time_index=kwargs.get('time_index'),
-                                    window_size=kwargs.get('window_size'))
+                                    target_entity=target_entity,
+                                    time_index=time_index,
+                                    window_size=window_size)
 
         label_times = label_maker.search(df.sort_values(time_index),
-                                         *args,
-                                         **kwargs)
+                                         verbose=verbose, *args, **kwargs)
         if thresh is not None:
             label_times = label_times.threshold(thresh)
 
-        return label_times, kwargs.get('entity'), kwargs.get('type')
+        return label_times, pred_type, meta
