@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contributing Guidelines &#8212; Cardea 0.1.3.dev0 documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
+  <link href="../_static/css/index.ee6fb81b276d6fba8a971ad8e9b95dd9.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -26,7 +25,7 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1e043a052b0af929e4d8.js">
+  <link rel="preload" as="script" href="../_static/js/index.c86189f1ce1b71a67eb6.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -41,26 +40,36 @@
     <link rel="prev" title="Welcome to the Community" href="welcome.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
+    <div class="container-fluid" id="banner"></div>
+
+    
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">Cardea</p>
+</a>
 
     
-    <a class="navbar-brand" href="../index.html">
-      <p class="title">Cardea</p>
-    </a>
-    
+  </div>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    
-    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
-      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        <li class="toctree-l1 nav-item">
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../getting_started/index.html">
   Getting Started
  </a>
@@ -90,10 +99,16 @@
  </a>
 </li>
 
-        
-      </ul>
+    
+</ul>
+      </div>
+      
+    </div>
 
-      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/MLBazaar/Cardea" rel="noopener" target="_blank" title="GitHub">
             <span><i class="fab fa-github-square"></i></span>
@@ -101,7 +116,10 @@
           </a>
         </li>
       </ul>
+      </div>
+      
     </div>
+  </div>
 </div>
     </nav>
     
@@ -114,21 +132,21 @@
             <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
- <li class="toctree-l2">
+ <li class="toctree-l1">
   <a class="reference internal" href="welcome.html">
    Welcome to the Community
   </a>
  </li>
- <li class="toctree-l2 current active">
+ <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Contributing Guidelines
   </a>
  </li>
 </ul>
+
   </div>
 </nav>
             </div>
@@ -137,7 +155,10 @@
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
               
+              <div class="toc-item">
+                
 <div class="tocsection onthispage pt-5 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
@@ -157,9 +178,13 @@
 </ul>
 
 </nav>
-
-
+              </div>
               
+              <div class="toc-item">
+                
+              </div>
+              
+            
           </div>
           
 
@@ -171,14 +196,14 @@
               
               <div>
                 
-  <section id="contributing-guidelines">
+  <div class="section" id="contributing-guidelines">
 <span id="contributing"></span><h1>Contributing Guidelines<a class="headerlink" href="#contributing-guidelines" title="Permalink to this headline">¶</a></h1>
 <p>Ready to contribute with your own code? Great!</p>
 <p>Before diving deeper into the contributing guidelines, please make sure to having read
 the <a class="reference internal" href="../basic_concepts/index.html#concepts"><span class="std std-ref">Basic Concepts</span></a> section and to have gone through the development guide.</p>
 <p>Afterwards, please make sure to read the following contributing guidelines carefully, and
 later on head to the step-by-step guides for each possible type of contribution.</p>
-<section id="general-coding-guidelines">
+<div class="section" id="general-coding-guidelines">
 <h2>General Coding Guidelines<a class="headerlink" href="#general-coding-guidelines" title="Permalink to this headline">¶</a></h2>
 <p>Once you have set up your development environment, you are ready to start working on your
 python code.</p>
@@ -229,8 +254,8 @@ generate and view the docs with this command:</p>
 </li>
 <li><p>Submit a pull request through the GitHub website and wait for feedback from the maintainers.</p></li>
 </ol>
-</section>
-<section id="unit-testing-guidelines">
+</div>
+<div class="section" id="unit-testing-guidelines">
 <h2>Unit Testing Guidelines<a class="headerlink" href="#unit-testing-guidelines" title="Permalink to this headline">¶</a></h2>
 <p>If you are going to contribute Python code, we will ask you to write unit tests that cover
 your development, following these requirements:</p>
@@ -257,8 +282,8 @@ the only thing that will be tested is that our code passes the right values to t
 includes not reading or writing to any file system or database, which will be properly
 mocked.</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
 
               </div>
@@ -276,17 +301,25 @@ mocked.</p></li>
 
       </div>
     </div>
-
     
-  <script src="../_static/js/index.1e043a052b0af929e4d8.js"></script>
+  <script src="../_static/js/index.c86189f1ce1b71a67eb6.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
-    <p>
-          &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
-    </p>
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2018, MIT Data To AI Lab.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+</p>
+    </div>
+    
   </div>
 </footer>
   </body>
