@@ -18,9 +18,16 @@
 * Homepage: https://github.com/MLBazaar/Cardea
 * Documentation: https://MLBazaar.github.io/Cardea
 
+## Join our Slack Workspace
+
+If you want to be part of the Cardea community to receive announcements of the latest releases,
+ask questions, or suggest new features, please join our Slack Workspace!
+
+[![Slack](https://img.shields.io/badge/Slack%20Workspace-Join%20now!-36C5F0?logo=slack)](https://docs.google.com/document/d/1h0-l7UFe9ELhP52RgyhwiK-nTNX6bs-Zowy7d7av1fM/edit?usp=sharing)
+
 # Overview
 
-Cardea is a machine learning library built on top of *schemas* that support electronic health records (EHR). The library uses a number of AutoML tools developed under [The Human Data Interaction Project](https://github.com/HDI-Project) at [Data to AI Lab at MIT](https://dai.lids.mit.edu/).
+Cardea is a machine learning library built on top of *schemas* that support electronic health records (EHR). The library uses a number of AutoML tools developed under [The MLBazaar Project](https://mlbazaar.github.io/) at [Data to AI Lab at MIT](https://dai.lids.mit.edu/).
 
 
 Our goal is to provide an easy to use library to develop machine learning models from electronic health records. A typical usage of this library will involve interacting with our API to develop prediction models.
@@ -31,20 +38,14 @@ A series of sequential processes are applied to build a machine learning model. 
 
 * loading data using the automatic **data assembler**, where we capture data from its raw format into an entityset representation.
 
-* **data labeling** where we create label times that generates (1) the time index that indicates the timespan for which I create my features (2) the encoded labels of the prediction task. this is essential for our feature engineering phase.
+* **data labeling** where we create label times that generates (1) the time point that indicates the time before which the data is used to create features (2) the encoded labels of the prediction task. this is essential for our feature engineering phase.
 
-* **featurization** for which we automatically feature engineer our data to generate a feature matrix.
+* **featurization** for which we automatically generate features from our data to generate a feature matrix [Using Featuretools](https://github.com/alteryx/featuretools).
 
-* lastly, we build, train, and tune our machine learning model using the **modeling** component.
+* lastly, we build, train, and tune our machine learning modeling pipeline using the **modeling** component [Using MLBlocks](https://github.com/MLBazaar/MLBlocks) and [MLPrimitives](https://github.com/MLBazaar/MLPrimitives).
 
 to learn more about how we structure our machine learning process and our data structures, read our documentation [here](https://MLBazaar.github.io/Cardea).
 
-## Join our Slack Workspace
-
-If you want to be part of the Cardea community to receive announcements of the latest releases,
-ask questions, or suggest new features, please join our Slack Workspace!
-
-[![Slack](https://img.shields.io/badge/Slack%20Workspace-Join%20now!-36C5F0?logo=slack)](https://docs.google.com/document/d/1h0-l7UFe9ELhP52RgyhwiK-nTNX6bs-Zowy7d7av1fM/edit?usp=sharing)
 
 
 # Quickstart
