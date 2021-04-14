@@ -64,7 +64,9 @@ This will pull and install the latest stable release from [PyPi](https://pypi.or
 
 In this short tutorial we will guide you through a series of steps that will help you get Cardea started.
 
-First, load the core class to work with:
+First, we download the dataset we will be working with. Here in this example, we are loading a pre-processed version of the [Kaggle dataset: Medical Appointment No Shows](https://www.kaggle.com/joniarroba/noshowappointments). 
+
+We can use a helper function to download the data.
 
 ```python3
 from cardea.data import download
@@ -72,13 +74,13 @@ from cardea.data import download
 data_path = download('kaggle')
 ```
 
-We then seamlessly plug in our data. Here in this example, we are loading a pre-processed version of the [Kaggle dataset: Medical Appointment No Shows](https://www.kaggle.com/joniarroba/noshowappointments). 
-To use this dataset download the data from here then unzip it in the root directory, or run the command:
+Alternatively, you can download the dataset directly from the s3 bucket.
 
 ```bash
 curl -O https://dai-cardea.s3.amazonaws.com/kaggle.zip && unzip -d kaggle kaggle.zip
 ```
-To load the data, supply the ``data_path`` to the loader. By default, ``cardea`` loads the kaggle dataset
+
+Then, we instantiate a cardea instance by supplying the ``data_path`` to the initializer and choosing the format of the data.
 
 ```python3
 from cardea import Cardea
@@ -110,20 +112,20 @@ Entityset: kaggle
     Patient.address -> Address.object_id
 ```
 
-The output shown represents the entityset data structure where ``cardea.es`` is composed of entities and relationships. You can read more about entitysets [here](https://mlbazaar.github.io/Cardea/basic_concepts/data_loading.html).
+The output shown represents the entityset data structure where ``cardea.entityset`` is composed of entities and relationships. You can read more about entitysets [here](https://mlbazaar.github.io/Cardea/basic_concepts/data_loading.html).
 
-From there, you can select the prediction problem you aim to solve by specifying the name of the class, which in return gives us the ``label_times`` of the problem.
+From there, you can select the prediction problem you aim to solve by specifying the name of the function, which in return gives us the ``label_times`` of the problem.
 
 ```python3
 from cardea.data_labeling import appointment_no_show
 
-label_times = cardea.label(appointment_no_show)
+label_times = cardea.label(appointment_no_show, subset=1000) # labeling only a subset of the data
 ```
 
 ``label_times`` summarizes for each instance in the dataset (1) what is its corresponding label of the instance and (2) what is the time index that indicates the timespan allowed for calculating features that pertain to each instance in the dataset.
 
 ```
-  identifier               time  missed
+  identifier               time  label
 0 5030230   2015-11-10 07:13:56   True
 1 5122866   2015-12-03 08:17:28   False
 2 5134197   2015-12-07 10:40:59   False
@@ -138,9 +140,9 @@ Then, you can perform the AutoML steps and take advantage of Cardea.
 Cardea extracts features through automated feature engineering by supplying the ``label_times`` pertaining to the problem you aim to solve
 
 ```python3
-feature_matrix = cardea.featurize(label_times[:1000])
+feature_matrix = cardea.featurize(label_times)
 ```
-> :warning: Featurizing the data might take a while depending on the size of the data. For demonstration, we only featurize the first 1000 records.
+> :warning: Featurizing the data might take a while depending on the size of the data. 
 
 Once we have the features, we can now split the data into training and testing
 
@@ -162,7 +164,7 @@ y_pred = cardea.predict(X_test)
 
 Finally, you can evaluate the performance of the model
 ```python3
-cardea.evaluate(X, y, test_size=0.2, shuffle=True)
+cardea.evaluate(X_test, y_test, shuffle=True)
 ```
 which returns the scoring metric depending on the type of problem
 ```

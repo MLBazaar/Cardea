@@ -121,10 +121,11 @@ class Cardea:
 
     def label(self, labeler: FunctionType,
               parameters: dict = None,
+              subset: Union[list or float] = None,
               verbose: bool = False) -> pd.DataFrame:
         """Create label times using the data labeler.
 
-        Update the labeling function and generate the label times,
+        Use the labeling function to generate label times
 
         Args:
             labeler (function):
@@ -133,6 +134,12 @@ class Cardea:
                 target entity.
             parameter (dict):
                 Variables to change the default parameters, if any.
+            subset (list or float):
+                If float, fraction of data to label. If list, it should
+                reference the instances for while to calculat the label
+                for.
+            verbose (bool):
+                Indicate verbosity of the labeler.
 
         Returns:
             pandas.DataFrame:
@@ -146,7 +153,7 @@ class Cardea:
 
         # target label calculation
         label_times, self._type, self._meta = data_labeler.generate_label_times(
-            self.entityset, verbose=verbose)
+            self.entityset, subset=subset, verbose=verbose)
 
         # set modeler if pipeline defined
         if self._pipeline:

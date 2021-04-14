@@ -1,10 +1,12 @@
+from inspect import getfullargspec
+
 import pandas as pd
 
-from inspect import getfullargspec
 
 def _get_arguments(arguments, function):
     function_arguments = set(getfullargspec(function)[0])
     return {k: arguments.get(k) for k in function_arguments if arguments.get(k) is not None}
+
 
 def _search_relationship(es, left, right):
     for r in es.relationships:

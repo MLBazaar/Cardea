@@ -1,12 +1,11 @@
 import os
 
-import numpy as np
 import pandas as pd
-from mlblocks.discovery import load_pipeline
 from sklearn.datasets import load_iris
 
-from cardea.data import download
 from cardea.core import Cardea
+from cardea.data import download
+
 
 def prediction_problem_function(es):
     def label(ds):
@@ -23,6 +22,7 @@ def prediction_problem_function(es):
     df = es['Appointment'].df.iloc[:100]
 
     return label, df, meta
+
 
 class TestCardea:
 
@@ -45,7 +45,7 @@ class TestCardea:
         labelers = self.cardea.list_labelers()
         assert isinstance(labelers, set)
 
-    def test_label(self):        
+    def test_label(self):
         assert len(self.label_times) == 100
 
     def test_featurize(self):
@@ -69,7 +69,6 @@ class TestCardea:
         assert self.y.shape == y.shape
 
     def test_train_test_split(self):
-        test_size = 0.2
         X_train, X_test, y_train, y_test = self.cardea.train_test_split(self.X, self.y)
         assert X_train.shape[1] == X_test.shape[1]
         assert len(X_train) == len(y_train)
@@ -91,4 +90,3 @@ class TestCardea:
 
         new_cardea = Cardea.load(path)
         assert new_cardea.entityset == self.cardea.entityset
-
