@@ -1,5 +1,6 @@
 import composeml as cp
 
+from cardea.data_labeling.utils import _get_arguments
 
 class DataLabeler:
     """Class that defines the prediction problem.
@@ -18,22 +19,18 @@ class DataLabeler:
     def __init__(self, function):
         self.function = function
 
-    def generate_label_times(self, es, verbose, *args, **kwargs):
+    def generate_label_times(self, es, verbose, **kwargs):
         """Searches the data to calculate label times.
 
           Args:
-              df (pandas.DataFrame):
-                  Data frame to search and extract labels.
-              *args:
-                  Positional arguments for label maker.
-              **kwargs:
-                  Keyword arguments for label maker.
+              es (featuretools.EntitySet):
+                Entityset to extract `label_times` from.
+
           Returns:
               composeml.LabelTimes:
                   Calculated labels with cutoff times.
         """
         labeling_function, df, meta = self.function(es)
-        kwargs = {**meta, **kwargs}
         target_entity = meta.get('target_entity')
         time_index = meta.get('time_index')
         window_size = meta.get('window_size')
@@ -44,8 +41,10 @@ class DataLabeler:
                                     time_index=time_index,
                                     window_size=window_size)
 
+        kwargs = {**meta, **kwargs}
+        kwargs = _get_arguments(kwargs, label_maker.search)
         label_times = label_maker.search(df.sort_values(time_index),
-                                         verbose=verbose, *args, **kwargs)
+                                         verbose=verbose, **kwargs)
         if thresh is not None:
             label_times = label_times.threshold(thresh)
 

@@ -360,7 +360,7 @@ class Cardea:
 
     @classmethod
     def load(cls, path: str):
-        """Load an Orion instance from a pickle file.
+        """Load a Cardea instance from a pickle file.
 
         Args:
             path (str):
