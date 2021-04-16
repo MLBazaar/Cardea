@@ -14,13 +14,13 @@ FHIR_META = {
 }
 
 
-def mortality(es):
+def mortality_prediction(es):
     """Defines the labeling task of length of stay.
 
     Predict how many days the patient will be in the hospital. For
     a classification version of the problem, specify k.
     """
-    def mortal(ds, **kwargs):
+    def label(ds, **kwargs):
         return ds['hospital_expire_flag'].sum() > 0
 
     if es.id == 'mimic':
@@ -44,4 +44,4 @@ def mortality(es):
 
         df['hospital_expire_flag'] = int(df['code'].isin(causes_of_death))
 
-    return mortal, df, meta
+    return label, df, meta

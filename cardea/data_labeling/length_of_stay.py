@@ -1,6 +1,6 @@
 import pandas as pd
 
-from cardea.data_labeling.utils import denormalize
+from cardea.data_labeling import utils
 
 MIMIC_META = {
     'entity': 'admissions',
@@ -21,7 +21,7 @@ def length_of_stay(es, k=None):
     Predict how many days the patient will be in the hospital. For
     a classification version of the problem, specify k.
     """
-    def los(ds, **kwargs):
+    def label(ds, **kwargs):
         return (ds['los'].dt.days).sum()
 
     if es.id == 'mimic':
@@ -32,7 +32,7 @@ def length_of_stay(es, k=None):
 
     elif es.id == 'fhir':
         meta = FHIR_META
-        entities = ['encounter', 'period']
+        entities = ['Encounter', 'Period']
         start = 'start'
         end = 'end'
 
@@ -43,11 +43,11 @@ def length_of_stay(es, k=None):
         meta['type'] = 'classification'
         meta['thresh'] = k
 
-    df = denormalize(es, entities=entities)
+    df = utils.denormalize(es, entities=entities)
 
     # generate label
     df[end] = pd.to_datetime(df[end])
     df[start] = pd.to_datetime(df[start])
     df['los'] = df[end] - df[start]
 
-    return los, df, meta
+    return label, df, meta

@@ -1,6 +1,6 @@
 
 
-from cardea.data_labeling.utils import denormalize
+from cardea.data_labeling import utils
 
 
 def appointment_no_show(es):
@@ -21,6 +21,6 @@ def appointment_no_show(es):
         "ignore_variables": {'Appointment': ['status']}
     }
 
-    df = denormalize(es, entities=['Appointment'])
+    df = utils.denormalize(es, entities=['Appointment'])
 
     return label, df, meta

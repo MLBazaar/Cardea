@@ -20,7 +20,7 @@ def diagnosis_prediction(es, diag):
     Predict how many days the patient will be in the hospital. For
     a classification version of the problem, specify k.
     """
-    def diagnosis(ds, **kwargs):
+    def label(ds, **kwargs):
         return True if diag in ds[column].values else False
 
     if es.id == 'mimic':
@@ -39,4 +39,4 @@ def diagnosis_prediction(es, diag):
 
     df = denormalize(es, entities=entities)
 
-    return diagnosis, df, meta
+    return label, df, meta

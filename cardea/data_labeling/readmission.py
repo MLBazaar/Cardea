@@ -21,7 +21,7 @@ def readmission(es, k=30):
     Predict how many days the patient will be in the hospital. For
     a classification version of the problem, specify k.
     """
-    def readmit(ds, **kwargs):
+    def label(ds, **kwargs):
         initial_discharge = min(ds[end].values)
         second_admission = sorted(ds[start].values)[1]
         return (second_admission - initial_discharge).dt.days
@@ -48,4 +48,4 @@ def readmission(es, k=30):
     df[end] = pd.to_datetime(df[end])
     df[start] = pd.to_datetime(df[start])
 
-    return readmit, df, meta
+    return label, df, meta
