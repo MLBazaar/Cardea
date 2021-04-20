@@ -20,12 +20,16 @@ class DataLabeler:
     def __init__(self, function):
         self.function = function
 
-    def generate_label_times(self, es, subset, verbose, **kwargs):
+    def generate_label_times(self, es, subset=None, verbose=False, **kwargs):
         """Searches the data to calculate label times.
 
           Args:
               es (featuretools.EntitySet):
-                Entityset to extract `label_times` from.
+                  Entityset to extract `label_times` from.
+              subset (float or int):
+                  Portion of the data to select for searching.
+              verbose:
+                  An indicator to the verbosity of searching.
 
           Returns:
               composeml.LabelTimes:
@@ -36,9 +40,6 @@ class DataLabeler:
         data = df
         if isinstance(subset, float) or isinstance(subset, int):
             data = data.sample(subset)
-
-        if isinstance(subset, list):
-            data = data[data['isinstance'].isin(subset)]
 
         target_entity = meta.get('target_entity')
         time_index = meta.get('time_index')

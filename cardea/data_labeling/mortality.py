@@ -1,10 +1,17 @@
 
-from cardea.data_labeling.utils import denormalize
+from cardea.data_labeling import utils
 
 MIMIC_META = {
     'entity': 'admissions',
     'target_entity': 'hadm_id',
     'time_index': 'admittime',
+    'ignore_variables': {'admissions': [
+        'hospital_expire_flag',
+        'deathtime',
+        'discharge_location',
+        'dischtime'],
+        'patients': ['expire_flag'],
+        'callout': ['discharge_wardid']}
 }
 
 FHIR_META = {
@@ -15,10 +22,8 @@ FHIR_META = {
 
 
 def mortality_prediction(es):
-    """Defines the labeling task of length of stay.
-
-    Predict how many days the patient will be in the hospital. For
-    a classification version of the problem, specify k.
+    """Defines the labeling task of mortality prediction.
+    Predict patient mortality from the point of admission.
     """
     def label(ds, **kwargs):
         return ds['hospital_expire_flag'].sum() > 0
@@ -27,7 +32,7 @@ def mortality_prediction(es):
         meta = MIMIC_META
         entities = ['admissions']
 
-    elif es.id == 'fhir':
+    else:
         meta = FHIR_META
         entities = ['encounter', 'encounter_diagnosis', 'condition',
                     'codeableconcept', 'coding', 'period']
@@ -35,7 +40,7 @@ def mortality_prediction(es):
     meta['type'] = 'classification'
     meta['num_examples_per_instance'] = 1
 
-    df = denormalize(es, entities=entities)
+    df = utils.denormalize(es, entities=entities)
 
     # generate label
     if es.id == 'fhir':

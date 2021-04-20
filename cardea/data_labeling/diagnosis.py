@@ -1,5 +1,5 @@
 
-from cardea.data_labeling.utils import denormalize
+from cardea.data_labeling import utils
 
 MIMIC_META = {
     'entity': 'admissions',
@@ -28,7 +28,7 @@ def diagnosis_prediction(es, diag):
         entities = ['admissions']
         column = 'diagnosis'
 
-    elif es.id == 'fhir':
+    else:
         meta = FHIR_META
         entities = ['encounter', 'encounter_diagnosis', 'condition',
                     'codeableconcept', 'coding', 'period']
@@ -37,6 +37,6 @@ def diagnosis_prediction(es, diag):
     meta['type'] = 'classification'
     meta['num_examples_per_instance'] = 1
 
-    df = denormalize(es, entities=entities)
+    df = utils.denormalize(es, entities=entities)
 
     return label, df, meta
