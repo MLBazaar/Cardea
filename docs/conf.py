@@ -91,7 +91,7 @@ title = project + ' Documentation'
 copyright = u"2018, MIT Data To AI Lab"
 author = u"MIT Data To AI Lab"
 description = 'Automated Machine Learning on Electronic Health Records'
-user = 'DAI-Lab'
+user = 'MLBazaar'
 
 # The version info for the project you're documenting, acts as replacement
 # for |version| and |release|, also used in various other places throughout

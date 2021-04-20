@@ -15,7 +15,9 @@ install_requires = [
     'baytune>=0.4.0,<0.5',
     'pyCLI==2.0.3',
     'scikit-learn>=0.21,<0.22',
-    'featuretools>=0.20.0,<0.25'
+    'featuretools>=0.20.0,<0.25',
+    'composeml',
+    'jedi==0.17.2'
 ]
 
 setup_requires = [
@@ -68,9 +70,9 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
     description="Cardea",
     entry_points={
