@@ -26,7 +26,7 @@ DATA_PATH = os.path.join(
 BUCKET = 'dai-cardea'
 S3_URL = 'https://{}.s3.amazonaws.com/{}'
 
-DEMO_DATA = ("kaggle", "mimic", "dummy")
+DEMO_DATA = ("kaggle", "mimic")
 
 
 def download(name, data_path=DATA_PATH):

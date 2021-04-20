@@ -18,5 +18,7 @@ class TestDataLabeler:
         cls.verbose = False
 
     def test_data_labeler(self):
-        def function(x): return x
+        def function(x):
+            return x
+
         DataLabeler(function)
