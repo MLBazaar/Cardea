@@ -2,10 +2,11 @@ from glob import glob
 
 import featuretools as ft
 import pandas as pd
+import sys
 
 from cardea.data_loader import DataLoader, Diamond
 
-
+platform = sys.platform
 class EntitySetLoader(DataLoader):
     """A class that loads fhir class objects to featuretools entityset."""
 
@@ -88,7 +89,10 @@ class EntitySetLoader(DataLoader):
         csv_files = glob(folder_path + "/*.csv")
         for file_path in csv_files:
             df = pd.read_csv(file_path)
-            file_name = file_path.split("/")[-1].split(".")[0]
+            if platform == 'win32':
+                file_name = file_path.split("\\")[-1].split(".")[0]
+            elif platorm == 'linux' or 'darwin':
+                file_name = file_path.split("/")[-1].split(".")[0]
 
             fhir[file_name] = df
 
