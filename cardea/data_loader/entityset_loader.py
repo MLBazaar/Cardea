@@ -6,7 +6,6 @@ import sys
 
 from cardea.data_loader import DataLoader, Diamond
 
-platform = sys.platform
 class EntitySetLoader(DataLoader):
     """A class that loads fhir class objects to featuretools entityset."""
 
@@ -89,9 +88,9 @@ class EntitySetLoader(DataLoader):
         csv_files = glob(folder_path + "/*.csv")
         for file_path in csv_files:
             df = pd.read_csv(file_path)
-            if platform == 'win32':
+            if sys.platform.startswith('win32'):
                 file_name = file_path.split("\\")[-1].split(".")[0]
-            elif platorm == 'linux' or 'darwin':
+            else:
                 file_name = file_path.split("/")[-1].split(".")[0]
 
             fhir[file_name] = df
