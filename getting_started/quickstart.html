@@ -201,22 +201,22 @@ following command:</p>
 <span class="gh">Out[4]: </span><span class="go"></span>
 <span class="go">Entityset: fhir</span>
 <span class="go">  Entities:</span>
-<span class="go">    Appointment [Rows: 110527, Columns: 5]</span>
-<span class="go">    Observation [Rows: 110527, Columns: 3]</span>
-<span class="go">    Patient [Rows: 6100, Columns: 4]</span>
-<span class="go">    Coding [Rows: 3, Columns: 2]</span>
-<span class="go">    Address [Rows: 81, Columns: 2]</span>
-<span class="go">    Identifier [Rows: 227151, Columns: 1]</span>
-<span class="go">    Appointment_Participant [Rows: 6100, Columns: 2]</span>
-<span class="go">    Reference [Rows: 6100, Columns: 1]</span>
 <span class="go">    CodeableConcept [Rows: 4, Columns: 2]</span>
+<span class="go">    Coding [Rows: 3, Columns: 2]</span>
+<span class="go">    Reference [Rows: 6100, Columns: 1]</span>
+<span class="go">    Appointment_Participant [Rows: 6100, Columns: 2]</span>
+<span class="go">    Observation [Rows: 110527, Columns: 3]</span>
+<span class="go">    Identifier [Rows: 227151, Columns: 1]</span>
+<span class="go">    Address [Rows: 81, Columns: 2]</span>
+<span class="go">    Patient [Rows: 6100, Columns: 4]</span>
+<span class="go">    Appointment [Rows: 110527, Columns: 5]</span>
 <span class="go">  Relationships:</span>
-<span class="go">    Appointment.participant -&gt; Appointment_Participant.object_id</span>
+<span class="go">    CodeableConcept.coding -&gt; Coding.object_id</span>
+<span class="go">    Appointment_Participant.actor -&gt; Reference.identifier</span>
 <span class="go">    Observation.code -&gt; CodeableConcept.object_id</span>
 <span class="go">    Observation.subject -&gt; Reference.identifier</span>
 <span class="go">    Patient.address -&gt; Address.object_id</span>
-<span class="go">    Appointment_Participant.actor -&gt; Reference.identifier</span>
-<span class="go">    CodeableConcept.coding -&gt; Coding.object_id</span>
+<span class="go">    Appointment.participant -&gt; Appointment_Participant.object_id</span>
 </pre></div>
 </div>
 <p>You can see the list of problem definitions and select one with the following commands:</p>
@@ -284,7 +284,7 @@ following command:</p>
 <p>Finally, you can see accuracy results using the following commands:</p>
 <blockquote>
 <div><div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">cardea</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;F1 Macro&#39;</span><span class="p">])</span>
-<span class="gh">Out[16]: </span><span class="go">{&#39;Accuracy&#39;: 0.735, &#39;F1 Macro&#39;: 0.524898032360719}</span>
+<span class="gh">Out[16]: </span><span class="go">{&#39;Accuracy&#39;: 0.765, &#39;F1 Macro&#39;: 0.5572511892986671}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -306,11 +306,10 @@ following command:</p>
 
       </div>
     </div>
-    
+  
   <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-
-    <footer class="footer mt-5 mt-md-0">
+  <footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
