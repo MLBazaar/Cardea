@@ -6,6 +6,7 @@ import sys
 
 from cardea.data_loader import DataLoader, Diamond
 
+
 class EntitySetLoader(DataLoader):
     """A class that loads fhir class objects to featuretools entityset."""
 
