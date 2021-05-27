@@ -1,3 +1,4 @@
+import sys
 from glob import glob
 
 import featuretools as ft
@@ -88,7 +89,10 @@ class EntitySetLoader(DataLoader):
         csv_files = glob(folder_path + "/*.csv")
         for file_path in csv_files:
             df = pd.read_csv(file_path)
-            file_name = file_path.split("/")[-1].split(".")[0]
+            if sys.platform.startswith('win32'):
+                file_name = file_path.split("\\")[-1].split(".")[0]
+            else:
+                file_name = file_path.split("/")[-1].split(".")[0]
 
             fhir[file_name] = df
 
@@ -111,7 +115,6 @@ class EntitySetLoader(DataLoader):
         entity_set = ft.EntitySet(id="fhir")
 
         for name, df in fhir.items():
-
             object = self.create_object(df, name)
             all_objects.append(object)
 
