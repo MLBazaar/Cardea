@@ -3,6 +3,7 @@ from glob import glob
 
 import featuretools as ft
 import pandas as pd
+
 from cardea.data_loader import DataLoader, Diamond
 
 
