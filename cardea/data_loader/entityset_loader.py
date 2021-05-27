@@ -1,9 +1,8 @@
+import sys
 from glob import glob
 
 import featuretools as ft
 import pandas as pd
-import sys
-
 from cardea.data_loader import DataLoader, Diamond
 
 
@@ -115,7 +114,6 @@ class EntitySetLoader(DataLoader):
         entity_set = ft.EntitySet(id="fhir")
 
         for name, df in fhir.items():
-
             object = self.create_object(df, name)
             all_objects.append(object)
 
