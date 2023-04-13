@@ -15,6 +15,7 @@ from typing import List, Union
 import numpy as np
 import pandas as pd
 from mlblocks import MLPipeline
+from featuretools import EntitySet
 
 import cardea
 from cardea.data_assembling import EntitySetLoader, load_mimic_data
@@ -88,7 +89,7 @@ class Cardea:
 
         self._modeler = Modeler(mlpipeline, self._type)
 
-    def __init__(self, data_path: str = None, labeler: FunctionType = None, fhir: bool = True,
+    def __init__(self, data_path: str, fhir: bool = True,
                  pipeline: Union[str, dict, MLPipeline] = None, hyperparameters: dict = None):
         self._pipeline = pipeline or DEFAULT_PIPELINE
         self._hyperparameters = hyperparameters
@@ -101,7 +102,7 @@ class Cardea:
         self._target = None
 
         # load dataset
-        self.entityset = self._load_entityset(data_path, fhir)
+        self._entityset = self._load_entityset(data_path, fhir)
 
     def list_labelers(self) -> set:
         """Returns a list of the currently available data labelers.
@@ -153,7 +154,7 @@ class Cardea:
 
         # target label calculation
         label_times, self._type, self._meta = data_labeler.generate_label_times(
-            self.entityset, subset=subset, verbose=verbose)
+            self._entityset, subset=subset, verbose=verbose)
 
         # set modeler if pipeline defined
         if self._pipeline:
@@ -194,7 +195,7 @@ class Cardea:
         arguments = set(getfullargspec(method)[0]) - set(getfullargspec(self.featurize)[0])
         kwargs = {k: self._meta.get(k) for k in arguments if self._meta.get(k) is not None}
         fm, self._fm_defs = method(
-            self.entityset, target, label_times,
+            self._entityset, target, label_times,
             seed_features=seed_features, max_depth=max_depth,
             max_features=max_features, n_jobs=n_jobs, verbose=verbose, **kwargs)
 
@@ -388,3 +389,13 @@ class Cardea:
                 raise ValueError('Serialized object is not a Cardea instance')
 
             return cardea
+
+    @property
+    def entityset(self) -> EntitySet:
+        """Get the entityset of the data Cardea is modeling.
+
+        Returns:
+            Featuretools.EntitySet:
+                Entityset of the pipeline.
+        """
+        return self._entityset

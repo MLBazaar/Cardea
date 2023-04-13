@@ -36,7 +36,7 @@ def get_table_properties(name):
         if a_type == 'timestamp':
             arr_time.append(column)
 
-        types[column.upper()] = d_type
+        types[column.lower()] = d_type
 
     return types, prim_key, arr_time
 
@@ -91,7 +91,7 @@ def load_mimic_data(path=None, subset=None):
 
     relationships = []
     global_tables = []
-    files = glob(path + '*.csv')
+    files = glob(path + '/*.csv')
 
     for tag in root.findall('tables/table'):
         table = tag.get('name')
