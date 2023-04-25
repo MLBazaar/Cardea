@@ -10,8 +10,9 @@ with open('HISTORY.md', encoding='utf-8') as history_file:
     history = history_file.read()
 
 install_requires = [
-    'mlblocks>=0.4.0,<0.5',
-    'mlprimitives>=0.3.0,<0.4',
+    'lightfm>=1.15,<2',
+    'mlblocks>=0.4.1,<0.5',
+    'mlprimitives>=0.3.2,<0.4',
     'baytune>=0.4.0,<0.5',
     'pyCLI==2.0.3',
     'scikit-learn>=0.21,<0.22',
@@ -54,7 +55,6 @@ development_requires = [
 
     # distribute on PyPI
     'twine>=1.10.0',
-    'wheel>=0.30.0',
 
     # Advanced testing
     'tox>=2.9.1',
