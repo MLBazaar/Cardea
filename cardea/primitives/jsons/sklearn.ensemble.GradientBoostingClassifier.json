@@ -1,0 +1,187 @@
+{
+    "name": "sklearn.ensemble.GradientBoostingClassifier",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>",
+        "Plamen Valentinov <pvkdeveloper@gmx.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html",
+    "description": "Scikit-learn GradientBoostingClassifier.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "classifier"
+    },
+    "modalities": [],
+    "primitive": "sklearn.ensemble.GradientBoostingClassifier",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "warm_start": {
+                "type": "bool",
+                "default": false
+            },
+            "init": {
+                "type": "object",
+                "default": null
+            },
+            "verbose": {
+                "type": "int",
+                "default": 0
+            },
+            "presort": {
+                "type": "bool",
+                "default": false
+            }
+        },
+        "tunable": {
+            "loss": {
+                "type": "str",
+                "default": "deviance",
+                "values": [
+                    "deviance",
+                    "exponential"
+                ]
+            },
+            "learning_rate": {
+                "type": "float",
+                "default": 0.1,
+                "range": [
+                    0.01,
+                    10.0
+                ]
+            },
+            "n_estimators": {
+                "type": "int",
+                "default": 10,
+                "range": [
+                    1,
+                    500
+                ]
+            },
+            "max_depth": {
+                "type": "int",
+                "default": 3,
+                "range": [
+                    1,
+                    30
+                ]
+            },
+            "criterion": {
+                "type": "str",
+                "default": "friedman_mse",
+                "values": [
+                    "friedman_mse",
+                    "friedman_mae"
+                ]
+            },
+            "min_samples_split": {
+                "type": "int",
+                "default": 2,
+                "range": [
+                    2,
+                    100
+                ]
+            },
+            "min_samples_leaf": {
+                "type": "int",
+                "default": 1,
+                "range": [
+                    1,
+                    100
+                ]
+            },
+            "min_weight_fraction_leaf": {
+                "type": "float",
+                "default": 0.0,
+                "range": [
+                    0.0,
+                    10.0
+                ]
+            },
+            "subsample": {
+                "type": "float",
+                "default": 1.0,
+                "range": [
+                    0.001,
+                    100.0
+                ]
+            },
+            "max_features": {
+                "type": "str",
+                "default": null,
+                "values": [
+                    null,
+                    "auto",
+                    "log2",
+                    "sqrt"
+                ]
+            },
+            "max_leaf_nodes": {
+                "type": "int",
+                "default": null,
+                "range": [
+                    2,
+                    1000
+                ]
+            },
+            "min_impurity_decrease": {
+                "type": "float",
+                "default": 0.0,
+                "range": [
+                    0.0,
+                    1000.0
+                ]
+            },
+            "validation_fraction": {
+                "type": "float",
+                "default": 0.1,
+                "range": [
+                    0.0,
+                    1.0
+                ]
+            },
+            "n_iter_no_change": {
+                "type": "int",
+                "default": null,
+                "range": [
+                    1,
+                    1000
+                ]
+            },
+            "tol": {
+                "type": "float",
+                "default": 0.0001,
+                "range": [
+                    0.0,
+                    2.0
+                ]
+            }
+        }
+    }
+}

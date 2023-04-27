@@ -1,0 +1,98 @@
+{
+    "name": "sklearn.decomposition.FastICA",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>",
+        "Plamen Valentinov <pvkdeveloper@gmx.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html",
+    "description": "FastICA: a fast algorithm for Independent Component Analysis.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_selector"
+    },
+    "modalities": [],
+    "primitive": "sklearn.decomposition.FastICA",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "w_init": {
+                "type": "iterable",
+                "default": null
+            },
+            "fun_args": {
+                "type": "iterable",
+                "default": null
+            }
+        },
+        "tunable": {
+            "n_components": {
+                "type": "int",
+                "default": null,
+                "range": [
+                    1,
+                    500
+                ]
+            },
+            "algorithm": {
+                "type": "str",
+                "default": "parallel",
+                "values": [
+                    "parallel",
+                    "deflation"
+                ]
+            },
+            "whiten": {
+                "type": "bool",
+                "default": true
+            },
+            "fun": {
+                "type": "string",
+                "default": "logcosh",
+                "values": [
+                    "logcosh",
+                    "exp",
+                    "cube"
+                ]
+            },
+            "max_iter": {
+                "type": "int",
+                "default": 200,
+                "range": [
+                    1,
+                    1000
+                ]
+            },
+            "tol": {
+                "type": "float",
+                "default": 0.0001,
+                "range": [
+                    1e-05,
+                    0.5
+                ]
+            }
+        }
+    }
+}

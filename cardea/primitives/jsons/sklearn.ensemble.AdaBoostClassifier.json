@@ -1,0 +1,77 @@
+{
+    "name": "sklearn.ensemble.AdaBoostClassifier",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>",
+        "Plamen Valentinov <pvkdeveloper@gmx.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html",
+    "description": "Scikit-learn AdaBoostClassifier.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "classifier"
+    },
+    "modalities": [],
+    "primitive": "sklearn.ensemble.AdaBoostClassifier",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "base_estimator": {
+                "type": "object",
+                "default": null
+            }
+        },
+        "tunable": {
+            "n_estimators": {
+                "type": "int",
+                "default": 50,
+                "range": [
+                    1,
+                    500
+                ]
+            },
+            "learning_rate": {
+                "type": "float",
+                "default": 1.0,
+                "range": [
+                    1.0,
+                    10.0
+                ]
+            },
+            "algorithm": {
+                "type": "str",
+                "default": "SAMME.R",
+                "values": [
+                    "SAMME",
+                    "SAMME.R"
+                ]
+            }
+        }
+    }
+}

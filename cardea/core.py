@@ -14,8 +14,8 @@ from typing import List, Union
 
 import numpy as np
 import pandas as pd
-from mlblocks import MLPipeline
 from featuretools import EntitySet
+from mlblocks import MLPipeline
 
 import cardea
 from cardea.data_assembling import EntitySetLoader, load_mimic_data

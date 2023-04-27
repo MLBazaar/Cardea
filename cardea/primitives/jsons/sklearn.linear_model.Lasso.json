@@ -1,0 +1,141 @@
+{
+    "name": "sklearn.linear_model.Lasso",
+    "contributors": [
+        "Katherine Wang <wang19k@mit.edu>"
+    ],
+    "documentation": "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html#sklearn.linear_model.Lasso",
+    "description": "Linear Model trained with L1 prior as regularizer (aka the Lasso)",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "regressor"
+    },
+    "modalities": [],
+    "primitive": "sklearn.linear_model.Lasso",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "copy_X": {
+                "type": "bool",
+                "description": "If True, X will be copied; else, it may be overwritten.",
+                "default": true
+            },
+            "warm_start": {
+                "type": "bool",
+                "description": "When set to True, reuse solution of the previous call to fit as initialization, otherwise, erase the previous solution.",
+                "default": false
+            },
+            "random_state": {
+                "type": "multitype",
+                "description": "The seed of the pseudo random number generator to use when shuffling the data.",
+                "types": {
+                    "int": {
+                        "description": "random_state is the seed used by the random number generator"
+                    },
+                    "RandomState": {
+                        "description": "If an array is passed, penalties are assumed to be specific to the targets. Hence they must correspond in number."
+                    },
+                    "NoneType": {
+                        "description": "If none, the random number generator is the RandomState instance used by np.random"
+                    }
+                },
+                "default": null
+            },
+            "precompute": {
+                "type": "multitype",
+                "description": "Whether to use a precomputed Gram matrix to speed up calculations. Gram natrix can also be passed as argument.",
+                "types": {
+                    "bool": {
+                        "description": "whether to use the precomputed gram matrix"
+                    },
+                    "array": {
+                        "description": "Gram matrix to speed up calculations"
+                    },
+                    "str": {
+                        "description": "If set to 'auto' it is automaically decided whether to use the precomputed matrix."
+                    }
+                },
+                "default": false
+            }
+        },
+        "tunable": {
+            "normalize": {
+                "type": "bool",
+                "default": false,
+                "description": "This parameter is ignored when fit_intercept is set to False. If True, the regressors X will be normalized before regression by subtracting the mean and dividing by the l2-norm."
+            },
+            "fit_intercept": {
+                "type": "bool",
+                "default": true,
+                "description": "Whether to calculate the intercept for this model. If set to False, no intercept will be used in calculations (e.g. data is expected to be already centered)."
+            },
+            "alpha": {
+                "type": "float",
+                "description": "Regularization strength. Alpha corresponds to C^-1 in other linear models such as LogisticRegression or LinearSVC. Must be a positive float.",
+                "default": 1.0,
+                "range": [
+                    0.01,
+                    10.0
+                ]
+            },
+            "max_iter": {
+                "type": "int",
+                "description": "The maximum number of iterations",
+                "default": 1000,
+                "range": [
+                    1,
+                    10000
+                ]
+            },
+            "tol": {
+                "type": "float",
+                "description": "The tolerance for the optimization: if the updates are smaller than tol, the optimization code checks the dual gap for optimality and continues until it is smaller than tol.",
+                "default": 0.0001,
+                "range": [
+                    1e-06,
+                    0.01
+                ]
+            },
+            "positive": {
+                "type": "bool",
+                "description": "When set to True, forces the coefficients to be positive.",
+                "default": false
+            },
+            "selection": {
+                "type": "str",
+                "description": "If set to \u2018random\u2019, a random coefficient is updated every iteration rather than looping over features sequentially by default.",
+                "values": [
+                    "cyclic",
+                    "random"
+                ],
+                "default": "cyclic"
+            }
+        }
+    }
+}

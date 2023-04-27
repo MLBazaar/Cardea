@@ -1,0 +1,65 @@
+{
+    "name": "sklearn.feature_extraction.text.TfidfTransformer",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html",
+    "description": "Transform a count matrix to a normalized tf or tf-idf representation",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_extractor"
+    },
+    "modalities": [
+        "text"
+    ],
+    "primitive": "sklearn.feature_extraction.text.TfidfTransformer",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "sparse"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "sparse"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {},
+        "tunable": {
+            "norm": {
+                "type": "str",
+                "default": "l1",
+                "values": [
+                    "l1",
+                    "l2"
+                ]
+            },
+            "use_idf": {
+                "type": "bool",
+                "default": true
+            },
+            "smooth_idf": {
+                "type": "bool",
+                "default": true
+            },
+            "sublinear_tf": {
+                "type": "bool",
+                "default": false
+            }
+        }
+    }
+}

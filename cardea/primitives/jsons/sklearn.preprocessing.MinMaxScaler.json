@@ -1,0 +1,57 @@
+{
+    "name": "sklearn.preprocessing.MinMaxScaler",
+    "contributors": [
+        "Hector Dominguez <hedb_12@hotmail.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html",
+    "description": "Transforms features by scaling each feature to a given range",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "transformer"
+    },
+    "modalities": [],
+    "primitive": "sklearn.preprocessing.MinMaxScaler",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray",
+                "description": "The data used to compute the per-feature minimum and maximum used for later scaling along the features axis"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "feature_range": {
+                "description": "Desired range of transformed data",
+                "type": "tuple",
+                "default": [
+                    0,
+                    1
+                ]
+            },
+            "copy": {
+                "description": "Set to False to perform inplace row normalization and avoid a copy (if the input is already a numpy array)",
+                "type": "bool",
+                "default": true
+            }
+        },
+        "tunable": {}
+    }
+}

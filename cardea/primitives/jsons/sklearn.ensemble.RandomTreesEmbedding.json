@@ -1,0 +1,125 @@
+{
+    "name": "sklearn.ensemble.RandomTreesEmbedding",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>",
+        "Plamen Valentinov <pvkdeveloper@gmx.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomTreesEmbedding.html",
+    "description": "Scikit-learn RandomTreesEmbedding. An unsupervised transformation of a dataset to a high-dimensional sparse representation.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "classifier"
+    },
+    "modalities": [],
+    "primitive": "sklearn.ensemble.RandomTreesEmbedding",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "Sparse"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "n_jobs": {
+                "type": "int",
+                "default": null
+            },
+            "sparse_output": {
+                "type": "bool",
+                "default": true
+            },
+            "verbose": {
+                "type": "int",
+                "default": 0,
+                "range": [
+                    0,
+                    1000
+                ]
+            },
+            "warm_start": {
+                "type": "bool",
+                "default": false
+            }
+        },
+        "tunable": {
+            "n_estimators": {
+                "type": "int",
+                "default": 10,
+                "range": [
+                    1,
+                    500
+                ]
+            },
+            "max_depth": {
+                "type": "int",
+                "default": 5,
+                "range": [
+                    1,
+                    30
+                ]
+            },
+            "min_samples_split": {
+                "type": "int",
+                "default": 2,
+                "range": [
+                    2,
+                    100
+                ]
+            },
+            "min_samples_leaf": {
+                "type": "int",
+                "default": 1,
+                "range": [
+                    1,
+                    100
+                ]
+            },
+            "min_weight_fraction_leaf": {
+                "type": "float",
+                "default": 0.0,
+                "range": [
+                    0.0,
+                    0.5
+                ]
+            },
+            "max_leaf_nodes": {
+                "type": "int",
+                "default": null,
+                "range": [
+                    2,
+                    1000
+                ]
+            },
+            "min_impurity_decrease": {
+                "type": "float",
+                "default": 0.0,
+                "range": [
+                    0.0,
+                    1000.0
+                ]
+            }
+        }
+    }
+}

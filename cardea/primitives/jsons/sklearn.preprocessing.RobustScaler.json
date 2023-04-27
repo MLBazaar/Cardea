@@ -1,0 +1,67 @@
+{
+    "name": "sklearn.preprocessing.RobustScaler",
+    "contributors": [
+        "Hector Dominguez <hedb_12@hotmail.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html",
+    "description": "Scale features using statistics that are robust to outliers",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "transformer"
+    },
+    "modalities": [],
+    "primitive": "sklearn.preprocessing.RobustScaler",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray",
+                "description": "The data used to compute the median and quantiles used for later scaling along the features axis"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "quantile_range": {
+                "type": "tuple",
+                "default": [
+                    25.0,
+                    75.0
+                ]
+            },
+            "copy": {
+                "description": "If False, try to avoid a copy and do inplace scaling instead. This is not guaranteed to always work inplace; e.g. if the data is not a NumPy array or scipy.sparse CSR matrix, a copy may still be returned",
+                "type": "bool",
+                "default": true
+            }
+        },
+        "tunable": {
+            "with_centering": {
+                "description": "If True, center the data before scaling. This will cause transform to raise an exception when attempted on sparse matrices, because centering them entails building a dense matrix which in common use cases is likely to be too large to fit in memory",
+                "type": "bool",
+                "default": true
+            },
+            "with_scaling": {
+                "description": "If True, scale the data to interquartile range",
+                "type": "bool",
+                "default": true
+            }
+        }
+    }
+}

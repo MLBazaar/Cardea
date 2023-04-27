@@ -1,0 +1,76 @@
+{
+    "name": "sklearn.decomposition.TruncatedSVD",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>",
+        "Plamen Valentinov <pvkdeveloper@gmx.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html",
+    "description": "Dimensionality reduction using truncated SVD.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_selector"
+    },
+    "modalities": [],
+    "primitive": "sklearn.decomposition.TruncatedSVD",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {},
+        "tunable": {
+            "n_components": {
+                "type": "int",
+                "default": 2,
+                "range": [
+                    1,
+                    500
+                ]
+            },
+            "algorithm": {
+                "type": "str",
+                "default": "randomized",
+                "values": [
+                    "arpack",
+                    "randomized"
+                ]
+            },
+            "n_iter": {
+                "type": "int",
+                "default": 5,
+                "range": [
+                    1,
+                    100
+                ]
+            },
+            "tol": {
+                "type": "float",
+                "default": 0.0,
+                "range": [
+                    0.001,
+                    0.5
+                ]
+            }
+        }
+    }
+}

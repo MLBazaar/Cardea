@@ -1,0 +1,92 @@
+{
+    "name": "sklearn.linear_model.Lars",
+    "contributors": [
+        "Hector Dominguez <hedb_12@hotmail.com>"
+    ],
+    "documentation": "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lars.html",
+    "description": "Least Angle Regression model a.k.a. LAR",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "regressor"
+    },
+    "modalities": [],
+    "primitive": "sklearn.linear_model.Lars",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray",
+                "description": "Training data"
+            },
+            {
+                "name": "y",
+                "type": "array",
+                "description": "Target values"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray",
+                "description": "Samples"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array",
+                "description": "Returns predicted values"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "verbose": {
+                "type": "bool or int",
+                "default": false,
+                "description": "Sets the verbosity amount"
+            },
+            "precompute": {
+                "type": "str, bool or list",
+                "default": "auto",
+                "description": "Whether to use a precomputed Gram matrix to speed up calculations. If set to 'auto' let us decide. The Gram matrix can also be passed as argument"
+            },
+            "n_nonzero_coefs": {
+                "type": "int",
+                "default": 500,
+                "description": "Target number of non-zero coefficients. Use np.inf for no limit"
+            },
+            "eps": {
+                "type": "float",
+                "default": 2.220446049250313e-16,
+                "description": "The machine-precision regularization in the computation of the Cholesky diagonal factors. Increase this for very ill-conditioned systems. Unlike the tol parameter in some iterative optimization-based algorithms, this parameter does not control the tolerance of the optimization"
+            },
+            "copy_X": {
+                "type": "bool",
+                "default": true,
+                "description": "If True, X will be copied; else, it may be overwritten"
+            },
+            "fit_path": {
+                "type": "bool",
+                "default": true,
+                "description": "If True the full path is stored in the coef_path_ attribute. If you compute the solution for a large problem or many targets, setting fit_path to False will lead to a speedup, especially with a small alpha"
+            }
+        },
+        "tunable": {
+            "fit_intercept": {
+                "type": "bool",
+                "default": true,
+                "description": "Whether to calculate the intercept for this model. If set to false, no intercept will be used in calculations (e.g. data is expected to be already centered)"
+            },
+            "normalize": {
+                "type": "bool",
+                "default": true,
+                "description": "This parameter is ignored when fit_intercept is set to False. If True, the regressors X will be normalized before regression by subtracting the mean and dividing by the l2-norm"
+            }
+        }
+    }
+}

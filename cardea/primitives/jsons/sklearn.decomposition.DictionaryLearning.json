@@ -1,0 +1,136 @@
+{
+    "name": "sklearn.decomposition.DictionaryLearning",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>",
+        "Plamen Valentinov <pvkdeveloper@gmx.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.DictionaryLearning.html",
+    "description": "Dictionary learning.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_selector"
+    },
+    "modalities": [],
+    "primitive": "sklearn.decomposition.DictionaryLearning",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "n_jobs": {
+                "type": "int",
+                "default": null
+            },
+            "code_init": {
+                "type": "iterable",
+                "default": null
+            },
+            "dict_init": {
+                "type": "iterable",
+                "default": null
+            },
+            "verbose": {
+                "type": "bool",
+                "default": false
+            },
+            "positive_code": {
+                "type": "bool",
+                "default": false
+            },
+            "positive_dict": {
+                "type": "bool",
+                "default": false
+            }
+        },
+        "tunable": {
+            "n_components": {
+                "type": "int",
+                "default": null
+            },
+            "alpha": {
+                "type": "float",
+                "default": 1.0,
+                "range": [
+                    0.0,
+                    10.0
+                ]
+            },
+            "max_iter": {
+                "type": "int",
+                "default": 1000,
+                "range": [
+                    0,
+                    10000
+                ]
+            },
+            "tol": {
+                "type": "float",
+                "default": 1e-08,
+                "range": [
+                    0.0,
+                    1.0
+                ]
+            },
+            "fit_algorithm": {
+                "type": "str",
+                "default": "lars",
+                "values": [
+                    "lars",
+                    "cd"
+                ]
+            },
+            "transform_algorithm": {
+                "type": "str",
+                "default": "omp",
+                "values": [
+                    "lasso_lars",
+                    "lasso_cd",
+                    "lars",
+                    "omp",
+                    "threshold"
+                ]
+            },
+            "transform_n_nonzero_coefs": {
+                "type": "int",
+                "default": null,
+                "range": [
+                    0,
+                    100
+                ]
+            },
+            "transform_alpha": {
+                "type": "float",
+                "default": 1.0,
+                "range": [
+                    0.0,
+                    10.0
+                ]
+            },
+            "split_sign": {
+                "type": "bool",
+                "default": false
+            }
+        }
+    }
+}

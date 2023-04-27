@@ -1,0 +1,120 @@
+{
+    "name": "sklearn.linear_model.MultiTaskLasso",
+    "contributors": [
+        "Hector Dominguez <hedb_12@hotmail.com>"
+    ],
+    "documentation": "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskLasso.html",
+    "description": "Multi-task Lasso model trained with L1/L2 mixed-norm as regularizer",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "regressor"
+    },
+    "modalities": [],
+    "primitive": "sklearn.linear_model.MultiTaskLasso",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "copy_X": {
+                "type": "bool",
+                "description": "If True, X will be copied; else, it may be overwritten",
+                "default": true
+            },
+            "warm_start": {
+                "type": "bool",
+                "description": "When set to True, reuse the solution of the previous call to fit as initialization, otherwise, just erase the previous solution",
+                "default": false
+            },
+            "random_state": {
+                "type": "multitype",
+                "description": "The seed of the pseudo random number generator that selects a random feature to update. ",
+                "types": {
+                    "int": {
+                        "description": "random_state is the seed used by the random number generator"
+                    },
+                    "RandomState": {
+                        "description": "random_state is the random number generator"
+                    },
+                    "None": {
+                        "description": "the random number generator is the RandomState instance used by np.random"
+                    }
+                },
+                "default": null
+            }
+        },
+        "tunable": {
+            "alpha": {
+                "type": "float",
+                "description": "Constant that multiplies the L1/L2 term",
+                "default": 1.0,
+                "range": [
+                    0.01,
+                    10.0
+                ]
+            },
+            "fit_intercept": {
+                "type": "bool",
+                "default": true,
+                "description": "whether to calculate the intercept for this model. If set to false, no intercept will be used in calculations (e.g. data is expected to be already centered)"
+            },
+            "normalize": {
+                "type": "bool",
+                "default": false,
+                "description": "This parameter is ignored when fit_intercept is set to False. If True, the regressors X will be normalized before regression by subtracting the mean and dividing by the l2-norm"
+            },
+            "max_iter": {
+                "type": "int",
+                "description": "The maximum number of iterations",
+                "default": 1000,
+                "range": [
+                    1,
+                    10000
+                ]
+            },
+            "tol": {
+                "type": "float",
+                "description": "The tolerance for the optimization: if the updates are smaller than tol, the optimization code checks the dual gap for optimality and continues until it is smaller than tol",
+                "default": 0.0001,
+                "range": [
+                    1e-06,
+                    0.01
+                ]
+            },
+            "selection": {
+                "type": "str",
+                "description": "If set to random, a random coefficient is updated every iteration rather than looping over features sequentially by default",
+                "values": [
+                    "cyclic",
+                    "random"
+                ],
+                "default": "cyclic"
+            }
+        }
+    }
+}

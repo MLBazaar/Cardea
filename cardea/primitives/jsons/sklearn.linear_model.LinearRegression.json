@@ -1,0 +1,68 @@
+{
+    "name": "sklearn.linear_model.LinearRegression",
+    "contributors": [
+        "Ihssan Tinawi <itinawi@mit.edu>"
+    ],
+    "documentation": "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression",
+    "description": "Linear regression model. Fits the coefficients using Ordinary Least Squares and the input training data.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "regressor"
+    },
+    "modalities": [],
+    "primitive": "sklearn.linear_model.LinearRegression",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "n_jobs": {
+                "type": "int",
+                "description": "The number of jobs to use for the computation. This will only provide speedup for n_targets > 1 and sufficient large problems. None means 1 unless in a joblib.parallel_backend context. -1 means using all processors.",
+                "default": -1
+            },
+            "copy_X": {
+                "type": "bool",
+                "description": "If True, X will be copied; else, it may be overwritten.",
+                "default": true
+            }
+        },
+        "tunable": {
+            "normalize": {
+                "type": "bool",
+                "default": false,
+                "description": "This parameter is ignored when fit_intercept is set to False. If True, the regressors X will be normalized before regression by subtracting the mean and dividing by the l2-norm."
+            },
+            "fit_intercept": {
+                "type": "bool",
+                "default": true,
+                "description": "Whether to calculate the intercept for this model. If set to False, no intercept will be used in calculations (e.g. data is expected to be already centered)."
+            }
+        }
+    }
+}

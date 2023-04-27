@@ -1,0 +1,134 @@
+{
+    "name": "sklearn.decomposition.KernelPCA",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>",
+        "Plamen Valentinov <pvkdeveloper@gmx.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html",
+    "description": "Kernel Principal Component Analysis.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_selector"
+    },
+    "modalities": [],
+    "primitive": "sklearn.decomposition.KernelPCA",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "n_jobs": {
+                "type": "int",
+                "default": null
+            },
+            "copy_X": {
+                "type": "bool",
+                "default": true
+            },
+            "kernel_params": {
+                "type": "str",
+                "default": null
+            }
+        },
+        "tunable": {
+            "n_components": {
+                "type": "int",
+                "default": null,
+                "range": [
+                    1,
+                    500
+                ]
+            },
+            "kernel": {
+                "type": "str",
+                "default": "linear",
+                "values": [
+                    "linear",
+                    "poly",
+                    "rbf",
+                    "sigmoid",
+                    "cosine",
+                    "precomputed"
+                ]
+            },
+            "gamma": {
+                "type": "float",
+                "default": null,
+                "range": [
+                    0.0,
+                    0.5
+                ]
+            },
+            "coef0": {
+                "type": "float",
+                "default": 1.0,
+                "range": [
+                    0.0,
+                    10.0
+                ]
+            },
+            "alpha": {
+                "type": "int",
+                "default": 1,
+                "range": [
+                    0,
+                    10
+                ]
+            },
+            "fit_inverse_transform": {
+                "type": "bool",
+                "default": false
+            },
+            "eigen_solver": {
+                "type": "str",
+                "default": "auto",
+                "values": [
+                    "auto",
+                    "arpack",
+                    "dense"
+                ]
+            },
+            "tol": {
+                "type": "float",
+                "default": 0.0,
+                "range": [
+                    0.0,
+                    10.0
+                ]
+            },
+            "max_iter": {
+                "type": "int",
+                "default": null,
+                "range": [
+                    0,
+                    100
+                ]
+            },
+            "remove_zero_eig": {
+                "type": "bool",
+                "default": false
+            }
+        }
+    }
+}

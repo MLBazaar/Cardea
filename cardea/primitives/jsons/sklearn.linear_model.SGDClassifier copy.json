@@ -1,0 +1,220 @@
+{
+    "name": "sklearn.linear_model.SGDClassifier",
+    "contributors": [
+        "Sarah Alnegheimish <smish@mit.edu>"
+    ],
+    "documentation": "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html",
+    "description": "Linear classifiers (SVM, logistic regression, etc.) with stochastic gradient descent (SGD) training.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "classifier"
+    },
+    "modalities": [],
+    "primitive": "sklearn.linear_model.SGDClassifier",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "n_jobs": {
+                "type": "int",
+                "description": "The number of CPUs to use to do the OVA (One Versus All, for multi-class problems) computation. None means 1 unless in a joblib.parallel_backend context. -1 means using all processors.",
+                "default": null
+            },
+            "warm_start": {
+                "type": "bool",
+                "description": "When set to True, reuse the solution of the previous call to fit as initialization, otherwise, just erase the previous solution.",
+                "default": false
+            },
+            "verbose": {
+                "type": "int",
+                "description": "The verbosity level.",
+                "default": 0
+            },
+            "shuffle": {
+                "type": "bool",
+                "description": "Whether or not the training data should be shuffled after each epoch.",
+                "default": true
+            },
+            "epsilon": {
+                "type": "float",
+                "description": "Epsilon in the epsilon-insensitive loss functions; only if loss is 'huber', 'epsilon_insensitive', or 'squared_epsilon_insensitive'.",
+                "default": 0.1
+            },
+            "random_state": {
+                "type": "multitype",
+                "description": "Used for shuffling the data, when shuffle is set to True. Pass an int for reproducible output across multiple function calls.",
+                "types": {
+                    "int": {
+                        "description": "random_state is the seed used by the random number generator"
+                    },
+                    "RandomState": {
+                        "description": "random_state is the random number generator."
+                    },
+                    "NoneType": {
+                        "description": "If none, the random number generator is the RandomState instance used by np.random"
+                    }
+                },
+                "default": null
+            },
+            "eta0": {
+                "type": "float",
+                "description": "The initial learning rate for the 'constant', 'invscaling' or 'adaptive' schedules. The default value is 0.0 as eta0 is not used by the default schedule 'optimal'.",
+                "default": 0.0
+            },
+            "power_t": {
+                "type": "float",
+                "description": "The exponent for inverse scaling learning rate.",
+                "default": 0.5
+            },
+            "early_stopping": {
+                "type": "bool",
+                "description": "Whether to use early stopping to terminate training when validation score is not improving.",
+                "default": false
+            },
+            "validation_fraction": {
+                "type": "float",
+                "description": "The proportion of training data to set aside as validation set for early stopping. Must be between 0 and 1. Only used if 'early_stopping' is True.",
+                "default": 0.1
+            },
+            "n_iter_no_change": {
+                "type": "int",
+                "description": "Number of iterations with no improvement to wait before early stopping.",
+                "default": 5
+            },
+            "class_weight": {
+                "type": "multitype",
+                "types": {
+                    "dict": {
+                        "description": "Weights associated with classes in the form {class_label: weight}. If not given, all classes are supposed to have weight one."
+                    },
+                    "str": {
+                        "values": [
+                            "balanced"
+                        ],
+                        "description": "The 'balanced' mode uses the values of y to automatically adjust weights inversely proportional to class frequencies in the input data as n_samples / (n_classes * np.bincount(y))."
+                    }
+                },
+                "description": "Preset for the class_weight fit parameter. Weights associated with classes. If not given, all classes are supposed to have weight one.",
+                "default": null
+            },
+            "average": {
+                "type": "multitype",
+                "types": {
+                    "bool": {
+                        "description": "When set to True, computes the averaged SGD weights accross all updates and stores the result in the coef_ attribute."
+                    },
+                    "int": {
+                        "description": "If set to an int greater than 1, averaging will begin once the total number of samples seen reaches average. So average=10 will begin averaging after seeing 10 samples."
+                    }
+                },
+                "default": false
+            }
+        },
+        "tunable": {
+            "loss": {
+                "type": "str",
+                "description": "The loss function to be used. Defaults to 'hinge', which gives a linear SVM.",
+                "values": [
+                    "hinge",
+                    "log",
+                    "modified_huber",
+                    "squared_hinge",
+                    "perceptron",
+                    "squared_loss",
+                    "huber",
+                    "epsilon_insensitive",
+                    "squared_epsilon_insensitive"
+                ],
+                "default": "hinge"
+            },
+            "penalty": {
+                "type": "str",
+                "description": "The penalty (aka regularization term) to be used. Defaults to 'l2' which is the standard regularizer for linear SVM models. 'l1' and 'elasticnet' might bring sparsity to the model (feature selection) not achievable with 'l2'.",
+                "values": [
+                    "l2",
+                    "l1",
+                    "elasticnet"
+                ],
+                "default": "l2"
+            },
+            "alpha": {
+                "type": "float",
+                "description": "Constant that multiplies the regularization term. The higher the value, the stronger the regularization. Also used to compute the learning rate when set to learning_rate is set to 'optimal'.",
+                "range": [
+                    1e-06,
+                    0.01
+                ],
+                "default": 0.0001
+            },
+            "l1_ratio": {
+                "type": "float",
+                "description": "The Elastic Net mixing parameter, with 0 <= l1_ratio <= 1. l1_ratio=0 corresponds to L2 penalty, l1_ratio=1 to L1. Only used if penalty is 'elasticnet'.",
+                "range": [
+                    0,
+                    1
+                ],
+                "default": 0.15
+            },
+            "learning_rate": {
+                "type": "str",
+                "description": "The learning rate schedule. 'constant': eta = eta0. 'optimal': eta = 1.0 / (alpha * (t + t0)) where t0 is chosen by a heuristic proposed by Leon Bottou. 'invscaling': eta = eta0 / pow(t, power_t). 'adaptive': eta = eta0, as long as the training keeps decreasing.",
+                "values": [
+                    "optimal",
+                    "invscaling",
+                    "adaptive",
+                    "constant"
+                ],
+                "default": "optimal"
+            },
+            "max_iter": {
+                "type": "int",
+                "description": "The maximum number of passes over the training data (aka epochs). It only impacts the behavior in the fit method, and not the partial_fit method.",
+                "range": [
+                    1,
+                    100000
+                ],
+                "default": 100
+            },
+            "fit_intercept": {
+                "type": "bool",
+                "description": "Whether the intercept should be estimated or not. If False, the data is assumed to be already centered.",
+                "default": true
+            },
+            "tol": {
+                "type": "float",
+                "description": "The stopping criterion. If it is not None, training will stop when (loss > best_loss - tol) for n_iter_no_change consecutive epochs.",
+                "range": [
+                    1e-06,
+                    0.01
+                ],
+                "default": 0.001
+            }
+        }
+    }
+}

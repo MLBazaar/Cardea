@@ -1,0 +1,93 @@
+{
+    "name": "sklearn.decomposition.FactorAnalysis",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>",
+        "Plamen Valentinov <pvkdeveloper@gmx.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FactorAnalysis.html",
+    "description": "Factor Analysis. A simple linear generative model with Gaussian latent variables.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_selector"
+    },
+    "modalities": [],
+    "primitive": "sklearn.decomposition.FactorAnalysis",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "copy": {
+                "type": "bool",
+                "default": true
+            },
+            "noise_variance_init": {
+                "type": "iterable",
+                "default": null
+            }
+        },
+        "tunable": {
+            "n_components": {
+                "type": "int",
+                "default": null,
+                "range": [
+                    0,
+                    500
+                ]
+            },
+            "tol": {
+                "type": "float",
+                "default": 0.01,
+                "range": [
+                    0.0,
+                    0.5
+                ]
+            },
+            "max_iter": {
+                "type": "int",
+                "default": 1000,
+                "range": [
+                    10,
+                    10000
+                ]
+            },
+            "svd_method": {
+                "type": "str",
+                "default": "randomized",
+                "values": [
+                    "lapack",
+                    "randomized"
+                ]
+            },
+            "iterated_power": {
+                "type": "int",
+                "default": 3,
+                "range": [
+                    0,
+                    10
+                ]
+            }
+        }
+    }
+}

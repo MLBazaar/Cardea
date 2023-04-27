@@ -1,0 +1,94 @@
+{
+    "name": "sklearn.neighbors.KNeighborsRegressor",
+    "contributors": [
+        "Sze Nga Wong <wsnalice@mit.edu>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html",
+    "description": "Regression based on k-nearest neighbors. The target is predicted by local interpolation of the targets associated of the nearest neighbors in the training set.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "regressor"
+    },
+    "modalities": [],
+    "primitive": "sklearn.neighbors.KNeighborsRegressor",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "n_jobs": {
+                "type": "int",
+                "default": -1
+            }
+        },
+        "tunable": {
+            "n_neighbors": {
+                "type": "int",
+                "default": 5,
+                "values": [
+                    1,
+                    500
+                ]
+            },
+            "weights": {
+                "type": "str",
+                "default": "uniform",
+                "values": [
+                    "uniform",
+                    "distance"
+                ]
+            },
+            "algorithm": {
+                "type": "str",
+                "default": "auto",
+                "values": [
+                    "auto",
+                    "ball_tree",
+                    "kd_tree",
+                    "brute"
+                ]
+            },
+            "leaf_size": {
+                "type": "int",
+                "default": 30,
+                "range": [
+                    5,
+                    100
+                ]
+            },
+            "p": {
+                "type": "int",
+                "default": 2,
+                "range": [
+                    1,
+                    10
+                ]
+            }
+        }
+    }
+}

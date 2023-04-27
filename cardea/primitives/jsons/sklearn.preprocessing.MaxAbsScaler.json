@@ -1,0 +1,49 @@
+{
+    "name": "sklearn.preprocessing.MaxAbsScaler",
+    "contributors": [
+        "Hector Dominguez <hedb_12@hotmail.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html",
+    "description": "Scale each feature by its maximum absolute value",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "transformer"
+    },
+    "modalities": [],
+    "primitive": "sklearn.preprocessing.MaxAbsScaler",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray",
+                "description": "The data used to compute the per-feature minimum and maximum used for later scaling along the features axis"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "copy": {
+                "description": "Set to False to perform inplace scaling and avoid a copy (if the input is already a numpy array)",
+                "type": "bool",
+                "default": true
+            }
+        },
+        "tunable": {}
+    }
+}

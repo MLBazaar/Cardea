@@ -1,0 +1,120 @@
+{
+    "name": "sklearn.linear_model.Ridge",
+    "contributors": [
+        "Katherine Wang <wang19k@mit.edu>"
+    ],
+    "documentation": "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html",
+    "description": "Linear least squares with l2 regularization. Solves a regression model with the linear least squares function as the loss function and l-2 norm regularization.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "regressor"
+    },
+    "modalities": [],
+    "primitive": "sklearn.linear_model.Ridge",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "copy_X": {
+                "type": "bool",
+                "description": "If True, X will be copied; else, it may be overwritten.",
+                "default": true
+            },
+            "random_state": {
+                "type": "multitype",
+                "description": "The seed of the pseudo random number generator to use when shuffling the data. Used when solver == 'sag'",
+                "types": {
+                    "int": {
+                        "description": "random_state is the seed used by the random number generator"
+                    },
+                    "RandomState": {
+                        "description": "If an array is passed, penalties are assumed to be specific to the targets. Hence they must correspond in number."
+                    },
+                    "NoneType": {
+                        "description": "If none, the random number generator is the RandomState instance used by np.random"
+                    }
+                },
+                "default": null
+            }
+        },
+        "tunable": {
+            "normalize": {
+                "type": "bool",
+                "default": false,
+                "description": "This parameter is ignored when fit_intercept is set to False. If True, the regressors X will be normalized before regression by subtracting the mean and dividing by the l2-norm."
+            },
+            "fit_intercept": {
+                "type": "bool",
+                "default": true,
+                "description": "Whether to calculate the intercept for this model. If set to False, no intercept will be used in calculations (e.g. data is expected to be already centered)."
+            },
+            "solver": {
+                "type": "str",
+                "description": "Solver to use in the computational routines.",
+                "values": [
+                    "auto",
+                    "svd",
+                    "cholesky",
+                    "lsqr",
+                    "sparse_cg",
+                    "sag",
+                    "saga"
+                ],
+                "default": "auto"
+            },
+            "tol": {
+                "type": "float",
+                "description": "Precision of the solution",
+                "default": 0.001,
+                "range": [
+                    1e-05,
+                    0.1
+                ]
+            },
+            "max_iter": {
+                "type": "int",
+                "description": "Maximum number of iterations for conjugate gradient solver. For \u2018sparse_cg\u2019 and \u2018lsqr\u2019, the default is determined by scipy.sparse.linalg. For \u2018sag\u2019, the default value is 1000.",
+                "default": null,
+                "range": [
+                    0,
+                    10000
+                ]
+            },
+            "alpha": {
+                "type": "float",
+                "description": "Regularization strength. Alpha corresponds to C^-1 in other linear models such as LogisticRegression or LinearSVC. Must be a positive float.",
+                "default": 1.0,
+                "range": [
+                    0.01,
+                    20.0
+                ]
+            }
+        }
+    }
+}

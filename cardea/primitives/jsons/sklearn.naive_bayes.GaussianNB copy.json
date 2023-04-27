@@ -1,0 +1,62 @@
+{
+    "name": "sklearn.naive_bayes.GaussianNB",
+    "contributors": [
+        "Sarah Alnegheimish <smish@mit.edu>"
+    ],
+    "documentation": "https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html",
+    "description": "Naive Bayes classifier for gaussian models",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "classifier"
+    },
+    "modalities": [],
+    "primitive": "sklearn.naive_bayes.GaussianNB",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "priors": {
+                "type": "ndarray",
+                "description": "Prior probabilities of the classes. If specified the priors are not adjusted according to the data.",
+                "default": null
+            }
+        },
+        "tunable": {
+            "var_smoothing": {
+                "type": "float",
+                "description": "Portion of the largest variance of all features that is added to variances for calculation stability.",
+                "default": 1e-09,
+                "range": [
+                    1e-12,
+                    0.001
+                ]
+            }
+        }
+    }
+}

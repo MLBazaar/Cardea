@@ -1,0 +1,91 @@
+{
+    "name": "sklearn.decomposition.PCA",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>",
+        "Plamen Valentinov <pvkdeveloper@gmx.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html",
+    "description": "Principal component analysis (PCA)",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "feature_selector"
+    },
+    "modalities": [],
+    "primitive": "sklearn.decomposition.PCA",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "copy": {
+                "type": "bool",
+                "default": true
+            },
+            "random_state": {
+                "type": "int",
+                "default": null
+            }
+        },
+        "tunable": {
+            "n_components": {
+                "type": "int",
+                "default": null,
+                "range": [
+                    1,
+                    500
+                ]
+            },
+            "tol": {
+                "type": "float",
+                "default": 0.0,
+                "range": [
+                    0.0,
+                    100.0
+                ]
+            },
+            "iterated_power": {
+                "type": "int",
+                "default": "auto",
+                "range": [
+                    0,
+                    1000
+                ]
+            },
+            "whiten": {
+                "type": "bool",
+                "default": false
+            },
+            "svd_solver": {
+                "type": "str",
+                "default": "auto",
+                "values": [
+                    "auto",
+                    "arpack",
+                    "full",
+                    "randomized"
+                ]
+            }
+        }
+    }
+}

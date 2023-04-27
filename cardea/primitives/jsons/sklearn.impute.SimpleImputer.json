@@ -1,0 +1,70 @@
+{
+    "name": "sklearn.impute.SimpleImputer",
+    "contributors": [
+        "Hector Dominguez <hedb_12@hotmail.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html",
+    "description": "Imputation transformer for completing missing values.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "transformer"
+    },
+    "modalities": [],
+    "primitive": "sklearn.impute.SimpleImputer",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "missing_values": {
+                "type": "int, float, str, np.nan or None",
+                "default": NaN
+            },
+            "fill_value": {
+                "type": "str, int or float",
+                "default": null
+            },
+            "verbose": {
+                "type": "bool",
+                "default": false
+            },
+            "copy": {
+                "type": "bool",
+                "default": true
+            }
+        },
+        "tunable": {
+            "strategy": {
+                "type": "str",
+                "default": "mean",
+                "values": [
+                    "mean",
+                    "median",
+                    "most_frequent",
+                    "constant"
+                ]
+            }
+        }
+    }
+}

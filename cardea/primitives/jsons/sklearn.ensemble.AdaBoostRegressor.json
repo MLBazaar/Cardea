@@ -1,0 +1,78 @@
+{
+    "name": "sklearn.ensemble.AdaBoostRegressor",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>",
+        "Plamen Valentinov <pvkdeveloper@gmx.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html",
+    "description": "Scikit-learn AdaBoostRegressor.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "regressor"
+    },
+    "modalities": [],
+    "primitive": "sklearn.ensemble.AdaBoostRegressor",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "base_estimator": {
+                "type": "object",
+                "default": null
+            }
+        },
+        "tunable": {
+            "n_estimators": {
+                "type": "int",
+                "default": 50,
+                "range": [
+                    1,
+                    500
+                ]
+            },
+            "learning_rate": {
+                "type": "float",
+                "default": 1.0,
+                "range": [
+                    1.0,
+                    10.0
+                ]
+            },
+            "loss": {
+                "type": "str",
+                "default": "linear",
+                "values": [
+                    "linear",
+                    "square",
+                    "exponential"
+                ]
+            }
+        }
+    }
+}

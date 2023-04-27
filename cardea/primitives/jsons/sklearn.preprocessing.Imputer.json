@@ -1,0 +1,68 @@
+{
+    "name": "sklearn.preprocessing.Imputer",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Imputer.html",
+    "description": "Imputation transformer for completing missing values.",
+    "classifiers": {
+        "type": "preprocessor",
+        "subtype": "transformer"
+    },
+    "modalities": [],
+    "primitive": "sklearn.preprocessing.Imputer",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "transform",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "missing_values": {
+                "default": "NaN"
+            },
+            "axis": {
+                "type": "int",
+                "default": 0,
+                "values": [
+                    0,
+                    1
+                ]
+            },
+            "copy": {
+                "type": "bool",
+                "default": true
+            }
+        },
+        "tunable": {
+            "strategy": {
+                "type": "str",
+                "default": "mean",
+                "values": [
+                    "mean",
+                    "median",
+                    "most_frequent"
+                ]
+            }
+        }
+    }
+}

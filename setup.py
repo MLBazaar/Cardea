@@ -10,15 +10,14 @@ with open('HISTORY.md', encoding='utf-8') as history_file:
     history = history_file.read()
 
 install_requires = [
-    'lightfm>=1.15,<2',
     'mlblocks>=0.4.1,<0.5',
-    'mlprimitives>=0.3.2,<0.4',
     'baytune>=0.4.0,<0.5',
     'pyCLI==2.0.3',
     'scikit-learn>=0.21,<0.22',
     'featuretools>=0.20.0,<0.25',
     'composeml',
-    'jedi==0.17.2'
+    'jedi==0.17.2',
+    'networkx',
 ]
 
 setup_requires = [
@@ -46,6 +45,7 @@ development_requires = [
     'ipython>=6.5,<7.5',
 
     # style check
+    'importlib-metadata<5',
     'flake8>=3.7.7,<4',
     'isort>=4.3.4,<5',
 

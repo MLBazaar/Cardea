@@ -1,0 +1,94 @@
+{
+    "name": "sklearn.neighbors.KNeighborsClassifier",
+    "contributors": [
+        "Sze Nga Wong <wsnalice@mit.edu>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html",
+    "description": "Classification is computed from a simple majority vote of the nearest neighbors of each point: a query point is assigned the data class which has the most representatives within the nearest neighbors of the point.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "classifier"
+    },
+    "modalities": [],
+    "primitive": "sklearn.neighbors.KNeighborsClassifier",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "array"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "n_jobs": {
+                "type": "int",
+                "default": -1
+            }
+        },
+        "tunable": {
+            "n_neighbors": {
+                "type": "int",
+                "default": 5,
+                "values": [
+                    1,
+                    500
+                ]
+            },
+            "weights": {
+                "type": "str",
+                "default": "uniform",
+                "values": [
+                    "uniform",
+                    "distance"
+                ]
+            },
+            "algorithm": {
+                "type": "str",
+                "default": "auto",
+                "values": [
+                    "auto",
+                    "ball_tree",
+                    "kd_tree",
+                    "brute"
+                ]
+            },
+            "leaf_size": {
+                "type": "int",
+                "default": 30,
+                "range": [
+                    5,
+                    100
+                ]
+            },
+            "p": {
+                "type": "int",
+                "default": 2,
+                "range": [
+                    1,
+                    10
+                ]
+            }
+        }
+    }
+}

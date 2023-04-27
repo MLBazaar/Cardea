@@ -1,0 +1,147 @@
+{
+    "name": "sklearn.ensemble.RandomForestClassifier",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>",
+        "Plamen Valentinov <pvkdeveloper@gmx.com>"
+    ],
+    "documentation": "http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html",
+    "description": "Scikit-learn RandomForestClassifier.",
+    "classifiers": {
+        "type": "estimator",
+        "subtype": "classifier"
+    },
+    "modalities": [],
+    "primitive": "sklearn.ensemble.RandomForestClassifier",
+    "fit": {
+        "method": "fit",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "produce": {
+        "method": "predict",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "y",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "n_jobs": {
+                "type": "int",
+                "default": null
+            },
+            "verbose": {
+                "type": "int",
+                "default": 0
+            },
+            "warm_start": {
+                "type": "bool",
+                "default": false
+            },
+            "class_weight": {
+                "type": "iterable",
+                "default": null
+            }
+        },
+        "tunable": {
+            "n_estimators": {
+                "type": "int",
+                "default": 10,
+                "range": [
+                    1,
+                    500
+                ]
+            },
+            "criterion": {
+                "type": "str",
+                "default": "gini",
+                "values": [
+                    "entropy",
+                    "gini"
+                ]
+            },
+            "max_features": {
+                "type": "str",
+                "default": null,
+                "values": [
+                    null,
+                    "auto",
+                    "log2",
+                    "sqrt"
+                ]
+            },
+            "max_depth": {
+                "type": "int",
+                "default": null,
+                "range": [
+                    1,
+                    30
+                ]
+            },
+            "min_samples_split": {
+                "type": "int",
+                "default": 2,
+                "range": [
+                    2,
+                    100
+                ]
+            },
+            "min_samples_leaf": {
+                "type": "int",
+                "default": 1,
+                "range": [
+                    1,
+                    100
+                ]
+            },
+            "min_weight_fraction_leaf": {
+                "type": "float",
+                "default": 0.0,
+                "range": [
+                    0.0,
+                    0.5
+                ]
+            },
+            "max_leaf_nodes": {
+                "type": "int",
+                "default": null,
+                "range": [
+                    2,
+                    1000
+                ]
+            },
+            "min_impurity_decrease": {
+                "type": "float",
+                "default": 0.0,
+                "range": [
+                    0.0,
+                    1000.0
+                ]
+            },
+            "bootstrap": {
+                "type": "bool",
+                "default": true
+            },
+            "oob_score": {
+                "type": "bool",
+                "default": false
+            }
+        }
+    }
+}
