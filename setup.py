@@ -10,6 +10,7 @@ with open('HISTORY.md', encoding='utf-8') as history_file:
     history = history_file.read()
 
 install_requires = [
+    'xgboost',
     'mlblocks>=0.4.1,<0.5',
     'baytune>=0.4.0,<0.5',
     'pyCLI==2.0.3',
@@ -37,9 +38,9 @@ development_requires = [
     'watchdog>=0.8.3',
 
     # docs
-    'm2r2>=0.2.5,<0.3',
-    'nbsphinx>=0.5.0,<0.7',
-    'Sphinx>=3,<3.3',
+    'm2r2>=0.3',
+    'nbsphinx>=0.5.0',
+    'Sphinx>4',
     'pydata-sphinx-theme',
     'autodocsumm>=0.1.10,<1',
     'ipython>=6.5,<7.5',
