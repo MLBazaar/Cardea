@@ -20,7 +20,9 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install package
-      run: pip install .[dev]
+      run: |
+        pip install --upgrade pip setuptools wheel
+        pip install .[dev]
     - name: make test-devel
       run: make test-devel
       
@@ -37,7 +39,9 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install package and dependencies
-      run: pip install .[test]
+      run: |
+        pip install --upgrade pip setuptools wheel
+        pip install .[test]
     - name: Test with pytest
       run: make test
 
@@ -54,7 +58,9 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install package and dependencies
-      run: pip install rundoc .
+      run: |
+        pip install --upgrade pip setuptools wheel
+        pip install rundoc .
     - name: make test-readme
       run: make test-readme
 
