@@ -14,7 +14,7 @@ install_requires = [
     'mlprimitives>=0.3.6.dev0,<0.5',
     'baytune>=0.5,<0.6',
     'pyCLI==2.0.3',
-    # 'scikit-learn>=0.21,<0.22',
+    'scikit-learn>=1.2,<2',
     # 'featuretools>=0.20.0,<0.25',
 ]
 
@@ -68,8 +68,10 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
     ],
     description="Cardea",
     entry_points={
@@ -90,7 +92,7 @@ setup(
     long_description_content_type='text/markdown',
     name='cardea',
     packages=find_packages(include=['cardea', 'cardea.*']),
-    python_requires='>=3.4',
+    python_requires='>=3.8,<3.12',
     setup_requires=setup_requires,
     test_suite='tests',
     tests_require=tests_require,

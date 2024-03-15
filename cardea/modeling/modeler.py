@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 import pandas as pd
 import sklearn
-from btb.session import BTBSession
+from baytune.session import BTBSession
 from mlblocks import MLPipeline
 from sklearn.model_selection import KFold, train_test_split
 
@@ -32,8 +32,21 @@ class Modeler:
         'Confusion Matrix': sklearn.metrics.confusion_matrix
     }
 
+    @staticmethod
+    def _load_pipeline(pipeline):
+        mlpipeline = MLPipeline(pipeline)
+        hyperparameters = pipeline.get_hyperparameters()
+        for primitive, values in hyperparameters.items():
+            for hyperparam, value in values.items():
+                if isinstance(value, list):
+                    hyperparameters[primitive][hyperparam] = tuple(value)
+
+        mlpipeline.set_hyperparameters(hyperparameters)
+
+        return mlpipeline
+
     def __init__(self, pipeline, problem_type):
-        self._pipeline = MLPipeline(pipeline)
+        self._pipeline = self._load_pipeline(pipeline)
         self._problem_type = problem_type
 
     @staticmethod
@@ -97,7 +110,7 @@ class Modeler:
             MLPipeline:
                 The pipeline in the modeler.
         """
-        return MLPipeline(self._pipeline)
+        return self._load_pipeline(self._pipeline)
 
     def k_fold_validation(self, hyperparameters, X, y, scoring=None):
         """Score the pipeline through k-fold validation with the given scoring function.
@@ -116,7 +129,7 @@ class Modeler:
             np.float64:
                 The average score in the k-fold validation.
         """
-        model_instance = MLPipeline(self._pipeline)
+        model_instance = self._load_pipeline(self._pipeline)
         X = pd.DataFrame(X)
         y = pd.Series(y)
 

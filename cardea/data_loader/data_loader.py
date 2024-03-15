@@ -2,7 +2,6 @@ import inspect
 import sys
 
 import networkx as nx
-import numpy as np
 import pandas as pd
 from numpy import nan
 
@@ -126,9 +125,8 @@ class DataLoader():
         """
         if self.check_column_existence(entity_set, target_entity, column_name):
 
-            nat = np.datetime64('NaT')
+            # nat = np.datetime64('NaT')
             missings = [
-                nat,
                 nan,
                 'null',
                 'nan',
