@@ -35,7 +35,7 @@ class Modeler:
     @staticmethod
     def _load_pipeline(pipeline):
         mlpipeline = MLPipeline(pipeline)
-        hyperparameters = pipeline.get_hyperparameters()
+        hyperparameters = mlpipeline.get_hyperparameters()
         for primitive, values in hyperparameters.items():
             for hyperparam, value in values.items():
                 if isinstance(value, list):
