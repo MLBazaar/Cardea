@@ -33,6 +33,7 @@ development_requires = [
     'bumpversion>=0.5.3',
     'pip>=9.0.1',
     'watchdog>=0.8.3',
+    'jedi<0.18',
 
     # docs
     'm2r2>=0.2.5,<0.3',
