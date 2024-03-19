@@ -36,13 +36,14 @@ development_requires = [
     'jedi<0.18',
 
     # docs
+    'docutils>=0.12,<0.18',
     'm2r2>=0.2.5,<0.3',
     'nbsphinx>=0.5.0,<0.7',
+    'sphinx_toolbox>=2.5,<3',
     'Sphinx>=3,<3.3',
-    'pydata-sphinx-theme',
-    'autodocsumm>=0.1.10,<1',
-    'ipython>=6.5,<7.5',
-    'Jinja2>=2,<3.1', # <- breaks docs
+    'pydata-sphinx-theme<0.5',
+    'ipython>=6.5,<9',
+    'Jinja2>=2,<3', # <- breaks docs
 
     # fails on Sphinx < v3.4
     'alabaster<=0.7.12',
