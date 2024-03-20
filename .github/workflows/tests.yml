@@ -11,16 +11,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [3.6, 3.7]
+        python-version: ['3.8', '3.9', '3.10', '3.11']
         os: [ubuntu-20.04, macos-latest]
     steps:
     - uses: actions/checkout@v1
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install package
-      run: pip install .[dev]
+      run: |
+        pip install --upgrade pip setuptools wheel
+        pip install .[dev]
     - name: make test-devel
       run: make test-devel
       
@@ -28,16 +30,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [3.6, 3.7]
+        python-version: ['3.8', '3.9', '3.10', '3.11']
         os: [ubuntu-20.04, macos-latest]
     steps:
     - uses: actions/checkout@v1
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install package and dependencies
-      run: pip install .[test]
+      run: |
+        pip install --upgrade pip setuptools wheel
+        pip install .[test]
     - name: Test with pytest
       run: make test
 
@@ -45,16 +49,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [3.6, 3.7]
+        python-version: ['3.8', '3.9', '3.10', '3.11']
         os: [ubuntu-20.04, macos-latest]
     steps:
     - uses: actions/checkout@v1
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install package and dependencies
-      run: pip install rundoc .
+      run: |
+        pip install --upgrade pip setuptools wheel
+        pip install rundoc .
     - name: make test-readme
       run: make test-readme
 

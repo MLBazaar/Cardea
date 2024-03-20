@@ -1,9 +1,8 @@
 import numpy as np
 import pandas as pd
-from sklearn.base import TransformerMixin
 
 
-class Categorizer(TransformerMixin):
+class Categorizer():
     """Transform categorical values into numerical codes.
     """
 
@@ -19,6 +18,7 @@ class Categorizer(TransformerMixin):
     def transform(self, y):
         if y is None:
             return y
+
         return pd.Categorical(y, categories=self.categories).codes
 
     def inverse_transform(self, y_codes):
